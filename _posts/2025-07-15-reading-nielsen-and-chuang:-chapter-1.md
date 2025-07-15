@@ -6,7 +6,7 @@ The authors aim to provide a broad overview of the field for readers with little
 
 That said, if you’re not comfortable with Dirac notation, it might be a good idea to read section 2.1 (on linear algebra) first and then circle back.
 
-There are two exercises and two problems in this chapter. It is suggested to wait until finishing the book before completing problems, and so I plan to take that advice. The exercises, however, I’ve worked through – and I’ll will share my solutions below. 
+There are two exercises and two problems in this chapter. It is suggested to wait until finishing the book before completing problems, and so I plan to take that advice. The exercises, however, I’ve worked through – and I’ll share my solutions below. 
 
 When working through textbook problems on my own, outside of a class setting, I like to check my work against other people's solutions that I find online. I didn't see anyone solve these exercises exactly in the same way that I did, though similar reasoning was used. So, after attempting them on your own, I encourage anyone reading this to reference multiple sources to see how different people approached these exercises. 
 

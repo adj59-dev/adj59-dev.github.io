@@ -42,11 +42,7 @@ A\ket{\psi} &= \ket{\Psi} \\
 A\ket{\phi} &= \ket{\Phi}
 \end{aligned}$$
 
-Taking the inner product of these two equations we get
-
-$$\begin{aligned}
-\bra{\phi}A^\dagger A\ket{\psi} &= \braket{\Phi | \Psi}
-\end{aligned}$$
+Taking the inner product of these two equations we get $\bra{\phi}A^\dagger A\ket{\psi} = \braket{\Phi | \Psi}$.
 
 Since $\ket{\Phi}$ and $\ket{\Psi}$ are orthogonal $\braket{\Phi | \Psi} = 0$, which means $\bra{\phi}A^\dagger A\ket{\psi} = 0$. If A is unitary $A^\dagger A = I$ and so $\braket{\phi | \psi} = 0$, which can only be true if $\ket{\phi}$ and $\ket{\psi}$ are orthogonal. Since $\ket{\phi}$ and $\ket{\psi}$ are not orthogonal, this means that we have created a device that acts upon our quantum states with a non-unitary operator. 
 

@@ -42,9 +42,9 @@ A\ket{\psi} &= \ket{\Psi} \\
 A\ket{\phi} &= \ket{\Phi}
 \end{aligned}$$
 
-Taking the inner product of these two equations we get $\bra{\phi}A^\dagger A\ket{\psi} = \braket{\Phi | \Psi}$.
+Taking the inner product of these two equations we get $\bra{\phi}A^\dagger A\ket{\psi} = \braket{\Phi\vert\Psi}$.
 
-Since $\ket{\Phi}$ and $\ket{\Psi}$ are orthogonal $\braket{\Phi | \Psi} = 0$, which means $\bra{\phi}A^\dagger A\ket{\psi} = 0$. If A is unitary $A^\dagger A = I$ and so $\braket{\phi | \psi} = 0$, which can only be true if $\ket{\phi}$ and $\ket{\psi}$ are orthogonal. Since $\ket{\phi}$ and $\ket{\psi}$ are not orthogonal, this means that we have created a device that acts upon our quantum states with a non-unitary operator. 
+Since $\ket{\Phi}$ and $\ket{\Psi}$ are orthogonal $\braket{\Phi\vert\Psi} = 0$, which means $\bra{\phi}A^\dagger A\ket{\psi} = 0$. If A is unitary $A^\dagger A = I$ and so $\braket{\phi\vert\psi} = 0$, which can only be true if $\ket{\phi}$ and $\ket{\psi}$ are orthogonal. Since $\ket{\phi}$ and $\ket{\psi}$ are not orthogonal, this means that we have created a device that acts upon our quantum states with a non-unitary operator. 
 
 We can recall that in the no-cloning theorem (which we were told to skip ahead and read in section 1.3.5) the proof depended on the operator being unitary which caused the inner product of 12.3 and 12.4 to be reduced to 12.5. If we were allowed to use a non-unitary operator, such as A, this proof would no longer hold. 
 

@@ -4,25 +4,43 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 
 ## Linear Algebra
 
-### Linear Algebra Key Concepts
+### Linear Algebra - Key Concepts
 
 Linear independence - section 2.1.1
 
 Matrix representation of an operator - section 2.1.2 
 * $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_j}$
 
+Definition of a linear operator - section 2.1.2
+* $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$
+
+Summation operator properties - not in the book
+* distributivity of scalar multiplication: $z \sum_i a_i = \sum_i z a_i$
+* commutativity when bounds are finite and independent: $\sum_{i=1}^n \sum_{j=1}^m f(i,j) = \sum_{j=1}^m \sum_{i=1}^n f(i,j)$
+
+Definition of matrix multiplication - not in the book
+* If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix the matrix product $C = AB$ is defined to be the $m \times p$ matrix with entries $c_{ij}=\sum_{k=1}^{n} a_{ik}b{kj}$
+
+Pauli matrices and identity operator - section 2.1.3
+
+Inner product definition - section 2.1.4
+* $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$
+* in complex $n$-space, $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$
+
 Inner product requirements - section 2.1.4
 * linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$
 * conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^*$
 * positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$
 
-Definition of a linear operator - section 2.1.2
-* $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$
+Complex conjugate properties - some in section 2.1
+* definition: $\left(a + b i\right)^\ast = a - b i$
+* distributive over addition, subtraction, multiplication, and division
+  * $(a+b)^\ast = a^\ast + b^\ast$
+  * $(ab)^\ast = a^\ast b^\ast$
+* product of a complex number with its conjugate is equal to the square of the number's modulus
+  * $a^\ast a = \| a \|^2$
 
-Definition of matrix multiplication - not in the book
-* If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix the matrix product $C = AB$ is defined to be the $m \times p$ matrix with entries $c_{ij}=\sum_{k=1}^{n} a_{ik}b{kj}$
-
-### Linear Algebra Exercises
+### Linear Algebra - Exercises
   
   **Exercise 2.1** 
 
@@ -74,56 +92,58 @@ $$\begin{aligned}
 BA \ket{v_i} & =B \sum_{j} A_{ji} \ket{w_j} & \text{definition of $A \ket{v_i}$} \\
 & = \sum_{j} A_{ji} B \ket{w_j} & \text{definition of a linear operator}\\
 & = \sum_{j} A_{ji} \sum_{k} B_{kj} \ket{x_k} & \text{definition of $B \ket{w_j}$}\\
-& = \sum_{j} \sum_{k} A_{ji} B_{kj} \ket{x_k} & \text{distributive property of a scalar multiplier over a series}\\
-& = \sum_{k} \sum_{j} B_{kj}  A_{ji}  \ket{x_k} & \text{commutative property of scalar multiplication}\\
+& = \sum_{j} \sum_{k} A_{ji} B_{kj} \ket{x_k} & \text{distributivity of scalar multiplication}\\
+& = \sum_{j} \sum_{k} B_{kj}  A_{ji}  \ket{x_k} & \text{commutativity of scalar multiplication}\\
+& = \sum_{k} \sum_{j} B_{kj}  A_{ji}  \ket{x_k} & \text{commutativity of the summation operator}\\
 & = \sum_{k} C_{ki}  \ket{x_k} & \text{definition of matrix multiplication}
 \end{aligned}$$
 
-Which means the matrix representation for the linear transformation $BA$ is the matrix product of the matrix representation for $B$ and $A$. 
+From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which means the matrix representation for the linear transformation $BA$ is the matrix product $C$ of the matrix representation for $B$ and $A$. 
 
 **Exercise 2.4**
 
-An identity operator $I$ on vector space $V$ with basis vectors $\ket{v_i}$ will have $I \ket{v_i} = \ket{v_i}$ for all $i$. The matrix representation for $I$ will have entries with values $I_{ij}$ such that
-\begin{equation*}
-I \ket{v_j}  = \sum_{i} I_{ij} \ket{v_i}
-\end{equation*}
-Since we know that $I \ket{v_i} = \ket{v_i}$ for all $i$, $I_{ij} = 1$ when $i=j$ and $I_{ij} = 0$ when $i \neq j$.
+In this exercise you will use the definition of the matrix representation of an operator and the definition given in section 2.1.2 of the identity operator $I_V \ket{v} \equiv \ket{v}$ to find the matrix representation of the identity operator. 
+
+Solution: The matrix representation for $I$ will have entries with values $I_{ij}$ such that $I \ket{v_j}  = \sum_{i} I_{ij} \ket{v_i}$. Since we know that $I \ket{v_i} = \ket{v_i}$ for all $i$, $I_{ij} = 1$ when $i=j$ and $I_{ij} = 0$ when $i \neq j$. For a $2 \times 2$ the matrix representation is
+
+$$\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$$
 
 **Exercise 2.5**
 
-In section 2.1.4 it is stated that $\bm{C}^n$ has an inner product defined by 
-\begin{equation*}
-\label{ref2}
-((y_1, \dots, y_n),(z_1, \dots, z_n)) \equiv \sum_{i} y^*_iz_i=[y^*_1 \dots y^*_n] \begin{bmatrix} z_1 \\ \vdots \\ z_n \end{bmatrix}
-\end{equation*}
-In order for $( \cdot , \cdot)$ to be an inner product it must satisfy three requirements: \\
-(1) $( \cdot , \cdot)$ is linear in the second argument,
-\begin{equation*}
-\begin{split}
-\left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & =\sum_{j} \lambda_j (\ket{y}, \ket{z_j}) \\
-& = \sum_{j} \lambda_j \sum_{i} y^*_i z_{ji}  \\
-& = \sum_{i} y^*_i \sum_{j} \lambda_j z_{ji} \\
-& = \left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right)  \text{\qquad \greencheck}
-\end{split}
-\end{equation*} \\
+In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet the three inner product requirements defined in section 2.1.4. 
+
+Solution:
+
+(1) $(\cdot , \cdot)$ is linear in the second argument,
+
+$$\begin{aligned}
+\left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & = \sum_{j} \lambda_j (\ket{y}, \ket{z_j}) & \text{linear in the second argument definition} \\
+& = \sum_{j} \lambda_j \sum_{i} y^\ast_i z_{j} & \text{inner product definition} \\
+& = \sum_{j} \sum_{i} y^\ast_i \lambda_j z_{j} & \text{distributivity of scalar multiplication} \\
+& = \sum_{i} \sum_{j} y^\ast_i \lambda_j z_{j} & \text{commutativity of the summation operator} \\
+& = \sum_{i} y^\ast_i \sum_{j} \lambda_j z_{j} & \text{distributivity of scalar multiplication} \\
+& = \left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & \text{inner product definition} 
+\end{aligned}$$
+
 (2) Conjugate symmetry,
-\begin{equation*} 
-\begin{split}
-(\ket{y}, \ket{z}) & = (\ket{z}, \ket{y})^* \\
-&=\left(\sum_{i} z^*_iy_i \right)^* \\
-&=\sum_{i} (z^*_i)^*  y_i^* \\
-&=\sum_{i} z_i  y_i^* \\
-&=(\ket{y}, \ket{z})  \text{\qquad \greencheck}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned} 
+(\ket{y}, \ket{z}) & = (\ket{z}, \ket{y})^\ast & \text{conjugate symmetry definition}\\
+&=\left(\sum_{i} z^\ast_iy_i \right)^\ast & \text{inner product definition}\\
+&=\sum_{i} (z^\ast_i)^\ast  y_i^\ast & \text{complex conjugate distributivity}\\
+&=\sum_{i} z_i  y_i^\ast & \text{$(a^\ast)^\ast = a$}\\
+&=\sum_{i} y_i^\ast z_i  & \text{commutativity of scalar multiplication}\\
+&=(\ket{y}, \ket{z}) & \text{inner product definition}
+\end{aligned}$$
+
 (3) Positive semi-definiteness, $(\ket{y}, \ket{y}) \geq 0$ with equality if and only if $\ket{y}=0$. 
-\begin{equation*}
-\begin{split}
-(\ket{y}, \ket{y}) & = \sum_{i} y^*_i y_i \\
-& = \sum_{i} \abs{y_i}^2 \\
-& \geq 0 \text{ and only $=0$ when $\ket{y}$=0} \text{\qquad \greencheck}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+(\ket{y}, \ket{y}) & = \sum_{i} y^\ast_i y_i & \text{inner product definition}\\
+& = \sum_{i} \left|y_i\right|^2 & \text{complex conjugate property}\\
+& \geq 0 \text{ and only $=0$ when $\ket{y}$=0}
+\end{aligned}$$
+
 Since all three requirements are met, $( \cdot , \cdot)$ is an inner product. 
 
 **Exercise 2.6**

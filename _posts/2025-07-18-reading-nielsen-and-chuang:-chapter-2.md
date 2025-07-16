@@ -6,7 +6,13 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 
 ### Linear Algebra - Key Concepts
 
+Qubit notation - Nomenclature and notation 
+* $\ket{0} = (1,0)$
+* $\ket{1} = (0,1)$
+
 Linear independence - section 2.1.1
+
+Basis set of vectors - section 2.1.1
 
 Matrix representation of an operator - section 2.1.2 
 * $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_j}$
@@ -23,6 +29,11 @@ Definition of matrix multiplication - not in the book
 
 Pauli matrices and identity operator - section 2.1.3
 
+$$\begin{aligned}
+I &= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \hspace{2cm} & X &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \hspace{17cm} \\
+Y &= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} & Z &= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} 
+\end{aligned}$$
+
 Inner product definition - section 2.1.4
 * $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$
 * in complex $n$-space, $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$
@@ -31,14 +42,34 @@ Inner product requirements - section 2.1.4
 * linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$
 * conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^*$
 * positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$
+ 
+Vector orthogonality - section 2.1.4
+* when two vectors are orthogonal their inner product is zero
+
+Vector norm - section 2.1.4
+* $\Vert \ket{v} \Vert = \sqrt{\braket{v \vert v}}$
+
+Unit vector - section 2.1.4
+* $\ket{v}/\Vert \ket{v} \Vert$
 
 Complex conjugate properties - some in section 2.1
 * definition: $\left(a + b i\right)^\ast = a - b i$
 * distributive over addition, subtraction, multiplication, and division
-  * $(a+b)^\ast = a^\ast + b^\ast$
-  * $(ab)^\ast = a^\ast b^\ast$
+  * $(a+b)^\ast = a^\ast + b^\ast, \hspace{2cm}$ $(a-b)^\ast = a^\ast - b^\ast$
+  * $(ab)^\ast = a^\ast b^\ast, \hspace{2cm}$ $(a/b)^\ast = a^\ast/b^\ast$ for $b^\ast \neq 0$
 * product of a complex number with its conjugate is equal to the square of the number's modulus
   * $a^\ast a = \| a \|^2$
+
+Outer product representation of an operator - section 2.1.4
+* $A = \sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$
+
+Characteristic function - section 2.1.5
+* $c(\lambda)= \text{det} \vert A - \lambda I \vert$
+* solutions to $c(\lambda)=0$ are the eigenvalues
+
+Diagonal representation - section 2.1.5
+* $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors with eigenvalues $\lambda_i$
+
 
 ### Linear Algebra - Exercises
   
@@ -90,12 +121,12 @@ Therefore
 
 $$\begin{aligned}
 BA \ket{v_i} & =B \sum_{j} A_{ji} \ket{w_j} & \text{definition of $A \ket{v_i}$} \\
-& = \sum_{j} A_{ji} B \ket{w_j} & \text{definition of a linear operator}\\
+& = \sum_{j} A_{ji} B \ket{w_j} & \text{linear operator definition}\\
 & = \sum_{j} A_{ji} \sum_{k} B_{kj} \ket{x_k} & \text{definition of $B \ket{w_j}$}\\
-& = \sum_{j} \sum_{k} A_{ji} B_{kj} \ket{x_k} & \text{distributivity of scalar multiplication}\\
-& = \sum_{j} \sum_{k} B_{kj}  A_{ji}  \ket{x_k} & \text{commutativity of scalar multiplication}\\
-& = \sum_{k} \sum_{j} B_{kj}  A_{ji}  \ket{x_k} & \text{commutativity of the summation operator}\\
-& = \sum_{k} C_{ki}  \ket{x_k} & \text{definition of matrix multiplication}
+& = \sum_{j} \sum_{k} A_{ji} B_{kj} \ket{x_k} & \text{scalar multiplication distributivity}\\
+& = \sum_{j} \sum_{k} B_{kj}  A_{ji}  \ket{x_k} & \text{scalar multiplication commutativity}\\
+& = \sum_{k} \sum_{j} B_{kj}  A_{ji}  \ket{x_k} & \text{summation operator commutativity}\\
+& = \sum_{k} C_{ki}  \ket{x_k} & \text{matrix multiplication definition}
 \end{aligned}$$
 
 From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which means the matrix representation for the linear transformation $BA$ is the matrix product $C$ of the matrix representation for $B$ and $A$. 
@@ -119,9 +150,9 @@ Solution:
 $$\begin{aligned}
 \left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & = \sum_{j} \lambda_j (\ket{y}, \ket{z_j}) & \text{linear in the second argument definition} \\
 & = \sum_{j} \lambda_j \sum_{i} y^\ast_i z_{j} & \text{inner product definition} \\
-& = \sum_{j} \sum_{i} y^\ast_i \lambda_j z_{j} & \text{distributivity of scalar multiplication} \\
-& = \sum_{i} \sum_{j} y^\ast_i \lambda_j z_{j} & \text{commutativity of the summation operator} \\
-& = \sum_{i} y^\ast_i \sum_{j} \lambda_j z_{j} & \text{distributivity of scalar multiplication} \\
+& = \sum_{j} \sum_{i} y^\ast_i \lambda_j z_{j} & \text{scalar multiplication distributivity} \\
+& = \sum_{i} \sum_{j} y^\ast_i \lambda_j z_{j} & \text{summation operator commutativity} \\
+& = \sum_{i} y^\ast_i \sum_{j} \lambda_j z_{j} & \text{scalar multiplication distributivity} \\
 & = \left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & \text{inner product definition} 
 \end{aligned}$$
 
@@ -132,7 +163,7 @@ $$\begin{aligned}
 &=\left(\sum_{i} z^\ast_iy_i \right)^\ast & \text{inner product definition}\\
 &=\sum_{i} (z^\ast_i)^\ast  y_i^\ast & \text{complex conjugate distributivity}\\
 &=\sum_{i} z_i  y_i^\ast & \text{$(a^\ast)^\ast = a$}\\
-&=\sum_{i} y_i^\ast z_i  & \text{commutativity of scalar multiplication}\\
+&=\sum_{i} y_i^\ast z_i  & \text{scalar multiplication commutativity}\\
 &=(\ket{y}, \ket{z}) & \text{inner product definition}
 \end{aligned}$$
 
@@ -140,7 +171,7 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 (\ket{y}, \ket{y}) & = \sum_{i} y^\ast_i y_i & \text{inner product definition}\\
-& = \sum_{i} \left|y_i\right|^2 & \text{complex conjugate property}\\
+& = \sum_{i} \left|y_i\right|^2 & \text{modulus definition}\\
 & \geq 0 \text{ and only $=0$ when $\ket{y}$=0}
 \end{aligned}$$
 
@@ -148,163 +179,200 @@ Since all three requirements are met, $( \cdot , \cdot)$ is an inner product.
 
 **Exercise 2.6**
 
-\begin{flalign*}
-\left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^*_i (\ket{w_i}, \ket{v}) \\
-& = \sum_{i} \lambda^*_i (\ket{v}, \ket{w_i}) ^* & \text{conjugate symmetry}\\ 
-& = \left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right)^*  & \text{linear in the second argument}\\
-&= \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) \text{\qquad \greencheck} & \text{conjugate symmetry }
-\end{flalign*}
+For this exercise you will demonstrate that the inner product is conjugate-linear in the first argument using the properties that you just verified in the previous exercise.
+
+Solution:
+
+$$\begin{aligned}
+\left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^\ast_i (\ket{w_i}, \ket{v}) & \text{conjugate linear in the first argument definition} \\
+& = \sum_{i} \lambda^\ast_i (\ket{v}, \ket{w_i}) ^\ast & \text{conjugate symmetry}\\ 
+& = \left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right)^\ast  & \text{linear in the second argument}\\
+&= \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & \text{conjugate symmetry }
+\end{aligned}$$
 
 **Exercise 2.7**
 
+Here you will use the fact that when two vectors are orthogonal, their inner product equals zero to prove that the two vectors are orthogonal. Then you will normalize those vectors by dividing them by their norm. 
+
+Solution:
+
 These vectors are orthogonal if their inner product equals zero.
-\begin{equation*}
-\braket{w | v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix}= 1-1=0 \text{\qquad \greencheck} 
-\end{equation*}
+
+$$\braket{w | v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\\ -1 \end{bmatrix}= 1-1=0$$
+
 The normalized form of these vectors are 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \ket{v_{norm}}=\frac{\ket{v}}{\sqrt{\braket{v|v}}}=\frac{1}{\sqrt{2}} \ket{v} \\
 \ket{w_{norm}}=\frac{\ket{w}}{\sqrt{\braket{w|w}}}=\frac{1}{\sqrt{2}} \ket{w}
-\end{split}
-\end{equation*}
+\end{aligned}$$
 
 **Exercise 2.8**
 
-The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\norm{\ket{w_1}}$ and for $1 \geq k \geq d-1$ define
-\begin{equation*}
-\ket{v_{k+1}} \equiv \frac{\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i | w_{k+1}}\ket{v_i}}{\norm{\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i | w_{k+1}}\ket{v_i}}}
-\end{equation*}
+You are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you need to prove several things: the vectors produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
+
+Solution:
+
+The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\Vert{\ket{w_1}}\Vert$ and for $1 \geq k \geq d-1$ define
+
+$$\begin{aligned}
+\ket{v_{k+1}} \equiv \frac{\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i \vert w_{k+1}}\ket{v_i}}{\Vert\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i \vert w_{k+1}} \ket{v_i}\Vert}
+\end{aligned}$$
+
 where $\ket{w_1},\dots,\ket{w_d}$ is a basis set for some vector space $V$. 
 
-In order to be an orthonormal basis for V, all vectors must be unit vectors, they must be orthogonal i.e. $\braket{i|j}=\delta_{ij}$, and they must form a basis set for V. One can tell by the procedure definition that all vectors are unit vectors since all the calculations follow the form  $\ket{x}/\norm{\ket{x}}$. 
+In order to be an orthonormal basis for $V$, all vectors must be unit vectors, they must be orthogonal i.e. $\braket{i|j}=\delta_{ij}$, and they must form a basis set for $V$. One can tell by the procedure definition that all vectors are unit vectors since all the calculations follow the form  $\ket{x}/\Vert\ket{x}\Vert$. 
 
 To determine whether all vectors are orthogonal, let's first take the inner product of the first two vectors
-\begin{flalign*}
-\braket{v_1 | v_2} & = \frac{\braket{v_1 | w_2} -  \braket{v_1 | w_2}\braket{v_1| v_1}}{\norm{\ket{w_{2}} - \braket{v_1 | w_2}\ket{v_1}}} \\ 
-& = \frac{\braket{v_1 | w_2} -  \braket{v_1 | w_2}}{\norm{\ket{w_{2}} - \braket{v_1 | w_2}\ket{v_1}}} & \text{Since $\braket{v_1 | v_1}=1$} \\
-&=0
-\end{flalign*}
+
+$$\begin{aligned}
+\braket{v_1 \vert v_2} & = \frac{\braket{v_1 \vert w_2} -  \braket{v_1 | w_2}\braket{v_1\vert v_1}}{\Vert\ket{w_{2}} - \braket{v_1 \vert w_2}\ket{v_1}\Vert} \\ 
+& = \frac{\braket{v_1 \vert w_2} -  \braket{v_1 \vert w_2}}{\Vert\ket{w_{2}} - \braket{v_1 \vert w_2}\ket{v_1}\Vert} & \text{Since $\braket{v_1 \vert v_1}=1$} \\
+& = 0
+\end{aligned}$$
+
 Now let's take the inner product of the first and third vectors
-\begin{flalign*}
-\braket{v_1 | v_3} & = \frac{\braket{v_1 | w_3} -  \braket{v_1 | w_3}\braket{v_1| v_1} - \braket{v_2 | w_3}\braket{v_1| v_2}}{\norm{\ket{w_{3}} - \braket{v_1 | w_3}\ket{v_1}-\braket{v_2 | w_3}\ket{v_2}}} \\
-& = \frac{\braket{v_1 | w_3} -  \braket{v_1 | w_3} }{\norm{\ket{w_{3}} - \braket{v_1 | w_3}\ket{v_1}-\braket{v_2 | w_3}\ket{v_2}}} & \text{Since $\braket{v_1 | v_1}=1$ and $\braket{v_1 | v_2}=0$} \\
+
+$$\begin{aligned}
+\braket{v_1 \vert v_3} & = \frac{\braket{v_1 \vert w_3} -  \braket{v_1 \vert w_3}\braket{v_1 \vert v_1} - \braket{v_2 \vert w_3}\braket{v_1 \vert v_2}}{\Vert\ket{w_{3}} - \braket{v_1 \vert w_3}\ket{v_1}-\braket{v_2 \vert w_3}\ket{v_2}\Vert} \\
+& = \frac{\braket{v_1 \vert w_3} -  \braket{v_1 \vert w_3} }{\Vert\ket{w_{3}} - \braket{v_1 \vert w_3}\ket{v_1}-\braket{v_2 \vert w_3}\ket{v_2}\Vert} & \text{Since $\braket{v_1 \vert v_1}=1$ and $\braket{v_1 \vert v_2}=0$} \\
 & = 0
-\end{flalign*}
+\end{aligned}$$
+
 Then let's take the inner product of the second and third vectors
-\begin{flalign*}
-\braket{v_2 | v_3} & = \frac{\braket{v_2 | w_3} -  \braket{v_1 | w_3}\braket{v_2| v_1} - \braket{v_2 | w_3}\braket{v_2| v_2}}{\norm{\ket{w_{3}} - \braket{v_1 | w_3}\ket{v_1}-\braket{v_2 | w_3}\ket{v_2}}} \\
-& = \frac{\braket{v_2 | w_3} -  \braket{v_2 | w_3} }{\norm{\ket{w_{3}} - \braket{v_1 | w_3}\ket{v_1}-\braket{v_2 | w_3}\ket{v_2}}} & \text{Since $\braket{v_2 | v_2}=1$ and $\braket{v_1 | v_2}=0$} \\
+
+$$\begin{aligned}
+\braket{v_2 \vert v_3} & = \frac{\braket{v_2 \vert w_3} -  \braket{v_1 \vert w_3}\braket{v_2 \vert v_1} - \braket{v_2 \vert w_3}\braket{v_2 \vert v_2}}{\Vert\ket{w_{3}} - \braket{v_1 \vert w_3}\ket{v_1}-\braket{v_2 \vert w_3}\ket{v_2}\Vert} \\
+& = \frac{\braket{v_2 \vert w_3} -  \braket{v_2 \vert w_3} }{\Vert\ket{w_{3}} - \braket{v_1 \vert w_3}\ket{v_1}-\braket{v_2 \vert w_3}\ket{v_2}\Vert} & \text{Since $\braket{v_2 \vert v_2}=1$ and $\braket{v_1 \vert v_2}=0$} \\
 & = 0
-\end{flalign*}
-The above calculations show that $\braket{v_j | v_i}=0$ for $j < i \le 3$. Using conjugate symmetry this can be generalized to $\braket{v_j | v_i}=0$ when $i \neq j$ for $j,i \le 3$. We can then take the inner product of the fourth vector and an arbitrary vector $\ket{v_j}$ where $j<4$
-\begin{flalign*}
-\braket{v_j | v_4} & = \frac{\braket{v_j | w_4} - \sum_{i=1}^{3} \braket{v_i | w_4}\braket{v_j | v_i}}{\norm{\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}}}\\
-& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}\braket{v_j | v_j}}{\norm{\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}}} & \text{Since $\braket{v_j | v_i}=0$ when $i \neq j$} \\
-& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}}{\norm{\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}}} & \text{Since $\braket{v_j | v_j}=1$} \\
+\end{aligned}$$
+
+The above calculations show that $\braket{v_j \vert v_i}=0$ for $j < i \le 3$. Using conjugate symmetry this can be generalized to $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le 3$. We can then take the inner product of the fourth vector and an arbitrary vector $\ket{v_j}$ where $j<4$
+
+$$\begin{aligned}
+\braket{v_j | v_4} & = \frac{\braket{v_j | w_4} - \sum_{i=1}^{3} \braket{v_i | w_4}\braket{v_j | v_i}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert}\\
+& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}\braket{v_j | v_j}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j | v_i}=0$ when $i \neq j$} \\
+& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j | v_j}=1$} \\
 & = 0
-\end{flalign*}
+\end{aligned}$$
+
 So now we know that that $\braket{v_j | v_i}=0$ when $i \neq j$ for $j,i \le 4$. This same calculation can be applied to $\braket{v_j | w_5}$ for $j<5$, then $\braket{v_j | w_6}$ for $j<6$, and so on up to $\braket{v_j | w_d}$ for $j<d$. We then get that that $\braket{v_j | v_i}=0$ when $i \neq j$ for $j,i \le d$, demonstrating that the vectors are orthogonal. 
 
-The final thing that we need to do is show that this orthonormal set of vectors is a basis for V. In order for a set of vectors to be a basis set it needs to be linearly independent and span the vector space V. Orthogonality of a set of nonzero vectors intrinsically implies their linear independence, so since this set of vectors is orthogonal we know that it is linearity independent. We can demonstrate this by, for a moment, assuming that the vector set is linearly dependent which would mean that there exists a set of complex numbers $a_1, \dots, a_d$ with $a_i \neq 0$ for at least one value of i, such that $a_1 \ket{v_1} + a_2 \ket{v_2} + \dots + a_d \ket{v_d} = 0$. In other words, we would be able to represent at least one of the vectors in the set, let's call it $\ket{v_j}$, as a linear combination of the other vectors in the set, 
-\begin{equation*}
-\ket{v_j} = \sum_{i=1}^{j-1} a_i \ket{v_i} + \sum_{i=j+1}^{d} a_i \braket{v_i}
-\end{equation*}
-Taking the inner product of both sides with $\ket{v_j}$ we get
-\begin{equation*}
-\braket{v_j | v_j} = \sum_{i=1}^{j-1} a_i \braket{v_j | v_i} + \sum_{i=j+1}^{d} a_i \braket{v_j | v_i} 
-\end{equation*}
-Which simplifies to $1 = 0$ because $\braket{v_j | v_i} = 0$ for $j \neq i$ due to its orthogonality. Since this is not true, the set cannot be linearly dependent. 
+The final thing that we need to do is show that this orthonormal set of vectors is a basis for $V$. In order for a set of vectors to be a basis set it needs to be linearly independent and span the vector space $V$. Orthogonality of a set of nonzero vectors intrinsically implies their linear independence, so since this set of vectors is orthogonal we know that it is linearity independent. However, if desired, we can demonstrate this by assuming that the vector set is linearly dependent which would mean that there exists a set of complex numbers $a_1, \dots, a_d$ with $a_i \neq 0$ for at least one value of i, such that $a_1 \ket{v_1} + a_2 \ket{v_2} + \dots + a_d \ket{v_d} = 0$. In other words, we would be able to represent at least one of the vectors in the set, let's call it $\ket{v_j}$, as a linear combination of the other vectors in the set, 
 
-We know that this set of vectors spans V because it has the same number of elements as the original basis set $\ket{w_1}, \dots, \ket{w_d}$ and any two sets of linearly independent vectors which span a vector space contain the same number of elements, as stated in section 2.1.1. Therefore $\ket{v_1}, \dots, \ket{v_d}$ as generated by the Gram-Schmidt procedure is a orthonormal basis for V. 
+$$\begin{aligned}
+\ket{v_j} = \sum_{i=1}^{j-1} a_i \ket{v_i} + \sum_{i=j+1}^{d} a_i \ket{v_i}
+\end{aligned}$$
+
+Taking the inner product of both sides with $\ket{v_j}$ we get
+
+$$\begin{aligned}
+\braket{v_j \vert v_j} = \sum_{i=1}^{j-1} a_i \braket{v_j \vert v_i} + \sum_{i=j+1}^{d} a_i \braket{v_j \vert v_i} 
+\end{aligned}$$
+
+Which simplifies to $1 = 0$ because $\braket{v_j \vert v_i} = 0$ for $j \neq i$ due to its orthogonality. Since this is not true, the set cannot be linearly dependent. 
+
+We know that this set of vectors spans $V$ because it has the same number of elements as the original basis set $\ket{w_1}, \dots, \ket{w_d}$ and any two sets of linearly independent vectors which span a vector space contain the same number of elements, as stated in section 2.1.1. Therefore $\ket{v_1}, \dots, \ket{v_d}$ as generated by the Gram-Schmidt procedure is a orthonormal basis for $V$. 
 
 
 **Exercise 2.9**
 
-The Pauli matrices are
-\begin{flalign*}
-\text{\qquad \qquad}  I &= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} & X &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  \text{\qquad \qquad } \\
-\text{\qquad \qquad }  Y &= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} & Z &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \text{\qquad \qquad } 
-\end{flalign*}
-We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$.
+In this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25.
+
+Solution:
+
+We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j | A | v_i}$ equals the element in the *i*th column and *j*th row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
+
 For $I$ we get
-\begin{equation*}
-\begin{split}
-I &= \braket{0 | I | 0} \ket{0} \bra{0} + \braket{0 | I | 1} \ket{0} \bra{1} + \braket{1 | I | 0} \ket{1} \bra{0} + \braket{1 | I | 1} \ket{1} \bra{1} \\
-&= \braket{0 | 0} \ket{0} \bra{0} + \braket{0 | 1} \ket{0} \bra{1} + \braket{1 | 0} \ket{1} \bra{0} + \braket{1 | 1} \ket{1} \bra{1} \\
+
+$$\begin{aligned}
+I &= \braket{0 \vert I \vert 0} \ket{0} \bra{0} + \braket{0 \vert I \vert 1} \ket{0} \bra{1} + \braket{1 \vert I \vert 0} \ket{1} \bra{0} + \braket{1 \vert I \vert 1} \ket{1} \bra{1} \\
+&= \braket{0 \vert 0} \ket{0} \bra{0} + \braket{0 \vert 1} \ket{0} \bra{1} + \braket{1 \vert 0} \ket{1} \bra{0} + \braket{1 \vert 1} \ket{1} \bra{1} \\
 &=  \ket{0} \bra{0} + \ket{1} \bra{1} 
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 For $X$ we get
-\begin{equation*}
-\begin{split}
-X &= \braket{0 | X | 0} \ket{0} \bra{0} + \braket{0 | X | 1} \ket{0} \bra{1} + \braket{1 | X | 0} \ket{1} \bra{0} + \braket{1 | X | 1} \ket{1} \bra{1} \\
-&= \braket{0 | 1} \ket{0} \bra{0} + \braket{0 | 0} \ket{0} \bra{1} + \braket{1 | 1} \ket{1} \bra{0} + \braket{1 | 0} \ket{1} \bra{1} \\
+
+$$\begin{aligned}
+X &= \braket{0 \vert X \vert 0} \ket{0} \bra{0} + \braket{0 \vert X \vert 1} \ket{0} \bra{1} + \braket{1 \vert X \vert 0} \ket{1} \bra{0} + \braket{1 \vert X \vert 1} \ket{1} \bra{1} \\
+&= \braket{0 \vert 1} \ket{0} \bra{0} + \braket{0 \vert 0} \ket{0} \bra{1} + \braket{1 \vert 1} \ket{1} \bra{0} + \braket{1 \vert 0} \ket{1} \bra{1} \\
 &=  \ket{0} \bra{1} + \ket{1} \bra{0} 
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 For $Y$ we get
-\begin{equation*}
-\begin{split}
-Y &= \braket{0 | Y | 0} \ket{0} \bra{0} + \braket{0 | Y | 1} \ket{0} \bra{1} + \braket{1 | Y | 0} \ket{1} \bra{0} + \braket{1 | Y | 1} \ket{1} \bra{1} \\
-&= i \braket{0 | 1} \ket{0} \bra{0} - i \braket{0 | 0} \ket{0} \bra{1} + i \braket{1 | 1} \ket{1} \bra{0} - i \braket{1 | 0} \ket{1} \bra{1} \\
+
+$$\begin{aligned}
+Y &= \braket{0 \vert Y \vert 0} \ket{0} \bra{0} + \braket{0 \vert Y \vert 1} \ket{0} \bra{1} + \braket{1 \vert Y \vert 0} \ket{1} \bra{0} + \braket{1 \vert Y \vert 1} \ket{1} \bra{1} \\
+&= i \braket{0 \vert 1} \ket{0} \bra{0} - i \braket{0 \vert 0} \ket{0} \bra{1} + i \braket{1 \vert 1} \ket{1} \bra{0} - i \braket{1 \vert 0} \ket{1} \bra{1} \\
 &=   i \ket{1} \bra{0} - i \ket{0} \bra{1}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 For $Z$ we get
-\begin{equation*}
-\begin{split}
-X &= \braket{0 | Z | 0} \ket{0} \bra{0} + \braket{0 | Z | 1} \ket{0} \bra{1} + \braket{1 | Z | 0} \ket{1} \bra{0} + \braket{1 | Z | 1} \ket{1} \bra{1} \\
-&= \braket{0 | 0} \ket{0} \bra{0} - \braket{0 | 1} \ket{0} \bra{1} + \braket{1 | 0} \ket{1} \bra{0} - \braket{1 | 1} \ket{1} \bra{1} \\
+
+$$\begin{aligned}
+X &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ket{0} \bra{1} + \braket{1 \vert Z \vert 0} \ket{1} \bra{0} + \braket{1 \vert Z \vert 1} \ket{1} \bra{1} \\
+&= \braket{0 \vert 0} \ket{0} \bra{0} - \braket{0 \vert 1} \ket{0} \bra{1} + \braket{1 \vert 0} \ket{1} \bra{0} - \braket{1 \vert 1} \ket{1} \bra{1} \\
 &=  \ket{0} \bra{0} - \ket{1} \bra{1} 
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 
 **Exercise 2.10**
+
+This is just more practice with equation 2.25.
 
 From equation 2.25 we can write $A=\sum_{mn} \braket{v_m | A | v_n} \ket{v_m} \bra{v_n} = \ket{v_j} \bra{v_k}$. Which means that we need $\braket{v_m | A | v_n} = 1$ when $m=j$ and $n=k$ and $\braket{v_m | A | v_n} = 0$ otherwise. This means the matrix representation has 1 for the $A_{jk}$ element and 0 for all other elements.
 
 
 **Exercise 2.11**
 
+Here you are asked to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$. For operators that are in the matrix representation, the book tells you how to find the eigenvalues by using the characteristic function, but it assumes that you already know how to find the eigenvectors. 
+
+In case this is something that you do not know or remember how to do, a brief summary of the procedure is as follows: once you find an eigenvalue $\lambda$ the following equation can be written $0 = (A-\lambda I)\ket{e}$ where $\ket{e}$ is an eigenvector and $A$ is the operator for which you are finding the eigenvalues and eigenvectors. Then you solve for $\ket{e}$.
+
+Solution:
+
 Z is already in a diagonal representation, so the eigenvectors and eigenvalues can be easily seen,
-\begin{equation*}
+
+$$\begin{aligned}
 Z = \ket{0}\bra{0} - \ket{1}\bra{1}
-\end{equation*}
+\end{aligned}$$
+
 With the eigenvectors $\ket{0}$, $\ket{1}$ and corresponding eigenvalues 1, -1. 
 
 X can be diagonalized by converting to the basis set $\ket{+}$ and $\ket{-}$, like we did in Exercise 2.2
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 X &= \ket{0}\bra{1} + \ket{1}\bra{0} \\
 &= \ket{+}\bra{+} - \ket{-}\bra{-}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 With the eigenvectors $\ket{+}$, $\ket{-}$ and corresponding eigenvalues 1, -1. 
 
 For Y, we'll use the characteristic function to identify the eigenvalues
-\begin{equation*}
-\begin{split}
-det \left(Y - \lambda I \right) &= det \left( \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \\
-&= det \left( \begin{bmatrix} - \lambda & -i \\ i & -\lambda \end{bmatrix} \right) \\ 
+
+$$\begin{aligned}
+\text{det} \left(Y - \lambda I \right) &= \text{det} \left( \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
+&= \text{det} \left( \begin{bmatrix} - \lambda & -i \\\ i & -\lambda \end{bmatrix} \right) \\ 
 &= \lambda^2 - (-i)(i) \\
 &= \lambda^2 - 1 = 0
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Which means $\lambda = 1$ or $\lambda = -1$ . So now we need to solve
-\begin{equation*}
-\begin{split}
-0 &= (\lambda I - Y) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\ 
-&= \left(\begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix}  - \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \right) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} \lambda & i \\ -i & \lambda \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} \lambda x_1 + i x_2 \\ \lambda x_2 - i x_1 \end{bmatrix}
-\end{split}
-\end{equation*}
-Which gives us $\lambda x_1 + i x_2 = 0$ and $\lambda x_2 - i x_1 =0$. For $\lambda = 1$ this is true for the unit vector $\ket{e_1} = \frac{1}{\sqrt{2}} (1, i)$. For $\lambda = -1$ this is true for the unit vector $\ket{e_2} = \frac{1}{\sqrt{2}} (1, -i)$. Putting Y in diagonal outer product representation
-\begin{equation*}
+
+$$\begin{aligned}
+0 &= (\lambda I - Y) \ket{e} \\ 
+&= \left(\begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix}  - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} \lambda & i \\\ -i & \lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} \lambda x_1 + i x_2 \\\ \lambda x_2 - i x_1 \end{bmatrix}
+\end{aligned}$$
+
+Which gives us $\lambda x_1 + i x_2 = 0$ and $\lambda x_2 - i x_1 =0$. For $\lambda = 1$ this is true for the unit vector $\ket{e_1} = \frac{1}{\sqrt{2}} (1, i)$. For $\lambda = -1$ this is true for the unit vector $\ket{e_2} = \frac{1}{\sqrt{2}} (1, -i)$. Putting Y in diagonal outer product representation we get
+
+$$\begin{aligned}
 Y=\ket{e_1}\bra{e_1} - \ket{e_2}\bra{e_2}
-\end{equation*}
+\end{aligned}$$
+
 With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, -1.
 
 

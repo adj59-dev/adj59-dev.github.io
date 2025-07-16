@@ -68,7 +68,7 @@ Characteristic function - section 2.1.5
 * solutions to $c(\lambda)=0$ are the eigenvalues
 
 Diagonal representation - section 2.1.5
-* $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors with eigenvalues $\lambda_i$
+* $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$
 
 
 ### Linear Algebra - Exercises
@@ -378,25 +378,29 @@ With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, 
 
 **Exercise 2.12**
 
+For this exercise you need to prove that a specific matrix is not diagonalizable, i.e. it does not have a diagonal representation.
+
+Solution: 
+
 First let's find the eigenvalues and eigenvectors for the matrix. 
-\begin{equation*}
-\begin{split}
-0 &= det \left( \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \\
-&= det \left( \begin{bmatrix} 1-\lambda & 0 \\ 1 & 1-\lambda \end{bmatrix}  \right) \\
+
+$$\begin{aligned}
+0 &= \text{det} \left( \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
+&= \text{det} \left( \begin{bmatrix} 1-\lambda & 0 \\\ 1 & 1-\lambda \end{bmatrix}  \right) \\
 &= (1-\lambda)^2
-\end{split}
-\end{equation*}
-Which means there must be two eigenvectors with the eigenvalue of 1.
+\end{aligned}$$
+
+Which means the only eigenvalue is 1.
 
 Now we'll find the eigenvectors. 
-\begin{equation*}
-\begin{split}
-0 &=  \left( \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&=  \begin{bmatrix} 1-\lambda & 0 \\ 1 & 1-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-& = \begin{bmatrix} (1-\lambda)x_1 \\ x_1 + (1-\lambda)x_2 \end{bmatrix} \\
-& = \begin{bmatrix} 0 \\ x_1 \end{bmatrix}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+0 &=  \left( \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&=  \begin{bmatrix} 1-\lambda & 0 \\\ 1 & 1-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+& = \begin{bmatrix} (1-\lambda)x_1 \\\ x_1 + (1-\lambda)x_2 \end{bmatrix} \\
+& = \begin{bmatrix} 0 \\\ x_1 \end{bmatrix}
+\end{aligned}$$
+
 This is true for the unit vector $(0,1)$, there are no other linearly independent eigenvectors. 
 
 In order for a matrix to have a diagonal representation, it needs to have an orthonormal set of eigenvectors with corresponding eigenvalues that span the vector space; the set should have the same number of elements as the dimension of the vector space, which in this case is two. Since this matrix only has one linearly independent eigenvector, there is not an orthonormal set of eigenvectors that span the vector space and so the matrix does not have a diagonal representation. A matrix is only diagonalizable if it has a diagonal representation. Therefore this matrix is not diagonalizable. 

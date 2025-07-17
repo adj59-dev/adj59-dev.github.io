@@ -95,36 +95,46 @@ Unitary operator - section 2.1.6
   
   **Exercise 2.1** 
 
-In this exercise you use the definition of linear dependence to demonstrate that the three vectors are linearly dependent. 
+In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that the three vectors are linearly dependent.
 
-Solution: To show that these vectors are linearly dependent, we need to find a set of $a_1$, $a_2$, and $a_3$ such that
+<details>
+<summary>Solution</summary> 
+
+To show that these vectors are linearly dependent, we need to find a set of $a_1$, $a_2$, and $a_3$ such that
 
 $$a_1 \begin{bmatrix} 1 \\\ -1 \end{bmatrix} + a_2 \begin{bmatrix} 1 \\\ 2 \end{bmatrix} + a_3 \begin{bmatrix} 2  \\\ 1 \end{bmatrix} = 0$$
 
 This is true when $a_1=1, a_2=1,$ and $a_3=-1$. Therefore these vectors are linearly dependent.
 
+</details>
+
 **Exercise 2.2**
 
-This first part of this exercise is straight forward, you just need to use the definition of the matrix representation of an operator. The second part may be a bit more challenging if you haven't worked with the Pauli matrices before. I suggest reviewing section 1.3.3 if you are struggling with this exercise.
+In section 2.1.2 the authors talk about how linear operators can be represented as matrices. In this exercise you get practice representing a linear operator as a matrix. The first part of this exercise is straight forward, you just need to use the definition of the matrix representation of an operator, equation 2.12. The second part may be a bit more challenging if you haven't worked with the Pauli matrices before. I suggest reviewing section 1.3.3 if you are struggling with this exercise.
 
-Solution: From definition of the matrix representation of an operator we know that
+<details>
+<summary>Solution</summary>
+ 
+From definition of the matrix representation of an operator we know that
 
-$$A \ket{v_j}=\sum_{i} A_{ij} \ket{v_i}$$
+$$A \ket{v_j}=\sum_{i} A_{ij} \ket{w_i}$$
 
-Given that $\ket{v_0}=\ket{0}$ and $\ket{v_1}=\ket{1}$ and that $A \ket{0}= \ket{1}$ and $A \ket{1} = \ket{0}$, we can say that $A_{00}=0$, $A_{01}=1$, $A_{10}=1$, and $A_{11}=0$. Therefore,
+Given that $\ket{w_0}=\ket{0}$ and $\ket{w_1}=\ket{1}$ and that $A \ket{0}= \ket{1}$ and $A \ket{1} = \ket{0}$, we can say that $A_{00}=0$, $A_{01}=1$, $A_{10}=1$, and $A_{11}=0$. Therefore,
 
 $$A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$$
 
-Instead of using $\ket{0}$ and $\ket{1}$ as the basis vectors, let's use $\ket{+}$ and $\ket{-}$. First we will calculate what the outputs are when A acts on these vectors.
+Instead of using $\ket{0}$, $\ket{1}$ as the basis, let's use $\ket{+}$, $\ket{-}$. First we will calculate what the outputs are when $A$ acts on these vectors.
 
 $$\begin{aligned}
 A \ket{+} = A \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) = \ket{+} \\
 A \ket{-} = A \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} - \ket{0}) = -\ket{-} 
 \end{aligned}$$
 
-For these basis vectors $A$ is then represented as
+For these basis vectors, $A$ is then represented as
 
 $$A = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$$
+
+</details>
 
 **Exercise 2.3**
 

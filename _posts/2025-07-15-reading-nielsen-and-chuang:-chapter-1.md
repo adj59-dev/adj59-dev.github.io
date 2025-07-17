@@ -14,7 +14,7 @@ When working through textbook problems on my own, outside of a class setting, I 
 
 In section 1.4.4 the authors describe the Deutsch-Jozsa algorithm and demonstrate how it can be used to solve Deutsch's problem in a single evaluation. In contrast a classical algorithm would require $2^n/2+1$ evaluations to solve the problem *with certainty*.  For this exercise the authors ask the reader instead to determine how many evaluations would be needed to solve the problem with some probability of error $\epsilon<1/2$.
 
-For Deutsch's problem we are given some function $f(x)$ for $x$ ranging from $0$ to $2^n-1$. The output of $f(x)$ is always 0 or 1 and the function itself is either constant or produces an even balance of $0$ and $1$. The goal is to determine whether the function is constant or balanced with as few evaluations as possible. 
+For Deutsch's problem we are given some function $f(x)$ for $x$ ranging from $0$ to $2^n-1$. The output of $f(x)$ is always $0$ or $1$ and the function itself is either constant or produces an even balance of $0$ and $1$. The goal is to determine whether the function is constant or balanced with as few evaluations as possible. 
 
 Several pieces of information are unknown in this problem (at least for how it is presented in the book) that could impact the results. Specifically, we do not know if there is an equal probability of $f(x)$ being constant or balanced, so for this solution I will define $P(C)$ to be the probability that $f(x)$ is constant and $P(B)$ to be the probability that $f(x)$ is balanced, with $P(C)+P(B)=1$. It is also not specified if the guesser knows what these probabilities are; though, I will assume that the person guessing does not have any prior knowledge of $P(C)$ and $P(B)$. 
 

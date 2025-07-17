@@ -95,7 +95,7 @@ Unitary operator - section 2.1.6
   
   **Exercise 2.1** 
 
-In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that the three vectors are linearly dependent.
+In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 
 <details>
 <summary>Solution</summary> 
@@ -123,7 +123,7 @@ Given that $\ket{v_0}=\ket{0}$ and $\ket{v_1}=\ket{1}$ and that $A \ket{0}= \ket
 
 $$A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$$
 
-Instead of using $\ket{0}$, $\ket{1}$ as the basis, let's use $\ket{+}$, $\ket{-}$. First we will calculate what the outputs are when $A$ acts on these vectors.
+Instead of using $\\{ \ket{0}, \ket{1} \\}$ as the basis, let's use $\\{ \ket{+}, \ket{-} \\}$. First we will calculate what the outputs are when $A$ acts on these vectors.
 
 $$\begin{aligned}
 A \ket{+} = A \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) = \ket{+} \\
@@ -138,9 +138,12 @@ $$A = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$$
 
 **Exercise 2.3**
 
-This exercise has you demonstrate that the matrix representation of $BA$ is a matrix product of the matrix representations of $B$ and $A$. To do this you'll need to use the definition of the matrix representation of an operator and the definition of matrix multiplication. 
+This exercise provides further practice in representing linear operators as matrices. It also allows you to confirm for yourself that the matrix representation of a linear transformation $BA$ is a matrix product of the matrix representations of $B$ and $A$. To do this you'll once again use equation 2.12. You’ll also need the definition of matrix multiplication, which isn’t provided in the book, but is readily available online. Additionally, if it has been a while since you’ve work with the summation operator, reviewing common summation identities may be helpful, as they play a role in the derivation. 
 
-Solution: From the question, we know that
+<details>
+<summary>Solution</summary>
+
+From the question, we know that
 
 $$\begin{aligned}
 A \ket{v_i}=\sum_{j} A_{ji} \ket{w_j} \\
@@ -161,19 +164,27 @@ BA \ket{v_i} & =B \sum_{j} A_{ji} \ket{w_j} & \text{definition of $A \ket{v_i}$}
 
 From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which means the matrix representation for the linear transformation $BA$ is the matrix product $C$ of the matrix representation for $B$ and $A$. 
 
+</details>
+
 **Exercise 2.4**
 
-In this exercise you will use the definition of the matrix representation of an operator and the definition given in section 2.1.2 of the identity operator $I_V \ket{v} \equiv \ket{v}$ to find the matrix representation of the identity operator. 
+This is the final exercise focused on practicing how to represent linear operators as matrices. Here you will use equation 2.12 along with the definition of the identity operator given in section 2.1.2 ($I_V \ket{v} \equiv \ket{v}$) to confirm the matrix representation of the identity operator.
 
-Solution: The matrix representation for $I$ will have entries with values $I_{ij}$ such that $I \ket{v_j}  = \sum_{i} I_{ij} \ket{v_i}$. Since we know that $I \ket{v_i} = \ket{v_i}$ for all $i$, $I_{ij} = 1$ when $i=j$ and $I_{ij} = 0$ when $i \neq j$. For a $2 \times 2$ the matrix representation is
+<details>
+<summary>Solution</summary>
+
+The matrix representation for $I$ will have entries with values $I_{ij}$ such that $I \ket{v_j}  = \sum_{i} I_{ij} \ket{v_i}$. Since we know that $I \ket{v_i} = \ket{v_i}$ for all $i$, $I_{ij} = 1$ when $i=j$ and $I_{ij} = 0$ when $i \neq j$. For a 2-dimensional vector space, the matrix representation for $I$ is
 
 $$\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$$
 
+</details>
+
 **Exercise 2.5**
 
-In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet the three inner product requirements defined in section 2.1.4. 
+In section 2.1.4 the authors introduce the concept of an inner product and list three requirements that need to be satisfied for something to be considered an inner product. In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet these three requirements.
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 (1) $(\cdot , \cdot)$ is linear in the second argument,
 
@@ -207,11 +218,14 @@ $$\begin{aligned}
 
 Since all three requirements are met, $( \cdot , \cdot)$ is an inner product. 
 
+</details>
+
 **Exercise 2.6**
 
 For this exercise you will demonstrate that the inner product is conjugate-linear in the first argument using the properties that you just verified in the previous exercise.
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 $$\begin{aligned}
 \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^\ast_i (\ket{w_i}, \ket{v}) & \text{conjugate linear in the first argument definition} \\
@@ -220,11 +234,14 @@ $$\begin{aligned}
 &= \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & \text{conjugate symmetry }
 \end{aligned}$$
 
+</details>
+
 **Exercise 2.7**
 
-Here you will use the fact that when two vectors are orthogonal, their inner product equals zero to prove that the two vectors are orthogonal. Then you will normalize those vectors by dividing them by their norm. 
+In section 2.1.4 the authors discuss orthogonal vectors, stating that vectors are orthogonal if their inner product is zero. They also define unit vectors and discuss how to normalize a vector to make it a unit vector. Here you will use that information to demonstrate that two vectors are orthogonal and calculate their normalized forms.  
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 These vectors are orthogonal if their inner product equals zero.
 
@@ -233,15 +250,18 @@ $$\braket{w | v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\\ -1 \
 The normalized form of these vectors are 
 
 $$\begin{aligned}
-\ket{v_{norm}}=\frac{\ket{v}}{\sqrt{\braket{v|v}}}=\frac{1}{\sqrt{2}} \ket{v} \\
-\ket{w_{norm}}=\frac{\ket{w}}{\sqrt{\braket{w|w}}}=\frac{1}{\sqrt{2}} \ket{w}
+\ket{v_{norm}}=\frac{\ket{v}}{\Vert\ket{v} \Vert}=\frac{\ket{v}}{\sqrt{\braket{v \vert v}}}=\frac{\ket{v}}{\sqrt{1^2 + (-1)^2}}=\frac{1}{\sqrt{2}} \ket{v} \\
+\ket{w_{norm}}=\frac{\ket{w}}{\Vert \ket{w} \Vert}=\frac{\ket{w}}{\sqrt{\braket{w \vert w}}}=\frac{\ket{w}}{\sqrt{1^2 + 1^2}}=\frac{1}{\sqrt{2}} \ket{w}
 \end{aligned}$$
+
+</details>
 
 **Exercise 2.8**
 
-You are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you need to prove several things: the vectors produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
+In section 2.1.4 the authors introduce the Gram-Schmidt procedure. you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\Vert{\ket{w_1}}\Vert$ and for $1 \geq k \geq d-1$ define
 
@@ -304,6 +324,7 @@ Which simplifies to $1 = 0$ because $\braket{v_j \vert v_i} = 0$ for $j \neq i$ 
 
 We know that this set of vectors spans $V$ because it has the same number of elements as the original basis set $\ket{w_1}, \dots, \ket{w_d}$ and any two sets of linearly independent vectors which span a vector space contain the same number of elements, as stated in section 2.1.1. Therefore $\ket{v_1}, \dots, \ket{v_d}$ as generated by the Gram-Schmidt procedure is a orthonormal basis for $V$. 
 
+</details>
 
 **Exercise 2.9**
 

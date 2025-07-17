@@ -258,7 +258,7 @@ $$\begin{aligned}
 
 **Exercise 2.8**
 
-In section 2.1.4 the authors introduce the Gram-Schmidt procedure. you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
+In section 2.1.4 the authors introduce the Gram-Schmidt procedure. Here you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
 
 <details>
 <summary>Solution</summary>

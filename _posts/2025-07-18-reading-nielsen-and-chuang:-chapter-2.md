@@ -216,7 +216,7 @@ In section 2.1.4 the authors introduce the Gram-Schmidt procedure. Here you are 
 <details>
 <summary>Solution</summary>
 
-The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\Vert{\ket{w_1}}\Vert$ and for $1 \geq k \geq d-1$ define
+The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\Vert{\ket{w_1}}\Vert$ and for $1 \leq k \leq d-1$ define
 
 $$\begin{aligned}
 \ket{v_{k+1}} \equiv \frac{\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i \vert w_{k+1}}\ket{v_i}}{\Vert\ket{w_{k+1}} - \sum_{i=1}^{k} \braket{v_i \vert w_{k+1}} \ket{v_i}\Vert}
@@ -684,8 +684,14 @@ Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian opera
 
 **Exercise 2.23**
 
+Here we show that the eigenvalues of a projector are all either $0$ or $1$ by comparing the definition of $P$ to the diagonal representation for an operator. 
+
+<details>
+<summary>Solution</summary>
+
 By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector subspace of a d-dimensional vector space. This is a diagonal matrix which has the form $\sum_i \lambda_i \ket{i} \bra{i}$. By looking at the definition of $P$ and comparing it to the form of a diagonal matrix, one can easily see that $\lambda_i=1$ for $1 \leq i \leq k$ and $\lambda_i=0$ for $k < i \leq d$. Therefore the eigenvalues are all either 0 or 1.
 
+</details>
 
 **Exercise 2.24**
 

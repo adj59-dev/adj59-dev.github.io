@@ -328,9 +328,10 @@ We know that this set of vectors spans $V$ because it has the same number of ele
 
 **Exercise 2.9**
 
-In this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25.
+In section 2.1.4 the authors introduce outer product representation for linear operators. For this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25. The Pauli matrices are given in section 2.1.3.
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j | A | v_i}$ equals the element in the *i*th column and *j*th row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
 
@@ -366,22 +367,30 @@ X &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ke
 &=  \ket{0} \bra{0} - \ket{1} \bra{1} 
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.10**
 
-This is just more practice with equation 2.25.
+This exercise provides more practice with outer product notation. This time you will use equation 2.25 to find the matrix representation for an operator that is given in outer product notation. 
 
-From equation 2.25 we can write $A=\sum_{mn} \braket{v_m | A | v_n} \ket{v_m} \bra{v_n} = \ket{v_j} \bra{v_k}$. Which means that we need $\braket{v_m | A | v_n} = 1$ when $m=j$ and $n=k$ and $\braket{v_m | A | v_n} = 0$ otherwise. This means the matrix representation has 1 for the $A_{jk}$ element and 0 for all other elements.
+<details>
+<summary>Solution</summary>
 
+From equation 2.25 we can write $A=\sum_{mn} \braket{v_m \vert A \vert v_n} \ket{v_m} \bra{v_n} = \ket{v_j} \bra{v_k}$. Which means that we need $\braket{v_m \vert A \vert v_n} = 1$ when $m=j$ and $n=k$ and $\braket{v_m \vert A \vert v_n} = 0$ otherwise. This means the matrix representation has 1 for the $A_{jk}$ element and 0 for all other elements.
+
+</details>
 
 **Exercise 2.11**
 
-Here you are asked to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$. For operators that are in the matrix representation, the book tells you how to find the eigenvalues by using the characteristic function, but it assumes that you already know how to find the eigenvectors. 
+In this exercise you are asked to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$. The book explains how to calculate the eigenvalues by using the characteristic equation for operators that are in the matrix representation, but it assumes that you’re already familiar with how to find the corresponding eigenvectors. 
 
-In case this is something that you do not know or remember how to do, a brief summary of the procedure is as follows: once you find an eigenvalue $\lambda$ the following equation can be written $0 = (A-\lambda I)\ket{e}$ where $\ket{e}$ is an eigenvector and $A$ is the operator for which you are finding the eigenvalues and eigenvectors. Then you solve for $\ket{e}$.
+If you are unsure or need a refresher, here is a brief summary of the procedure: once you find an eigenvalue $\lambda$, you can solve the equation $0 = (A-\lambda I)\ket{e}$ to find eigenvector $\ket{e}$ where $A$ is the operator (in matrix form) and $I$ is the identity matrix. 
 
-Solution:
+Once you have a full set of eigenvalues and eigenvectors, you can write the operator in diagonal representation using the form $A = \sum_{i} \ket{i} \bra{i}$, where vectors $\ket{i}$ form an orthonormal set of eigenvectors. 
+
+
+<details>
+<summary>Solution</summary>
 
 Z is already in a diagonal representation, so the eigenvectors and eigenvalues can be easily seen,
 
@@ -400,7 +409,7 @@ X &= \ket{0}\bra{1} + \ket{1}\bra{0} \\
 
 With the eigenvectors $\ket{+}$, $\ket{-}$ and corresponding eigenvalues 1, -1. 
 
-For Y, we'll use the characteristic function to identify the eigenvalues
+For Y, we'll use the characteristic equation to identify the eigenvalues
 
 $$\begin{aligned}
 \text{det} \left(Y - \lambda I \right) &= \text{det} \left( \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \lambda  \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
@@ -426,12 +435,14 @@ Y=\ket{e_1}\bra{e_1} - \ket{e_2}\bra{e_2}
 
 With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, -1.
 
+</details>
 
 **Exercise 2.12**
 
-For this exercise you need to prove that a specific matrix is not diagonalizable, i.e. it does not have a diagonal representation.
+For this exercise you need to prove that a specific matrix is not diagonalizable. In section 2.1.5 we are told that an operator is diagonalizable if it has diagonal representation. So to prove that it is not diagonalizable, you need to show that it does not have diagonal representation.
 
-Solution: 
+<details>
+<summary>Solution</summary>
 
 First let's find the eigenvalues and eigenvectors for the matrix. 
 
@@ -454,14 +465,16 @@ $$\begin{aligned}
 
 This is true for the unit vector $(0,1)$, there are no other linearly independent eigenvectors. 
 
-In order for a matrix to have a diagonal representation, it needs to have an orthonormal set of eigenvectors with corresponding eigenvalues that span the vector space; the set should have the same number of elements as the dimension of the vector space, which in this case is two. Since this matrix only has one linearly independent eigenvector, there is not an orthonormal set of eigenvectors that span the vector space and so the matrix does not have a diagonal representation. A matrix is only diagonalizable if it has a diagonal representation. Therefore this matrix is not diagonalizable. 
+For a matrix to have a diagonal representation, it needs to have an orthonormal set of eigenvectors with corresponding eigenvalues that span the vector space; the set should have the same number of elements as the dimension of the vector space, which in this case is two. Since this matrix only has one linearly independent eigenvector, there is not an orthonormal set of eigenvectors that span the vector space and so the matrix does not have a diagonal representation. A matrix is only diagonalizable if it has a diagonal representation. Therefore this matrix is not diagonalizable. 
 
+</details>
 
 **Exercise 2.13**
 
-We are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far. 
+In section 2.1.6 the authors introduce the adjoint of operators. For this exercise we are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified.
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 Taking equation 2.32 and plugging in $\ket{w}\bra{v}$ for $A$ we get
 
@@ -477,12 +490,14 @@ $$\begin{aligned}
 
 From the first and last line it can be seen that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$.
 
+</details>
 
 **Exercise 2.14**
 
-We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far.  
+We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
-Solution: 
+<details>
+<summary>Solution</summary>
 
 Plugging this operator into equation 2.32 we get
 
@@ -495,10 +510,14 @@ $$\begin{aligned}
 
 From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right)^\dagger = \sum_{i} a_i^\ast A_i^\dagger$.
 
+</details>
 
 **Exercise 2.15**
 
-We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far.
+We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
+
+<details>
+<summary>Solution</summary>
 
 Lets plug $A^\dagger$ in for $A$ in equation 2.32
 
@@ -511,30 +530,36 @@ $$\begin{aligned}
 
 From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 
+</details>
 
 **Exercise 2.16**
 
-We are asked to explor a propertly of projector $P$. The definition of $P$ can be found in equaiton 2.35. 
+In section 2.1.6 the authors introduce the concept of projectors. For this exercise you use the definition of projector $P$ from equation 2.35 and basis vector orthogonality to demonstrate the $P^2=P$. 
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 From equation 2.35 we know that $P$ is defined as $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ and so $P^2$ is 
 
 $$\begin{aligned}
 P^2 &= PP \\
 &= \sum_{i=1}^k \ket{i} \bra{i} \sum_{j=1}^k \ket{j} \bra{j} & \text{definition of $P$}\\
-&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \braket{i \vert j} \bra{j} & \text{distributivity}\\
+&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \braket{i \vert j} \bra{j} & \text{summation operator distributivity}\\
 &= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \bra{j} \delta_{ij} & \text{vector orthogonality}\\
-&= \sum_{i=1}^k  \ket{i} \bra{i} & \text{apply the delta function}\\
+&= \sum_{i=1}^k  \ket{i} \bra{i} & \text{delta function execution}\\
 &= P & \text{definition of $P$}
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.17**
 
-In this exercise we explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from exercise 2.13. 
+In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from exercise 2.13. 
 
-Operator $A$ is a normal matrix if is diagonal with respect to some orthonormal basis (per spectral decomposition). Therefore $A$ can be written as $A=\sum_{i} \lambda_{i} \ket{i} \bra{i}$ where $\lambda_{i}$ are the eigenvalues of $A$ and $\ket{i}$ is an orthonormal basis. It then follows that
+<details>
+<summary>Solution</summary>
+
+Operator $A$ is a normal matrix if it is diagonal with respect to some orthonormal basis (per spectral decomposition). Therefore $A$ can be written as $A=\sum_{i} \lambda_{i} \ket{i} \bra{i}$ where $\lambda_{i}$ are the eigenvalues of $A$ and $\ket{i}$ is an orthonormal basis. It then follows that
 
 $$\begin{aligned}
 A^\dagger &= \left(\sum_{i} \lambda_{i} \ket{i} \bra{i}\right)^\dagger & \text{spectral decomposition}\\
@@ -544,12 +569,14 @@ A^\dagger &= \left(\sum_{i} \lambda_{i} \ket{i} \bra{i}\right)^\dagger & \text{s
 
 Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can been seen that this is only the case when $\lambda_i^* = \lambda_i$, i.e. when the operator only has real eigenvalues.
 
+</details>
 
 **Exercise 2.18**
 
 Here we show that all eigenvalues of a unitary matrix has modulus 1 using the definition of a unitary matrix, the outer product representation for $U$ and $I$, and vector orthogonality.
 
-Solution: 
+<details>
+<summary>Solution</summary>
 
 Since $U$ is a unitary matrix we know that $U^\dagger U = I$. We also know that U has spectral decomposition and so can be written $U \equiv \sum_i \lambda_i \ket{i} \bra{i}$. $I$ is defined as $I = \sum_i \ket{i} \bra{i}$. Therefore, 
 
@@ -565,7 +592,7 @@ I &= U^\dagger U & \text{unitary matrix definition}\\
 
 Looking at the second and last line, it can be seen that $\sum_i \ket{i} \bra{i} = \sum_i \vert \lambda_i \vert^2 \ket{i} \bra{i}$ and therefore $\vert \lambda_i \vert^2= 1$, so the modulus is 1. 
 
-Let's set $\lambda_i = e^{i \theta}$ for some real $\theta$, then
+I'm not sure if this part is necessary for the solution, but I'm going to write it out anyway. Let's set $\lambda_i = e^{i \theta}$ for some real $\theta$, then
 
 $$\begin{aligned}
 \vert \lambda_i \vert^2 &= \left(e^{i \theta} \right)^\ast \left(e^{i \theta} \right) \\
@@ -577,16 +604,16 @@ $$\begin{aligned}
 
 Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 
+</details>
 
 **Exercise 2.19**
 
-This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. You basically just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
+This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. To do this you just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
 
-Solution:
+<details>
+<summary>Solution</summary>
 
 To show that the matrices are Hermitian, we need to demonstrate that $\sigma^\dagger = \sigma$ and to demonstrate that they are unitary we need to show that $\sigma^\dagger \sigma = I$. 
-
-Solution:
 
 Calculating $X^\dagger$ we get
 
@@ -645,20 +672,26 @@ Z^\dagger Z &= Z Z \\
 & = I  
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.20**
+
+For this exercise you are asked to find the relationship between two different matrix representations of operator $A$. This can be done using the completeness relation as shown in equation 2.23.
+
+<details>
+<summary>Solution</summary>
 
 Using the completeness relation we know that $A = I_W A I_W$ and so
 
 $$\begin{aligned}
-A_{ij}' &= \braket{v_i \vert A \vert v_j} \\
-&= \braket{v_i \vert I_W A I_W \vert v_j} \\
-&= \braket{v_i \vert \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) | v_j} \\
-&= \sum_m \sum_n \braket{v_i \vert w_m} \braket{w_m \vert A \vert w_n} \braket{w_n \vert v_j} \\
-&= \sum_m \sum_n \braket{v_i \vert w_m} A_{mn}'' \braket{w_n \vert v_j} 
+A_{ij}' &= \braket{v_i \vert A \vert v_j} & \text{definition of $A_{ij}'$} \\
+&= \braket{v_i \vert I_W A I_W \vert v_j} & \text{completeness relation} \\
+&= \braket{v_i \vert \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) | v_j} & \text{outer product representation of $I$}\\
+&= \sum_m \sum_n \braket{v_i \vert w_m} \braket{w_m \vert A \vert w_n} \braket{w_n \vert v_j} & \text{summation distributivity}\\
+&= \sum_m \sum_n \braket{v_i \vert w_m} A_{mn}'' \braket{w_n \vert v_j} & \text{definition of $A_{ij}''$}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.21**
 

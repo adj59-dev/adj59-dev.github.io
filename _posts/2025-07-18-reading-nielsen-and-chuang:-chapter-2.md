@@ -83,6 +83,10 @@ Normal matrices - section 2.1.6
 * definition: $A$ is normal if $A^\dagger A = A A^\dagger$
 * spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis.
 
+Unitary matrices - section 2.1.6
+* definition: $U^\dagger U = UU^\dagger = I$
+* outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$
+
 ### Linear Algebra - Exercises
   
   **Exercise 2.1** 
@@ -475,7 +479,7 @@ From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 
 **Exercise 2.16**
 
-We are asked to explor a propertly of projector $P$. The definition of $P$ can be found in equaiton 2.35.
+We are asked to explor a propertly of projector $P$. The definition of $P$ can be found in equaiton 2.35. 
 
 Solution:
 
@@ -493,107 +497,110 @@ P^2 &= PP \\
 
 **Exercise 2.17**
 
-In this exercise we explore the relationship between normal and Hermitian matrices.
+In this exercise we explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from exercise 2.13. 
 
 Operator $A$ is a normal matrix if is diagonal with respect to some orthonormal basis (per spectral decomposition). Therefore $A$ can be written as $A=\sum_{i} \lambda_{i} \ket{i} \bra{i}$ where $\lambda_{i}$ are the eigenvalues of $A$ and $\ket{i}$ is an orthonormal basis. It then follows that
 
-\begin{aligned}
-A^\dagger &= \left(\sum_{i} \lambda_{i} \ket{i} \bra{i}\right)^\dagger \\
-&= \sum_{i} \lambda_{i}^* \left(\ket{i} \bra{i}\right)^\dagger \\
-&= \sum_{i} \lambda_{i}^* \ket{i} \bra{i}
-\end{aligned}
+$$\begin{aligned}
+A^\dagger &= \left(\sum_{i} \lambda_{i} \ket{i} \bra{i}\right)^\dagger & \text{spectral decomposition}\\
+&= \sum_{i} \lambda_{i}^\ast \left(\ket{i} \bra{i}\right)^\dagger & \text{anti-linearity of the adjoint}\\
+&= \sum_{i} \lambda_{i}^\ast \ket{i} \bra{i} & \text{like exercise 2.13} \\
+\end{aligned}$$
 
 Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can been seen that this is only the case when $\lambda_i^* = \lambda_i$, i.e. when the operator only has real eigenvalues.
 
 
 **Exercise 2.18**
 
+Here we show that all eigenvalues of a unitary matrix has modulus 1 using the definition of a unitary matrix, the outer product representation for $U$ and $I$, and vector orthogonality.
+
+Solution: 
+
 Since $U$ is a unitary matrix we know that $U^\dagger U = I$. We also know that U has spectral decomposition and so can be written $U \equiv \sum_i \lambda_i \ket{i} \bra{i}$. $I$ is defined as $I = \sum_i \ket{i} \bra{i}$. Therefore, 
-\begin{equation*}
-\begin{split}
-I &= U^\dagger U \\
-\sum_i \ket{i} \bra{i} &= \left( \sum_i \lambda_i \ket{i} \bra{i} \right)^\dagger \left(\sum_j \lambda_j \ket{j} \bra{j} \right) \\
-&= \left( \sum_i \lambda_i^* \ket{i} \bra{i} \right) \left(\sum_j \lambda_j \ket{j} \bra{j} \right) \\
-&= \sum_i \sum_j \lambda_i^* \lambda_j  \ket{i} \braket{i | j} \bra{j} \\
-&= \sum_i \sum_j \lambda_i^* \lambda_j  \delta_{ij} \ket{i} \bra{j} \\
-&= \sum_i \lambda_i^* \lambda_i \ket{i} \bra{i} \\
-&= \sum_i \abs{ \lambda_i }^2 \ket{i} \bra{i} 
-\end{split}
-\end{equation*}
-Looking at the second and last line, it can be seen that $\abs{ \lambda_i }^2 = 1$ and therefore $\abs{ \lambda_i }= 1$. 
+
+$$\begin{aligned}
+I &= U^\dagger U & \text{unitary matrix definition}\\
+\sum_i \ket{i} \bra{i} &= \left( \sum_i \lambda_i \ket{i} \bra{i} \right)^\dagger \left(\sum_j \lambda_j \ket{j} \bra{j} \right) & \text{outer product representation}\\
+&= \left( \sum_i \lambda_i^\ast \ket{i} \bra{i} \right) \left(\sum_j \lambda_j \ket{j} \bra{j} \right) & \text{adjoint definition}\\
+&= \sum_i \sum_j \lambda_i^\ast \lambda_j  \ket{i} \braket{i | j} \bra{j} & \text{summation distributivity}\\
+&= \sum_i \sum_j \lambda_i^\ast \lambda_j  \delta_{ij} \ket{i} \bra{j} & \text{vector orthogonality}\\
+&= \sum_i \lambda_i^\ast \lambda_i \ket{i} \bra{i} & \text{apply the delta function}\\
+&= \sum_i \vert \lambda_i \vert^2 \ket{i} \bra{i} & \text{modulus definition}
+\end{aligned}$$
+
+Looking at the second and last line, it can be seen that $\sum_i \ket{i} \bra{i} = \sum_i \vert \lambda_i \vert^2 \ket{i} \bra{i}$ and therefore $\vert \lambda_i \vert^2= 1$, so the modulus is 1. 
 
 Let's set $\lambda_i = e^{i \theta}$ for some real $\theta$, then
-\begin{equation*}
-\begin{split}
-\abs{ \lambda_i }^2 &= \left(e^{i \theta} \right)^* \left(e^{i \theta} \right) \\
+
+$$\begin{aligned}
+\vert \lambda_i \vert^2 &= \left(e^{i \theta} \right)^\ast \left(e^{i \theta} \right) \\
 &= \left(e^{-i \theta} \right) \left(e^{i \theta} \right) \\
 &= e^{i \theta -i \theta} \\
 &= e^{0} \\
 &= 1
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 
 
 **Exercise 2.19**
 
 To show that the matrices are Hermitian, we need to demonstrate that $\sigma^\dagger = \sigma$ and to demonstrate that they are unitary we need to show that $\sigma^\dagger \sigma = I$. Calculating $X^\dagger$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 X^\dagger &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} ^\dagger \\
 &= \left(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}^* \right)^T \\
 &= \left(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \right)^T \\
 &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  \\
 &= X \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Then calculating $X^\dagger X$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 X^\dagger X &= X X \\
 &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \\
 & = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & = I \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Calculating $Y^\dagger$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 Y^\dagger &= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} ^\dagger \\
 &= \left(\begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}^* \right)^T \\
 &= \left(\begin{bmatrix} 0 & i \\ -i & 0 \end{bmatrix} \right)^T \\
 &= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}  \\
 &= Y \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Then calculating $Y^\dagger Y$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 Y^\dagger Y &= Y Y \\
 &= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \\
 & = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & = I \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Calculating $Z^\dagger$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 Z^\dagger &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} ^\dagger \\
 &= \left(\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}^* \right)^T \\
 &= \left(\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right)^T \\
 &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \\
 &= Z \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Then calculating $Z^\dagger Z$ we get
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 Z^\dagger Z &= Z Z \\
 &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \\
 & = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
 & = I \text{\qquad \greencheck} 
-\end{split}
-\end{equation*}
+\end{aligned}
 
 
 **Exercise 2.20**

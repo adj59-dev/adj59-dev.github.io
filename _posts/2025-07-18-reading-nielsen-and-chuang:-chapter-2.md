@@ -119,7 +119,7 @@ From definition of the matrix representation of an operator we know that
 
 $$A \ket{v_j}=\sum_{i} A_{ij} \ket{w_i}$$
 
-Given that $\ket{w_0}=\ket{0}$ and $\ket{w_1}=\ket{1}$ and that $A \ket{0}= \ket{1}$ and $A \ket{1} = \ket{0}$, we can say that $A_{00}=0$, $A_{01}=1$, $A_{10}=1$, and $A_{11}=0$. Therefore,
+Given that $\ket{v_0}=\ket{0}$ and $\ket{v_1}=\ket{1}$ and that $A \ket{0}= \ket{1}$ and $A \ket{1} = \ket{0}$, we can say that $A_{00}=0$, $A_{01}=1$, $A_{10}=1$, and $A_{11}=0$. Therefore,
 
 $$A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$$
 

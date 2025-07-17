@@ -71,6 +71,9 @@ Characteristic function - section 2.1.5
 Diagonal representation - section 2.1.5
 * $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$
 
+Hermitian operator - section 2.1.6
+* definition: $H^\dagger = H$
+
 Adjoint or Hermitian Conjugate - section 2.16
 * definition: $\left(\ket{v}, A \ket{w} \right) = \left(A^\dagger \ket{v}, \ket{w} \right)$
 * $A^\dagger = (A^\ast)^T$
@@ -79,13 +82,14 @@ Projector - section 2.1.6
 * projector definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$
 * orthogonal complement of P definition: $Q=I-P$
 
-Normal matrices - section 2.1.6
+Normal operator - section 2.1.6
 * definition: $A$ is normal if $A^\dagger A = A A^\dagger$
 * spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis.
 
-Unitary matrices - section 2.1.6
+Unitary operator - section 2.1.6
 * definition: $U^\dagger U = UU^\dagger = I$
 * outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$
+
 
 ### Linear Algebra - Exercises
   
@@ -545,76 +549,84 @@ Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 
 **Exercise 2.19**
 
-To show that the matrices are Hermitian, we need to demonstrate that $\sigma^\dagger = \sigma$ and to demonstrate that they are unitary we need to show that $\sigma^\dagger \sigma = I$. Calculating $X^\dagger$ we get
+This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. You basically just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
 
-\begin{aligned}
-X^\dagger &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} ^\dagger \\
-&= \left(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}^* \right)^T \\
-&= \left(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \right)^T \\
-&= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  \\
-&= X \text{\qquad \greencheck} 
-\end{aligned}
+Solution:
+
+To show that the matrices are Hermitian, we need to demonstrate that $\sigma^\dagger = \sigma$ and to demonstrate that they are unitary we need to show that $\sigma^\dagger \sigma = I$. 
+
+Solution:
+
+Calculating $X^\dagger$ we get
+
+$$\begin{aligned}
+X^\dagger &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} ^\dagger \\
+&= \left(\begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}^\ast \right)^T \\
+&= \left(\begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \right)^T \\
+&= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}  \\
+&= X 
+\end{aligned}$$
 
 Then calculating $X^\dagger X$ we get
 
-\begin{aligned}
+$$\begin{aligned}
 X^\dagger X &= X X \\
-&= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \\
-& = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
-& = I \text{\qquad \greencheck} 
-\end{aligned}
+&= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \\
+& = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \\
+& = I 
+\end{aligned}$$
 
 Calculating $Y^\dagger$ we get
 
-\begin{aligned}
-Y^\dagger &= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} ^\dagger \\
-&= \left(\begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}^* \right)^T \\
-&= \left(\begin{bmatrix} 0 & i \\ -i & 0 \end{bmatrix} \right)^T \\
-&= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}  \\
-&= Y \text{\qquad \greencheck} 
-\end{aligned}
+$$\begin{aligned}
+Y^\dagger &= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} ^\dagger \\
+&= \left(\begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix}^\ast \right)^T \\
+&= \left(\begin{bmatrix} 0 & i \\\ -i & 0 \end{bmatrix} \right)^T \\
+&= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix}  \\
+&= Y 
+\end{aligned}$$
 
 Then calculating $Y^\dagger Y$ we get
 
-\begin{aligned}
+$$\begin{aligned}
 Y^\dagger Y &= Y Y \\
-&= \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \\
-& = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
-& = I \text{\qquad \greencheck} 
-\end{aligned}
+&= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \\
+& = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \\
+& = I
+\end{aligned}$$
 
 Calculating $Z^\dagger$ we get
 
-\begin{aligned}
-Z^\dagger &= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} ^\dagger \\
-&= \left(\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}^* \right)^T \\
-&= \left(\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right)^T \\
-&= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \\
-&= Z \text{\qquad \greencheck} 
-\end{aligned}
+$$\begin{aligned}
+Z^\dagger &= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} ^\dagger \\
+&= \left(\begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}^\ast \right)^T \\
+&= \left(\begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \right)^T \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}  \\
+&= Z 
+\end{aligned}$$
 
 Then calculating $Z^\dagger Z$ we get
 
-\begin{aligned}
+$$\begin{aligned}
 Z^\dagger Z &= Z Z \\
-&= \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \\
-& = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \\
-& = I \text{\qquad \greencheck} 
-\end{aligned}
+&= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \\
+& = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \\
+& = I  
+\end{aligned}$$
 
 
 **Exercise 2.20**
 
 Using the completeness relation we know that $A = I_W A I_W$ and so
-\begin{equation*}
-\begin{split}
-A_{ij}' &= \braket{v_i | A | v_j} \\
-&= \braket{v_i | I_W A I_W | v_j} \\
-&= \braket{v_i | \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) | v_j} \\
-&= \sum_m \sum_n \braket{v_i | w_m} \braket{w_m | A | w_n} \braket{w_n | v_j} \\
-&= \sum_m \sum_n \braket{v_i | w_m} A_{mn}'' \braket{w_n | v_j} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+A_{ij}' &= \braket{v_i \vert A \vert v_j} \\
+&= \braket{v_i \vert I_W A I_W \vert v_j} \\
+&= \braket{v_i \vert \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) | v_j} \\
+&= \sum_m \sum_n \braket{v_i \vert w_m} \braket{w_m \vert A \vert w_n} \braket{w_n \vert v_j} \\
+&= \sum_m \sum_n \braket{v_i \vert w_m} A_{mn}'' \braket{w_n \vert v_j} 
+\end{aligned}$$
+
 
 
 **Exercise 2.21**
@@ -622,19 +634,23 @@ A_{ij}' &= \braket{v_i | A | v_j} \\
 Spectral decomposition theorem for the case when $M$ is Hermitian: Any Hermitian operator $M$ on a vector space $V$ is diagonal with respect to some orthonormal basis for $V$. Conversely, any diagonalizable operator is normal. 
 
 The first part of the proof is identical to what is in the book. Proof by induction is used on the dimension $d$ of $V$. The case $d=1$ is trivial. Let $\lambda$ be an eigenvalue of $M$, $P$ the projector onto the $\lambda$ eigenspace, and $Q$ the projector onto the orthogonal complement. Then $M = (P+Q)M(P+Q) = PMP+QMP+PMQ+QMQ$. Obviously $PMP=\lambda P$. Furthermore, $QMP=0$, as $M$ takes the subspace $P$ into itself. Simplifications can be made when demonstrating that $PMQ = 0$ due to $M$ being Hermitian and so $M^\dagger = M$. This can now be shown by taking the adjoint of $QMP=0$ which gives 
-\begin{equation*}
+
+$$\begin{aligned}
 0 = (QMP)^\dagger = PM^\dagger Q = PMQ
-\end{equation*}
+\end{aligned}$$
+
 Simplifications can also be made when proving that $QMQ$ is normal. That proof goes as follows
-\begin{equation*}
+
+$$\begin{aligned}
 QMQ (QMQ)^\dagger=QMQ QM^\dagger Q = QMQQMQ = QM^\dagger Q QMQ = (QMQ)^\dagger QMQ
-\end{equation*}
+\end{aligned}$$
+
 Therefore $QMQ$ is normal. The rest of the proof is same as in the book where you use proof by induction to show that $QMQ$ is diagonal with respect to some orthonormal basis for subspace $Q$, and $PMP$ is already diagonal with respect to some orthonormal basis for $P$. It then follows that $M=PMP+QMQ$ is diagonal with respect to some orthonormal basis for the total vector space. 
 
 
 **Exercise 2.22**
 
-Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian operator $M$ with eigenvalues $\lambda_v$ and $\lambda_w$. From equation 2.32 we know that $(\ket{v}, M \ket{w}) = (M^\dagger \ket{v}, \ket{w})$. Since M is Hermitian $M^\dagger=M$ so $(\ket{v}, M \ket{w}) = (M \ket{v}, \ket{w})$ and therefore $(\ket{v}, \lambda_w \ket{w}) = (\lambda_v \ket{v}, \ket{w})$. Using linearity in the second and conjugate-linearity in the first arguments we get $\lambda_w(\ket{v}, \ket{w}) = \lambda_v^*( \ket{v}, \ket{w})$. As shown in Exercise 2.17, we know that the eigenvalues of a Hermitian operator are real and therefore $\lambda_w(\ket{v}, \ket{w}) = \lambda_v( \ket{v}, \ket{w})$. This can only be true if $\lambda_w = \lambda_v$ or $(\ket{v}, \ket{w}) =0$, i.e. the vectors are orthogonal. Therefore if $\lambda_w \neq \lambda_v$ then the vectors must be orthogonal. 
+Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian operator $M$ with eigenvalues $\lambda_v$ and $\lambda_w$. From equation 2.32 we know that $(\ket{v}, M \ket{w}) = (M^\dagger \ket{v}, \ket{w})$. Since M is Hermitian $M^\dagger=M$ so $(\ket{v}, M \ket{w}) = (M \ket{v}, \ket{w})$ and therefore $(\ket{v}, \lambda_w \ket{w}) = (\lambda_v \ket{v}, \ket{w})$. Using linearity in the second and conjugate-linearity in the first arguments we get $\lambda_w(\ket{v}, \ket{w}) = \lambda_v^\ast( \ket{v}, \ket{w})$. As shown in Exercise 2.17, we know that the eigenvalues of a Hermitian operator are real and therefore $\lambda_w(\ket{v}, \ket{w}) = \lambda_v( \ket{v}, \ket{w})$. This can only be true if $\lambda_w = \lambda_v$ or $(\ket{v}, \ket{w}) =0$, i.e. the vectors are orthogonal. Therefore if $\lambda_w \neq \lambda_v$ then the vectors must be orthogonal. 
 
 
 **Exercise 2.23**
@@ -645,18 +661,18 @@ By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector
 **Exercise 2.24**
 
 First we need to find a $B$ and $C$ that satisfy these requirements. Let's start by finding $A^\dagger$ in terms of $B$ and $C$, keeping in mind that $B^\dagger = B$ and $C^\dagger = C$, since they are Hermitian. 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 A^\dagger &= (B + i C)^\dagger \\
 &= B^\dagger + (i C)^\dagger \\
 &= B - iC
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Therefore $A + A^\dagger = 2B$. Solving for $B$ we get $B=\frac{A+A^\dagger}{2}$. Then $A-A^\dagger = 2 i C$. Solving for $C$ we get $C=\frac{A-A^\dagger}{2i}$. 
 
 We can then confirm that these definitions of $B$ and $C$ are Hermitian by taking the adjoint of them
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 B^\dagger &= \left(\frac{A+A^\dagger}{2}\right)^\dagger \\
 &= \frac{A^\dagger+(A^\dagger)^\dagger}{2} \\
 &=\frac{A^\dagger + A}{2} \\
@@ -665,30 +681,30 @@ C^\dagger &= \left(\frac{A-A^\dagger}{2i}\right)^\dagger \\
 &= \frac{A^\dagger-(A^\dagger)^\dagger}{-2i} \\
 &= \frac{-A^\dagger+A}{2i} \\
 &= C
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Therefore $B$ and $C$ are Hermitian.
 
-If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. Plugging in $A=B+iC$ we get $\braket{v | A | v} = \braket{v | B+iC | v} = \braket{v | B | v} + i \braket{v | C | v}$, which is only a real number when $C=0$. Therefore $A=B$ which is Hermitian.
+If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. Plugging in $A=B+iC$ we get $\braket{v \vert A \vert v} = \braket{v \vert B+iC \vert v} = \braket{v \vert B \vert v} + i \braket{v \vert C \vert v}$, which is only a real number when $C=0$. Therefore $A=B$ which is Hermitian.
 
 
 **Exercise 2.25**
 
 In order for $A^\dagger A$ to be positive $\left(\ket{v}, A^\dagger A \ket{v}\right)$ must be a real, non-negative number. 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \left(\ket{v}, A^\dagger A \ket{v}\right) &= \left((A^\dagger)^\dagger \ket{v}, A \ket{v}\right) \\
 &= \left(A \ket{v}, A \ket{v}\right)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Due to the positive semi-definiteness of inner products, we know that $\left(A \ket{v}, A \ket{v}\right) \geq 0$ with equality if and only if $A \ket{v} = 0$. Therefore $A^\dagger A$ is positive.
 
 
 **Exercise 2.26**
 
 Written as a tensor products, 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \ket{\psi}^{\otimes 2}&=\ket{\psi} \otimes \ket{\psi} \\
 &= \frac{\ket{0} + \ket{1} }{\sqrt{2}}\otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &= \frac{\ket{0}  \ket{0} + \ket{1}  \ket{0} + \ket{0}  \ket{1} + \ket{1}  \ket{1} }{2} \\
@@ -696,61 +712,61 @@ Written as a tensor products,
 &= \frac{\ket{0} + \ket{1} }{\sqrt{2}}\otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &= \frac{\ket{0}  \ket{0} + \ket{1}  \ket{0} + \ket{0}  \ket{1} + \ket{1}  \ket{1} }{2} \otimes \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
 &= \frac{\ket{0}  \ket{0} \ket{0} + \ket{1}  \ket{0}\ket{0} + \ket{0}  \ket{1}\ket{0} + \ket{1}  \ket{1}\ket{0} + \ket{0}  \ket{0}\ket{1} + \ket{1}  \ket{0}\ket{1} + \ket{0}  \ket{1}\ket{1} + \ket{1}  \ket{1} \ket{1}}{2 \sqrt{2}}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 Let's write $\ket{\psi}$ in matrix form before representing the tensor products using the Kronecker product.
-\begin{equation*}
-\begin{split}
+
+$$\begin{split}
 \ket{\psi}&=\left(\ket{0} + \ket{1} \right)/ \sqrt{2} \\
-&= \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 1 \\ 0  \end{bmatrix} + \begin{bmatrix} 0 \\ 1  \end{bmatrix} \right) \\
-&= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix}
-\end{split}
-\end{equation*}
+&= \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 1 \\\ 0  \end{bmatrix} + \begin{bmatrix} 0 \\\ 1  \end{bmatrix} \right) \\
+&= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix}
+\end{split}$$
+
 
 Using the Kronecker product,
-\begin{equation*}
-\begin{split}
-\ket{\psi}^{\otimes 2}&=\frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \\
-&= \frac{1}{2} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \\
-\ket{\psi}^{\otimes 3}&= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \\
-&= \frac{1}{2} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1  \end{bmatrix} \\
-&= \frac{1}{2 \sqrt{2}} \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\ket{\psi}^{\otimes 2}&=\frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \\
+&= \frac{1}{2} \begin{bmatrix} 1 \\\ 1 \\\ 1 \\\ 1 \end{bmatrix} \\
+\ket{\psi}^{\otimes 3}&= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \\
+&= \frac{1}{2} \begin{bmatrix} 1 \\\ 1 \\\ 1 \\\ 1 \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\\ 1  \end{bmatrix} \\
+&= \frac{1}{2 \sqrt{2}} \begin{bmatrix} 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \end{bmatrix} 
+\end{aligned}$$
+
 
 
 **Exercise 2.27**
 
 (a) tensor product of $X$ and $Z$
-\begin{equation*}
-\begin{split}
-X \otimes Z &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} \\
-&= \begin{bmatrix} 0 * \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} & 1 * \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} \\ 1 * \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} & 0 * \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} \end{bmatrix} \\
-&= \begin{bmatrix} \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix} & \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} \\ \begin{bmatrix} 1 & 0 \\ 0 & -1  \end{bmatrix} & \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix} \end{bmatrix} \\
-&= \begin{bmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+X \otimes Z &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} \\
+&= \begin{bmatrix} 0 * \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} & 1 * \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} \\\ 1 * \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} & 0 * \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix} \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix} & \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} \\\ \begin{bmatrix} 1 & 0 \\\ 0 & -1  \end{bmatrix} & \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -1 \\\ 1 & 0 & 0 & 0 \\\ 0 & -1 & 0 & 0 \end{bmatrix} 
+\end{aligned}$$
+
 
 (b) tensor product of $I$ and $X$
-\begin{equation*}
-\begin{split}
-I \otimes X &= \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \otimes \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix} \\
-&= \begin{bmatrix} 1 * \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix}  & 0 * \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix}  \\ 0 * \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix} & 1 * \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix}   \end{bmatrix} \\
-&= \begin{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix}  & \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix}  \\  \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix} & \begin{bmatrix} 0 & 1 \\ 1 & 0  \end{bmatrix}   \end{bmatrix} \\
-&= \begin{bmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+I \otimes X &= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \otimes \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix} \\
+&= \begin{bmatrix} 1 * \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix}  & 0 * \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix}  \\\ 0 * \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix} & 1 * \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix}   \end{bmatrix} \\
+&= \begin{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix}  & \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix}  \\\  \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix} & \begin{bmatrix} 0 & 1 \\\ 1 & 0  \end{bmatrix}   \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 1 & 0 & 0 \\\ 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} 
+\end{aligned}$$
+
 
 (c) tensor product of $X$ and $I$
-\begin{equation*}
-\begin{split}
-X \otimes I &= \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix} \\
-&= \begin{bmatrix} 0 * \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}   & 1 * \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}   \\ 1 * \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix} & 0 * \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix} \end{bmatrix} \\
-&= \begin{bmatrix} \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix}   & \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix}   \\ \begin{bmatrix} 1 & 0 \\ 0 & 1  \end{bmatrix} &  \begin{bmatrix} 0 & 0 \\ 0 & 0  \end{bmatrix} \end{bmatrix} \\
-&= \begin{bmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+X \otimes I &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix} \\
+&= \begin{bmatrix} 0 * \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix}   & 1 * \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix}   \\\ 1 * \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix} & 0 * \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix} \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix}   & \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix}   \\\ \begin{bmatrix} 1 & 0 \\\ 0 & 1  \end{bmatrix} &  \begin{bmatrix} 0 & 0 \\\ 0 & 0  \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \\\ 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \end{bmatrix} 
+\end{aligned}$$
+
 
 By comparing (b) and (c) we can see that the tensor product is not commutative.
 
@@ -758,54 +774,55 @@ By comparing (b) and (c) we can see that the tensor product is not commutative.
 **Exercise 2.28**
 
 Complex Conjugation
-\begin{equation*}
-\begin{split}
-\left( A \otimes B\right)^* &= \left( \begin{bmatrix} A_{11}B & A_{12}B & \dots & A_{1n}B \\ A_{21}B & A_{22}B & \dots & A_{2n}B \\ \vdots & \vdots & \vdots & \vdots \\ A_{m1}B & A_{m2}B & \dots & A_{mn}B   \end{bmatrix} \right)^* \\
-&= \begin{bmatrix} A_{11}^*B^* & A_{12}^*B^* & \dots & A_{1n}^*B^* \\ A_{21}^*B^* & A_{22}^*B^* & \dots & A_{2n}^*B^* \\ \vdots & \vdots & \vdots & \vdots \\ A_{m1}^*B^* & A_{m2}^*B^* & \dots & A_{mn}^*B^*   \end{bmatrix} \\
-&= A^* \otimes B^* 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\left( A \otimes B\right)^\ast &= \left( \begin{bmatrix} A_{11}B & A_{12}B & \dots & A_{1n}B \\\ A_{21}B & A_{22}B & \dots & A_{2n}B \\\ \vdots & \vdots & \vdots & \vdots \\ A_{m1}B & A_{m2}B & \dots & A_{mn}B   \end{bmatrix} \right)^\ast \\
+&= \begin{bmatrix} A_{11}^\ast B^\ast & A_{12}^\ast B^\ast & \dots & A_{1n}^\ast B^\ast \\\ A_{21}^\ast B^\ast & A_{22}^\ast B^\ast & \dots & A_{2n}^\ast B^\ast \\\ \vdots & \vdots & \vdots & \vdots \\\ A_{m1}^\ast B^\ast & A_{m2}^\ast B^\ast & \dots & A_{mn}^\ast B^\ast   \end{bmatrix} \\
+&= A^\ast \otimes B^\ast
+\end{aligned}$$
+
 therefore complex conjugation distributes over the tensor product.
 
 
 Transpose
-\begin{equation*}
-\begin{split}
-\left( A \otimes B\right)^T &= \left( \begin{bmatrix} A_{11}B & A_{12}B & \dots & A_{1n}B \\ A_{21}B & A_{22}B & \dots & A_{2n}B \\ \vdots & \vdots & \vdots & \vdots \\ A_{m1}B & A_{m2}B & \dots & A_{mn}B   \end{bmatrix} \right)^T \\
-&= \begin{bmatrix} A_{11}B^T & A_{21}B^T & \dots & A_{n1}B^T \\ A_{12}^*B^T & A_{22}B^T & \dots & A_{n2}B^T \\ \vdots & \vdots & \vdots & \vdots \\ A_{1m}B^T & A_{2m}B^T & \dots & A_{nm}B^T   \end{bmatrix} \\
+
+$$\begin{aligned}
+\left( A \otimes B\right)^T &= \left( \begin{bmatrix} A_{11}B & A_{12}B & \dots & A_{1n}B \\\ A_{21}B & A_{22}B & \dots & A_{2n}B \\\ \vdots & \vdots & \vdots & \vdots \\\ A_{m1}B & A_{m2}B & \dots & A_{mn}B   \end{bmatrix} \right)^T \\
+&= \begin{bmatrix} A_{11}B^T & A_{21}B^T & \dots & A_{n1}B^T \\\ A_{12}^\ast B^T & A_{22}B^T & \dots & A_{n2}B^T \\\ \vdots & \vdots & \vdots & \vdots \\\ A_{1m}B^T & A_{2m}B^T & \dots & A_{nm}B^T   \end{bmatrix} \\
 &= A^T \otimes B^T
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 therefore transpose distributes over the tensor product.
 
 
-Adjoint \\
-$\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^*\right)^T=\left( A^* \otimes B^* \right)^T= (A^*)^T \otimes (B^*)^T =A^\dagger \otimes B^\dagger$ \\
-therefore adjoint distributes over the tensor product.
+Adjoint 
+
+$\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right)^T=\left( A^\ast \otimes B^* \right)^T= (A^\ast)^T \otimes (B^\ast)^T =A^\dagger \otimes B^\dagger$ therefore adjoint distributes over the tensor product.
 
 
 **Exercise 2.29**
 
 We need to show $(A \otimes B)^\dagger (A \otimes B) = I$ when $A$ and $B$ are both unitary. 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 (A \otimes B)^\dagger (A \otimes B) &= (A^\dagger \otimes B^\dagger) (A \otimes B) \\
 &= A^\dagger A \otimes B^\dagger B \\
 &= I \otimes I
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 If $I \otimes I = I$ then $A \otimes B$ is unitary. Using the Kronecker product,
-\begin{equation*}
-\begin{split}
-I \otimes I &= \begin{bmatrix} I & 0 & 0 & \dots & 0 \\ 0 & I & 0 & \dots & 0 \\ 0 & 0 & I & \dots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \dots & I \end{bmatrix} = I
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+I \otimes I &= \begin{bmatrix} I & 0 & 0 & \dots & 0 \\\ 0 & I & 0 & \dots & 0 \\\ 0 & 0 & I & \dots & 0 \\\ \vdots & \vdots & \vdots & \ddots & \vdots \\\ 0 & 0 & 0 & \dots & I \end{bmatrix} = I
+\end{aligned}$$
+
 Therefore $A \otimes B$ is unitary.
 
 
 **Exercise 2.30**
 
-We need to show that $(A \otimes B)^\dagger = (A \otimes B)$ when $A$ and $B$ are both Hermitian. \\
+We need to show that $(A \otimes B)^\dagger = (A \otimes B)$ when $A$ and $B$ are both Hermitian. 
+
 $(A \otimes B)^\dagger = A^\dagger \otimes B^\dagger = A \otimes B$
 Therefore $A \otimes B$ is Hermitian.
 
@@ -813,25 +830,25 @@ Therefore $A \otimes B$ is Hermitian.
 **Exercise 2.31**
 
 We need to show that $\left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right)$ is a real, non-negative number when $A$ and $B$ are positive. 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right) &= \left( \ket{a} \otimes \ket{b}, A\ket{a} \otimes B\ket{b} \right) \\
-&= \braket{a | A | a} \braket{b | B | b}
-\end{split}
-\end{equation*}
-Since both $A$ and $B$ are positive operators, we know that $\braket{a | A | a}$ and $\braket{b | B | b}$ are real, non-negative numbers. Therefore $\braket{a | A | a} \braket{b | B | b}$ is a real non-negative number and so $A \otimes B$ is positive. 
+&= \braket{a \vert A \vert a} \braket{b \vert B \vert b}
+\end{aligned}$$
+
+Since both $A$ and $B$ are positive operators, we know that $\braket{a \vert A \vert a}$ and $\braket{b \vert B \vert b}$ are real, non-negative numbers. Therefore $\braket{a \vert A \vert a} \braket{b \vert B \vert b}$ is a real non-negative number and so $A \otimes B$ is positive. 
 
 
 **Exercise 2.32**
 
 From exercise 2.16 we know that any projector $P$ satisfies the equation $P^2 = P$. Lets say we have two projectors $P_1$ and $P_2$, then lets check the square of their tensor product 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 (P_1 \otimes P_2)^2 &= (P_1 \otimes P_2)(P_1 \otimes P_2) \\
 &= P_1^2 \otimes P_2^2 \\
 &= P_1 \otimes P_2
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Therefore the tensor product of two projectors is a projector. 
 
 
@@ -840,150 +857,158 @@ Therefore the tensor product of two projectors is a projector.
 I am a little confused by this notation, so lets work things out in detail to better understand what is going on.
 
 First let's look a little closer at the $n=1$ case
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 H &= \frac{1}{\sqrt{2}} \lbrack(\ket{0} + \ket{1})\bra{0} + (\ket{0} - \ket{1})\bra{1}\rbrack \\
 &= \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 This matches the arbitrary $n$ equation with $x$ and $y$ spanning the values $0$ and $1$. 
 
 Now let's look at the $n=2$ case
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 H^{\otimes 2} &= \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack \otimes \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack \\
 &= \frac{1}{2} \lbrack \ket{00}\bra{00}  + \ket{01}\bra{00}  + \ket{00}\bra{01}  - \ket{01}\bra{01}  + \ket{10}\bra{00} + \ket{11}\bra{00}  + \ket{10}\bra{01} \\
 & \text{\quad} - \ket{11}\bra{01}  + \ket{00}\bra{10}  + \ket{01}\bra{10}  + \ket{00}\bra{11}  - \ket{01}\bra{11}   -  \ket{10}\bra{10}  - \ket{11}\bra{10} \\
 & \text{\quad} - \ket{10}\bra{11}  + \ket{11}\bra{11} \rbrack
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Now $\ket{x}$ and $\ket{y}$ are spanning the states $\ket{00}$, $\ket{01}$, $\ket{10}$, and $\ket{11}$. It is unclear how to calculate $x$ and $y$ from the information provided. Looking at other resources, it seems likely that $x \cdot y=x_1y_1 + x_2y_2 + \dots + x_ny_n$, which is the bitwise inner product of x and y; this was also discussed on page 35. This matches the results above.
 
 Ok, so now that we understand the notation, let's show explicitly that the Hadamard transform on $n$ qubits can be written as equation 2.55. We've already shown how the $n=1$ case can be written as $H = \frac{1}{\sqrt{2} }\sum_{x,y} (-1)^{xy} \ket{x}\bra{y}$. The arbitrary $n$ case can then be written as
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 H^{\otimes n} &= \frac{1}{\sqrt{2}} \sum_{x_1,y_1} (-1)^{x_1y_1} \ket{x_1}\bra{y_1} \otimes \frac{1}{\sqrt{2}} \sum_{x_2,y_2} (-1)^{x_2y_2} \ket{x_2}\bra{y_2} \otimes \cdots \otimes \frac{1}{\sqrt{2} }\sum_{x_n,y_n} (-1)^{x_ny_n} \ket{x_n}\bra{y_n} \\
 &= \frac{1}{\sqrt{2^n}} \sum_{x_1,x_2,\cdots, x_n, y_1, y_2, \cdots, y_n} (-1)^{x_1 y_1 + x_2 y_2 + \cdots + x_n y_n}\ket{x_1 x_2 \cdots x_n}\bra{y_1 y_2 \cdots y_n} \\
 &= \frac{1}{\sqrt{2^n}} \sum_{x,y} (-1)^{x \cdot y}\ket{x}\bra{y}
-\end{split}
-\end{equation*}
+\end{aligned}$$
 
 Now let's write out the matrix representation for $H^{\otimes 2}$.
-\begin{equation*}
-\begin{split}
-H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \\
-&= \begin{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} & \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \\ \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} & \begin{bmatrix} -1 & -1 \\ -1 & 1 \end{bmatrix} \end{bmatrix} \\
-& = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 \end{bmatrix}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
+&= \begin{bmatrix} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\ \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} -1 & -1 \\\ -1 & 1 \end{bmatrix} \end{bmatrix} \\
+& = \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix}
+\end{aligned}$$
+
 
 
 **Exercise 2.34**
 
 We know that $f(A) \equiv \sum_{a} f(a) \ket{a} \bra{a}$ for $A = \sum_{a} a \ket{a}\bra{a}$. Since the given matrix is not diagonal, we'll need to diagonalize it. So first we'll find the eigenvalues
-\begin{equation*}
-\begin{split}
-0 &= det \left(\begin{bmatrix} 4 & 3 \\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \\
-&= det \left(\begin{bmatrix} 4 - \lambda & 3 \\ 3 & 4 - \lambda \end{bmatrix} \right) \\
+
+$$\begin{aligned}
+0 &= det \left(\begin{bmatrix} 4 & 3 \\\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
+&= det \left(\begin{bmatrix} 4 - \lambda & 3 \\\ 3 & 4 - \lambda \end{bmatrix} \right) \\
 &= (4-\lambda)^2 - 9 \\
 &= \lambda^2 - 8 \lambda + 7 \\
 \lambda &= \frac{8 \pm \sqrt{64 - 4*1*7}}{2*1} = 4 \pm 3
-\end{split}
-\end{equation*}
+\end{aligned}$$
 
 Now we find the eigenvectors
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &= \left(\begin{bmatrix} 4 & 3 \\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} 4 - \lambda & 3 \\ 3 & 4 - \lambda \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} (4 - \lambda) x_1 + 3 x_2 \\ 3 x_1 + (4-\lambda) x_2 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &= \left(\begin{bmatrix} 4 & 3 \\\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} 4 - \lambda & 3 \\\ 3 & 4 - \lambda \end{bmatrix}  \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} (4 - \lambda) x_1 + 3 x_2 \\\ 3 x_1 + (4-\lambda) x_2 \end{bmatrix} 
+\end{aligned}$$
+
 For $\lambda = 7$ we get
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &= \begin{bmatrix} -3 x_1 + 3 x_2 \\ 3 x_1 -3 x_2 \end{bmatrix} 
-\end{split}
-\end{equation*}
-Which is true when $x_1 = x_2$ so $\ket{e_1} = (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}})$ is a normalized eigenvector with eigenvalue $7$. \\
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &= \begin{bmatrix} -3 x_1 + 3 x_2 \\\ 3 x_1 -3 x_2 \end{bmatrix} 
+\end{aligned}$$
+
+Which is true when $x_1 = x_2$ so $\ket{e_1} = (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}})$ is a normalized eigenvector with eigenvalue $7$.
+
 For $\lambda = 1$ we get
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &= \begin{bmatrix}  3 x_1 + 3 x_2 \\ 3 x_1 + 3 x_2 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &= \begin{bmatrix}  3 x_1 + 3 x_2 \\\ 3 x_1 + 3 x_2 \end{bmatrix} 
+\end{aligned}$$
+
 Which is true when $x_1 = -x_2$ so $\ket{e_2} = (\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}})$ is a normalized eigenvector with eigenvalue $1$.
 
 Putting it all together, the spectral decomposition is
-\begin{equation*}
+
+$$\begin{aligned}
 A = 7 \ket{e_1}\bra{e_1} + \ket{e_2}\bra{e_2}
-\end{equation*}
+\end{aligned}$$
+
 Therefore $f(A)$ is
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 f(A) &= f(7) \ket{e_1}\bra{e_1} + f(1) \ket{e_2}\bra{e_2} \\
-&= f(7) \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix} + f(1)\begin{bmatrix} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{bmatrix} \\
-&= \frac{f(7)}{2} \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix} + \frac{f(1)}{2} \begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix} \\
-&= \frac{1}{2} \begin{bmatrix} f(7) + f(1) & f(7) - f(1) \\ f(7) - f(1) & f(7) + f(1) \end{bmatrix}
-\end{split}
-\end{equation*}
+&= f(7) \begin{bmatrix} \frac{1}{\sqrt{2}} \\\ \frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix} + f(1)\begin{bmatrix} \frac{1}{\sqrt{2}} \\\ -\frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{bmatrix} \\
+&= \frac{f(7)}{2} \begin{bmatrix} 1 & 1 \\\ 1 & 1 \end{bmatrix} + \frac{f(1)}{2} \begin{bmatrix} 1 & -1 \\\ -1 & 1 \end{bmatrix} \\
+&= \frac{1}{2} \begin{bmatrix} f(7) + f(1) & f(7) - f(1) \\\ f(7) - f(1) & f(7) + f(1) \end{bmatrix}
+\end{aligned}$$
+
 To find the square root
-\begin{equation*}
-\sqrt{A} = \frac{1}{2} \begin{bmatrix} \sqrt{7} + \sqrt{1} & \sqrt{7} - \sqrt{1} \\ \sqrt{7} - \sqrt{1} & \sqrt{7} + \sqrt{1} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} \sqrt{7} + 1 & \sqrt{7} - 1 \\ \sqrt{7} - 1 & \sqrt{7} + 1 \end{bmatrix} 
-\end{equation*}
+
+$$\begin{aligned}
+\sqrt{A} = \frac{1}{2} \begin{bmatrix} \sqrt{7} + \sqrt{1} & \sqrt{7} - \sqrt{1} \\\ \sqrt{7} - \sqrt{1} & \sqrt{7} + \sqrt{1} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} \sqrt{7} + 1 & \sqrt{7} - 1 \\\ \sqrt{7} - 1 & \sqrt{7} + 1 \end{bmatrix} 
+\end{aligned}$$
+
 To find the log
-\begin{equation*}
-\ln{A} = \frac{1}{2} \begin{bmatrix} \ln{7} + \ln{1} & \ln{7} - \ln{1} \\ \ln{7} - \ln{1} & \ln{7} + \ln{1} \end{bmatrix} =\frac{\ln{7} }{2} \begin{bmatrix} 1 & 1  \\ 1  & 1 \end{bmatrix}
-\end{equation*}
+
+$$\begin{aligned}
+\ln{A} = \frac{1}{2} \begin{bmatrix} \ln{7} + \ln{1} & \ln{7} - \ln{1} \\\ \ln{7} - \ln{1} & \ln{7} + \ln{1} \end{bmatrix} =\frac{\ln{7} }{2} \begin{bmatrix} 1 & 1  \\\ 1  & 1 \end{bmatrix}
+\end{aligned}$$
 
 
 **Exercise 2.35**
 
 It is not explicitly stated, but based on the comment in the parentheses I am going to assume $\sigma_i$ are the Pauli matrices. Which means 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \vec{v} \cdot \vec{\sigma} &\equiv \sum_{i=1}^{3} v_i \sigma_i \\
-& = v_1 \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} + v_2 \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} + v_3 \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \\
-&= \begin{bmatrix} v_3 & v_1 - i v_2 \\ v_1 + i v_2 & -v_3 \end{bmatrix}
-\end{split}
-\end{equation*}
+& = v_1 \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + v_2 \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + v_3 \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \\
+&= \begin{bmatrix} v_3 & v_1 - i v_2 \\\ v_1 + i v_2 & -v_3 \end{bmatrix}
+\end{aligned}$$
+
 Now let's find the diagonal representation by first finding the eigenvalues.
-\begin{equation*}
-\begin{split}
-0 &= det \left( \begin{bmatrix} v_3 & v_1 - i v_2 \\ v_1 + i v_2 & -v_3 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) \\
-&= det \left(\begin{bmatrix} v_3 - \lambda & v_1 - i v_2 \\ v_1 + i v_2 & -v_3 - \lambda \end{bmatrix} \right) \\
+
+$$\begin{aligned}
+0 &= det \left( \begin{bmatrix} v_3 & v_1 - i v_2 \\\ v_1 + i v_2 & -v_3 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
+&= det \left(\begin{bmatrix} v_3 - \lambda & v_1 - i v_2 \\\ v_1 + i v_2 & -v_3 - \lambda \end{bmatrix} \right) \\
 &= (v_3 - \lambda)(-v_3 - \lambda) - (v_1 - i v_2)(v_1 + i v_2) \\
 &= \lambda^2 - v_3^2 - v_1^2 - v_2^2 \\
 \lambda &= \pm \sqrt{v_1^2 + v_2^2 + v_3^2} = \pm 1
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Then we'll find the eigenvectors.
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &=  \begin{bmatrix} v_3 - \lambda & v_1 - i v_2 \\ v_1 + i v_2 & -v_3 - \lambda \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} (v_3 - \lambda) x_1 + (v_1 - i v_2) x_2 \\ (v_1 + i v_2) x_1 + (-v_3 - \lambda) x_2 \end{bmatrix} 
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &=  \begin{bmatrix} v_3 - \lambda & v_1 - i v_2 \\\ v_1 + i v_2 & -v_3 - \lambda \end{bmatrix}  \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} (v_3 - \lambda) x_1 + (v_1 - i v_2) x_2 \\\ (v_1 + i v_2) x_1 + (-v_3 - \lambda) x_2 \end{bmatrix} 
+\end{aligned}$$
+
 Solving for $x_1$ and $x_2$ we get
-\begin{equation*}
-\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} v_3 + \lambda  \\ v_1 + i v_2 \end{bmatrix} 
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \begin{bmatrix} v_3 + \lambda  \\\ v_1 + i v_2 \end{bmatrix} 
+\end{aligned}$$
+
 Which gives eigenvectors $\ket{\lambda_+}= (v_3 + 1, v_1 + i v_2)$ and $\ket{\lambda_-}= (v_3 - 1, v_1 + i v_2)$ 
 
 Now we can write 
-\begin{equation*}
+
+$$\begin{aligned}
 \vec{v} \cdot \vec{\sigma} = \ket{\lambda_+}\bra{\lambda_+} - \ket{\lambda_-}\bra{\lambda_-}
-\end{equation*}
+\end{aligned}$$
+
 Using the above along with Euler's formula we get
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \exp(i \theta \vec{v} \cdot \vec{\sigma}) &= \cos(\theta \vec{v} \cdot \vec{\sigma}) + i \sin(\theta \vec{v} \cdot \vec{\sigma}) \\
 &= \cos(\theta)\ket{\lambda_+}\bra{\lambda_+} + \cos(-\theta)\ket{\lambda_-}\bra{\lambda_-} + i \sin(\theta)\ket{\lambda_+}\bra{\lambda_+}+ i \sin(-\theta)\ket{\lambda_-}\bra{\lambda_-} \\
 &= \cos(\theta) \ket{\lambda_+}\bra{\lambda_+} + \cos(\theta) \ket{\lambda_-}\bra{\lambda_-} + i \sin(\theta) \ket{\lambda_+}\bra{\lambda_+}- i \sin(\theta) \ket{\lambda_-}\bra{\lambda_-} \\
 &= \cos(\theta) (\ket{\lambda_+}\bra{\lambda_+} +\ket{\lambda_-}\bra{\lambda_-} )+ i \sin(\theta) (\ket{\lambda_+}\bra{\lambda_+}- \ket{\lambda_-}\bra{\lambda_-}) \\
 &= \cos(\theta) I + i \sin(\theta)  \vec{v} \cdot \vec{\sigma}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 Well, it looks like we didn't need to calculate the eigenvectors for this proof, but I'm going to leave them in here in case we need them later. 
 
@@ -991,179 +1016,191 @@ Well, it looks like we didn't need to calculate the eigenvectors for this proof,
 **Exercise 2.36**
 
 The trace of a matrix is given by $\Tr(A) \equiv \sum_{i} A_{ii}$, therefore the trace of the Pauli matrices are
-\begin{equation*}
-\begin{split}
-\Tr(X) &= \Tr \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
-\Tr(Y) &= \Tr \left( \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
-\Tr(Z) &= \Tr \left( \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = 1 - 1 = 0 \\
-\Tr(I) &= \Tr \left( \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \right) = 1 + 1 = 2 \text{\qquad this will $=d$ where $d$ is the number of dimensions}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\Tr(X) &= \Tr \left( \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
+\Tr(Y) &= \Tr \left( \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
+\Tr(Z) &= \Tr \left( \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \right) = 1 - 1 = 0 \\
+\Tr(I) &= \Tr \left( \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) = 1 + 1 = 2 \text{\qquad this will $=d$ where $d$ is the number of dimensions}
+\end{aligned}$$
+
 
 
 **Exercise 2.37**
 
 From the definition of matrix multiplication we know that the matrix product $C=AB$ has entries defined by 
-\begin{equation*}
+
+$$\begin{aligned}
 C_{ij} = \sum_{k} A_{ik} B_{kj}
-\end{equation*}
+\end{aligned}$$
+
 and the matrix product $D=BA$ has entries defined by
-\begin{equation*}
+
+$$\begin{aligned}
 D_{ij} = \sum_{k} B_{ik} A_{kj}
-\end{equation*}
+\end{aligned}$$
+
 The trace of $AB$ is given by 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \Tr(AB) &= \sum_{i} C_{ii}  \\
 &= \sum_{i} \sum_{k} A_{ik} B_{ki} \\
 &= \sum_{i} \sum_{k} B_{ki} A_{ik} \\
 &= \sum_{k} D_{kk} \\
 &= \Tr(BA)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 
 **Exercise 2.38**
 
 From the definition of matrix addition we know that the matrix $C=A+B$ has entries defined by
-\begin{equation*}
+
+$$\begin{aligned}
 C_{ij} = A_{ij} + B_{ij}
-\end{equation*}
+\end{aligned}$$
+
 The trace of $A+B$ is
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \Tr(A+B) &= \sum_{i} C_{ii} \\
 &= \sum_{i} A_{ii} + B_{ii} \\
 &= \sum_{i} A_{ii} + \sum_{i'} B_{i'i'} \\
 &=\Tr(A) + \Tr(B)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 For arbitrary complex number $z$
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \Tr(zA) &= \sum_{i} zA_{ii} \\
 &= z \sum_{i} A_{ii} \\
 &= z \Tr(A)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 
 **Exercise 2.39**
 
 (1) in order to show that $(A,B)$ is an inner product we need to go back to section 2.1.4 to get the requirements for an inner product, which are: linear in the second argument, conjugate symmetry, and positive semi-definiteness. To check for linearity in the second argument let's look at
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 (A, zB) &= \Tr(A^\dagger zB) \\
 &= z \Tr(A^\dagger B) \\
 &= z (A, B)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 For conjugate symmetry 
-\begin{equation*}
-\begin{split}
-(A, B)^* &= \Tr(A^\dagger B)^* \\
-&= \Tr((A^T)^* B)^* \\
-&= \Tr(A^T B^*) \\
-&= \Tr((A^T B^*)^T) \\
+
+$$\begin{aligned}
+(A, B)^\ast &= \Tr(A^\dagger B)^\ast \\
+&= \Tr((A^T)^\ast B)^\ast \\
+&= \Tr(A^T B^\ast) \\
+&= \Tr((A^T B^\ast)^T) \\
 &= \Tr(A B^\dagger) \\
 &= \Tr(B^\dagger A) \\
 &= (B, A)
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 And finally positive semi-definiteness
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 (A, A) &= \Tr(A^\dagger A) \\
 &= \sum_{i} \sum_{k} A_{ik}^\dagger A_{ki} \\
-&= \sum_{i} \sum_{k} A^*_{ki}A_{ki} \\
+&= \sum_{i} \sum_{k} A^\ast_{ki}A_{ki} \\
 &= \sum_{i} \sum_{k} \abs{A_{ki} }^2 \geq 0
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 (2) if $L_V$ is a set of linear operators then for each operator in the set $A: V \rightarrow V$ and, per equation 2.12, can be represented as
-\begin{equation*}
+
+$$\begin{aligned}
 A \ket{v_j} = \sum_{i} A_{ij} \ket{v_i}
-\end{equation*}
+\end{aligned}$$
+
 with $\ket{v_1}, \dots, \ket{v_d}$ being an othernormal basis for $V$ which has $d$ elements. Therefore $A$ needs to be a $d \times d$ matrix. In order to form a basis set of linear operators that span $L_V$ there needs to be $d^2$ linearly independent elements in the set. Therefore $L_V$ has dimensions $d^2$. 
 
 (3) In order for the operators $A$ and $B$ to be linearly independent their inner product needs to be $0$. We know that
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 (A, B) &= \Tr(A^\dagger B) \\
 &= \Tr \left( \sum_{k} A^\dagger_{ik} B_{kj} \right) \\
 &= \sum_{ik} A^\dagger_{ik} B_{ki} \\
-&= \sum_{ik} A^*_{ki} B_{ki} 
-\end{split}
-\end{equation*}
+&= \sum_{ik} A^\ast _{ki} B_{ki} 
+\end{aligned}$$
+
 Looking at the above results, it can easily be seen that one way to insure that $(A,B)=0$ is to set at least one of the elements $A_{ij}$ or $B_{ij}$ to $0$ for each $ij$. Expanding this to the entire basis set, the set is guaranteed to be linearly independent if only one of the basis matrices has a non-zero element for each $ij$. Therefore the following is a possible orthonormal basis set for $L_V$
-\begin{equation*}
+
+$$\begin{aligned}
 (L_V)_{ij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
-\end{equation*}
+\end{aligned}$$
  
 
 **Exercise 2.40**
 
-\begin{equation*}
-\lbrack X,Y \rbrack = XY - YX = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\ 0 & i \end{bmatrix} = 2i \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = 2 i Z
-\end{equation*}
-\begin{equation*}
-\lbrack Y,Z \rbrack = YZ - ZY = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} - \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\ -i & 0 \end{bmatrix} = 2i \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = 2 i X
-\end{equation*}
-\begin{equation*}
-\lbrack Z,X \rbrack = ZX - XZ = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = 2 i \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = 2 i Y
-\end{equation*}
+$$\begin{aligned}
+\lbrack X,Y \rbrack = XY - YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = 2i \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = 2 i Z
+\end{aligned}$$
+
+$$\begin{aligned}
+\lbrack Y,Z \rbrack = YZ - ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} - \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = 2i \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = 2 i X
+\end{aligned}$$
+
+$$\begin{aligned}
+\lbrack Z,X \rbrack = ZX - XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = 2 i \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = 2 i Y
+\end{aligned}$$
 
 
 **Exercise 2.41**
 
-\begin{equation*}
-\{ X,Y \} = XY + YX = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} = 0
-\end{equation*}
-\begin{equation*}
-\{ Y,Z \} = YZ + ZY = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} = 0
-\end{equation*}
-\begin{equation*}
-\{ Z,X \} = ZX + XZ = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} = 0
-\end{equation*}
+$$\begin{aligned}
+\{ X,Y \} = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\end{aligned}$$
+
+$$\begin{aligned}
+\{ Y,Z \} = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\end{aligned}$$
+
+$$\begin{aligned}
+\{ Z,X \} = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\end{aligned}$$
 
 
 **Exercise 2.42**
 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
 \{A,B\} &= AB + BA \\
 \lbrack A,B\rbrack + \{A,B\} &= AB - BA + AB + BA = 2AB \\
 \Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \{A,B\} }{2}
-\end{split}
-\end{equation*}
+\end{aligned}$$
 
 
 **Exercise 2.43**
 
 Using the results from Exercises 2.19 and 2.40 - 2.42 we know that
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \sigma_j \sigma_k &= \frac{\lbrack \sigma_j,\sigma_k \rbrack+ \{\sigma_j,\sigma_k\} }{2} \\
 &= \frac{\sum_{l=1}^{3} 2 i \epsilon_{jkl} \sigma_l+ 2\delta_{jk} I }{2} \\
 &=\sum_{l=1}^{3}  i \epsilon_{jkl} \sigma_l + \delta_{jk} I
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 
 **Exercise 2.44**
 
 If $\lbrack A,B \rbrack = 0$ that means there must be a common orthonormal set of eigenvectors $\ket{i}$ for $A$ and $B$ such that $A=\sum_{i} a_i \ket{i}\bra{i}$ and $B=\sum_{i} b_i \ket{i}\bra{i}$. This means that
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \{A,B\}&=AB+BA \\
 &= \sum_{i} a_i \ket{i}\bra{i} \sum_{j} b_j \ket{j}\bra{j} +  \sum_{j} b_j \ket{j}\bra{j} a_i \ket{i}\bra{i}\\
-&= \sum_{ij} a_i b_j \ket{i}\braket{i | j}\bra{j} + a_i b_j \ket{j}\braket{j | i}\bra{i} \\
+&= \sum_{ij} a_i b_j \ket{i}\braket{i \vert j}\bra{j} + a_i b_j \ket{j}\braket{j \vert i}\bra{i} \\
 &= \sum_{ij} a_i b_j \delta_{ij} (\ket{i}\bra{j} + \ket{j}\bra{i} ) \\
 &= \sum_{i} 2 a_i b_i \ket{i}\bra{i}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for matrix $A$ to be invertible $0$ cannot be an eigenvalue of $A$ per the Invertible Matrix Theorem. Therefore $b_i = 0$ for all $i$ and so $B=0$. 
 
 
@@ -1180,16 +1217,16 @@ $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 **Exercise 2.47**
 
 If $A$ and $B$ are Hermitian it means that $A^\dagger = A$ and $B^\dagger=B$. With this in mind, we can check if $i \lbrack A,B \rbrack$ is Hermitian by taking the adjoint.
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 \left(i \lbrack A,B \rbrack \right)^\dagger &= \left(i AB - i BA \right)^\dagger \\
 &= -i (AB)^\dagger + i (BA)^\dagger \\
 &= -i B^\dagger A^\dagger + i A^\dagger B^\dagger \\
 &= -i BA + i AB \\
 &= i (AB - BA) \\
 &= i \lbrack A,B \rbrack
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Therefore $i \lbrack A,B \rbrack$ is Hermitian.
 
 
@@ -1200,13 +1237,13 @@ Polar decomposition is a method used to break a general linear operator up into 
 Similar to the case of $P$, $U$ is already one of the simpler matrix elements that polar decomposition is used to break a general linear operator up into. However, if desired $U$ can be written as $U=UI = IU$
 
 For Hermitian matrix $H$ we know that $H^\dagger = H$ and $H= \sum_{i} \lambda_i \ket{i}\bra{i}$ and therefore
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 H^\dagger H &= HH \\
-&= \sum_{ii'} \lambda_i \lambda_{i'} \ket{i}\braket{i | i'}\bra{i'} \\
+&= \sum_{ii'} \lambda_i \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} \\
 &= \sum_{i} \lambda_i^2 \ket{i}\bra{i}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 For polar decomposition  $H=UJ=KU$ where \\
 $J = \sqrt{H^\dagger H} = \sqrt{\sum_{i} \lambda_i^2 \ket{i}\bra{i}} = \sum_{i} \abs{\lambda_i} \ket{i}\bra{i} = K$\\
 To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv H \ket{i}  / \abs{\lambda_i} = \lambda_i \ket{i}/ \abs{\lambda_i}$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
@@ -1215,12 +1252,12 @@ To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i}
 **Exercise 2.49**
 
 Matrix $A$ is a normal matrix if $A^\dagger A = A A^\dagger$. It's spectral decomposition is $A=\sum_{i} \lambda_i \ket{i}\bra{i}$ therefore
-\begin{equation*}
-\begin{split}
-A^\dagger A &=  \sum_{ii'} \lambda_i^* \lambda_{i'} \ket{i}\braket{i | i'}\bra{i'} \\
+
+$$\begin{algined}
+A^\dagger A &=  \sum_{ii'} \lambda_i^* \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} \\
 &= \sum_{i} \abs{\lambda_i}^2 \ket{i}\bra{i}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 $J = \sqrt{A^\dagger A} = \sqrt{\sum_{i} \abs{\lambda_i}^2 \ket{i}\bra{i}} = \sum_{i} \abs{\lambda_i} \ket{i}\bra{i} = K$\\
 To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv A \ket{i}  / \abs{\lambda_i} = \lambda_i \ket{i}/ \abs{\lambda_i}$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. This differs from the results from the Hermitian matrix in Exercise 2.48 because $\lambda_i$ now can be complex and so $U$ not only represents the sign of $\lambda$ but also contains the direction in the complex plane. 
@@ -1228,110 +1265,109 @@ To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i}
 
 **Exercise 2.50**
 
-Let $A = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}$, therefore $A^\dagger = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$ and $A A^\dagger = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix}$. In order to find the square root of $A A^\dagger$, we'll first need to write the matrix in diagonal representation. 
+Let $A = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}$, therefore $A^\dagger = \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix}$ and $A A^\dagger = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix}$. In order to find the square root of $A A^\dagger$, we'll first need to write the matrix in diagonal representation. 
 
 Let's find the eigenvalues
-\begin{equation*}
-\begin{split}
-0 &= \abs{ \begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix} }\\
-&= \abs{ \begin{bmatrix} 1- \lambda & 1 \\ 1 & 2-\lambda \end{bmatrix}} \\
+
+$$\begin{aligned}
+0 &= \abs{ \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} }\\
+&= \abs{ \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix}} \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
 \Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4*1*1}}{2*1} = \frac{3 \pm \sqrt{5}}{2}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 Then let's find the eigenvectors
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 1 & 1 \\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\\
-&=  \begin{bmatrix} 1- \lambda & 1 \\ 1 & 2-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} (1- \lambda) x_1 +  x_2 \\ x_1 + (2-\lambda) x_2 \end{bmatrix} \\
-\Rightarrow \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} -1 \\ 1-\lambda_i \end{bmatrix}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}\\
+&=  \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} (1- \lambda) x_1 +  x_2 \\\ x_1 + (2-\lambda) x_2 \end{bmatrix} \\
+\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} -1 \\\ 1-\lambda_i \end{bmatrix}
+\end{aligned}$$
+
 
 Then we can write 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 K = \sqrt{A A^\dagger} &= \sum_{i} \sqrt{\lambda_i} \ket{e_i}\bra{e_i} \\
-&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} -1 \\ 1-\lambda_i \end{bmatrix} \begin{bmatrix} -1 & 1-\lambda_i \end{bmatrix} \\
-&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} 1 & -(1-\lambda_i) \\ -(1-\lambda_i) & (1-\lambda_i)^2 \end{bmatrix} \\
-&= \sum_{i}  \begin{bmatrix} \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \\ \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{(1-\lambda_i)^2\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \end{bmatrix} \\
-&= \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & 1 \\  1 & 3 \end{bmatrix} 
-\end{split}
-\end{equation*}
+&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} -1 \\\ 1-\lambda_i \end{bmatrix} \begin{bmatrix} -1 & 1-\lambda_i \end{bmatrix} \\
+&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} 1 & -(1-\lambda_i) \\\ -(1-\lambda_i) & (1-\lambda_i)^2 \end{bmatrix} \\
+&= \sum_{i}  \begin{bmatrix} \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \\\ \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{(1-\lambda_i)^2\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \end{bmatrix} \\
+&= \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & 1 \\\  1 & 3 \end{bmatrix} 
+\end{aligned}$$
 
-Next, let's find $A^\dagger A$ and do the same thing. $A ^\dagger A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}  = \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}$
+
+Next, let's find $A^\dagger A$ and do the same thing. $A ^\dagger A = \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}  = \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix}$
 
 Let's find the eigenvalues
-\begin{equation*}
-\begin{split}
-0 &= \abs{ \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix} }\\
-&= \abs{ \begin{bmatrix} 2- \lambda & 1 \\ 1 & 1-\lambda \end{bmatrix}} \\
+
+$$\begin{aligned}
+0 &= \abs{ \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} }\\
+&= \abs{ \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix}} \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
 \Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4*1*1}}{2*1} = \frac{3 \pm \sqrt{5}}{2}
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 
 Then let's find the eigenvectors
-\begin{equation*}
-\begin{split}
-\begin{bmatrix} 0 \\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}\\
-&=  \begin{bmatrix} 2- \lambda & 1 \\ 1 & 1-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
-&= \begin{bmatrix} (2- \lambda) x_1 +  x_2 \\ x_1 + (1-\lambda) x_2 \end{bmatrix} \\
-\Rightarrow \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} 1-\lambda_i \\ -1 \end{bmatrix}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\begin{bmatrix} 0 \\\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}\\
+&=  \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} (2- \lambda) x_1 +  x_2 \\\ x_1 + (1-\lambda) x_2 \end{bmatrix} \\
+\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} 1-\lambda_i \\\ -1 \end{bmatrix}
+\end{aligned}$$
+
 
 Then we can write 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 J = \sqrt{A^\dagger A} &= \sum_{i} \sqrt{\lambda_i} \ket{e_i}\bra{e_i} \\
-&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} 1-\lambda_i \\ -1 \end{bmatrix} \begin{bmatrix} 1-\lambda_i & -1 \end{bmatrix} \\
-&= \sum_{i}  \frac{\sqrt{\lambda_i}}{(1-\lambda_i)^2 + (1-\lambda_i)^2}\begin{bmatrix} 1 & -(1-\lambda_i) \\ -(1-\lambda_i) & 1 \end{bmatrix} \\
-&= \sum_{i}  \begin{bmatrix} \frac{(1-\lambda_i)^2\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \\ \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \end{bmatrix} \\
-&= \frac{1}{\sqrt{5}} \begin{bmatrix} 3 & 1 \\  1 & 2 \end{bmatrix} 
-\end{split}
-\end{equation*}
+&= \sum_{i}  \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2}\begin{bmatrix} 1-\lambda_i \\\ -1 \end{bmatrix} \begin{bmatrix} 1-\lambda_i & -1 \end{bmatrix} \\
+&= \sum_{i}  \frac{\sqrt{\lambda_i}}{(1-\lambda_i)^2 + (1-\lambda_i)^2}\begin{bmatrix} 1 & -(1-\lambda_i) \\\ -(1-\lambda_i) & 1 \end{bmatrix} \\
+&= \sum_{i}  \begin{bmatrix} \frac{(1-\lambda_i)^2\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \\\ \frac{-(1-\lambda_i)\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} & \frac{\sqrt{\lambda_i}}{1 + (1-\lambda_i)^2} \end{bmatrix} \\
+&= \frac{1}{\sqrt{5}} \begin{bmatrix} 3 & 1 \\\  1 & 2 \end{bmatrix} 
+\end{aligned}$$
+
 
 If $J$ is invertible, then $U=AJ^{-1}$. Let's check if it is invertible
-\begin{equation*}
-\begin{split}
-J^{-1} &= \begin{bmatrix} \frac{3}{\sqrt{5}} & \frac{1}{\sqrt{5}} \\  \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \end{bmatrix}^{-1} \\
-&= \frac{1}{\abs{J}} \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
-&= \frac{1}{\frac{2}{\sqrt{5}}\frac{3}{\sqrt{5}} -\frac{1}{\sqrt{5}} \frac{1}{\sqrt{5}} } \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
-&=\frac{1}{\frac{6-1}{5}\sqrt{5}} \begin{bmatrix} 2 & -1 \\  -1 & 3 \end{bmatrix} \\
-&=\frac{1}{\sqrt{5}} \begin{bmatrix} 2 & -1 \\  -1 & 3 \end{bmatrix}
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+J^{-1} &= \begin{bmatrix} \frac{3}{\sqrt{5}} & \frac{1}{\sqrt{5}} \\\  \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \end{bmatrix}^{-1} \\
+&= \frac{1}{\abs{J}} \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
+&= \frac{1}{\frac{2}{\sqrt{5}}\frac{3}{\sqrt{5}} -\frac{1}{\sqrt{5}} \frac{1}{\sqrt{5}} } \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
+&=\frac{1}{\frac{6-1}{5}\sqrt{5}} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix} \\
+&=\frac{1}{\sqrt{5}} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix}
+\end{aligned}$$
+
 To confirm $J$ is invertible check that $J^{-1}J = I$
-\begin{equation*}
-\begin{split}
-J^{-1}J &= \frac{1}{5} \begin{bmatrix} 2 & -1 \\  -1 & 3 \end{bmatrix} \begin{bmatrix} 3 & 1 \\  1 & 2 \end{bmatrix} \\
-&= \frac{1}{5} \begin{bmatrix} 5 & 0 \\  0 & 5 \end{bmatrix} \\
-&= \begin{bmatrix} 1 & 0 \\  0 & 1 \end{bmatrix} \\
+
+$$\begin{aligned}
+J^{-1}J &= \frac{1}{5} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix} \begin{bmatrix} 3 & 1 \\\  1 & 2 \end{bmatrix} \\
+&= \frac{1}{5} \begin{bmatrix} 5 & 0 \\\  0 & 5 \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 \\\  0 & 1 \end{bmatrix} \\
 &= I
-\end{split}
-\end{equation*}
+\end{aligned}$$
+
 So $J$ is invertible and therefore 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 U &= A J^{-1} \\
-&= \frac{1}{\sqrt{5}} \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2 & -1 \\  -1 & 3 \end{bmatrix}  \\
-&= \frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\  1 & 2 \end{bmatrix}
-\end{split}
-\end{equation*}
+&= \frac{1}{\sqrt{5}} \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix}  \\
+&= \frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmatrix}
+\end{aligned}$$
+
 
 Therefore
-\begin{equation*}
-\begin{split}
 
-A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\  1 & 2 \end{bmatrix}\right) \left(\frac{1}{\sqrt{5}} \begin{bmatrix} 3 & 1 \\  1 & 2 \end{bmatrix} \right) \\
-&= KU = \left( \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & 1 \\  1 & 3 \end{bmatrix} \right)\left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\  1 & 2 \end{bmatrix}\right)
-\end{split}
-\end{equation*}
+$$\begin{aligned}
+A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmatrix}\right) \left(\frac{1}{\sqrt{5}} \begin{bmatrix} 3 & 1 \\\  1 & 2 \end{bmatrix} \right) \\
+&= KU = \left( \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & 1 \\\  1 & 3 \end{bmatrix} \right)\left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmatrix}\right)
+\end{aligned}$$
+
 

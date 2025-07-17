@@ -6,19 +6,25 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 
 ### Linear Algebra - Key Concepts
 
-Qubit notation - Nomenclature and notation 
-* $\ket{0} = (1,0)$
-* $\ket{1} = (0,1)$
 
-Linear independence - section 2.1.1
-
-Basis set of vectors - section 2.1.1
-
-Matrix representation of an operator - section 2.1.2 
-* $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_j}$
-
-Definition of a linear operator - section 2.1.2
-* $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Qubit notation                       | Nomenclature and notation | $\ket{0} = (1,0)$, $\ket{1} = (0,1)$                                                                   |
+| Linear dependence/independence       | section 2.1.1             | A set of non-zero vectors are linearly dependent if there exist $a_1, \dots, a_n$ with $a_ \neq 0$ for at least one $i$ such that $a1 \ket{v_1} + \dots + a_n \ket{v_n} = 0$. The set is linearly independent if it is not linearly dependent. |
+| Basis set of vectors                 | section 2.1.1             | A set of linearly independent vectors which span a vector space                                        |
+| Matrix representation of an operator | section 2.1.2             | $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_j}$                                                              |
+| Definition of a linear operator      | section 2.1.2             | $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$                                    |
+| Pauli matrices and identity operator | section 2.13              | $I &= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} & X &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$ <br> $Y &= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} & Z &= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$ |
+| Inner product                        | section 2.1.4             | Definition: $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$ <br> Representation in complex $n$-space: $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$ <br> Requirements: <br> - linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$ <br> - conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^\ast$ <br> - positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$ <br> Vector orthogonality: the inner product of two vectors is zero when they are orthogonal|
+| Normalization                        | section 2.1.4             | Vector norm: $\Vert \ket{v} \Vert = \sqrt{\braket{v \vert v}}$ <br> Unit vector: $\ket{v}/\Vert \ket{v} \Vert$ |
+| Outer product representation         | section 2.1.4             | $A = \sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$                                     |
+| Characteristic function              | section 2.1.5             | Definition: $c(\lambda)= \text{det} \vert A - \lambda I \vert$ <br> Solutions to $c(\lambda)=0$ are the eigenvalues |
+| Diagonal representation              | section 2.1.5             | $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$ | 
+| Hermitian operator                   | section 2.1.5             | Definition: $H^\dagger = H$                                                                            |
+| Adjoint or Hermitian Conjugate       | section 2.1.6             | Definition: $\left(\ket{v}, A \ket{w} \right) = \left(A^\dagger \ket{v}, \ket{w} \right)$ <br> $A^\dagger = (A^\ast)^T$ |
+| Projector                            | section 2.1.6             | Definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$ <br> Orthogonal complement of P: $Q=I-P$               |
+| Normal operator                      | section 2.1.6             | Definition: $A$ is normal if $A^\dagger A = A A^\dagger$ <br> Spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis. |
+| Unitary operator                     | section 2.1.6             | Definition: $U^\dagger U = UU^\dagger = I$ <br> Outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ |
 
 Summation operator properties - not in the book
 * distributivity of scalar multiplication: $z \sum_i a_i = \sum_i z a_i$
@@ -28,30 +34,6 @@ Summation operator properties - not in the book
 Definition of matrix multiplication - not in the book
 * If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix the matrix product $C = AB$ is defined to be the $m \times p$ matrix with entries $c_{ij}=\sum_{k=1}^{n} a_{ik}b{kj}$
 
-Pauli matrices and identity operator - section 2.1.3
-
-$$\begin{aligned}
-I &= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \hspace{2cm} & X &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \hspace{17cm} \\
-Y &= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} & Z &= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} 
-\end{aligned}$$
-
-Inner product definition - section 2.1.4
-* $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$
-* in complex $n$-space, $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$
-
-Inner product requirements - section 2.1.4
-* linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$
-* conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^*$
-* positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$
- 
-Vector orthogonality - section 2.1.4
-* when two vectors are orthogonal their inner product is zero
-
-Vector norm - section 2.1.4
-* $\Vert \ket{v} \Vert = \sqrt{\braket{v \vert v}}$
-
-Unit vector - section 2.1.4
-* $\ket{v}/\Vert \ket{v} \Vert$
 
 Complex conjugate properties - some in section 2.1
 * definition: $\left(a + b i\right)^\ast = a - b i$
@@ -60,35 +42,6 @@ Complex conjugate properties - some in section 2.1
   * $(ab)^\ast = a^\ast b^\ast, \hspace{2cm}$ $(a/b)^\ast = a^\ast/b^\ast$ for $b^\ast \neq 0$
 * product of a complex number with its conjugate is equal to the square of the number's modulus
   * $a^\ast a = \| a \|^2$
-
-Outer product representation of an operator - section 2.1.4
-* $A = \sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$
-
-Characteristic function - section 2.1.5
-* $c(\lambda)= \text{det} \vert A - \lambda I \vert$
-* solutions to $c(\lambda)=0$ are the eigenvalues
-
-Diagonal representation - section 2.1.5
-* $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$
-
-Hermitian operator - section 2.1.6
-* definition: $H^\dagger = H$
-
-Adjoint or Hermitian Conjugate - section 2.16
-* definition: $\left(\ket{v}, A \ket{w} \right) = \left(A^\dagger \ket{v}, \ket{w} \right)$
-* $A^\dagger = (A^\ast)^T$
-
-Projector - section 2.1.6
-* projector definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$
-* orthogonal complement of P definition: $Q=I-P$
-
-Normal operator - section 2.1.6
-* definition: $A$ is normal if $A^\dagger A = A A^\dagger$
-* spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis.
-
-Unitary operator - section 2.1.6
-* definition: $U^\dagger U = UU^\dagger = I$
-* outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$
 
 
 ### Linear Algebra - Exercises

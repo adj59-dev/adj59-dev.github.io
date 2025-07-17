@@ -22,7 +22,8 @@ Definition of a linear operator - section 2.1.2
 
 Summation operator properties - not in the book
 * distributivity of scalar multiplication: $z \sum_i a_i = \sum_i z a_i$
-* commutativity when bounds are finite and independent: $\sum_{i=1}^n \sum_{j=1}^m f(i,j) = \sum_{j=1}^m \sum_{i=1}^n f(i,j)$
+* summation distributivity when bounds are finite and independent: $\left(\sum_{i=1}^n a_i\right) \left(\sum_{j=1}^m b_j \right) = \sum_{i=1}^n \sum_{j=1}^m a_i b_j$
+* summation commutativity when bounds are finite and independent: $\sum_{i=1}^n \sum_{j=1}^m f(i,j) = \sum_{j=1}^m \sum_{i=1}^n f(i,j)$
 
 Definition of matrix multiplication - not in the book
 * If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix the matrix product $C = AB$ is defined to be the $m \times p$ matrix with entries $c_{ij}=\sum_{k=1}^{n} a_{ik}b{kj}$
@@ -70,6 +71,17 @@ Characteristic function - section 2.1.5
 Diagonal representation - section 2.1.5
 * $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$
 
+Adjoint or Hermitian Conjugate - section 2.16
+* definition: $\left(\ket{v}, A \ket{w} \right) = \left(A^\dagger \ket{v}, \ket{w} \right)$
+* $A^\dagger = (A^\ast)^T$
+
+Projector - section 2.1.6
+* projector definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$
+* orthogonal complement of P definition: $Q=I-P$
+
+Normal matrices - section 2.1.6
+* definition: $A$ is normal if $A^\dagger A = A A^\dagger$
+* spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis.
 
 ### Linear Algebra - Exercises
   
@@ -408,75 +420,89 @@ In order for a matrix to have a diagonal representation, it needs to have an ort
 
 **Exercise 2.13**
 
+We are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far. 
+
+Solution:
+
 Taking equation 2.32 and plugging in $\ket{w}\bra{v}$ for $A$ we get
-\begin{equation*}
-\begin{split}
-((\ket{w}\bra{v})^\dagger \ket{x}, \ket{y}) &= (\ket{x}, (\ket{w}\bra{v}) \ket{y}) \\
-&= \braket{x | w} \braket{v | y} \\
-&= \braket{w | x}^* \braket{y | v}^* \\
-& = \braket{y | v}^* \braket{w | x}^* \\
-&= (\braket{y | v} \braket{w | x})^* \\
-&=(\ket{y}, (\ket{v}\bra{w}) \ket{x} )^*\\
-&= ((\ket{v}\bra{w}) \ket{x}, \ket{y})
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+((\ket{w}\bra{v})^\dagger \ket{x}, \ket{y}) &= (\ket{x}, (\ket{w}\bra{v}) \ket{y}) & \text{Adjoint definition}\\
+&= \braket{x \vert w} \braket{v \vert y} & \text{inner product definition}\\
+&= \braket{w \vert x}^\ast \braket{y \vert v}^\ast & \text{conjugate symmetry} \\
+& = \braket{y \vert v}^\ast \braket{w \vert x}^\ast & \text{scalar multiplication commutativity}\\
+&= (\braket{y \vert v} \braket{w \vert x})^\ast & \text{complex conjugate distributivity}\\
+&=(\ket{y}, (\ket{v}\bra{w}) \ket{x} )^\ast & \text{inner product definition}\\
+&= ((\ket{v}\bra{w}) \ket{x}, \ket{y}) & \text{conjugate symmetry}
+\end{aligned}$$
+
 From the first and last line it can be seen that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$.
 
 
 **Exercise 2.14**
 
+We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far.  
+
+Solution: 
+
 Plugging this operator into equation 2.32 we get
-\begin{equation*}
-\begin{split}
-\left(\left( \sum_{i} a_i A_i \right)^\dagger \ket{x}, \ket{y}\right) &= \left(\ket{x}, \left( \sum_{i} a_i A_i \right) \ket{y}\right) \\
-&= \left(\ket{x}, \left( \sum_{i} a_i A_i \right) \ket{y}\right) \\
-&= \sum_{i} a_i \left(\ket{x}, A_i \ket{y}\right) \\
-&= \sum_{i} a_i \left(A_i^\dagger \ket{x}, \ket{y}\right) \\
-&= \left(\left(\sum_{i} a_i^* A_i^\dagger \right) \ket{x}, \ket{y}\right) 
-\end{split}
-\end{equation*}
-From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right)^\dagger = \sum_{i} a_i^* A_i^\dagger$.
+
+$$\begin{aligned}
+\left(\left( \sum_{i} a_i A_i \right)^\dagger \ket{x}, \ket{y}\right) &= \left(\ket{x}, \left( \sum_{i} a_i A_i \right) \ket{y}\right) & \text{Adjoint definition}\\
+&= \sum_{i} a_i \left(\ket{x}, A_i \ket{y}\right) & \text{linearity in the second argument}\\
+&= \sum_{i} a_i \left(A_i^\dagger \ket{x}, \ket{y}\right) & \text{Adjoint definition}\\
+&= \left(\left(\sum_{i} a_i^\ast A_i^\dagger \right) \ket{x}, \ket{y}\right) & \text{conjugate-linearity in the first argument}
+\end{aligned}$$
+
+From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right)^\dagger = \sum_{i} a_i^\ast A_i^\dagger$.
 
 
 **Exercise 2.15**
 
+We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've identified so far.
+
 Lets plug $A^\dagger$ in for $A$ in equation 2.32
-\begin{equation*}
-\begin{split}
-\left(\left( A^\dagger \right)^\dagger \ket{x}, \ket{y}\right) &= \left(\ket{x}, \left( A^\dagger \right) \ket{y}\right) \\
-&= \left(\left( A^\dagger \right) \ket{y}, \ket{x}\right)^* \\
-&= \left(\ket{y}, A \ket{x}\right)^* \\
-&= \left(A \ket{x}, \ket{y} \right)
-\end{split}
-\end{equation*}
+
+$$\begin{aligned}
+\left(\left( A^\dagger \right)^\dagger \ket{x}, \ket{y}\right) &= \left(\ket{x}, \left( A^\dagger \right) \ket{y}\right) & \text{Adjoint definition}\\
+&= \left(\left( A^\dagger \right) \ket{y}, \ket{x}\right)^\ast & \text{conjugate symmetry}\\
+&= \left(\ket{y}, A \ket{x}\right)^\ast & \text{Adjoint definition}\\
+&= \left(A \ket{x}, \ket{y} \right) & \text{conjugate symmetry}
+\end{aligned}$$
+
 From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 
 
 **Exercise 2.16**
 
+We are asked to explor a propertly of projector $P$. The definition of $P$ can be found in equaiton 2.35.
+
+Solution:
+
 From equation 2.35 we know that $P$ is defined as $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ and so $P^2$ is 
-\begin{equation*}
-\begin{split}
+
+$$\begin{aligned}
 P^2 &= PP \\
-&= \sum_{i=1}^k \ket{i} \bra{i} \sum_{j=1}^k \ket{j} \bra{j} \\
-&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \braket{i | j} \bra{j} \\
-&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \bra{j} \delta_{ij} \\
-&= \sum_{i=1}^k  \ket{i} \bra{i} \\
-&= P
-\end{split}
-\end{equation*}
+&= \sum_{i=1}^k \ket{i} \bra{i} \sum_{j=1}^k \ket{j} \bra{j} & \text{definition of $P$}\\
+&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \braket{i \vert j} \bra{j} & \text{distributivity}\\
+&= \sum_{i=1}^k \sum_{j=1}^k  \ket{i} \bra{j} \delta_{ij} & \text{vector orthogonality}\\
+&= \sum_{i=1}^k  \ket{i} \bra{i} & \text{apply the delta function}\\
+&= P & \text{definition of $P$}
+\end{aligned}$$
 
 
 **Exercise 2.17**
 
+In this exercise we explore the relationship between normal and Hermitian matrices.
+
 Operator $A$ is a normal matrix if is diagonal with respect to some orthonormal basis (per spectral decomposition). Therefore $A$ can be written as $A=\sum_{i} \lambda_{i} \ket{i} \bra{i}$ where $\lambda_{i}$ are the eigenvalues of $A$ and $\ket{i}$ is an orthonormal basis. It then follows that
-\begin{equation*}
-\begin{split}
+
+\begin{aligned}
 A^\dagger &= \left(\sum_{i} \lambda_{i} \ket{i} \bra{i}\right)^\dagger \\
 &= \sum_{i} \lambda_{i}^* \left(\ket{i} \bra{i}\right)^\dagger \\
 &= \sum_{i} \lambda_{i}^* \ket{i} \bra{i}
-\end{split}
-\end{equation*}
+\end{aligned}
+
 Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can been seen that this is only the case when $\lambda_i^* = \lambda_i$, i.e. when the operator only has real eigenvalues.
 
 

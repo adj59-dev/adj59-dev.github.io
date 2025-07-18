@@ -1043,7 +1043,12 @@ $$\begin{aligned}
 
 **Exercise 2.35**
 
-It is not explicitly stated, but based on the comment in the parentheses I am going to assume $\sigma_i$ are the Pauli matrices. Which means 
+In this exercise you will confirm the exponential of the Pauli matrices. To do this, you'll need to find the diagonal representation of $\vec{v} \cdot \vec{\sigma}$, then use Euler's formula and the operator function calculation.
+
+<details>
+<summary>Solution</summary>
+
+First let's calculate $\vec{v} \cdot \vec{\sigma}$, where $\vec{\sigma}$ are the Pauli matrices. 
 
 $$\begin{aligned}
 \vec{v} \cdot \vec{\sigma} &\equiv \sum_{i=1}^{3} v_i \sigma_i \\
@@ -1095,21 +1100,32 @@ $$\begin{aligned}
 
 Well, it looks like we didn't need to calculate the eigenvectors for this proof, but I'm going to leave them in here in case we need them later. 
 
+</details>
 
 **Exercise 2.36**
 
-The trace of a matrix is given by $\Tr(A) \equiv \sum_{i} A_{ii}$, therefore the trace of the Pauli matrices are
+In section 2.1.8 the authors introduce the concept of the trace. Use the definition of the trace to calculate the trace of the Pauli matrices. 
+
+<details>
+<summary>Solution</summary>
+
+The trace of a matrix is given by $\text{tr}(A) \equiv \sum_{i} A_{ii}$, therefore the trace of the Pauli matrices are
 
 $$\begin{aligned}
-\Tr(X) &= \Tr \left( \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
-\Tr(Y) &= \Tr \left( \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
-\Tr(Z) &= \Tr \left( \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \right) = 1 - 1 = 0 \\
-\Tr(I) &= \Tr \left( \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) = 1 + 1 = 2 \text{\qquad this will $=d$ where $d$ is the number of dimensions}
+\text{tr}(X) &= \text{tr} \left( \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
+\text{tr}(Y) &= \text{tr}\left( \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \right) = 0 + 0 = 0 \\
+\text{tr}(Z) &= \text{tr} \left( \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \right) = 1 - 1 = 0 \\
+\text{tr}(I) &= \text{tr} \left( \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) = 1 + 1 = 2 & \text{this will $=d$ where $d$ is the dimension}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.37**
+
+For this exercise you use the definition of the trace and the definition of matrix multiplication to demonstrate that $\text{tr}(AB) = \text{tr}(BA)$.
+
+<details>
+<summary>Solution</summary>
 
 From the definition of matrix multiplication we know that the matrix product $C=AB$ has entries defined by 
 
@@ -1126,16 +1142,21 @@ D_{ij} = \sum_{k} B_{ik} A_{kj}
 The trace of $AB$ is given by 
 
 $$\begin{aligned}
-\Tr(AB) &= \sum_{i} C_{ii}  \\
-&= \sum_{i} \sum_{k} A_{ik} B_{ki} \\
-&= \sum_{i} \sum_{k} B_{ki} A_{ik} \\
-&= \sum_{k} D_{kk} \\
-&= \Tr(BA)
+\text{tr}(AB) &= \sum_{i} C_{ii}  & \text{definition of trace}\\
+&= \sum_{i} \sum_{k} A_{ik} B_{ki} & \text{definition of matrix multiplication} \\
+&= \sum_{i} \sum_{k} B_{ki} A_{ik} & \text{scalar multiplication commutativity}\\
+&= \sum_{k} D_{kk} & \text{definition of matrix multiplication} \\
+&= \text{tr}(BA) & \text{definition of trace}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.38**
+
+For this exercise you use the definition of the trace and the definition of matrix addition to demonstrate that $\text{tr}(A+B) = \text{tr}(A) + \text{tr}(B)$. You will also use the definition of the trace to demonstrate that $\text{tr}(zA) = z \text{tr}(A)$.
+
+<details>
+<summary>Solution</summary>
 
 From the definition of matrix addition we know that the matrix $C=A+B$ has entries defined by
 
@@ -1146,52 +1167,53 @@ C_{ij} = A_{ij} + B_{ij}
 The trace of $A+B$ is
 
 $$\begin{aligned}
-\Tr(A+B) &= \sum_{i} C_{ii} \\
-&= \sum_{i} A_{ii} + B_{ii} \\
-&= \sum_{i} A_{ii} + \sum_{i'} B_{i'i'} \\
-&=\Tr(A) + \Tr(B)
+\text{tr}(A+B) &= \text{tr}(C) \\
+&= \sum_{i} C_{ii} & \text{definition of trace}\\
+&= \sum_{i} A_{ii} + B_{ii} & \text{definition of matrix addition} \\
+&= \sum_{i} A_{ii} + \sum_{i} B_{ii} & \text{summation associativity}\\
+&=\text{tr}(A) + \text{tr}(B) & \text{definition of trace}
 \end{aligned}$$
 
 
 For arbitrary complex number $z$
 
 $$\begin{aligned}
-\Tr(zA) &= \sum_{i} zA_{ii} \\
-&= z \sum_{i} A_{ii} \\
-&= z \Tr(A)
+\text{tr}(zA) &= \sum_{i} zA_{ii} & \text{definition of trace}\\
+&= z \sum_{i} A_{ii} & \text{summation distributivity}\\
+&= z \text{tr}(A) & \text{definition of trace}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.39**
 
 (1) in order to show that $(A,B)$ is an inner product we need to go back to section 2.1.4 to get the requirements for an inner product, which are: linear in the second argument, conjugate symmetry, and positive semi-definiteness. To check for linearity in the second argument let's look at
 
 $$\begin{aligned}
-(A, zB) &= \Tr(A^\dagger zB) \\
-&= z \Tr(A^\dagger B) \\
+(A, zB) &= \text{tr}(A^\dagger zB) \\
+&= z \text{tr}(A^\dagger B) \\
 &= z (A, B)
 \end{aligned}$$
 
 For conjugate symmetry 
 
 $$\begin{aligned}
-(A, B)^\ast &= \Tr(A^\dagger B)^\ast \\
-&= \Tr((A^T)^\ast B)^\ast \\
-&= \Tr(A^T B^\ast) \\
-&= \Tr((A^T B^\ast)^T) \\
-&= \Tr(A B^\dagger) \\
-&= \Tr(B^\dagger A) \\
+(A, B)^\ast &= \text{tr}(A^\dagger B)^\ast \\
+&= \text{tr}((A^T)^\ast B)^\ast \\
+&= \text{tr}(A^T B^\ast) \\
+&= \text{tr}((A^T B^\ast)^T) \\
+&= \text{tr}(A B^\dagger) \\
+&= \text{tr}(B^\dagger A) \\
 &= (B, A)
 \end{aligned}$$
 
 And finally positive semi-definiteness
 
 $$\begin{aligned}
-(A, A) &= \Tr(A^\dagger A) \\
+(A, A) &= \text{tr}(A^\dagger A) \\
 &= \sum_{i} \sum_{k} A_{ik}^\dagger A_{ki} \\
 &= \sum_{i} \sum_{k} A^\ast_{ki}A_{ki} \\
-&= \sum_{i} \sum_{k} \abs{A_{ki} }^2 \geq 0
+&= \sum_{i} \sum_{k} \vert A_{ki} \vert^2 \geq 0
 \end{aligned}$$
 
 
@@ -1206,16 +1228,16 @@ with $\ket{v_1}, \dots, \ket{v_d}$ being an othernormal basis for $V$ which has 
 (3) In order for the operators $A$ and $B$ to be linearly independent their inner product needs to be $0$. We know that
 
 $$\begin{aligned}
-(A, B) &= \Tr(A^\dagger B) \\
-&= \Tr \left( \sum_{k} A^\dagger_{ik} B_{kj} \right) \\
+(A, B) &= \text{tr} (A^\dagger B) \\
+&= \text{tr} \left( \sum_{k} A^\dagger_{ik} B_{kj} \right) \\
 &= \sum_{ik} A^\dagger_{ik} B_{ki} \\
-&= \sum_{ik} A^\ast _{ki} B_{ki} 
+&= \sum_{ik} A^\ast_{ki} B_{ki} 
 \end{aligned}$$
 
 Looking at the above results, it can easily be seen that one way to insure that $(A,B)=0$ is to set at least one of the elements $A_{ij}$ or $B_{ij}$ to $0$ for each $ij$. Expanding this to the entire basis set, the set is guaranteed to be linearly independent if only one of the basis matrices has a non-zero element for each $ij$. Therefore the following is a possible orthonormal basis set for $L_V$
 
 $$\begin{aligned}
-(L_V)_{ij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
+L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}} = \ket{v_{j}}\bra{v_{i}}
 \end{aligned}$$
  
 
@@ -1254,9 +1276,9 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
-\{A,B\} &= AB + BA \\
-\lbrack A,B\rbrack + \{A,B\} &= AB - BA + AB + BA = 2AB \\
-\Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \{A,B\} }{2}
+\\{A,B\\} &= AB + BA \\
+\lbrack A,B\rbrack + \\{A,B\\} &= AB - BA + AB + BA = 2AB \\
+\Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \\{A,B\\} }{2}
 \end{aligned}$$
 
 
@@ -1328,8 +1350,8 @@ H^\dagger H &= HH \\
 \end{aligned}$$
 
 For polar decomposition  $H=UJ=KU$ where \\
-$J = \sqrt{H^\dagger H} = \sqrt{\sum_{i} \lambda_i^2 \ket{i}\bra{i}} = \sum_{i} \abs{\lambda_i} \ket{i}\bra{i} = K$\\
-To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv H \ket{i}  / \abs{\lambda_i} = \lambda_i \ket{i}/ \abs{\lambda_i}$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
+$J = \sqrt{H^\dagger H} = \sqrt{\sum_{i} \lambda_i^2 \ket{i}\bra{i}} = \sum_{i} \vert\lambda_i}\vert \ket{i}\bra{i} = K$\\
+To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv H \ket{i}  / \vert\lambda_i\vert = \lambda_i \ket{i}/ \vert\lambda_i\vert$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
 
 
 **Exercise 2.49**
@@ -1338,12 +1360,12 @@ Matrix $A$ is a normal matrix if $A^\dagger A = A A^\dagger$. It's spectral deco
 
 $$\begin{algined}
 A^\dagger A &=  \sum_{ii'} \lambda_i^* \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} \\
-&= \sum_{i} \abs{\lambda_i}^2 \ket{i}\bra{i}
+&= \sum_{i} \vert\lambda_i\vert^2 \ket{i}\bra{i}
 \end{aligned}$$
 
 
-$J = \sqrt{A^\dagger A} = \sqrt{\sum_{i} \abs{\lambda_i}^2 \ket{i}\bra{i}} = \sum_{i} \abs{\lambda_i} \ket{i}\bra{i} = K$\\
-To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv A \ket{i}  / \abs{\lambda_i} = \lambda_i \ket{i}/ \abs{\lambda_i}$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. This differs from the results from the Hermitian matrix in Exercise 2.48 because $\lambda_i$ now can be complex and so $U$ not only represents the sign of $\lambda$ but also contains the direction in the complex plane. 
+$J = \sqrt{A^\dagger A} = \sqrt{\sum_{i} \vert\lambda_i\vert^2 \ket{i}\bra{i}} = \sum_{i} \vert\lambda_i\vert \ket{i}\bra{i} = K$\\
+To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv A \ket{i}  / \vert\lambda_i\vert = \lambda_i \ket{i}/ \vert\lambda_i\vert$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. This differs from the results from the Hermitian matrix in Exercise 2.48 because $\lambda_i$ now can be complex and so $U$ not only represents the sign of $\lambda$ but also contains the direction in the complex plane. 
 
 
 **Exercise 2.50**
@@ -1353,12 +1375,12 @@ Let $A = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}$, therefore $A^\dagger = 
 Let's find the eigenvalues
 
 $$\begin{aligned}
-0 &= \abs{ \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} }\\
-&= \abs{ \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix}} \\
+0 &= \vert \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \vert\\
+&= \vert \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix}\vert \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
-\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4*1*1}}{2*1} = \frac{3 \pm \sqrt{5}}{2}
+\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4 \* 1 \* 1}}{2 \* 1} = \frac{3 \pm \sqrt{5}}{2}
 \end{aligned}$$
 
 
@@ -1388,8 +1410,8 @@ Next, let's find $A^\dagger A$ and do the same thing. $A ^\dagger A = \begin{bma
 Let's find the eigenvalues
 
 $$\begin{aligned}
-0 &= \abs{ \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} }\\
-&= \abs{ \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix}} \\
+0 &= \vert \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \vert\\
+&= \vert \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix} \vert \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\

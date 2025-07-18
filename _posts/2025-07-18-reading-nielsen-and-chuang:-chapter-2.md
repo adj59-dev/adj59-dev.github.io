@@ -25,6 +25,12 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 | Projector                            | section 2.1.6             | Definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$ <br> Orthogonal complement of P: $Q=I-P$               |
 | Normal operator                      | section 2.1.6             | Definition: $A$ is normal if $A^\dagger A = A A^\dagger$ <br> Spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis. |
 | Unitary operator                     | section 2.1.6             | Definition: $U^\dagger U = UU^\dagger = I$ <br> Outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ |
+| Positive operator                    | section 2.1.6             | Definition: for any vector $\ket{v}$, $(\ket{v}, A \ket{v})$ is a real, non-negative number <br> All positive operators are Hermitian |
+| Tensor product properties            | section 2.1.7             | For a scalar $z$ and elements $\ket{v}$ of $V$ and $\ket{w}$ of $W$: <br> $z(\ket{v} \otimes \ket{w}) = (z \ket{v} ) \otimes \ket{w} = \ket{v} \otimes (z \ket{w})$ <br> $(\ket{v_1} + \ket{v_2})\otimes\ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$ <br> $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$|
+| Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} + B \ket{w}$                        |
+|Inner product on $V \otimes W$        | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_w}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}{w_i \vert w_j'}$ | 
+|Kronecker product                     | section 2.1.7             |                                                                                                          |
+
 
 Summation operator properties - not in the book
 * distributivity of scalar multiplication: $z \sum_i a_i = \sum_i z a_i$
@@ -695,6 +701,11 @@ By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector
 
 **Exercise 2.24**
 
+For this exercise follow the hint’s advice and find Hermitian operators $B$ and $C$ that satisfies $A=B+iC$ for an arbitrary operator $A$. Then use the definition of a positive operator to find what constraints there are on $B$ and $C$ if $A$ is a positive operator. You will find that $A$ must be Hermitian. 
+
+<details>
+<summary>Solution</summary>
+
 First we need to find a $B$ and $C$ that satisfy these requirements. Let's start by finding $A^\dagger$ in terms of $B$ and $C$, keeping in mind that $B^\dagger = B$ and $C^\dagger = C$, since they are Hermitian. 
 
 $$\begin{aligned}
@@ -722,18 +733,25 @@ Therefore $B$ and $C$ are Hermitian.
 
 If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. Plugging in $A=B+iC$ we get $\braket{v \vert A \vert v} = \braket{v \vert B+iC \vert v} = \braket{v \vert B \vert v} + i \braket{v \vert C \vert v}$, which is only a real number when $C=0$. Therefore $A=B$ which is Hermitian.
 
+</details>
 
 **Exercise 2.25**
+
+To show that $A^\dagger A$ is positive, use the definition of a positive operator, equation 2.32, and the positive semi-definiteness of the inner product.
+
+<details>
+<summary>Solution</summary>
 
 In order for $A^\dagger A$ to be positive $\left(\ket{v}, A^\dagger A \ket{v}\right)$ must be a real, non-negative number. 
 
 $$\begin{aligned}
-\left(\ket{v}, A^\dagger A \ket{v}\right) &= \left((A^\dagger)^\dagger \ket{v}, A \ket{v}\right) \\
-&= \left(A \ket{v}, A \ket{v}\right)
+\left(\ket{v}, A^\dagger A \ket{v}\right) &= \left((A^\dagger)^\dagger \ket{v}, A \ket{v}\right) & \text{equation 2.32} \\
+&= \left(A \ket{v}, A \ket{v}\right) & \text{from exercise 2.15}
 \end{aligned}$$
 
 Due to the positive semi-definiteness of inner products, we know that $\left(A \ket{v}, A \ket{v}\right) \geq 0$ with equality if and only if $A \ket{v} = 0$. Therefore $A^\dagger A$ is positive.
 
+</details>
 
 **Exercise 2.26**
 

@@ -1187,33 +1187,39 @@ $$\begin{aligned}
 
 **Exercise 2.39**
 
+This exercise has multiple parts. For the first part, you need to show that $(\cdot, \cdot)$ on $L_V \times L_V$ is an inner product using the requirements listed in section 2.1.4 and the Hilbert-Schmidt inner product defined in equation 2.65. Then you need to demonstrate that $L_V$ has dimensions $d^2$ by finding how many linear independent elements there are in the set of operators that span $L_V$. Finally, you need to find an orthonormal basis of Hermitian matrices for $L_V$. This can be done by taking the inner product of two arbitrary linear operators in $L_V$ and identifying what requirements are needed to make them orthonormal. 
+
+<details>
+<summary>Solution</summary>
+
 (1) in order to show that $(A,B)$ is an inner product we need to go back to section 2.1.4 to get the requirements for an inner product, which are: linear in the second argument, conjugate symmetry, and positive semi-definiteness. To check for linearity in the second argument let's look at
 
 $$\begin{aligned}
-(A, zB) &= \text{tr}(A^\dagger zB) \\
-&= z \text{tr}(A^\dagger B) \\
-&= z (A, B)
+(A, zB) &= \text{tr}(A^\dagger zB) & \text{equation 2.65} \\
+&= z \text{tr}(A^\dagger B) & \text{equation 2.64}\\
+&= z (A, B) & \text{equation 2.65}
 \end{aligned}$$
 
 For conjugate symmetry 
 
 $$\begin{aligned}
-(A, B)^\ast &= \text{tr}(A^\dagger B)^\ast \\
-&= \text{tr}((A^T)^\ast B)^\ast \\
-&= \text{tr}(A^T B^\ast) \\
-&= \text{tr}((A^T B^\ast)^T) \\
-&= \text{tr}(A B^\dagger) \\
-&= \text{tr}(B^\dagger A) \\
-&= (B, A)
+(A, B)^\ast &= \text{tr}(A^\dagger B)^\ast & \text{equation 2.65} \\
+&= \text{tr}((A^T)^\ast B)^\ast & \text{because $M^\dagger = (M^\ast)^T$} \\
+&= \text{tr}(A^T B^\ast) & \text{distributivity of complex conjugation}\\
+&= \text{tr}((A^T B^\ast)^T) & \text{because $\text{tr}(M) = \text{tr}(M^T)$}\\
+&= \text{tr}((A^T)^T (B^\ast)^T) & \text{distributivity of transpose}\\
+&= \text{tr}(A B^\dagger) & \text{because $M^\dagger = (M^\ast)^T$ and $M = (M^T)^T$}\\
+&= \text{tr}(B^\dagger A) & \text{equation 2.62}\\
+&= (B, A) & \text{equation 2.65}
 \end{aligned}$$
 
 And finally positive semi-definiteness
 
 $$\begin{aligned}
-(A, A) &= \text{tr}(A^\dagger A) \\
-&= \sum_{i} \sum_{k} A_{ik}^\dagger A_{ki} \\
-&= \sum_{i} \sum_{k} A^\ast_{ki}A_{ki} \\
-&= \sum_{i} \sum_{k} \vert A_{ki} \vert^2 \geq 0
+(A, A) &= \text{tr}(A^\dagger A) & \text{equation 2.65} \\
+&= \sum_{i} \sum_{k} A_{ik}^\dagger A_{ki} & \text{definition of matrix multiplication}  \\
+&= \sum_{i} \sum_{k} A^\ast_{ki}A_{ki} & \text{because $M^\dagger = (M^\ast)^T$} \\
+&= \sum_{i} \sum_{k} \vert A_{ki} \vert^2 \geq 0 
 \end{aligned}$$
 
 
@@ -1228,20 +1234,26 @@ with $\ket{v_1}, \dots, \ket{v_d}$ being an othernormal basis for $V$ which has 
 (3) In order for the operators $A$ and $B$ to be linearly independent their inner product needs to be $0$. We know that
 
 $$\begin{aligned}
-(A, B) &= \text{tr} (A^\dagger B) \\
-&= \text{tr} \left( \sum_{k} A^\dagger_{ik} B_{kj} \right) \\
-&= \sum_{ik} A^\dagger_{ik} B_{ki} \\
-&= \sum_{ik} A^\ast_{ki} B_{ki} 
+(A, B) &= \text{tr} (A^\dagger B) & \text{equation 2.65} \\
+&= \text{tr} \left( \sum_{k} A^\dagger_{ik} B_{kj} \right) & \text{definition of matrix multiplication} \\
+&= \sum_{ik} A^\dagger_{ik} B_{ki} & \text{definition of trace}\\
+&= \sum_{ik} A^\ast_{ki} B_{ki} & \text{because $M^\dagger = (M^\ast)^T$}
 \end{aligned}$$
 
 Looking at the above results, it can easily be seen that one way to insure that $(A,B)=0$ is to set at least one of the elements $A_{ij}$ or $B_{ij}$ to $0$ for each $ij$. Expanding this to the entire basis set, the set is guaranteed to be linearly independent if only one of the basis matrices has a non-zero element for each $ij$. Therefore the following is a possible orthonormal basis set for $L_V$
 
 $$\begin{aligned}
-L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}} = \ket{v_{j}}\bra{v_{i}}
+L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}} 
 \end{aligned}$$
- 
+
+ </details>
 
 **Exercise 2.40**
+
+In section 2.19 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
+
+<details>
+<summary>Solution</summary>
 
 $$\begin{aligned}
 \lbrack X,Y \rbrack = XY - YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = 2i \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = 2 i Z
@@ -1255,24 +1267,35 @@ $$\begin{aligned}
 \lbrack Z,X \rbrack = ZX - XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = 2 i \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = 2 i Y
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.41**
 
+In this exercise you will use the definition of the anti-commutator to verify anti-commutation relations of the Pauli matrices.
+
+<details>
+<summary>Solution</summary>
+
 $$\begin{aligned}
-\{ X,Y \} = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\\{ X,Y \\} = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\{ Y,Z \} = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\\{ Y,Z \\} = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\{ Z,X \} = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\\{ Z,X \\} = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.42**
 
+In this exercise you will use the definition of the commutator and anti-commutator to verify equation 2.77.
+
+<details>
+<summary>Solution</summary>
 
 $$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
@@ -1281,18 +1304,24 @@ $$\begin{aligned}
 \Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \\{A,B\\} }{2}
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.43**
 
-Using the results from Exercises 2.19 and 2.40 - 2.42 we know that
+To verify equation 2.78 you will need to use the results from exercises 2.19, 2.41, and 2.42.
+
+<details>
+<summary>Solution</summary>
+
+Starting with equation 2.77 we know that
 
 $$\begin{aligned}
-\sigma_j \sigma_k &= \frac{\lbrack \sigma_j,\sigma_k \rbrack+ \{\sigma_j,\sigma_k\} }{2} \\
-&= \frac{\sum_{l=1}^{3} 2 i \epsilon_{jkl} \sigma_l+ 2\delta_{jk} I }{2} \\
-&=\sum_{l=1}^{3}  i \epsilon_{jkl} \sigma_l + \delta_{jk} I
+\sigma_j \sigma_k &= \frac{\lbrack \sigma_j,\sigma_k \rbrack+ \\{\sigma_j,\sigma_k\\} }{2} & \text{equation 2.77}\\
+&= \frac{\sum_{l=1}^{3} 2 i \epsilon_{jkl} \sigma_l+ 2\delta_{jk} I }{2} & \text{exercise 2.19 and 2.41}\\
+&=\sum_{l=1}^{3}  i \epsilon_{jkl} \sigma_l + \delta_{jk} I & \text{simplify}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.44**
 

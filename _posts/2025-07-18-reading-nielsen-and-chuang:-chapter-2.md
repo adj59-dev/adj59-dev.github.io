@@ -30,7 +30,7 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 | Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} + B \ket{w}$                        |
 | Inner product on $V \otimes W$       | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_w}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}{w_i \vert w_j'}$ | 
 | Kronecker product                    | section 2.1.7             |                                                                                                          |
-| k-fold tensor product                | section 2.1.7             | $\ket{\psi}^{\otimes k}$ means $\ket{\psi}$ tensored with itself $k$ times <br> Example: $\ket{\psi}^{\otimes 3} = \ket{\psi} \otimes \ket{\psi} \otimes \ket{\psi}$ |
+| Tensor power notation                | section 2.1.7             | $\ket{\psi}^{\otimes k}$ means $\ket{\psi}$ tensored with itself $k$ times <br> Example: $\ket{\psi}^{\otimes 3} = \ket{\psi} \otimes \ket{\psi} \otimes \ket{\psi}$ |
 | Operator functions                   | section 2.1.8             | For $A=\sum_{a} a \ket{a} \bra{a}$, $f(A) = \sum_{a} f(a) \ket{a} \bra{a}$                               |
 | Trace of a matrix                    | section 2.1.8             | Definition: $\text{tr}(A) = \sum_i A_{ii}$ <br> $\text{tr}(AB)=\text{tr}(BA)$ <br> $\text{tr}(A+B)=\text{tr}(A) + \text{tr}(B)$              |
 | Hilbert-Schmidt inner productor      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
@@ -744,6 +744,11 @@ Due to the positive semi-definiteness of inner products, we know that $\left(A \
 
 **Exercise 2.26**
 
+In section 2.1.7 the authors introduce the concept of tensor products. In this exercise you will gain experience with tensor power notation and the Kronecker product. 
+
+<details>
+<summary>Solution</summary>
+
 Written as a tensor products, 
 
 $$\begin{aligned}
@@ -776,9 +781,14 @@ $$\begin{aligned}
 &= \frac{1}{2 \sqrt{2}} \begin{bmatrix} 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \\\ 1 \end{bmatrix} 
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.27**
+
+This exercise is just further practice with the Kronecker product. To check if the tensor product is commutative compare your results from (b) and (c).
+
+<details>
+<summary>Solution</summary>
 
 (a) tensor product of $X$ and $Z$
 
@@ -812,8 +822,14 @@ X \otimes I &= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \otimes \begin{bmat
 
 By comparing (b) and (c) we can see that the tensor product is not commutative.
 
+</details>
 
 **Exercise 2.28**
+
+For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
+
+<details>
+<summary>Solution</summary>
 
 Complex Conjugation
 
@@ -839,17 +855,23 @@ therefore transpose distributes over the tensor product.
 
 Adjoint 
 
-$\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right)^T=\left( A^\ast \otimes B^* \right)^T= (A^\ast)^T \otimes (B^\ast)^T =A^\dagger \otimes B^\dagger$ therefore adjoint distributes over the tensor product.
+$\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right)^T=\left( A^\ast \otimes B^\ast \right)^T= (A^\ast)^T \otimes (B^\ast)^T =A^\dagger \otimes B^\dagger$ therefore adjoint distributes over the tensor product.
 
+</details>
 
 **Exercise 2.29**
+
+Use the definition of a unitary operator to show that the tensor product of two unitary operators is unitary.
+
+<details>
+<summary>Solution</summary>
 
 We need to show $(A \otimes B)^\dagger (A \otimes B) = I$ when $A$ and $B$ are both unitary. 
 
 $$\begin{aligned}
-(A \otimes B)^\dagger (A \otimes B) &= (A^\dagger \otimes B^\dagger) (A \otimes B) \\
-&= A^\dagger A \otimes B^\dagger B \\
-&= I \otimes I
+(A \otimes B)^\dagger (A \otimes B) &= (A^\dagger \otimes B^\dagger) (A \otimes B) & \text{distributivity of the adjoint}\\
+&= A^\dagger A \otimes B^\dagger B & \text{tensor product distributes over matrix multiplication}\\
+&= I \otimes I  & \text{definition of unitary operator}
 \end{aligned}$$
 
 If $I \otimes I = I$ then $A \otimes B$ is unitary. Using the Kronecker product,
@@ -860,43 +882,66 @@ I \otimes I &= \begin{bmatrix} I & 0 & 0 & \dots & 0 \\\ 0 & I & 0 & \dots & 0 \
 
 Therefore $A \otimes B$ is unitary.
 
+</details>
 
 **Exercise 2.30**
+
+Use the definition of a Hermitian operator to show that the tensor product of two Hermitian operators is Hermitian.
+
+<details>
+<summary>Solution</summary>
 
 We need to show that $(A \otimes B)^\dagger = (A \otimes B)$ when $A$ and $B$ are both Hermitian. 
 
 $(A \otimes B)^\dagger = A^\dagger \otimes B^\dagger = A \otimes B$
+
 Therefore $A \otimes B$ is Hermitian.
 
+</details>
 
 **Exercise 2.31**
+
+Use the definition of a positive operator to show that the tensor product of two positive operators is positive.
+
+<details>
+<summary>Solution</summary>
 
 We need to show that $\left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right)$ is a real, non-negative number when $A$ and $B$ are positive. 
 
 $$\begin{aligned}
-\left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right) &= \left( \ket{a} \otimes \ket{b}, A\ket{a} \otimes B\ket{b} \right) \\
-&= \braket{a \vert A \vert a} \braket{b \vert B \vert b}
+\left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right) &= \left( \ket{a} \otimes \ket{b}, A\ket{a} \otimes B\ket{b} \right) & \text{by equation 2.45}\\
+&= \braket{a \vert A \vert a} \braket{b \vert B \vert b} & \text{by equation 2.49}
 \end{aligned}$$
 
 Since both $A$ and $B$ are positive operators, we know that $\braket{a \vert A \vert a}$ and $\braket{b \vert B \vert b}$ are real, non-negative numbers. Therefore $\braket{a \vert A \vert a} \braket{b \vert B \vert b}$ is a real non-negative number and so $A \otimes B$ is positive. 
 
+</details>
 
 **Exercise 2.32**
+
+Use the definition of a projector to show that the tensor product of two projector is a projector.
+
+<details>
+<summary>Solution</summary>
 
 From exercise 2.16 we know that any projector $P$ satisfies the equation $P^2 = P$. Lets say we have two projectors $P_1$ and $P_2$, then lets check the square of their tensor product 
 
 $$\begin{aligned}
 (P_1 \otimes P_2)^2 &= (P_1 \otimes P_2)(P_1 \otimes P_2) \\
-&= P_1^2 \otimes P_2^2 \\
-&= P_1 \otimes P_2
+&= P_1^2 \otimes P_2^2 & \text{tensor product distributes over matrix multiplication}\\
+&= P_1 \otimes P_2 & \text{definition of $P$}
 \end{aligned}$$
 
 Therefore the tensor product of two projectors is a projector. 
 
+</details>
 
 **Exercise 2.33**
 
-I am a little confused by this notation, so lets work things out in detail to better understand what is going on.
+For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is now well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamar transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
+
+<details>
+<summary>Solution</summary>
 
 First let's look a little closer at the $n=1$ case
 
@@ -905,20 +950,9 @@ H &= \frac{1}{\sqrt{2}} \lbrack(\ket{0} + \ket{1})\bra{0} + (\ket{0} - \ket{1})\
 &= \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack
 \end{aligned}$$
 
-This matches the arbitrary $n$ equation with $x$ and $y$ spanning the values $0$ and $1$. 
+This matches equation 2.55 with $x$ and $y$ spanning the values $\ket{0}$ and $\ket{1}$ and $x \cdot y$ representing the bitwise inner product of $x$ and $y$. 
 
-Now let's look at the $n=2$ case
-
-$$\begin{aligned}
-H^{\otimes 2} &= \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack \otimes \frac{1}{\sqrt{2}} \lbrack \ket{0}\bra{0}  + \ket{1}\bra{0} + \ket{0}\bra{1} - \ket{1}\bra{1} \rbrack \\
-&= \frac{1}{2} \lbrack \ket{00}\bra{00}  + \ket{01}\bra{00}  + \ket{00}\bra{01}  - \ket{01}\bra{01}  + \ket{10}\bra{00} + \ket{11}\bra{00}  + \ket{10}\bra{01} \\
-& \text{\quad} - \ket{11}\bra{01}  + \ket{00}\bra{10}  + \ket{01}\bra{10}  + \ket{00}\bra{11}  - \ket{01}\bra{11}   -  \ket{10}\bra{10}  - \ket{11}\bra{10} \\
-& \text{\quad} - \ket{10}\bra{11}  + \ket{11}\bra{11} \rbrack
-\end{aligned}$$
-
-Now $\ket{x}$ and $\ket{y}$ are spanning the states $\ket{00}$, $\ket{01}$, $\ket{10}$, and $\ket{11}$. It is unclear how to calculate $x$ and $y$ from the information provided. Looking at other resources, it seems likely that $x \cdot y=x_1y_1 + x_2y_2 + \dots + x_ny_n$, which is the bitwise inner product of x and y; this was also discussed on page 35. This matches the results above.
-
-Ok, so now that we understand the notation, let's show explicitly that the Hadamard transform on $n$ qubits can be written as equation 2.55. We've already shown how the $n=1$ case can be written as $H = \frac{1}{\sqrt{2} }\sum_{x,y} (-1)^{xy} \ket{x}\bra{y}$. The arbitrary $n$ case can then be written as
+Now let's show explicitly that the Hadamard transform on $n$ qubits can be written as equation 2.55. We've already shown how the $n=1$ case can be written as $H = \frac{1}{\sqrt{2} }\sum_{x,y} (-1)^{xy} \ket{x}\bra{y}$. The arbitrary $n$ case can then be written as
 
 $$\begin{aligned}
 H^{\otimes n} &= \frac{1}{\sqrt{2}} \sum_{x_1,y_1} (-1)^{x_1y_1} \ket{x_1}\bra{y_1} \otimes \frac{1}{\sqrt{2}} \sum_{x_2,y_2} (-1)^{x_2y_2} \ket{x_2}\bra{y_2} \otimes \cdots \otimes \frac{1}{\sqrt{2} }\sum_{x_n,y_n} (-1)^{x_ny_n} \ket{x_n}\bra{y_n} \\
@@ -930,22 +964,28 @@ Now let's write out the matrix representation for $H^{\otimes 2}$.
 
 $$\begin{aligned}
 H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
-&= \begin{bmatrix} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\ \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} -1 & -1 \\\ -1 & 1 \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\\ \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} & \begin{bmatrix} -1 & -1 \\\ -1 & 1 \end{bmatrix} \end{bmatrix} \\
 & = \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix}
 \end{aligned}$$
 
-
+</details>
 
 **Exercise 2.34**
+
+In section 2.1.8 the authors introduce the concept of operator functions and describe how to calculate them. In this exercise you get practice performing that calculation on a given matrix. Since this matrix is not in diagonal representation, you will first need to find its diagonal representation, then execute the operation on its eigen values, and then reconstruct the operator in matrix representation. 
+
+<details>
+<summary>Solution</summary>
 
 We know that $f(A) \equiv \sum_{a} f(a) \ket{a} \bra{a}$ for $A = \sum_{a} a \ket{a}\bra{a}$. Since the given matrix is not diagonal, we'll need to diagonalize it. So first we'll find the eigenvalues
 
 $$\begin{aligned}
-0 &= det \left(\begin{bmatrix} 4 & 3 \\\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
-&= det \left(\begin{bmatrix} 4 - \lambda & 3 \\\ 3 & 4 - \lambda \end{bmatrix} \right) \\
+0 &= \text{det} \left(\begin{bmatrix} 4 & 3 \\\ 3 & 4 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \\
+&= \text{det} \left(\begin{bmatrix} 4 - \lambda & 3 \\\ 3 & 4 - \lambda \end{bmatrix} \right) \\
 &= (4-\lambda)^2 - 9 \\
 &= \lambda^2 - 8 \lambda + 7 \\
-\lambda &= \frac{8 \pm \sqrt{64 - 4*1*7}}{2*1} = 4 \pm 3
+\lambda &= \frac{8 \pm \sqrt{64 - 4 \* 1 \* 7}}{2 \* 1} \\
+&= 4 \pm 3
 \end{aligned}$$
 
 Now we find the eigenvectors
@@ -999,6 +1039,7 @@ $$\begin{aligned}
 \ln{A} = \frac{1}{2} \begin{bmatrix} \ln{7} + \ln{1} & \ln{7} - \ln{1} \\\ \ln{7} - \ln{1} & \ln{7} + \ln{1} \end{bmatrix} =\frac{\ln{7} }{2} \begin{bmatrix} 1 & 1  \\\ 1  & 1 \end{bmatrix}
 \end{aligned}$$
 
+</details>
 
 **Exercise 2.35**
 

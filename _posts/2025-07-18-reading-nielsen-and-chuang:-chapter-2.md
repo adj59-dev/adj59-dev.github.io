@@ -28,26 +28,15 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 | Positive operator                    | section 2.1.6             | Definition: for any vector $\ket{v}$, $(\ket{v}, A \ket{v})$ is a real, non-negative number <br> All positive operators are Hermitian |
 | Tensor product properties            | section 2.1.7             | For a scalar $z$ and elements $\ket{v}$ of $V$ and $\ket{w}$ of $W$: <br> $z(\ket{v} \otimes \ket{w}) = (z \ket{v} ) \otimes \ket{w} = \ket{v} \otimes (z \ket{w})$ <br> $(\ket{v_1} + \ket{v_2})\otimes\ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$ <br> $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$|
 | Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} + B \ket{w}$                        |
-|Inner product on $V \otimes W$        | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_w}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}{w_i \vert w_j'}$ | 
-|Kronecker product                     | section 2.1.7             |                                                                                                          |
-
-
-Summation operator properties - not in the book
-* distributivity of scalar multiplication: $z \sum_i a_i = \sum_i z a_i$
-* summation distributivity when bounds are finite and independent: $\left(\sum_{i=1}^n a_i\right) \left(\sum_{j=1}^m b_j \right) = \sum_{i=1}^n \sum_{j=1}^m a_i b_j$
-* summation commutativity when bounds are finite and independent: $\sum_{i=1}^n \sum_{j=1}^m f(i,j) = \sum_{j=1}^m \sum_{i=1}^n f(i,j)$
-
-Definition of matrix multiplication - not in the book
-* If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix the matrix product $C = AB$ is defined to be the $m \times p$ matrix with entries $c_{ij}=\sum_{k=1}^{n} a_{ik}b{kj}$
-
-
-Complex conjugate properties - some in section 2.1
-* definition: $\left(a + b i\right)^\ast = a - b i$
-* distributive over addition, subtraction, multiplication, and division
-  * $(a+b)^\ast = a^\ast + b^\ast, \hspace{2cm}$ $(a-b)^\ast = a^\ast - b^\ast$
-  * $(ab)^\ast = a^\ast b^\ast, \hspace{2cm}$ $(a/b)^\ast = a^\ast/b^\ast$ for $b^\ast \neq 0$
-* product of a complex number with its conjugate is equal to the square of the number's modulus
-  * $a^\ast a = \| a \|^2$
+| Inner product on $V \otimes W$       | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_w}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}{w_i \vert w_j'}$ | 
+| Kronecker product                    | section 2.1.7             |                                                                                                          |
+| k-fold tensor product                | section 2.1.7             | $\ket{\psi}^{\otimes k}$ means $\ket{\psi}$ tensored with itself $k$ times <br> Example: $\ket{\psi}^{\otimes 3} = \ket{\psi} \otimes \ket{\psi} \otimes \ket{\psi}$ |
+| Operator functions                   | section 2.1.8             | For $A=\sum_{a} a \ket{a} \bra{a}$, $f(A) = \sum_{a} f(a) \ket{a} \bra{a}$                               |
+| Trace of a matrix                    | section 2.1.8             | Definition: $\text{tr}(A) = \sum_i A_{ii}$ <br> $\text{tr}(AB)=\text{tr}(BA)$ <br> $\text{tr}(A+B)=\text{tr}(A) + \text{tr}(B)$              |
+| Hilbert-Schmidt inner productor      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
+| Commutator                           | section 2.1.9             | Definition: $\[A, B\]=AB-BA$                                                                             |
+| Anti-commutator                      | section 2.1.9             | Definition: $\{ A, B \} = AB + BA$                                                                       |
+| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and postitive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ |
 
 
 ### Linear Algebra - Exercises

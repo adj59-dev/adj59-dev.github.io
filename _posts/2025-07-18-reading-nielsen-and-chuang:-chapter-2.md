@@ -1625,7 +1625,8 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{psi}$ belonging to a Hilbert space know as the state space.|
 | Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
-| Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation.                                      |
+| Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
+
 
 
 
@@ -1668,7 +1669,7 @@ Since $H^\dagger H = I$ that means $H$ is unitary.
 
 </details>
 
-**Exercise 2.51**
+**Exercise 2.52**
 
 The authors now ask us to verify that $H^2=I$. This can easily be done by using an observation noted in the previous exercise. 
 
@@ -1679,7 +1680,7 @@ In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\d
 
 </details>
 
-**Exercise 2.52**
+**Exercise 2.53**
 
 We are now asked to find the eigenvalues and eigenvectors of H. We will do this using the same methods that we used in the previous secion. We'll first find the eigenvalues $\lambda$ using the characteristic equation and then solve $0 = (\lambda I - H)\ket{e}$ to find the eigenvectors. 
 
@@ -1712,6 +1713,47 @@ For eigenvalue $\lambda_+ = \sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac
 For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac{1}{\sqrt{4 - 2\sqrt{2}}}(1-\sqrt{2}, 1)$
 
 </details>
+
+
+**Exercise 2.54**
+
+We are asked to show that $\exp(A)\exp(B)=\exp(A+B)$ for commuting Hermitian operators $A$ and $B$. To do this, we need to use the simultaneous diagonalization theorem given in section 2.1.9 and knowledge of operator functions. 
+
+<details>
+<summary>Solution</summary>
+
+From section 2.1.9 we know that if $A$ and $B$ are commuting operators they are simultaneously diagonalizable, meaning they can be written as
+
+$$\begin{aligned}
+A &= \sum_{i} a_i \ket{i} \bra{i} \\
+B &= \sum_{i} b_i \ket{i} \bra{i} \\
+A + B &= \sum_{i} a_i \ket{i} \bra{i} + \sum_{i} b_i \ket{i} \bra{i} \\
+&= \sum_{i} (a_i + b_i) \ket{i} \bra{i}
+\end{aligned}$$
+
+where $\ket{i}$ is some common orthonormal set of eigenvectors.
+
+Using our knowledge of operator functions we know that
+
+$$\begin{aligned}
+\exp(A) &=\sum_{i} \exp(a_i) \ket{i} \bra{i} \\
+\exp(B) &=\sum_{i} \exp(b_i) \ket{i} \bra{i} \\
+\exp(A + B) &= \sum_{i} \exp(a_i + b_i) \ket{i} \bra{i} 
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+\exp(A)\exp(B) &= \sum_{i} \exp(a_i) \ket{i} \bra{i} \sum_{i'} \exp(b_{i'}) \ket{i'} \bra{i'} \\
+&= \sum_{ii'} \exp(a_i)\exp(b_{i'}) \ket{i} \braket{i \vert i'} \bra{i'} \\
+&= \sum_{i} \exp(a_i)\exp(b_{i}) \ket{i} \bra{i} \\
+&= \sum_{i} \exp(a_i + b_{i}) \ket{i} \bra{i} \\
+&= \exp(A+B)
+\end{aligned}$$
+
+</details>
+
+
 
 ## Application: Superdense Coding
 

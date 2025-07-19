@@ -1623,7 +1623,7 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{psi}$ belonging to a Hilbert space know as the state space.|
+| State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{\psi}$ belonging to a Hilbert space know as the state space.|
 | Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
 | Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
 
@@ -1752,6 +1752,61 @@ $$\begin{aligned}
 \end{aligned}$$
 
 </details>
+
+
+**Exercise 2.55**
+
+Here we are to prove that equation 2.91 is unitary, meaning $U^\dagger U = U U^\dagger = I$, using the knowledge that $H$ is a Hermitian operator and the results from the previous exercise. 
+
+<details>
+<summary>Solution</summary>
+
+From equation 2.91 we know
+
+$$\begin{aligned}
+U(t_1, t_1) = \exp \left\lbrack \frac{-iH(t_2 - t_1)}{\hbar} \right\rbrack
+\end{aligned}$$
+
+From equation 2.87 we know
+
+$$\begin{aligned}
+H = \sum_{E} E \ket{E} \bra{E}
+\end{aligned}$$
+
+and therefore 
+
+$$\begin{aligned}
+\exp \left\lbrack \frac{-iH(t_2 - t_1)}{\hbar} \right\rbrack = \sum_{E} \exp \left\lbrack \frac{-iE(t_2 - t_1)}{\hbar} \right\rbrack \ket{E} \bra{E}
+\end{aligned}$$
+
+Now let's find $U^\dagger$
+
+$$\begin{aligned}
+U^\dagger(t_1, t_1) &= \left( \sum_{E} \exp \left\lbrack \frac{-iE(t_2 - t_1)}{\hbar} \right\rbrack \ket{E} \bra{E} \right)^\dagger \\
+&= \sum_{E} \exp \left\lbrack \frac{iE(t_2 - t_1)}{\hbar} \right\rbrack \ket{E} \bra{E} \\
+&= \exp \left\lbrack \frac{iH(t_2 - t_1)}{\hbar} \right\rbrack
+\end{aligned}$$
+
+Using the results from the previous exercise, keeping in mind that H is a Hermitian operator, we know
+
+$$\begin{aligned}
+U^\dagger(t_1, t_1) U(t_1, t_1) &= \exp \left\lbrack \frac{iH(t_2 - t_1)}{\hbar} \right\rbrack \exp \left\lbrack \frac{-iH(t_2 - t_1)}{\hbar} \right\rbrack \\
+&= \exp \left\lbrack \frac{iH(t_2 - t_1) - iH(t_2 - t_1)}{\hbar} \right\rbrack \\
+&= \exp \left\lbrack 0 \right\rbrack \\
+&= \sum_{E} \exp \left\lbrack 0 \right\rbrack \ket{E} \bra{E} \\
+&= \sum_{E} \ket{E} \bra{E} \\
+&= I
+\end{aligned}$$
+
+Therefore $U$ is unitary.
+
+</details>
+
+
+**Exercise 2.56**
+
+
+
 
 
 

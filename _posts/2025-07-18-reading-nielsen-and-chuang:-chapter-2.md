@@ -1805,9 +1805,34 @@ Therefore $U$ is unitary.
 
 **Exercise 2.56**
 
+In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in exercise 2.18. 
 
+<details>
+<summary>Solution</summary>
 
+Since $U$ is unitary using spectral decomposition we know that it can be written
 
+$$\begin{aligned}
+U = \sum_{E} \lambda_E \ket{E} \bra{E}
+\end{aligned}$$
+
+where $\lambda_i$ eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
+
+From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $e^{i \theta}$ for some real $\theta$.
+
+Looking at our definition of $K$ we see
+
+$$\begin{aligned}
+K &= - i \log (U) \\
+&= -i \sum_{E} \log (\lambda_E) \ket{E} \bra{E} \\
+&= -i \sum_{E} \log (e^{i \theta}) \ket{E} \bra{E} \\
+&= -i \sum_{E} i \theta \ket{E} \bra{E} \\
+&= \sum_{E} \theta \ket{E} \bra{E}
+\end{aligned}$$
+
+Since $\theta$ is real, we know that $K = \sum_{E} \theta \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $K$ is Hermitian. 
+
+</details>
 
 
 ## Application: Superdense Coding

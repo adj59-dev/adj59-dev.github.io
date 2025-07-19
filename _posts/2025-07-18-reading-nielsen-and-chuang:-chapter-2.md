@@ -36,7 +36,7 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 | Hilbert-Schmidt inner productor      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
 | Commutator                           | section 2.1.9             | Definition: $\[A, B\]=AB-BA$                                                                             |
 | Anti-commutator                      | section 2.1.9             | Definition: $\{ A, B \} = AB + BA$                                                                       |
-| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and postitive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ |
+| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and postitive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ <br> If A is invertible, $U=AJ^{-1}$ |
 
 
 ### Linear Algebra - Exercises
@@ -1615,3 +1615,140 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 \end{aligned}$$
 
 </details>
+
+
+## The Postulates of Quantum Mechanics
+
+### The Postulates of Quantum Mechanics - Key Concepts
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{psi}$ belonging to a Hilbert space know as the state space.|
+| Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
+| Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation.                                      |
+
+
+
+### The Postulates of Quantum Mechanics - Exercises
+
+**Exercise 2.51**
+
+In section 2.2.2 the authors discuss how any unitary operator can be used to evolve the state of a single qubit and then ask us to confirm that the Hadamard gate is unitary. This can be done using the definition of a unitary operator $U^\dagger U = U U^\dagger = I$.
+
+<details>
+<summary>Solution</summary>
+
+From the linear algebra section that we just completed, we know that an operator is a unitary operator if $U^\dagger U = U U^\dagger = I$. From equation 2.85 we know that the Hadamar gate is 
+
+$$\begin{aligned}
+H = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix}
+\end{aligned}$$
+
+Finding the adjoint we see
+
+$$\begin{aligned}
+H^\dagger &= \left(\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix}\right)^\dagger & \text{definition of $H$}\\
+&= \left(\frac{1}{\sqrt{2}} \begin{bmatrix} 1^\ast & 1^\ast \\\ 1^\ast & -1^\ast \end{bmatrix}\right)^T & \text{because $A^\dagger = (A^\ast)^T$}\\
+&=\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
+&= H
+\end{aligned}$$
+
+Note: since $H^\dagger = H$ the Hadamard gate is Hermitian. 
+
+Calculating $H^\dagger H$ we get
+
+$$\begin{aligned}
+H^\dagger H &= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix}  & \text{definition of $H$ and $H^\dagger$}\\
+&= \frac{1}{2} \begin{bmatrix} 2 & 0 \\\ 0 & 2 \end{bmatrix} & \text{matrix multiplication} \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} & \text{simplify} \\
+&= I & \text{definition of $I$}
+\end{aligned}$$
+
+Since $H^\dagger H = I$ that means $H$ is unitary. 
+
+</details>
+
+**Exercise 2.51**
+
+The authors now ask us to verify that $H^2=I$. This can easily be done by using an observation noted in the previous exercise. 
+
+<details>
+<summary>Solution</summary>
+
+In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\dagger = H$. We also demonstrated that $H^\dagger H = I$. Therefore we know that $H^\dagger H = HH = H^2 = I$
+
+</details>
+
+**Exercise 2.52**
+
+We are now asked to find the eigenvalues and eigenvectors of H. We will do this using the same methods that we used in the previous secion. We'll first find the eigenvalues $\lambda$ using the characteristic equation and then solve $0 = (\lambda I - H)\ket{e}$ to find the eigenvectors. 
+
+<details>
+<summary>Solution</summary>
+
+First let's find the eigenvalues
+
+$$\begin{aligned}
+0 &= \text{det} \left( H - \lambda I \right) & \text{characteristic equation}\\
+&= \text{det} \left( \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) & \text{definitions of $H$ and $I$}\\
+&= \text{det} \left( \begin{bmatrix} 1 - \lambda & 1 \\\ 1 & -1 - \lambda \end{bmatrix} \right) & \text{matrix subtraction}\\
+&= (1-\lambda)(-1-\lambda) - 1 & \text{definition of the determinant}\\
+\lambda &= \pm \sqrt{2} & \text{solving for $\lambda$}
+\end{aligned}$$
+
+Now we know that the eigenvalues are $\lambda = \pm \sqrt{2}$. Let's find the eigenvectors
+
+$$\begin{aligned}
+0 &= \left( H - \lambda I \right)\ket{e} \\
+&= \left( \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} - \lambda \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} 1 - \lambda & 1 \\\ 1 & -1 - \lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} (1 - \lambda)x_1 + x_2 \\\ x_1 - (1 + \lambda)x_2 \end{bmatrix}
+\end{aligned}$$
+
+Solving for $x_1$ and $x_2$ we find that the unit eigenvectors are given by $\ket{e} = \frac{1}{\sqrt{\lambda^2 + 2\lambda + 2}}(1+\lambda, 1)$. 
+
+For eigenvalue $\lambda_+ = \sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac{1}{\sqrt{4 + 2\sqrt{2}}}(1+\sqrt{2}, 1)$
+
+For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac{1}{\sqrt{4 - 2\sqrt{2}}}(1-\sqrt{2}, 1)$
+
+</details>
+
+## Application: Superdense Coding
+
+### Application: Superdense Coding - Key Concepts
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+|                           
+
+### Application: Superdense Coding - Exercises
+
+
+
+
+
+## The Density Operator
+
+### The Density Operator - Key Concepts
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+### The Density Operator - Exercises
+
+
+
+
+
+## EPR and the Bell Inequality
+
+### EPR and the Bell Inequality - Key Concepts
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+### EPR and the Bell Inequality - Exercises
+
+

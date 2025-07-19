@@ -1325,87 +1325,192 @@ $$\begin{aligned}
 
 **Exercise 2.44**
 
+In section 2.1.9 the authors introduce the simultaneous diagonalization theorem. Here you will use that theorem along with the diagonal representation of $A$ and $B$ and the invertible matrix theorem (which is not in the book) to show that $B$ must be zero. 
+
+<details>
+<summary>Solution</summary>
+
 If $\lbrack A,B \rbrack = 0$ that means there must be a common orthonormal set of eigenvectors $\ket{i}$ for $A$ and $B$ such that $A=\sum_{i} a_i \ket{i}\bra{i}$ and $B=\sum_{i} b_i \ket{i}\bra{i}$. This means that
 
 $$\begin{aligned}
 \{A,B\}&=AB+BA \\
-&= \sum_{i} a_i \ket{i}\bra{i} \sum_{j} b_j \ket{j}\bra{j} +  \sum_{j} b_j \ket{j}\bra{j} a_i \ket{i}\bra{i}\\
-&= \sum_{ij} a_i b_j \ket{i}\braket{i \vert j}\bra{j} + a_i b_j \ket{j}\braket{j \vert i}\bra{i} \\
-&= \sum_{ij} a_i b_j \delta_{ij} (\ket{i}\bra{j} + \ket{j}\bra{i} ) \\
-&= \sum_{i} 2 a_i b_i \ket{i}\bra{i}
+&= \sum_{i} a_i \ket{i}\bra{i} \sum_{j} b_j \ket{j}\bra{j} +  \sum_{j} b_j \ket{j}\bra{j} \sum_{i} a_i \ket{i}\bra{i} & \text{diagonal representation}\\
+&= \sum_{ij} a_i b_j \ket{i}\braket{i \vert j}\bra{j} + a_i b_j \ket{j}\braket{j \vert i}\bra{i} & \text{summation distributivity}\\
+&= \sum_{ij} a_i b_j \delta_{ij} (\ket{i}\bra{j} + \ket{j}\bra{i} ) & \text{orthogonality of basis vectors}\\
+&= \sum_{i} a_i b_i (\ket{i}\bra{i} + \ket{i}\bra{i} ) & \text{delta function}\\
+&= \sum_{i} 2 a_i b_i \ket{i}\bra{i} 
 \end{aligned}$$
 
-Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for matrix $A$ to be invertible $0$ cannot be an eigenvalue of $A$ per the Invertible Matrix Theorem. Therefore $b_i = 0$ for all $i$ and so $B=0$. 
+Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for matrix $A$ to be invertible $0$ cannot be an eigenvalue of $A$ per the invertible matrix theorem. Therefore $b_i = 0$ for all $i$ and so $B=0$. 
 
+</details>
 
 **Exercise 2.45**
 
-$\lbrack A,B \rbrack ^\dagger = (AB - BA)^\dagger = (AB)^\dagger - (BA)^\dagger = B^\dagger A^\dagger  -  A^\dagger B^\dagger = \lbrack B^\dagger, A^\dagger \rbrack$
+For this exercise you will use the definition of commutation and the properties of the adjoint to demonstrate the relation shown in the question.
 
+<details>
+<summary>Solution</summary>
+
+$$\begin{aligned}
+\lbrack A,B \rbrack ^\dagger &= (AB - BA)^\dagger & \text{commutation definition}\\
+&= (AB)^\dagger - (BA)^\dagger & \text{adjoint distributivity over matrix addition} \\
+&= B^\dagger A^\dagger  -  A^\dagger B^\dagger & \text{adjoint anti-distributivity over matrix multiplication}\\
+&= \lbrack B^\dagger, A^\dagger \rbrack & \text{commutation definition}\\
+\end{aligned}$$
+
+</details>
 
 **Exercise 2.46**
 
+For this exercise you will use the definition of commutation to demonstrate the relation shown in the question.
+
+<details>
+<summary>Solution</summary>
+
 $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 
+</details>
 
 **Exercise 2.47**
+
+Here you will use the definition of Hermitian, the definition of commutation, and properties of the adjoint to show that $i \lbrack A,B \rbrack$ is Hermitian. 
+
+<details>
+<summary>Solution</summary>
 
 If $A$ and $B$ are Hermitian it means that $A^\dagger = A$ and $B^\dagger=B$. With this in mind, we can check if $i \lbrack A,B \rbrack$ is Hermitian by taking the adjoint.
 
 $$\begin{aligned}
-\left(i \lbrack A,B \rbrack \right)^\dagger &= \left(i AB - i BA \right)^\dagger \\
-&= -i (AB)^\dagger + i (BA)^\dagger \\
-&= -i B^\dagger A^\dagger + i A^\dagger B^\dagger \\
-&= -i BA + i AB \\
-&= i (AB - BA) \\
-&= i \lbrack A,B \rbrack
-\end{aligned}
+( i \lbrack A,B \rbrack )^\dagger &= ( i AB - i BA )^\dagger & \text{commutation definition}\\
+&= -i (AB)^\dagger + i (BA)^\dagger & \text{adjoint distributivity over matrix addition}\\
+&= -i B^\dagger A^\dagger + i A^\dagger B^\dagger & \text{adjoint anti-distributivity over matrix multiplication}\\
+&= -i BA + i AB & \text{since $A$ and $B$ are Hermitian}\\
+&= i (AB - BA) & \text{rearranging}\\
+&= i \lbrack A,B \rbrack & \text{commutation definition}
+\end{aligned}$$
 
 Therefore $i \lbrack A,B \rbrack$ is Hermitian.
 
+</details>
 
 **Exercise 2.48**
 
-Polar decomposition is a method used to break a general linear operator up into products of unitary operators and positive operators. Since $P$ is already a positive operator, polar decomposition is not needed, though $P$ can be written as $P=IP=PI$ where the identity operator $I$ is a unitary operator. 
+In section 2.1.10 the authors introduce the concept of polar decomposition which is a method used to break a general linear operator up into products of unitary operators and positive operators. In this exercise you are asked to perform polar decomposition on a positive matrix, a unitary matrix, and a Hermitian matrix. You can follow the calculation outlined in the book, but simplifications can also be made when taking into consideration the properties of the different matrices and the goal of polar decomposition.
+
+<details>
+<summary>Solution</summary>
+
+Since $P$ is already a positive operator, polar decomposition is not needed, though $P$ can be written as $P=IP=PI$ where the identity operator $I$ is a unitary operator. 
 
 Similar to the case of $P$, $U$ is already one of the simpler matrix elements that polar decomposition is used to break a general linear operator up into. However, if desired $U$ can be written as $U=UI = IU$
 
 For Hermitian matrix $H$ we know that $H^\dagger = H$ and $H= \sum_{i} \lambda_i \ket{i}\bra{i}$ and therefore
 
 $$\begin{aligned}
-H^\dagger H &= HH \\
-&= \sum_{ii'} \lambda_i \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} \\
-&= \sum_{i} \lambda_i^2 \ket{i}\bra{i}
+H^\dagger H &= HH & \text{definition of Hermitian}\\
+&= \sum_{ii'} \lambda_i \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} & \text{spectral decomposition}\\
+&= \sum_{i} \lambda_i^2 \ket{i}\bra{i} & \text{basis vector orthogonality}
 \end{aligned}$$
 
-For polar decomposition  $H=UJ=KU$ where \\
-$J = \sqrt{H^\dagger H} = \sqrt{\sum_{i} \lambda_i^2 \ket{i}\bra{i}} = \sum_{i} \vert\lambda_i}\vert \ket{i}\bra{i} = K$\\
-To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv H \ket{i}  / \vert\lambda_i\vert = \lambda_i \ket{i}/ \vert\lambda_i\vert$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
+For polar decomposition  $H=UJ=KU$ where 
 
+$$\begin{aligned}
+J &= \sqrt{H^\dagger H} & \text{definition of $J$}\\
+&= \sqrt{\sum_{i} \lambda_i^2 \ket{i}\bra{i}} & \text{derived value of $H^\dagger H$}\\
+&= \sum_{i} \vert\lambda_i\vert \ket{i}\bra{i} & \text{operator function calculation}
+\end{aligned}$$
+
+Since $H$ is Hermitian
+
+$$\begin{aligned}
+K &= \sqrt{H H^\dagger} & \text{definition of $K$}\\
+&= \sqrt{H^\dagger H} & \text{definition of Hermitian}\\
+&= J
+\end{aligned}$$
+
+To find $U$ we find need to define a set of orthonormal basis vectors 
+
+$$\begin{aligned}
+\ket{e_i} &\equiv \frac{H \ket{i}}{\vert\lambda_i\vert} & \text{from polar decomposition proof}\\
+&= \frac{\lambda_i \ket{i}}{\vert\lambda_i\vert} & \text{evaluating $H \ket{i}$}
+\end{aligned}$$
+
+for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
+
+Then $H = UJ = KU$. 
+
+</details>
 
 **Exercise 2.49**
 
+For this exercise you will perform a similar calculation as was done in the previous exercise, but this time for a normal matrix. 
+
+<details>
+<summary>Solution</summary>
+
 Matrix $A$ is a normal matrix if $A^\dagger A = A A^\dagger$. It's spectral decomposition is $A=\sum_{i} \lambda_i \ket{i}\bra{i}$ therefore
 
-$$\begin{algined}
+$$\begin{aligned}
 A^\dagger A &=  \sum_{ii'} \lambda_i^* \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} \\
 &= \sum_{i} \vert\lambda_i\vert^2 \ket{i}\bra{i}
 \end{aligned}$$
 
+$$\begin{aligned}
+J &= \sqrt{A^\dagger A} \\
+&= \sqrt{\sum_{i} \vert\lambda_i\vert^2 \ket{i}\bra{i}} \\
+&= \sum_{i} \vert\lambda_i\vert \ket{i}\bra{i} \\
+&= K
+\end{aligned}$$
 
-$J = \sqrt{A^\dagger A} = \sqrt{\sum_{i} \vert\lambda_i\vert^2 \ket{i}\bra{i}} = \sum_{i} \vert\lambda_i\vert \ket{i}\bra{i} = K$\\
-To find $U$ we find need to define a set of orthonormal basis vectors $\ket{e_i} \equiv A \ket{i}  / \vert\lambda_i\vert = \lambda_i \ket{i}/ \vert\lambda_i\vert$  for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. This differs from the results from the Hermitian matrix in Exercise 2.48 because $\lambda_i$ now can be complex and so $U$ not only represents the sign of $\lambda$ but also contains the direction in the complex plane. 
+To find $U$ we find need to define a set of orthonormal basis vectors 
 
+$$\begin{aligned}
+\ket{e_i} &\equiv \frac{A \ket{i}}{\vert\lambda_i\vert}\\
+&= \frac{\lambda_i \ket{i}}{\vert\lambda_i\vert}
+\end{aligned}$$
+
+for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If one or more of the $\lambda_i = 0$ use the Gram-Schmidt procedure to extend the orthonormal set $\ket{e_i}$ to form an orthonormal basis. 
+
+Then $A = UJ = KU$. 
+
+This may look the same as the results for the Hermitian matrix in Exercise 2.48, but now $\lambda_i$ can be complex and so $U$ not only represents the sign of $\lambda_i$ but also contains information about the complex component of the eigenvalues. 
+
+</details>
 
 **Exercise 2.50**
 
-Let $A = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}$, therefore $A^\dagger = \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix}$ and $A A^\dagger = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix}$. In order to find the square root of $A A^\dagger$, we'll first need to write the matrix in diagonal representation. 
+For this exercise you will perform polar decomposition on a given matrix. The procedure is like the previous two exercises but since the matrix is not currently in diagonal representation, you’ll first need to diagonalize it. Unfortunately, this calculation is complex and so I recommend using a calculator.  This matrix is invertible – which you can confirm for yourself – so you can use the inverse of the matrix to calculate $U$. 
+
+<details>
+<summary>Solution</summary>
+
+Let 
+
+$$\begin{aligned}
+A = \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} 
+\end{aligned}$$
+
+therefore,
+
+$$\begin{aligned}
+A^\dagger = \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+and 
+
+$$\begin{aligned}
+A A^\dagger &= \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix}. 
+\end{aligned}$$
+
+In order to find the square root of $A A^\dagger$, we'll first need to write the matrix in diagonal representation. 
 
 Let's find the eigenvalues
 
 $$\begin{aligned}
-0 &= \vert \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \vert\\
-&= \vert \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix}\vert \\
+0 &= \left\vert \begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right\vert \\
+&= \left\vert \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix} \right\vert \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
@@ -1434,17 +1539,22 @@ K = \sqrt{A A^\dagger} &= \sum_{i} \sqrt{\lambda_i} \ket{e_i}\bra{e_i} \\
 \end{aligned}$$
 
 
-Next, let's find $A^\dagger A$ and do the same thing. $A ^\dagger A = \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}  = \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix}$
+Next, let's find $A^\dagger A$ and do the same thing. 
+
+$$\begin{aligned}
+A ^\dagger A &= \begin{bmatrix} 1 & 1 \\\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 1 & 1 \end{bmatrix}  \\
+&= \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix}
+\end{aligned}$$
 
 Let's find the eigenvalues
 
 $$\begin{aligned}
-0 &= \vert \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \vert\\
-&= \vert \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix} \vert \\
+0 &= \left\vert \begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right\vert \\
+&= \left\vert \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix} \right\vert \\
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
-\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4*1*1}}{2*1} = \frac{3 \pm \sqrt{5}}{2}
+\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4 \* 1 \* 1}}{2 \* 1} = \frac{3 \pm \sqrt{5}}{2}
 \end{aligned}$$
 
 
@@ -1473,7 +1583,7 @@ If $J$ is invertible, then $U=AJ^{-1}$. Let's check if it is invertible
 
 $$\begin{aligned}
 J^{-1} &= \begin{bmatrix} \frac{3}{\sqrt{5}} & \frac{1}{\sqrt{5}} \\\  \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \end{bmatrix}^{-1} \\
-&= \frac{1}{\abs{J}} \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
+&= \frac{1}{\vert J \vert} \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
 &= \frac{1}{\frac{2}{\sqrt{5}}\frac{3}{\sqrt{5}} -\frac{1}{\sqrt{5}} \frac{1}{\sqrt{5}} } \begin{bmatrix} \frac{2}{\sqrt{5}} & -\frac{1}{\sqrt{5}} \\\  -\frac{1}{\sqrt{5}} & \frac{3}{\sqrt{5}} \end{bmatrix} \\
 &=\frac{1}{\frac{6-1}{5}\sqrt{5}} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix} \\
 &=\frac{1}{\sqrt{5}} \begin{bmatrix} 2 & -1 \\\  -1 & 3 \end{bmatrix}
@@ -1504,4 +1614,4 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 &= KU = \left( \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & 1 \\\  1 & 3 \end{bmatrix} \right)\left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmatrix}\right)
 \end{aligned}$$
 
-
+</details>

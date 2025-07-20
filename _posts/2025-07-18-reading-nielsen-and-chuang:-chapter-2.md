@@ -1631,7 +1631,8 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | Distinguishing quantum states        | section 2.2.4             | If states are not orthogonal there is no quantum measurement capable of distinguishing them |
 | Projective measurements              | section 2.2.5             | $M=\sum_{m} m P_m$ where $P_m$ is the projector onto the eigenspace of $M$ with eigenvalues $m$. The average value for projective measurements is given by $\braket{\psi \vert M \vert \psi}$ and the standard deviation is given by $\Delta (M) = \sqrt{ \braket{M^2} - \braket{M}^2}$. The probability of getting result $m$ is $p(m) = \braket{\psi \vert P_m \vert \psi}$. The state of the system immediately after measurement is $\frac{P_m \ket{\psi}}{\sqrt{p(m)}}$. |
 | Heisenberg uncertainty principle     | section 2.2.5             | $\Delta(A)\Delta(B) \geq \frac{\vert \braket{\psi \vert \lbrack A, B \rbrack \vert \psi} \vert}{2}$ for observables $A$ and $B$ |
-| Measurement of a single qubit spin along the $\vec{v}$ axis | section 2.2.5 | $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$
+| Measurement of a single qubit spin along the $\vec{v}$ axis | section 2.2.5 | $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$ |
+| POVM measurements                    | section 2.2.6             | If we define $E_m = M^\dagger M$ then $E_m$ is a positive operator such that $\sum_{m} E_m = I$ and $p(m) = \braket{\psi \vert E_m \vert \psi}$. The operators $E_m$ are known as the POVM (positive operator-valued measure) elements. |
 
 
 
@@ -2005,6 +2006,25 @@ $$\begin{aligned}
 &= \frac{\ket{\lambda_+}}{v_3 + 1} (v_3 + 1) \\
 &= \ket{\lambda_+}
 \end{aligned}$$
+
+</details>
+
+
+**Exercise 2.62**
+
+For this exercise, we are to show that any measurement where the measurement operators and the POVM elements coincide (i.e. where $E_m = M_m$) is a projective measurement.
+
+<details>
+<summary>Solution</summary>
+
+For this case
+
+$$\begin{aligned}
+M_m &= E_m \\
+&= M^\dagger M & \text{definition of $E_m$} \\
+\end{aligned}$$
+
+We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ must be a projector. 
 
 </details>
 

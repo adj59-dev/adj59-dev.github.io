@@ -1628,6 +1628,9 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
 | Applying a unitary gate to a qubit   | section 2.2.2             | Application of an operator implies external interactions with the qubit, making the system not closed. However, many non-closed systems can be described by a time-varying Hamiltonian and still evolve according to Schrodinger’s equation. |
 | Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\\{M_m\\}$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
+| Distinguishing quantum states        | section 2.2.4             | If states are not orthogonal there is no quantum measurement capable of distinguishing them |
+| Projective measurements              | section 2.2.5             | $M=\sum_{m} m P_m$ where $P_m$ is the projector onto the eigenspace of $M$ with eigenvalues $m$. The average value for projective measurements is given by $\braket{\psi \vert M \vert \psi}$ and the standard deviation is given by $\Delta (M) = \sqrt{ \braket{M^2} - \braket{M}^2}$ |
+
 
 
 
@@ -1867,6 +1870,37 @@ $$\begin{aligned}
 \end{aligned}$$
 
 We can see that $\ket{\psi''}=\ket{\psi'''}$ therefore the sequential measurements are equivalent to $N_{lm}$.
+
+</details>
+
+
+**Exercise 2.58**
+
+In section 2.2.5 the authors introduce the concept of projective measurements and show how to calculate the average observed value and standard deviation for an observable operator. For this exercise you will get practice with these calculations for eigenvector $\ket{\psi}$ of observable $M$ with eigenvalue $m$. 
+
+<details>
+<summary>Solution</summary>
+
+We can calculate the average value of the measurement using equation 2.113,
+
+$$\begin{aligned}
+E(M) &= \braket{\psi | M | \psi} \\
+&= \braket{\psi | m \psi} & \text{since $\ket{\psi}$ is an eigenvector of $M$ with eigenvalue $m$}\\
+&= m \braket{\psi | \psi} \\
+&= m
+\end{aligned}$$
+
+Then calculating the standard deviation we get
+
+$$\begin{aligned}
+\Delta (M) &= \sqrt{\braket{\psi \vert M^2 \vert \psi} - \braket{\psi \vert M \vert \psi}^2 } \\
+&= \sqrt{\braket{\psi \vert MM\vert \psi} - m^2 } & \text{from the above calculation}\\
+&= \sqrt{\braket{\psi \vert M^\dagger M\vert \psi} - m^2 } & \text{since M is Hermitian} \\
+&= \sqrt{\braket{ m^\ast \psi \vert m \psi} - m^2 } & \text{since $\ket{\psi}$ is an eigenvector of $M$ with eigenvalue $m$} \\
+&= \sqrt{m^2 \braket{\psi \vert \psi} - m^2 } & \text{eigenvalues of Hermitian operators are real} \\
+&= \sqrt{m^2 - m^2} \\
+&= 0
+\end{aligned}$$
 
 </details>
 

@@ -1630,8 +1630,8 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\\{M_m\\}$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
 | Distinguishing quantum states        | section 2.2.4             | If states are not orthogonal there is no quantum measurement capable of distinguishing them |
 | Projective measurements              | section 2.2.5             | $M=\sum_{m} m P_m$ where $P_m$ is the projector onto the eigenspace of $M$ with eigenvalues $m$. The average value for projective measurements is given by $\braket{\psi \vert M \vert \psi}$ and the standard deviation is given by $\Delta (M) = \sqrt{ \braket{M^2} - \braket{M}^2}$ |
-
-
+| Heisenberg uncertainty principle     | section 2.2.5             | $\Delta(A)\Delta(B) \geq \frac{\vert \braket{\psi \vert \lbrack A, B \rbrack \vert \psi} \vert}{2}$ for observables $A$ and $B$ |
+| Measurement of a single qubit spin along the $\vec{v}$ axis | section 2.2.5 | $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$
 
 
 
@@ -1903,6 +1903,41 @@ $$\begin{aligned}
 \end{aligned}$$
 
 </details>
+
+
+**Exercise 2.59**
+
+In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from exercise 2.9, exercise 2.19, and the calculations outlined in section 2.2.5.
+
+<details>
+<summary>Solution</summary>
+
+From exercise 2.9, we know that the outer product representation of $X$ can be written as
+
+$$\begin{aligned}
+X = \ket{0}\bra{1} + \ket{1}\bra{0}
+\end{aligned}$$
+
+First let's calculate $\braket{0 \vert X \vert 0}$
+
+$$\begin{aligned}
+\braket{0 \vert X \vert 0} &= \braket{0 \vert \left( \ket{0}\bra{1} + \ket{1}\bra{0} \right) \vert 0}\\
+&= \braket{0 \vert 0}\braket{1 \vert 0} + \braket{0 \vert 1}\braket{0 \vert 0}\\
+&= 0
+\end{aligned}$$
+
+From exercise 2.19, we know that $X^2=I$, using this let's calculate $\braket{0 \vert X^2 \vert 0}$
+
+$$\begin{aligned}
+\braket{0 \vert X^2 \vert 0} &= \braket{0 \vert I \vert 0}
+&= \braket{0 \vert 0}
+&= 1
+\end{aligned}$$
+
+From equation 2.113 we know that the average value of the measurement is $\braket{0 \vert X \vert 0} = 0$ and from equation  2.115 we know the standard deviation is $\sqrt{\braket{0 \vert X^2 \vert 0} - \braket{0 \vert X \vert 0}^2} = \sqrt{1-0^2} = 1$.
+
+</details>
+
 
 ## Application: Superdense Coding
 

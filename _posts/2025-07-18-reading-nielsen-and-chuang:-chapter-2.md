@@ -1079,7 +1079,7 @@ $$\begin{aligned}
 \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \begin{bmatrix} v_3 + \lambda  \\\ v_1 + i v_2 \end{bmatrix} 
 \end{aligned}$$
 
-Which gives eigenvectors $\ket{\lambda_+}= (v_3 + 1, v_1 + i v_2)$ and $\ket{\lambda_-}= (v_3 - 1, v_1 + i v_2)$ 
+Which gives normalized eigenvectors $\ket{\lambda_+}= \frac{1}{\sqrt{2(1+v_3)}}(v_3 + 1, v_1 + i v_2)$ and $\ket{\lambda_-}= \frac{1}{\sqrt{2(1-v_3)}}(v_3 - 1, v_1 + i v_2)$ 
 
 Now we can write 
 
@@ -1938,6 +1938,75 @@ From equation 2.113 we know that the average value of the measurement is $\brake
 
 </details>
 
+
+**Exercise 2.60**
+
+For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in exercise 2.35.
+
+<details>
+<summary>Solution</summary>
+
+From exercise 2.35 we know that 
+
+$$\begin{aligned}
+\vec{v} \cdot \vec{\sigma} = \begin{bmatrix} v_3 & v_1 - i v_2 \\\ v_1 + i v_2 & -v_3 \end{bmatrix}
+\end{aligned}$$
+
+wich has eigenvalues $\lambda_{\pm} = \pm \sqrt{v_1^2 + v_2^2 + v_3^2} = \pm 1$ and eigenvectors $\ket{\lambda_{\pm}}= \frac{1}{\sqrt{2(1 \pm v_3)}}(v_3 \pm 1, v_1 + i v_2)$ .
+
+Therefore $\vec{v} \cdot \vec{\sigma}$ can be written as
+
+$$\begin{aligned}
+\vec{v} \cdot \vec{\sigma} = \ket{\lambda_+}\bra{\lambda_+} - \ket{\lambda_-}\bra{\lambda_-} = \sum_{m} m P_m
+\end{aligned}$$
+
+Looking at the above equation, it can be seen that $m = \pm 1$ and $P_m = \ket{\lambda_{\pm}}\bra{\lambda_{\pm}}$ therefore
+
+$$\begin{aligned}
+\vec{v} \cdot \vec{\sigma} = P_+ - P_-
+\end{aligned}$$
+
+We know that $\sum_{m} P_m = I = P_+ + P_-$, So $P_- = I - P_+$ and $P_+ = I - P_-$ therefore
+
+$$\begin{aligned}
+\vec{v} \cdot \vec{\sigma} &= P_+ -(I - P_+)  = 2 P_+ - I \\
+\Rightarrow P_+ &= (I + \vec{v} \cdot \vec{\sigma})/2 \\
+\vec{v} \cdot \vec{\sigma} &= (I - P_-) - P_+  = I - 2P_- \\
+\Rightarrow P_- &= (I - \vec{v} \cdot \vec{\sigma})/2
+\end{aligned}$$
+
+Which shows that $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$.
+
+</details>
+
+**Exercise 2.61**
+
+Use the results from the previous exercise as well as equations 2.103 and 2.104 to find the probability of obtaining the measurement result of $+1$ and the state of the system after the measurement if $+1$ is obtained when the state prior to measurement is $\ket{0}$.
+
+<details>
+<summary>Solution</summary>
+
+Using equation 2.103 and the results from the previous exercise, the probability of obtaining result $+1$ is given by 
+
+$$\begin{aligned}
+\braket{0 \vert P_+ \vert 0} &= \braket{0 \vert \left(\ket{\lambda_+}\bra{\lambda_+}\right) \vert 0} \\
+&= \begin{bmatrix} 1 & 0 \end{bmatrix} \left( \frac{1}{\sqrt{2(1+v_3)}} \begin{bmatrix}v_3 + 1 \\\ v_1 + i v_2 \end{bmatrix} \right) \left( \frac{1}{\sqrt{2(1+v_3)}} \begin{bmatrix}v_3 + 1 & v_1 - i v_2 \end{bmatrix} \right) \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \\
+&= \frac{(v_3 + 1)^2}{2(v_3 + 1)} \\
+&= \frac{v_3 + 1}{2} 
+\end{aligned}$$
+
+Note: if you did not previously find the eigenvectors for $\vec{v} \cdot \vec{\sigma}$ there are ways of solving this exercise without them. I had just previously calculated them and chose to use them. 
+
+The state after the measurement is given by equation 2.104
+
+$$\begin{aligned}
+\frac{P_+ \ket{0}}{\sqrt{\braket{0 \vert P_+ \vert 0}}} &= \frac{\ket{\lambda_+}}{\sqrt{\frac{v_3 + 1}{2}}} \braket{\lambda_+ \vert 0} \\
+&= \frac{\ket{\lambda_+}}{\sqrt{\frac{v_3 + 1}{2}}} \left( \frac{1}{\sqrt{2(1+v_3)}} \begin{bmatrix}v_3 + 1 & v_1 - i v_2 \end{bmatrix} \right) \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \\
+&= \frac{\ket{\lambda_+}}{v_3 + 1} (v_3 + 1) \\
+&= \ket{\lambda_+}
+\end{aligned}$$
+
+</details>
 
 ## Application: Superdense Coding
 

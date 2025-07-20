@@ -1626,6 +1626,8 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{\psi}$ belonging to a Hilbert space know as the state space.|
 | Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
 | Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
+| Applying a unitary gate to a qubit   | section 2.2.2             | Application of an operator implies external interactions with the qubit, making the system not closed. However, many non-closed systems can be described by a time-varying Hamiltonian and still evolve according to Schrodinger’s equation. |
+| Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\\{M_m\\}$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
 
 
 
@@ -1834,6 +1836,39 @@ Since $\theta$ is real, we know that $K = \sum_{E} \theta \ket{E} \bra{E}$ is in
 
 </details>
 
+
+**Exercise 2.57**
+
+In section 2.2.3 the authors discuss measuring a quantum system and in equation 2.93 show what the state of the system is after measurement. Here you are asked to show that two sequential measurement operations are the equivalent of a single measurement operation that is the matrix multiplication of both individual measurement operators.
+
+<details>
+<summary>Solution</summary>
+
+Using equation 2.93 to get the state of the system after measurement $L_l$ we find
+
+$$\begin{aligned}
+\ket{\psi} \rightarrow \ket{\psi'} = \frac{L_l \ket{\psi}}{\sqrt{\braket{\psi \vert L_l^\dagger L_l \vert \psi}}}
+\end{aligned}$$
+
+Then using equation 2.93 again to get the state of the system after measurement $M_m$ we find
+
+$$\begin{aligned}
+\ket{\psi'} \rightarrow \ket{\psi''} &= \frac{M_m \ket{\psi'}}{\sqrt{\braket{\psi' \vert M_m^\dagger M_m \vert \psi'}}} \\
+&= \frac{M_m \frac{L_l \ket{\psi}}{\sqrt{\braket{\psi \vert L_l^\dagger L_l \vert \psi}}}}{\sqrt{\frac{\bra{\psi}L_l^\dagger}{\sqrt{\braket{\psi \vert L_l^\dagger L_l \vert \psi}}} M_m^\dagger M_m \frac{L_l \ket{\psi}}{\sqrt{\braket{\psi \vert L_l^\dagger L_l \vert \psi}}}}} \\
+&= \frac{M_mL_l \ket{\psi}}{\sqrt{\braket{\psi \vert L_l^\dagger M_m^\dagger M_mL_l \vert \psi}}}
+\end{aligned}$$
+
+If we instead calculated the system after measurement $N_{lm} = M_m L_l$ we would get
+
+$$\begin{aligned}
+\ket{\psi} \rightarrow \ket{\psi'''} &= \frac{N_{lm} \ket{\psi}}{\sqrt{\braket{\psi \vert N_{lm}^\dagger N_{lm} \vert \psi}}} \\
+&= \frac{M_m L_l \ket{\psi}}{\sqrt{\braket{\psi \vert (M_m L_l)^\dagger M_m L_l \vert \psi}}} \\
+&= \frac{M_m L_l \ket{\psi}}{\sqrt{\braket{\psi \vert L_l^\dagger M_m^\dagger M_m L_l \vert \psi}}}
+\end{aligned}$$
+
+We can see that $\ket{\psi''}=\ket{\psi'''}$ therefore the sequential measurements are equivalent to $N_{lm}$.
+
+</details>
 
 ## Application: Superdense Coding
 

@@ -2,8 +2,14 @@
 
 I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton* by Nielsen and Chuang. This chapter provides an introduction to quantum mechanics.
 
-<details>
-<summary>Hidden</summary>
+## Navigation
+
+* [Linear Algebra](#linear-algebra)
+* [The Postulates of Quantum Mechanics](#the-postulates-of-quantum-mechanics)
+* [Superdense Coding](superdense-coding)
+* [The Density Operator](the-density-operator)
+* [EPR and the Bell Inequality](epr-and-the-bell-inequality)
+
 
 ## Linear Algebra
 
@@ -2194,18 +2200,18 @@ However, there are cases where this cannot be true, such as the Bell state $\ket
 </details>
 
 
-</details>
 
-## Application: Superdense Coding
+## Superdense Coding
 
-### Application: Superdense Coding - Key Concepts
+### Superdense Coding - Key Concepts
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Superdense coding                    | section 2.3               | An application of quantum mechanics that allows the transfer of two bits of classical information using a single qubit. |
+| Superdense coding                    | section 2.3               | An application of quantum mechanics that allows the transfer of two bits of classical information by interacting with a single qubit. |
+| Bell states                          | section 2.3               | $\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$ <br> $\ket{\beta_{10}} = \frac{\ket{00} - \ket{11}}{\sqrt{2}}$ <br> $\ket{\beta_{01}} = \frac{\ket{01} + \ket{10} }{\sqrt{2}}$ <br> $\ket{\beta_{11}} = \frac{\ket{01} - \ket{10}}{\sqrt{2}}$ |
 
 
-### Application: Superdense Coding - Exercises
+### Superdense Coding - Exercises
 
 **Exercise 2.69**
 
@@ -2300,6 +2306,57 @@ $$\begin{aligned}
 The state space is $2x2$ dimensions and therefore we need $4$ vectors to form a basis that spans the state space. There are $4$ Bell states which are orthonormal, therefore they form an orthonormal basis set. 
 
 </details>
+
+
+**Exercise 2.70**
+
+Show that $\braket{\psi \vert E \otimes I \vert \psi}$ takes the same value when $\psi$ is any of the four Bell states for some positive operator $E$. Then use the results to answer the second half of the question: if Alice's qubit was intercepted on its way to Bob, would the person who intercepted it be able to determine anything?
+
+<details>
+<summary>Solution</summary>
+
+For $\ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$, 
+
+$$\begin{aligned}
+\braket{\psi \vert E \otimes I \vert \psi} &= \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) E \otimes I \left( \frac{\ket{00} + \ket{11}}{\sqrt{2}} \right) \\
+&= \frac{1}{2}\left( \braket{00 \vert E \otimes I \vert 00} + \braket{00 \vert E \otimes I \vert 11} + \braket{11 \vert E \otimes I \vert 00} + \braket{11 \vert E \otimes I \vert 11}\right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} \braket{0 \vert 0} + \braket{0 \vert E \vert 1}  \braket{0 \vert 1} + \braket{1 \vert E \vert 0}  \braket{1 \vert 0} + \braket{1 \vert E \vert 1}  \braket{1 \vert 1} \right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} + \braket{1 \vert E \vert 1} \right)
+\end{aligned}$$
+
+For $\ket{\psi} = \frac{\ket{00} - \ket{11}}{\sqrt{2}}$, 
+
+$$\begin{aligned}
+\braket{\psi \vert E \otimes I \vert \psi} &= \left( \frac{\bra{00} - \bra{11}}{\sqrt{2}} \right) E \otimes I \left( \frac{\ket{00} - \ket{11}}{\sqrt{2}} \right) \\
+&= \frac{1}{2}\left( \braket{00 \vert E \otimes I \vert 00} - \braket{00 \vert E \otimes I \vert 11} - \braket{11 \vert E \otimes I \vert 00} + \braket{11 \vert E \otimes I \vert 11}\right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} \braket{0 \vert 0} - \braket{0 \vert E \vert 1}  \braket{0 \vert 1} - \braket{1 \vert E \vert 0}  \braket{1 \vert 0} + \braket{1 \vert E \vert 1}  \braket{1 \vert 1} \right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} + \braket{1 \vert E \vert 1} \right)
+\end{aligned}$$
+
+For $\ket{\psi} = \frac{\ket{10} + \ket{01}}{\sqrt{2}}$, 
+
+$$\begin{aligned}
+\braket{\psi \vert E \otimes I \vert \psi} &= \left( \frac{\bra{01} + \bra{10}}{\sqrt{2}} \right) E \otimes I \left( \frac{\ket{01} + \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2}\left( \braket{01 \vert E \otimes I \vert 01} + \braket{01 \vert E \otimes I \vert 10} + \braket{10 \vert E \otimes I \vert 01} + \braket{10 \vert E \otimes I \vert 10}\right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} \braket{1 \vert 1} + \braket{0 \vert E \vert 1}  \braket{1 \vert 0} + \braket{1 \vert E \vert 0}  \braket{0 \vert 1} + \braket{1 \vert E \vert 1}  \braket{0 \vert 0} \right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} + \braket{1 \vert E \vert 1} \right)
+\end{aligned}$$
+
+For $\ket{\psi} = \frac{\ket{10} - \ket{01}}{\sqrt{2}}$, 
+
+$$\begin{aligned}
+\braket{\psi \vert E \otimes I \vert \psi} &= \left( \frac{\bra{01} - \bra{10}}{\sqrt{2}} \right) E \otimes I \left( \frac{\ket{01} - \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2}\left( \braket{01 \vert E \otimes I \vert 01} - \braket{01 \vert E \otimes I \vert 10} - \braket{10 \vert E \otimes I \vert 01} + \braket{10 \vert E \otimes I \vert 10}\right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} \braket{1 \vert 1} - \braket{0 \vert E \vert 1}  \braket{1 \vert 0} - \braket{1 \vert E \vert 0}  \braket{0 \vert 1} + \braket{1 \vert E \vert 1}  \braket{0 \vert 0} \right) \\
+&= \frac{1}{2}\left( \braket{0 \vert E \vert 0} + \braket{1 \vert E \vert 1} \right)
+\end{aligned}$$
+
+Therefore $\braket{\psi \vert E \otimes I \vert \psi}$ is the same for all four Bell states.
+
+If Alice's qubit was intercepted on its way to Bob, the person who intercepted it would not be able to infer anything from it since, as was just demonstrated, both qubits need to be measured inorder to distinguish between the different states. 
+
+</details>
+
 
 ## The Density Operator
 

@@ -2,6 +2,9 @@
 
 I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton* by Nielsen and Chuang. This chapter provides an introduction to quantum mechanics.
 
+<details>
+<summary>Hidden</summary>
+
 ## Linear Algebra
 
 ### Linear Algebra - Key Concepts
@@ -2190,19 +2193,113 @@ However, there are cases where this cannot be true, such as the Bell state $\ket
 
 </details>
 
+
+</details>
+
 ## Application: Superdense Coding
 
 ### Application: Superdense Coding - Key Concepts
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-|                           
+| Superdense coding                    | section 2.3               | An application of quantum mechanics that allows the transfer of two bits of classical information using a single qubit. |
+
 
 ### Application: Superdense Coding - Exercises
 
+**Exercise 2.69**
 
+In section 2.3 the authors discuss how to used an entangled pair of qubits to transfer two bits of classical information. The possible resulting states are the Bell states. In this exercise we verify that these states form an orthonormal basis for the two qubit state space. In order for these states to form an orthonormal basis, they must be orthogonal, they must be unit vectors, and they must span the state space.
 
+<details>
+<summary>Solution</summary>
+  
+The Bell states are
 
+$$\begin{aligned}
+\ket{\psi_1} &= \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
+\ket{\psi_2} &= \frac{\ket{00} - \ket{11}}{\sqrt{2}} \\
+\ket{\psi_3} &= \frac{\ket{10} + \ket{01}}{\sqrt{2}} \\
+\ket{\psi_4} &= \frac{\ket{01} - \ket{10}}{\sqrt{2}} 
+\end{aligned}$$
+
+To prove that they are orthogonal we can take the inner product of different states and confirm it to be zero
+
+$$\begin{aligned}
+\braket{\psi_1 \vert \psi_2} &= \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{00} - \ket{11}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 00} - \braket{00 \vert 11} + \braket{11 \vert 00} - \braket{11 \vert 11}\right) \\
+&= \frac{1}{2}(1 - 0 + 0 - 1) \\
+&= 0 
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_1 \vert \psi_3} &= \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{10} + \ket{01}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 10} + \braket{00 \vert 01} + \braket{11 \vert 10} + \braket{11 \vert 01}\right) \\
+&= \frac{1}{2}(0 + 0 + 0 + 0) \\
+&= 0 
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_1 \vert \psi_4} &= \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{01} - \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 01} - \braket{00 \vert 10} + \braket{11 \vert 01} - \braket{11 \vert 10}\right) \\
+&= \frac{1}{2}(0 - 0 + 0 - 0) \\
+&= 0 
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_2 \vert \psi_3} &= \left( \frac{\bra{00} - \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{10} + \ket{01}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 10} + \braket{00 \vert 01} - \braket{11 \vert 10} - \braket{11 \vert 01}\right) \\
+&= \frac{1}{2}(0 + 0 - 0 - 0) \\
+&= 0 
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_2 \vert \psi_4} &= \left( \frac{\bra{00} - \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{01} - \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 01} + \braket{00 \vert 10} - \braket{11 \vert 01} + \braket{11 \vert 10}\right) \\
+&= \frac{1}{2}(0 + 0 - 0 + 0) \\
+&= 0 
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_3 \vert \psi_4} &= \left( \frac{\bra{10} + \bra{01}}{\sqrt{2}} \right) \left(\frac{\ket{01} - \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{10 \vert 01} - \braket{10 \vert 10} + \braket{01 \vert 01} - \braket{01 \vert 10}\right) \\
+&= \frac{1}{2}(0 - 1 + 1 - 0) \\
+&= 0 
+\end{aligned}$$
+
+To confirm that they are unit vectors we can take their inner product with themselves and show it is 1
+
+$$\begin{aligned}
+\braket{\psi_1 \vert \psi_1} &= \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{00} + \ket{11}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 00} + \braket{00 \vert 11} + \braket{11 \vert 00} + \braket{11 \vert 11}\right) \\
+&= \frac{1}{2}(1 + 0 + 0 + 1) \\
+&= 1
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_2 \vert \psi_2} &= \left( \frac{\bra{00} - \bra{11}}{\sqrt{2}} \right) \left(\frac{\ket{00} - \ket{11}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{00 \vert 00} - \braket{00 \vert 11} - \braket{11 \vert 00} + \braket{11 \vert 11}\right) \\
+&= \frac{1}{2}(1 - 0 - 0 + 1) \\
+&= 1
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_3 \vert \psi_3} &= \left( \frac{\bra{10} + \bra{01}}{\sqrt{2}} \right) \left(\frac{\ket{10} + \ket{01}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{10 \vert 10} + \braket{10 \vert 01} + \braket{01 \vert 10} + \braket{01 \vert 01}\right) \\
+&= \frac{1}{2}(1 + 0 + 0 + 1) \\
+&= 1
+\end{aligned}$$
+
+$$\begin{aligned}
+\braket{\psi_4 \vert \psi_4} &= \left( \frac{\bra{01} - \bra{10}}{\sqrt{2}} \right) \left(\frac{\ket{01} - \ket{10}}{\sqrt{2}} \right) \\
+&= \frac{1}{2} \left( \braket{01 \vert 01} - \braket{01 \vert 10} - \braket{10 \vert 01} + \braket{10 \vert 10}\right) \\
+&= \frac{1}{2}(1 - 0 - 0 + 1) \\
+&= 1
+\end{aligned}$$
+
+The state space is $2x2$ dimensions and therefore we need $4$ vectors to form a basis that spans the state space. There are $4$ Bell states which are orthonormal, therefore they form an orthonormal basis set. 
+
+</details>
 
 ## The Density Operator
 

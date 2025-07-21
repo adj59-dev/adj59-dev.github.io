@@ -1633,6 +1633,9 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | Heisenberg uncertainty principle     | section 2.2.5             | $\Delta(A)\Delta(B) \geq \frac{\vert \braket{\psi \vert \lbrack A, B \rbrack \vert \psi} \vert}{2}$ for observables $A$ and $B$ |
 | Measurement of a single qubit spin along the $\vec{v}$ axis | section 2.2.5 | $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$ |
 | POVM measurements                    | section 2.2.6             | If we define $E_m = M^\dagger M$ then $E_m$ is a positive operator such that $\sum_{m} E_m = I$ and $p(m) = \braket{\psi \vert E_m \vert \psi}$. The operators $E_m$ are known as the POVM (positive operator-valued measure) elements. |
+| Global phase                         | section 2.2.7             | $\ket{\psi} = e^{i \theta}\ket{\psi}$ are equal up to the global phase factor $e^{i \theta}$. Global phase can't be seen in measurement |
+| Relative phase                       | section 2.2.7             | $\ket{\psi_1} = \frac{\ket{0} + \ket{1}}{\sqrt{2}}$ and  $\ket{\psi_1} = \frac{\ket{0} - \ket{1}}{\sqrt{2}}$ differ by a relative phase. Relative phases are basis dependent and can be seen in measurement. |
+| Composite systems                    | section 2.2.8             | The state space of a composite system is the tensor product of the state spaces of the component systems |
 
 
 
@@ -2052,6 +2055,31 @@ Create a set of $E_m$ such that if outcome $E_i$ occurs then you know with certa
 $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=1}^m E_i$
 
 </details>
+
+
+**Exercise 2.65**
+
+In this exercise we change the basis of two states such that they are not the same up to a relative phase shift. You can use the results from exercise 2.11.
+
+<details>
+<summary>Solution</summary>
+
+We know from exercise 2.11 that one of the basis for the Pauli $X$ matrix is 
+
+$$\begin{aligned}
+\ket{+} &= \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
+\ket{-} &= \frac{\ket{0} - \ket{1}}{\sqrt{2}}
+\end{aligned}$$
+
+which are the states given in the exercise. When written like this, they are not the same up to a relative phase shift. 
+
+</details>
+
+
+**Exercise 2.66**
+
+
+
 
 ## Application: Superdense Coding
 

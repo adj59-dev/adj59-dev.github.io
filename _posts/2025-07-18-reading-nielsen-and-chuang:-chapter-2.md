@@ -2028,6 +2028,31 @@ We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ 
 
 </details>
 
+
+**Exercise 2.63**
+
+In this exercise we are to show that there exists unitar operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
+
+<details>
+<summary>Solution</summary>
+
+In section 2.1.10 we learned that a linear operator can be broken up into a product of a unitary operator and positive operators such that $A=UJ=KU$ where the positive operators are given as $J=\sqrt{A^\dagger A}$ and $K=\sqrt{AA^\dagger}$. 
+
+From equation 2.117 we know that $E_m = M_m^\dagger M_m$, therefore $\sqrt{E_m} = \sqrt{M_m^\dagger M_m}=J$. From polar decomposition we then know $M_m$ can be written as $M_m = U_m J = U_m \sqrt{E_m}$.  
+
+</details>
+
+**Exercise 2.64**
+
+Create a set of $E_m$ such that if outcome $E_i$ occurs then you know with certainty that state $\ket{\psi_i}$ from the linearly independent set $\ket{\psi_1}, \dots, \ket{\psi_m}$ was measured. This set will include $E_{m+1}$ to satisfy the completeness relation. 
+
+<details>
+<summary>Solution</summary>
+
+$E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=1}^m E_i$
+
+</details>
+
 ## Application: Superdense Coding
 
 ### Application: Superdense Coding - Key Concepts

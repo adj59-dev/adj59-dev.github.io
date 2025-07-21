@@ -6,9 +6,9 @@ I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton
 
 * [Linear Algebra](#linear-algebra)
 * [The Postulates of Quantum Mechanics](#the-postulates-of-quantum-mechanics)
-* [Superdense Coding](superdense-coding)
-* [The Density Operator](the-density-operator)
-* [EPR and the Bell Inequality](epr-and-the-bell-inequality)
+* [Superdense Coding](#superdense-coding)
+* [The Density Operator](#the-density-operator)
+* [EPR and the Bell Inequality](#epr-and-the-bell-inequality)
 
 
 ## Linear Algebra

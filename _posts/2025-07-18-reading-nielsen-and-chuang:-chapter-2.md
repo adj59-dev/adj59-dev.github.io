@@ -2155,6 +2155,40 @@ Therefore $U'\ket{w} = U \ket{w}$ for all $\ket{w}$ in $W$.
 </details>
 
 
+**Exercise 2.68**
+
+Prove that $\ket{\psi} \neq \ket{a}\ket{b}$ for all single qubit states $\ket{a}$ and $\ket{b}$. You may find it helpful to refer back to section 1.2.1 when solving this problem. 
+
+<details>
+<summary>Solution</summary>
+
+From equation 1.5 we know that the state vector describing the two qubits are
+
+$$\begin{aligned}
+\ket{\psi} = \alpha_{00} \ket{00} + \alpha_{01} \ket{01} + \alpha_{10} \ket{10} + \alpha_{11} \ket{11}
+\end{aligned}$$
+
+For single qubits the state vectors are
+
+$$\begin{aligned}
+\ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
+\ket{b} &= b_0 \ket{0} + b_1 \ket{1} \\
+ \Rightarrow \ket{a}\ket{b} &= \left(a_0 \ket{0} + a_1 \ket{1} \right) \left(b_0 \ket{0} + b_1 \ket{1}\right) \\
+ &= a_0 b_0 \ket{0} \ket{0} + a_1 b_0 \ket{1} \ket{0} + a_0 b_1 \ket{0} \ket{1} + a_1 b_1 \ket{1} \ket{1}
+\end{aligned}$$
+
+If $\ket{\psi} = \ket{a}\ket{b}$ the following must be true
+
+$$\begin{aligned}
+\alpha_{00} &= a_0 b_0 \\
+\alpha_{01} &= a_0 b_1 \\
+\alpha_{10} &= a_1 b_0 \\
+\alpha_{11} &= a_1 b_1
+\end{aligned}$$
+
+However, there are cases where this cannot be true, such as the Bell state $\ket{\psi}=\frac{\ket{00} + \ket{11}}{\sqrt{2}}$. Here $\alpha_{00} = \alpha_{11} = \frac{1}{\sqrt{2}}$ and $\alpha_{01} = \alpha_{10} = 0$ There are no combinations of $a_0, a_1, b_0, b_1$ which would be able to represent this state. 
+
+</details>
 
 ## Application: Superdense Coding
 

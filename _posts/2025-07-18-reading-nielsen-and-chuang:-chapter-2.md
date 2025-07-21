@@ -2059,7 +2059,7 @@ $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=
 
 **Exercise 2.65**
 
-In this exercise we change the basis of two states such that they are not the same up to a relative phase shift. You can use the results from exercise 2.11.
+In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from exercise 2.11.
 
 <details>
 <summary>Solution</summary>
@@ -2078,6 +2078,81 @@ which are the states given in the exercise. When written like this, they are not
 
 **Exercise 2.66**
 
+In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from exercise 2.9. and use equation 2.113 with $M=X_1Z_2$.
+
+<details>
+<summary>Solution</summary>
+
+From exercise 2.9 we know that 
+
+$$\begin{aligned}
+X &= \ket{0}\bra{1} + \ket{1}\bra{0} \\
+Z &= \ket{0}\bra{0} - \ket{1}\bra{1}
+\end{aligned}$$
+
+I don't plan to actually plug these equations into anything below (though you can if you find it helpful) but I like to have them handy as reference when doing the calculation in my head. 
+
+The state of the qubits before measurement is
+
+$$\begin{aligned}
+\ket{\psi_1} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}
+\end{aligned}$$
+
+First let's calculate $X_1Z_2 \ket{\psi_1}$
+
+$$\begin{aligned}
+\ket{\psi_2} &= X_1Z_2 \ket{\psi_1} \\
+&= X_1Z_2\left(\frac{\ket{00} + \ket{11}}{\sqrt{2}}\right) \\
+&= \frac{X_1Z_2\ket{00} + X_1Z_2\ket{11}}{\sqrt{2}} \\
+&= \frac{\ket{10} - \ket{01}}{\sqrt{2}} 
+\end{aligned}$$
+
+Then we can use equation 2.113 to calculate the average value
+
+$$\begin{aligned}
+\braket{\psi_1 \vert X_1Z_2 \vert \psi_1} &= \braket{\psi_1 \vert \psi_2} \\
+&= \frac{\braket{00 \vert 10} - \braket{00 \vert 01} - \braket{11 \vert 10} + \braket{11 \vert 01}}{2} \\
+&= 0
+\end{aligned}$$
+
+</details>
+
+
+**Exercise 2.67**
+
+$U$ is linear operator that preserves the inner product in $W$, which is a subspace fo $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
+
+<details>
+<summary>Solution</summary>
+
+We start by writing $U = \sum_{i=1}^k \lambda_i \ket{i}\bra{i}$, with $\vert \lambda_i \vert = 1$ . To extend this we need to add elements ranging from $k+1$ to $d$. Which will give us something like $U' = \sum_{i=1}^k \lambda_i \ket{i}\bra{i} + \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j}$, where $\ket{i} \cup \ket{j}$ form an orthonormal basis for $V$. Now we need to prove that $U'$ is a unitary operator and $U'\ket{w} = U\ket{w}$ for all $\ket{w}$ in $W$. 
+
+To prove that $U'$ is unitary we need to show that $U'^\dagger U' = I$
+
+$$\begin{aligned}
+U'^\dagger U' &= \left( \sum_{i=1}^k \lambda_i \ket{i}\bra{i} + \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j} \right)^\dagger \left( \sum_{i'=1}^k \lambda_{i'} \ket{i'}\bra{i'} + \sum_{j'=k+1}^d \lambda_{j'} \ket{j'}\bra{j'} \right) \\
+&= \left( \sum_{i=1}^k \lambda_i^\ast \ket{i}\bra{i} + \sum_{j=k+1}^d \lambda_j^\ast \ket{j}\bra{j} \right) \left( \sum_{i'=1}^k \lambda_{i'} \ket{i'}\bra{i'} + \sum_{j'=k+1}^d \lambda_{j'} \ket{j'}\bra{j'} \right) \\
+&= \sum_{i=1}^k \sum_{j=k+1}^d \sum_{i'=1}^k \sum_{j'=k+1}^d \lambda_i^\ast \lambda_{i'} \ket{i}\braket{i \vert i'}\bra{i'} + \lambda_j^\ast \lambda_{i'} \ket{j}\braket{j \vert i'}\bra{i'} + \lambda_i^\ast \lambda_{j'}\ket{i}\braket{i \vert j'}\bra{j'} + \lambda_j^\ast \lambda_{j'}\ket{j}\braket{j \vert j'}\bra{j'} \\
+&= \sum_{i=1}^k \sum_{j=k+1}^d \sum_{i'=1}^k \sum_{j'=k+1}^d \lambda_i^\ast \lambda_{i'} \delta_{i i'} \ket{i}\bra{i'} + \lambda_j^\ast \lambda_{i'} \delta_{j i'} \ket{j}\bra{i'} + \lambda_i^\ast \lambda_{j'} \delta_{i j'} \ket{i}\bra{j'} + \lambda_j^\ast \lambda_{j'} \delta_{j j'}\ket{j}\bra{j'} \\
+&= \sum_{i=1}^k \sum_{j=k+1}^d \vert \lambda_i \vert^2 \ket{i}\bra{i} + \vert \lambda_j \vert^2 \ket{j}\bra{j} \\
+&= I & \text{if $\vert \lambda_j \vert^2 = 1$ for all $j$}
+\end{aligned}$$
+
+Therefore $U'$ is unitary if $\vert \lambda_j \vert^2 = 1$ for all $j$.
+
+Now let's look at $U'\ket{w}$. We know that since $\ket{w}$ is in $W$ it can be written as a combination of the orthonormal basis vectors for $W$, i.e. $\ket{w} = \sum_{i=1}^k a_i \ket{i}$ for a set of complex values $a_i$. Combinding this with our equation for $U'$ we get
+
+$$\begin{aligned}
+U'\ket{w} &= \left(U + \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j}\right) \ket{w} \\
+&= U \ket{w} + \left( \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j} \right)\left( \sum_{i=1}^k a_i \ket{i} \right) \\
+&= U \ket{w} + \sum_{j=k+1}^d \sum_{i=1}^k\lambda_j \ket{j} \braket{j \vert i} \\
+&= U \ket{w} + \sum_{j=k+1}^d \sum_{i=1}^k\lambda_j \ket{j} \delta_{ij} \\
+&= U \ket{w} 
+\end{aligned}$$
+
+Therefore $U'\ket{w} = U \ket{w}$ for all $\ket{w}$ in $W$. 
+
+</details>
 
 
 

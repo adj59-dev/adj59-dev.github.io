@@ -1,6 +1,13 @@
 # Reading Nielsen and Chuang: Chapter 2
 
-I've completed reading chapter 2 of *Quantum Computation and Quantum Informaiton* by Nielsen and Chuang. This chapter provides an introduction to quantum mechanics.
+I just finished reading Chapter 2 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. While the chapter serves as a brief introduction to quantum mechanics, much of it is devoted to linear algebra — with 50 out of 82 exercises focused on that topic. 
+
+For me, the most valuable part was Section 2.1.7 on tensor products. I don’t recall covering tensor products in my undergraduate linear algebra course, so it was helpful to finally work through the formalism. It clarified a lot, especially given how central tensor products are to quantum computing.
+
+The quantum mechanics portion was also a good refresher. I'm glad I took the time to work through all the exercises, even though it was time-consuming. It helped reinforce concepts I’ll need later.
+
+Below are my notes and solutions to the exercises. The solutions are collapsed to save space and avoid spoilers for anyone who wants to work through them independently.
+
 
 ## Navigation
 

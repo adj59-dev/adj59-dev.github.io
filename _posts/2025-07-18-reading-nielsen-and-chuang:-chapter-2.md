@@ -2371,7 +2371,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Density operator                     | section 2.4.1             | $\rho \equiv \sum_{i} p_i \ket{\psi_i}\bra{\psi_i}$                                                      |
+| Density operator                     | section 2.4.1             | $\rho \equiv \sum_{i} p_i \ket{\psi_i}\bra{\psi_i}$, where $p_i$  is non-negative and $\sum_i p_i = 1$                                                     |
 | Evolution of the density operator    | section 2.4.1             | $\rho = \sum_{i} p_i \ket{\psi_i}\bra{\psi_i} \xrightarrow{U} \sum_{i} p_i U\ket{\psi_i}\bra{\psi_i}U^\dagger = U \rho U^\dagger$ |
 | Measurements                         | section 2.4.1             | Probability of getting result $m$ if the initial state is $\ket{\psi_i} is $p(m \vert i) = \braket{\psi_i \vert M_m^\dagger M_m \vert \psi_i} = \text{tr} (M_m^\dagger M_m \ket{\psi_i}\bra{\psi_i})$ <br> Probability of obtaining result $m$ is $p(m) = \sum_i p(m \vert i) p_i = \text{tr}(M_m^\dagger M_m \rho)$ <br> The density operator after obtaining measurement $m$ is $\rho_m = \frac{M_m \rho M_m^\dagger}{\text{tr}(M_m^\dagger M_m \rho)}$ |
 | Pure state                           | section 2.4.1             | A quantum system whose state is known exactly. The density operator is given by $\rho = \ket{\psi}\bra{\psi}$. These states have $\text{tr}(\rho^2)=1$. |

@@ -2405,6 +2405,11 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 </details>
 
 
+**Exercise 2.72**
+
+For this exercise we are to derive some of the properties of the Bloch sphere for mixed states, referring us back to section 1.2 where we discussed the Bloch sphere for a pure state. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which has some similarities to what we did in Exercise 2.35 and 2.60.
+
+
 
 ## EPR and the Bell Inequality
 

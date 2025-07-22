@@ -2380,7 +2380,28 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 
 ### The Density Operator - Exercises
 
+**Exercise 2.71**
 
+In this exercise we show that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a pure state using the definition of $\rho$ and the fact that $\sum_i p_i = 1$.
+
+<details>
+<summary>Solution</summary>
+
+$$\begin{aligned}
+\text{tr} ( \rho^2 ) &= \text{tr} \left( \left( \sum_{i} p_i \ket{\psi_i}\bra{\psi_i} \right) \left( \sum_{i'} p_{i'} \ket{\psi_{i'}}\bra{\psi_{i'}} \right) \right) \\
+&= \text{tr} \left( \sum_{i} \sum_{i'} p_i p_{i'} \ket{\psi_i}\braket{\psi_i \vert \psi_{i'}}\bra{\psi_{i'}}  \right) \\
+&= \text{tr} \left( \sum_{i} \sum_{i'} p_i p_{i'} \delta_{ii'} \ket{\psi_i}\bra{\psi_{i'}}  \right) \\
+&= \text{tr} \left( \sum_{i} p_i^2 \ket{\psi_i}\bra{\psi_{i}}  \right) \\
+&= \sum_{i} p_i^2
+\end{aligned}$$
+
+We know that $\sum_i p_i = 1$. If $\rho$ is a pure state, there is only one $p_i$ and it is equal to $1$. Therefore $\text{tr} ( \rho^2 ) = 1$.
+
+When $\rho$ is a mixed state, there are multiple $p_i$ which add up to $1$. Since each $p_i$ is less than $1$, $p_i^2 < p_i$. Therefore $\sum_i p_i^2 < \sum_i p_i = 1$.
+
+This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a pure state. 
+
+</details>
 
 
 

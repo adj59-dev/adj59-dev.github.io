@@ -2407,7 +2407,42 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 
 **Exercise 2.72**
 
-For this exercise we are to derive some of the properties of the Bloch sphere for mixed states, referring us back to section 1.2 where we discussed the Bloch sphere for a pure state. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which has some similarities to what we did in Exercise 2.35 and 2.60.
+For this exercise we are to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which is related to what we did in Exercise 2.60 where we derived the projectors for the pure states. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
+
+<details>
+<summary>Solution</summary>
+
+(1) In exercise 2.60 we showned that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2 = \ket{\lambda_{\pm}}\bra{\lambda_{\pm}}$. If $p_+$ is the probability of being in state $\lambda_+$ and $p_-$ is the probability of being in state $\lambda_-$ and $p_- + p_+ = 1$ then the density matrix is given by
+
+$$\begin{aligned}
+\rho &= p_+ \ket{\lambda_{+}}\bra{\lambda_{+}} + p_- \ket{\lambda_{-}}\bra{\lambda_{-}} \\
+&= p_+ P_+ + p_- P_- \\
+&= p_+ \frac{I + \vec{v} \cdot \vec{\sigma}}{2} + p_- \frac{I - \vec{v} \cdot \vec{\sigma}}{2} \\
+&= \frac{(p_+ + p_-)I + (p_+ - p_-)\vec{v} \cdot \vec{\sigma}}{2} \\
+&= \frac{I+ (p_+ - p_-)\vec{v} \cdot \vec{\sigma}}{2}
+\end{aligned}$$
+
+We can set $\vec{r} = (p_+ - p_-)\vec{v}$ and then we get $\rho = \frac{I+\vec{r} \cdot \vec{\sigma}}{2}$. Here, we know that $\Vert \vec{r} \Vert = \vert p_+ - p_- \vert \leq 1$ since both $p_-$ and $p_+$ are positive, $p_+ + p_- = 1$, and $\Vert \vec{v} \Vert = 1$.
+
+(2) If $\rho = \frac{I}{2}$ then $r=0$.
+
+(3) A state $\rho$ is pure when if it is constructed with only a pure state, i.e. when either $p_-$ or $p_+$ is $1$ and the other is $0$. Therefore $\Vert \vec{r} \Vert = \vert p_+ - p_- \vert = 1$. 
+
+(4) In section 1.2 the description of the Bloch vector is given by $\ket{\psi} = \cos\frac{\theta}{2}\ket{0} + e^{i\phi} \sin\frac{\theta}{2}\ket{1}$. Therefore, for a pure state the density operator can be given by 
+
+$$\begin{aligned}
+\rho &= \ket{\psi}\bra{\psi} \\
+&= \left(\cos\frac{\theta}{2}\ket{0} + e^{i\phi} \sin\frac{\theta}{2}\ket{1} \right)\left(\cos\frac{\theta}{2}\bra{0} + e^{-i\phi} \sin\frac{\theta}{2}\bra{1} \right) \\
+&= \cos^2\frac{\theta}{2}\ket{0}\bra{0} + e^{-i\phi}\cos\frac{\theta}{2}\sin\frac{\theta}{2}\ket{0}\bra{1} + e^{i\phi} \sin\frac{\theta}{2}\cos\frac{\theta}{2}\ket{1}\bra{0} + \sin^2\frac{\theta}{2}\ket{1}\bra{1} \\
+&= \frac{1 + \cos\theta }{2}\ket{0}\bra{0} + \frac{e^{-i\phi}\sin\theta}{2}\ket{0}\bra{1} + \frac{e^{i\phi}\sin\theta}{2}\ket{1}\bra{0} + \frac{1 - \cos\theta }{2}\ket{1}\bra{1} \\
+&= \left(\ket{0}\bra{0} + \ket{1}\bra{1} \right) + \left(\frac{\cos\theta }{2}\ket{0}\bra{0} - \frac{\cos\theta }{2}\ket{1}\bra{1} \right) + \left( \frac{e^{-i\phi}\sin\theta}{2}\ket{0}\bra{1} + \frac{e^{i\phi}\sin\theta}{2}\ket{1}\bra{0} \right) \\
+&= \frac{I + \cos\theta Z + \left(\cos(-i\phi) + i\sin(-i\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(i\phi) + i\sin(i\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
+&= \frac{I + \cos\theta Z + \left(\cos(i\phi) - i\sin(i\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(i\phi) + i\sin(i\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
+&= \frac{I + \cos\theta Z + \cos(i\phi)\sin\theta X +  \sin(i\phi)\sin\theta Y}{2} \\
+&= \frac{I + \vec{v} \cdot \vec{\sigma}}{2}
+\end{aligned}$$
+
+</details>
 
 
 

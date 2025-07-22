@@ -4,7 +4,7 @@ I just finished reading Chapter 2 of *Quantum Computation and Quantum Informatio
 
 For me, the most valuable part was Section 2.1.7 on tensor products. I don’t recall covering tensor products in my undergraduate linear algebra course, so it was helpful to finally work through the formalism. It clarified a lot, especially given how central tensor products are to quantum computing.
 
-The quantum mechanics portion was also a good refresher. I'm glad I took the time to work through all the exercises, even though it was time-consuming. It helped reinforce concepts I’ll need later.
+The quantum mechanics portion was a good refresher, though some of the formalism here was also new to me. I'm glad I took the time to work through all the exercises, even though it was time-consuming. It helped reinforce concepts I’ll need later.
 
 Below are my notes and solutions to the exercises. The solutions are collapsed to save space and avoid spoilers for anyone who wants to work through them independently.
 
@@ -2377,6 +2377,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 | Pure state                           | section 2.4.1             | A quantum system whose state is known exactly. The density operator is given by $\rho = \ket{\psi}\bra{\psi}$. These states have $\text{tr}(\rho^2)=1$. |
 | Mixed state                          | section 2.4.1             | A mixture of different pure states. The density operator is given by $\rho = \sum_i p_i \rho_i$, where $p_i$ is the probability of the system being in the pure state given by $\rho_i$. These states have $\text{tr}(\rho^2)<1$. |
 | Requirements of a density operator   | section 2.4.2             | An operator $\rho$ is a density operator associated to some ensemble $\\{ p_i \ket{\psi_i}\\}$ if it satisfies these conditions: <br> (1) $\rho$ has a trace equal to 1 <br> (2) $\rho$ is a positive operator |
+| Unitary freedom in the ensemble      | section 2.4.2             | The states $\ket{\tilde{\psi_i}}= \sqrt{p_i} \ket{\psi_i}$ and $\ket{\tilde{\phi_j}}= \sqrt{p_j} \ket{\phi_j}$ generate the same density matrix if and only if $\ket{\tilde{\psi_i}} = \sum_j u_{ij} \ket{\tilde{\phi_j}}$ where $u_{ij}$ are the entries of a unitary matrix. |
 
 ### The Density Operator - Exercises
 

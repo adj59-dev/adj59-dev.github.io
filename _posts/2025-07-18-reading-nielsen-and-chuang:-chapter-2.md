@@ -2447,23 +2447,66 @@ $$\begin{aligned}
 
 **Exercise 2.73**
 
-For this exercise we are to use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$. 
+For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$. 
 
-The density operator can be written as $\rho = \sum_{j} p_j \ket{\phi_j} \bra{\phi_j}$ with $\\{p_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} = \sum_j a_j \ket{\phi_j}$ for some values of $a_j$. Using theorem 2.6, if there is a minimal ensemble for $\rho$ that contains $\ket{psi}$ then the following is true for some unitary matrix given by $u_{ij}$
+The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\\{q_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$ where $\sum_j \vert a_{ij} \vert^2 = 1$, since $\ket{\psi_i}$ is normalized, and $a_{ij} = \braket{\phi_j \vert A \vert \psi_i}$ for some $A=\sum_{ij} \braket{\phi_j \vert A \vert \psi_i} \ket{\phi_j}\bra{\psi_i}$, per equation 2.25.
+
+Using theorem 2.6, if there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ then the following is true for some unitary matrix given by $u_{ij}$
 
 $$\begin{aligned}
-\sum_{j} u_{ij} \sqrt{p_j}\ket{\phi_j} &= \sqrt{p_i}\ket{\psi_i} \\
+\sum_{j} u_{ij} \sqrt{q_j}\ket{\phi_j} &= \sqrt{p_i}\ket{\psi_i} \\
 &= \sum_j a_{ij} \sqrt{p_i}\ket{\phi_j}
 \end{aligned}$$
 
-So now we need to show that $a_{ij}$ are the elements of a unitary matrix. In order to be a unitary matrix $A^\dagger A = A A^\dagger = I$, so the following needs to be true. 
+Now we need to show that $a_{ij}\sqrt{\frac{p_i}{q_j}}$ are the elements of a unitary matrix, so the following needs to be true 
 
 $$\begin{aligned}
-I_{ij} &= \sum_{k} a_{ik}a_{jk}^\ast \\
-& \Rightarrow \sum_{k} \vert a_{ik} \vert^2= 1 & \text{for a given $i$} \\
-& \sum_{k} a_{ik}a_{jk}^\ast = 0 & \text{when $i \neq j$}
+I_{ij} &= \sum_{k} \left(a_{ik}\frac{\sqrt{p_i}}{\sqrt{q_k}}\right) \left( a_{kj} \frac{\sqrt{p_k}}{\sqrt{q_j}} \right)^\dagger \\
+&= \sum_{k} \left(a_{ik}\frac{\sqrt{p_i}}{\sqrt{q_k}}\right) \left( a_{jk}^\ast \frac{\sqrt{p_j}}{\sqrt{q_k}} \right) \\
+&= \sum_{k} a_{ik} a_{jk}^\ast \frac{\sqrt{p_i p_j}}{q_k}
 \end{aligned}$$
 
+Which means that the following conditions need to be true
+
+$$\begin{aligned}
+1 &= \sum_{k} \vert a_{ik} \vert^2 \frac{p_i}{q_k}& \text{for $j=i$} \\
+0 &= \sum_{k} a_{ik}a_{jk}^\ast \frac{\sqrt{p_i p_j}}{q_k} & \text{for $j \neq i$}
+\end{aligned}$$
+
+Solving the first condition for $p_i$ we get
+
+$$\begin{aligned}
+p_i &= \sum_{k}\frac{q_k}{\vert a_{ik} \vert^2}
+\end{aligned}$$
+
+We know that the inverse of $\rho$ is given by $\rho^{-1} = \sum_j \frac{1}{q_j} \ket{\rho_j} \bra{\rho_j}$. Therefore
+
+$$\begin{aligned}
+\braket{\psi_i \vert \rho^{-1} \vert \psi_i } &= \sum_j \frac{1}{q_j} \braket{\psi_i \vert \rho_j} \braket{\rho_j \vert \psi_i} \\
+&= \sum_j \frac{\vert a_{ij} \vert^2}{q_j} \\
+&= p_i^{-1}
+\end{aligned}$$
+
+and so for this ensemble this must be true
+
+$$\begin{aligned}
+p_i = \frac{1}{\braket{\psi_i \vert \rho_{-1} \vert \psi_i }}
+\end{aligned}$$
+
+If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$
+
+$$\begin{aligned}
+0 &= \sqrt{p_i p_j}\braket{\psi_j \vert \psi_i} & \text{when $i \neq j$}\\
+&= \sum_{kk'} a_{ik} a_{jk'}^\ast \braket{\phi_k \vert \phi_{k'}} \\
+&= \sum_{k} a_{ik} a_{jk}^\ast
+\end{aligned}$$
+
+Going back to second condition
+
+$$\begin{aligned}
+0 &= \sum_{k} a_{ik}a_{jk}^\ast \frac{\sqrt{p_i p_j}}{q_k} & \text{for $j \neq i$} \\
+&= \sum_{k} \frac{a_{ik}a_{jk}^\ast}{q_k}
+\end{aligned}$$
 
 
 

@@ -2447,9 +2447,12 @@ $$\begin{aligned}
 
 **Exercise 2.73**
 
-For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$. 
+For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$.  
 
-The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\\{q_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$ where $\sum_j \vert a_{ij} \vert^2 = 1$, since $\ket{\psi_i}$ is normalized, and $a_{ij} = \braket{\phi_j \vert A \vert \psi_i}$ for some $A=\sum_{ij} \braket{\phi_j \vert A \vert \psi_i} \ket{\phi_j}\bra{\psi_i}$, per equation 2.25.
+<details>
+<summary>Solution</summary>
+
+The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\\{q_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$ that is made up of orthonormal states $\ket{\phi_j}$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} =\ket{\tilde{\psi_i}} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$.
 
 Using theorem 2.6, if there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ then the following is true for some unitary matrix given by $u_{ij}$
 
@@ -2458,7 +2461,7 @@ $$\begin{aligned}
 &= \sum_j a_{ij} \sqrt{p_i}\ket{\phi_j}
 \end{aligned}$$
 
-Now we need to show that $a_{ij}\sqrt{\frac{p_i}{q_j}}$ are the elements of a unitary matrix, so the following needs to be true 
+Looking at the above equation, we can see that we need to show that $u_{ij} = a_{ij}\sqrt{\frac{p_i}{q_j}}$ are the elements of a unitary matrix. Therefore we need to show  
 
 $$\begin{aligned}
 I_{ij} &= \sum_{k} \left(a_{ik}\frac{\sqrt{p_i}}{\sqrt{q_k}}\right) \left( a_{kj} \frac{\sqrt{p_k}}{\sqrt{q_j}} \right)^\dagger \\
@@ -2479,34 +2482,34 @@ $$\begin{aligned}
 p_i &= \sum_{k}\frac{q_k}{\vert a_{ik} \vert^2}
 \end{aligned}$$
 
-We know that the inverse of $\rho$ is given by $\rho^{-1} = \sum_j \frac{1}{q_j} \ket{\rho_j} \bra{\rho_j}$. Therefore
+We know that the inverse of $\rho$ is given by $\rho^{-1} = \sum_j \frac{1}{q_j} \ket{\phi_j} \bra{\phi_j}$. Therefore
 
 $$\begin{aligned}
-\braket{\psi_i \vert \rho^{-1} \vert \psi_i } &= \sum_j \frac{1}{q_j} \braket{\psi_i \vert \rho_j} \braket{\rho_j \vert \psi_i} \\
+\braket{\psi_i \vert \rho^{-1} \vert \psi_i } &= \sum_j \frac{1}{q_j} \braket{\psi_i \vert \phi_j} \braket{\phi_j \vert \psi_i} \\
 &= \sum_j \frac{\vert a_{ij} \vert^2}{q_j} \\
 &= p_i^{-1}
 \end{aligned}$$
 
-and so for this ensemble this must be true
+and so for this ensemble this must be true to satisfy the first condition
 
 $$\begin{aligned}
 p_i = \frac{1}{\braket{\psi_i \vert \rho_{-1} \vert \psi_i }}
 \end{aligned}$$
 
-If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$
+If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$ as long as the ensemble that you constructed $\\{p_i \vert \ket{\psi_i} \\}$ is orthogonal (which it should be since it is a minimal ensemble), therefore
 
 $$\begin{aligned}
-0 &= \sqrt{p_i p_j}\braket{\psi_j \vert \psi_i} & \text{when $i \neq j$}\\
-&= \sum_{kk'} a_{ik} a_{jk'}^\ast \braket{\phi_k \vert \phi_{k'}} \\
-&= \sum_{k} a_{ik} a_{jk}^\ast
+0 &= \braket{\tilde{\psi_j} \vert \tilde{\psi_i}} & \text{when $i \neq j$}\\
+&= \sqrt{p_i p_j}\braket{\psi_j \vert \psi_i}\\
+&= \sum_{kk'} a_{ik} a_{jk'}^\ast \sqrt{p_i p_j} \braket{\phi_k \vert \phi_{k'}} \\
+&= \sum_{kk'} a_{ik} a_{jk'}^\ast\frac{\sqrt{p_i p_j}}{\sqrt{q_k q_{k'}}} \braket{\tilde{\phi_k} \vert \tilde{\phi_{k'}}} \\
+&= \sum_{k} a_{ik} a_{jk}^\ast\frac{\sqrt{p_i p_j}}{q_k} 
 \end{aligned}$$
 
-Going back to second condition
+Going back to the second condition, we can see that this is met. Therefore $u_{ij}=a_{ij}\sqrt{\frac{p_i}{q_j}}$ are elements of a unitary matrix and so we can use theorem 2.6 to show that there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$. 
 
-$$\begin{aligned}
-0 &= \sum_{k} a_{ik}a_{jk}^\ast \frac{\sqrt{p_i p_j}}{q_k} & \text{for $j \neq i$} \\
-&= \sum_{k} \frac{a_{ik}a_{jk}^\ast}{q_k}
-\end{aligned}$$
+</details>
+
 
 
 

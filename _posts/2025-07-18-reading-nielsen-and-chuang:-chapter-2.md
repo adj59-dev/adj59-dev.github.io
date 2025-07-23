@@ -2407,7 +2407,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 
 **Exercise 2.72**
 
-For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which is related to what we did in Exercise 2.60 where we derived the projectors for the pure states. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
+For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from Exercise 2.60 where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
 <details>
 <summary>Solution</summary>

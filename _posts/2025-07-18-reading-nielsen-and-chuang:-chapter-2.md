@@ -2378,6 +2378,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 | Mixed state                          | section 2.4.1             | A mixture of different pure states. The density operator is given by $\rho = \sum_i p_i \rho_i$, where $p_i$ is the probability of the system being in the pure state given by $\rho_i$. These states have $\text{tr}(\rho^2)<1$. |
 | Requirements of a density operator   | section 2.4.2             | An operator $\rho$ is a density operator associated to some ensemble $\\{ p_i \ket{\psi_i}\\}$ if it satisfies these conditions: <br> (1) $\rho$ has a trace equal to 1 <br> (2) $\rho$ is a positive operator |
 | Unitary freedom in the ensemble      | section 2.4.2             | The states $\ket{\tilde{\psi_i}}= \sqrt{p_i} \ket{\psi_i}$ and $\ket{\tilde{\phi_j}}= \sqrt{p_j} \ket{\phi_j}$ generate the same density matrix if and only if $\ket{\tilde{\psi_i}} = \sum_j u_{ij} \ket{\tilde{\phi_j}}$ where $u_{ij}$ are the entries of a unitary matrix. |
+| Reduced density operator             | section 2.4.3             | If we have physical systems $A$ and $B$ whose state is described by a density operator $\rho^{AB}$ then the reduced density operator for system $A$ is $\rho^A = \text{tr}_B(\rho^{AB})$ where $\text{tr}_B(\ket{a_1}\bra{a_2} \otimes \ket{b_1}\bra{b_2}) = \ket{a_1}\bra{a_2}\text{tr}(\ket{b_1}\bra{b_2})$ |
 
 ### The Density Operator - Exercises
 
@@ -2511,7 +2512,143 @@ Going back to the second condition, we can see that this is met. Therefore $u_{i
 </details>
 
 
+**Exercise 2.74**
 
+Suppose a composite state os systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
+
+<details>
+<summary>Solution</summary>
+
+First we need to construct the density matrix for the composite system
+
+$$\begin{aligned}
+\rho^{AB} = \ket{a}\bra{a} \otimes \ket{b}\bra{b}
+\end{aligned}$$
+
+Now we'll use equations 2.177 and 2.178 to find $\rho^A$
+
+$$\begin{aligned}
+\rho^A &= \text{tr}_B(\rho^{AB}) \\
+&= \text{tr}_B(\ket{a}\bra{a} \otimes \ket{b}\bra{b}) \\
+&= \ket{a}\bra{a} \text{tr}(\ket{b}\bra{b}) \\
+&= \ket{a}\bra{a} \braket{b \vert b}\\
+&= \ket{a}\bra{a}
+\end{aligned}$$
+
+We can just look at $\rho^A$ and see that it describes a pure state, but if we wanted to confirm this we could take the trace and see if it is equal to 1
+
+$$\begin{aligned}
+\text{tr}(\rho^A) &=  \text{tr}(\ket{a}\bra{a})\\
+&= \braket{a \vert a} \\
+&= 1
+\end{aligned}$$
+
+Therefore the reduced density operator of system $A$ is a pure state.
+
+</details>
+
+**Exercise 2.75**
+
+In this exercise we find the reduced density operator for each qubit for each of the four Bell states. The authors already did this for one of the qubits for one of the Bell states in equations 2.185 - 2.191. 
+
+<details>
+<summary>Solution</summary>
+
+First let's look at the Bell state $\frac{\ket{00} + \ket{11}}{2}$. The authors already found $\rho^1$, so let's find $\rho^2$ using the same methodology.
+
+$$\begin{aligned}
+\rho^2 &= \text{tr}_1(\rho) \\
+&= \frac{\text{tr}_1(\ket{00}\bra{00}) + \text{tr}_1(\ket{11}\bra{00}) + \text{tr}_1(\ket{00}\bra{11}) + \text{tr}_1(\ket{11}\bra{11})}{2} \\
+&= \frac{\ket{0}\bra{0} \braket{0 \vert 0} + \ket{1}\bra{0} \braket{0 \vert 1} + \ket{0}\bra{1} \braket{1 \vert 0} + \ket{1}\bra{1} \braket{1 \vert 1}}{2} \\
+&= \frac{\ket{0}\bra{0}  + \ket{1}\bra{1} }{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+Now let's look at the Bell state $\frac{\ket{00} - \ket{11}}{2}$
+
+The density operator is given by 
+
+$$\begin{aligned}
+\rho &= \left(\frac{\ket{00} - \ket{11}}{\sqrt{2}} \right)\left(\frac{\bra{00} - \bra{11}}{\sqrt{2}} \right)\\
+&= \frac{\ket{00}\bra{00} - \ket{00}\bra{11} - \ket{11}\bra{00} +\ket{11}\bra{11}}{2}
+\end{aligned}$$
+
+and so the density operators of the individual qubits are
+
+$$\begin{aligned}
+\rho^1 &= \text{tr}_2(\rho) \\
+&= \frac{\text{tr}_2(\ket{00}\bra{00}) - \text{tr}_2(\ket{11}\bra{00}) - \text{tr}_2(\ket{00}\bra{11}) + \text{tr}_2(\ket{11}\bra{11})}{2} \\
+&= \frac{\ket{0}\bra{0} \braket{0 \vert 0} - \ket{1}\bra{0} \braket{0 \vert 1} - \ket{0}\bra{1} \braket{1 \vert 0} + \ket{1}\bra{1} \braket{1 \vert 1}}{2} \\
+&= \frac{\ket{0}\bra{0}  + \ket{1}\bra{1} }{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\rho^2 &= \text{tr}_1(\rho) \\
+&= \frac{\text{tr}_1(\ket{00}\bra{00}) - \text{tr}_1(\ket{11}\bra{00}) - \text{tr}_1(\ket{00}\bra{11}) + \text{tr}_1(\ket{11}\bra{11})}{2} \\
+&= \frac{\ket{0}\bra{0} \braket{0 \vert 0} - \ket{1}\bra{0} \braket{0 \vert 1} - \ket{0}\bra{1} \braket{1 \vert 0} + \ket{1}\bra{1} \braket{1 \vert 1}}{2} \\
+&= \frac{\ket{0}\bra{0}  + \ket{1}\bra{1} }{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+
+Then let's look at the Bell state $\frac{\ket{01} + \ket{10}}{2}$
+
+The density operator is given by 
+
+$$\begin{aligned}
+\rho &= \left(\frac{\ket{01} + \ket{10}}{\sqrt{2}} \right)\left(\frac{\bra{01} + \bra{10}}{\sqrt{2}} \right)\\
+&= \frac{\ket{01}\bra{01} + \ket{01}\bra{10} + \ket{10}\bra{01} +\ket{10}\bra{10}}{2}
+\end{aligned}$$
+
+and so the density operators of the individual qubits are
+
+$$\begin{aligned}
+\rho^1 &= \text{tr}_2(\rho) \\
+&= \frac{\text{tr}_2(\ket{01}\bra{01}) + \text{tr}_2(\ket{01}\bra{10}) + \text{tr}_2(\ket{10}\bra{01}) + \text{tr}_2(\ket{10}\bra{10})}{2} \\
+&= \frac{\ket{0}\bra{0} \braket{1 \vert 1} + \ket{0}\bra{1} \braket{0 \vert 1} + \ket{1}\bra{0} \braket{1 \vert 0} + \ket{1}\bra{1} \braket{0 \vert 0}}{2} \\
+&= \frac{\ket{0}\bra{0}  + \ket{1}\bra{1} }{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\rho^2 &= \text{tr}_1(\rho) \\
+&= \frac{\text{tr}_1(\ket{01}\bra{01}) + \text{tr}_1(\ket{01}\bra{10}) + \text{tr}_1(\ket{10}\bra{01}) + \text{tr}_1(\ket{10}\bra{10})}{2} \\
+&= \frac{\ket{1}\bra{1} \braket{0 \vert 0} + \ket{1}\bra{0} \braket{0 \vert 0} + \ket{0}\bra{1} \braket{0 \vert 1} + \ket{0}\bra{0} \braket{1 \vert 1}}{2} \\
+&= \frac{\ket{1}\bra{1} + \ket{0}\bra{0}}{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+Finally let's look at the Bell state $\frac{\ket{01} - \ket{10}}{2}$
+
+The density operator is given by 
+
+$$\begin{aligned}
+\rho &= \left(\frac{\ket{01} - \ket{10}}{\sqrt{2}} \right)\left(\frac{\bra{01} - \bra{10}}{\sqrt{2}} \right)\\
+&= \frac{\ket{01}\bra{01} - \ket{01}\bra{10} - \ket{10}\bra{01} +\ket{10}\bra{10}}{2}
+\end{aligned}$$
+
+and so the density operators of the individual qubits are
+
+$$\begin{aligned}
+\rho^1 &= \text{tr}_2(\rho) \\
+&= \frac{\text{tr}_2(\ket{01}\bra{01}) - \text{tr}_2(\ket{01}\bra{10}) - \text{tr}_2(\ket{10}\bra{01}) + \text{tr}_2(\ket{10}\bra{10})}{2} \\
+&= \frac{\ket{0}\bra{0} \braket{1 \vert 1} - \ket{0}\bra{1} \braket{0 \vert 1} - \ket{1}\bra{0} \braket{1 \vert 0} + \ket{1}\bra{1} \braket{0 \vert 0}}{2} \\
+&= \frac{\ket{0}\bra{0}  + \ket{1}\bra{1} }{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\rho^2 &= \text{tr}_1(\rho) \\
+&= \frac{\text{tr}_1(\ket{01}\bra{01}) - \text{tr}_1(\ket{01}\bra{10}) - \text{tr}_1(\ket{10}\bra{01}) + \text{tr}_1(\ket{10}\bra{10})}{2} \\
+&= \frac{\ket{1}\bra{1} \braket{0 \vert 0} - \ket{1}\bra{0} \braket{1 \vert 0} - \ket{0}\bra{1} \braket{0 \vert 1} + \ket{0}\bra{0} \braket{1 \vert 1}}{2} \\
+&= \frac{\ket{1}\bra{1} + \ket{0}\bra{0}}{2} \\
+&= \frac{I}{2}
+\end{aligned}$$
+
+So for all Bell states the density operator of a single qubit is given by $\frac{I}{2}$. 
+
+</details>
 
 ## EPR and the Bell Inequality
 

@@ -2407,7 +2407,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 
 **Exercise 2.72**
 
-For this exercise we are to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which is related to what we did in Exercise 2.60 where we derived the projectors for the pure states. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
+For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175, which is related to what we did in Exercise 2.60 where we derived the projectors for the pure states. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
 <details>
 <summary>Solution</summary>
@@ -2443,6 +2443,27 @@ $$\begin{aligned}
 \end{aligned}$$
 
 </details>
+
+
+**Exercise 2.73**
+
+For this exercise we are to use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$. 
+
+The density operator can be written as $\rho = \sum_{j} p_j \ket{\phi_j} \bra{\phi_j}$ with $\\{p_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} = \sum_j a_j \ket{\phi_j}$ for some values of $a_j$. Using theorem 2.6, if there is a minimal ensemble for $\rho$ that contains $\ket{psi}$ then the following is true for some unitary matrix given by $u_{ij}$
+
+$$\begin{aligned}
+\sum_{j} u_{ij} \sqrt{p_j}\ket{\phi_j} &= \sqrt{p_i}\ket{\psi_i} \\
+&= \sum_j a_{ij} \sqrt{p_i}\ket{\phi_j}
+\end{aligned}$$
+
+So now we need to show that $a_{ij}$ are the elements of a unitary matrix. In order to be a unitary matrix $A^\dagger A = A A^\dagger = I$, so the following needs to be true. 
+
+$$\begin{aligned}
+I_{ij} &= \sum_{k} a_{ik}a_{jk}^\ast \\
+& \Rightarrow \sum_{k} \vert a_{ik} \vert^2= 1 & \text{for a given $i$} \\
+& \sum_{k} a_{ik}a_{jk}^\ast = 0 & \text{when $i \neq j$}
+\end{aligned}$$
+
 
 
 

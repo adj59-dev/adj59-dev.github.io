@@ -15,7 +15,9 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 * [The Postulates of Quantum Mechanics](#the-postulates-of-quantum-mechanics)
 * [Superdense Coding](#superdense-coding)
 * [The Density Operator](#the-density-operator)
+* [The Schmidt decomposition and purifications](#the-schmidt-decomposition-and-purifications)
 * [EPR and the Bell Inequality](#epr-and-the-bell-inequality)
+* [Chapter Problems](#chapter-problems)
 
 
 ## Linear Algebra
@@ -2650,6 +2652,19 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 
 </details>
 
+
+## The Schmidt decomposition and purifications
+
+### The Schmidt decomposition and purifications - Key Concepts
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+### The Schmidt decomposition and purifications - Exercises
+
+
+
 ## EPR and the Bell Inequality
 
 ### EPR and the Bell Inequality - Key Concepts
@@ -2658,6 +2673,6 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 
 
-### EPR and the Bell Inequality - Exercises
+## Chapter Problems
 
 

@@ -92,6 +92,7 @@ $$\begin{aligned}
 &= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
 &= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
+&= \frac{I}{2}
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -101,6 +102,7 @@ $$\begin{aligned}
 &= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
 &= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
+&= \frac{I}{2}
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -112,7 +114,14 @@ $$\begin{aligned}
 &= \ket{0}\bra{0} \\
 \end{aligned}$$
 
-By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. 
+By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. For $\rho^A$ and $\rho^B$ regardless of what basis you change the operator to, the density operator will always be expressed as $\frac{I}{2}$ and so $\lambda_i^2 = \frac{1}{2}$. The question now is whether there is an othonormal basis for $C$ that also has $\lambda_i^2 = \frac{1}{2}$. 
+
+We can construct a different basis for $C$ where $\ket{0} = \alpha\ket{c_1} + \beta\ket{c_2}$ then
+
+$$\begin{aligned}
+\ket{0}\bra{0} &= \left( \alpha\ket{c_1} + \beta\ket{c_2} \right)\left( \alpha^\ast\bra{c_1} + \beta^\ast\bra{c_2} \right) \\
+&= \alpha\alpha^\ast \ket{c_1}\bra{c_1} + \alpha\beta^\ast\ket{c_1}\bra{c_2} + \alpha^\ast\beta\ket{c_2}\bra{c_1} + \beta\beta^\ast\ket{c_2}\bra{c_2} 
+\end{aligned}$$
 
 
 

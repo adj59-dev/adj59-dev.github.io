@@ -20,6 +20,10 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 * [Chapter Problems](#chapter-problems)
 
 
+<details>
+<summary>completed</summary>
+
+
 ## Linear Algebra
 
 ### Linear Algebra - Key Concepts
@@ -2652,6 +2656,8 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 
 </details>
 
+</details>
+
 
 ## The Schmidt decomposition and purifications
 
@@ -2744,7 +2750,7 @@ $$\begin{aligned}
 &= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0} \braket{0 \vert 0}+ \ket{0}\ket{0}\bra{1}\bra{1}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{1}\bra{1}\braket{0 \vert 0}}{2}) \\
 &= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
-&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2}
+&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -2753,17 +2759,16 @@ $$\begin{aligned}
 &= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0} \braket{0 \vert 0}+ \ket{0}\ket{0}\bra{1}\bra{1}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{1}\bra{1}\braket{0 \vert 0}}{2}) \\
 &= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
-&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2}
+&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
 \end{aligned}$$
 
 $$\begin{aligned}
 \rho^C &= \text{tr}_B(\text{tr}_A(\rho^{ABC}))\\
 &= \text{tr}_B(\text{tr}_A(\frac{\ket{0}\ket{0}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{0}\ket{0}\ket{0}\bra{1}\bra{1}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{1}\bra{1}\bra{0}}{2}))\\
 &= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{0}\ket{0}\bra{1}\bra{0} \braket{1 \vert 0}  + \ket{1}\ket{0}\bra{0}\bra{0}\braket{0 \vert 1}  + \ket{1}\ket{0}\bra{1}\bra{0}\braket{1 \vert 1} }{2})\\
-&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0} + \ket{1}\ket{0}\bra{1}\bra{0} }{2})\\
-&= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{0}\braket{1 \vert t1}}{2}\\
-&= \frac{\ket{0}\bra{0} + \ket{0}\bra{0}}{2}\\
-&= \ket{0}\bra{0}
+&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0} + \ket{1}\ket{0}\bra{1}\bra{0}}{2})\\
+&= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{0}\braket{1 \vert 1}}{2}\\
+&= \ket{0}\bra{0} \\
 \end{aligned}$$
 
 By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. 

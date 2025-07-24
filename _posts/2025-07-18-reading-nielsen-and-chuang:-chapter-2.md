@@ -2715,6 +2715,61 @@ $$\begin{aligned}
 
 </details>
 
+
+**Exercise 2.77**
+
+In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. 
+
+Let $\ket{j}$, $\ket{k}$, and $\ket{l}$ be fixed orthonormal basis for systems $A$, $B$, and $C$ with an arbitrary three component quantum state given by $\ket{\psi} = \sum_{jkl} a_{jkl} \ket{j}\ket{k}\ket{l}$. 
+
+I'm going to add $\ket{0}$ to a Bell state to see if this example is one that can't be written as 2.206. This is mostly just an educated guess after reading section 2.5 and thinking about what the respective decompositions may be for the different systems. Therefore, 
+
+$$\begin{aligned}
+\ket{\psi} = \frac{\ket{0}\ket{0}\ket{0} + \ket{1}\ket{1}\ket{0}}{\sqrt{2}}
+\end{aligned}$$
+
+We can write the density operator for this system as 
+
+$$\begin{aligned}
+\rho &= \ket{\psi}\bra{\psi} \\
+&= \left( \frac{\ket{0}\ket{0}\ket{0} + \ket{1}\ket{1}\ket{0}}{\sqrt{2}} \right) \left( \frac{\bra{0}\bra{0}\bra{0} + \bra{1}\bra{1}\bra{0}}{\sqrt{2}} \right) \\
+&= \frac{\ket{0}\ket{0}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{0}\ket{0}\ket{0}\bra{1}\bra{1}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{1}\bra{1}\bra{0}}{2}
+\end{aligned}$$
+
+We know we that we can extract the reduced density operator for a system from a composite system density operator using equation 2.177 and so
+
+$$\begin{aligned}
+\rho^A &= \text{tr}_B(\text{tr}_C(\rho^{ABC}))\\
+&= \text{tr}_B(\text{tr}_C(\frac{\ket{0}\ket{0}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{0}\ket{0}\ket{0}\bra{1}\bra{1}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{1}\bra{1}\bra{0}}{2}))\\
+&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0} \braket{0 \vert 0}+ \ket{0}\ket{0}\bra{1}\bra{1}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{1}\bra{1}\braket{0 \vert 0}}{2}) \\
+&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
+&= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
+&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\rho^B &= \text{tr}_A(\text{tr}_C(\rho^{ABC}))\\
+&= \text{tr}_A(\text{tr}_C(\frac{\ket{0}\ket{0}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{0}\ket{0}\ket{0}\bra{1}\bra{1}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{1}\bra{1}\bra{0}}{2}))\\
+&= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0} \braket{0 \vert 0}+ \ket{0}\ket{0}\bra{1}\bra{1}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{1}\ket{1}\bra{1}\bra{1}\braket{0 \vert 0}}{2}) \\
+&= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
+&= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
+&= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\rho^C &= \text{tr}_B(\text{tr}_A(\rho^{ABC}))\\
+&= \text{tr}_B(\text{tr}_A(\frac{\ket{0}\ket{0}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{0}\ket{0}\ket{0}\bra{1}\bra{1}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{0}\bra{0}\bra{0} + \ket{1}\ket{1}\ket{0}\bra{1}\bra{1}\bra{0}}{2}))\\
+&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}\braket{0 \vert 0} + \ket{0}\ket{0}\bra{1}\bra{0} \braket{1 \vert 0}  + \ket{1}\ket{0}\bra{0}\bra{0}\braket{0 \vert 1}  + \ket{1}\ket{0}\bra{1}\bra{0}\braket{1 \vert 1} }{2})\\
+&= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0} + \ket{1}\ket{0}\bra{1}\bra{0} }{2})\\
+&= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{0}\braket{1 \vert t1}}{2}\\
+&= \frac{\ket{0}\bra{0} + \ket{0}\bra{0}}{2}\\
+&= \ket{0}\bra{0}
+\end{aligned}$$
+
+By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. 
+
+
+
 ## EPR and the Bell Inequality
 
 ### EPR and the Bell Inequality - Key Concepts

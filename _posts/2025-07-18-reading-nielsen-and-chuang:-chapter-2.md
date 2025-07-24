@@ -2659,11 +2659,61 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Schmidt decomposition                | section 2.5               | If $\ket{\psi}$ is a pure state of a composite system $AB$ then there exists orthonormal states $\ket{i_A}$ and $\ket{i_B}$ such that $\ket{\psi} = \sum_i \lambda_i \ket{i_A}\ket{i_B}$ where $\lambda_i$ are non-negative real numbers satisfying $\sum_i \lambda_i^2 = 1$ |
+| Reduced density matrix of a Schmidt decomposition | section 2.5  | $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$ and $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, where $\lambda_i$ are identical for both reduced density operators. |
 
 ### The Schmidt decomposition and purifications - Exercises
 
+**Exercise 2.76**
 
+In this exercise we extend the Schmidt decomposition proof to include $A$ and $B$ with different dimensionality. It is useful to look up singular value decomposition for non-square matrices to complete this exercise. 
+
+<details>
+<summary>Solution</summary>
+
+For the case where systems $A$ has dimensions $m$ and $B$ has dimensions $n$ and $m \geq n$, let $\ket{j}$ and $\ket{k}$ be any fixed orthonormal bases for systems $A$ and $B$, respectively. Then $\ket{\psi}$ can be written as
+
+$$\begin{aligned}
+\ket{\psi} = \sum_{jk} a_{jk}\ket{j}\ket{k}
+\end{aligned}$$
+
+for some matrix $a$ of complex number $a_{jk}$. By the singular value decomposition, $a = u c v$, where $c$ is a $m \times n$ matrix defined by
+
+$$\begin{aligned}
+c = \begin{bmatrix} d \\\ 0 \end{bmatrix}
+\end{aligned}$$
+
+with $d$ as a $n \times n$ diagonal matrix with non-negative elements, $u$ is a unitary $m \times m$ matrix given by
+
+$$\begin{aligned}
+u = \begin{bmatrix} u' \\\ u'' \end{bmatrix}
+\end{aligned}$$
+
+ $u'$ is a $m \times n$ matrix, and $v$ is a unitary $n \times n$ matrix. Thus
+
+$$\begin{aligned}
+\ket{\psi} = \sum_{ijk} u_{ji}' d_{ii} v_{ik} \ket{j}\ket{k} 
+\end{aligned}$$
+
+Defining $\ket{i_A} = \sum_j u_{ji}'\ket{j}$, $\ket{i_B}=\sum_k v_{ik} \ket{k}$, and $\lambda_i = d_{ii}$ we get
+
+$$\begin{aligned}
+\ket{\psi} = \sum_{i=1}^n \lambda_i \ket{i_A}\ket{i_B}
+\end{aligned}$$
+
+A similar calculation can be done for $m \leq n$ with the results
+
+$$\begin{aligned}
+\ket{\psi} = \sum_{i=1}^m \lambda_i \ket{i_A}\ket{i_B}
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+\ket{\psi} = \sum_{i=1}^{\min(m,n)} \lambda_i \ket{i_A}\ket{i_B}
+\end{aligned}$$
+
+</details>
 
 ## EPR and the Bell Inequality
 

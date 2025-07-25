@@ -8,6 +8,7 @@
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Schmidt decomposition                | section 2.5               | If $\ket{\psi}$ is a pure state of a composite system $AB$ then there exists orthonormal states $\ket{i_A}$ and $\ket{i_B}$ such that $\ket{\psi} = \sum_i \lambda_i \ket{i_A}\ket{i_B}$ where $\lambda_i$ are non-negative real numbers satisfying $\sum_i \lambda_i^2 = 1$ |
 | Reduced density matrix of a Schmidt decomposition | section 2.5  | $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$ and $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, where $\lambda_i$ are identical for both reduced density operators. |
+| Purification                         | section 2.5               | Given a state $\rho^A$ of a quantum system $A$, it is possible to introduce a reference system $R$ (that does not have physical significance) to define a pure state $\ket{AR}$ for the joint system $AR$ such that $\rho^A = \text{tr}_R (\ket{AR}\bra{AR})$ where $\ket{AR} = \sum_i \sqrt{p_i}\ket{i^A}{i^R}$ for orthonormal basis states $\ket{i^A}$ and $\ket{i^R}$ |
 
 ### The Schmidt decomposition and purifications - Exercises
 
@@ -149,7 +150,7 @@ Performing singular value decomposition, we get
 
 $$\begin{aligned}
 \begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix} &= \begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix} \begin{bmatrix} \lambda_1 & 0 \\\ 0 & \lambda_2 \end{bmatrix} \begin{bmatrix} v_{00} & v_{01} \\\ v_{10} & v_{11} \end{bmatrix} \\
-&= \begin{bmatrix} \frac{a_0}{\sqrt{a_0^2 + a_1^2}} & \frac{a_1}{\sqrt{a_0^2 + a_1^2}} \\\ \frac{a_1}{\sqrt{a_0^2 + a_1^2}} & \frac{-a_0}{\sqrt{a_0^2 + a_1^2}} \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} \begin{bmatrix} \frac{b_0}{\sqrt{b_0^2 + b_1^2}} & \frac{b_1}{\sqrt{b_0^2 + b_1^2}} \\\ \frac{b_1}{\sqrt{b_0^2 + b_1^2}} & \frac{-b_0}{\sqrt{b_0^2 + b_1^2}} \end{bmatrix} \\
+&= \begin{bmatrix} \frac{a_0}{\sqrt{a_0^2 + a_1^2}} & \frac{-a_1}{\sqrt{a_0^2 + a_1^2}} \\\ \frac{a_1}{\sqrt{a_0^2 + a_1^2}} & \frac{a_0}{\sqrt{a_0^2 + a_1^2}} \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} \begin{bmatrix} \frac{b_0}{\sqrt{b_0^2 + b_1^2}} & \frac{b_1}{\sqrt{b_0^2 + b_1^2}} \\\ \frac{-b_1}{\sqrt{b_0^2 + b_1^2}} & \frac{b_0}{\sqrt{b_0^2 + b_1^2}} \end{bmatrix} \\
 \end{aligned}$$
 
 Therefore the Schmidt number is $1$, since there is only one non-zero $\lambda$ and the orthonormal states are 
@@ -159,14 +160,16 @@ $$\begin{aligned}
 \ket{i_B} = \sum_k v_{ik}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} + b_1\ket{1})
 \end{aligned}$$
 
-Therefore the reduced density matrices are 
+These are just the normalized form of the individual pure states. 
+
+The the reduced density matrices are 
 
 $$\begin{aligned}
 \rho^A = \ket{i_A}\bra{i_A}\\
 \rho^B = \ket{i_B}\bra{i_B}
 \end{aligned}$$
 
-Which you can see are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$, which I'll show below for $\rho^A$
+You can see that these are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$, which I'll show below for $\rho^A$
 
 $$\begin{aligned}
 \text{tr}((\rho^A)^2) &= \text{tr}(\ket{i_A}\braket{i_A \vert i_A}\bra{i_A})\\
@@ -175,7 +178,53 @@ $$\begin{aligned}
 &= 1
 \end{aligned}$$
 
+Looking back at the singular value decomposition we can think about what things would look like if $\lambda_2$ was not $0$. The Schmidt number would then be $2$ and the Schmidt bases would be
+
+$$\begin{aligned}
+\ket{1_A} = \sum_j u_{j1}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} + a_1\ket{1})  \\
+\ket{2_A} = \sum_j u_{j2}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} - a_1\ket{1}) \\
+\ket{1_B} = \sum_k v_{1k}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} + b_1\ket{1}) \\
+\ket{2_B} = \sum_k v_{2k}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} - b_1\ket{1}) 
+\end{aligned}$$
+
+The reduced density matrices now look like
+
+$$\begin{aligned}
+\rho^A = \lambda_1^2\ket{1_A}\bra{1_A} + \lambda_2^2\ket{2_A}\bra{2_A}\\
+\rho^B = \lambda_1^2\ket{1_B}\bra{1_B} + \lambda_2^2\ket{2_B}\bra{2_B}\\
+\end{aligned}$$
+
+These are not pure states, which we can confirm this by showing $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) < 1$
+
+$$\begin{aligned}
+\text{tr}((\rho^A)^2) &= \text{tr}(\lambda_1^4\ket{1_A}\braket{1_A \vert 1_A}\bra{1_A} + \lambda_1^2\lambda_2^2\ket{1_A}\braket{1_A \vert 2_A}\bra{2_A} + \lambda_1^2\lambda_2^2\ket{2_A}\braket{2_A \vert 1_A}\bra{1_A} + \lambda_2^4\ket{2_A}\braket{2_A \vert 2_A}\bra{2_A})\\
+&= \text{tr}(\lambda_1^4\ket{1_A}\bra{1_A} + \lambda_2^4\ket{2_A}\bra{2_A}) \\
+&= \lambda_1^4\braket{1_A \vert 1_A} + \lambda_2^4\braket{2_A \vert 2_A} \\
+&= \lambda_1^4 + \lambda_2^4 < 1
+\end{aligned}$$
+
+The composite state made by these orthonormal states look like this
+
+$$\begin{aligned}
+\ket{\psi} &= \sum_i \lambda_i \ket{i_A}\ket{i_B} \\
+&= \lambda_1\ket{1_A}\ket{1_B} + \lambda_2\ket{2_A}\ket{2_B} \\
+\end{aligned}$$
+
+which is not a product state. 
+
 </details>
+
+
+**Exercise 2.79**
+
+In this exercise we are to find the Schmidt decomposition of three given states.
+
+Let's look at the first one
+
+$$\begin{aligned}
+\\ket{psi} &= \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
+\end{aligned}$$
+
 
 ## EPR and the Bell Inequality
 

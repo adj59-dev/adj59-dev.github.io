@@ -65,11 +65,14 @@ $$\begin{aligned}
 
 **Exercise 2.77**
 
-In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. 
+In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. This is done by picking a state which it doesn't work for and then demonstrating that the different reduced density matrices for the different components have different Schmidt coefficients. 
+
+<details>
+<summary>Solution</summary>
 
 Let $\ket{j}$, $\ket{k}$, and $\ket{l}$ be fixed orthonormal basis for systems $A$, $B$, and $C$ with an arbitrary three component quantum state given by $\ket{\psi} = \sum_{jkl} a_{jkl} \ket{j}\ket{k}\ket{l}$. 
 
-I'm going to add $\ket{0}$ to a Bell state to see if this example is one that can't be written as 2.206. This is mostly just an educated guess after reading section 2.5 and thinking about what the respective decompositions may be for the different systems. Therefore, 
+I'm going to add $\ket{0}$ to a Bell state to see if this example is one that can't be written as 2.206. This is mostly just an educated guess after reading section 2.4.3 and section 2.5 and thinking about what the reduced density matrices will likely be for the different systems. Therefore, 
 
 $$\begin{aligned}
 \ket{\psi} = \frac{\ket{0}\ket{0}\ket{0} + \ket{1}\ket{1}\ket{0}}{\sqrt{2}}
@@ -92,7 +95,6 @@ $$\begin{aligned}
 &= \text{tr}_B(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
 &= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
-&= \frac{I}{2}
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -102,7 +104,6 @@ $$\begin{aligned}
 &= \text{tr}_A(\frac{\ket{0}\ket{0}\bra{0}\bra{0}+ \ket{0}\ket{0}\bra{1}\bra{1} + \ket{1}\ket{1}\bra{0}\bra{0} + \ket{1}\ket{1}\bra{1}\bra{1}}{2}) \\
 &= \frac{\ket{0}\bra{0}\braket{0 \vert 0} + \ket{0}\bra{1}\braket{1 \vert 0} + \ket{1}\bra{0}\braket{0 \vert 1} + \ket{1}\bra{1}\braket{1 \vert 1}}{2} \\
 &= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
-&= \frac{I}{2}
 \end{aligned}$$
 
 $$\begin{aligned}
@@ -114,16 +115,60 @@ $$\begin{aligned}
 &= \ket{0}\bra{0} \\
 \end{aligned}$$
 
-By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. For $\rho^A$ and $\rho^B$ regardless of what basis you change the operator to, the density operator will always be expressed as $\frac{I}{2}$ and so $\lambda_i^2 = \frac{1}{2}$. The question now is whether there is an othonormal basis for $C$ that also has $\lambda_i^2 = \frac{1}{2}$. 
+By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$, $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, and $\rho^C = \sum_i \lambda_i^2 \ket{i_C}\bra{i_C}$ for some values of $\lambda_i^2$. For $\rho^A$ and $\rho^B$ there are two Schmidt coefficients that are both $\lambda_i^2 = \frac{1}{2}$. For $\rho^C$ the Schmidt coefficients are $\lambda_1^2 = 1$ and $\lambda_2^2 = 0$. Since these are not the same for all three components, we are unable to write the quantum states in the form given by equation 2.206.
 
-We can construct a different basis for $C$ where $\ket{0} = \alpha\ket{c_1} + \beta\ket{c_2}$ then
+</details>
+
+
+**Exercise 2.78**
+
+Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure how much detail the authors wanted for this solution, so I erred on the side of more rather than less. I started with a composite of two arbitrary single qubit pure states and then did Schmidt decomposition on it. That may have been more work than what was needed. 
+
+<details>
+<summary>Solution</summary>
+
+For a composite system made from two single qubits with pure state vectors given by
 
 $$\begin{aligned}
-\ket{0}\bra{0} &= \left( \alpha\ket{c_1} + \beta\ket{c_2} \right)\left( \alpha^\ast\bra{c_1} + \beta^\ast\bra{c_2} \right) \\
-&= \alpha\alpha^\ast \ket{c_1}\bra{c_1} + \alpha\beta^\ast\ket{c_1}\bra{c_2} + \alpha^\ast\beta\ket{c_2}\bra{c_1} + \beta\beta^\ast\ket{c_2}\bra{c_2} 
+& \ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
+& \ket{b} &= b_0 \ket{0} + b_1 \ket{1} \\
+ \Rightarrow & \ket{\psi} &= \ket{a}\ket{b} \\
+& &= \left(a_0 \ket{0} + a_1 \ket{1} \right) \left(b_0 \ket{0} + b_1 \ket{1}\right) \\
+& &= a_0 b_0 \ket{0} \ket{0} + a_1 b_0 \ket{1} \ket{0} + a_0 b_1 \ket{0} \ket{1} + a_1 b_1 \ket{1} \ket{1} \\
+& &= \sum_{jk} a_{jk}\ket{j}\ket{k}
+\end{aligned}$$
+
+Then matrix $a$ is then 
+
+$$\begin{aligned}
+a = \begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix}
 \end{aligned}$$
 
 
+Performing singular value decomposition, we get
+
+$$\begin{aligned}
+\begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix} &= \begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix} \begin{bmatrix} \lambda_1 & 0 \\\ 0 & \lambda_2 \end{bmatrix} \begin{bmatrix} v_{00} & v_{01} \\\ v_{10} & v_{11} \end{bmatrix} \\
+&= \begin{bmatrix} \frac{a_0}{\sqrt{a_0^2 + a_1^2}} & \frac{a_1}{\sqrt{a_0^2 + a_1^2}} \\\ \frac{a_1}{\sqrt{a_0^2 + a_1^2}} & \frac{-a_0}{\sqrt{a_0^2 + a_1^2}} \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} \begin{bmatrix} \frac{b_0}{\sqrt{b_0^2 + b_1^2}} & \frac{b_1}{\sqrt{b_0^2 + b_1^2}} \\\ \frac{b_1}{\sqrt{b_0^2 + b_1^2}} & \frac{-b_0}{\sqrt{b_0^2 + b_1^2}} \end{bmatrix} \\
+\end{aligned}$$
+
+Therefore the Schmidt number is $1$, since there is only one non-zero $\lambda$ and the orthonormal states are 
+
+$$\begin{aligned}
+\ket{i_A} = \sum_j u_{ji}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} + a_1\ket{1})\\
+\ket{i_B} = \sum_k v_{ik}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} + b_1\ket{1})
+\end{aligned}$$
+
+Therefore the reduced density matrices are 
+
+$$\begin{aligned}
+\rho^A = \ket{i_A}\bra{i_A}\\
+\rho^B = \ket{i_B}\bra{i_B}
+\end{aligned}$$
+
+Which you can see are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$.
+
+</details>
 
 ## EPR and the Bell Inequality
 

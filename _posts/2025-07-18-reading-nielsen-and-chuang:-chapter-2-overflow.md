@@ -122,12 +122,12 @@ By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2
 
 **Exercise 2.78**
 
-Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure how much detail the authors wanted for this solution, so I erred on the side of more rather than less. I started with a composite of two arbitrary single qubit pure states and then did Schmidt decomposition on it. That may have been more work than what was needed. 
+Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure how much detail the authors wanted for this solution, so I erred on the side of more rather than less. I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. That may have been more work than what was needed since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. 
 
 <details>
 <summary>Solution</summary>
 
-For a composite system made from two single qubits with pure state vectors given by
+For a composite system made from two single qubits with pure state vectors given by $\ket{a}$ and $\ket{b}$, $\ket{\psi}$ can be written as
 
 $$\begin{aligned}
 & \ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
@@ -138,7 +138,7 @@ $$\begin{aligned}
 & &= \sum_{jk} a_{jk}\ket{j}\ket{k}
 \end{aligned}$$
 
-Then matrix $a$ is then 
+Then matrix $a$ is 
 
 $$\begin{aligned}
 a = \begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix}
@@ -166,7 +166,14 @@ $$\begin{aligned}
 \rho^B = \ket{i_B}\bra{i_B}
 \end{aligned}$$
 
-Which you can see are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$.
+Which you can see are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$, which I'll show below for $\rho^A$
+
+$$\begin{aligned}
+\text{tr}((\rho^A)^2) &= \text{tr}(\ket{i_A}\braket{i_A \vert i_A}\bra{i_A})\\
+&= \text{tr}(\ket{i_A}\bra{i_A}) \\
+&= \braket{i_A \vert i_A} \\
+&= 1
+\end{aligned}$$
 
 </details>
 

@@ -350,8 +350,30 @@ $$\begin{aligned}
 
 **Exercise 2.82**
 
+In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition. 
 
+(1) We are given $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$
 
+Now we calculate the reduced density operator for system $A$ corresponding to the state $\ket{AR}$
+
+$$\begin{aligned}
+tr_R (\ket{AR}\bra{AR}) &= \sum_{ij} \sqrt{p_ip_j} \ket{\psi_i}{\psi_j} tr(\ket{i}\bra{i}) \\
+&= \sum_{ij} \sqrt{p_ip_j} \ket{\psi_i}\bra{\psi_j} \delta_{ij} \\
+&= \sum_{i} p_i \ket{\psi_i}\bra{\psi_i} \\
+&= \rho^A
+\end{aligned}$$
+
+Thus $\sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is a purification of $\rho^A$. 
+
+(2) Since $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is written in the form of a Schmidt decomposition we know that the reduced density matrices can be written as 
+
+$$\begin{aligned}
+\rho^R = \sum_i p_i \ket{i}\bra{i}\\
+\end{aligned}$$
+
+We can read directly from the density matrix that the probability of 
+
+(3) 
 
 ## EPR and the Bell Inequality
 

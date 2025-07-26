@@ -309,6 +309,49 @@ $$\begin{aligned}
 </details>
 
 
+**Exercise 2.80**
+
+In this exercise we show some properties of unitary transformations on pure composite system states using the definition of a unitary operator from section 2.1.6, $U=\sum_{i} \ket{w_i}\bra{v_i}$, and the fact that $U\ket{\phi} = \sum_i \lambda_i (U\ket{i_A})\ket{i_B}$ if $U$ is a unitary operator acting on $A$ alone. 
+
+<details>
+<summary>Solution</summary>
+
+From section 2.1.6 we know that a unitary operator can be defined as $U=\sum_{i} \ket{w_i}\bra{v_i}$ for any two orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ for $A$ and $V=\sum_{i} \ket{y_i}\bra{x_i}$ for any two orthonormal bases $\ket{x_i}$ and $\ket{y_i}$ for $B$. From section 2.5 we know that $(U \otimes V)\ket{\phi} = \sum_i \lambda_i (U\ket{v_i}) (V \ket{x_i}) = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ when $U$ is a unitary operator acting on system $A$ alone and $V$ is a unitary operator acting on system $B$ alone. 
+
+Therefore if $\ket{\psi} = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ and $\ket{\phi} = \sum_i \lambda_i \ket{v_i}\ket{x_i}$ for the same values of $\lambda_i$, then $\ket{\psi} = (U \otimes V) \ket{\phi}$ for some unitary operators $U$ and $V$. 
+
+</details>
+
+
+**Exercise 2.81**
+
+In this exercise we prove that there exists a unitary transformation $U_R$ acting on reference system $R$ such that $\ket{AR_1} = (I_A \otimes U_R)\ket{AR_2}$ for purification states $\ket{AR_1}$ and $\ket{AR_2}$ of state $\rho^A$ by using equation 2.207 and the results from the previous exercise. 
+
+<details>
+<summary>Solution</summary>
+
+From equation 2.207 we know that purification states can be written as 
+
+$$\begin{aligned}
+\ket{AR_1} &= \sum_i \sqrt{p_i}\ket{i^A}\ket{i_1^R} \\
+\ket{AR_2} &= \sum_i \sqrt{p_i}\ket{i^A}\ket{i_2^R} 
+\end{aligned}$$
+
+For some orthonormal bases $\ket{i_1^R}$ and $\ket{i_2^R}$ of $R$. Let $U_R = \sum_i \ket{i_2^R}\bra{i_1^R}$ be some unitary operator acting on system $R$, therefore
+
+$$\begin{aligned}
+(I_A \otimes U_R)\ket{AR_1} &= \sum_i \sqrt{p_i} (I_A \ket{i^A}) (U_R \ket{i_1^R}) \\
+&= \sum_i \sqrt{p_i} \ket{i^A} \ket{i_2^R} \\
+&= \ket{AR_2}
+\end{aligned}$$
+
+</details>
+
+
+**Exercise 2.82**
+
+
+
 
 ## EPR and the Bell Inequality
 

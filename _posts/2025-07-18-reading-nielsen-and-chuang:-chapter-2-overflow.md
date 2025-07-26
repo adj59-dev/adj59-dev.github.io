@@ -128,7 +128,7 @@ Product states are multi-qubit states that can be represented as simple combinat
 <details>
 <summary>Solution</summary>
 
-For a composite system made from two single qubits with pure state vectors given by $\ket{a}$ and $\ket{b}$, $\ket{\psi}$ can be written as
+For a composite system made from two single qubits with pure state unit vectors given by $\ket{a}$ and $\ket{b}$, $\ket{\psi}$ can be written as
 
 $$\begin{aligned}
 & \ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
@@ -149,42 +149,42 @@ a = \begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix}
 Performing singular value decomposition, we get
 
 $$\begin{aligned}
-\begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix} &= \begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix} \begin{bmatrix} \lambda_1 & 0 \\\ 0 & \lambda_2 \end{bmatrix} \begin{bmatrix} v_{00} & v_{01} \\\ v_{10} & v_{11} \end{bmatrix} \\
-&= \begin{bmatrix} \frac{a_0}{\sqrt{a_0^2 + a_1^2}} & \frac{-a_1}{\sqrt{a_0^2 + a_1^2}} \\\ \frac{a_1}{\sqrt{a_0^2 + a_1^2}} & \frac{a_0}{\sqrt{a_0^2 + a_1^2}} \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} \begin{bmatrix} \frac{b_0}{\sqrt{b_0^2 + b_1^2}} & \frac{b_1}{\sqrt{b_0^2 + b_1^2}} \\\ \frac{-b_1}{\sqrt{b_0^2 + b_1^2}} & \frac{b_0}{\sqrt{b_0^2 + b_1^2}} \end{bmatrix} \\
+\begin{bmatrix} a_0b_0 & a_0b_1 \\\ a_1b_0 & a_1b_1 \end{bmatrix} &= \begin{bmatrix} u_{11} & u_{12} \\\ u_{21} & u_{22} \end{bmatrix} \begin{bmatrix} \lambda_1 & 0 \\\ 0 & \lambda_2 \end{bmatrix} \begin{bmatrix} v_{11} & v_{12} \\\ v_{21} & v_{22} \end{bmatrix} \\
+&= \begin{bmatrix} a_0 & a_1 \\\ a_1 & -a_0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} \begin{bmatrix} b_0 & b_1 \\\ b_1 & -b_0 \end{bmatrix} \\
 \end{aligned}$$
 
 Therefore the Schmidt number is $1$, since there is only one non-zero $\lambda$ and the orthonormal states are 
 
 $$\begin{aligned}
-\ket{i_A} = \sum_j u_{ji}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} + a_1\ket{1})\\
-\ket{i_B} = \sum_k v_{ik}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} + b_1\ket{1})
+\ket{1_A} = \sum_j u_{j1}\ket{j} = a_0\ket{0} + a_1\ket{1} = \ket{a}\\
+\ket{1_B} = \sum_k v_{1k}\ket{k} = b_0\ket{0} + b_1\ket{1} = \ket{b}
 \end{aligned}$$
 
-These are just the normalized form of the individual pure states. 
+These are just the individual pure states that we started with. 
 
 The the reduced density matrices are 
 
 $$\begin{aligned}
-\rho^A = \ket{i_A}\bra{i_A}\\
-\rho^B = \ket{i_B}\bra{i_B}
+\rho^A = \ket{a}\bra{a}\\
+\rho^B = \ket{b}\bra{b}
 \end{aligned}$$
 
-You can see that these are pure states since $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$, which I'll show below for $\rho^A$
+You can further confirm that these are pure states by checking that $\text{tr}((\rho^A)^2) = \text{tr}((\rho^B)^2) = 1$, which I'll show below for $\rho^A$
 
 $$\begin{aligned}
-\text{tr}((\rho^A)^2) &= \text{tr}(\ket{i_A}\braket{i_A \vert i_A}\bra{i_A})\\
-&= \text{tr}(\ket{i_A}\bra{i_A}) \\
-&= \braket{i_A \vert i_A} \\
+\text{tr}((\rho^A)^2) &= \text{tr}(\ket{a}\braket{a \vert a}\bra{a})\\
+&= \text{tr}(\ket{a}\bra{a}) \\
+&= \braket{a \vert a} \\
 &= 1
 \end{aligned}$$
 
 Looking back at the singular value decomposition we can think about what things would look like if $\lambda_2$ was not $0$. The Schmidt number would then be $2$ and the Schmidt bases would be
 
 $$\begin{aligned}
-\ket{1_A} = \sum_j u_{j1}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} + a_1\ket{1})  \\
-\ket{2_A} = \sum_j u_{j2}\ket{j} = \frac{1}{\sqrt{a_0^2 + a_1^2}}(a_0\ket{0} - a_1\ket{1}) \\
-\ket{1_B} = \sum_k v_{1k}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} + b_1\ket{1}) \\
-\ket{2_B} = \sum_k v_{2k}\ket{k} = \frac{1}{\sqrt{b_0^2 + b_1^2}}(b_0\ket{0} - b_1\ket{1}) 
+\ket{1_A} = \sum_j u_{j1}\ket{j} = a_0\ket{0} + a_1\ket{1}  \\
+\ket{2_A} = \sum_j u_{j2}\ket{j} = a_1\ket{0} - a_0\ket{1} \\
+\ket{1_B} = \sum_k v_{1k}\ket{k} = b_0\ket{0} + b_1\ket{1} \\
+\ket{2_B} = \sum_k v_{2k}\ket{k} = b_1\ket{0} - b_0\ket{1}
 \end{aligned}$$
 
 The reduced density matrices now look like
@@ -207,23 +207,48 @@ The composite state made by these orthonormal states look like this
 
 $$\begin{aligned}
 \ket{\psi} &= \sum_i \lambda_i \ket{i_A}\ket{i_B} \\
-&= \lambda_1\ket{1_A}\ket{1_B} + \lambda_2\ket{2_A}\ket{2_B} \\
+&= \lambda_1\ket{1_A}\ket{1_B} + \lambda_2\ket{2_A}\ket{2_B} 
 \end{aligned}$$
 
 which is not a product state. 
 
 </details>
 
-
 **Exercise 2.79**
 
 In this exercise we are to find the Schmidt decomposition of three given states.
 
-Let's look at the first one
+Let's look at the first given state
 
 $$\begin{aligned}
-\\ket{psi} &= \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
+\ket{\psi} &= \frac{\ket{00} + \ket{11}}{\sqrt{2}} \\
 \end{aligned}$$
+
+This state is already written as a Schmidt decomposition with $\lambda_1 = \lambda_2 = \frac{1}{\sqrt{2}}$, $\ket{1_A} = \ket{0}$, $\ket{2_A} = \ket{1}$, $\ket{1_B} = \ket{0}$, and $\ket{2_B} = \ket{1}$.
+
+
+Moving on to the second state
+
+$$\begin{aligned}
+\ket{\psi} &= \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \\
+\end{aligned}$$
+
+Now let's calculate the density matrix
+
+$$\begin{aligned}
+\rho &= \left( \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \right) \left( \frac{\bra{00} + \bra{01} + \bra{10} + \bra{11}}{2} \right) \\
+&= \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{4} \right) \left( \frac{\bra{00} + \bra{01} + \bra{10} + \bra{11}}{2} \right)
+\end{aligned}$$
+
+
+Finally, we'll look at the third state
+
+$$\begin{aligned}
+\ket{\psi} &= \frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}} \\
+\end{aligned}$$
+
+
+
 
 
 ## EPR and the Bell Inequality

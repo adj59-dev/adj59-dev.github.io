@@ -123,7 +123,7 @@ By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2
 
 **Exercise 2.78**
 
-Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure how much detail the authors wanted for this solution, so I erred on the side of more rather than less. I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. That may have been more work than what was needed since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. 
+Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure what the authors wanted for this solution since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. But just pointing that out didn't seem like enough, so I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. 
 
 <details>
 <summary>Solution</summary>
@@ -216,7 +216,10 @@ which is not a product state.
 
 **Exercise 2.79**
 
-In this exercise we are to find the Schmidt decomposition of three given states.
+In this exercise we are to find the Schmidt decomposition of three given states. For states that are not already written as a Schmidt decomposition, you can find their eigenvalues and eigenvectors using the reduced density matrices. 
+
+<details>
+<summary>Solution</summary>
 
 Let's look at the first given state
 
@@ -233,13 +236,37 @@ $$\begin{aligned}
 \ket{\psi} &= \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \\
 \end{aligned}$$
 
-Now let's calculate the density matrix
+First let's calculate the reduced density matrix for $A$
 
 $$\begin{aligned}
-\rho &= \left( \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \right) \left( \frac{\bra{00} + \bra{01} + \bra{10} + \bra{11}}{2} \right) \\
-&= \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{4} \right) \left( \frac{\bra{00} + \bra{01} + \bra{10} + \bra{11}}{2} \right)
+\rho^A &= \text{tr}_B \left(\left( \frac{\ket{00} + \ket{01} + \ket{10} + \ket{11}}{2} \right) \left( \frac{\bra{00} + \bra{01} + \bra{10} + \bra{11}}{2} \right) \right) \\
+&= \frac{\ket{0}\bra{0} + \ket{0}\bra{1} + \ket{1}\bra{0} + \ket{1}\bra{1}}{2} \\
+&= \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\\ \frac{1}{2} & \frac{1}{2} \end{bmatrix}
 \end{aligned}$$
 
+Now let's find the eigenvalues for this matrix
+
+$$\begin{aligned}
+0 &= \text{det} \left(\begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\\ \frac{1}{2} & \frac{1}{2} \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \\
+&= \text{det} \left(\begin{bmatrix} \frac{1}{2} - \lambda & \frac{1}{2} \\\ \frac{1}{2} & \frac{1}{2} - \lambda \end{bmatrix} \right) \\
+&= \left(\frac{1}{2} - \lambda \right)^2 - \frac{1}{4} \\
+&= \lambda^2 - \lambda 
+\end{aligned}$$
+
+Therefore $\lambda_1 = 1$ and $\lambda_2=0$. 
+
+The eigenvector for $\lambda_1 = 1$ can be found by solving for
+
+$$\begin{aligned}
+0 &= \begin{bmatrix} \frac{1}{2} - 1 & \frac{1}{2} \\\ \frac{1}{2} & \frac{1}{2} - 1 \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} -\frac{1}{2} x_1 + \frac{1}{2} x_2 \\\ \frac{1}{2}x_1 + -\frac{1}{2} x_2 \end{bmatrix}
+\end{aligned}$$
+
+Which means $x_1 = x_2$ and so the normalized eigenvector is $\ket{1_A} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$. It can be seen that state $B$ has the same reduced density matrix and therefore the same eigenvectors and eigenvalues. Therefore the Schmidt decomposition can be written as
+
+$$\begin{aligned}
+\ket{\psi} = \left( \frac{1}{\sqrt{2}}(\ket{0} + \ket{1}) \right)\left( \frac{1}{\sqrt{2}}(\ket{0} + \ket{1}) \right)
+\end{aligned}$$
 
 Finally, we'll look at the third state
 
@@ -247,7 +274,39 @@ $$\begin{aligned}
 \ket{\psi} &= \frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}} \\
 \end{aligned}$$
 
+We'll first caclulate the reduced density matrix for $A$
 
+$$\begin{aligned}
+\rho^A &= \text{tr} \left(\left(\frac{\ket{00} + \ket{01} + \ket{10}}{\sqrt{3}} \right)\left(\frac{\bra{00} + \bra{01} + \bra{10}}{\sqrt{3}} \right) \right)\\
+&=\frac{2\ket{0}\bra{0} + \ket{0}\bra{1} + \ket{1}\bra{0} + \ket{1}\bra{1}}{3} \\
+&= \begin{bmatrix} \frac{2}{3} & \frac{1}{3} \\\ \frac{1}{3} & \frac{1}{3} \end{bmatrix}
+\end{aligned}$$
+
+Now let's find the eigenvalues for this matrix
+
+$$\begin{aligned}
+0 &= \text{det} \left(\begin{bmatrix} \frac{2}{3} & \frac{1}{3} \\\ \frac{1}{3} & \frac{1}{3} \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \\
+&= \text{det} \left(\begin{bmatrix} \frac{2}{3} - \lambda & \frac{1}{3} \\\ \frac{1}{3} & \frac{1}{3} - \lambda \end{bmatrix} \right) \\
+&= \left(\frac{2}{3} - \lambda \right) \left(\frac{1}{3} - \lambda \right) - \frac{1}{9} \\
+&= \frac{1}{9} - \lambda  + \lambda^2 
+\end{aligned}$$
+
+Therefore the eigenvalues are $\lambda_{\pm} = \frac{3 \pm \sqrt{5}}{6}$.
+
+The eigenvectors then can be found by solving
+
+$$\begin{aligned}
+0 &=  \begin{bmatrix} \frac{2}{3} - \lambda_{\pm} & \frac{1}{3} \\\ \frac{1}{3} & \frac{1}{3} - \lambda_{\pm} \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
+&= \begin{bmatrix} x_1 \left(\frac{2}{3} - \lambda_{\pm}\right) + x_2 \frac{1}{3}  \\\ x_1 \frac{1}{3} + x_2 \left(\frac{1}{3} - \lambda_{\pm}\right) \end{bmatrix} \\
+\end{aligned}$$
+
+and so the eigenvectors are given by $\ket{\pm} = \frac{1}{\sqrt{10 \pm 2\sqrt{5}}}\left( 1 \pm \sqrt{5} \ket{0} + 2 \ket{1}\right)$. It can be seen that state $B$ has the same reduced density matrix and therefore the same eigenvectors and eigenvalues. Therefore the Schmidt decomposition can be written as
+
+$$\begin{aligned}
+\ket{\psi} &= \sqrt{\lambda_+}\ket{+}\ket{+} + \sqrt{\lambda_-}\ket{-}\ket{-} 
+\end{aligned}$$
+
+</details>
 
 
 

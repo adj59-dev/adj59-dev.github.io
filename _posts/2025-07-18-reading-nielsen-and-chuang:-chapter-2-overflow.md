@@ -407,6 +407,32 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| EPR Paper                            | section 2.6               | A paper written by Albert Einstein, Boris Podolsky and Nathan Rosen where they argue that the description of physical reality provided by quantum mechanics is incomplete and that there must exist elements of reality that were not part of quantum theory. |
+| Bell's inequality                    | section 2.6               | Experimental invalidation of the point of view expressed in the EPR paper.
 
 ## Chapter Problems
+
+**Problem 2.1**
+
+This problem is similar to exercise 2.35 but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
+
+From exercise 2.35 we know that $\vec{n} \cdot \vec{\sigma}$ has eigengvalues $\lambda_{\pm} = \pm 1$ and so can be written as
+
+$$\begin{aligned}
+\vec{n} \cdot \vec{\sigma} = \ket{\lambda_+}\bra{\lambda_+} - \ket{\lambda_-}\bra{\lambda_-}
+\end{aligned}$$
+
+Therefore 
+
+$$\begin{aligned}
+f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+} + f(-\theta) \ket{\lambda_-}\bra{\lambda_-} \\
+&= \frac{1}{2}f(\theta)\left(\ket{\lambda_+}\bra{\lambda_+} + \ket{\lambda_-}\bra{\lambda_-} + \ket{\lambda_+}\bra{\lambda_+} -  \ket{\lambda_-}\bra{\lambda_-} \right) + \frac{1}{2}f(-\theta)\left( \ket{\lambda_-}\bra{\lambda_-} + \ket{\lambda_+}\bra{\lambda_+} + \ket{\lambda_-}\bra{\lambda_-} - \ket{\lambda_+}\bra{\lambda_+} \right) \\
+&= \frac{1}{2}f(\theta)\left(I + \vec{n} \cdot \vec{\sigma} \right) + \frac{1}{2}f(-\theta)\left( I - \vec{n} \cdot \vec{\sigma} \right) \\
+&= \frac{f(\theta) + f(-\theta)}{2}I + \frac{f(\theta) - f(-\theta)}{2} \vec{n} \cdot \vec{\sigma}
+\end{aligned}$$
+
+
+**Problem 2.2**
+
+
+

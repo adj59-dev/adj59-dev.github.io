@@ -350,7 +350,10 @@ $$\begin{aligned}
 
 **Exercise 2.82**
 
-In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition. For the third part we show that theorem 2.6 applies to composite states by using a similar proof as shown in section 2.4.2.  
+In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition and equation 2.131. For the third part we use theorem 2.6.  
+
+<details>
+<summary>Solution</summary>
 
 (1) We are given $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$
 
@@ -384,16 +387,19 @@ $$\begin{aligned}
 
 So the corresponding state of system $A$ is $\ket{\psi_i}$
 
-(3) Suppose $\ket{\tilde{\psi_i}}\ket{i} = \sum_j u_{ij} \ket{\tilde{\phi_j}}\ket{j}$ for some unitary $u_{ij}$. Then
+(3) An arbitrary ensemble and purification of $\rho$ can be written as $\ket{AR} = \sum_j \sqrt{q_j}\ket{\phi_j}\ket{j}$. By theorem 2.6 we know that $\sqrt{q_j}\ket{\phi_j} = \sum_i u_{ji} \sqrt{p_i}\ket{\psi_i}$ for some unitary $u_{ji}$ if both $\sqrt{p_i}\ket{\psi_i}$ and $\sqrt{q_j}\ket{\phi_j}$ generate the same density matrix. Therefore any purification of $\rho$ can be written as
 
 $$\begin{aligned}
-\sum_i \ket{\tilde{\psi_i}}\ket{i} \bra{\tilde{\psi_i}}\bra{i} &= \sum_{ikj} u_{ij}u_{ik}^\ast \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
-&= \sum_{kj} \left(\sum_i u_{ki}^\dagger u_{ij}\right) \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
-&= \sum_{kj} \delta_{kj} \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
-&= \sum_{j} \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_j}}\bra{j} 
+\ket{AR} &= \sum_j\sqrt{q_j}\ket{\phi_j}\ket{j} \\
+&= \sum_j\sqrt{q_j}\ket{\phi_j}\ket{j} \\
+&= \sum_j \left(\sum_i u_{ji} \sqrt{p_i}\ket{\psi_i} \right) \ket{j} \\
+&= \sum_i \sqrt{p_i}\ket{\psi_i} \left(\sum_j u_{ji} \ket{j} \right) \\
+&= \sum_i \sqrt{p_i}\ket{\psi_i} \ket{i} 
 \end{aligned}$$
 
-Which shows that $\rho = \sum_i p_i \ket{\psi_i}\ket{i} \bra{\psi_i}\bra{i} = \sum_j q_j \ket{\phi_j}\ket{j} \bra{\phi_j}\bra{j}$. Therefore there exists an orthonormal basis $\ket{i} in which $R$ can be measured such that the corresponding post-measurement state for system $A$ is $\ket{\psi_i}$ with probability $p_i$. 
+Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it preserves the orthonormality of the vectors, therefore $\ket{i}$ is an orthonormal basis in which $R$ can be measured such that the corresponding post-measurement state for system $A$ is $\ket{\psi_i}$.
+
+</details>
 
 ## EPR and the Bell Inequality
 

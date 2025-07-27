@@ -365,15 +365,33 @@ tr_R (\ket{AR}\bra{AR}) &= \sum_{ij} \sqrt{p_ip_j} \ket{\psi_i}{\psi_j} tr(\ket{
 
 Thus $\sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is a purification of $\rho^A$. 
 
-(2) Since $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is written in the form of a Schmidt decomposition we know that the reduced density matrices can be written as 
+(2) Since $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$ is written in the form of a Schmidt decomposition we know that the reduced density matrix for $R$ can be written as 
 
 $$\begin{aligned}
 \rho^R = \sum_i p_i \ket{i}\bra{i}\\
 \end{aligned}$$
 
-We can read directly from the density matrix that the probability of 
+We can read directly from the density matrix that the probability of obtaining outcome $i$ is $p_i$. 
 
-(3) 
+The state after the measurement $M_i = I \otimes \ket{i}\bra{i}$ is
+
+$$\begin{aligned}
+\frac{M_i\ket{\psi}}{\sqrt{p_i}} &= \frac{(I_A \otimes \ket{i}\bra{i})(\sum_{i'} \sqrt{p_{i'}} \ket{\psi_{i'}}\ket{i'})}{\sqrt{p_{i}}} \\
+&= \frac{\sum_{i'} \sqrt{p_{i'}} \ket{\psi_{i'}}\ket{i}\braket{i \vert i'}}{\sqrt{p_{i}}} \\
+&= \frac{ \sqrt{p_{i}} \ket{\psi_{i}}\ket{i}}{\sqrt{p_{i}}} \\
+&= \ket{\psi_{i}}\ket{i}
+\end{aligned}$$
+
+So the corresponding state of system $A$ is $\ket{\psi_i}}$
+
+(3) Let $\ket{AR} = \sum_k \sqrt{q_k} \ket{\phi_k}\ket{k}$ be an arbitrary purification of $\rho$ to the system $AR$. We need to show that there exists an orthonormal basis $\ket{i}$ in which $R$ can be measured such that the corresponding post-measurement state for system $A$ is $\ket{\psi_i}$. 
+
+From Theorem 2.6, $\sqrt{p_i}\ket{\psi_i} = \sum_j u_{ij} \sqrt{q_j}\ket{\phi_j}$ for some unitary matrix $U$ with entries $u_{ij}$. Since $R$ has the same state space as $A$ we can also write $\sqrt{p_i}\ket{i} = \sum_j u_{ij} \sqrt{q_j}\ket{j}$, therefore
+
+$$\begin{aligned}
+U \ket{AR} = U (\sum_j \sqrt{q_j} \ket{\phi_j}\ket{j})
+\end{aligned}$$
+
 
 ## EPR and the Bell Inequality
 

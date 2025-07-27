@@ -350,7 +350,7 @@ $$\begin{aligned}
 
 **Exercise 2.82**
 
-In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition. 
+In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition. For the third part we show that theorem 2.6 applies to composite states by using a similar proof as shown in section 2.4.2.  
 
 (1) We are given $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$
 
@@ -382,16 +382,18 @@ $$\begin{aligned}
 &= \ket{\psi_{i}}\ket{i}
 \end{aligned}$$
 
-So the corresponding state of system $A$ is $\ket{\psi_i}}$
+So the corresponding state of system $A$ is $\ket{\psi_i}$
 
-(3) Let $\ket{AR} = \sum_k \sqrt{q_k} \ket{\phi_k}\ket{k}$ be an arbitrary purification of $\rho$ to the system $AR$. We need to show that there exists an orthonormal basis $\ket{i}$ in which $R$ can be measured such that the corresponding post-measurement state for system $A$ is $\ket{\psi_i}$. 
-
-From Theorem 2.6, $\sqrt{p_i}\ket{\psi_i} = \sum_j u_{ij} \sqrt{q_j}\ket{\phi_j}$ for some unitary matrix $U$ with entries $u_{ij}$. Since $R$ has the same state space as $A$ we can also write $\sqrt{p_i}\ket{i} = \sum_j u_{ij} \sqrt{q_j}\ket{j}$, therefore
+(3) Suppose $\ket{\tilde{\psi_i}}\ket{i} = \sum_j u_{ij} \ket{\tilde{\phi_j}}\ket{j}$ for some unitary $u_{ij}$. Then
 
 $$\begin{aligned}
-U \ket{AR} = U (\sum_j \sqrt{q_j} \ket{\phi_j}\ket{j})
+\sum_i \ket{\tilde{\psi_i}}\ket{i} \bra{\tilde{\psi_i}}\bra{i} &= \sum_{ikj} u_{ij}u_{ik}^\ast \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
+&= \sum_{kj} \left(\sum_i u_{ki}^\dagger u_{ij}\right) \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
+&= \sum_{kj} \delta_{kj} \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_k}}\bra{k} \\
+&= \sum_{j} \ket{\tilde{\phi_j}}\ket{j} \bra{\tilde{\phi_j}}\bra{j} 
 \end{aligned}$$
 
+Which shows that $\rho = \sum_i p_i \ket{\psi_i}\ket{i} \bra{\psi_i}\bra{i} = \sum_j q_j \ket{\phi_j}\ket{j} \bra{\phi_j}\bra{j}$. Therefore there exists an orthonormal basis $\ket{i} in which $R$ can be measured such that the corresponding post-measurement state for system $A$ is $\ket{\psi_i}$ with probability $p_i$. 
 
 ## EPR and the Bell Inequality
 

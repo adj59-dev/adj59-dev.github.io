@@ -19,8 +19,8 @@ I just finished reading Chapter 3 of *Quantum Computation and Quantum Informatio
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
+| Elements of a Turing machine         | section 3.1.1             | (1) a program <br> (2) a finite state control (acts like a stripped-down microprocessor) <br> (3) a tape (acts like memeory) <br> (4) a read-write tape-head (points to the position on the tape which is currently readable or writable) |
+| Finite state control                 | section 3.1.1             |
 
 ### Models for computation - Exercises
   

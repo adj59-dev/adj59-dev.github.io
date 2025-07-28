@@ -1003,7 +1003,7 @@ $$\begin{aligned}
 &= \text{det} \left(\begin{bmatrix} 4 - \lambda & 3 \\\ 3 & 4 - \lambda \end{bmatrix} \right) \\
 &= (4-\lambda)^2 - 9 \\
 &= \lambda^2 - 8 \lambda + 7 \\
-\lambda &= \frac{8 \pm \sqrt{64 - 4 \* 1 \* 7}}{2 \* 1} \\
+\lambda &= \frac{8 \pm \sqrt{64 - (4) (1) (7)}}{(2)(1)} \\
 &= 4 \pm 3
 \end{aligned}$$
 

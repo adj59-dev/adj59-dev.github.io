@@ -1533,7 +1533,7 @@ $$\begin{aligned}
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
-\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4 \* 1 \* 1}}{2 \* 1} = \frac{3 \pm \sqrt{5}}{2}
+\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - (4) (1) (1)}}{(2) (1)} = \frac{3 \pm \sqrt{5}}{2}
 \end{aligned}$$
 
 
@@ -1573,7 +1573,7 @@ $$\begin{aligned}
 &= (1-\lambda)(2 - \lambda) - 1 \\
 &= \lambda^2 - 3 \lambda + 2 - 1 \\
 &= \lambda^2 - 3 \lambda +1 \\
-\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - 4 \* 1 \* 1}}{2 \* 1} = \frac{3 \pm \sqrt{5}}{2}
+\Rightarrow \lambda &= \frac{3 \pm \sqrt{9 - (4) (1) (1)}}{(2) (1)} = \frac{3 \pm \sqrt{5}}{2}
 \end{aligned}$$
 
 

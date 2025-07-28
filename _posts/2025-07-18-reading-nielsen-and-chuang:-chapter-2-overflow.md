@@ -464,4 +464,4 @@ $$\begin{aligned}
 &= \sum_i \left( \alpha \lambda_i + \beta\kappa_i \right)\ket{i_A}\ket{i_B} 
 \end{aligned}$$
 
-
+The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which can now be zero when $\lambda_i = \kappa_i =0$ or when $\alpha \lambda_i = -\beta\kappa_i$. If $\alpha \lambda_i = -\beta\kappa_i$ for all states shared by $\ket{\phi}$ and $\ket{\gamma}$ then the Schmidt number is $\vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$. Therefore $\text{Sch} (\psi) \geq \vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$

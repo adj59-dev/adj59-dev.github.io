@@ -434,5 +434,34 @@ f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+
 
 **Problem 2.2**
 
+In this problem we explore some of the properties of the Schmidt number using what we learned in section 2.5. 
+
+(1) Since $\ket{\psi}$ is a pure state from equation 2.202 we know that $\ket{\psi} = \sum_i \ket{i_A}\ket{i_B}$ for some orthonormal states $\ket{i_A}$ for system $A$ and $\ket{i_B}$ for system $B$. The reduced density matrices is then
+
+$$\begin{aligned}
+\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}
+\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}
+\end{aligned}$$
+
+The Schmidt number is the number of non-zero $\lambda_i$ values in equation 2.202. The rank of the reduced density matrices is also the number of non-zero $\lambda_i$ values. Therefore the Schmidt number and the rank of the reduced density matrices are the same. 
+
+(2) Starting with $\ket{\psi} = \sum_j \ket{\alpha_j}\ket{\beta_j}$, we first find the reduced density matrix for system $A$.
+
+$$\begin{aligned}
+\rho^A &= tr_B \left( \sum_{jj'} \ket{\alpha_j}\ket{\beta_j} \bra{\alpha_j'}\ket{\beta_j'} \right) \\
+&= \sum_{jj'} \ket{\alpha_j}\bra{\alpha_j'}\braket{\beta_j\vert \beta_j'} \\
+&= \sum_{jj'} \ket{\alpha_j}\bra{\alpha_j'}\delta_{jj'} \\
+&= \sum_{j} \ket{\alpha_j}\bra{\alpha_j}
+\end{aligned}$$
+
+from here, we need to put the reduced density matrix in the form $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$ by finding its eigenvalues and eigenvectors. If the ensemble of vectors $\ket{\alpha_j}$ are linearly independent, then the number of eigenvectors for $\rho^A$  would equal the number of terms in the decomposition. If they are not linearly independent, then there will be less eigenvectors than the number of terms in the decomposition. As shown in part 1, the Schmidt number is equal to the rank of the reduced density matrix and so the Schmidt number would be less than or equal to the number of terms in the decomposition. 
+
+(3) Suppose that $\ket{\psi} = \alpha\ket{\phi} + \beta \ket{\gamma}$. I'm going to assume that $\ket{\phi}$ and $\ket{\gamma}$ are also pure states of the composite system of $A$ and $B$, therefore
+
+$$\begin{aligned}
+\ket{\psi} &= \alpha\ket{\phi} + \beta \ket{\gamma} \\
+&= \alpha \left( \sum_i \lambda_i \ket{i_A}\ket{i_B} \right) + \beta \left( \sum_i \kappa_{i} \ket{i_A}\ket{i_B} \right) \\
+&= \sum_i \left( \alpha \lambda_i + \beta\kappa_i \right)\ket{i_A}\ket{i_B} 
+\end{aligned}$$
 
 

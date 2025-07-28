@@ -465,3 +465,27 @@ $$\begin{aligned}
 \end{aligned}$$
 
 The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which can now be zero when $\lambda_i = \kappa_i =0$ or when $\alpha \lambda_i = -\beta\kappa_i$. If $\alpha \lambda_i = -\beta\kappa_i$ for all states shared by $\ket{\phi}$ and $\ket{\gamma}$ then the Schmidt number is $\vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$. Therefore $\text{Sch} (\psi) \geq \vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$
+
+
+**Problem 2.3**
+
+For this problem we derive Tsirelson's inequality. 
+
+Let's find what $Q^2$ equals
+
+$$\begin{aligned}
+Q^2 &= (\vec{q} \cdot \vec{\sigma})^2 \\
+&= (q_1 \sigma_1 + q_2 \sigma_2 + q_3 \sigma_3)^2 \\
+&= q_1^2 \sigma_1^2 + q_1q_2 \sigma_1\sigma_2 + q_1q_3 \sigma_1\sigma_3 + q_2q_1 \sigma_2\sigma_1 +  q_2^2 \sigma_2^2 + + q_2q_3 \sigma_2\sigma_3 + q_3q_1\sigma_3\sigma_1 + q_3q_2\sigma_3\sigma_2 + q_3^2 \sigma_3^2 \\
+&= q_1^2 I + q_1q_2 i\sigma_3 - q_1q_3 i\sigma_2 - q_2q_1 i\sigma_3 +  q_2^2 I + + q_2q_3 i\sigma_1 + q_3q_1 i \sigma_2 - q_3q_2 i \sigma_1 + q_3^2 I & \text{per equation 2.78} \\
+&= (q_1^2 + q_2^2 + q_3^2)I \\
+&= I
+\end{aligned}$$
+
+Therefore $Q^2 = R^2 = S^2 = T^2 = I$
+
+$$\begin{aligned}
+(Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 &= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
+&= Q^2 \otimes (S-T)^2 + (QR + RQ) \otimes (S - T)(S + T) + R^2 \otimes (S+T)^2 \\
+&= I \otimes (S-T)^2 + (QR + RQ) \otimes (S - T)(S + T) + I \otimes (S+T)^2 \\
+\end{aligned}$$

@@ -300,7 +300,7 @@ In section 2.1.4 the authors introduce outer product representation for linear o
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j | A | v_i}$ equals the element in the *i*th column and *j*th row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
+We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j | A | v_i}$ equals the element in the $i \text{th}$ column and $j \text{th}$ row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
 
 For $I$ we get
 

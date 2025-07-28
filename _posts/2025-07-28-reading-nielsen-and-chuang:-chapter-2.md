@@ -64,7 +64,7 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 
 In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 
-<details>
+<details style="margin-bottom: 20px;">
 <summary>Solution</summary> 
 
 To show that these vectors are linearly dependent, we need to find a set of $a_1$, $a_2$, and $a_3$ such that

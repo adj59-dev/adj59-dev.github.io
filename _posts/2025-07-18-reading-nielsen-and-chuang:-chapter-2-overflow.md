@@ -416,6 +416,9 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 
 This problem is similar to exercise 2.35 but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
 
+<details>
+<summary>Solution</summary>
+
 From exercise 2.35 we know that $\vec{n} \cdot \vec{\sigma}$ has eigengvalues $\lambda_{\pm} = \pm 1$ and so can be written as
 
 $$\begin{aligned}
@@ -431,10 +434,14 @@ f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+
 &= \frac{f(\theta) + f(-\theta)}{2}I + \frac{f(\theta) - f(-\theta)}{2} \vec{n} \cdot \vec{\sigma}
 \end{aligned}$$
 
+</details>
 
 **Problem 2.2**
 
 In this problem we explore some of the properties of the Schmidt number using what we learned in section 2.5. 
+
+<details>
+<summary>Solution</summary>
 
 (1) Since $\ket{\psi}$ is a pure state from equation 2.202 we know that $\ket{\psi} = \sum_i \ket{i_A}\ket{i_B}$ for some orthonormal states $\ket{i_A}$ for system $A$ and $\ket{i_B}$ for system $B$. The reduced density matrices is then
 
@@ -466,10 +473,14 @@ $$\begin{aligned}
 
 The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which can now be zero when $\lambda_i = \kappa_i =0$ or when $\alpha \lambda_i = -\beta\kappa_i$. If $\alpha \lambda_i = -\beta\kappa_i$ for all states shared by $\ket{\phi}$ and $\ket{\gamma}$ then the Schmidt number is $\vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$. Therefore $\text{Sch} (\psi) \geq \vert \text{Sch} (\phi) - \text{Sch} (\gamma) \vert$
 
+</details>
 
 **Problem 2.3**
 
-For this problem we derive Tsirelson's inequality. 
+For this problem we derive Tsirelson's inequality. To do this we'll use equation 2.78, equation 2.107, equation 2.115 and the definition of the commutator. 
+
+<details>
+<summary>Solution</summary>
 
 Let's find what $Q^2$ equals
 
@@ -482,10 +493,43 @@ Q^2 &= (\vec{q} \cdot \vec{\sigma})^2 \\
 &= I
 \end{aligned}$$
 
-Therefore $Q^2 = R^2 = S^2 = T^2 = I$
+Therefore $Q^2 = R^2 = S^2 = T^2 = I$. Now let's look at equation 2.233
 
 $$\begin{aligned}
 (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 &= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
-&= Q^2 \otimes (S-T)^2 + (QR + RQ) \otimes (S - T)(S + T) + R^2 \otimes (S+T)^2 \\
-&= I \otimes (S-T)^2 + (QR + RQ) \otimes (S - T)(S + T) + I \otimes (S+T)^2 \\
+&= Q^2 \otimes (S-T)^2 + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T) + R^2 \otimes (S+T)^2 \\
+&= I \otimes (S^2 - ST - TS + T^2) + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T)+ I \otimes (S^2 + ST + TS + T^2) \\
+&= I \otimes (I - ST - TS + I) + QR\otimes (S^2 + ST - TS - T^2) + RQ \otimes (S^2 - ST + TS - T^2)+ I \otimes (I + ST + TS + I) \\
+&= I \otimes (4 I) + QR\otimes (I + ST - TS - I) + RQ \otimes (I - ST + TS - I)\\
+&= I \otimes (4 I) + QR\otimes (ST - TS) - RQ \otimes (ST - TS)\\
+&= 4I \otimes I + (QR - RQ) \otimes (ST - TS) \\
+&= 4I \otimes I + \lbrack Q,R \rbrack \otimes \lbrack S,T \rbrack 
 \end{aligned}$$
+
+Then let's use those results to prove equation 2.234
+
+$$\begin{aligned}
+\braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } &= \braket{ 4I \otimes I + \lbrack Q,R \rbrack \otimes \lbrack S,T \rbrack } \\
+&= \braket{4I \otimes I} + \braket{\lbrack Q,R \rbrack \otimes \lbrack S,T \rbrack} \\
+&= \braket{4I \otimes I} + \braket{\lbrack Q,R \rbrack}_1 \braket{\lbrack S,T \rbrack}_2 \\
+& \leq 4 + \sqrt{4\braket{Q^2}_1\braket{R^2}_1} \sqrt{4\braket{S^2}_2\braket{T^2}_2} & \text{per equation 2.107}\\
+4 + \sqrt{4\braket{Q^2}_1\braket{R^2}_1} \sqrt{4\braket{S^2}_2\braket{T^2}_2} &= 4 + \sqrt{4\braket{I}_1\braket{I}_1} \sqrt{4\braket{I}_2\braket{I}_2} \\
+& = 4 + \sqrt{4} \sqrt{4} \\
+&= 8
+\end{aligned}$$
+
+So now we know that $\braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } \leq 8$ and from equation 2.115 we know that $\braket{M^2} = \braket{M}^2 + \lbrack \Delta (M) \rbrack^2$, therefore $\braket{M^2} \geq \braket{M}^2$. Putting it together we get
+
+$$\begin{aligned}
+8 \geq \braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } \geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T }^2
+\end{aligned}$$
+
+Taking the square root we get
+
+$$\begin{aligned}
+2\sqrt{2} \geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T } = \braket{ Q \otimes S } + \braket{ R \otimes S} + \braket{R \otimes T} - \braket{Q \otimes T }
+\end{aligned}$$
+
+which is equation 2.234.
+
+</details>

@@ -2,9 +2,9 @@
 
 I just finished reading Chapter 3 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
-I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent I was missing important background knowledge. There, I saw the authors cite *Computation: Finite and Infinite Machines* by Minsky and a couple of articles by J.H. Conway as inspiration for the first four exercises in this chapter. I tracked down pdf copies of these texts and found them to be useful for in filling in some of the gaps.
+I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent I was missing important background knowledge. Here are some of the resources that I found useful. 
 
-A copy of Minsky's book can be found here: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
+*Computation: Finite and Infinite Machines* by Minsky: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
 
 The Conway articles are here: <br>
 Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>

@@ -46,7 +46,7 @@ I went to the History and further reading section of this chapter after reading 
 
 A copy of Minsky's book can be found here: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
 
-The Conway articles are here:
+The Conway articles are here: <br>
 Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
 Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 

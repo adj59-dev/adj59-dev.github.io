@@ -330,6 +330,10 @@ Here is an example of how it would run for $x = 100$ and $y=111$
 </details>
 
 
+**Exercise 3.5**
+
+In Box 3.2 the authors introduce the halting problem. For this exercise, we are to think about the halting problem with no inputs. 
+
 
 
 

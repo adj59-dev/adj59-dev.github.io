@@ -29,10 +29,28 @@ I just finished reading Chapter 3 of *Quantum Computation and Quantum Informatio
 
 ### Models for computation - Exercises
   
-  **Exercise 3.1** 
+**Exercise 3.1** 
 
+This question is about non-computable processes in Nature. I am not really sure what the authors are looking for from this question. 
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
+You would need to show that that no Turing machine could reproduce the same input-output mapping. 
+
+</details>
+
+**Exercise 3.2**
+
+I went to the History and further reading section of this chapter after reading this question, since I was somewhat lost on what to do, and saw that the authors reference *Computation: Finite and Infinite Machines* by Minsky and a couple of articles by J.H. Conway as inspiration for the first four exercises in this chapter. 
+
+A copy of Minsky's book can be found here: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
+
+The Conway articles are here:
+Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf
+Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
+
+I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's state diagram (the set of quintuples that represent its states, inputs, and outputs) as a unique number that can be used by a universal Turing machine to simulate this specific Turing machine. 
 
 ## The analysis of computational problems
 

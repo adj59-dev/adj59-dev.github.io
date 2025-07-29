@@ -88,6 +88,13 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 </details>
 
 
+**Exercise 3.3**
+
+Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I took inspiration from Minsky's parenthesis checker example (section 6.1.2) and the hint to use a multi-tape turing machine to create this solution. 
+
+
+
+
 ## The analysis of computational problems
 
 ### The analysis of computational problems - Key Concepts

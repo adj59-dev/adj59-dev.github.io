@@ -92,8 +92,46 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 
 Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I took inspiration from Minsky's parenthesis checker example (section 6.1.2) and the hint to use a multi-tape turing machine to create this solution. 
 
+We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other has the same number of non-blank squares as the first tape which start and end with one, but the rest are zero. 
+
+The program is given as follows
+
+| $q$              | $x_1$            | $x_2$            | $q'$             | $x_1'$           | $x_2'$           | $s$              |
+|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| $q_s$            | $1$              | $1$              | $q_1$            | $1$              | $1$              | $1$              |
+| $q_s$            | $0$              | $1$              | $q_2$            | $0$              | $1$              | $1$              |
+| $q_1$            | $1$              | $0$              | $q_1$            | $1$              | $0$              | $1$              |
+| $q_1$            | $0$              | $0$              | $q_1$            | $0$              | $0$              | $1$              |
+| $q_2$            | $1$              | $0$              | $q_2$            | $1$              | $0$              | $1$              |
+| $q_2$            | $0$              | $0$              | $q_2$            | $0$              | $0$              | $1$              |
+| $q_1$            | $1$              | $1$              | $q_3$            | $1$              | $1$              | $-1$             |
+| $q_2$            | $1$              | $1$              | $q_3$            | $0$              | $1$              | $-1$             |
+| $q_1$            | $0$              | $1$              | $q_4$            | $1$              | $1$              | $-1$             |
+| $q_2$            | $0$              | $1$              | $q_4$            | $0$              | $1$              | $-1$             |
+| $q_3$            | $1$              | $0$              | $q_5$            | $1$              | $1$              | $-1$             |
+| $q_3$            | $0$              | $0$              | $q_5$            | $0$              | $1$              | $-1$             |
+| $q_4$            | $1$              | $0$              | $q_6$            | $1$              | $1$              | $-1$             |
+| $q_4$            | $0$              | $0$              | $q_6$            | $0$              | $1$              | $-1$             |
+| $q_5$            | $1$              | $0$              | $q_5$            | $1$              | $0$              | $-1$             |
+| $q_5$            | $0$              | $0$              | $q_5$            | $0$              | $0$              | $-1$             |
+| $q_6$            | $1$              | $0$              | $q_6$            | $1$              | $0$              | $-1$             |
+| $q_6$            | $0$              | $0$              | $q_6$            | $0$              | $0$              | $-1$             |
+| $q_5$            | $1$              | $1$              | $q_7$            | $1$              | $1$              | $1$              |
+| $q_5$            | $0$              | $1$              | $q_8$            | $1$              | $1$              | $1$              |
+| $q_6$            | $1$              | $1$              | $q_7$            | $0$              | $1$              | $1$              |
+| $q_6$            | $0$              | $1$              | $q_8$            | $0$              | $1$              | $1$              |
+| $q_7$            | $1$              | $0$              | $q_1$            | $1$              | $1$              | $1$              |
+| $q_7$            | $0$              | $0$              | $q_2$            | $0$              | $1$              | $1$              |
+| $q_8$            | $1$              | $0$              | $q_1$            | $1$              | $1$              | $1$              |
+| $q_8$            | $0$              | $0$              | $q_2$            | $0$              | $1$              | $1$              |
 
 
+Here is an example of how it would run
+
+|                  | $\Downarrow$ |              |              |              |              |              |              |              |              | 
+|------------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
+| $\triangleright$ | 1            | 1            | 1            | 0            | 1            | 1            | b            | b            | $\cdots$     |
+| $\triangleright$ | 1            | 0            | 0            | 0            | 0            | 1            | b            | b            | $\cdots$     |
 
 ## The analysis of computational problems
 

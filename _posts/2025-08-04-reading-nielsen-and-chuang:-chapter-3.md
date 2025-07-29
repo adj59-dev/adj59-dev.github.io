@@ -50,7 +50,7 @@ To recognize that a process in Nature computes a function not computable by a Tu
 
 **Exercise 3.2**
 
-I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. The Fractran article discusses encoding data in the exponent of a prime number in the prime factorization of the integer, which is also referenced in the hint for this exercise. I used that information to answer this question.
+I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
 
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>

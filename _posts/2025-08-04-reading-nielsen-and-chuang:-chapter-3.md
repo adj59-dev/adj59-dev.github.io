@@ -90,9 +90,12 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 
 **Exercise 3.3**
 
-Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I took inspiration from Minsky's parenthesis checker example (section 6.1.2) and the hint to use a multi-tape turing machine to create this solution. 
+Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape turing machine to create this solution, as recommended in the hint. 
 
-We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other is all blank.
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other is all blank. The program is setup to read the binary input from the first tape and print the bits in reverse order on the second. 
 
 The program is given as follows
 
@@ -205,7 +208,7 @@ Here is an example of how it would run
 | $\triangleright$ | 1            | 1            | 0            | 1            | 0            | 1            | b            | b            | $\cdots$     |
 |                  |              |              |              |              |              |              | $\Uparrow$   |              |              |
 
-
+</details>
 
 
 

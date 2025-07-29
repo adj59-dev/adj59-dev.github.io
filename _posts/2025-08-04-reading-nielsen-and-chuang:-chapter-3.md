@@ -50,7 +50,8 @@ The Conway articles are here:
 Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
 Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 
-I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's state diagram (the set of quintuples that represent its states, inputs, and outputs) as a unique number that can be used by a universal Turing machine to simulate this specific Turing machine. 
+I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. The Fractran article discusses encoding data in the exponent of a prime number in the prime factorization of the integer, which is referenced in the hint for this exercise, but this doesn't appear to be the only way one might generate a "Turing number".
+
 
 ## The analysis of computational problems
 

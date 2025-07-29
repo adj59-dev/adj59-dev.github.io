@@ -2,6 +2,14 @@
 
 I just finished reading Chapter 3 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
+I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent I was missing important background knowledge. There, I saw the authors cite *Computation: Finite and Infinite Machines* by Minsky and a couple of articles by J.H. Conway as inspiration for the first four exercises in this chapter. I tracked down pdf copies of these texts and found them to be useful for in filling in some of the gaps.
+
+A copy of Minsky's book can be found here: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
+
+The Conway articles are here: <br>
+Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
+Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
+
 
 ## Navigation
 
@@ -31,24 +39,16 @@ I just finished reading Chapter 3 of *Quantum Computation and Quantum Informatio
   
 **Exercise 3.1** 
 
-This question is about non-computable processes in Nature. I am not really sure what the authors are looking for from this question. 
+This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. Minsky chapter 5 discusses the idea of computability. 
 
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-You would need to show that that no Turing machine could reproduce the same input-output mapping. 
+To recognize that a process in Nature computes a function not computable by a Turing machine, one would need to demonstrate that no Turing machine can reproduce the same input-output behavior. This typically involves proving that the function the process computes is non-computable. According to Minsky (Chapter 5), *“any procedure which can be precisely described can be programmed to be performed by a computer"*. Therefore, if a physical process yields results that cannot be captured by any precisely describable algorithm, it would suggest that the process computes a non-Turing-computable function. However, recognizing such a process in practice would be extraordinarily difficult, as it would require ruling out all possible Turing machine simulations.
 
 </details>
 
 **Exercise 3.2**
-
-I went to the History and further reading section of this chapter after reading this question since I was lost on what to do. There, I saw that the authors cite *Computation: Finite and Infinite Machines* by Minsky and a couple of articles by J.H. Conway as inspiration for the first four exercises in this chapter. 
-
-A copy of Minsky's book can be found here: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
-
-The Conway articles are here: <br>
-Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
-Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 
 I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. The Fractran article discusses encoding data in the exponent of a prime number in the prime factorization of the integer, which is also referenced in the hint for this exercise. I used that information to answer this question.
 

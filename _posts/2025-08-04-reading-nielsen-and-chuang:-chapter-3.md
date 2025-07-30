@@ -332,9 +332,16 @@ Here is an example of how it would run for $x = 100$ and $y=111$
 
 **Exercise 3.5**
 
-In Box 3.2 the authors introduce the halting problem. For this exercise, we are to think about the halting problem with no inputs. 
+In Box 3.2 the authors introduce the halting problem for a Turing machine with an input equal to its Turing number. For this exercise, we are asked to think about the halting problem for a Turing machine with no inputs. The blank tape halting problem is discussed by Minsky in section 8.3.3 of his book, if you'd like another resource for this exercise. 
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
+Let's say that we can create an algorithm to determine whether a Turing machine halts when the input to the machine is a blank tape. With this algorithm, we could take a machine $T$ with tape $t$ and make a new machine $M_T$ which is constructed from the description of $T$ with additional program lines. These additional lines will generate the output of $t$ on a blank tape at the start of the computation, such that $M_T$ starting with a blank tape is the equivalent of $T$ starting with tape $t$. Using the algorithm mentioned above, we can determine whether $M_T$ halts when the input to the machine is a blank tape, this means that using the algorithm we can determine if $T$ halts starting with tape $t$. 
+
+From Box 3.2, we know that there is no algorithm that can be used to determine if a Turing machine with Turing number $x$ halts upon input of $x$. But with our algorithm we can determine if $T$ halts when $t=x$. We have a contradiction; therefore it is not possible to create an algorithm to determine whether a Turing machine halts when the input to the machine is a blank tape.
+
+</details>
 
 
 ## The analysis of computational problems

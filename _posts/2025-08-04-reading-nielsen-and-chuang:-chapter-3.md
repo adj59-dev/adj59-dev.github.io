@@ -346,7 +346,7 @@ From Box 3.2, we know that there is no algorithm that can be used to determine i
 
 **Exercise 3.6**
 
-In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. 
+In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. On page 127, the autors talk about creating a probabilistic Turing machine by adding a random component to the change in internal states with the execution of each program line. 
 
 The halting function is now
 
@@ -357,7 +357,16 @@ $$\begin{equation}
   \end{cases}
 \end{equation}$$
 
-Let's say that the Turing machine halts with probability $P_h > 1/2$. As with the example in Box 3.2 we'll consider an algorithm computing the function TURING($x$) with pseudocode. 
+Let's say that the Turing machine halts with probability $P_h > 1/2$, which means that we expect $h_p = 1$. As with the example in Box 3.2 we'll consider an algorithm computing the function TURING($x$) with pseudocode. Here HALT($x$) is calculated for each execution of the algorithm, such that 
+
+$$\begin{equation}
+  \text{HALT}(x)=\begin{cases}
+    1, & \text{if machine $x$ halts on input of $x$}.\\
+    0, & \text{if machine $x$ does not halt on input of $x$}.
+  \end{cases}
+\end{equation}$$
+
+Here we expect HALT($x$) to be 1 with a probability $P_h$ and 0 with the probability $1-P_h$. The pseudocode is then
 
 ```
 TURING(x)
@@ -370,9 +379,7 @@ else
 end if
 ```
 
-Let's look at the different scenarios. 
-
-$h_p=1$
+Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and a probability of $1-P_h$ of it looping forever. This contradicts our expectations of it halting with probability $P_h$. If $P_h$ was not strictly greater than $1/2$, but instead allowed to be equal to $1/2$ then we could have the situation where $P_h = 1-P_h$, and there would be no contradiction, but we're wanting to find a case where the probability of correctness is strictly greater than $1/2$. Putting this in terms of our halting function, we find that $h_p = 0$, but we know that $h_p = 1$. Therefore, there is a contradiction and so there is no probabilistic Turing machine which can output $h_p(x)$ with probability of correctness strictly greater than $1/2$ for all $x$. 
 
 
 

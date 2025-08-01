@@ -409,6 +409,11 @@ An oracle machine with access to a halting problem oracle for standard Turing ma
 
 **Exercise 3.8**
 
+For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to teh NAND gates. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
 This is how you can make an AND gate with NAND gates
 
 <img width="444" height="122" alt="image" src="https://github.com/user-attachments/assets/13a1479b-773c-4380-8d03-d0aeb547a979" />
@@ -421,9 +426,29 @@ This is how you can make an AND gate with NAND gates
 | 1 | 1 | 0        | 1                          | 1      |
 
 
+This is how you can make a NOT gate with a NAND gate
+
+<img width="268" height="102" alt="image" src="https://github.com/user-attachments/assets/ac0668bd-53b1-4d25-b471-3bd2e7452590" />
+
+| a | a NAND a | NOT a |
+|---|----------|-------|
+| 0 | 1        | 1     |
+| 1 | 0        | 0     |
 
 
+This is how you can make a XOR gate with NAND gates
 
+<img width="769" height="209" alt="image" src="https://github.com/user-attachments/assets/b16673b8-6b78-4a6e-a5c1-c644c3e7e1d9" />
+
+
+| a | b | a NAND b | a NAND (a NAND b) | b NAND (a NAND b)| (a NAND (a NAND b)) NAND (b NAND (a NAND b)) | XOR |
+|---|---|----------|-------------------|------------------|----------------------------------------------|-----|
+| 0 | 0 | 1        | 1                 | 1                | 0                                            | 0   |
+| 1 | 0 | 1        | 0                 | 1                | 1                                            | 1   |
+| 0 | 1 | 1        | 1                 | 0                | 1                                            | 1   |
+| 1 | 1 | 0        | 1                 | 1                | 0                                            | 0   |
+
+</details>
 
 
 

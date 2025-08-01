@@ -387,6 +387,17 @@ Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and
 </details>
 
 
+**Exercise 3.7**
+
+This exercise asks if adding an oracle to a Turing machine resolves the halting problem. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+An oracle machine with access to a halting problem oracle for standard Turing machines can decide whether any given Turing machine halts. However, no oracle machine can solve its own halting problem, by a similar argument to the one that shows no Turing machine can decide its own halting behavior. 
+
+</details>
+
 
 ## The analysis of computational problems
 

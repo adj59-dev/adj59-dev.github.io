@@ -344,6 +344,38 @@ From Box 3.2, we know that there is no algorithm that can be used to determine i
 </details>
 
 
+**Exercise 3.6**
+
+In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. 
+
+The halting function is now
+
+$$\begin{equation}
+  h_p(x)=\begin{cases}
+    1, & \text{if machine $x$ halts on input of $x$ with probability of at least $1/2$}.\\
+    0, & \text{if machine $x$ halts on input of $x$ with a probability of less than $1/2$}.
+  \end{cases}
+\end{equation}$$
+
+Let's say that the Turing machine halts with probability $P_h > 1/2$. As with the example in Box 3.2 we'll consider an algorithm computing the function TURING($x$) with pseudocode. 
+
+```
+TURING(x)
+
+y = HALT(x)
+if y = 0 then
+  halt
+else
+  loop forever
+end if
+```
+
+Let's look at the different scenarios. 
+
+$h_p=1$
+
+
+
 ## The analysis of computational problems
 
 ### The analysis of computational problems - Key Concepts

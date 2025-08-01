@@ -10,6 +10,8 @@ The Conway articles are here: <br>
 Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
 Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 
+I used visual paradigm to make the logic diagrams: <br>
+https://online.visual-paradigm.com/diagrams/features/logic-diagram-software/
 
 ## Navigation
 
@@ -403,6 +405,26 @@ This exercise asks if adding an oracle to a Turing machine resolves the halting 
 An oracle machine with access to a halting problem oracle for standard Turing machines can decide whether any given Turing machine halts. However, no oracle machine can solve its own halting problem, by a similar argument to the one that shows no Turing machine can decide its own halting behavior. 
 
 </details>
+
+
+**Exercise 3.8**
+
+This is how you can make an AND gate with NAND gates
+
+<img width="444" height="122" alt="image" src="https://github.com/user-attachments/assets/13a1479b-773c-4380-8d03-d0aeb547a979" />
+
+| a | b | a NAND b | (a NAND b) NAND (a NAND b) | a AND b|
+|---|---|----------|----------------------------|--------|
+| 0 | 0 | 1        | 0                          | 0      |
+| 1 | 0 | 1        | 0                          | 0      |
+| 0 | 1 | 1        | 0                          | 0      |
+| 1 | 1 | 0        | 1                          | 1      |
+
+
+
+
+
+
 
 
 ## The analysis of computational problems

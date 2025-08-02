@@ -492,6 +492,11 @@ To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some c
 </details>
 
 
+**Exercise 3.11**
+
+Show that log $n$ is $O(n^k)$ for any $k > 0$.
+
+
 
 
 

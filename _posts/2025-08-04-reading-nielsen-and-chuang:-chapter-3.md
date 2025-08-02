@@ -461,6 +461,23 @@ This is how you can make a XOR gate with NAND gates
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Big O notation                       | section 3.2.1             | Describes the upper bounds behavior of a function. <br> $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some constant $c$ and for all $n \geq n_0$ |
+| Big Omega notation                   | section 3.2.1             | Describes the lower bounds on resources required. <br> $f(n)$ is $\Omega (g(n))$ if $f(n) \geq cg(n)$ for some constant $c$ and for all $n \geq n_0$|
+| Big Theta notation                   | section 3.2.1             | Can be used to describe a functions behavior when $f(n)$ behaves the same as $g(n)$ asymptotically, up to unimportant constat factors. <br> $f(n)$ is $\Theta (g(n))$ if it is both $O(g(n))$ and $\Omega (g(n))$ |
+
+
+**Exercise 3.9**
+
+For this exercise we are to prove that $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $\Omega (f(n))$ and that $f(n)$ is $\Theta (g(n))$ if and only if $g(n)$ is $\Theta (f(n))$. We can do this using the details I listed in the notes above for these different notations.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+We know that $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some constant $c$ and for all $n \geq n_0$. We also know that $g(n)$ is $\Omega (f(n))$ if $g(n) \geq c'f(n)$ for some constant $c'$ and for all $n \geq n_0'$. If we set $c = \frac{1}{c'}$ and $n_0 = n_0'$, then we can see that the two inequalities are identical. Therefore, $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $\Omega (f(n))$.
+
+We know that $f(n)$ is $\Theta (g(n))$ when $f(n)$ behaves the same as $g(n)$ asymptotically. When this is the case, we can also say that $g(n)$ behaves the same as $f(n)$ asymptotically and so $g(n)$ is $\Theta (f(n))$. 
+
+</details>
 
 
 

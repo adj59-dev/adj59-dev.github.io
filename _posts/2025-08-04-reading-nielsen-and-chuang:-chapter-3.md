@@ -480,6 +480,21 @@ We know that $f(n)$ is $\Theta (g(n))$ when $f(n)$ behaves the same as $g(n)$ as
 </details>
 
 
+**Exercise 3.10**
+
+For this exercise we are to show that a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some constant $c$ and for all $n \geq n_0$ for some $n_0$. We know that $g(n) = \sum_{i=0}^k c_i n^i$. If we set $c=c_k$, then $c_k n^k + \sum_{i=0}^{k-1} c_i n^i \leq c_k n^l$. For sufficiently large $n$ the lower order terms on the left hand side become small compared to the $k\text{th}$ term and can be ignored, so we have $c_k n^k \leq c_k n^l$, which is always true. Therefore a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
+
+</details>
+
+
+
+
+
 
 ### The analysis of computational problems - Exercises
 

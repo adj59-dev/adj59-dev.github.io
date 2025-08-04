@@ -13,6 +13,8 @@ Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 I used visual paradigm to make the logic diagrams: <br>
 https://online.visual-paradigm.com/diagrams/features/logic-diagram-software/
 
+Big O notation in this book different than what I remember learning previously.
+
 ## Navigation
 
 * [Models for computation](#models-for-computation)
@@ -496,9 +498,24 @@ To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some c
 
 Show that log $n$ is $O(n^k)$ for any $k > 0$.
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
+To show that log $n$ is $O(n^k)$ for any $k > 0$ we need to show that the following is true for some $c$ and $n_0$ for all $n>n_0$
 
+$$\begin{aligned}
+\log n & \leq cn^k \\
+n & \leq e^{cn^k} & \text{take the exponential of both sides} \\
+n & \leq \sum_{i=0}^\infty \frac{(cn^k)^i}{i!} & \text{power series for an exponential function} \\
+n & \leq \sum_{i=0}^\infty \frac{c^i n^{ik}}{i!} \\
+n & \leq \sum_{i=0}^\infty \frac{\left(\log_{i'}(i'!) \right)^i n^{ik}}{i!} & \text{let $c=\log_{i'}(i'!)$ where $i'$ is the first $i$ such that $i'k \geq 1$} \\
+n & \leq \frac{\left(\log_{i'}(i'!) \right)^{i'} n^{i'k}}{i'!} + \sum_{i=0}^{i'-1} \frac{\left(\log_{i'}(i'!) \right)^i n^{ik}}{i!} + \sum_{i=i'+1}^\infty \frac{\left(\log_{i'}(i'!) \right)^i n^{ik}}{i!} & \text{split out the $i'$th term}\\
+n & \leq n^{i'k} + \sum_{i=0}^{i'-1} \frac{\left(\log_{i'}(i'!) \right)^i n^{ik}}{i!} + \sum_{i=i'+1}^\infty \frac{\left(\log_{i'}(i'!) \right)^i n^{ik}}{i!}
+\end{aligned}$$ 
 
+Since we know $i'k \geq 1$ and all the terms in the summations are positive, we know the inequality is true and therefore log $n$ is $O(n^k)$.
+
+</details>
 
 
 ### The analysis of computational problems - Exercises

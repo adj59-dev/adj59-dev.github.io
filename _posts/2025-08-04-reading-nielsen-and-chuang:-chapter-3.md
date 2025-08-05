@@ -463,8 +463,8 @@ This is how you can make a XOR gate with NAND gates
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Big O notation                       | section 3.2.1             | Describes the upper bounds behavior of a function. <br> $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some constant $c$ and for all $n \geq n_0$ |
-| Big Omega notation                   | section 3.2.1             | Describes the lower bounds on resources required. <br> $f(n)$ is $\Omega (g(n))$ if $f(n) \geq cg(n)$ for some constant $c$ and for all $n \geq n_0$|
+| Big O notation                       | section 3.2.1             | Describes the upper bounds behavior of a function. <br> $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some real positive constant $c$ and for all $n \geq n_0$ |
+| Big Omega notation                   | section 3.2.1             | Describes the lower bounds on resources required. <br> $f(n)$ is $\Omega (g(n))$ if $f(n) \geq cg(n)$ for some real positive constant $c$ and for all $n \geq n_0$|
 | Big Theta notation                   | section 3.2.1             | Can be used to describe a functions behavior when $f(n)$ behaves the same as $g(n)$ asymptotically, up to unimportant constat factors. <br> $f(n)$ is $\Theta (g(n))$ if it is both $O(g(n))$ and $\Omega (g(n))$ |
 
 
@@ -489,7 +489,7 @@ For this exercise we are to show that a polynomial of degree $k$ is $O(n^l)$ for
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some constant $c$ and for all $n \geq n_0$ for some $n_0$. We know that $g(n) = \sum_{i=0}^k c_i n^i$. If we set $c=c_k$, then $c_k n^k + \sum_{i=0}^{k-1} c_i n^i \leq c_k n^l$. For sufficiently large $n$ the lower order terms on the left hand side become small compared to the $k\text{th}$ term and can be ignored, so we have $c_k n^k \leq c_k n^l$, which is always true. Therefore a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
+To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some real positive constant $c$ and for all $n \geq n_0$ for some $n_0$. We know that $g(n) = \sum_{i=0}^k c_i n^i$. If we set $c=c_k$, then $c_k n^k + \sum_{i=0}^{k-1} c_i n^i \leq c_k n^l$. For sufficiently large $n$ the lower order terms on the left hand side become small compared to the $k\text{th}$ term and can be ignored, so we have $c_k n^k \leq c_k n^l$, which is always true. Therefore a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
 
 </details>
 
@@ -501,7 +501,7 @@ Show that log $n$ is $O(n^k)$ for any $k > 0$.
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-To show that log $n$ is $O(n^k)$ for any $k > 0$ we need to show that the following is true for some $c$ and $n_0$ for all $n>n_0$
+To show that log $n$ is $O(n^k)$ for any $k > 0$ we need to show that the following is true for some real positive constant $c$ and $n_0$ for all $n>n_0$
 
 $$\begin{aligned}
 \log n & \leq cn^k \\
@@ -525,7 +525,7 @@ Show that $n^{\log n}$ is super-polynomial.
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-We need to show that $n^k \leq c n^{\log n}$ for some $c$, some $n_0$, and any $k$ for $n \geq n_0$.
+We need to show that $n^k \leq c n^{\log n}$ for some real positive constant $c$, some $n_0$, and any $k$ for $n \geq n_0$.
 
 $$\begin{aligned}
 n^k & \leq cn^{\log n} \\
@@ -534,7 +534,7 @@ k & \leq \log_n (c) + \log_n(\log n) \\
 k & \leq k + \log_n(\log n) & \text{set $\log_n (c) = k$ }
 \end{aligned}$$ 
 
-It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which will happen for all $n \geq 2$. This shows that $n^k$ is $O(n^{\log n})$ for any $k$ and $n^{\log n}$ is never $O(n^k)$. 
+It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which will happen for all $n \geq 2$, since $\log$ is base $2$ when not specified as something else in this book. This shows that $n^k$ is $O(n^{\log n})$ for any $k$ and $n^{\log n}$ is never $O(n^k)$. 
 
 </details>
 
@@ -546,7 +546,7 @@ Show that $n^{\log n}$ is sub-exponential.
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-We need to show that $c^n \geq a n^{\log n}$ for some $a$, some $n_0$, and any $c > 1$ for $n \geq n_0$.
+We need to show that $c^n \geq a n^{\log n}$ for some real positive constant $a$, some $n_0$, and any $c > 1$ for $n \geq n_0$.
 
 $$\begin{aligned}
 c^n & \geq a n^{\log n} \\
@@ -569,7 +569,7 @@ Suppose $e(n)$ is $O(f(n))$ and $g(n)$ is $O(h(n))$. Show that $e(n)g(n)$ is $O(
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-Since $e(n)$ is $O(f(n))$ we know that $e(n) \leq cf(n)$ for some $c$ and for all $n \geq n_0$. Also since $g(n)$ is $O(h(n))$ we know that $g(n) \leq dh(n)$ for some $d$ and for all $n \geq n_1$. To show that $e(n)g(n)$ is $O(f(n)h(n))$, we need to show that $e(n)g(n) \leq b f(n)h(n)$ for some $b$ and for all $n \geq n_2$. 
+Since $e(n)$ is $O(f(n))$ we know that $e(n) \leq cf(n)$ for some real positive constant $c$ and for all $n \geq n_0$. Also since $g(n)$ is $O(h(n))$ we know that $g(n) \leq dh(n)$ for some real positive constant $d$ and for all $n \geq n_1$. To show that $e(n)g(n)$ is $O(f(n)h(n))$, we need to show that $e(n)g(n) \leq b f(n)h(n)$ for some real positive constant $b$ and for all $n \geq n_2$. 
 
 $$\begin{aligned}
 e(n)g(n) \leq b f(n)h(n) \\
@@ -581,6 +581,42 @@ Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for 
 
 </details>
 
+
+**Exercise 3.15**
+
+In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $O(n \log n)$. You will need to use Stirling's approximation to do this. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+There are $n!$ possible initial orderings of the list. Below is a table that shows how many of those orderings $n_k$ are in the correct order after $k$ compare-and-swaps. 
+
+| $k$ | $n_k$ | Note                                                                      |
+|-----|-------|---------------------------------------------------------------------------|
+| 0   | 1     | With zero swaps only the ordering that started in order is in the correct order |
+| 1   | 2     | With one compare-and-swap, two entries are compared and only the ordering that had those two entries out of order is put in order with the swap. The ordering that was already in order stays in order since the two values which were compared are not swapped. |
+| 2   | 4     | The two scenarios from above still occur in this case. But now another pair is compared, so we have the added possibility of the first pair not swapping and second pair swapping and also the possibility of both pairs swapping. |
+| 3   | 8     | Possibilities: zero pairs swapping, only the first pair swapping, only the second pair swapping, only the third pair swapping, first and second pair swapping, second and third pair swapping, first and third pair swapping, all pairs swapping | 
+| k   | 2^k   | Continuing the trend we find that there are $2^k$ possible combinations    |
+
+In order to find how many compare-and-swap operations are required to sort all possible combinations we need to find $k$ when $n! = 2^k$. 
+
+$$\begin{aligned}
+2^k &= n! \\
+k &= \log(n!) & \text{take the log of both sides} \\
+k & \approx n\log(n) - n\log(e) + O(\log (n)) & \text{Stirling's approximation} 
+\end{aligned}$$ 
+
+Now to confirm that this $k$ is $\Omega (n\log(n))$ we need to show that $k \geq c n\log(n)$ for some real positive constant $c$ and for all $n \geq n_0$. 
+
+$$\begin{aligned}
+ k \geq c n\log(n) \\
+ n\log(n) - n\log(e) + O(\log (n)) \geq c n\log(n) \\
+\end{aligned}$$ 
+
+For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ term and so if $c<1$ the above inequalitiy will be true for $n > n_0$ for some value of $n_0$. Therefore $\Omega (n\log(n))$ compare-and-swap operations are required to sort all possible initial orderings into the correct order.
+
+</details>
 
 
 ### The analysis of computational problems - Exercises

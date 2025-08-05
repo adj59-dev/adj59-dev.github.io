@@ -518,6 +518,26 @@ Since we know $i'k \geq 1$ and all the terms in the summations are positive, we 
 </details>
 
 
+**Exercise 3.12**
+
+Show that $n^{\log n}$ is super-polynomial.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+We need to show that $n^k \leq c n^{\log n}$ for some $c$, some $n_0$, and any $k$ for $n \geq n_0$.
+
+$$\begin{aligned}
+n^k & \leq cn^{\log n} \\
+k & \leq \log_n (cn^{\log n}) & \text{take $log_n$ of both sides}\\
+k & \leq \log_n (c) + \log_n(\log n) \\
+k & \leq k + \log_n(\log n) & \text{set $\log_n (c) = k$ }
+\end{aligned}$$ 
+
+It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which will happen for all $n \geq 3$, assuming log is referring to the natural log. If it is referring to base $10$ than the inequality will be true for all $n \geq 10$. Regardless, this shows that $n^k$ is $O(n^{\log n})$ for any $k$ and $n^{\log n}$ is never $O(n^k)$. 
+
+</details>
+
 ### The analysis of computational problems - Exercises
 
 

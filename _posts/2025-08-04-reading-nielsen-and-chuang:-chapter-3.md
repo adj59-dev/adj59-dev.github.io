@@ -534,7 +534,7 @@ k & \leq \log_n (c) + \log_n(\log n) \\
 k & \leq k + \log_n(\log n) & \text{set $\log_n (c) = k$ }
 \end{aligned}$$ 
 
-It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which will happen for all $n \geq 3$, assuming log is referring to the natural log. If it is referring to base $10$ than the inequality will be true for all $n \geq 10$. Regardless, this shows that $n^k$ is $O(n^{\log n})$ for any $k$ and $n^{\log n}$ is never $O(n^k)$. 
+It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which will happen for all $n \geq 2$. This shows that $n^k$ is $O(n^{\log n})$ for any $k$ and $n^{\log n}$ is never $O(n^k)$. 
 
 </details>
 

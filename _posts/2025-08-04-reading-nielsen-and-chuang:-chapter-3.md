@@ -541,7 +541,10 @@ It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which 
 
 **Exercise 3.13**
 
-Show that $n^{\log n}$ is sub-exponential).
+Show that $n^{\log n}$ is sub-exponential.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
 We need to show that $c^n \geq a n^{\log n}$ for some $a$, some $n_0$, and any $c > 1$ for $n \geq n_0$.
 
@@ -551,10 +554,17 @@ n & \geq \log_c(a n^{\log n}) & \text{take $log_c$ of both sides} \\
 n & \geq \log_c (a) + \log_c(n^{\log n}) \\
 n & \geq \log_c (a) + \log(n)\log_c(n) \\
 n & \geq \log(n)\log_c(n) & \text{set $a=1$} \\
-n & \geq \log(n)\frac{\log(n)}{\log (c)} & \text{changing the base$}
+n & \geq \frac{(\log(n))^2}{\log (c)} & \text{changing the base}
 \end{aligned}$$ 
 
-The above inequality is true for all $c > 1$
+We know that $n$ grows faster than $(\log(n))^2$ (this can easily be seen by taking the derivative of both functions) and so the above inequality will be true for sufficiently large $n$ and $c>1$. 
+
+</details>
+
+
+**Exercise 3.14**
+
+
 
 ### The analysis of computational problems - Exercises
 

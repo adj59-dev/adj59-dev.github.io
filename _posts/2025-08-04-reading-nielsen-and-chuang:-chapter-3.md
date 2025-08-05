@@ -564,6 +564,23 @@ We know that $n$ grows faster than $(\log(n))^2$ (this can easily be seen by tak
 
 **Exercise 3.14**
 
+Suppose $e(n)$ is $O(f(n))$ and $g(n)$ is $O(h(n))$. Show that $e(n)g(n)$ is $O(f(n)h(n))$. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Since $e(n)$ is $O(f(n))$ we know that $e(n) \leq cf(n)$ for some $c$ and for all $n \geq n_0$. Also since $g(n)$ is $O(h(n))$ we know that $g(n) \leq dh(n)$ for some $d$ and for all $n \geq n_0$. To show that $e(n)g(n)$ is $O(f(n)h(n))$, we need to show that $e(n)g(n) \leq b f(n)h(n)$ for some $b$ and for all $n \geq n_0$. 
+
+$$\begin{aligned}
+e(n)g(n) \leq b f(n)h(n) \\
+e(n)g(n) \leq cd f(n)h(n) & \text{let $b = cd$} \\
+e(n)g(n) \leq (c f(n))(d h(n))
+\end{aligned}$$ 
+
+Since we know that $e(n) \leq cf(n)$ and $g(n) \leq dh(n)$ for $n \geq n_0$, we know that the above inequality is true. 
+
+</details>
+
 
 
 ### The analysis of computational problems - Exercises

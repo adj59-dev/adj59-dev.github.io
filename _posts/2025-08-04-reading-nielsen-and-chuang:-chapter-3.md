@@ -624,22 +624,54 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 
 **Exercise 3.16**
 
-This exercise gives an example of a hard to compute function. Note: the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) it says that $2^n/\log(n)$ should be $2^n/n$. This problem is quite challenging and I ended up referencing these resources: https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf and https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf
+This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
 
-We know a boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. 
+This problem is challenging, and I ended up referencing these resources to find and understand the solution: <br>
+https://math.stackexchange.com/questions/505393/how-many-semantically-different-boolean-functions-are-there-for-n-boolean-variab <br>
+https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf <br>
+https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf <br>
+https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist 
 
-Let's say we have a collection of circuits each created with $m$ logic gates. We'd like to know what the maximum number of distinct circuits we can create with the $n$ inputs using $m \geq n-1$ two-input gates (you need at least $n-1$ two-input gates to take $n$ inputs and reduce it to one output). For each of the gates there is $16$ possible logic functions. Each of the two gate inputs can come from either $n$ or one of the other $m-1$ gates, resulting in $(n + m - 1)^2$ possible inputs, and so there are $16(n+m-1)^2$ ways to create each gate. This results in $(16(n+m-1)^2)^m$ possible circuit configurations. However this calculation is overcounting due to permutations of the gates. This estimate can be tightened by dividing by $m!$ (to account for gate permutations) and multiplying by $m$ (for the choice of the output gate) which gives us $\frac{m \left( 16(n+m-1)^2 \right)^m}{m!}$. 
+We know a Boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. Below is an example of all 16 possible functions for the case of $n=2$.
 
-Now we have a equation that gives us an upper limit on the number of circuits that one can create with $m$ gates and $n$ inputs. We also know the number of possible boolean functions possible with $n$ inputs. So what we want to find is the minimum number of gates needed to create a circuit for each posssible boolean function. 
+|$n_1$|$n_2$|$f_1$|$f_2$|$f_3$|$f_4$|$f_5$|$f_6$|$f_7$|$f_8$|$f_9$|$f_{10}$|$f_{11}$|$f_{12}$|$f_{13}$|$f_{14}$|$f_{15}$|$f_{16}$|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|--------|--------|--------|--------|--------|--------|--------|
+|**0**|**0**| 0   | 1   | 0   | 0   | 0   | 1   | 1   | 1   | 0   | 0      | 0      | 1      | 1      | 1      | 0      | 1      |
+|**1**|**0**| 0   | 0   | 1   | 0   | 0   | 1   | 0   | 0   | 1   | 1      | 0      | 1      | 1      | 0      | 1      | 1      |
+|**0**|**1**| 0   | 0   | 0   | 1   | 0   | 0   | 1   | 0   | 1   | 0      | 1      | 1      | 0      | 1      | 1      | 1      |
+|**1**|**1**| 0   | 0   | 0   | 0   | 1   | 0   | 0   | 1   | 0   | 1      | 1      | 0      | 1      | 1      | 1      | 1      |
+
+
+Let's say that we have a collection of circuits, each created with $m$ logic gates. We'd like to know what the maximum number of distinct circuits we can create with the $n$ inputs and $m \geq n-1$ logic gates with two-inputs (you need at least $n-1$ two-input gates to take $n$ inputs and reduce it to one output). For each of the gates there are $16$ possible logic functions, as we showed in the table above. Each of the two gate inputs can come from either the inputs $n$ or the output from one of the other $m-1$ gates, resulting in $(n + m - 1)^2$ possible combination of inputs, and so there are $16(n+m-1)^2$ ways to create each gate. This results in $(16(n+m-1)^2)^m$ possible circuit configurations. However, this calculation is overcounting due to their being multiple permutations of the gates. This estimation can be tightened by dividing by $m!$ and multiplying by $m$ which gives us $\frac{m \left( 16(n+m-1)^2 \right)^m}{m!}$ possible circuit configurations. 
+
+Now we have an equation that gives us an upper limit on the number of circuits configurations that one can create with $m$ gates and $n$ inputs. We also know the number of Boolean functions possible with $n$ inputs. So what we want to find is the minimum number of gates needed to create a circuit for each possible Boolean function, i.e. we need to find an $m$ such that the number of possible circuit configurations is greater than or equal to the number of Boolean functions we can create with $n$ inputs. 
+
+First let's simplify the inequality
 
 $$\begin{aligned}
-2^{2^n} \leq \frac{m \left( 16(m+n-1)^2 \right)^m}{m!} \\
+2^{2^n} &\leq \frac{m \left( 16(m+n-1)^2 \right)^m}{m!} \\
 &\leq \frac{m \left( 16(m+m)^2 \right)^m}{m!} & \text{since $m \geq n-1$} \\
-& \leq \frac{m (m)^{2m} (64e)^m}{m^m} & \text{Stirling’s bound for $m!$} \\
-& = m (m)^{m} (64e)^m
+&= \frac{m \left( 64(m)^2 \right)^m}{\sqrt{2\pi m}\left(\frac{m}{e} \right)^m \left(1 + O\left(\frac{1}{m} \right) \right)} & \text{Stirling's formula} \\
+&= \frac{(m)^{m + 1/2} (64e)^m}{\sqrt{2\pi} \left(1 + O\left(\frac{1}{m} \right) \right)}\\
+2^n &\leq \log\left( \frac{(m)^{m + 1/2} (64e)^m}{\sqrt{2\pi} \left(1 + O\left(\frac{1}{m} \right) \right)} \right) & \text{take the log of both sides} \\
+&= \log\left((m)^{m + 1/2}\right) + \log\left((64e)^m \right)- \log\left( \sqrt{2\pi} \left(1 + O\left(\frac{1}{m} \right) \right) \right) \\
+&= (m + \frac{1}{2})\log\left(m\right) + m\log\left(64e \right)- \log\left( \sqrt{2\pi} \left(1 + O\left(\frac{1}{m} \right) \right) \right) \\
+&= m\log\left(m\right) + \frac{1}{2}\log\left(m\right) + m\log\left(64e \right)- \log\left( \sqrt{2\pi} \left(1 + O\left(\frac{1}{m} \right) \right) \right) \\
+&= m\log\left(m\right) + O(m)
 \end{aligned}$$
 
+Now lets find an $m$ such that $2^n \leq m\log\left(m\right) \leq m\log\left(m\right) + O(m)$.
 
+$$\begin{aligned}
+m\log\left(m\right) &\geq 2^n \\
+&\geq 2^n - \frac{2^n}{n}\log\left(n\right) \\
+&= \frac{2^n}{n}\left(n - \log\left(n\right)\right)\\
+&= \frac{2^n}{n}\left(n\log\left(2\right) - \log\left(n\right)\right)\\
+&= \frac{2^n}{n}\left(\log\left(2^n\right) - \log\left(n\right)\right)\\
+&= \frac{2^n}{n}\log\left(\frac{2^n}{n}\right)
+\end{aligned}$$
+
+So we end up with $m\log(m) \geq \frac{2^n}{n}\log\left(\frac{2^n}{n}\right)$, which means $m \geq \frac{2^n}{n}$. Therefore there exists Boolean functions with $n$ inputs that require at least $\frac{2^n}{n}$ logic gates to compute. 
 
 ### The analysis of computational problems - Exercises
 

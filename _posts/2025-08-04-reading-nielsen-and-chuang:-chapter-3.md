@@ -626,7 +626,25 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 
 This exercise gives an example of a hard to compute function.
 
+We have a Boolean function which has $n$ inputs and one output. If we think about the simplest circuit to perform this calculation, it would start with $n/2$ logic gates such that each gate took in two of the inputs. Then the outputs from those gates would be input into $n/4$ gates, and so on until we get the single output from a single gate. The example below shows such a circuit for $n=8$. 
 
+<img width="928" height="738" alt="image" src="https://github.com/user-attachments/assets/04122a4a-9fb6-4eb4-87f6-856ec818f8fd" />
+
+To simplify things, for this example, lets assume that $n$ is a power of $2$. Therefore we need at least $\frac{n}{2} + \frac{n}{4} + \frac{n}{8} + \cdots + \frac{n}{n} = \sum_{i=1}^{\log(n)} \frac{n}{2^i}$ gates to compute this function. Let's try to simplify this function using the finite geometric series $\sum_{k=m}^n z^k = \frac{z^m - z^{n+1}}{1-z}$.
+
+$$\begin{aligned}
+\sum_{i=1}^{\log(n)} \frac{n}{2^i} &= n \frac{(1/2)^1 - (1/2)^{\log(n)+1}}{1-(1/2)} \\
+&= n \frac{1 - (1/2)^{\log(n)}}{2-1} & \text{multiply the top and bottom of the fraction by 2} \\
+&= n (1-(1/2)^{\log(n)}) \\
+&= n (1 - \frac{1}{n}) \\
+&= n-1
+\end{aligned}$$ 
+
+This is clearly is an easy polynomial problem. Let's think about what we would need to do to make it harder/exponential. So, instead of performing the above calculation once, let's do it for each possible ordering of the $n$ inputs, which will require $(n-1)n!/2$ gates, but now we have $n!/2$ outputs that we need to combinde into a single output, which will require at a minimum $n!/2-1$ additional gates. Bringing the total number of gates to
+
+$$\begin{aligned}
+\frac{(n-1)n!}{2} + \frac{n!}{2} - 1 &= \frac{nn!}{2} -1 \\
+\end{aligned}$$ 
 
 
 ### The analysis of computational problems - Exercises

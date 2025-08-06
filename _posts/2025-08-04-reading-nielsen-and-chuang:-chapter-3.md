@@ -628,11 +628,15 @@ This exercise gives an example of a hard to compute function. Note: the online e
 
 We know a boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. 
 
-Let's say we have a collection of circuits with $m$ logic gates. The maximum number of distinct circuits that we can create with $n$ inputs using these $m$ gates is given by $\frac{m \left( 16(m+n)^2 \right)^m}{m!}$, let's find limits on $m$ giving that the maximum number of distict functions is $2^{2^n}$.
+Let's say we have a collection of circuits each created with $m$ logic gates. We'd like to know what the maximum number of distinct circuits we can create with the $n$ inputs using $m \geq n-1$ two-input gates (you need at least $n-1$ two-input gates to take $n$ inputs and reduce it to one output). For each of the gates there is $16$ possible logic functions. Each of the two gate inputs can come from either $n$ or one of the other $m-1$ gates, resulting in $(n + m - 1)^2$ possible inputs, and so there are $16(n+m-1)^2$ ways to create each gate. This results in $(16(n+m-1)^2)^m$ possible circuit configurations. However this calculation is overcounting due to permutations of the gates. This estimate can be tightened by dividing by $m!$ (to account for gate permutations) and multiplying by $m$ (for the choice of the output gate) which gives us $\frac{m \left( 16(n+m-1)^2 \right)^m}{m!}$. 
+
+Now we have a equation that gives us an upper limit on the number of circuits that one can create with $m$ gates and $n$ inputs. We also know the number of possible boolean functions possible with $n$ inputs. So what we want to find is the minimum number of gates needed to create a circuit for each posssible boolean function. 
 
 $$\begin{aligned}
-2^{2^n} &= \frac{m \left( 16(m+n)^2 \right)^m}{m!} \\
-& \leq \frac{m (m+n)^{2m} (16e)^m}{m^m} & \text{Stirling’s bound for $m!$} \\
+2^{2^n} \leq \frac{m \left( 16(m+n-1)^2 \right)^m}{m!} \\
+&\leq \frac{m \left( 16(m+m)^2 \right)^m}{m!} & \text{since $m \geq n-1$} \\
+& \leq \frac{m (m)^{2m} (64e)^m}{m^m} & \text{Stirling’s bound for $m!$} \\
+& = m (m)^{m} (64e)^m
 \end{aligned}$$
 
 

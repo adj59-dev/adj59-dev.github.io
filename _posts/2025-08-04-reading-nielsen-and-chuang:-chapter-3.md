@@ -624,7 +624,7 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 
 **Exercise 3.16**
 
-This exercise gives an example of a hard to compute function.
+This exercise gives an example of a hard to compute function. Note: in the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) it says that $2^n/\log(n)$ should be $2^n/n$
 
 We have a Boolean function which has $n$ inputs and one output. If we think about the simplest circuit to perform this calculation, it would start with $n/2$ logic gates such that each gate took in two of the inputs. Then the outputs from those gates would be input into $n/4$ gates, and so on until we get the single output from a single gate. The example below shows such a circuit for $n=8$. 
 
@@ -640,11 +640,7 @@ $$\begin{aligned}
 &= n-1
 \end{aligned}$$ 
 
-This is clearly is an easy polynomial problem. Let's think about what we would need to do to make it harder/exponential. So, instead of performing the above calculation once, let's do it for each possible ordering of the $n$ inputs, which will require $(n-1)n!/2$ gates, but now we have $n!/2$ outputs that we need to combinde into a single output, which will require at a minimum $n!/2-1$ additional gates. Bringing the total number of gates to
-
-$$\begin{aligned}
-\frac{(n-1)n!}{2} + \frac{n!}{2} - 1 &= \frac{nn!}{2} -1 \\
-\end{aligned}$$ 
+This is clearly an easy polynomial problem. Let's think about what we would need to do to make it harder/exponential. So, instead of performing the above calculation, let's have the leftmost column of gates be all possible combinations of the inputs, which will require $n!/2$ gates. 
 
 
 ### The analysis of computational problems - Exercises

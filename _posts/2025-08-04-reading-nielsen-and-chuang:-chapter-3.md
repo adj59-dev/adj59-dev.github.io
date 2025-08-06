@@ -624,23 +624,17 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 
 **Exercise 3.16**
 
-This exercise gives an example of a hard to compute function. Note: in the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) it says that $2^n/\log(n)$ should be $2^n/n$
+This exercise gives an example of a hard to compute function. Note: the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) it says that $2^n/\log(n)$ should be $2^n/n$. This problem is quite challenging and I ended up referencing these resources: https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf and https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf
 
-We have a Boolean function which has $n$ inputs and one output. If we think about the simplest circuit to perform this calculation, it would start with $n/2$ logic gates such that each gate took in two of the inputs. Then the outputs from those gates would be input into $n/4$ gates, and so on until we get the single output from a single gate. The example below shows such a circuit for $n=8$. 
+We know a boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. 
 
-<img width="928" height="738" alt="image" src="https://github.com/user-attachments/assets/04122a4a-9fb6-4eb4-87f6-856ec818f8fd" />
-
-To simplify things, for this example, lets assume that $n$ is a power of $2$. Therefore we need at least $\frac{n}{2} + \frac{n}{4} + \frac{n}{8} + \cdots + \frac{n}{n} = \sum_{i=1}^{\log(n)} \frac{n}{2^i}$ gates to compute this function. Let's try to simplify this function using the finite geometric series $\sum_{k=m}^n z^k = \frac{z^m - z^{n+1}}{1-z}$.
+Let's say we have a collection of circuits with $m$ logic gates. The maximum number of distinct circuits that we can create with $n$ inputs using these $m$ gates is given by $\frac{m \left( 16(m+n)^2 \right)^m}{m!}$, let's find limits on $m$ giving that the maximum number of distict functions is $2^{2^n}$.
 
 $$\begin{aligned}
-\sum_{i=1}^{\log(n)} \frac{n}{2^i} &= n \frac{(1/2)^1 - (1/2)^{\log(n)+1}}{1-(1/2)} \\
-&= n \frac{1 - (1/2)^{\log(n)}}{2-1} & \text{multiply the top and bottom of the fraction by 2} \\
-&= n (1-(1/2)^{\log(n)}) \\
-&= n (1 - \frac{1}{n}) \\
-&= n-1
-\end{aligned}$$ 
+2^{2^n} &= \frac{m \left( 16(m+n)^2 \right)^m}{m!} \\
+& \leq \frac{m (m+n)^{2m} (16e)^m}{m^m} & \text{Stirling’s bound for $m!$} \\
+\end{aligned}$$
 
-This is clearly an easy polynomial problem. Let's think about what we would need to do to make it harder/exponential. So, instead of performing the above calculation, let's have the leftmost column of gates be all possible combinations of the inputs, which will require $n!/2$ gates. 
 
 
 ### The analysis of computational problems - Exercises

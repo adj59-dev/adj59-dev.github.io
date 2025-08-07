@@ -711,12 +711,14 @@ Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same
 
 **Exercise 3.18**
 
-For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\neq$ **NP**. 
+For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\neq$ **NP**. I found it useful to read more about complement complexity classes in Papadimitriou section 7.1 before solving this exercise. 
 
-Languages in **NP** have 'yes' instances that can easily be verified in polynomial time with the aid of an appropriate witness. Languages in **coNP** have 'no' instances that can easily be verified in polynomial time with the aid of an appropriate witness. Languages in **P** can be decided by a Turing machine in polynomial time. **P** is both **NP** and **coNP**, but whether **NP** and **coNP** is **P** remains an open question. 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
-**NP** and **coNP** are complements of each other. In Papadimitriou (section 7.1) a complement complexity class $C$ is defined as the class $\\{ \bar{L} : L \in C \\}$, where $\bar{L}$ is the complement of language $L$. If C is **P** then coC is also **P** because any deterministic Turing machine deciding $L$ will decide $\bar{L}$ within the same time or space bound since it is the same machine with only the roles of "yes" and "no" reversed. 
+**NP** and **coNP** are complements of each other. In Papadimitriou (section 7.1) a complement complexity class $C$ is defined as the class $\\{ \bar{L} : L \in C \\}$, where $\bar{L}$ is the complement of language $L$. If C is a deterministic complexity class, then $C=coC$. This is because any deterministic Turing machine deciding $L$ can be converted to decide $\bar{L}$ within the same time or space bound by reversing the roles of "yes" and "no". Since **P** is a deterministic complexity class, **P** $=$ **coP**. If **P** = **NP**, that would mean that **NP** = **P** = **co(P)** = **co(NP)**. Therefore if **coNP** $\neq$ **NP**, it must mean that **P** $\neq$ **NP**.
 
+</details>
 
 ## Perspectives on computer science
 

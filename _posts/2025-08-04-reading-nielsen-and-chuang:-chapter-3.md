@@ -692,13 +692,16 @@ For this exercise we are to prove that a polynomial-time algorithm for finding t
 <summary>Solution</summary>
 
 Suppose we have a polynomial-time algorithm that can find a non-trivial factor of a composite number $m$. Then we could solve the factoring decision problem in polynomial time as follows:
-1.	Use the factor-finding algorithm to obtain a factor $n$ of $m$. 
-2.	Check whether $n<l$, which is a simple comparison and can be done in polynomial time.
-Thus, if finding a non-trivial factor is in **P**, then the factoring decision problem is also in **P**.
+
+1.	Use the factor-finding algorithm to obtain all factors $n_i$ of $m$. 
+2.	For each $n_i$ check whether $n_i<l$, which is a simple comparison and can be done in polynomial time.
+3.	Report yes if at least one $n_i$ is less than $l$ and no otherwise
+
+Thus, if finding non-trivial factors is in **P**, then the factoring decision problem is also in **P**.
 
 Conversely, suppose we can solve the factoring decision problem in polynomial time for any input $(m, l)$. Then we can find the smallest non-trivial factor $s$ of $m$ by performing a binary search over the range $2$ to $m-1$ using the decision problem as an oracle. Each step of the binary search involves asking whether a factor exists below a certain bound $l$, which takes polynomial time. 
 
-Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same method to factor $s$. We repeat this process until all factors are found. Since binary search requires only $O(\log m)$ calls, the entire procedure runs in polynomial time. Therefore, if the factoring decision problem is in **P**, then finding the factors is also in **P**.
+Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same method to $r$. We repeat this process until all factors are found. Since binary search requires only $O(\log m)$ calls, the entire procedure runs in polynomial time. Therefore, if the factoring decision problem is in **P**, then finding the factors is also in **P**.
 
 </details>
 

@@ -476,6 +476,8 @@ This is how you can make a XOR gate with NAND gates
 | Complexity class **P**               | section 3.2.3             | The collection of all languages which are in TIME($n^k$) for some $k$, i.e. can be solved in polynomial time |
 | Complexity class **NP**              | section 3.2.3             | The collection of all languages $L$ for which there is a Turing machine $M$ with the following properties: <br> (1) If $x \in L$ then there exists a witness string $w$ such that $M$ halts in the state $q_Y$ after a time polynomial in $\vert x \vert$ when the machine is stated in the state $x\text{-blank-}w$. <br> (2) If $x \not\in L$ then for all strings $w$ which attempt to play the role of a witness, the machine halts in state $q_N$ after a time polynomial in $\vert x \vert$ when $M$ is started in the state $x\text{-blank-}w$. |
 | Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
+| **NP**-complete problems             | section 3.2.3             | A **NP** problem that is as least as hard as any other problem in **NP**. If one **NP**-complete problem is solved in polynomial time then it would imply polynomial time solutions exist for all **NP** problems, i.e **P** = **NP** |
+
 
 
 ### The analysis of computational problems - Exercises

@@ -2,9 +2,11 @@
 
 I just finished reading Chapter 3 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
-I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent I was missing important background knowledge. Here are some of the resources that I found useful. 
+I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent that I was missing important background knowledge. Here are some of the resources that I found useful. 
 
-*Computation: Finite and Infinite Machines* by Minsky: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf
+*Computation: Finite and Infinite Machines* by Minsky: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf <br>
+*Computational Complexity* by Papadimitriou: http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf
+
 
 The Conway articles are here: <br>
 Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
@@ -470,8 +472,10 @@ This is how you can make a XOR gate with NAND gates
 | Easy vs hard to compute algorithms   | section 3.2.2             | A problem is regarded as easy, tractable, or feasible if an algorithm exists for solving the problem using polynomial resources. It is considered hart, intractable, or infeasible if it requires exponential (i.e. grows faster than polynomial) resources. |
 | Decision problems                    | section 3.2.3             | Problems with yes or no answers.  |
 | Language membership problem          | section 3.2.3             | Decision problems can be represented as language membership problems where the goal is to determine if a given input belongs to a specific language. |
-| TIME($f(n)$)                         | section 3.2.3             | The set of all decision problems (languages) that can be decided by a Turing machine in time $O(f(n))$. |
+| $\text{TIME}(f(n))$                  | section 3.2.3             | The set of all decision problems (languages) that can be decided by a Turing machine in time $O(f(n))$. |
 | Complexity class **P**               | section 3.2.3             | The collection of all languages which are in TIME($n^k$) for some $k$, i.e. can be solved in polynomial time |
+| Complexity class **NP**              | section 3.2.3             | The collection of all languages $L$ for which there is a Turing machine $M$ with the following properties: <br> (1) If $x \in L$ then there exists a witness string $w$ such that $M$ halts in the state $q_Y$ after a time polynomial in $\vert x \vert$ when the machine is stated in the state $x\text{-blank-}w$. <br> (2) If $x \not\in L$ then for all strings $w$ which attempt to play the role of a witness, the machine halts in state $q_N$ after a time polynomial in $\vert x \vert$ when $M$ is started in the state $x\text{-blank-}w$. |
+| Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
 
 
 ### The analysis of computational problems - Exercises
@@ -704,6 +708,15 @@ Conversely, suppose we can solve the factoring decision problem in polynomial ti
 Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same method to $r$. We repeat this process until all factors are found. Since binary search requires only $O(\log m)$ calls, the entire procedure runs in polynomial time. Therefore, if the factoring decision problem is in **P**, then finding the factors is also in **P**.
 
 </details>
+
+**Exercise 3.18**
+
+For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\neq$ **NP**. 
+
+Languages in **NP** have 'yes' instances that can easily be verified in polynomial time with the aid of an appropriate witness. Languages in **coNP** have 'no' instances that can easily be verified in polynomial time with the aid of an appropriate witness. Languages in **P** can be decided by a Turing machine in polynomial time. **P** is both **NP** and **coNP**, but whether **NP** and **coNP** is **P** remains an open question. 
+
+**NP** and **coNP** are complements of each other. In Papadimitriou (section 7.1) a complement complexity class $C$ is defined as the class $\\{ \bar{L} : L \in C \\}$, where $\bar{L}$ is the complement of language $L$. If C is **P** then coC is also **P** because any deterministic Turing machine deciding $L$ will decide $\bar{L}$ within the same time or space bound since it is the same machine with only the roles of "yes" and "no" reversed. 
+
 
 ## Perspectives on computer science
 

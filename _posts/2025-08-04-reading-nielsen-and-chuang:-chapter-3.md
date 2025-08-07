@@ -468,8 +468,13 @@ This is how you can make a XOR gate with NAND gates
 | Big Theta notation                   | section 3.2.1             | Can be used to describe a functions behavior when $f(n)$ behaves the same as $g(n)$ asymptotically, up to unimportant constat factors. <br> $f(n)$ is $\Theta (g(n))$ if it is both $O(g(n))$ and $\Omega (g(n))$ |
 | Strong Church-Turing thesis          | section 3.2.2             | Any model of computation can be simulated on a probabilistic Turing machine with at most a polynomial increase in the number of elementary operations required |
 | Easy vs hard to compute algorithms   | section 3.2.2             | A problem is regarded as easy, tractable, or feasible if an algorithm exists for solving the problem using polynomial resources. It is considered hart, intractable, or infeasible if it requires exponential (i.e. grows faster than polynomial) resources. |
+| Decision problems                    | section 3.2.3             | Problems with yes or no answers.  |
+| Language membership problem          | section 3.2.3             | Decision problems can be represented as language membership problems where the goal is to determine if a given input belongs to a specific language. |
+| TIME($f(n)$)                         | section 3.2.3             | The set of all decision problems (languages) that can be decided by a Turing machine in time $O(f(n))$. |
+| Complexity class **P**               | section 3.2.3             | The collection of all languages which are in TIME($n^k$) for some $k$, i.e. can be solved in polynomial time |
 
 
+### The analysis of computational problems - Exercises
 
 **Exercise 3.9**
 
@@ -678,8 +683,14 @@ If we set $m = \frac{2^n}{n}$ then we would have $\frac{2^n}{n}\log(\frac{2^n}{n
 
 </details>
 
-### The analysis of computational problems - Exercises
 
+**Exercise 3.17**
+
+For this exercise we are to prove that a polynomial-time algorithm for finding the factors of a number $m$ exist if and only if the factoring decision problem is **P**.
+
+
+
+The factoring decision problem is as follows: Given a composite interger $m$ and $l<m$, does $m$ have a non-trival factor less than $l$. In order for the factoring decision problem to be **P** it must be $O(n^k)$ for some $k$. 
 
 
 

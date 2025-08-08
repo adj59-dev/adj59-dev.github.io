@@ -861,6 +861,20 @@ EulerCycle(starting_vertex, graph):
 </details>
 
 
+**Exercise 3.21**
+
+Here we are to demonstrate the transitive property of reduction using the defition of reducible given on page 145.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+If $L_1$ is reducible to $L_2$ that means that there is a Turing machine $M_1$ operating in polynomial time such that given as input $x$ it outputs $R(x)$, and $x \in L_1$ if and only if $R(x) \in L_2$. If $L_2$ is reducible to $L_3$ that means that there is a Turing machine $M_2$ operating in polynomial time such that given as input $y$ it outputs $S(y)$, and $y \in L_2$ if and only if $S(y) \in L_3$. 
+
+If we constructed a Turing machine $M_3$ by combining $M_1$ and $M_2$ we would have a Turing machine that given as input $x$ it outputs $S(R(x))$, and $x \in L_1$ if and only if $S(R(x)) \in L_3$. We know $M_3$ operates in polynomial time because it first runs $M_1$ (in polynomial time) to produce $R(x)$ (whose length is polynomial in $\vert x \vert$), and then runs $M_2$ on $R(x)$ (also in polynomial time).
+
+Therefore, if $L_1$ is reducible to $L_2$ and $L_2$ is reducible to $L_3$ then $L_1$ is reducible to $L_3$. 
+
+</details>
 
 ## Perspectives on computer science
 

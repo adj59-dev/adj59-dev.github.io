@@ -476,8 +476,8 @@ This is how you can make a XOR gate with NAND gates
 | Complexity class **P**               | section 3.2.3             | The collection of all languages which are in TIME($n^k$) for some $k$, i.e. can be solved in polynomial time |
 | Complexity class **NP**              | section 3.2.3             | The collection of all languages $L$ for which there is a Turing machine $M$ with the following properties: <br> (1) If $x \in L$ then there exists a witness string $w$ such that $M$ halts in the state $q_Y$ after a time polynomial in $\vert x \vert$ when the machine is stated in the state $x\text{-blank-}w$. <br> (2) If $x \not\in L$ then for all strings $w$ which attempt to play the role of a witness, the machine halts in state $q_N$ after a time polynomial in $\vert x \vert$ when $M$ is started in the state $x\text{-blank-}w$. |
 | Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
-| **NP**-complete problems             | section 3.2.3             | A **NP** problem that is as least as hard as any other problem in **NP**. If one **NP**-complete problem is solved in polynomial time then it would imply polynomial time solutions exist for all **NP** problems, i.e **P** = **NP** |
 | Reduction                            | section 3.2.3             | A technique used to relate the difficulty of solving two different problems. It involves transforming one problem into another, such that a solution to the second problem can be used to solve the first. Language B is said to be reducible to language A if there exists a Turing machine operating in polynomial time such that given as input $x$ it outputs $R(x)$ where $x \in B$ if and only if $R(x) \in A$.|
+| Complete                             | section 3.2.3             | A problem in a complexity class is complete if its language $L$ is the most difficult to decide in the sense that every other language in the complexity class can be reduced to $L$. |
 
 
 ### The analysis of computational problems - Exercises
@@ -875,6 +875,19 @@ If we constructed a Turing machine $M_3$ by combining $M_1$ and $M_2$ we would h
 Therefore, if $L_1$ is reducible to $L_2$ and $L_2$ is reducible to $L_3$ then $L_1$ is reducible to $L_3$. 
 
 </details>
+
+**Exercise 3.22**
+
+For this exercise we are to show that if $L$ is complete for a complexity class, and $L'$ is another language in the complexity class such that $L$ reduces to $L'$, then $L'$ is also complete for the complexity class. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. Since $L$ is complete, we know that all other languages in the complexity class (which are the set of all $L_i$ and $L'$) reduce to $L$. We are given that $L$ reduces to $L'$ and so by the transitive property shown in exercise 3.21 we know that all $L_i$ reduce to $L'$. Since we've shown that $L_i$ and $L$ (which are all the other languages in the complexity class) reduce to $L'$ we know that $L'$ is complete.
+
+</details>
+
+
 
 ## Perspectives on computer science
 

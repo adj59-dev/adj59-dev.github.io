@@ -722,6 +722,57 @@ For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\ne
 
 </details>
 
+
+**Exercise 3.19**
+
+For this exercise we are asked to show that we can determine whether there is a path between two specified vertices in a graph using $O(n)$ operations where $n$ is the number of vertices. Then we are asked to show that it is possible to decide whether a graph is connected in $O(n^2)$ operations. 
+
+Papadimitriou section 1.1 discuses graph reachability and answers this question. I was not sure how to approach this exercise before reading this section, since I had not worked with these kind of graph problems before, but the general approach is that at each step of an algorithm you can access a vertex, see what edges and other vertices are connected to that vertex, update variables or perform other actions as desired, and then proceed on to the next step. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+The following function written in pseudocode determines whether there is a path between vertex s and vertex f. 
+
+```
+path(s, f)
+  S = {s}
+  M = {s}
+  while S is not empty
+    let v = the first element of S
+    add all vertices connected to v and not in M to S
+    add all vertices connected to v and not in M to M
+    remove v from S
+  if f is in M
+    return yes
+  else
+    return no
+
+```
+Here the agorithm starts by initializing two lists, S and M, and adding the starting vertex s to both lists. The following steps are repeated until list S is empty: (1) finds all the vertices connected to the first element in list S that are not in list M, (2) adds these vertices to S and M, (3) remove the first element in list S. The algorithm then checks if f is in M and returns yes if it is and no if it isn't. It can be seen that this function is $O(n)$ since v is only able to represent each vertex one time and so the while loop only loops, at most, $n$ times.
+
+A graph is considered connected if there is a path between every pair of vertices. We could modify our path function to determine if the graph is connected.
+
+```
+connected(V = {list of all vertices})
+  for s in V
+    S = {s}
+    M = {s}
+    while S is not empty
+      let v = the first element of S
+      add all vertices connected to v and not in M to S
+      add all vertices connected to v and not in M to M
+      remove v from S
+    if the length of M < n
+      return no
+  return yes
+
+```
+
+Here an algorithm like the path function runs for each vertex in V, but instead of checking if a single vertex is in list M, it checks to see if all vertices are in M by comparing the length of M to n. If all the vertices are in M, the algorithm keeps going and checks the next vertex in V until all vertices are checked and then yes is returned. If it finds that the length of M < n for a vertex, it returns no and the algorithm stops before checking all the vertices. Since running the path function once is $O(n)$, this algorithm is $O(n^2)$ since it is like running the path algorithm up to $n$ times. 
+
+</details>
+
 ## Perspectives on computer science
 
 ### Perspectives on computer science - Key Concepts

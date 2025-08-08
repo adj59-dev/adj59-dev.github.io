@@ -736,8 +736,8 @@ The following function written in pseudocode determines whether there is a path 
 
 ```
 path(s, f)
-  S = {s}
-  M = {s}
+  S = [s]
+  M = [s]
   while S is not empty
     let v = the first element of S
     add all vertices connected to v and not in M to S
@@ -756,8 +756,8 @@ A graph is considered connected if there is a path between every pair of vertice
 ```
 connected(V = {list of all vertices})
   for s in V
-    S = {s}
-    M = {s}
+    S = [s]
+    M = [s]
     while S is not empty
       let v = the first element of S
       add all vertices connected to v and not in M to S
@@ -779,66 +779,74 @@ Here an algorithm like the path function runs for each vertex in V, but instead 
 In this exercise we are asked to prove Euler's theorem, which is a connected graph contains an Euler cycle if and only if every vertex has an even number of edges incident upon it. An Euler cycle is an ordering of the edges of a graph $G$ so that every edge in the graph is visited exactly once. Then we are also asked to give a constructive procedure for finding an Euler cycle. 
 
 
-In order for a cycle to exist, each vertex needs at least two incident edges, one to go away from the vertex and one to return to the vertex. A simple example is shown below where there are three vertices, all connected. An Euler cycle can be identified as $1,2,3,1$.
+In order for a cycle to exist, each vertex needs at least two incident edges, one to go away from the vertex and one to return to the vertex. A simple example is shown in Example 1 where there are three vertices, all connected. An Euler cycle can be identified as $1,2,3,1$.
 
-<img width="170" height="226" alt="image" src="https://github.com/user-attachments/assets/f800a841-67f3-4f54-8ed9-a012d5237d43" />
 
-Additional edges can be added to a vertex beyond 2, but in order to have an Euler cycle they have to be added in pairs, one going away from the vertex and one returing to the vertex. An Euler cycle in the example below is $1,2,3,1,4,5,1,6,7,1$
+<figure>
+  <img width="170" height="226" alt="image" src="https://github.com/user-attachments/assets/f800a841-67f3-4f54-8ed9-a012d5237d43" /> <br>
+  <figcaption> Example 1 </figcaption>
+</figure>
 
-<img width="462" height="434" alt="image" src="https://github.com/user-attachments/assets/8c10f000-1110-4ab1-9cb1-6c22068c1198" />
+Additional edges can be added to a vertex beyond 2, but in order to have an Euler cycle they have to be added in pairs, one going away from the vertex and one returing to the vertex. An Euler cycle in Example 2 is $1,2,3,1,4,5,1,6,7,1$.
 
-This requirement isn't just for the vertex you start your Euler cycle on. Other vertices also need to have edges added in pairs, one going away from the vertex and one returning. An Euler cycle in the example below is $1,2,3,8,9,3,1,4,5,1,6,7,1$
+<figure>
+  <img width="462" height="434" alt="image" src="https://github.com/user-attachments/assets/8c10f000-1110-4ab1-9cb1-6c22068c1198" /> <br>
+  <figcaption> Example 2 </figcaption>
+</figure>
 
-<img width="566" height="442" alt="image" src="https://github.com/user-attachments/assets/ebca79e8-6469-44f1-9486-045af91f9f77" />
+This requirement isn't just for the vertex you start your Euler cycle on. Other vertices also need to have edges added in pairs, one going away from the vertex and one returning. An Euler cycle in Example 3 is $1,2,3,8,9,3,1,4,5,1,6,7,1$. Here a new sub-cycle $3,8,9,3$ was inserted in place of the $3$ in Example 2.
 
-If you don't have an even number of vertices, you won't be able to return to a vertex after going on a sub-cycle to condinue the rest of the Euler cycle without revisiting an edge as shown in this example.  
+<figure>
+  <img width="566" height="442" alt="image" src="https://github.com/user-attachments/assets/ebca79e8-6469-44f1-9486-045af91f9f77" /> <br>
+  <figcaption> Example 3 </figcaption>
+</figure>
 
-<img width="558" height="412" alt="image" src="https://github.com/user-attachments/assets/6e6bd53a-612e-43a8-b139-b015617d6310" />
+If you don't have an even number of vertices, you won't be able to return to a vertex after going off on a sub-cycle to condinue the rest of the Euler cycle as shown in Example 4. 
+
+<figure>
+  <img width="558" height="412" alt="image" src="https://github.com/user-attachments/assets/6e6bd53a-612e-43a8-b139-b015617d6310" /> <br>
+  <figcaption> Example 4 </figcaption>
+</figure>
+
+Therefore if a graph has a Euler cycle, every vertex must have an even number of edges connected to it. Conversely, if all vertices have an even number of edges, the graph will have a Euler cycle. This is because as you traverse a path on the graph whenever you arrive at a vertex, you use up one incident unused edge and, since has an even number of edges, there is at least one other unused edge to take for the next step until you arrive back at your starting vertex. If there are additional unsued edges left after arriving back at the starting vertex, you can create sub-cycles with those unused edges and insert them into the main cycle. 
 
 Below is a procedure for finding a Euler cycle: <br>
-(1) create an empty list where you'll track all edges visited and an empty list where you'll track all the vertices visited <br>
-(2) pick a starting vertex, add it to your list <br> 
-(3) go to a connected vertex that is connected by an edge that is not in your list <br>
-(4) add edge traversed to the list and the vertex to the list <br>
-(5) repeat steps 4 and 5 until you are back at your starting vertex without any more edges available to traverse <br>
+(1) create an empty list where you'll track all the edges visited and an empty list where you'll track the cycle <br>
+(2) pick a starting vertex, add it to your cycle list <br> 
+(3) go to a connected vertex that is connected by an edge that is not in your visited edges list <br>
+(4) add edge traversed to the visited edges list and the vertex to the cycle list <br>
+(5) repeat steps 3 and 4 until you are back at your starting vertex without any more edges available to traverse. If you end up somewhere other than your starting vertex, it means the graph does not contain a Euler cycle. <br>
 (6) If there are edges in the graph not on your list, find a vertex in the list that still has available edges and go there <br>
-(7) go through steps 3-5 and add the path you just traversed to your cycle by wedging it in where you previously visited the vertex identified in step 6 <br>
+(7) go through steps 3-5 and add the path you just traversed to your cycle by wedging it in to the cycle in the location of the vertex identified in step 6 <br>
 (8) repeat steps 6-7 until all edges are traversed in the cycle <br>
 
 
 ```
-EulerCycle(G):
-    cycle = []                         // list of vertices in Euler cycle
-    visited_edges = empty set           // edges already traversed
+EulerCycle(starting_vertex):
 
-    // Step 1–2: pick starting vertex
-    start = any vertex in G
-    current_vertex = start
-    cycle.append(start)
+    // Step 1–2: create lists, set starting vertex, add starting vertex to cycle
+    cycle = []                         
+    visited_edges = []                 
+    current_vertex = starting_vertex
+    append current_vertex to cycle
 
-    // Step 3–5: build initial closed walk
-    path = []
+    // Step 3–5: build initial closed cycle
     while exists unused edge from current_vertex:
-        next_vertex = an unused neighbor of current_vertex
-        mark edge (current_vertex, next_vertex) as visited
-        path.append(next_vertex)
+        next_vertex = neighbor of current_vertex connected by unused edge
+        add edge (current_vertex, next_vertex) to visited_edges
+        append next_vertex to cycle
         current_vertex = next_vertex
-        if current_vertex == start and no unused edges from current_vertex:
-            break
-    insert path into cycle after start
 
     // Step 6–8: expand cycle until all edges are used
     while there exists a vertex u in cycle with unused edges:
         current_vertex = u
         new_path = [u]
         while exists unused edge from current_vertex:
-            next_vertex = an unused neighbor of current_vertex
-            mark edge (current_vertex, next_vertex) as visited
-            new_path.append(next_vertex)
+            next_vertex = neighbor of current_vertex connected by unused edge
+            add edge (current_vertex, next_vertex) to visited_edges
+            append next_vertex to new_path
             current_vertex = next_vertex
-            if current_vertex == u:
-                break
-        insert new_path into cycle at position of u
+        insert new_path into cycle at the position of u
 
     return cycle
 ```

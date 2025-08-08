@@ -773,6 +773,79 @@ Here an algorithm like the path function runs for each vertex in V, but instead 
 
 </details>
 
+
+**Exercise 3.20**
+
+In this exercise we are asked to prove Euler's theorem, which is a connected graph contains an Euler cycle if and only if every vertex has an even number of edges incident upon it. An Euler cycle is an ordering of the edges of a graph $G$ so that every edge in the graph is visited exactly once. Then we are also asked to give a constructive procedure for finding an Euler cycle. 
+
+
+In order for a cycle to exist, each vertex needs at least two incident edges, one to go away from the vertex and one to return to the vertex. A simple example is shown below where there are three vertices, all connected. An Euler cycle can be identified as $1,2,3,1$.
+
+<img width="170" height="226" alt="image" src="https://github.com/user-attachments/assets/f800a841-67f3-4f54-8ed9-a012d5237d43" />
+
+Additional edges can be added to a vertex beyond 2, but in order to have an Euler cycle they have to be added in pairs, one going away from the vertex and one returing to the vertex. An Euler cycle in the example below is $1,2,3,1,4,5,1,6,7,1$
+
+<img width="462" height="434" alt="image" src="https://github.com/user-attachments/assets/8c10f000-1110-4ab1-9cb1-6c22068c1198" />
+
+This requirement isn't just for the vertex you start your Euler cycle on. Other vertices also need to have edges added in pairs, one going away from the vertex and one returning. An Euler cycle in the example below is $1,2,3,8,9,3,1,4,5,1,6,7,1$
+
+<img width="566" height="442" alt="image" src="https://github.com/user-attachments/assets/ebca79e8-6469-44f1-9486-045af91f9f77" />
+
+If you don't have an even number of vertices, you won't be able to return to a vertex after going on a sub-cycle to condinue the rest of the Euler cycle without revisiting an edge as shown in this example.  
+
+<img width="558" height="412" alt="image" src="https://github.com/user-attachments/assets/6e6bd53a-612e-43a8-b139-b015617d6310" />
+
+Below is a procedure for finding a Euler cycle: <br>
+(1) create an empty list where you'll track all edges visited and an empty list where you'll track all the vertices visited <br>
+(2) pick a starting vertex, add it to your list <br> 
+(3) go to a connected vertex that is connected by an edge that is not in your list <br>
+(4) add edge traversed to the list and the vertex to the list <br>
+(5) repeat steps 4 and 5 until you are back at your starting vertex without any more edges available to traverse <br>
+(6) If there are edges in the graph not on your list, find a vertex in the list that still has available edges and go there <br>
+(7) go through steps 3-5 and add the path you just traversed to your cycle by wedging it in where you previously visited the vertex identified in step 6 <br>
+(8) repeat steps 6-7 until all edges are traversed in the cycle <br>
+
+
+```
+EulerCycle(G):
+    cycle = []                         // list of vertices in Euler cycle
+    visited_edges = empty set           // edges already traversed
+
+    // Step 1–2: pick starting vertex
+    start = any vertex in G
+    current_vertex = start
+    cycle.append(start)
+
+    // Step 3–5: build initial closed walk
+    path = []
+    while exists unused edge from current_vertex:
+        next_vertex = an unused neighbor of current_vertex
+        mark edge (current_vertex, next_vertex) as visited
+        path.append(next_vertex)
+        current_vertex = next_vertex
+        if current_vertex == start and no unused edges from current_vertex:
+            break
+    insert path into cycle after start
+
+    // Step 6–8: expand cycle until all edges are used
+    while there exists a vertex u in cycle with unused edges:
+        current_vertex = u
+        new_path = [u]
+        while exists unused edge from current_vertex:
+            next_vertex = an unused neighbor of current_vertex
+            mark edge (current_vertex, next_vertex) as visited
+            new_path.append(next_vertex)
+            current_vertex = next_vertex
+            if current_vertex == u:
+                break
+        insert new_path into cycle at position of u
+
+    return cycle
+```
+
+
+
+
 ## Perspectives on computer science
 
 ### Perspectives on computer science - Key Concepts

@@ -917,6 +917,16 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 </details>
 
+**Exercise 3.24**
+
+In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it usefule to briefly glance at figure 9-1 before starting the exercise, but not to actually read the section until after I had completed the exercise since it has the answer.
+
+(1) First let's look at the case where there is only $x_1$ and $¬ x_1$.
+
+<img width="1470" height="690" alt="image" src="https://github.com/user-attachments/assets/b016df6b-3ec4-4104-ab47-62886558ed21" />
+
+Here the only case which is not satisfiable is $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1)$. Thinking about it, this makes sense since it requires both $¬x_1 = 1$ and $x_1 = 1$ for $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1) = 1$, which is not possible. 
+
 
 
 

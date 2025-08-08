@@ -478,6 +478,7 @@ This is how you can make a XOR gate with NAND gates
 | Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
 | Reduction                            | section 3.2.3             | A technique used to relate the difficulty of solving two different problems. It involves transforming one problem into another, such that a solution to the second problem can be used to solve the first. Language B is said to be reducible to language A if there exists a Turing machine operating in polynomial time such that given as input $x$ it outputs $R(x)$ where $x \in B$ if and only if $R(x) \in A$.|
 | Complete                             | section 3.2.3             | A problem in a complexity class is complete if its language $L$ is the most difficult to decide in the sense that every other language in the complexity class can be reduced to $L$. |
+| Circuit Satisfiability problem (CSAT) | section 3.2.3            | A **NP**-complete problem that is often used as a benchmark for testing the complexity of other problems. |
 
 
 ### The analysis of computational problems - Exercises
@@ -886,6 +887,37 @@ For this exercise we are to show that if $L$ is complete for a complexity class,
 Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. Since $L$ is complete, we know that all other languages in the complexity class (which are the set of all $L_i$ and $L'$) reduce to $L$. We are given that $L$ reduces to $L'$ and so by the transitive property shown in exercise 3.21 we know that all $L_i$ reduce to $L'$. Since we've shown that $L_i$ and $L$ (which are all the other languages in the complexity class) reduce to $L'$ we know that $L'$ is complete.
 
 </details>
+
+**Exercise 3.23**
+
+For this exercise we are asked to show that SAT is **NP**-complete. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+In section 3.2.3 the authors introduce SAT in terms of a Boolean formula. There the satisfiability problem is to determine, given Boolean formula $\phi$, whether it is satisfiable by any set of possible inputs, i.e. whether the output is ever 1. 
+
+The problem is **NP** since evaluation of a Boolean formula is done in polynomial time which linearly scales with the number of operations in the Boolean formula. Therefore, if we had an input that resulted in an output of 1, it could be confirmed that the formula is satisfiable in polynomial time. 
+
+So now we need to show that CSAT reduces to SAT. If CSAT is reducible to SAT that means that there is a Turing machine $M$ operating in polynomial time such that given as input a circuit $c$ it outputs $\phi(c)$, and $c \in$ CSAT if and only if $\phi(c) \in$ SAT, i.e. we need to show that we can represent a circuit as a Boolean formula that is satisfiable if and only if the circuit is satisfiable. 
+
+For individual logic gates, we can represent their output in terms of their input using the Boolean formula shown below. 
+
+<img width="1206" height="698" alt="image" src="https://github.com/user-attachments/assets/d91db449-90dc-4c7a-9f54-23eb915cf8ab" />
+
+For each of these gates, the output equals 1 if and only if the Boolean formula equals 1. For example the AND gate only outputs 1 if and only if $a ∧ b = 1$. 
+
+We can make a circuit with more than one logic gate and similarly write a Boolean formula that is satisfiable if and only if the circuit is satisfiable. 
+
+<img width="1106" height="502" alt="image" src="https://github.com/user-attachments/assets/ded6f2c0-1d2a-4cdc-bc59-3c6164a582ce" />
+
+Here the output of the circuit is 1 if and only if $(a ∧ b) ∧ (c ∧ d)  = 1$. 
+
+It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean formula) in polynomial time which scales linearly with the number of logic gates (the Tseytin transformation is an example). Therefore, there exists a Turing machine operating in polynomial time such that given as input a circuit $c$ it outputs $\phi(c)$, and $c \in$ CSAT if and only if $\phi(c) \in$ SAT. Thus, CSAT reduces to SAT. Since CSAT is **NP**-complete, SAT must also be **NP**-complete. 
+
+</details>
+
+
 
 
 

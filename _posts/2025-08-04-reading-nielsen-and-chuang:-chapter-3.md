@@ -937,8 +937,7 @@ Here are a few examples of graphs that have the paths $x \rightarrow Â¬x$ and $Â
 
 <img width="1182" height="746" alt="image" src="https://github.com/user-attachments/assets/0ee9e02e-a35d-425a-a5d4-6ab72a54b2c2" />
 
-
-
+Look up implication graph.
 
 
 ## Perspectives on computer science

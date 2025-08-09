@@ -925,7 +925,17 @@ In this exercise we are asked to show that 2SAT can be solved in polynomial time
 
 <img width="1470" height="690" alt="image" src="https://github.com/user-attachments/assets/b016df6b-3ec4-4104-ab47-62886558ed21" />
 
-Here the only case which is not satisfiable is $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1)$. Thinking about it, this makes sense since it requires both $¬x_1 = 1$ and $x_1 = 1$ for $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1) = 1$, which is not possible. 
+Looking at the graphs we can see some trends. Directed edges from $(¬x_1 ∨ x_1)$ or $(x_1 ∨ ¬x_1)$ do not connect two vertices and so will not contribute to the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$. This makes sense because these functions will always equal 1. Here the only case which is not satisfiable is $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1)$, this also makes sense since it requires both $¬x_1 = 1$ and $x_1 = 1$ for $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1) = 1$, which is not possible. 
+
+Let's make some more graphs, this time with $x_1$, $¬ x_1$, $x_2$ and $¬ x_2$
+
+<img width="1560" height="702" alt="image" src="https://github.com/user-attachments/assets/6cce0837-b7cf-4ec6-a905-ccafce752be5" />
+
+Here none of the graphs make the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$. We can find some where there is a path in one direction, like the ones in the second column from the right, but no graphs where there is a path in both directions. However, now we have a better idea of what needs to be added in order to get paths in both directions. 
+
+Here are a few examples of graphs that have the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$
+
+<img width="1182" height="746" alt="image" src="https://github.com/user-attachments/assets/0ee9e02e-a35d-425a-a5d4-6ab72a54b2c2" />
 
 
 

@@ -1006,6 +1006,30 @@ For $k$ larger than the degree of $p(n)$, there will be a sufficiently large $n_
 </details>
 
 
+**Exercise 3.26**
+
+For this exercise we are to show that **L** $\subseteq$ **P**.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+A Turing machine has $l$ internal states, an $m$ letter alphabet, and uses space $q(n)$ (which, in this case, is a logarithmic function), so the machine can exist in at most $lm^{q(n)}$ different states. If a Turing machine is to avoid infinite loops, then it must halt before revisiting a state, therefore it will halt after at most $lm^{q(n)}$ operation steps. **P** decision problems halt after a polynomial number of operation steps. So, if $lm^{q(n)}$ is a polynomial function, then **L** $\subseteq$ **P**. 
+
+Let's let $q(n) = \log_k(n)$ for some $k$. Then
+
+$$\begin{aligned}
+lm^{q(n)} &= lm^{\log_k(n)} \\
+&= lm^{\frac{\log_m(n)}{\log_m(k)}} & \text{change of base} \\
+&= l\left(m^{\log_m(n)}\right)^{\frac{1}{\log_m(k)}} \\
+&= ln^{\frac{1}{\log_m(k)}}
+\end{aligned}$$
+
+This function is a polynomial with degree $\frac{1}{\log_m(k)}$. Therefore, **L** $\subseteq$ **P**. 
+
+</details>
+
+
+
 ## Perspectives on computer science
 
 ### Perspectives on computer science - Key Concepts

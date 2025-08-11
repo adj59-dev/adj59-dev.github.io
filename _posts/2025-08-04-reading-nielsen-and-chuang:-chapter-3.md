@@ -982,6 +982,30 @@ Here is pseudocode to solve 2SAT.
 </details>
 
 
+**Exercise 2.25**
+
+For this exercise we are to prove that **PSPACE** $\subseteq$ **EXP**. The authors give a very generous hint for this exercise. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+**PSPACE** is the set of all decision problems that can be solved by a Turing machine using a polynomial amount of space. A Turing machine has $l$ internal states, an $m$ letter alphabet, and uses space $p(n)$, so the machine can exist in at most $lm^{p(n)}$ different states. If a Turing machine is to avoid infinite loops then it must halt before revisiting a state, therefore it will halt after at most $lm^{p(n)}$ operation steps. Decision problems are in **EXP** if they are in TIME($2^{n^k}$), per Papadimitriou chapter 20. Therefore, if $lm^{p(n)}$ is in $O(2^{n^k})$ for some $k$ then **PSPACE** $\subseteq$ **EXP**. 
+
+In order for $lm^{p(n)}$ to be in $O(2^{n^k})$ the following must be true for some $k$ and all $n>n_0$ for some $n_0$.
+
+$$\begin{aligned}
+lm^{p(n)} & \leq 2^{n^k} \\
+\log_m(lm^{p(n)}) & \leq \log_m(2^{n^k}) & \text{take $log_m$ of both sides}\\
+\log_m(l) + p(n) & \leq \frac{\log_2(2^{n^k})}{\log_2(m)} & \text{change of base} \\
+\log_m(l) + p(n) & \leq \frac{n^k}{\log_2(m)} \\
+p(n) & \leq \frac{n^k}{\log_2(m)} - \log_m(l)
+\end{aligned}$$
+
+For $k$ larger than the degree of $p(n)$, there will be a sufficiently large $n_0$ such that $p(n) \leq \frac{n^k}{\log_2(m)} - \log_m(l)$ for all $n>n_0$, therefore $lm^{p(n)}$ is in $O(2^{n^k})$ and so **PSPACE** $\subseteq$ **EXP**.
+
+</details>
+
+
 ## Perspectives on computer science
 
 ### Perspectives on computer science - Key Concepts

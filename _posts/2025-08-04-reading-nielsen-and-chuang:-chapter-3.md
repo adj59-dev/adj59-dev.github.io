@@ -919,25 +919,25 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 **Exercise 3.24**
 
-In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it usefule to briefly glance at figure 9-1 before starting the exercise, but not to actually read the section until after I had completed the exercise since it has the answer.
+In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to briefly glance at figure 9-1 before starting the exercise, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
 
-(1) First let's look at the case where there is only $x_1$ and $¬ x_1$.
+(1) We are first asked to construct graphs $G(\phi)$ with directed edges in the following way: the vertices of $G$ correspond to variables $x_j$ and their negations $¬x_j$ in $\phi$. There is a directed edge $(\alpha, \beta)$ in $G$ if and only if the clause $(¬\alpha ∨ \beta)$ or the clause $(\beta ∨ ¬\alpha)$ is present in $\phi$. I constructed a few examples below.
 
-<img width="1470" height="690" alt="image" src="https://github.com/user-attachments/assets/b016df6b-3ec4-4104-ab47-62886558ed21" />
+<img width="2044" height="1572" alt="image" src="https://github.com/user-attachments/assets/34c33afe-6948-464e-9c95-266778ec0a4a" />
 
-Looking at the graphs we can see some trends. Directed edges from $(¬x_1 ∨ x_1)$ or $(x_1 ∨ ¬x_1)$ do not connect two vertices and so will not contribute to the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$. This makes sense because these functions will always equal 1. Here the only case which is not satisfiable is $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1)$, this also makes sense since it requires both $¬x_1 = 1$ and $x_1 = 1$ for $(¬x_1 ∨ ¬x_1) ∧ (x_1 ∨ x_1) = 1$, which is not possible. 
+For $\phi$ to be true, each clause (the OR of two literals) needs to be true. Therefore at least one of the literals in each clause must be true. Looking at how the graphs are constructed, we see that up to two edges are created from each clause. The edges start at the negation of one of the literals and end at the other literal from the clause. Let's say that $\phi$ is true, if the negation of one of the literals is true (which means the literal itself is false) then that implies that the other literal must be true. 
 
-Let's make some more graphs, this time with $x_1$, $¬ x_1$, $x_2$ and $¬ x_2$
+Reading the graphs, one can say that for $\phi =$ true, "If $v_1$ is true, then $v_2$ is also true. If $v_2$ is true, then $v_3$ is also true...If $v_{n-1}$ is true, then $v_n$ is also true." by following the directed edges. If there is a path going from $x$ to $¬X$ and $¬x$ to $x$ we would end up saying if $x$ is true, then $¬x$ is true and if $¬x$ is true then $x$ is true. This forms a contradiction and therefore the function is not satisfiable. This is enough to complete part 1 of the exercise, but I am going to walk through the example graphs because I found it useful for really understanding how these graphs work. 
 
-<img width="1560" height="702" alt="image" src="https://github.com/user-attachments/assets/6cce0837-b7cf-4ec6-a905-ccafce752be5" />
+For example a, we can read the graph as saying "for $\phi =$ true, if $x_1$ is true, then $x_1$ is also true" and "for $\phi =$ true, if $¬x_1$ is true, then $¬x_1$ is also true". These statements are always true. Looking at the graph, you can see that the edges point back to the vertex from which they originated and therefore cannot contribute to paths from $x$ to $¬x$ or from $¬x$ to $x$. 
 
-Here none of the graphs make the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$. We can find some where there is a path in one direction, like the ones in the second column from the right, but no graphs where there is a path in both directions. However, now we have a better idea of what needs to be added in order to get paths in both directions. 
+We can read the graph in example b as saying “for “\phi=” true, if $¬x_1$  is true, then $x_1$ is also true.”  However, if $¬x_1$ is true, then $x_1$ must be false, since $¬x_1$ is the negation of $x_1$. The graph implication therefore conflicts with this assumption, meaning the assumption $¬x_1$ is true cannot hold. As a result, we conclude that $¬x_1$ must be false and $x_1$ must be true. In other words, this case does not make the formula unsatisfiable — it simply forces $x_1$ to take the value “true.” A similar statement can be made for example c, but with the conclusion that if $\phi =$ true then $¬x_1$ is true. For both examples there is only one path going between the literal and its negation. 
 
-Here are a few examples of graphs that have the paths $x \rightarrow ¬x$ and $¬x \rightarrow x$
+Example d is the first example of a Boolean function that is not satisfiable. Here we conclude that $x_1$ must be true and $¬x_1$ must be true from the two separate clauses (the ones from example b and c). This forms a contradiction. Of note, this contradiction is different from what we observed in example b and c where the contradiction revealed that our initial assumptions were incorrect, but here both $¬x_1$ and $x_1$ must be true for $\phi$ to be true. Therefore, the function is not satisfiable. This example has paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. A similar statement can be made for example c, but with the conclusion that if $\phi =$ true then $¬x_1$ is true. For both examples there is only one path going between the literal and its negation. 
 
-<img width="1182" height="746" alt="image" src="https://github.com/user-attachments/assets/0ee9e02e-a35d-425a-a5d4-6ab72a54b2c2" />
+Examples e-h show graphs with more than one literal/negation pairs. The way of reading the graphs is the same as the one literal/negation case, e.g. for example e the graph can be read "for $\phi =$ true, if $¬x_1$ is true, then $x_2$ is also true" and "for $\phi =$ true, if $¬x_2$ is true, then $x_1$ is also true". All these examples are satisfiable and none of them have paths going from $x$ to $¬x$ and $¬x$ to $x$.
 
-Look up implication graph.
+Examples i and j are graphs of non-satisfiable functions. Here we run into the same contradiction as we saw in example d where we find that $x_1$ must be true and $¬x_1$ must be true from the two separate clauses. There are also paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. This trend holds for all Boolean functions. Due to the structure of the implication graph, if there are paths from $x$ to $¬x$ and from $¬x$ to $x$ for some $x$ the function is not satisfiable. 
 
 
 ## Perspectives on computer science

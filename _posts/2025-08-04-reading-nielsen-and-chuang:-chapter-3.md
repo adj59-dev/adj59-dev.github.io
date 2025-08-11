@@ -921,23 +921,63 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to look at figure 9-1 before starting the exercise, to confirm that I understood what these graphs look like, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
 (1) We are first asked to construct graphs $G(\phi)$ with directed edges in the following way: the vertices of $G$ correspond to variables $x_j$ and their negations $¬x_j$ in $\phi$. There is a directed edge $(\alpha, \beta)$ in $G$ if and only if the clause $(¬\alpha ∨ \beta)$ or the clause $(\beta ∨ ¬\alpha)$ is present in $\phi$. I constructed a few examples below.
 
 <img width="2044" height="1572" alt="image" src="https://github.com/user-attachments/assets/34c33afe-6948-464e-9c95-266778ec0a4a" />
 
 For $\phi$ to be true, each clause (the OR of two literals) needs to be true. Therefore at least one of the literals in each clause must be true. Looking at how the graphs are constructed, we see that up to two edges are created from each clause. The edges start at the negation of one of the literals and end at the other literal from the clause. Let's say that $\phi$ is true, if the negation of one of the literals is true (which means the literal itself is false) then that implies that the other literal must be true. 
 
-Reading the graphs, if there is a path $v_1, v_2, v_3, \cdots, v_{n-1}, v_n$, one can say that for $\phi =$ true, if $v_1$ is true, then $v_2$ is also true; if $v_2$ is true, then $v_3$ is also true;...if $v_{n-1}$ is true, then $v_n$ is also true, by following the directed edges. Therefore, if there is a path going from $x$ to $¬x$ and $¬x$ to $x$ we would end up saying if $x$ is true, then $¬x$ is true and if $¬x$ is true then $x$ is true. This forms a contradiction and therefore the function is not satisfiable. This is enough to complete part 1 of the exercise, but I am going to walk through the example graphs in more detail because I found it useful for understanding how these graphs work. 
+Reading the graphs, if there is a path $v_1, v_2, v_3, \cdots, v_{n-1}, v_n$, by following the directed edges one can say that for $\phi =$ true, if $v_1$ is true, then $v_2$ is also true; if $v_2$ is true, then $v_3$ is also true;...if $v_{n-1}$ is true, then $v_n$ is also true. Therefore, if there is a path going from $x$ to $¬x$ and $¬x$ to $x$ we would end up saying if $x$ is true, then $¬x$ is true and if $¬x$ is true then $x$ is true. This forms a contradiction and therefore the function is not satisfiable. This is enough to complete part 1 of the exercise, but I am going to walk through the example graphs in more detail because I found it useful for understanding how these graphs work. 
 
 For example a, we can read the graph as saying for $\phi =$ true, if $x_1$ is true, then $x_1$ is also true and for $\phi =$ true, if $¬x_1$ is true, then $¬x_1$ is also true. These statements are always true. Looking at the graph, you can see that the edges point back to the vertex from which they originated and therefore cannot contribute to paths from $x$ to $¬x$ or from $¬x$ to $x$. 
 
-We can read the graph in example b as saying for “\phi=” true, if $¬x_1$  is true, then $x_1$ is also true.  However, if $¬x_1$ is true, then $x_1$ must be false, since $¬x_1$ is the negation of $x_1$. The graph implication therefore conflicts with this assumption, meaning the assumption $¬x_1$ is true cannot hold. As a result, we conclude that $¬x_1$ must be false and $x_1$ must be true. In other words, this case does not make the formula unsatisfiable — it simply forces $x_1$ to take the value “true.” Example c works similarly to example b, but the roles are reversed. If $x_1$ is true, then $¬x_1$ must also be true according to the graph. But $¬x_1$  being true means $x_1$ is false, which conflicts with our starting assumption. Therefore $x_1$ must be false, and $¬x_1$ must be true. Again, this is not an unsatisfiable case; the graph simply forces $x_1$ to be false. For both of these examples there is only one path going between the literal and its negation. 
+We can read the graph in example b as saying for $\phi=$ true, if $¬x_1$  is true, then $x_1$ is also true.  However, if $¬x_1$ is true, then $x_1$ must be false, since $¬x_1$ is the negation of $x_1$. The graph implication therefore conflicts with this assumption, meaning the assumption $¬x_1$ is true cannot hold. As a result, we conclude that $¬x_1$ must be false and $x_1$ must be true. In other words, this case does not make the formula unsatisfiable, it simply forces $x_1$ to take the value “true.” Example c works similarly to example b, but the roles are reversed. If $x_1$ is true, then $¬x_1$ must also be true according to the graph. But $¬x_1$  being true means $x_1$ is false, which conflicts with our starting assumption. Therefore $x_1$ must be false, and $¬x_1$ must be true. Again, this is not an unsatisfiable case; the graph simply forces $x_1$ to be false. For both of these examples there is only one path going between the literal and its negation. 
 
 Example d differs from b and c in that here, both $x_1$ and $¬x_1$ are simultaneously forced to be true due to implications in both directions. This is a genuine contradiction, meaning the formula is unsatisfiable. This example has paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. 
 
 Examples e-h show graphs with more than one literal/negation pairs. The way of reading the graphs is the same as the one literal/negation case, e.g. for example e the graph can be read for $\phi =$ true, if $¬x_1$ is true, then $x_2$ is also true and for $\phi =$ true, if $¬x_2$ is true, then $x_1$ is also true. All these examples are satisfiable and none of them have paths going from $x$ to $¬x$ and $¬x$ to $x$.
 
-Examples i and j are graphs of non-satisfiable functions. Here we run into the same contradiction as we saw in example d where we find that $x_1$ must be true and $¬x_1$ must be true from the two separate clauses. There are also paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. This trend holds for all Boolean functions. Due to the structure of the implication graph, if there are paths from $x$ to $¬x$ and from $¬x$ to $x$ for some $x$ the function is not satisfiable. 
+Examples i and j are graphs of not satisfiable functions. Here we run into the same contradiction as we saw in example d where we find that $x_1$ must be true and $¬x_1$ must be true. There are paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. This trend holds for all 2SAT functions. Due to the structure of the implication graph, if there are paths from $x$ to $¬x$ and from $¬x$ to $x$ for some $x$, the function is not satisfiable. 
+
+(2) For this part we are asked to show that, given a directed graph $G$ containing $n$ vertices, it is possible to determine whether two vertices $v_1$ and $v_2$ are connected in polynomial time. We can use the path function from in exercise 3.19 with a few minor modifications to do this check. We have already demonstrated that this function is $O(n)$, the modifications will not change this and so the function can be used to determine whether the two vertices are connected in polynomial time.
+
+The following function written in pseudocode determines whether there is a path between vertex v1 and vertex v2. 
+
+```
+path(v1, v2, G):
+  S = [v1]
+  M = [v1]
+  while S is not empty:
+    let v = the first element of S
+    add all vertices that v is directed to and are not in M to S
+    add all vertices that v is directed to and are not in M to M
+    remove v from S
+  if v2 is in M:
+    return yes
+  else:
+    return no
+
+```
+
+(3) Now we are asked to find an efficient algorithm to solve 2SAT. For this, per part 1 of this exercise, we just need to determine that for all (i,j) combinations there is not both a path from vi to vj and from vj to vi. If this is the case, $G$ is satisfiable, otherwise it is not satisfiable. From part 2 of this exercise, we know we can do a single vi to vj path check in $O(n)$; therefore, we can do this check for every (i,j) combinations in $O(n^3)$, which means the algorithm operates in polynomial time. Therefore, there is an efficient algorithm to solve 2SAT.
+
+Here is pseudocode to solve 2SAT.
+
+```
+2SAT(G):
+  V = a list of all vertices in G
+  for vi in V:
+    for vj in V:
+      if path(vi, vj, G) and path(vj, vi, G):
+        return no
+  return yes
+
+```
+
+</details>
 
 
 ## Perspectives on computer science

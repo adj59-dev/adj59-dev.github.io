@@ -15,7 +15,7 @@ Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 I used visual paradigm to make the logic diagrams: <br>
 https://online.visual-paradigm.com/diagrams/features/logic-diagram-software/
 
-Big O notation in this book different than what I remember learning previously.
+Big O notation in this book different than what I remember learning previously. Complexity classes very important in demonstrating whether quantum computers have an advantage over classical computers -- as of the writing of this book, this has not been demonstrated. 
 
 ## Navigation
 
@@ -478,7 +478,9 @@ This is how you can make a XOR gate with NAND gates
 | Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
 | Reduction                            | section 3.2.3             | A technique used to relate the difficulty of solving two different problems. It involves transforming one problem into another, such that a solution to the second problem can be used to solve the first. Language B is said to be reducible to language A if there exists a Turing machine operating in polynomial time such that given as input $x$ it outputs $R(x)$ where $x \in B$ if and only if $R(x) \in A$.|
 | Complete                             | section 3.2.3             | A problem in a complexity class is complete if its language $L$ is the most difficult to decide in the sense that every other language in the complexity class can be reduced to $L$. |
-| Circuit Satisfiability problem (CSAT) | section 3.2.3            | A **NP**-complete problem that is often used as a benchmark for testing the complexity of other problems. |
+| Circuit Satisfiability problem (CSAT)| section 3.2.3             | A **NP**-complete problem that is often used as a benchmark for testing the complexity of other problems. |
+| Complexity class **NPI**             | section 3.2.3             | **NP** intermediate, which are problems neither solvable with polynomial resources nor are **NP**-complete. There are no problems known to be in **NPI**, but there are several problems that are considered likely candidates. This is the class of problems for which quantum computation is expected to be useful. | 
+| Complexity class **PSPACE**          | section 3.2.4             | A space-bound complexity class of decision problems that can be solved on a Turing machine using a polynomial number of working bits. Both **P** and **NP** are subsets of **PSPACE**. It is not known whether **P** = **PSPACE**, but if it does then quantum computers offer no advantage over classical computers.|
 
 
 ### The analysis of computational problems - Exercises

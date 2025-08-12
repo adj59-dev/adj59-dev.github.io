@@ -1028,6 +1028,30 @@ This function is a polynomial with degree $\frac{1}{\log_m(k)}$. Therefore, **L*
 
 </details>
 
+**Exercise 3.27**
+
+In this exercise we are to prove that the given algorithm approximates the vertex cover for a graph $G$ within a factor of two of being a minimal vertex cover. Per Wikipedia, in graph theory, a vertex cover of a graph is a set of vertices that includes at least one endpoint of every edge of the graph.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Let's first look at two extreme examples of possible graphs and the minimum vertex cover for those graphs. 
+<img width="1298" height="430" alt="image" src="https://github.com/user-attachments/assets/b455fc97-4a2c-4cd7-b410-05d1457e6e23" />
+
+Then let's look at the worst-case scenario when executing the given algorithm for those graphs. Here for each step an edge is chosen (and marked green) then every incident edge on the two vertices that define the selected edge are removed - you can consider both the green edges and the dashed edges as removed. The green vertices comprise the returned vertex cover. 
+<img width="1298" height="424" alt="image" src="https://github.com/user-attachments/assets/d135b402-1a1c-49f5-be37-c664fc86fde6" />
+
+In both cases, the algorithm is off by a factor of two for the number of vertices selected for the vertex cover compared to the minimum vertex cover. 
+
+Let's think a little bit more about what is happening. For each step, the algorithm chooses an edge. Let's let $E_C$ be a list of the edges chosen. By construction, the algorithm removes all edges incident to the endpoints of a chosen edge before selecting the next one. Therefore, no two edges of $E_C$ share a vertex and so the length of $VC$ will be equal to the length of $2E_C$. Since no two edges in $E_C$ share a vertex, we also know that the minimum vertex cover, $VC_{min}$, must include at least one vertex from each edge in $E_C$. Therefore, the length of $VC_{min}$ is at least as large as the length of $E_C$. Thus,
+
+$$\begin{aligned}
+\vert VC \vert = 2 \vert E_C \vert \leq 2 \vert VC_{min} \vert 
+\end{aligned}$$
+
+</details>
+
+
 
 
 ## Perspectives on computer science

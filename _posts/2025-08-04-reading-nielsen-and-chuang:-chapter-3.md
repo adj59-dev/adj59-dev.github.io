@@ -1051,8 +1051,20 @@ $$\begin{aligned}
 
 </details>
 
+**Exercise 3.28**
 
+For this exercise we are asked to show the arbitrariness of the constant in the definition of BPP. Papadimitriou discusses Randomized Complexity classes, of which BPP is one, in section 11.2. 
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Per Papadimitriou page 254,
+
+>If we have a randomized algorithm with probability of false negatives at most $1 - \epsilon$, for some $\epsilon < \frac{1}{2}$, then we could transform it into one with probability at most $\frac{1}{2}$ by repeating the algorithm k times. "Repeating" in the Turing machine domain means that from each leaf of the nondeterministic computation tree we "hang" another tree identical to the original one. And so on for k repetitions. At the final leaves we report "yes" if and only if at least one computation leading to this leaf has reported "yes". The probability of a false negative answer is now at most $(1 - \epsilon)^k$. By taking $k = \lceil -\frac{1}{\log(1-\epsilon)}\rceil$ we make sure that this probability is at least $\frac{1}{2}$.
+
+We can do something similar for our Turing machine $M$, where we repeat the algorithm $m$ times such that $\frac{1}{4} \geq (1 - k)^m$. Solving for $m$ we get $m=\lceil\frac{-2}{\log(1-k)}\rceil$.
+
+</details>
 
 ## Perspectives on computer science
 

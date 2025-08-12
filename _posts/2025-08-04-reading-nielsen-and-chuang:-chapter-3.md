@@ -1104,6 +1104,42 @@ Below are the billiard ball trajectories for all inputs listed in Figure 3.15. T
 </details>
 
 
+**Exercise 3.31**
+
+In this exercise we are asked to construct a reversible half-adder circuit where the input is two bits $x$ and $y$, and the outputs are $(x,y,c,x\oplus y)$. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+In figure 3.16 the authors show how the Fredkin gate can be configured to perform the elementary gates AND, NOT and a primitive routing function. Below shows how the Fredkin gate can also perform the elementary gate OR.
+
+<img width="480" height="338" alt="image" src="https://github.com/user-attachments/assets/eaa7b409-bc23-4631-88f1-68847de2be51" />
+
+The truth table for the gate is as follows 
+
+| a = 1 | b = y | c = x| a' = ¬x ∨ y | b' = x ∨ y | c' = x |
+|:-----:|:-----:|:----:|:-----------:|:------------:|:------:|
+| 1     | 0     | 0    | 1           | 0            | 0      |
+| 1     | 0     | 1    | 0           | 1            | 1      |
+| 1     | 1     | 0    | 1           | 1            | 0      |
+| 1     | 1     | 1    | 1           | 1            | 1      |
+
+Using the AND, OR, and NOT configurations of the Fredkin gate, the following circuit was created to output $(x,y,c,x\oplus y)$, which are highlighted yellow. 
+
+<img width="1920" height="604" alt="image" src="https://github.com/user-attachments/assets/801ad8d1-d591-4cc7-9929-63a56372088b" />
+
+It can easily be seen that $x$ and $y$ are outputs. The other outputs are given by $c=x ∧ y$ and $x\oplus y = x ⊻ y = (x ∨ y) ∧ ¬(x ∧ y)$, as I'll show below: 
+
+
+| x | y | x ∧ y | ¬(x ∧ y) | x ∨ y | (x ∨ y) ∧ ¬(x ∧ y) | x ⊻ y | x $\oplus$ y | c |
+|:-:|:-:|:-----:|:--------:|:-----:| :-----------------:|:-----:|:------------:|:-:|
+| 0 | 0 | 0     | 1        | 0     | 0                  | 0     | 0            | 0 |
+| 0 | 1 | 0     | 1        | 1     | 1                  | 1     | 1            | 0 |
+| 1 | 0 | 0     | 1        | 1     | 1                  | 1     | 1            | 0 |
+| 1 | 1 | 1     | 0        | 1     | 0                  | 0     | 0            | 1 |
+
+</details>
+
 
 ## Perspectives on computer science
 

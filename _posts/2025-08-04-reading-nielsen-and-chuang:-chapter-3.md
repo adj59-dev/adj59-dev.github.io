@@ -481,6 +481,7 @@ This is how you can make a XOR gate with NAND gates
 | Circuit Satisfiability problem (CSAT)| section 3.2.3             | A **NP**-complete problem that is often used as a benchmark for testing the complexity of other problems. |
 | Complexity class **NPI**             | section 3.2.3             | **NP** intermediate, which are problems neither solvable with polynomial resources nor are **NP**-complete. There are no problems known to be in **NPI**, but there are several problems that are considered likely candidates. This is the class of problems for which quantum computation is expected to be useful. | 
 | Complexity class **PSPACE**          | section 3.2.4             | A space-bound complexity class of decision problems that can be solved on a Turing machine using a polynomial number of working bits. Both **P** and **NP** are subsets of **PSPACE**. It is not known whether **P** = **PSPACE**, but if it does then quantum computers offer no advantage over classical computers.|
+| Landauer's principle                 | section 3.2.5             | In order to erase information, it is necessary to dissipate energy. <br> The amount of energy dissipated into the environment is at least $k_BT \ln2$ for each bit of information erased. The entropy of the environment increases by at least $k_B \ln2$ for each bit of information erased. Where $k_B$ is the Botzmann constant and $T$ is the temperature of the environment of the computer. Modern computers dissipate significantly more energy than this lower limit. If all computation was done reversibly, then Landauer's principle would imply no lower bound on the amount of energy dissipated. |
 
 
 ### The analysis of computational problems - Exercises
@@ -1065,6 +1066,44 @@ Per Papadimitriou page 254,
 We can do something similar for our Turing machine $M$, where we build a new Turing machine $M'$ by repeating the algorithm of $M$ $m$ times such that $\frac{1}{4} \geq (1 - k)^m$. Solving for $m$ we get $m=\lceil\frac{-2}{\log(1-k)}\rceil$. Therefore, since we can build a probabilistic Turing machine $M'$ such that $x \in L$ then $M'$ accepts $x$ with probability at least $3/4$, and if $x \notin L$, then $M'$ rejects $x$ with probability at least $3/4$, then $L \in$ **BPP**.
 
 </details>
+
+
+**Exercise 3.29**
+
+Show that applying two consecutive Fredkin gates gives the same outputs as inputs.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+In the table below, the first two columns are the same as Figure 3.15 in the textbook. The third column is the output of a Fredkin gate when the input is the one listed in the second column. As can be seen, the first and third column are the same. Therefore, applying two consecutive Fredkin gates gives the same output as the inputs.
+
+| Gate 1 Inputs <br> a &nbsp;&nbsp;&nbsp;&nbsp; b &nbsp;&nbsp;&nbsp;&nbsp; c | Gate 1 Outputs/<br>Gate 2 Inputs <br> a' &nbsp;&nbsp;&nbsp;&nbsp; b' &nbsp;&nbsp;&nbsp;&nbsp; c'| Gate 2 Outputs <br> a'' &nbsp;&nbsp;&nbsp;&nbsp; b'' &nbsp;&nbsp;&nbsp;&nbsp; c''|
+|:-------------------------------------------------------:|:-------------------------------------------------------:|:-------------------------------------------------------:|
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
+| 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
+| 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
+
+</details>
+
+**Exercise 3.30**
+
+Verify that the billiard ball computer in Figure 3.14 computes the Fredkin gate.
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Below are the billiard ball trajectories for all inputs listed in Figure 3.15. The trajectories match the table outputs. Therefore, the billiard ball computer computes the Fredkin gate.
+
+<img width="854" height="916" alt="image" src="https://github.com/user-attachments/assets/2b5f9c9b-0ce5-47ba-82e5-b0b2dac11918" />
+
+</details>
+
+
 
 ## Perspectives on computer science
 

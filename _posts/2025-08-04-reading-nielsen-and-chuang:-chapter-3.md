@@ -1128,10 +1128,10 @@ Using the AND, OR, and NOT configurations of the Fredkin gate, the following cir
 
 <img width="1920" height="604" alt="image" src="https://github.com/user-attachments/assets/801ad8d1-d591-4cc7-9929-63a56372088b" />
 
-It can easily be seen that $x$ and $y$ are outputs. The other outputs are given by $c=x ∧ y$ and $x\oplus y = x ⊻ y = (x ∨ y) ∧ ¬(x ∧ y)$, as I'll show below: 
+It can easily be seen that $x$ and $y$ are outputs. The other outputs are given by $c=x ∧ y$ and $x\oplus y = x ⊻ y = (y ∨ x) ∧ ¬(x ∧ y)$, as I'll show below: 
 
 
-| x | y | x ∧ y | ¬(x ∧ y) | x ∨ y | (x ∨ y) ∧ ¬(x ∧ y) | x ⊻ y | x $\oplus$ y | c |
+| x | y | x ∧ y | ¬(x ∧ y) | y ∨ x | (y ∨ x) ∧ ¬(x ∧ y) | x ⊻ y | x $\oplus$ y | c |
 |:-:|:-:|:-----:|:--------:|:-----:| :-----------------:|:-----:|:------------:|:-:|
 | 0 | 0 | 0     | 1        | 0     | 0                  | 0     | 0            | 0 |
 | 0 | 1 | 0     | 1        | 1     | 1                  | 1     | 1            | 0 |

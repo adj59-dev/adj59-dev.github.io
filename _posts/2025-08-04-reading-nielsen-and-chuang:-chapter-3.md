@@ -483,6 +483,8 @@ This is how you can make a XOR gate with NAND gates
 | Complexity class **PSPACE**          | section 3.2.4             | A space-bound complexity class of decision problems that can be solved on a Turing machine using a polynomial number of working bits. Both **P** and **NP** are subsets of **PSPACE**. It is not known whether **P** = **PSPACE**, but if it does then quantum computers offer no advantage over classical computers.|
 | Landauer's principle                 | section 3.2.5             | In order to erase information, it is necessary to dissipate energy. <br> The amount of energy dissipated into the environment is at least $k_BT \ln2$ for each bit of information erased. The entropy of the environment increases by at least $k_B \ln2$ for each bit of information erased. Where $k_B$ is the Botzmann constant and $T$ is the temperature of the environment of the computer. Modern computers dissipate significantly more energy than this lower limit. If all computation was done reversibly, then Landauer's principle would imply no lower bound on the amount of energy dissipated. |
 | Toffoli gate                         | section 3.2.5             | A reversible gate with three inputs $(a, b, c)$ and three outputs $(a, b, c \oplus ab)$ |
+| Fredkin gate                         | section 3.2.5             | <img width="670" height="328" alt="image" src="https://github.com/user-attachments/assets/6d9e75ad-a594-4eb8-b779-05f190ef1b1b" /> | 
+
 
 
 ### The analysis of computational problems - Exercises
@@ -1112,61 +1114,92 @@ In this exercise we are asked to construct a reversible half-adder circuit where
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-In figure 3.16 the authors show how the Fredkin gate can be configured to perform the elementary gates AND, NOT and a primitive routing function. Below shows how the Fredkin gate can also perform the elementary gate OR.
+This is the circuit that I came up with.
 
-<img width="480" height="338" alt="image" src="https://github.com/user-attachments/assets/eaa7b409-bc23-4631-88f1-68847de2be51" />
+<img width="1716" height="394" alt="image" src="https://github.com/user-attachments/assets/7473e4a3-f842-4ac9-9be0-1d3bf3002769" />
 
-The truth table for the gate is as follows 
+Here are the truth tables for the three individual Fredkin gates, which can be checked vs the table in Figure 3.15.
 
-| a = 1 | b = y | c = x| a' = ¬x ∨ y | b' = x ∨ y | c' = x |
-|:-----:|:-----:|:----:|:-----------:|:------------:|:------:|
-| 1     | 0     | 0    | 1           | 0            | 0      |
-| 1     | 0     | 1    | 0           | 1            | 1      |
-| 1     | 1     | 0    | 1           | 1            | 0      |
-| 1     | 1     | 1    | 1           | 1            | 1      |
-
-Using the AND, OR, and NOT configurations of the Fredkin gate, the following circuit was created to output $(x,y,c,x\oplus y)$, which are highlighted yellow. There are several outputs which are garbage bits; uncomputation could be used to get rid of them, but this is not shown below. 
-
-<img width="1920" height="604" alt="image" src="https://github.com/user-attachments/assets/801ad8d1-d591-4cc7-9929-63a56372088b" />
-
-It can easily be seen that $x$ and $y$ are outputs. The other outputs are given by $c=x ∧ y$ and $x\oplus y = x ⊻ y = (y ∨ x) ∧ ¬(x ∧ y)$, as I'll show below: 
+| 1 | 0 | x | ¬x | x | x |
+|:-:|:-:|:-:|:--:|:-:|:-:|
+| 1 | 0 | 0 | 1  | 0 | 0 |
+| 1 | 0 | 1 | 0  | 1 | 1 |
 
 
-| x | y | x ∧ y | ¬(x ∧ y) | y ∨ x | (y ∨ x) ∧ ¬(x ∧ y) | x ⊻ y | x $\oplus$ y | c |
-|:-:|:-:|:-----:|:--------:|:-----:| :-----------------:|:-----:|:------------:|:-:|
-| 0 | 0 | 0     | 1        | 0     | 0                  | 0     | 0            | 0 |
-| 0 | 1 | 0     | 1        | 1     | 1                  | 1     | 1            | 0 |
-| 1 | 0 | 0     | 1        | 1     | 1                  | 1     | 1            | 0 |
-| 1 | 1 | 1     | 0        | 1     | 0                  | 0     | 0            | 1 |
+| ¬x | x | y | ¬(x $\oplus$ y) | x $\oplus$ y | y |
+|:--:|:-:|:-:|:---------------:|:------------:|:-:|
+| 1  | 0 | 0 | 1               | 0            | 0 |
+| 1  | 0 | 1 | 0               | 1            | 1 |
+| 0  | 1 | 0 | 0               | 1            | 0 |
+| 0  | 1 | 1 | 1               | 0            | 1 |
+
+
+| 0 | ¬(x $\oplus$ y) | y | y ∧ ¬(x $\oplus$ y) | ¬y ∧ ¬(x $\oplus$ y) | y |
+|:-:|:---------------:|:-:|:-------------------:|:--------------------:|:-:|
+| 0 | 0               | 0 | 0                   | 0                    | 0 |
+| 0 | 0               | 1 | 0                   | 0                    | 1 |
+| 0 | 1               | 0 | 0                   | 1                    | 0 |
+| 0 | 1               | 1 | 1                   | 0                    | 1 |
+
+Combining the tables we get,
+| x | y | x $\oplus$ y | y ∧ ¬(x $\oplus$ y) = c | ¬y ∧ ¬(x $\oplus$ y) |
+|:-:|:-:|:------------:|:-----------------------:|:--------------------:|
+| 0 | 0 | 0            | 0                       | 1                    |
+| 0 | 1 | 1            | 0                       | 0                    |
+| 1 | 0 | 1            | 0                       | 0                    |
+| 1 | 1 | 0            | 1                       | 0                    |
+
+There is still one garbage bit left over, ¬y ∧ ¬(x $\oplus$ y). Additional Fredkin gates would be needed to uncompute this bit. 
 
 </details>
-
 
 **Exercise 3.32**
 
 In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
 
-One way to simulate a Toffoli gate is to use 7 Fredkin gates. One gate can be used to output $a ∧  b$ and then the circuit from exercise 3.31 can be used to perform $c \oplus (a ∧  b)$ by substituting $c$ for $x$ and $a ∧  b$ for $y$. This, however, may not be the smallest possible circuit. 
+To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output of that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that ¬c is available as input to the previously described gate. Then to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
 
-Let's compare the truth tables for the two gates and see if any patterns pop out. I've bolded the rows that do not match. One thing to note: the number of 1s is not conserved in the Toffoli gate, but it is in the Fredkin gate, which means we will have to use at least one ancilla bit.  
+<img width="1504" height="606" alt="image" src="https://github.com/user-attachments/assets/8880c412-5287-4e1f-af25-2573fc0beedb" />
 
-| Inputs <br> a &nbsp;&nbsp;&nbsp;&nbsp; b &nbsp;&nbsp;&nbsp;&nbsp; c | Fredkin Outputs <br> a' &nbsp;&nbsp;&nbsp;&nbsp; b' &nbsp;&nbsp;&nbsp;&nbsp; c'| Toffoli Outputs <br> a'' &nbsp;&nbsp;&nbsp;&nbsp; b'' &nbsp;&nbsp;&nbsp;&nbsp; c''|
-|:-------------------------------------------------------:|:-------------------------------------------------------:|:-------------------------------------------------------:|
-| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
-| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
-| 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
-| **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
-| 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
-| **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
-| **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
-| **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** |
+Here are the truth tables for the individual Fredkin gates which can be checked vs the table in Figure 3.15.
 
-What we ultimately want to do is flip c when a ∧ b = 1. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that it is available as input to the previously described gate. Then in order to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
+| 1 | 0 | c | ¬c | c | c |
+|:-:|:-:|:-:|:--:|:-:|:-:|
+| 1 | 0 | 0 | 1  | 0 | 0 |
+| 1 | 0 | 1 | 0  | 1 | 1 |
 
-<img width="1508" height="622" alt="image" src="https://github.com/user-attachments/assets/3f392c9b-16d8-4bfb-8134-7ef44f09efcf" />
+| 0 | b | a | a ∧ b | ¬a ∧ b | a |
+|:-:|:-:|:-:|:-----:|:------:|:-:|
+| 0 | 0 | 0 | 0     | 0      | 0 |
+| 0 | 0 | 1 | 0     | 0      | 1 |
+| 0 | 1 | 0 | 0     | 1      | 0 |
+| 0 | 1 | 1 | 1     | 0      | 1 |
 
-It is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. 
+| ¬c | c | a ∧ b | ¬c' | c' | a ∧ b |
+|:--:|:-:|:-----:|:---:|:--:|:-----:|
+| 1  | 0 | 0     | 1   | 0  | 0     |
+| 1  | 0 | 1     | 0   | 1  | 1     |
+| 0  | 1 | 0     | 0   | 1  | 0     |
+| 0  | 1 | 1     | 1   | 0  | 1     |
 
+The last gate is just the reverse of the second gate, so there is no need to make a separate truth table for it. Here is a combined table for the circuit.
+
+| c | b | a | ¬c' | c' |
+|:-:|:-:|:-:|:---:|:--:|
+| 0 | 0 | 0 | 1   | 0  |
+| 0 | 0 | 1 | 1   | 0  |
+| 0 | 1 | 0 | 1   | 0  |
+| 0 | 1 | 1 | 0   | 1  |
+| 1 | 0 | 0 | 0   | 1  |
+| 1 | 0 | 1 | 0   | 1  |
+| 1 | 1 | 0 | 0   | 1  |
+| 1 | 1 | 1 | 1   | 0  |
+
+
+
+So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. Also, two garbage bits are left over, and additional gates would be needed to uncompute these bits; it is unclear if these additional gates should be added to the number of total gates needed to simulate a Toffoli gate. 
+
+Let's see if we can think of anything better. Ideally, I'd like to construct something like this, where none of the outputs are garbage bits. 
 
 
 

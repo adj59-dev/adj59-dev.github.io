@@ -1142,6 +1142,33 @@ It can easily be seen that $x$ and $y$ are outputs. The other outputs are given 
 </details>
 
 
+**Exercise 3.32**
+
+In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
+
+One way to simulate a Toffoli gate is to use 7 Fredkin gates. One gate can be used to output $a ∧  b$ and then the circuit from exercise 3.31 can be used to perform $c \oplus (a ∧  b)$ by substituting $c$ for $x$ and $a ∧  b$ for $y$. This, however, may not be the smallest possible circuit. 
+
+Let's compare the truth tables for the two gates and see if any patterns pop out. I've bolded the rows that do not match. One thing to note: the number of 1s is not conserved in the Toffoli gate, but it is in the Fredkin gate, which means we will have to use at least one ancilla bit.  
+
+| Inputs <br> a &nbsp;&nbsp;&nbsp;&nbsp; b &nbsp;&nbsp;&nbsp;&nbsp; c | Fredkin Outputs <br> a' &nbsp;&nbsp;&nbsp;&nbsp; b' &nbsp;&nbsp;&nbsp;&nbsp; c'| Toffoli Outputs <br> a'' &nbsp;&nbsp;&nbsp;&nbsp; b'' &nbsp;&nbsp;&nbsp;&nbsp; c''|
+|:-------------------------------------------------------:|:-------------------------------------------------------:|:-------------------------------------------------------:|
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 |
+| 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
+| 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 | 1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 0 |
+| **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **0 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 0 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
+| **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** |
+| **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 1** | **1 &nbsp;&nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp; 0** |
+
+What we ultimately want to do is flip c when a ∧ b = 1. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that it is available as input to the previously described gate. Then in order to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
+
+<img width="1508" height="622" alt="image" src="https://github.com/user-attachments/assets/3f392c9b-16d8-4bfb-8134-7ef44f09efcf" />
+
+It is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. 
+
+
+
 
 ## Perspectives on computer science
 

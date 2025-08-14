@@ -1129,61 +1129,31 @@ Here is the same circuit drawn as a quantum circuit diagram.
 
 **Exercise 3.32**
 
-In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. I tracked down this paper by Fredkin and Toffoli while working on this exercise, which helped a little: https://publications.csail.mit.edu/lcs/pubs/pdf/MIT-LCS-TM-197.pdf
+In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
 
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula for this can be written $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏)$. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output of that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that ¬c is available as input to the previously described gate. Then to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
+To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula to represent this is $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏)$. Here is a reversible circuit that I came up with that uses Fredkin gates to simulate a Toffoli gate. 
 
-<img width="1502" height="586" alt="image" src="https://github.com/user-attachments/assets/ffa68cd8-af2b-485e-a4f4-1743b6109610" />
+<img width="1922" height="986" alt="image" src="https://github.com/user-attachments/assets/f46f2925-3617-4c0e-915f-6559a5b6d954" />
 
-Here are the truth tables for the individual Fredkin gates which can be checked vs the table in Figure 3.15.
+Here is the same circuit drawn as a quantum circuit diagram.
 
-| 1 | 0 | c | ¬c | c | c |
-|:-:|:-:|:-:|:--:|:-:|:-:|
-| 1 | 0 | 0 | 1  | 0 | 0 |
-| 1 | 0 | 1 | 0  | 1 | 1 |
+<img width="1330" height="790" alt="image" src="https://github.com/user-attachments/assets/3338627a-133a-4dde-834f-b901e096b801" />
 
-| 0 | b | a | a ∧ b | ¬a ∧ b | a |
-|:-:|:-:|:-:|:-----:|:------:|:-:|
-| 0 | 0 | 0 | 0     | 0      | 0 |
-| 0 | 0 | 1 | 0     | 0      | 1 |
-| 0 | 1 | 0 | 0     | 1      | 0 |
-| 0 | 1 | 1 | 1     | 0      | 1 |
 
-| ¬c | c | a ∧ b | ¬c' | c' | a ∧ b |
-|:--:|:-:|:-----:|:---:|:--:|:-----:|
-| 1  | 0 | 0     | 1   | 0  | 0     |
-| 1  | 0 | 1     | 0   | 1  | 1     |
-| 0  | 1 | 0     | 0   | 1  | 0     |
-| 0  | 1 | 1     | 1   | 0  | 1     |
+So, we see that we can successfully simulate a Toffoli gate using Fredkin gates. However, it is unclear if this circuit represents the least number of Fredkin gates needed to simulate a Toffoli gate.  
 
-The last gate is just the reverse of the second gate, so there is no need to make a separate truth table for it. Here is a combined table for the circuit.
-
-| c | b | a | ¬c' | c' |
-|:-:|:-:|:-:|:---:|:--:|
-| 0 | 0 | 0 | 1   | 0  |
-| 0 | 0 | 1 | 1   | 0  |
-| 0 | 1 | 0 | 1   | 0  |
-| 0 | 1 | 1 | 0   | 1  |
-| 1 | 0 | 0 | 0   | 1  |
-| 1 | 0 | 1 | 0   | 1  |
-| 1 | 1 | 0 | 0   | 1  |
-| 1 | 1 | 1 | 1   | 0  |
-
-So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate.  While looking for other configurations I also made this one, which also uses four gates. 
-
-<img width="1798" height="598" alt="image" src="https://github.com/user-attachments/assets/499e7757-24b7-4a45-ba7e-4c5df5b3544d" />
-
-I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates, AND reqires one gate, and then another gate is needed for uncomputation, which gives a total of four gates. If uncomputation was not needed, the Toffoli gate could be simulated with three Fredkin gates; but, since ancilla bits were needed, uncomputation was required. 
-
+I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates and AND reqires one gate, which means to compute $c'=c \oplus (𝑎∧𝑏)$ we need at least 3 Fredkin gates. If ancilla bits are used, uncomputation will need to be done (if we don't want any garbage bits left over) which will require up to 3 more Fredkin gates. Therefore, the minimum number of Fredkin gates needed to simulate a Toffoli gate is 3-6, depending on uncomputation requirements.
 
 Now we are asked to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit generate those outputs using three gates.
 
 <img width="1362" height="342" alt="image" src="https://github.com/user-attachments/assets/8943a33e-1a51-4e1f-9d68-362bd1237b85" />
 
-After the first gate, the top wire becomes $a \oplus (b ∧ c)$. After the second gate the second wire becomes:
+After the first gate, the top wire becomes $a \oplus (b ∧ c)$. 
+
+After the second gate the second wire becomes:
 
 $$\begin{aligned}
 b \oplus ((a \oplus (b ∧ c)) ∧ c) & = b \oplus (a ∧ c) \oplus (b ∧ c) \\
@@ -1198,7 +1168,7 @@ $$\begin{aligned}
 &= (b ∧ c) \oplus (a ∧ ¬c)
 \end{aligned}$$
 
-As with the first half of the exercise, creating a gate made of Toffoli gates that simulates a Fredkin gate doesn't necessarily prove that three is the smallest number of gates. However, by looking at the results of adding the first and second gate, it is obvious that a third gate is needed. Therefore, three is the smallest number of Toffoli gates that can be used to make a Fredkin gate.
+As with the first half of the exercise, creating a circuit made of Toffoli gates that simulates a Fredkin gate doesn't necessarily prove that three is the smallest number of gates needed. However, by looking at the results of adding the first and second gate to the circuit, it is obvious that a third gate is needed. To prove this more rigorously, one could create all the possible 1 and 2 gate circuits with these three inputs to demonstrate that none of them simulate a Fredkin gate. For the sake of moving on with this book, I will not do that here. Therefore, three is the smallest number of Toffoli gates that can be used to simulate a Fredkin gate.
 
 </details>
 

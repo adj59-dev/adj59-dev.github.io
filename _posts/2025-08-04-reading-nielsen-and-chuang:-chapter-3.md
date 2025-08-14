@@ -1149,7 +1149,7 @@ Combining the tables we get,
 | 1 | 0 | 1            | 0                       | 0                    |
 | 1 | 1 | 0            | 1                       | 0                    |
 
-There is still one garbage bit left over, ¬y ∧ ¬(x $\oplus$ y). Additional Fredkin gates would be needed to uncompute this bit. 
+
 
 </details>
 

@@ -21,7 +21,7 @@ Big O notation in this book different than what I remember learning previously. 
 
 * [Models for computation](#models-for-computation)
 * [The analysis of computational problems](#the-analysis-of-computational-problems)
-* [Perspectives on computer science](#perspectives-on-computer-science)
+* [Chapter Problems](#chapter-problems)
 
 
 
@@ -1184,16 +1184,52 @@ As with the first half of the exercise, creating a circuit made of Toffoli gates
 </details>
 
 
+## Chapter Problems
+
+**Problem 3.1**
+
+For this problem we are asked to show that a Minsky machine is capable of computing all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. 
+
+(1) We need to demonstrate that for any Turning machine $T$ we can construct a Minsky machine $M_T$ which is equivlent to $T$. 
+
+To do this, we need to represent the state of $T$ as numbers in the register of $M_T$. The content of the tape of $T$ can be stored as a set of three integers in register $r_1$, $r_2$, and $r_3$. Since the tape contains symbols, these symbols will need to converted to integers using a table like the one below:
+
+| Symbol           | Integer |
+|------------------|---------|
+| $0$              | $2$     |
+| $1$              | $3$     |
+| $b$              | $4$     |
+| $\triangleright$ | $5$     |
+
+The value currently under the tape head will be stored in $r_1$. The other values in the tape will be stored as two separate values, $r_2$ will contain an integer representing the entries to the left of the tape head and $r_3$ will contain an integer one representing entries to the right of the tape head. We will use a similar methodology to the one used in exercise 3.2 to generate the intgers that will be stored in $r_2$ and $r_3$, so if we let $t$ be a list of the interger representation of the tape, $r_1$, $r_2$, and $r_3$ are given as follows when the tape head is on $t_j$
+
+$$\begin{aligned}
+r_1 = t_j \\
+r_2 = p_1^{t_{j-1}}p_2^{t_{j-2}}p_3^{t_{j-3}}\cdots p_{j-1}^{t_1} \\
+r_3 = p_1^{t_{j+1}}p_2^{t_{j+2}}p_3^{t_{j+3}}\cdots p_{k}^{t_{j+k}}
+\end{aligned}$$
+
+Where $p_1, \cdots, p_{k}$ are unique prime numbers. Whever the tape head moves the following calculation is done
+
+```
+division(r, p):
+  quotient = 0
+  remainder = 0
+  while remainder >= p:
+    remainder = remainder - p
+    quotient = quotient + 1
+  return remainder, quotient
+
+powers(r, p):
+  t = 0
+  remainder = 0
+  quotient = p
+  while remainder == 0:
+    t += 1
+    remainder, quotient = division(quotient, p)
+  return t
+
+```
 
 
-## Perspectives on computer science
 
-### Perspectives on computer science - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
-
-### Perspectives on computer science - Exercises

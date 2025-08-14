@@ -1155,11 +1155,14 @@ There is still one garbage bit left over, ¬y ∧ ¬(x $\oplus$ y). Additional F
 
 **Exercise 3.32**
 
-In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
+In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. I tracked down this paper by Fredkin and Toffoli while working on this exercise, which helped a little: https://publications.csail.mit.edu/lcs/pubs/pdf/MIT-LCS-TM-197.pdf
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
 To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula for this can be written $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏)$. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output of that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that ¬c is available as input to the previously described gate. Then to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
 
-<img width="1504" height="606" alt="image" src="https://github.com/user-attachments/assets/8880c412-5287-4e1f-af25-2573fc0beedb" />
+<img width="1502" height="586" alt="image" src="https://github.com/user-attachments/assets/ffa68cd8-af2b-485e-a4f4-1743b6109610" />
 
 Here are the truth tables for the individual Fredkin gates which can be checked vs the table in Figure 3.15.
 
@@ -1195,9 +1198,12 @@ The last gate is just the reverse of the second gate, so there is no need to mak
 | 1 | 1 | 0 | 0   | 1  |
 | 1 | 1 | 1 | 1   | 0  |
 
+So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate.  While looking for other configurations I also made this one, which also uses four gates. 
 
+<img width="1798" height="598" alt="image" src="https://github.com/user-attachments/assets/499e7757-24b7-4a45-ba7e-4c5df5b3544d" />
 
-So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. Also, there are two garbage bits that are left over, and additional gates would be needed to uncompute these bits; it is unclear if these additional gates should be added to the number of total gates needed to simulate a Toffoli gate. I'm going to stop here for now and I may revisit this exercise after working through more of the book. 
+I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates, AND reqires one gate, and then another gate is needed for uncomputation, which gives a total of four gates. If uncomputation was not needed, the Toffoli gate could be simulated with three Fredkin gates; but, since ancilla bits were needed, uncomputation was required. 
+
 
 Now we are asked to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit generate those outputs using three gates.
 
@@ -1218,7 +1224,10 @@ $$\begin{aligned}
 &= (b ∧ c) \oplus (a ∧ ¬c)
 \end{aligned}$$
 
-As with the first half of the exercise, this doesn't prove that three is the smallest number of gates needed and I will revisit this exercise if I come up with any better ideas. 
+As with the first half of the exercise, creating a gate made of Toffoli gates that simulates a Fredkin gate doesn't necessarily prove that three is the smallest number of gates. However, by looking at the results of adding the first and second gate, it is obvious that a third gate is needed. Therefore, three is the smallest number of Toffoli gates that can be used to make a Fredkin gate.
+
+</details>
+
 
 
 

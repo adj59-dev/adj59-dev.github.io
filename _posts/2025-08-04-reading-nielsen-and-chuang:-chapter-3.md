@@ -1109,45 +1109,19 @@ Below are the billiard ball trajectories for all inputs listed in Figure 3.15. T
 
 **Exercise 3.31**
 
-In this exercise we are asked to construct a reversible half-adder circuit where the input is two bits $x$ and $y$, and the outputs are $(x,y,c,x\oplus y)$. 
+In this exercise we are asked to construct a reversible half-adder circuit where the input is two bits $x$ and $y$, and the outputs are $(x,y,c,x\oplus y)$. Right before this exercise, the authors discuss how to do uncomputation; I followed these instructions for constructing this circuit. 
 
 <details style="margin-bottom: 20px;">
 <summary>Solution</summary>
 
-This is the circuit that I came up with.
+This is the circuit that I came up with. It uses Fredkin gates to compute $x\oplus y$ and $c=a∧b$, then uses CNOT gates to add the results to another register, and lastely uses Fredkin gates for uncomputation to get rid of garbage bits. The outputs are highlighted yellow.
 
-<img width="1716" height="394" alt="image" src="https://github.com/user-attachments/assets/7473e4a3-f842-4ac9-9be0-1d3bf3002769" />
+<img width="1798" height="960" alt="image" src="https://github.com/user-attachments/assets/ff004586-6df6-4e80-869d-994b6002727d" />
 
-Here are the truth tables for the three individual Fredkin gates, which can be checked vs the table in Figure 3.15.
+Here is the same circuit drawn as a quantum circuit diagram. 
 
-| 1 | 0 | x | ¬x | x | x |
-|:-:|:-:|:-:|:--:|:-:|:-:|
-| 1 | 0 | 0 | 1  | 0 | 0 |
-| 1 | 0 | 1 | 0  | 1 | 1 |
+<img width="1198" height="792" alt="image" src="https://github.com/user-attachments/assets/71ffad18-f885-4e51-8fa8-2b86dcb52814" />
 
-
-| ¬x | x | y | ¬(x $\oplus$ y) | x $\oplus$ y | y |
-|:--:|:-:|:-:|:---------------:|:------------:|:-:|
-| 1  | 0 | 0 | 1               | 0            | 0 |
-| 1  | 0 | 1 | 0               | 1            | 1 |
-| 0  | 1 | 0 | 0               | 1            | 0 |
-| 0  | 1 | 1 | 1               | 0            | 1 |
-
-
-| 0 | ¬(x $\oplus$ y) | y | y ∧ ¬(x $\oplus$ y) | ¬y ∧ ¬(x $\oplus$ y) | y |
-|:-:|:---------------:|:-:|:-------------------:|:--------------------:|:-:|
-| 0 | 0               | 0 | 0                   | 0                    | 0 |
-| 0 | 0               | 1 | 0                   | 0                    | 1 |
-| 0 | 1               | 0 | 0                   | 1                    | 0 |
-| 0 | 1               | 1 | 1                   | 0                    | 1 |
-
-Combining the tables we get,
-| x | y | x $\oplus$ y | y ∧ ¬(x $\oplus$ y) = c | ¬y ∧ ¬(x $\oplus$ y) |
-|:-:|:-:|:------------:|:-----------------------:|:--------------------:|
-| 0 | 0 | 0            | 0                       | 1                    |
-| 0 | 1 | 1            | 0                       | 0                    |
-| 1 | 0 | 1            | 0                       | 0                    |
-| 1 | 1 | 0            | 1                       | 0                    |
 
 
 

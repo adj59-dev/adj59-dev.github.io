@@ -1192,7 +1192,7 @@ For this problem we are asked to show that a Minsky machine is capable of comput
 
 (1) We need to demonstrate that for any Turning machine $T$ we can construct a Minsky machine $M_T$ which is equivlent to $T$. 
 
-To do this, we need to represent the state of $T$ as numbers in the register of $M_T$. The content of the tape of $T$ can be stored as a set of three integers in register $r_1$, $r_2$, and $r_3$. Since the tape contains symbols, these symbols will need to converted to integers using a table like the one below:
+To do this, we need to represent the state of $T$ as numbers in the register of $M_T$. The content of the tape of $T$ can be stored as a set of three integers in register $r_1$, $r_2$, and $r_3$. Since the tape contains symbols, these symbols will need to be converted to integers using a table like the one below:
 
 | Symbol           | Integer |
 |------------------|---------|
@@ -1201,7 +1201,7 @@ To do this, we need to represent the state of $T$ as numbers in the register of 
 | $b$              | $4$     |
 | $\triangleright$ | $5$     |
 
-The value currently under the tape head will be stored in $r_1$. The other values in the tape will be stored as two separate values, $r_2$ will contain an integer representing the entries to the left of the tape head and $r_3$ will contain an integer one representing entries to the right of the tape head. We will use a similar methodology to the one used in exercise 3.2 to generate the intgers that will be stored in $r_2$ and $r_3$, so if we let $t$ be a list of the interger representation of the tape, $r_1$, $r_2$, and $r_3$ are given as follows when the tape head is on $t_j$
+The value currently under the tape head will be stored in $r_1$. The other values in the tape will be stored as two separate values; $r_2$ will contain an integer representing the entries to the left of the tape head and $r_3$ will contain an integer representing entries to the right of the tape head. We will use a similar methodology to the one used in exercise 3.2 to generate the intgers that will be stored in $r_2$ and $r_3$. If we let $t$ be a list of the interger representation of the tape, $r_1$, $r_2$, and $r_3$ are given as follows when the tape head is on $t_j$
 
 $$\begin{aligned}
 r_1 = t_j \\
@@ -1209,25 +1209,72 @@ r_2 = p_1^{t_{j-1}}p_2^{t_{j-2}}p_3^{t_{j-3}}\cdots p_{j-1}^{t_1} \\
 r_3 = p_1^{t_{j+1}}p_2^{t_{j+2}}p_3^{t_{j+3}}\cdots p_{k}^{t_{j+k}}
 \end{aligned}$$
 
-Where $p_1, \cdots, p_{k}$ are unique prime numbers. Whever the tape head moves the following calculation is done
+Where $p_1, \cdots, p_{k}$ are unique prime numbers. Whever the tape head moves the following calculation is done. Since all of these functions can be calculated by incrementing or decrementing a value (as shown below), they can be done on a Minsky machine by storing the needed variables in other entries of the register and constructing the appropriate orders. 
 
 ```
-division(r, p):
+\\for all these functions we will assume that all the inputs are positive integers
+
+addition(x, y):
+  sum = x
+  term = y
+  while term > 0:
+    sum += 1
+    term -= 1
+  return sum
+
+subtraction(x, y):
+  difference = x
+  term = y
+  while term > 0:
+    difference -= 1
+    term -= 1
+  return difference
+
+division(x, y):
   quotient = 0
-  remainder = 0
-  while remainder >= p:
-    remainder = remainder - p
-    quotient = quotient + 1
+  remainder = x
+  while remainder >= y:
+    remainder = subtraction(remainder, y)
+    quotient += 1
   return remainder, quotient
 
-powers(r, p):
+multiplication(x, y):
+  product = 0
+  multiplier = x
+  while multiplier > 0
+    product = addition(product, y)
+    multiplier -= 1
+  return product
+
+power(x, y): 
+  exponent = y
+  result = x
+  while exponent > 0:
+    result = multiplication(result, x)
+    exponent =- 1
+  return result
+
+findpower(r, p):
   t = 0
-  remainder = 0
-  quotient = p
+  remainder, quotient = division(r, p)
   while remainder == 0:
     t += 1
     remainder, quotient = division(quotient, p)
   return t
+
+nextprime(x):
+  test = x+1
+  while
+
+updateleft(r1, r2, movement):
+  new_r2 = 1
+  old_r2 = r2
+  j = 2
+  while old_r2 >= j:
+    p = findpower(old_r2, j)
+    old_r2 = division(old_r2, power(j,p))
+    new_r2 = multiplication(new_r2, power(nextprime(j), p))
+  
 
 ```
 

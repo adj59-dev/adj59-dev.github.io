@@ -1157,7 +1157,7 @@ There is still one garbage bit left over, ¬y ∧ ¬(x $\oplus$ y). Additional F
 
 In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
 
-To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula for this can be written $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))$. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output of that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that ¬c is available as input to the previously described gate. Then to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
+To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula for this can be written $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏)$. To do this, we can use a Fredkin gate to perform AND on a and b, then use the output of that gate as a control bit for another Fredkin gate with inputs of c and ¬c. We'll need to use a third Fredkin gate to perform NOT on c so that ¬c is available as input to the previously described gate. Then to have a and b as outputs of our circuit we'll need to uncompute the AND operation with a fourth Fredkin gate. Below is such a circuit. 
 
 <img width="1504" height="606" alt="image" src="https://github.com/user-attachments/assets/8880c412-5287-4e1f-af25-2573fc0beedb" />
 
@@ -1197,9 +1197,9 @@ The last gate is just the reverse of the second gate, so there is no need to mak
 
 
 
-So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. Also, there are two garbage bits are left over, and additional gates would be needed to uncompute these bits; it is unclear if these additional gates should be added to the number of total gates needed to simulate a Toffoli gate. I'm going to stop here for now and I may revisit this exercise after working through more of the book. 
+So, we can see that we have successfully simulated a Toffoli gate. However, it is unclear if this is the least number of Fredkin gates needed to simulate a Toffoli gate. Also, there are two garbage bits that are left over, and additional gates would be needed to uncompute these bits; it is unclear if these additional gates should be added to the number of total gates needed to simulate a Toffoli gate. I'm going to stop here for now and I may revisit this exercise after working through more of the book. 
 
-Now we are to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit performs this will generate those outputs using three gates.
+Now we are asked to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit generate those outputs using three gates.
 
 <img width="1362" height="342" alt="image" src="https://github.com/user-attachments/assets/8943a33e-1a51-4e1f-9d68-362bd1237b85" />
 
@@ -1218,9 +1218,7 @@ $$\begin{aligned}
 &= (b ∧ c) \oplus (a ∧ ¬c)
 \end{aligned}$$
 
-As with the first half of the exercise, this doesn't prove that three is the smallest number of gates needed, though it is difficult to image a solution using less than three. 
-
-<img width="1856" height="620" alt="image" src="https://github.com/user-attachments/assets/6229c45f-1a87-4908-b6cc-b53887c3d32a" />
+As with the first half of the exercise, this doesn't prove that three is the smallest number of gates needed and I will revisit this exercise if I come up with any better ideas. 
 
 
 

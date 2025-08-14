@@ -1145,14 +1145,18 @@ Here is the same circuit drawn as a quantum circuit diagram.
 
 So, we see that we can successfully simulate a Toffoli gate using Fredkin gates. However, it is unclear if this circuit represents the least number of Fredkin gates needed to simulate a Toffoli gate.  
 
-If I didn't worry about getting rid of garbage bits, I was able to create circuits with four Fredkin gates that simulated a Toffoli gate; here is an example of one of them below. I used three gates to get $𝑐′=c \oplus (𝑎∧𝑏)$ and then another gate to restore $a$ and $b$. 
+If I didn't worry about getting rid of garbage bits, I was able to create circuits with four Fredkin gates that simulated a Toffoli gate; here is an example of one of them below. I used three gates to get $𝑐′=c \oplus (𝑎∧𝑏)$ and then another gate to restore $b$. 
 
 <img width="1760" height="704" alt="image" src="https://github.com/user-attachments/assets/c7be8c77-4da5-45e4-a80e-b406c7380a3a" />
 
-It is somewhat unclear to me what the authors mean when they ask us to simulate a Toffoli gate. Do they want the outputs $(a', b', c')$ to be on the same wires as the inputs $(a,b,c)$? Do they want all the garbage bits to be uncomputed? 
+Here is the same circuit drawn as a quantum circuit diagram.
+
+<img width="1326" height="670" alt="image" src="https://github.com/user-attachments/assets/cc4ba2da-5d91-40ea-8212-633377a72752" />
+
+
+It is somewhat unclear to me what the authors mean when they ask us to simulate a Toffoli gate. Do they want the outputs $(a', b', c')$ to be on the same wires as the inputs $(a,b,c)$? Do they want all the garbage bits to be uncomputed? I couldn't find a way to do both of these things simultaneously. 
 
 I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates and AND reqires one gate, which means to compute $c'=c \oplus (𝑎∧𝑏)$ we need at least 3 Fredkin gates. If ancilla bits are used, uncomputation will need to be done (if we don't want any garbage bits left over) which will require up to 3 more Fredkin gates. Therefore, the minimum number of Fredkin gates needed to simulate a Toffoli gate is 3-6, depending on uncomputation requirements.
-
 
 Now we are asked to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit generate those outputs using three gates.
 

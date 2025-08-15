@@ -1201,6 +1201,14 @@ For this problem we are asked to show that a Minsky machine can compute all Turi
 
 **Problem 3.2**
 
+For this problem we are to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. 
+
+Let's first try to simulate this Minsky machine with the vector game:
+<img width="730" height="466" alt="image" src="https://github.com/user-attachments/assets/15a252de-d2c0-4d01-adc6-a2806f074ede" />
+
+For this circuit, lets start with $r_1 = n$ and $r_2 = m$ for $n < m$. As the program runs, it decrements $r_2$ while also decrementing $r_1$ until $r_1=0$ at which point it halts. The final result computes the subtraction of two numbers with $r_2 = m-n$. 
+
+We could create a vector game to simulate this Minsky machine with the following vectors: $(n, m)$ as our starting vector and $(-1, -1)$ as the only vector in our list of vectors. 
 
 
 

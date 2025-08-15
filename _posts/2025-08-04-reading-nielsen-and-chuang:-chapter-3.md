@@ -1201,16 +1201,56 @@ For this problem we are asked to show that a Minsky machine can compute all Turi
 
 **Problem 3.2**
 
-For this problem we are to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. 
+For this problem we are asked to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint, we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. This vector game is discussed by Conway in Unpredictable Iterations, which also contains the solution to this problem: https://gwern.net/doc/cs/computable/1972-conway.pdf
 
-Let's first try to simulate this Minsky machine with the vector game:
-<img width="730" height="466" alt="image" src="https://github.com/user-attachments/assets/15a252de-d2c0-4d01-adc6-a2806f074ede" />
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
-For this circuit, lets start with $r_1 = n$ and $r_2 = m$ for $n < m$. As the program runs, it decrements $r_2$ while also decrementing $r_1$ until $r_1=0$ at which point it halts. The final result computes the subtraction of two numbers with $r_2 = m-n$. 
+Let's first try to simulate the following Minsky machine with the vector game:
 
-We could create a vector game to simulate this Minsky machine with the following vectors: $(n, m)$ as our starting vector and $(-1, -1)$ as the only vector in our list of vectors. 
+<img width="786" height="450" alt="image" src="https://github.com/user-attachments/assets/c054e186-7f92-427d-9741-ff300f8066d2" />
+
+For this machine, lets start with $r_1 = x$ and $r_2 = y$. As the program runs, it increments $r_2$ while decrementing $r_1$ until $r_1=0$ and $r_2 = x+y$, at which point it halts. 
+
+We could create a vector game to simulate this Minsky machine with the following vectors: $(x, y)$ as our starting vector and $(-1, +1)$ as the only vector in our list of vectors. After the vector game completes, we would have $(0, x+y)$. 
+
+Now let's think about what would happen if we added more orders to the Minsky machine. 
+
+<img width="814" height="944" alt="image" src="https://github.com/user-attachments/assets/65487c1a-b6ec-4b77-863d-5a682efa649a" />
+
+This new set of orders includes operations on a new register $r_3$, which is decremented while $r_1$ is incremented. Let say that the starting value of $r_3 = z$. So now, when the program starts the register values are $(x, y, z)$ and when it completes the values are $(z, x+y, 0)$. If we tried to use the same methodology as we used for the previous Minsky machine to create a vector game, our starting vector would be $(x, y, z)$ and our vector list would be:
+
+$$\begin{aligned}
+(-1, 1, 0) \\
+(1, 0, -1) \\
+\end{aligned}$$
+
+With these vectors, the first part of the program runs as expected $(x, y, z) \rightarrow (0, x+y, z)$, then the next step is calculated as desired $(0, x+y, z) \rightarrow (1, x+y, z-1)$. But after that we start running into problems, since the first vector in the vector list starts being used again. Therefore, we need to find a way to track which which order needs to be preformed next. 
+
+In order to track orders, two additional dimensions need to be added to our vectors. Now, our starting vector is $(x, y, z, 0, 3)$ and our vector list is as follows. 
+
+$$\begin{aligned}
+(0, 0, 0, 1, -1) \\
+(-1, 0, 0, -4, 3) \\
+(0, 0, 0, -4, 2) \\
+(0, 1, 0, -3, 4) \\
+(0, 0, -1, -2, 1) \\
+(0, 0, 0, -2, 0) \\
+(1, 0, 0, -1, 2) \\
+\end{aligned}$$
+
+The vector list starts with $(0, 0, 0, 1, -1)$, which transfers positive numbers from $r_5$ to $r_4$, and the rest of the vectors are generated from each order in the Minsky machine $(\text{operation on }r_1, \text{operation on }r_2, \text{operation on }r_3, -m, n\text{ or }p)$, which are listed from largest to smallest $m$. 
+
+Using this methodology any Midsky machine can be simulated using a vector game. Therefore, for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. 
+
+</details>
 
 
+**Problem 3.3**
+
+For this problem we are asked to prove that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2. There is an example in the book on page 169 of using Fractran, it is also discussed by Conway in FRACTRAN: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
+
+A fractran program is defined by a list of postive rational numbers $q_1, \cdots, q_n$. It acts on a positive integer $m$ by replacing it by $q_i m$, where $i$ is the least number such that $q_i m$ is an integer. If there is ever a time when there is no $i$ such that $q_i m$ is an integer, then exercution stops. 
 
 
 

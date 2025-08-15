@@ -1188,10 +1188,21 @@ As with the first half of the exercise, creating a circuit made of Toffoli gates
 
 **Problem 3.1**
 
-For this problem we are asked to show that a Minsky machine is capable of computing all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. 
+For this problem we are asked to show that a Minsky machine can compute all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. Minsky's book has a detailed discussion on this topic in chapter 10 and 11. What I put for my answer for part 1 is only a summary. For part 2, I'm not entirely sure what the authors are looking for.
 
-(1) In order to show that a Minsky machine is capable of computing all Turing computable functions, we need to demonstrate that for any Turning machine $T$ we can construct a Minsky machine $M_T$ which is equivlent to $T$. Minsky section 10.1 goes over the arithmetization of Turing machines, which shows how to represent the state of a Turing machine as a set of four integers. Then section 11.2 discusses how to store those integers in the register of a Minsky machine and simulate the Turing machine by constructing the appropriate block of program for each state of the Turing machine. This demonstrates that a Minsky machine can be constructed for any Turning machine and so Minsky machines are capable of computing all Turing computable functions. 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
-(2) 
+(1) In order to show that a Minsky machine can compute all Turing computable functions, we need to demonstrate that for any Turing machine $T$ we can construct a Minsky machine $M_T$ which is equivalent to $T$. Minsky section 10.1 goes over the arithmetization of Turing machines, which shows how to represent the state of a Turing machine as a set of four integers. Then section 11.2 discusses how to store those four integers in the register of a Minsky machine and simulate the Turing machine by constructing the appropriate block of program for each state of the Turing machine. This demonstrates that a Minsky machine can be constructed for any Turning machine and so Minsky machines can compute all Turing computable functions. 
+
+(2) To show that anything computed on a Minsky machine can also be computed on a Turing machine, one would need to demonstrate that you can store the Minsky register data on the Turing tape, that you can do the two main operations of a Minsky machine on a Turing machine (namely incrementing and decrementing register values), and that you can create Turing program lines that mimic the operation of the Minsky program. We know that this is all possible because the procedure for the Minsky machine operation is precisely described and any procedure which can be precisely described can be programmed to be performed by a Turing machine.
+
+</details>
+
+**Problem 3.2**
+
+
+
+
 
 

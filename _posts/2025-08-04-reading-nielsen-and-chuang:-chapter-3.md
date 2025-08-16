@@ -7,11 +7,6 @@ I went to the History and further reading section of this chapter after reading 
 *Computation: Finite and Infinite Machines* by Minsky: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf <br>
 *Computational Complexity* by Papadimitriou: http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf
 
-
-The Conway articles are here: <br>
-Unpredictable Iterations: https://gwern.net/doc/cs/computable/1972-conway.pdf <br>
-Fractran: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
-
 I used visual paradigm to make the logic diagrams: <br>
 https://online.visual-paradigm.com/diagrams/features/logic-diagram-software/
 

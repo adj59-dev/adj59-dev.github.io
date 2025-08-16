@@ -1252,5 +1252,13 @@ For this problem we are asked to prove that for any computable function $f(.)$ t
 
 A fractran program is defined by a list of postive rational numbers $q_1, \cdots, q_n$. It acts on a positive integer $m$ by replacing it by $q_i m$, where $i$ is the least number such that $q_i m$ is an integer. If there is ever a time when there is no $i$ such that $q_i m$ is an integer, then exercution stops. 
 
+So, we start with $2^n$. After the first step, we have $q_i 2^n$. We know that this is an integer. Let's say $q_i = \frac{a_i}{b_i}$, in its reduced form, therefore our new integer is $q_1 2^n = \frac{a_1 2^n}{b_1}$. Since it is an integer, we know that $b_2 = 2^{x_1}$ for some $x$. Therefore our new number can be written as $q_1 2^n = \frac{a_1 2^n}{2^x} = a_1 2^{n-x}$. Now, for our next step we have $q_2 a_1 2^{n-x_1} = \frac{a_1 a_2 2^{n-x_1}}{b_2}$, which means that $b_2 = a_1 2^{x_2}$. Following this trend we see that $b_i = a_{i-1} 2^{x_i}$. 
 
+Here is a table that has the different lists for different functions
+
+| f(n)  | list            |
+|-------|-----------------|
+| n + x | 2^{x}           |
+| n - x | \frac{1}{2^{x}} |
+| xn    | 
 

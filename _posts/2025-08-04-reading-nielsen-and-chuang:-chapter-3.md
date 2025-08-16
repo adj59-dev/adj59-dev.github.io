@@ -1245,15 +1245,35 @@ Using this methodology any Midsky machine can be simulated using a vector game. 
 
 For this problem we are asked to prove that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2. There is an example in the book on page 169 of using Fractran, it is also discussed by Conway in FRACTRAN: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
 
-A fractran program is defined by a list of postive rational numbers $q_1, \cdots, q_n$. It acts on a positive integer $m$ by replacing it by $q_i m$, where $i$ is the least number such that $q_i m$ is an integer. If there is ever a time when there is no $i$ such that $q_i m$ is an integer, then exercution stops. 
+A Fractran program is defined by a list of positive rational numbers $q_1, \cdots, q_n$. It acts on a positive integer $m$ by replacing it by $q_i m$, where $i$ is the least number such that $q_i m$ is an integer. If there is ever a time when there is no $i$ such that $q_i m$ is an integer, then execution stops. 
 
-So, we start with $2^n$. After the first step, we have $q_i 2^n$. We know that this is an integer. Let's say $q_i = \frac{a_i}{b_i}$, in its reduced form, therefore our new integer is $q_1 2^n = \frac{a_1 2^n}{b_1}$. Since it is an integer, we know that $b_2 = 2^{x_1}$ for some $x$. Therefore our new number can be written as $q_1 2^n = \frac{a_1 2^n}{2^x} = a_1 2^{n-x}$. Now, for our next step we have $q_2 a_1 2^{n-x_1} = \frac{a_1 a_2 2^{n-x_1}}{b_2}$, which means that $b_2 = a_1 2^{x_2}$. Following this trend we see that $b_i = a_{i-1} 2^{x_i}$. 
+So, thinking about this, we start with $2^n$. After the first step, we have $q_i 2^n$. We know that this is an integer. Let's say $q_i = \frac{a_i}{b_i}$, in its reduced form, therefore our new integer is $q_1 2^n = \frac{a_1 2^n}{b_1}$. Since it is an integer, we know that $b_2 = 2^{x_1}$ for some $x$. Therefore, our new number can be written as $q_1 2^n = \frac{a_1 2^n}{2^x} = a_1 2^{n-x}$. Now, for our next step we have $q_2 a_1 2^{n-x_1} = \frac{a_1 a_2 2^{n-x_1}}{b_2}$, which means that $b_2 = a_1 2^{x_2}$. Following this trend we see that $b_i = a_{i-1} 2^{x_i}$ for each step and so we can use the $a_i$ values and the ordering of the fractions in the list to create an algorithm. 
 
-Here is a table that has the different lists for different functions
+The authors give us a hint for this problem to use the previous problem. So, let's think about whether we can represent the two Minsky orders as lists of fractions. 
 
-| f(n)  | list            |
-|-------|-----------------|
-| n + x | 2^{x}           |
-| n - x | \frac{1}{2^{x}} |
-| xn    | 
+<img width="1526" height="434" alt="image" src="https://github.com/user-attachments/assets/dcb5b50f-388d-4791-9134-7328fbcb2046" />
+
+Here, $n$ can be considered a registry in the Minsky machine. To increment $n$ by $x$ with each power of 2 produced by the program you can use a list that consists of one term: $2^x$. To decrement $n$ by $x$, when $n>=x$, with each power of 2 produced by the program you can also use a list that consists of one term: $\frac{1}{2^x}$. 
+
+However, as we saw with the previous problem, just being able to increment and decrement a register is not enough, we also need a way to identify what Minsky order to use. For this, we will need two more registries. To create these registries, we can use two additional prime numbers, for now, let's use 3 and 5. Now we can start with our starting value $2^n 3^0 5^0$ and increment or decrement the registries each step by using the fraction $\frac{2^{x_+}3^{y_+}5^{z_+}}{2^{x_-}3^{y_-}5^{z_-}}$. Where $x_+$ gives the amount incremented and $x_-$ is the amount decremented from register $r_1$, the same can be said for registers $r_2+ for $y_{\pm}$ and $r_3$ for $z_{\pm}$.
+
+Going back to the example I made in the previous problem, 
+
+<img width="814" height="944" alt="image" src="https://github.com/user-attachments/assets/65487c1a-b6ec-4b77-863d-5a682efa649a" />
+
+We can now represent our starting vector and our vector list as fractions, as shown below
+
+$$\begin{aligned}
+\text{starting vector and fraction:} & (x, y, z, 0, 3) &\Rightarrow  \frac{2^x 3^y 5^z 11^3}{1} \\
+\text{list of vectors and fractions:} & (0, 0, 0, 1, -1) &\Rightarrow \frac{7}{11}\\
+& (-1, 0, 0, -4, 3) &\Rightarrow \frac{11^3}{2 \times 7^{4}}\\
+& (0, 0, 0, -4, 2) &\Rightarrow \frac{11^2}{7^4}\\
+& (0, 1, 0, -3, 4) &\Rightarrow \frac{3 \times 11^4}{7^3}\\
+& (0, 0, -1, -2, 1) &\Rightarrow \frac{11}{5 \times 7^2}\\
+& (0, 0, 0, -2, 0) &\Rightarrow \frac{1}{7^2}\\
+& (1, 0, 0, -1, 2) &\Rightarrow \frac{11^2}{7}\\
+\end{aligned}$$
+
+and so our list of fractions that reproduces the Mindsky machine is $\frac{7}{11}, \frac{11^3}{2 \times 7^{4}}, \frac{11^2}{7^4}, \frac{3 \times 11^4}{7^3}, \frac{11}{5 \times 7^2}, \frac{1}{7^2}, \frac{11^2}{7}$. Using this methodology any Midsky machine can be simulated using a Fractran program. Therefore, for any computable function $f(\cdot)$ there is a Fractran program which when started with the vector $2^n$ reaches $2^{f(n)}$. This, unfortunatly, is not what we are asked to prove, which is that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2.
+
 

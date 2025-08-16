@@ -1292,3 +1292,16 @@ Therefore, for any computable function $f(.)$ there is a Fractran program which 
 </details>
 
 
+**Problem 3.4**
+
+For this problem, we are asked to prove that there is no algorithm to decide whether a Fractran program ever reaches 1. This is just another form of the halting problem.
+
+Suppose, for contradiction, that there is a Fractran program $M_F$ that, given the code of another Fractran program $F$, tells us whether the run of $F$ from a fixed starting number ever reaches 1. Using $M_F$, we can design a new program $T_F$ with the following behavior: if $F$ ever reaches 1, then $T_F$ will reach 0 (and never 1); if $F$ never reaches 1, then $T_F$ will reach 1.
+
+Now consider running $T_F$ with its own program as input.
+•	If $T_F$ never reaches 1, then by definition it should reach 1 — a contradiction.
+•	If $T_F$ does reach 1, then by definition it should not reach 1 — also a contradiction.
+
+Therefore such an $M_F$ cannot exist.
+
+

@@ -1374,4 +1374,29 @@ Therefore, there exist Boolean functions (e.g., AND, OR) that cannot be computed
 
 **Problem 3.6**
 
+For this problem we are to suppose that there is an approximation algorithm for TSP which is guaranteed to find the shortest tour among $n$ cities to within a factor of $r$ for $r \geq 1$. Let $G=(V,E)$ be any graph on $n$ vertices. Define an instance of TSP by identifying cities with vertices in $V$, and defining the distance between cities $i$ and $j$ to be 1 if $(i,j)$ is an edge of $G$, and to be $\lceil r \rceil \vert V \vert + 1$ otherwise. Show that if the approximation algorithm is applied to this instance of TSP then it returns a Hamiltonian cycle for $G$ if one exists and otherwise returns a tour of length more than $\lceil r \rceil \vert V \vert$. From the **NP**-completeness of HC it follows that no such approximation algorithm can exist unless **P** = **NP**
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+If a Hamiltonian cycle for $G$ is returned and there are $n$ vertices, that means there are $n$ edges, each with a length of 1, and so the length of the path is $n$. If there is not a Hamiltonian cycle, that means that there will be edges selected for the path that are not in $G$, let's say that the number is $m \geq 1$. Therefore, the path length is 
+
+$$\begin{aligned}
+(n-m)(1) + (m)(\lceil r \rceil \vert V \vert + 1) &= n + m(\lceil r \rceil \vert V \vert + 1 - 1) \\
+&= n + m\lceil r \rceil \vert V \vert \\
+\end{aligned}$$
+
+So, now what we want to show is $\lceil r \rceil \vert V \vert < n + m\lceil r \rceil \vert V \vert$. We know that $n \geq 3$ because there need to be at least 3 cities in the TSP. We also know that, by definition, $m \geq 1$ when the Hamiltonian cycle is not returned. Therefore, we know $3 + \lceil r \rceil \vert V \vert \leq n + m\lceil r \rceil \vert V \vert$. Since $\lceil r \rceil \vert V \vert < 3 + \lceil r \rceil \vert V \vert$, then $\lceil r \rceil \vert V \vert < n + m\lceil r \rceil \vert V \vert$. 
+
+Thus, when the approximation algorithm is applied to this instance of TSP then it returns a Hamiltonian cycle for $G$ if one exists and otherwise returns a tour of length more than $\lceil r \rceil \vert V \vert$.
+
+</details>
+
+
+**Problem 3.7**
+
+
+
+
+
 

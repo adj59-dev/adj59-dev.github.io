@@ -1149,9 +1149,9 @@ Here is the same circuit drawn as a quantum circuit diagram.
 <img width="1326" height="670" alt="image" src="https://github.com/user-attachments/assets/cc4ba2da-5d91-40ea-8212-633377a72752" />
 
 
-It is somewhat unclear to me what the authors mean when they ask us to simulate a Toffoli gate. Do they want the outputs $(a', b', c')$ to be on the same wires as the inputs $(a,b,c)$? Do they want all the garbage bits to be uncomputed? I couldn't find a way to do both of these things simultaneously. 
+It is somewhat unclear to me what the authors mean when they ask us to simulate a Toffoli gate. Do they want the outputs $(a', b', c')$ to be on the same wires as the inputs $(a,b,c)$? Do they want all the garbage bits to be uncomputed? I couldn't find a way to do both of these things simultaneously. Did they want us to only use Fredkin gates and make the circuit reversible? I was also unable to find a way to do this. 
 
-I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates and AND reqires one gate, which means to compute $c'=c \oplus (𝑎∧𝑏)$ we need at least 3 Fredkin gates. If ancilla bits are used, uncomputation will need to be done (if we don't want any garbage bits left over) which will require up to 3 more Fredkin gates. Therefore, the minimum number of Fredkin gates needed to simulate a Toffoli gate is 3-6, depending on uncomputation requirements.
+I'm tempted to make some argument related to the Boolean formula $𝑐′=c \oplus (𝑎∧𝑏)$, but am not confident that it is accurate. If I were to make such an argument it would go something like this: we know that $\oplus$ requires two gates and AND reqires one gate, which means to compute $c'=c \oplus (𝑎∧𝑏)$ we need at least 3 Fredkin gates. If ancilla bits are used, uncomputation will need to be done (if we don't want any garbage bits left over) which will require up to 3 more Fredkin gates. Therefore, the minimum number of Fredkin gates needed to simulate a Toffoli gate is 3-6, depending on uncomputation requirements. Also, this task may be impossible to do if the request is to make a reversible gate with only Fredkin gates that simulate a Toffoli gate. 
 
 Now we are asked to simulate a Fredkin gate with Toffoli gates. For the Fredkin gate, we want to swap a and b when c = 1. So, we want $a' = (¬c ∧ a) \oplus (c ∧ b)$ and $b' = (¬c ∧ b) \oplus (c ∧ a)$. The following circuit generate those outputs using three gates.
 
@@ -1307,15 +1307,71 @@ Now consider running $T_F$ with its own program as input. <br>
 
 Therefore such an $M_F$ cannot exist.
 
-For an alternative (and likely better) proof, you can see Minsky section 8.3.2. I went there to check my answer and saw that he took a different approach. I decided to leave my answer here as well, but be warned that I was not able to confirm that it is correct. 
+For an alternative (and likely better) proof, you can see Minsky section 8.3.2. I went there to check my answer and saw that he took a different approach. Though, I decided to leave my answer here as well. 
 
 </details>
 
 
 **Problem 3.5**
 
+For this problem, we are asked to prove that there are Boolean functions which cannot be computed using only one- and two-bit reversible logic gates and ancilla bits. Then we are to deduce that the Toffoli gate cannot be simulated using one- and two-bit reversible gates, even with the use of ancilla bits. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+In section 3.2.5, the authors talk about reversible and irreversible gates and comment on how a gate is irreversible if given the output of the gate, the input is not uniquely determined. From the book, we know that the NOT gate and identity gate are reversible and all the gates with fewer outputs than inputs are irreversible (AND, OR, XOR). 
+
+So, let's think about how we could change these irreversible two-bit gates to make them reversible. One way would be to add an output that give us the value of one of the inputs, as shown below. 
+
+<img width="658" height="250" alt="image" src="https://github.com/user-attachments/assets/e2f23aea-6752-4ee7-b88c-24f4a1055f7c" />
+
+Let's think about what the truth tables would look for this gate for different logic operations.
+
+| a | b | a AND b | b |
+|:-:|:-:|:-------:|:-:|
+| 0 | 0 | 0       | 0 |
+| 0 | 1 | 0       | 1 |
+| 1 | 0 | 0       | 0 |
+| 1 | 1 | 1       | 1 |
+
+Looking at the table we see that adding the addition output b to the AND gate, does not make the gate reversible since there are several inputs that correspond to the same output. 
+
+| a | b | a OR b  | b |
+|:-:|:-:|:-------:|:-:|
+| 0 | 0 | 0       | 0 |
+| 0 | 1 | 1       | 1 |
+| 1 | 0 | 1       | 0 |
+| 1 | 1 | 1       | 1 |
+
+Looking at the table we see that adding the addition output b to the OR gate, does not make the gate reversible since there are several inputs that correspond to the same output. 
+
+| a | b | a XOR b | b |
+|:-:|:-:|:-------:|:-:|
+| 0 | 0 | 0       | 0 |
+| 0 | 1 | 1       | 1 |
+| 1 | 0 | 1       | 0 |
+| 1 | 1 | 0       | 1 |
+
+Looking at the table we see that adding the addition output b to the XOR gate, makes the gate reversible since there is only one input that correspond to a given output. 
+
+Therefore, with this modification to the standard 2-bit logic gates, only the XOR gate becomes reversible. So now the question is, what can we make with XOR, NOT, and ancilla bits?
+
+First let's look at these gates and fixed value ancilla bits in algebraic normal form: <br>
+Ancilla bit: 1 or 0 <br>
+NOT: $1 \oplus a$ <br>
+XOR: $a \oplus b$ <br>
+AND: $ab$ <br>
+OR: $a \oplus b \oplus ab$ <br>
+Tofolli (on target c): $c \oplus ab$ <br>
+
+Looking at these forms, we see that the ancilla bits have an algebraic degree of 0, the NOT and XOR gates have an algebraic degree of 1, and the AND, OR, and Toffolli gates has algebraic degree of 2. Using NOT gates, XOR gates, and ancilla bits, we are unable to create a gate with the algebraic degree of 2, the highest algebraic degree possible is 1. 
+
+Therefore, there exist Boolean functions (e.g., AND, OR) that cannot be computed with only 1- and 2-bit reversible gates and ancillas. In particular, the Toffoli gate cannot be simulated from such gates (even with ancillas).
+
+</details>
 
 
 
+**Problem 3.6**
 
 

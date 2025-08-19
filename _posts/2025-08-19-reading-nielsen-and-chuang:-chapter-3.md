@@ -644,10 +644,10 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
 
 This problem is challenging, and I ended up referencing the following resources to find and understand the solution. I did change some steps in my solution compared to what is in these resources. These changes did not impact the final result - it just made more sense to me to do it that way.  <br>
-[how many semantically different boolean functions are there for n boolean variables?](https://math.stackexchange.com/questions/505393/how-many-semantically-different-boolean-functions-are-there-for-n-boolean-variab) <br>
-[Circuit Complexity](https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf) <br>
-[Size and Depth complexity of Boolean Circuits](https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf) <br>
-[How to show that hard-to-compute Boolean functions exist?](https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist)
+-[how many semantically different boolean functions are there for n boolean variables?](https://math.stackexchange.com/questions/505393/how-many-semantically-different-boolean-functions-are-there-for-n-boolean-variab) <br>
+-[Circuit Complexity](https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf) <br>
+-[Size and Depth complexity of Boolean Circuits](https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf) <br>
+-[How to show that hard-to-compute Boolean functions exist?](https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist)
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

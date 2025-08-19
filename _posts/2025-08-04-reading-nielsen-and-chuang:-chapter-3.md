@@ -1436,16 +1436,20 @@ Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf <br>
 
 For this problem we are asked to outline the construction of a reversible circuit which, upon the input of $m$ and $n$ such that $n>m$, outputs the product $p_mp_n$, that is $(m,n) \rightarrow (p_m p_n, g(m,n))$, where $g(m,n)$ is the final state of the ancilla bits used by the circuit and $p_m$ is the $m\text{th}$ prime number. We are to estimate the number of ancilla qubits our circuit requires and prove that if a polynomial (in $\log n$) size reversible circuit can be found that uses $O(\log(\log n))$ ancilla bits then the problem of factoring a product of two prime numbers is in **P**. 
 
-Suppose there exists a reversible circuit $C$ of size polynomial in the input length $l$  (where $l$ is the bit-length of the inputs $m,n$, so $l = O(\log n)) that on input of $(m,n,0^k)$ outputs $(p_m_pn,  g(m,n))$, where $k$ (the number of ancilla bits) is $O(\log\log n)$. We need to show that this implies factoring (of the number $p_mp_n$) can be done in polynomial time in $l$ (hence in **P**).
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
-Since $C$ is reversible, if we know that given $(p_mp_n, g(m,n))$ we would be able to run $C$ in reverse ($C^{-1}$) to extract $(m,n)$ in polynomial time. Then $m$ and $n$ could be used to find $p_m$ and $p_n$ in polynomial time. This would allow factoring in polynomial time. 
-We know that it is possible to find $p_m$ and $p_n$ given $m$ and $n$ in polynomial time because $C$ already maps $(m,n) \rightarrow (p_mp_n, g(m,n))$  in polynomial time and so $C$ can be used to find $p_m$ by inputting $n=1$ and then dividing $p_mp_n$ by two (and something similar can be done for $n$). 
+Suppose there exists a reversible circuit $C$ of size polynomial in the input length $l$ that on input of $(m,n,0^k)$ outputs $(p_mp_n,  g(m,n))$, where $l$ (the bit-length of the inputs $m,n$) is $O(\log n)$ and $k$ (the number of ancilla bits) is $O(\log\log n)$. Then we need to show that this implies factoring (of the number $p_mp_n$) can be done in polynomial time in $l$ (hence in **P**).
 
-The problem is, we don’t necessarily know $g(m,n)$ when using $C^{-1}$ for factoring. However, fortunately, we know that $g(m,n)$ is short with $k$ of $O(\log\log n)$ and so the number of possible combinations is small $2^k = 2^{O(\log\log n)} = (\log n)^{O(1)} = (l)^{O(1)}$. Therefore, it is possible to try all candidate $g(m,n)$ values in time polynomial in $l$, since each run of $C^{-1}$ is $poly(l)$ and it will be run up to $(l)^{O(1)}$ times. Then we can check whether the guess was correct by computing $C$ with the  $(m,n)$ output from $C^{-1}$.
+Since $C$ is reversible, we know that given $(p_mp_n, g(m,n))$ we would be able to run $C$ in reverse ($C^{-1}$) to extract $(m,n)$ in polynomial time. Then $m$ and $n$ could be used to find $p_m$ and $p_n$ in polynomial time. This would allow factoring in polynomial time. 
+
+We know that it is possible to find $p_m$ and $p_n$ given $m$ and $n$ in polynomial time because $C$ already maps $(m,n) \rightarrow (p_mp_n, g(m,n))$  in polynomial time and so $C$ can be used to find $p_m$ by inputting $n=1$ and then dividing the output $p_mp_n$ by two (and something similar can be done for $n$). 
+
+The problem is, we don’t necessarily know $g(m,n)$ when using $C^{-1}$ for factoring. However, fortunately, we know that $g(m,n)$ is short, with $k$ in $O(\log\log n)$, and so the number of possible combinations is small $2^k = 2^{O(\log\log n)} = (\log n)^{O(1)} = (l)^{O(1)}$. Therefore, it is possible to try all candidate $g(m,n)$ values in time polynomial in $l$, since each run of $C^{-1}$ is $poly(l)$ and it will be run up to $(l)^{O(1)}$ times. Then we can check whether the candidate $g(m,n)$ value was correct by computing $C$ with the $(m,n)$ output from $C^{-1}$ and confirming it matches $p_m p_n$.
 
 Therefore, if circuit $C$ exists, factoring can be done in polynomial time and hence is in **P**. 
 
-
+</details>
 
 
 

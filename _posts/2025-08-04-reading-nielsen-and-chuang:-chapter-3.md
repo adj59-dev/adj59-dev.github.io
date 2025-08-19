@@ -1434,30 +1434,18 @@ Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf <br>
 
 **Problem 3.10**
 
-For this problem we are to outline the construction of a reversible circuit which, upon the input of $m$ and $n$ such that $n>m$, outputs the product $p_mp_n$, that is $(m,n) \rightarrow (p_m p_n, g(m,n))$, where $g(m,n)$ is the final state of the ancilla bits used by the circuit and $p_m$ is the $m\text{th}$ prime number. We are to estimate the number of ancilla qubits our circuit requires and prove that if a polynomial (in $\log n$) size reversible circuit can be found that uses $O(\log(\log n))$ ancilla bits then the problem of factoring a product of two prime numbers is in **P**. 
+For this problem we are asked to outline the construction of a reversible circuit which, upon the input of $m$ and $n$ such that $n>m$, outputs the product $p_mp_n$, that is $(m,n) \rightarrow (p_m p_n, g(m,n))$, where $g(m,n)$ is the final state of the ancilla bits used by the circuit and $p_m$ is the $m\text{th}$ prime number. We are to estimate the number of ancilla qubits our circuit requires and prove that if a polynomial (in $\log n$) size reversible circuit can be found that uses $O(\log(\log n))$ ancilla bits then the problem of factoring a product of two prime numbers is in **P**. 
 
-Here is the general outline in psudocode of what needs to be calculated:
+Suppose there exists a reversible circuit $C$ of size polynomial in the input length $l$  (where $l$ is the bit-length of the inputs $m,n$, so $l = O(\log n)) that on input of $(m,n,0^k)$ outputs $(p_m_pn,  g(m,n))$, where $k$ (the number of ancilla bits) is $O(\log\log n)$. We need to show that this implies factoring (of the number $p_mp_n$) can be done in polynomial time in $l$ (hence in **P**).
 
-```
-computation(m,n):
-  \\step 1: find pm and pn
-  prime_counter = 0
-  number = 1
-  while prime_counter < pn:
-    if is_prime(number):
-      prime_counter += 1
-      if prime_counter == m:
-        pm = number
-      if prime_counter == n:
-        pn = number
-    number += 1
-  \\step 2: multiply pm and pn
-    product = pm x pn
-  return:product
+Since $C$ is reversible, if we know that given $(p_mp_n, g(m,n))$ we would be able to run $C$ in reverse ($C^{-1}$) to extract $(m,n)$ in polynomial time. Then $m$ and $n$ could be used to find $p_m$ and $p_n$ in polynomial time. This would allow factoring in polynomial time. 
+We know that it is possible to find $p_m$ and $p_n$ given $m$ and $n$ in polynomial time because $C$ already maps $(m,n) \rightarrow (p_mp_n, g(m,n))$  in polynomial time and so $C$ can be used to find $p_m$ by inputting $n=1$ and then dividing $p_mp_n$ by two (and something similar can be done for $n$). 
 
-```
+The problem is, we don’t necessarily know $g(m,n)$ when using $C^{-1}$ for factoring. However, fortunately, we know that $g(m,n)$ is short with $k$ of $O(\log\log n)$ and so the number of possible combinations is small $2^k = 2^{O(\log\log n)} = (\log n)^{O(1)} = (l)^{O(1)}$. Therefore, it is possible to try all candidate $g(m,n)$ values in time polynomial in $l$, since each run of $C^{-1}$ is $poly(l)$ and it will be run up to $(l)^{O(1)}$ times. Then we can check whether the guess was correct by computing $C$ with the  $(m,n)$ output from $C^{-1}$.
 
-So for the circuit, we'll start out with a certian number of bits to represent $m$ and $n$, this will be the input using total number of bits $b=m+n$. Then we'll need additional bits to store the values for the prime_counter, $O(b)$ and number $O(b)$. Then we'll need some bits to calculate the function is_prime, this will likely be the calculation which requires the most ancilla bits. Once the prime numbers are found, they'll need to be stored with ancilla bits $O(\log b)$ Then some more bits will be needed to multiply pm and pn to give the product $O(\log b)$. So the total number of bits will be something like $O(b) + O(\log b) + O(\text{whatever is required for checking if the number is prime})$. 
+Therefore, if circuit $C$ exists, factoring can be done in polynomial time and hence is in **P**. 
+
+
 
 
 

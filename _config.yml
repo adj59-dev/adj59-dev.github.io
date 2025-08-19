@@ -25,7 +25,7 @@ rss: rss
 kramdown:
   syntax_highlighter_opts:
     disable: true
-    math_engine: nil
+    math_engine: katex
 
 markdown: GFM
 

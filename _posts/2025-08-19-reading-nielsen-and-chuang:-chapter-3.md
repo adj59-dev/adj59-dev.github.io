@@ -108,7 +108,8 @@ Here we are to describe a Turing machine which takes a binary number as input an
 
 We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other is all blank. The program is setup to read the binary input from the first tape and print the bits in reverse order on the second. 
 
-The program is given as follows
+The program is given as follows <br>
+
 
 | $q$              | $x_1$            | $x_2$            | $q'$             | $x_1'$           | $x_2'$           | $s_1$            | $s_2$            |
 |------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|

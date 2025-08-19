@@ -63,15 +63,10 @@ To recognize that a process in Nature computes a function not computable by a Tu
 
 I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 Let's say we have a program described by a finite list of program lines of the form $\braket{q, x, q', x', s}$ with a library consiting of $0, 1, b, \triangleright$, $-1$ for tape-head movement, internal states $q_1, \cdots, q_m$, the starting state $q_s$, and the halting state $q_h$, we can represent each symbol in the library and the different states as a non-negative integer as shown below
-
-| Symbol | Integer |
-|--------|---------|
-| -1     | 1       |
-| 0      | 2       |
 
 
 | Symbol           | Integer |
@@ -109,7 +104,7 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 
 Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape turing machine to create this solution, as recommended in the hint. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other is all blank. The program is setup to read the binary input from the first tape and print the bits in reverse order on the second. 

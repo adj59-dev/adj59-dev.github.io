@@ -2,15 +2,17 @@
 
 I just finished reading Chapter 3 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
-I went to the History and further reading section of this chapter after reading the first couple of questions, since it was apparent that I was missing important background knowledge. Here are some of the resources that I found useful. 
+Unlike the previous chapter, which felt more like review, this one was packed with new material for me. Because of this, I found myself searching for additional resources from the *History and further reading* section frequently, which help deepen my understanding of the topics. 
 
-*Computation: Finite and Infinite Machines* by Minsky: https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf <br>
-*Computational Complexity* by Papadimitriou: http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf
+Two of the resources that I found most useful are
+[*Computation: Finite and Infinite Machines*](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) by Minsky and [*Computational Complexity*](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) by Papadimitriou. I also pulled in some additional references while working through specific problems, and I’ve linked those alongside my solutions below. 
 
-I used visual paradigm to make the logic diagrams: <br>
-https://online.visual-paradigm.com/diagrams/features/logic-diagram-software/
+This chapter covers a lot of foundational theoretical computer science topics: Turing machines, complexity classes, and graph theory. Before now, I only had a hazy awareness of these ideas. I knew that they existed, but I’d never studied them formally. It took me a few weeks to get through the material, but I feel like I’ve built a solid introductory understanding. That said, I think I’ll need to practice more problems (maybe from the books above) to really get comfortable solving them quickly. The chapter also covered circuits. While I’d learned about classical circuits before, the discussion of reversible circuits was new for me. 
 
-Big O notation in this book different than what I remember learning previously. Complexity classes very important in demonstrating whether quantum computers have an advantage over classical computers -- as of the writing of this book, this has not been demonstrated. 
+I appreciated that the authors explained why these topics matter for quantum computing; it kept me motivated to work through the exercises instead of skipping ahead. I’m curious to see how much of this material will resurface in later chapters.
+
+As with Chapter 2, I’ve included my notes and exercise solutions below. The solutions are collapsed to save space and to avoid spoilers for anyone who wants to attempt them on their own.
+
 
 ## Navigation
 

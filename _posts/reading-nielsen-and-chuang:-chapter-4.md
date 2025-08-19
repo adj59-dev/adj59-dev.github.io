@@ -19,16 +19,16 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 
 
 
-## Models for computation
+## Quantum algorithms
 
-### Models for computation - Key Concepts
+### Quantum algorithms - Key Concepts
 
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 
 
-### Models for computation - Exercises
+### Quantum algorithms - Exercises
   
 **Exercise 4.1** 
 

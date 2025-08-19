@@ -1423,14 +1423,41 @@ Monotone circuits (with only AND/OR gates, no negation) are discussed in section
 **Problem 3.9**
 
 For this problem we are asked to prove that a reversible Turing machine operating in polynomial space can be used to solve QSAT. Thus, the class of languages decidable by a computer operating reversibly in polynomial space is equal to **PSPACE**. The further reading section cites three papers related to this problem: <br>
-Bennett: https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf
-Li and Vitany: https://homepages.cwi.nl/~paulv/papers/thermo.pdf
-Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf
+Bennett: https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf <br>
+Li and Vitany: https://homepages.cwi.nl/~paulv/papers/thermo.pdf <br>
+Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf <br>
 
 
 
 
 
+
+**Problem 3.10**
+
+For this problem we are to outline the construction of a reversible circuit which, upon the input of $m$ and $n$ such that $n>m$, outputs the product $p_mp_n$, that is $(m,n) \rightarrow (p_m p_n, g(m,n))$, where $g(m,n)$ is the final state of the ancilla bits used by the circuit and $p_m$ is the $m\text{th}$ prime number. We are to estimate the number of ancilla qubits our circuit requires and prove that if a polynomial (in $\log n$) size reversible circuit can be found that uses $O(\log(\log n))$ ancilla bits then the problem of factoring a product of two prime numbers is in **P**. 
+
+Here is the general outline in psudocode of what needs to be calculated:
+
+```
+computation(m,n):
+  \\step 1: find pm and pn
+  prime_counter = 0
+  number = 1
+  while prime_counter < pn:
+    if is_prime(number):
+      prime_counter += 1
+      if prime_counter == m:
+        pm = number
+      if prime_counter == n:
+        pn = number
+    number += 1
+  \\step 2: multiply pm and pn
+    product = pm x pn
+  return:product
+
+```
+
+So for the circuit, we'll start out with a certian number of bits to represent $m$ and $n$, this will be the input using total number of bits $b=m+n$. Then we'll need additional bits to store the values for the prime_counter, $O(b)$ and number $O(b)$. Then we'll need some bits to calculate the function is_prime, this will likely be the calculation which requires the most ancilla bits. Once the prime numbers are found, they'll need to be stored with ancilla bits $O(\log b)$ Then some more bits will be needed to multiply pm and pn to give the product $O(\log b)$. So the total number of bits will be something like $O(b) + O(\log b) + O(\text{whatever is required for checking if the number is prime})$. 
 
 
 

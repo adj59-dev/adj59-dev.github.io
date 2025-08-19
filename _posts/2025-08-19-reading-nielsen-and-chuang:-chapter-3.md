@@ -52,7 +52,7 @@ As with Chapter 2, I’ve included my notes and exercise solutions below. The so
 
 This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. Minsky chapter 5 discusses the idea of computability. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 To recognize that a process in Nature computes a function not computable by a Turing machine, one would need to demonstrate that no Turing machine can reproduce the same input-output behavior. This typically involves proving that the function the process computes is non-computable. According to Minsky (Chapter 5), _“any procedure which can be precisely described can be programmed to be performed by a computer"_. Therefore, if a physical process yields results that cannot be captured by any precisely describable algorithm, it would suggest that the process computes a non-Turing-computable function. 

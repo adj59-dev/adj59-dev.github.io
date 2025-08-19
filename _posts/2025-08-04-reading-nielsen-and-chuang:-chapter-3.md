@@ -1407,3 +1407,15 @@ For this problem we are asked to describe a reversible Turing machine. There was
 </details>
 
 
+**Problem 3.8**
+
+The authors ask us to find a hard-to-compute class of functions. 
+
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
+
+Monotone circuits (with only AND/OR gates, no negation) are discussed in section 14.4 of Papadimitriou. There, Razborov’s theorem is introduced: There is a constant $c$ such that for large enough $n$ all monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ have size at least $2^{c\sqrt[8]{n}}$. Therefore, monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ require a super-polynomial number of Boolean gates to compute. 
+
+</details>
+
+

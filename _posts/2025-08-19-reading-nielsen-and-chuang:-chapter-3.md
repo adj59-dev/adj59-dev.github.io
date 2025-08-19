@@ -228,7 +228,7 @@ Here is an example of how it would run
 
 For this exercise we are asked to describe a Turing machine which adds two binary numbers modulo 2. I also used two tapes for this machine. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 We will use two tapes for this machine. The first will contain the binary values and the second will start out blank. The program will first transfer the values for the first number to the second tape, then do a bit-wise XOR on the last digit of the two numbers, replacing the last value on the second tape with the results, then it will zero out the rest of the values on the second tape, so that the value on the second tape is the answer. 
@@ -416,7 +416,7 @@ An oracle machine with access to a halting problem oracle for standard Turing ma
 
 For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to teh NAND gates. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 This is how you can make an AND gate with NAND gates
@@ -606,7 +606,7 @@ Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for 
 
 In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $O(n \log n)$. You will need to use Stirling's approximation to do this. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 There are $n!$ possible initial orderings of the list. Below is a table that shows how many of those orderings $n_k$ are in the correct order after $k$ compare-and-swaps. 
@@ -649,7 +649,7 @@ https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf <br>
 https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf <br>
 https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 We know a Boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. Below is an example of all 16 possible functions for the case of $n=2$.
@@ -1074,7 +1074,7 @@ We can do something similar for our Turing machine $M$, where we build a new Tur
 
 Show that applying two consecutive Fredkin gates gives the same outputs as inputs.
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 In the table below, the first two columns are the same as Figure 3.15 in the textbook. The third column is the output of a Fredkin gate when the input is the one listed in the second column. As can be seen, the first and third column are the same. Therefore, applying two consecutive Fredkin gates gives the same output as the inputs.
@@ -1320,7 +1320,7 @@ For an alternative (and likely better) proof, you can see Minsky section 8.3.2. 
 
 For this problem, we are asked to prove that there are Boolean functions which cannot be computed using only one- and two-bit reversible logic gates and ancilla bits. Then we are to deduce that the Toffoli gate cannot be simulated using one- and two-bit reversible gates, even with the use of ancilla bits. 
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 In section 3.2.5, the authors talk about reversible and irreversible gates and comment on how a gate is irreversible if given the output of the gate, the input is not uniquely determined. From the book, we know that the NOT gate and identity gate are reversible and all the gates with fewer outputs than inputs are irreversible (AND, OR, XOR). 

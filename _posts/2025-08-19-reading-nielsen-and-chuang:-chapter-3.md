@@ -641,13 +641,13 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 
 **Exercise 3.16**
 
-This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online errata page (https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
+This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
 
 This problem is challenging, and I ended up referencing the following resources to find and understand the solution. I did change some steps in my solution compared to what is in these resources. These changes did not impact the final result - it just made more sense to me to do it that way.  <br>
-https://math.stackexchange.com/questions/505393/how-many-semantically-different-boolean-functions-are-there-for-n-boolean-variab <br>
-https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf <br>
-https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf <br>
-https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist 
+[how many semantically different boolean functions are there for n boolean variables?](https://math.stackexchange.com/questions/505393/how-many-semantically-different-boolean-functions-are-there-for-n-boolean-variab) <br>
+[Circuit Complexity](https://www.cs.umd.edu/~jkatz/complexity/f05/lecture4.pdf) <br>
+[Size and Depth complexity of Boolean Circuits](https://deeplearning.cs.cmu.edu/S25/document/readings/booleancircuits_shannonproof.pdf) <br>
+[How to show that hard-to-compute Boolean functions exist?](https://cs.stackexchange.com/questions/82271/how-to-show-that-hard-to-compute-boolean-functions-exist)
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1033,7 +1033,7 @@ This function is a polynomial with degree $\frac{1}{\log_m(k)}$. Therefore, **L*
 
 **Exercise 3.27**
 
-In this exercise we are to prove that the given algorithm approximates the vertex cover for a graph $G$ within a factor of two of being a minimal vertex cover. Per Wikipedia, in graph theory, a vertex cover of a graph is a set of vertices that includes at least one endpoint of every edge of the graph.
+In this exercise we are to prove that the given algorithm approximates the vertex cover for a graph $G$ within a factor of two of being a minimal vertex cover. Per [Wikipedia](https://en.wikipedia.org/wiki/Vertex_cover), in graph theory, a vertex cover of a graph is a set of vertices that includes at least one endpoint of every edge of the graph.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1200,7 +1200,7 @@ For this problem we are asked to show that a Minsky machine can compute all Turi
 
 **Problem 3.2**
 
-For this problem we are asked to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint, we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. This vector game is discussed by Conway in Unpredictable Iterations, which also contains the solution to this problem: https://gwern.net/doc/cs/computable/1972-conway.pdf
+For this problem we are asked to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint, we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. This vector game is discussed by Conway in [Unpredictable Iterations](https://gwern.net/doc/cs/computable/1972-conway.pdf), which also contains the solution to this problem.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1247,7 +1247,7 @@ Using this methodology any Midsky machine can be simulated using a vector game. 
 
 **Problem 3.3**
 
-For this problem we are asked to prove that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2. There is an example in the book on page 169 of using Fractran, it is also discussed by Conway in FRACTRAN: https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf
+For this problem we are asked to prove that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2. There is an example in the book on page 169 of using Fractran, it is also discussed by Conway in [FRACTRAN: A SIMPLE UNIVERSAL PROGRAMMING LANGUAGE FOR ARITHMETIC](https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf).
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1427,9 +1427,9 @@ Monotone circuits (with only AND/OR gates, no negation) are discussed in section
 **Problem 3.9**
 
 For this problem we are asked to prove that a reversible Turing machine operating in polynomial space can be used to solve QSAT. Thus, the class of languages decidable by a computer operating reversibly in polynomial space is equal to **PSPACE**. The further reading section cites three papers related to this problem: <br>
-Bennett: https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf <br>
-Li and Vitany: https://homepages.cwi.nl/~paulv/papers/thermo.pdf <br>
-Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf <br>
+-Bennett: [TIME/SPACE TRADE-OFFS FOR REVERSIBLE COMPUTATION](https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf) <br>
+-Li and Vitany: [Reversibility and Adiabatic Computation: Trading Time and Space for Energy](https://homepages.cwi.nl/~paulv/papers/thermo.pdf) <br>
+-Li, Tromp, and Vitany: [Reversible Simulation of Irreversible Computation ](https://homepages.cwi.nl/~paulv/papers/pebbles.pdf) <br>
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

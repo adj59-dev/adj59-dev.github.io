@@ -68,6 +68,12 @@ I found reading Minsky section 7.2 to be helpful in understanding what this ques
 
 Let's say we have a program described by a finite list of program lines of the form $\braket{q, x, q', x', s}$ with a library consiting of $0, 1, b, \triangleright$, $-1$ for tape-head movement, internal states $q_1, \cdots, q_m$, the starting state $q_s$, and the halting state $q_h$, we can represent each symbol in the library and the different states as a non-negative integer as shown below
 
+| Symbol | Integer |
+|--------|---------|
+| -1     | 1       |
+| 0      | 2       |
+
+
 | Symbol           | Integer |
 |------------------|---------|
 | $-1$             | $1$     |

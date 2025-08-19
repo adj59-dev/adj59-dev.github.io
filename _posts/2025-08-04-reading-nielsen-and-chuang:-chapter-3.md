@@ -1427,10 +1427,28 @@ Bennett: https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeof
 Li and Vitany: https://homepages.cwi.nl/~paulv/papers/thermo.pdf <br>
 Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf <br>
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
+It is known that QSAT is PSPACE-complete for a normal Turing machine. PSPACE is the set of all decision problems that can be solved by a Turing machine using a polynomial amount of space. So, what we need to show is that a decision problem that can be solved by a Turing machine using a polynomial amount of space can also be solved on a reversible Turing machine using a polynomial amount of space. 
 
+Bennett's paper shows that Turing machines using time $T$ and space $S$ can be simulated by reversible ones using time $O(T^{1+\epsilon})$ for any $\epsilon > 0$ and space $O(S \log T)$. For a machine that is space-bounded by a polynomial $S$, its time $T$ can be at most $2^{O(S)}$ since there are only that many distinct configurations, so
 
+$$\begin{aligned}
+\log T &\leq \log 2^{O(S)} \\
+&= O(S)
+\end{aligned}$$
 
+Therefore an upper bound on the space used for the reversible Turing machine is given by
+
+$$\begin{aligned}
+S\log T &=S O(S) \\
+&=O(S^2) 
+\end{aligned}$$
+
+which is still a polynomial amount of space. So, the reversible Turing machine simulation uses polynomial space. Conversely, any reversible Turing machine using polynomial space can trivially be simulated by an ordinary Turing machine using polynomial space. Thus, the class of languages decidable by reversible Turing machines in polynomial space equals PSPACE.
+
+</details>
 
 **Problem 3.10**
 

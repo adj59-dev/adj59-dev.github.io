@@ -1395,8 +1395,15 @@ Thus, when the approximation algorithm is applied to this instance of TSP then i
 
 **Problem 3.7**
 
+For this problem we are asked to describe a reversible Turing machine. There was a hint given to use two tapes. 
 
+<details style="margin-bottom: 20px;">
+<summary>Solution</summary>
 
+(1) In order for a Turing machine to be reversible we would need to be able to map any given configuration to at most one possible predecessor configuration. One way to do this is to take a normal single tape Turing machine and add a second log tape, which records the configuration at each step of the computation. 
 
+(2) This would require space $s'(x) = O(s(x)t(x))$ and time $t'(x) = O(s(x)t(x))$.
+
+</details>
 
 

@@ -1419,3 +1419,19 @@ Monotone circuits (with only AND/OR gates, no negation) are discussed in section
 </details>
 
 
+
+**Problem 3.9**
+
+For this problem we are asked to prove that a reversible Turing machine operating in polynomial space can be used to solve QSAT. Thus, the class of languages decidable by a computer operating reversibly in polynomial space is equal to **PSPACE**. The further reading section cites three papers related to this problem: <br>
+Bennett: https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf
+Li and Vitany: https://homepages.cwi.nl/~paulv/papers/thermo.pdf
+Li, Tromp, and Vitany: https://homepages.cwi.nl/~paulv/papers/pebbles.pdf
+
+
+
+
+
+
+
+
+

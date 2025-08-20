@@ -88,7 +88,28 @@ R_z(\theta) = e^{-i\theta Z/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z 
 </details>
 
 
+**Exercise 4.3**
 
+Show that, up to a global phase, the $\pi/8$ gate satisfies $T=R_z(\pi/4)$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's first calculate $R_z(\pi/4)$
+
+$$\begin{aligned}
+R_z(\pi/4) &= \begin{bmatrix} e^{-i(\pi/4)/2} & 0 \\\ 0 & e^{i(\pi/4)/2} \end{bmatrix} \\
+&= \begin{bmatrix} e^{-i\pi/8} & 0 \\\ 0 & e^{i\pi/8} \end{bmatrix} \\
+&= e^{-i\pi/8}\left(e^{i\pi/8}\begin{bmatrix} e^{-i\pi/8} & 0 \\\ 0 & e^{i\pi/8} \end{bmatrix} \right) \\
+&= e^{-i\pi/8} T & \text{per equation 4.3}
+\end{aligned}$$
+
+Therefore,  up to a global phase $e^{-i\pi/8}$, the $\pi/8$ gate satisfies $T=R_z(\pi/4)$.
+
+</details>
+
+
+**Exercise 4.4**
 
 
 

@@ -1292,7 +1292,7 @@ $$\begin{aligned}
 
 In this exercise you will use the definition of the anti-commutator to verify anti-commutation relations of the Pauli matrices.
 
-<details style="margin-bottom: 20px;">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 $$\begin{aligned}

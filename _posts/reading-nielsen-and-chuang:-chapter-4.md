@@ -26,9 +26,19 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Quantum Fourier transform            | 4.1                       | Exponential speedup over classical algorithms. Created by Shor.  |
+| Quantum searching                    | 4.1                       | Quadratic speedup over classical algorithms. Based on Grover's algorithm. |
 
 
-### Quantum algorithms - Exercises
+## Single qubit operations
+
+### Single qubit operations - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+### Single qubit operations - Exercises
   
 **Exercise 4.1** 
 

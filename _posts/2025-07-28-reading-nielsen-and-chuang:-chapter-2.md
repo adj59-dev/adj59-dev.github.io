@@ -179,7 +179,7 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 (\ket{y}, \ket{y}) & = \sum_{i} y^\ast_i y_i & \text{inner product definition}\\
-& = \sum_{i} \left|y_i\right|^2 & \text{modulus definition}\\
+& = \sum_{i} \left\vert y_i\right \vert^2 & \text{modulus definition}\\
 & \geq 0 \text{ and only $=0$ when $\ket{y}$=0}
 \end{aligned}$$
 
@@ -212,7 +212,7 @@ In section 2.1.4 the authors discuss orthogonal vectors, stating that vectors ar
 
 These vectors are orthogonal if their inner product equals zero.
 
-$$\braket{w | v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\\ -1 \end{bmatrix}= 1-1=0$$
+$$\braket{w \vert v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\\ -1 \end{bmatrix}= 1-1=0$$
 
 The normalized form of these vectors are 
 
@@ -238,12 +238,12 @@ $$\begin{aligned}
 
 where $\ket{w_1},\dots,\ket{w_d}$ is a basis set for some vector space $V$. 
 
-In order to be an orthonormal basis for $V$, all vectors must be unit vectors, they must be orthogonal i.e. $\braket{i|j}=\delta_{ij}$, and they must form a basis set for $V$. One can tell by the procedure definition that all vectors are unit vectors since all the calculations follow the form  $\ket{x}/\Vert\ket{x}\Vert$. 
+In order to be an orthonormal basis for $V$, all vectors must be unit vectors, they must be orthogonal i.e. $\braket{i \vert j}=\delta_{ij}$, and they must form a basis set for $V$. One can tell by the procedure definition that all vectors are unit vectors since all the calculations follow the form  $\ket{x}/\Vert\ket{x}\Vert$. 
 
 To determine whether all vectors are orthogonal, let's first take the inner product of the first two vectors
 
 $$\begin{aligned}
-\braket{v_1 \vert v_2} & = \frac{\braket{v_1 \vert w_2} -  \braket{v_1 | w_2}\braket{v_1\vert v_1}}{\Vert\ket{w_{2}} - \braket{v_1 \vert w_2}\ket{v_1}\Vert} \\ 
+\braket{v_1 \vert v_2} & = \frac{\braket{v_1 \vert w_2} -  \braket{v_1 \vert w_2}\braket{v_1\vert v_1}}{\Vert\ket{w_{2}} - \braket{v_1 \vert w_2}\ket{v_1}\Vert} \\ 
 & = \frac{\braket{v_1 \vert w_2} -  \braket{v_1 \vert w_2}}{\Vert\ket{w_{2}} - \braket{v_1 \vert w_2}\ket{v_1}\Vert} & \text{Since $\braket{v_1 \vert v_1}=1$} \\
 & = 0
 \end{aligned}$$
@@ -267,13 +267,13 @@ $$\begin{aligned}
 The above calculations show that $\braket{v_j \vert v_i}=0$ for $j < i \le 3$. Using conjugate symmetry this can be generalized to $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le 3$. We can then take the inner product of the fourth vector and an arbitrary vector $\ket{v_j}$ where $j<4$
 
 $$\begin{aligned}
-\braket{v_j | v_4} & = \frac{\braket{v_j | w_4} - \sum_{i=1}^{3} \braket{v_i | w_4}\braket{v_j | v_i}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert}\\
-& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}\braket{v_j | v_j}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j | v_i}=0$ when $i \neq j$} \\
-& = \frac{\braket{v_j | w_4} - \braket{v_j | w_4}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i | w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j | v_j}=1$} \\
+\braket{v_j \vert v_4} & = \frac{\braket{v_j \vert w_4} - \sum_{i=1}^{3} \braket{v_i \vert w_4}\braket{v_j \vert v_i}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i \vert w_4}\ket{v_i}\Vert}\\
+& = \frac{\braket{v_j \vert w_4} - \braket{v_j \vert w_4}\braket{v_j \vert v_j}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i \vert w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j \vert v_i}=0$ when $i \neq j$} \\
+& = \frac{\braket{v_j \vert w_4} - \braket{v_j \vert w_4}}{\Vert\ket{w_4} - \sum_{i=1}^{k} \braket{v_i \vert w_4}\ket{v_i}\Vert} & \text{Since $\braket{v_j \vert v_j}=1$} \\
 & = 0
 \end{aligned}$$
 
-So now we know that that $\braket{v_j | v_i}=0$ when $i \neq j$ for $j,i \le 4$. This same calculation can be applied to $\braket{v_j | w_5}$ for $j<5$, then $\braket{v_j | w_6}$ for $j<6$, and so on up to $\braket{v_j | w_d}$ for $j<d$. We then get that that $\braket{v_j | v_i}=0$ when $i \neq j$ for $j,i \le d$, demonstrating that the vectors are orthogonal. 
+So now we know that that $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le 4$. This same calculation can be applied to $\braket{v_j \vert w_5}$ for $j<5$, then $\braket{v_j \vert w_6}$ for $j<6$, and so on up to $\braket{v_j \vert w_d}$ for $j<d$. We then get that that $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le d$, demonstrating that the vectors are orthogonal. 
 
 The final thing that we need to do is show that this orthonormal set of vectors is a basis for $V$. In order for a set of vectors to be a basis set it needs to be linearly independent and span the vector space $V$. Orthogonality of a set of nonzero vectors intrinsically implies their linear independence, so since this set of vectors is orthogonal we know that it is linearity independent. However, if desired, we can demonstrate this by assuming that the vector set is linearly dependent which would mean that there exists a set of complex numbers $a_1, \dots, a_d$ with $a_i \neq 0$ for at least one value of i, such that $a_1 \ket{v_1} + a_2 \ket{v_2} + \dots + a_d \ket{v_d} = 0$. In other words, we would be able to represent at least one of the vectors in the set, let's call it $\ket{v_j}$, as a linear combination of the other vectors in the set, 
 
@@ -300,7 +300,7 @@ In section 2.1.4 the authors introduce outer product representation for linear o
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j | A | v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j | A | v_i}$ equals the element in the $i \text{th}$ column and $j \text{th}$ row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
+We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j \vert A \vert v_i}$ equals the element in the $i \text{th}$ column and $j \text{th}$ row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
 
 For $I$ we get
 
@@ -551,7 +551,7 @@ $$\begin{aligned}
 I &= U^\dagger U & \text{unitary matrix definition}\\
 \sum_i \ket{i} \bra{i} &= \left( \sum_i \lambda_i \ket{i} \bra{i} \right)^\dagger \left(\sum_j \lambda_j \ket{j} \bra{j} \right) & \text{outer product representation}\\
 &= \left( \sum_i \lambda_i^\ast \ket{i} \bra{i} \right) \left(\sum_j \lambda_j \ket{j} \bra{j} \right) & \text{adjoint definition}\\
-&= \sum_i \sum_j \lambda_i^\ast \lambda_j  \ket{i} \braket{i | j} \bra{j} & \text{summation distributivity}\\
+&= \sum_i \sum_j \lambda_i^\ast \lambda_j  \ket{i} \braket{i \vert j} \bra{j} & \text{summation distributivity}\\
 &= \sum_i \sum_j \lambda_i^\ast \lambda_j  \delta_{ij} \ket{i} \bra{j} & \text{vector orthogonality}\\
 &= \sum_i \lambda_i^\ast \lambda_i \ket{i} \bra{i} & \text{apply the delta function}\\
 &= \sum_i \vert \lambda_i \vert^2 \ket{i} \bra{i} & \text{modulus definition}
@@ -653,7 +653,7 @@ Using the completeness relation we know that $A = I_W A I_W$ and so
 $$\begin{aligned}
 A_{ij}' &= \braket{v_i \vert A \vert v_j} & \text{definition of $A_{ij}'$} \\
 &= \braket{v_i \vert I_W A I_W \vert v_j} & \text{completeness relation} \\
-&= \braket{v_i \vert \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) | v_j} & \text{outer product representation of $I$}\\
+&= \braket{v_i \vert \left(\sum_m \ket{w_m} \bra{w_m} \right) A \left(\sum_n \ket{w_n} \bra{w_n} \right) \vert v_j} & \text{outer product representation of $I$}\\
 &= \sum_m \sum_n \braket{v_i \vert w_m} \braket{w_m \vert A \vert w_n} \braket{w_n \vert v_j} & \text{summation distributivity}\\
 &= \sum_m \sum_n \braket{v_i \vert w_m} A_{mn}'' \braket{w_n \vert v_j} & \text{definition of $A_{ij}''$}
 \end{aligned}$$
@@ -1907,9 +1907,9 @@ In section 2.2.5 the authors introduce the concept of projective measurements an
 We can calculate the average value of the measurement using equation 2.113,
 
 $$\begin{aligned}
-E(M) &= \braket{\psi | M | \psi} \\
-&= \braket{\psi | m \psi} & \text{since $\ket{\psi}$ is an eigenvector of $M$ with eigenvalue $m$}\\
-&= m \braket{\psi | \psi} \\
+E(M) &= \braket{\psi \vert M \vert \psi} \\
+&= \braket{\psi \vert m \psi} & \text{since $\ket{\psi}$ is an eigenvector of $M$ with eigenvalue $m$}\\
+&= m \braket{\psi \vert \psi} \\
 &= m
 \end{aligned}$$
 

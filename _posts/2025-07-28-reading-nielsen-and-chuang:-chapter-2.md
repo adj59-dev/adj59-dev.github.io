@@ -8,6 +8,7 @@ The quantum mechanics portion was a good refresher, though some of the formalism
 
 Below are my notes and solutions to the exercises. The solutions are collapsed to save space and avoid spoilers for anyone who wants to work through them independently.
 
+testing brace $\lbrace A, B \rbrace$
 
 ## Navigation
 

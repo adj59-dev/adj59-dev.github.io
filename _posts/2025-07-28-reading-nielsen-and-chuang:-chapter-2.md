@@ -54,7 +54,7 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 | Trace of a matrix                    | section 2.1.8             | Definition: $\text{tr}(A) = \sum_i A_{ii}$ <br> $\text{tr}(AB)=\text{tr}(BA)$ <br> $\text{tr}(A+B)=\text{tr}(A) + \text{tr}(B)$              |
 | Hilbert-Schmidt inner productor      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
 | Commutator                           | section 2.1.9             | Definition: $\[A, B\]=AB-BA$                                                                             |
-| Anti-commutator                      | section 2.1.9             | Definition: $\{ A, B \} = AB + BA$                                                                       |
+| Anti-commutator                      | section 2.1.9             | Definition: $\lbrace A, B \rbrace = AB + BA$                                                                       |
 | Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and postitive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ <br> If A is invertible, $U=AJ^{-1}$ |
 
 
@@ -90,7 +90,7 @@ Given that $\ket{v_0}=\ket{0}$ and $\ket{v_1}=\ket{1}$ and that $A \ket{0}= \ket
 
 $$A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$$
 
-Instead of using $\\{ \ket{0}, \ket{1} \\}$ as the basis, let's use $\\{ \ket{+}, \ket{-} \\}$. First we will calculate what the outputs are when $A$ acts on these vectors.
+Instead of using $\lbrace \ket{0}, \ket{1} \rbrace$ as the basis, let's use $\lbrace \ket{+}, \ket{-} \rbrace$. First we will calculate what the outputs are when $A$ acts on these vectors.
 
 $$\begin{aligned}
 A \ket{+} = A \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) = \ket{+} \\
@@ -1296,15 +1296,15 @@ In this exercise you will use the definition of the anti-commutator to verify an
 <summary>Solution</summary>
 
 $$\begin{aligned}
-\\{ X,Y \\} = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace X,Y \rbrace = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\\{ Y,Z \\} = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace Y,Z \rbrace = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\\{ Z,X \\} = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace Z,X \rbrace = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
 \end{aligned}$$
 
 </details>
@@ -1318,9 +1318,9 @@ In this exercise you will use the definition of the commutator and anti-commutat
 
 $$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
-\\{A,B\\} &= AB + BA \\
-\lbrack A,B\rbrack + \\{A,B\\} &= AB - BA + AB + BA = 2AB \\
-\Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \\{A,B\\} }{2}
+\lbrace A,B \rbrace &= AB + BA \\
+\lbrack A,B\rbrack + \lbrace A,B \rbrace &= AB - BA + AB + BA = 2AB \\
+\Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \lbrace A,B \rbrace }{2}
 \end{aligned}$$
 
 </details>
@@ -1335,7 +1335,7 @@ To verify equation 2.78 you will need to use the results from exercises 2.19, 2.
 Starting with equation 2.77 we know that
 
 $$\begin{aligned}
-\sigma_j \sigma_k &= \frac{\lbrack \sigma_j,\sigma_k \rbrack+ \\{\sigma_j,\sigma_k\\} }{2} & \text{equation 2.77}\\
+\sigma_j \sigma_k &= \frac{\lbrack \sigma_j,\sigma_k \rbrack+ \lbrace\sigma_j,\sigma_k\rbrace }{2} & \text{equation 2.77}\\
 &= \frac{\sum_{l=1}^{3} 2 i \epsilon_{jkl} \sigma_l+ 2\delta_{jk} I }{2} & \text{exercise 2.19 and 2.41}\\
 &=\sum_{l=1}^{3}  i \epsilon_{jkl} \sigma_l + \delta_{jk} I & \text{simplify}
 \end{aligned}$$
@@ -1352,7 +1352,7 @@ In section 2.1.9 the authors introduce the simultaneous diagonalization theorem.
 If $\lbrack A,B \rbrack = 0$ that means there must be a common orthonormal set of eigenvectors $\ket{i}$ for $A$ and $B$ such that $A=\sum_{i} a_i \ket{i}\bra{i}$ and $B=\sum_{i} b_i \ket{i}\bra{i}$. This means that
 
 $$\begin{aligned}
-\{A,B\}&=AB+BA \\
+\lbrace A,B \rbrace &=AB+BA \\
 &= \sum_{i} a_i \ket{i}\bra{i} \sum_{j} b_j \ket{j}\bra{j} +  \sum_{j} b_j \ket{j}\bra{j} \sum_{i} a_i \ket{i}\bra{i} & \text{diagonal representation}\\
 &= \sum_{ij} a_i b_j \ket{i}\braket{i \vert j}\bra{j} + a_i b_j \ket{j}\braket{j \vert i}\bra{i} & \text{summation distributivity}\\
 &= \sum_{ij} a_i b_j \delta_{ij} (\ket{i}\bra{j} + \ket{j}\bra{i} ) & \text{orthogonality of basis vectors}\\
@@ -1646,7 +1646,7 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 | Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
 | Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
 | Applying a unitary gate to a qubit   | section 2.2.2             | Application of an operator implies external interactions with the qubit, making the system not closed. However, many non-closed systems can be described by a time-varying Hamiltonian and still evolve according to Schrodinger’s equation. |
-| Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\\{M_m\\}$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
+| Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\lbrace M_m \rbrace$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
 | Distinguishing quantum states        | section 2.2.4             | If states are not orthogonal there is no quantum measurement capable of distinguishing them |
 | Projective measurements              | section 2.2.5             | $M=\sum_{m} m P_m$ where $P_m$ is the projector onto the eigenspace of $M$ with eigenvalues $m$. The average value for projective measurements is given by $\braket{\psi \vert M \vert \psi}$ and the standard deviation is given by $\Delta (M) = \sqrt{ \braket{M^2} - \braket{M}^2}$. The probability of getting result $m$ is $p(m) = \braket{\psi \vert P_m \vert \psi}$. The state of the system immediately after measurement is $\frac{P_m \ket{\psi}}{\sqrt{p(m)}}$. |
 | Heisenberg uncertainty principle     | section 2.2.5             | $\Delta(A)\Delta(B) \geq \frac{\vert \braket{\psi \vert \lbrack A, B \rbrack \vert \psi} \vert}{2}$ for observables $A$ and $B$ |
@@ -2379,7 +2379,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 | Measurements                         | section 2.4.1             | Probability of getting result $m$ if the initial state is $\ket{\psi_i}$ is $p(m \vert i) = \braket{\psi_i \vert M_m^\dagger M_m \vert \psi_i} = \text{tr} (M_m^\dagger M_m \ket{\psi_i}\bra{\psi_i})$ <br> Probability of obtaining result $m$ is $p(m) = \sum_i p(m \vert i) p_i = \text{tr}(M_m^\dagger M_m \rho)$ <br> The density operator after obtaining measurement $m$ is $\rho_m = \frac{M_m \rho M_m^\dagger}{\text{tr}(M_m^\dagger M_m \rho)}$ |
 | Pure state                           | section 2.4.1             | A quantum system whose state is known exactly. The density operator is given by $\rho = \ket{\psi}\bra{\psi}$. These states have $\text{tr}(\rho^2)=1$. |
 | Mixed state                          | section 2.4.1             | A mixture of different pure states. The density operator is given by $\rho = \sum_i p_i \rho_i$, where $p_i$ is the probability of the system being in the pure state given by $\rho_i$. These states have $\text{tr}(\rho^2)<1$. |
-| Requirements of a density operator   | section 2.4.2             | An operator $\rho$ is a density operator associated to some ensemble $\\{ p_i \ket{\psi_i}\\}$ if it satisfies these conditions: <br> (1) $\rho$ has a trace equal to 1 <br> (2) $\rho$ is a positive operator |
+| Requirements of a density operator   | section 2.4.2             | An operator $\rho$ is a density operator associated to some ensemble $\lbrace p_i \ket{\psi_i}\rbrace$ if it satisfies these conditions: <br> (1) $\rho$ has a trace equal to 1 <br> (2) $\rho$ is a positive operator |
 | Unitary freedom in the ensemble      | section 2.4.2             | The states $\ket{\tilde{\psi_i}}= \sqrt{p_i} \ket{\psi_i}$ and $\ket{\tilde{\phi_j}}= \sqrt{p_j} \ket{\phi_j}$ generate the same density matrix if and only if $\ket{\tilde{\psi_i}} = \sum_j u_{ij} \ket{\tilde{\phi_j}}$ where $u_{ij}$ are the entries of a unitary matrix. |
 | Reduced density operator             | section 2.4.3             | If we have physical systems $A$ and $B$ whose state is described by a density operator $\rho^{AB}$ then the reduced density operator for system $A$ is $\rho^A = \text{tr}_B(\rho^{AB})$ where $\text{tr}_B(\ket{a_1}\bra{a_2} \otimes \ket{b_1}\bra{b_2}) = \ket{a_1}\bra{a_2}\text{tr}(\ket{b_1}\bra{b_2})$ |
 
@@ -2456,7 +2456,7 @@ For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\ps
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\\{q_j \vert \ket{\phi_j} \\}$ as a minimal ensemble for $\rho$ that is made up of orthonormal states $\ket{\phi_j}$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} =\ket{\tilde{\psi_i}} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$.
+The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\lbrace q_j \vert \ket{\phi_j} \rbrace$ as a minimal ensemble for $\rho$ that is made up of orthonormal states $\ket{\phi_j}$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} =\ket{\tilde{\psi_i}} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$.
 
 Using theorem 2.6, if there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ then the following is true for some unitary matrix given by $u_{ij}$
 
@@ -2500,7 +2500,7 @@ $$\begin{aligned}
 p_i = \frac{1}{\braket{\psi_i \vert \rho_{-1} \vert \psi_i }}
 \end{aligned}$$
 
-If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$ as long as the ensemble that you constructed $\\{p_i \vert \ket{\psi_i} \\}$ is orthogonal (which it should be since it is a minimal ensemble), therefore
+If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$ as long as the ensemble that you constructed $\lbrace p_i \vert \ket{\psi_i} \rbrace$ is orthogonal (which it should be since it is a minimal ensemble), therefore
 
 $$\begin{aligned}
 0 &= \braket{\tilde{\psi_j} \vert \tilde{\psi_i}} & \text{when $i \neq j$}\\

@@ -111,9 +111,34 @@ Therefore,  up to a global phase $e^{-i\pi/8}$, the $\pi/8$ gate satisfies $T=R_
 
 **Exercise 4.4**
 
+Express the Hadamard gate $H$ as a product of $R_x$ and $R_z$ rotations and $e^{i\phi}$ for some $\phi$.
 
+Let's first think about what $H$ does. In section 1.3.1 we're told that $H$ is a rotation on the Bloch sphere about the y axis by $90\degree$ and then a rotation about the x axis by $180\degree$. Therefore,
 
+$$\begin{aligned}
+H &= R_x(\pi)R_y(\pi/2)e^{i\phi} \\
+&= (\cos\frac{\pi}{2}I - i\sin\frac{\pi}{2}X)(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}Y)e^{i\phi} \\
+&= \frac{-ie^{i\phi}}{\sqrt{2}}XI - \frac{e^{i\phi}}{\sqrt{2}}XY \\
+&= \frac{-ie^{i\phi}}{\sqrt{2}}X - \frac{e^{i\phi}}{\sqrt{2}}(iZ) & \text{per equation 2.78}\\
+&= \frac{-ie^{i\phi}}{\sqrt{2}}(X + Z) \\
+&= -ie^{i\phi} H & \text{since $H=(X+Z)/\sqrt{2}$}
+\end{aligned}$$
 
+Therefore, $e^{i\phi} = i$, so $\phi=\pi/2$ and we get $H=R_x(\pi)R_y(\pi/2)e^{i\pi/2}$. Unfortunatly, we were not asked to write $H$ in terms fo $R_x$ and $R_y$, we were asked to write it in terms of $R_x$ and $R_z$, so now we need to see if we can write $R_y(\pi/2)$ in terms of $R_x$ and $R_z$. 
 
+$$\begin{aligned}
+R_x(\pi)R_y(\pi/2) &= R_x(\pi)R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2) & \text{decomposition} \\
+&= R_z(-\pi/2)R_x(\pi)R_x(\pi/2)R_z(-\pi/2) & \text{conjugation flips $Z$ under a $\pi$ rotation about $X$} \\
+&= R_z(-\pi/2)R_x(3\pi/2)R_z(-\pi/2) & \text{combinding the rotations about $X$}\\
+&= -R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2) & \text{$3\pi/2$ rotation is the same as a $-\pi/2$ rotation with a -1 global phase change} \\
+&= e^{-i\pi}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)
+\end{aligned}$$
 
+Therefore, $H=e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$. Which will be shown below
+
+$$\begin{aligned}
+e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) &= e^{i\pi/2}(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}Z)(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}X)(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}Z) \\
+&= e^{i\pi/2}(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}Z)(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}X)(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}Z) \\
+&= 
+\end{aligned}$$
 

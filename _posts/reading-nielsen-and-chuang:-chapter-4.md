@@ -1,4 +1,4 @@
-# Reading Nielsen and Chuang: Chapter 3
+# Reading Nielsen and Chuang: Chapter 4
 
 I just finished reading Chapter 4 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
@@ -129,7 +129,7 @@ H &= R_x(\pi)R_y(\pi/2)e^{i\phi} \\
 &= -ie^{i\phi} H & \text{since $H=(X+Z)/\sqrt{2}$}
 \end{aligned}$$
 
-Therefore, $e^{i\phi} = i$, so $\phi=\pi/2$ and we get $H=R_x(\pi)R_y(\pi/2)e^{i\pi/2}$. Unfortunatly, we were not asked to write $H$ in terms of $R_x$ and $R_y$, we were asked to write it in terms of $R_x$ and $R_z$, so now we need to see if we can write $R_y(\pi/2)$ in terms of $R_x$ and $R_z$. 
+Therefore, $e^{i\phi} = i$, so $\phi=\pi/2$ and we get $H=R_x(\pi)R_y(\pi/2)e^{i\pi/2}$. Unfortunately, we were not asked to write $H$ in terms of $R_x$ and $R_y$, we were asked to write it in terms of $R_x$ and $R_z$, so now we need to see if we can write $R_y(\pi/2)$ in terms of $R_x$ and $R_z$. I did this by doing a decomposition of $R_y$ to express it in terms of $R_x$ and $R_z$ and then did some additional steps to put the results in a similar form as equation 4.13.
 
 $$\begin{aligned}
 R_x(\pi)R_y(\pi/2) &= R_x(\pi)R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2) & \text{decomposition of $R_y$} \\

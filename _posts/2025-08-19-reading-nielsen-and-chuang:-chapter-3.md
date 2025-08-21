@@ -39,9 +39,9 @@ As with Chapter 2, I’ve included my notes and exercise solutions below. The so
 | The halting problem                  | section 3.1.1             | A famous problem in computer science that asks whether it's possible to create a universal algorithm that can determine if any given program will halt or run forever. Alan Turing proved that such an algorithm cannot exist. |
 | Circuit model                        | section 3.1.2             | Models computation in terms of wires and gates.                                                        |
 | Logic gates                          | section 3.1.2             | <img width="458" height="250" alt="image" src="https://github.com/user-attachments/assets/b87e0e7c-cae9-4370-8459-2f8824bb1952" /> |
-| Boolean function                     | section 3.1.2             | Takes $n$ input bits and outputs a single bit. <br> $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$  |
+| Boolean function                     | section 3.1.2             | Takes $n$ input bits and outputs a single bit. <br> $f:\lbrace 0,1\rbrace ^n \rightarrow \lbrace 0,1\rbrace$  |
 | Universal circuit components         | section 3.1.2             | (1) wires, preserve the states of the bits <br> (2) ancilla bits prepared in standard states <br> (3) the FANOUT operation, which takes a single bit as input and ouputs two copies <br> (4) the CROSSOVER operation, which interchanges the values of two bits <br> (5) logic gates (AND, XOR, and NOT) |
-| Circuit family                       | section 3.1.2             | A collection of circuits, $\\{C_n\\}$, indexed by a positive integer $n$.
+| Circuit family                       | section 3.1.2             | A collection of circuits, $\lbrace C_n \rbrace$, indexed by a positive integer $n$.
 | Uniform circuit family               | section 3.1.2             | Circuit families for which there exists a Turing machine that, upon input of $n$, can generate a description of $C_n$ (the information needed to build the circuit). | 
 
 
@@ -652,7 +652,7 @@ This problem is challenging, and I ended up referencing the following resources 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-We know a Boolean function takes $n$ input bits and outputs a single bit, $f:\\{0,1\\}^n \rightarrow \\{0,1\\}$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. Below is an example of all 16 possible functions for the case of $n=2$.
+We know a Boolean function takes $n$ input bits and outputs a single bit, $f: \lbrace 0,1 \rbrace ^n \rightarrow \lbrace 0,1 \rbrace$. With $n$ bits there are $2^n$ possible distinct input combinations. With each input combination there are two possible outcomes, meaning that there are $2^{2^n}$ possible functions. Below is an example of all 16 possible functions for the case of $n=2$.
 
 |$n_1$|$n_2$|$f_1$|$f_2$|$f_3$|$f_4$|$f_5$|$f_6$|$f_7$|$f_8$|$f_9$|$f_{10}$|$f_{11}$|$f_{12}$|$f_{13}$|$f_{14}$|$f_{15}$|$f_{16}$|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|--------|--------|--------|--------|--------|--------|--------|
@@ -724,7 +724,7 @@ For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\ne
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-**NP** and **coNP** are complements of each other. In Papadimitriou (section 7.1) a complement complexity class $C$ is defined as the class $\\{ \bar{L} : L \in C \\}$, where $\bar{L}$ is the complement of language $L$. If C is a deterministic complexity class, then $C=coC$. This is because any deterministic Turing machine deciding $L$ can be converted to decide $\bar{L}$ within the same time or space bound by reversing the roles of "yes" and "no". Since **P** is a deterministic complexity class, **P** $=$ **coP**. If **P** = **NP**, that would mean that **NP** = **P** = **co(P)** = **co(NP)**. Therefore if **coNP** $\neq$ **NP**, it must mean that **P** $\neq$ **NP**.
+**NP** and **coNP** are complements of each other. In Papadimitriou (section 7.1) a complement complexity class $C$ is defined as the class $\lbrace \bar{L} : L \in C \rbrace$, where $\bar{L}$ is the complement of language $L$. If C is a deterministic complexity class, then $C=coC$. This is because any deterministic Turing machine deciding $L$ can be converted to decide $\bar{L}$ within the same time or space bound by reversing the roles of "yes" and "no". Since **P** is a deterministic complexity class, **P** $=$ **coP**. If **P** = **NP**, that would mean that **NP** = **P** = **co(P)** = **co(NP)**. Therefore if **coNP** $\neq$ **NP**, it must mean that **P** $\neq$ **NP**.
 
 </details>
 

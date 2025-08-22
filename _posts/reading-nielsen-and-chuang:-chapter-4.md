@@ -194,15 +194,18 @@ $$\begin{aligned}
 
 Prove that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ about the $\hat{n}$ axis of the Bloch sphere. 
 
-Let's say we have a single qubit in state $\ket{\lambda}=\cos(\theta/2)\ket{0} + e^{i\phi}\sin(\theta/2)\ket{1}$ with Bloch vector $\vec{\lambda}=(cos\phi\sin\theta, \sin\phi\sin\theta, \cos\theta)$ and we apply rotation $R_{\hat{n}}(\theta')$. This gives,
+From exercise 2.72, we know that we can write the density matrix for a single qubit with Bloch vector $\vec{\lambda}$ as
 
 $$\begin{aligned}
-R_{\hat{n}}(\theta')\ket{\lambda} &= \left(\cos(\theta'/2)I - i\sin(\theta'/2)\begin{bmatrix} n_z & n_x - i n_y \\\ n_x + i n_y & -n_z \end{bmatrix}\right)(\cos(\theta/2)\ket{0} + e^{i\phi}\sin(\theta/2)\ket{1}) \\
-&= \cos(\theta'/2)\left(\cos(\theta/2)\begin{bmatrix} 1 \\\ 0 \end{bmatrix} + e^{i\phi}\sin(\theta/2)\begin{bmatrix} 0 \\\ 1 \end{bmatrix}\right)  - i\sin(\theta'/2)\begin{bmatrix} n_z & n_x - i n_y \\\ n_x + i n_y & -n_z \end{bmatrix}\left(\cos(\theta/2)\begin{bmatrix} 1 \\\ 0 \end{bmatrix} + e^{i\phi}\sin(\theta/2)\begin{bmatrix} 0 \\\ 1 \end{bmatrix}\right) \\
-&= \cos(\theta'/2)\left(\cos(\theta/2)\begin{bmatrix} 1 \\\ 0 \end{bmatrix} + e^{i\phi}\sin(\theta/2)\begin{bmatrix} 0 \\\ 1 \end{bmatrix}\right)  - i\sin(\theta'/2)\left(\cos(\theta/2)\begin{bmatrix} n_z \\\ n_x + i n_y \end{bmatrix} + e^{i\phi}\sin(\theta/2)\begin{bmatrix} n_x - i n_y \\\ -n_z  \end{bmatrix}\right) \\
-&= \cos(\theta'/2)\begin{bmatrix} \cos(\theta/2) \\\ e^{i\phi}\sin(\theta/2) \end{bmatrix}  - i\sin(\theta'/2)\begin{bmatrix} n_z\cos(\theta/2) + (n_x - i n_y)e^{i\phi}\sin(\theta/2) \\\ (n_x + i n_y)\cos(\theta/2)  -n_ze^{i\phi}\sin(\theta/2) \end{bmatrix} \\
-&= \begin{bmatrix} \cos(\theta'/2)\cos(\theta/2) \\\ e^{i\phi}\cos(\theta'/2)\sin(\theta/2) \end{bmatrix}  - \begin{bmatrix} n_zi\sin(\theta'/2)\cos(\theta/2) + (n_x - i n_y)e^{i\phi}i\sin(\theta'/2)\sin(\theta/2) \\\ (n_x + i n_y)i\sin(\theta'/2)\cos(\theta/2)  -n_ze^{i\phi}i\sin(\theta'/2)\sin(\theta/2) \end{bmatrix} \\
+\rho = \frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2}
 \end{aligned}$$
 
+The evolution of the density operator upon rotation $R_{\hat{n}}(\theta)$ is given by equation 2.139,
 
+$$\begin{aligned}
+\rho & \xrightarrow{R_{\hat{n}}} R_{\hat{n}}(\theta)\rho R_{\hat{n}}(\theta)^\dagger \\
+&= (\cos(\theta/2)I -i\sin(\theta/2)\hat{n}\cdot\vec{\sigma})\frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2} (\cos(\theta/2)I - i\sin(\theta/2)\hat{n}\cdot\vec{\sigma})^\dagger \\
+&=(\cos(\theta/2)I -i\sin(\theta/2)\hat{n}\cdot\vec{\sigma})\frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2} (\cos(\theta/2)I + i\sin(\theta/2)\hat{n}\cdot\vec{\sigma}) \\
+&=\frac{1}{2}(\cos(\theta/2)I + \cos(\theta/2)\vec{\lambda}\cdot\vec{\sigma} -i\sin(\theta/2)\hat{n}\cdot\vec{\sigma} -i\sin(\theta/2)(\hat{n}\cdot\vec{\sigma})(\vec{\lambda}\cdot\vec{\sigma}))(\cos(\theta/2)I + i\sin(\theta/2)\hat{n}\cdot\vec{\sigma}) \\
+\end{aligned}$$
 

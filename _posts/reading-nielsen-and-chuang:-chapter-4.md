@@ -248,3 +248,40 @@ $$\begin{aligned}
 This vector is the same as Rodrigues’ rotation formula, proving that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ about the $\hat{n}$ axis of the Bloch sphere.
 
 </details>
+
+
+**Exercise 4.7**
+
+Show that $XYX = -Y$ and use this to prove that $XR_y(\theta)X=R_y(-\theta)$
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's first show that $XYX = -Y$ 
+
+$$\begin{aligned}
+XYX &= iZX & \text{per equation 2.78}\\
+&= i(iY) & \text{per equation 2.78}\\
+&= -Y
+\end{aligned}$$
+
+Now let's show that $XR_y(\theta)X=R_y(-\theta)$
+
+$$\begin{aligned}
+XR_y(\theta)X &= X(\cos(\frac{\theta}{2})I - i\sin(\frac{\theta}{2})Y)X \\
+&= \cos(\frac{\theta}{2})XIX - i\sin(\frac{\theta}{2})XYX \\
+&= \cos(\frac{\theta}{2})I + i\sin(\frac{\theta}{2})Y \\
+&= \cos(\frac{-\theta}{2})I - i\sin(\frac{-\theta}{2})Y \\
+&= R_y(-\theta)
+\end{aligned}$$
+
+</details>
+
+
+**Exercise 4.8**
+
+
+
+
+
+

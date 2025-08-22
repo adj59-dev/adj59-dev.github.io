@@ -280,8 +280,34 @@ XR_y(\theta)X &= X(\cos(\frac{\theta}{2})I - i\sin(\frac{\theta}{2})Y)X \\
 
 **Exercise 4.8**
 
+Prove that an arbitrary single qubit unitary operator can be written in the form $U=\exp(i\alpha)R_{\hat{n}}(\theta)$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$. Then find the values for $\alpha$, $\theta$, and $\hat{n}$ for the Hadamard gate and the phase gate. 
 
+From exercise 2.56, we know that $U=\exp(iK)$ for some Hermitian operator $K$. Any 2x2 Hermitian operator can be written as $K=\alpha I - \frac{\theta}{2}\hat{n}\cdot\vec{\sigma}$, since $\lbrace I, \sigma_x, \sigma_y, \sigma_z\rbrace$ form a basis set. Therefore, 
 
+$$\begin{aligned}
+U&=\exp(iK)\\
+&=\exp(i\alpha I - i\frac{\theta}{2}\hat{n}\cdot\vec{\sigma})\\
+&=\exp(i\alpha)\exp(-i\frac{\theta}{2}\hat{n}\cdot\vec{\sigma})\\
+&=\exp(i\alpha)R_{\hat{n}}(\theta)
+\end{aligned}$$
 
+For the Hadamard gate, we know that
 
+$$\begin{aligned}
+H &= \exp{i\alpha}(\cos\frac{\theta}{2}I -i \sin\frac{\theta}{2}(n_xX + n_yY + n_zZ)) & \text{from above}\\
+&=\frac{1}{\sqrt{2}}(X + Z) & \text{given in section 4.2}
+\end{aligned}$$
+
+Looking at the equation we can see that $\hat{n} = (\frac{1}{\sqrt{2}}, 0, \frac{1}{\sqrt{2}})$. We also know $\cos\frac{\theta}{2} = 0$, therefore $\theta = \pi$ and $\sin\frac{\theta}{2} = 1$. This means, $\exp{i\alpha}=i$ and so $\alpha = \frac{\pi}{2}$.
+
+For the phase gate, we know that
+
+$$\begin{aligned}
+S &= \begin{bmatrix} 1 & 0 \\\ 0 & i \end{bmatrix}\\
+&= \frac{1}{2}(I + Z) + i\frac{1}{2}(I - Z)\\
+&= \frac{1+i}{2}I + \frac{1-i}{2}Z \\
+&= \exp(i\alpha)(\cos\frac{\theta}{2}I -i \sin\frac{\theta}{2}(n_xX + n_yY + n_zZ))
+\end{aligned}$$
+
+Looking above we can see that $\hat{n} = (0,0,1)$. We can also see that $\frac{1+i}{2} = \exp(i\alpha)\cos\frac{\theta}{2}$ and that $\frac{1-i}{2} = i\exp(i\alpha)\sin\frac{\theta}{2}$.
 

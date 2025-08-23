@@ -334,3 +334,49 @@ $$\begin{aligned}
 </details>
 
 **Exercise 4.9**
+
+Explain why any single qubit unitary operator can be writtein the the form 4.12.
+
+For an operator to be a unitary operator $U^\dagger U = UU^\dagger = I$. Therefore,
+
+$$\begin{aligned}
+U = \begin{bmatrix} a & b \\\ c & d \end{bmatrix}
+\end{aligned}$$
+
+Where the following conditions must be true,
+
+$$\begin{aligned}
+I &= UU^\dagger 
+&= \begin{bmatrix} a & b \\\ c & d \end{bmatrix} \begin{bmatrix} a^\ast & c^\ast \\\ b^\ast & d^\ast \end{bmatrix} \\
+&= \begin{bmatrix} aa^\ast + bb^\ast & ac^\ast + bd^\ast \\\ ca^\ast + db^\ast & cc^\ast + dd^\ast \end{bmatrix} \\
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+1 &= aa^\ast + bb^\ast = \vert a \vert^2 + \vert b \vert^2 \\
+1 &= cc^\ast + dd^\ast = \vert c \vert^2 + \vert d \vert^2\\
+0 &= ac^\ast + bd^\ast  \\
+0 &= ca^\ast + db^\ast
+\end{aligned}$$
+
+From the first two equations, we see that the following will always be true for some set of real values, $\phi_1, \phi_2, \phi_3, \phi_4, \theta_1, \theta_2$.
+
+$$\begin{aligned}
+a &= e^{i\phi_1}\cos(\theta_1)\\
+b &= e^{i\phi_2}\sin(\theta_1)\\
+c &= e^{i\phi_3}\sin(\theta_2)\\
+d &= e^{i\phi_4}\cos(\theta_2)
+\end{aligned}$$
+
+Plugging these values into the second set of equations we get,
+
+$$\begin{aligned}
+0 &= (e^{i\phi_1}\cos(\theta_1))(e^{i\phi_3}\sin(\theta_2))^\ast + (e^{i\phi_2}\sin(\theta_1))(e^{i\phi_4}\cos(\theta_2))^\ast  \\
+&= e^{i\phi_1}e^{-i\phi_3}\cos(\theta_1)\sin(\theta_2) + e^{i\phi_2}e^{-i\phi_4}\sin(\theta_1)\cos(\theta_2) \\
+0 &= (e^{i\phi_3}\sin(\theta_2))(e^{i\phi_1}\cos(\theta_1))^\ast + (e^{i\phi_4}\cos(\theta_2))(e^{i\phi_2}\sin(\theta_1))^\ast \\
+&= e^{i\phi_3}e^{-i\phi_1}\sin(\theta_2)\cos(\theta_1) + e^{i\phi_4}e^{-i\phi_2}\cos(\theta_2)\sin(\theta_1)
+\end{aligned}$$
+
+From the above we see that $\theta_1 = \theta_2$ and that $e^{i\phi_3}e^{-i\phi_1} = -e^{i\phi_4}e^{-i\phi_2}$ and $e^{i\phi_1}e^{-i\phi_3}=-e^{i\phi_2}e^{-i\phi_4}$
+

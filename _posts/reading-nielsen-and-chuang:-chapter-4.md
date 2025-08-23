@@ -306,8 +306,24 @@ $$\begin{aligned}
 S &= \begin{bmatrix} 1 & 0 \\\ 0 & i \end{bmatrix}\\
 &= \frac{1}{2}(I + Z) + i\frac{1}{2}(I - Z)\\
 &= \frac{1+i}{2}I + \frac{1-i}{2}Z \\
-&= \exp(i\alpha)(\cos\frac{\theta}{2}I -i \sin\frac{\theta}{2}(n_xX + n_yY + n_zZ))
+&= \exp(i\alpha)(\cos\frac{\theta}{2}I - i \sin\frac{\theta}{2}(n_xX + n_yY + n_zZ))
 \end{aligned}$$
 
-Looking above we can see that $\hat{n} = (0,0,1)$. We can also see that $\frac{1+i}{2} = \exp(i\alpha)\cos\frac{\theta}{2}$ and that $\frac{1-i}{2} = i\exp(i\alpha)\sin\frac{\theta}{2}$.
+Looking above we can see that $\hat{n} = (0,0,1)$. We can also see that $\frac{1+i}{2} = \exp(i\alpha)\cos\frac{\theta}{2}$ and that $\frac{1-i}{2} = -i\exp(i\alpha)\sin\frac{\theta}{2}$, which means $\alpha = \frac{\pi}{2}$ and $\theta=\pi$, as shown below
 
+$$\begin{aligned}
+\frac{1+i}{2} &= \exp(i\alpha)\cos\frac{\theta}{2} \\
+&= (\cos(\alpha) + i\sin(\alpha))\cos\frac{\theta}{2} \\
+&= (\cos(\frac{\pi}{2}) + i\sin(\frac{\pi}{2}))\cos\frac{\pi}{2} \\
+&= (\frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}})\frac{1}{\sqrt{2}} \\
+&= \frac{1+i}{2}
+\end{aligned}$$
+
+$$\begin{aligned}
+\frac{1-i}{2} &= -i\exp(i\alpha)\sin\frac{\theta}{2} \\
+&= -i(\cos(\alpha) + i\sin(\alpha))\sin\frac{\theta}{2} \\
+&= -i(\cos(\frac{\pi}{2}) + i\sin(\frac{\pi}{2}))\sin\frac{\pi}{2} \\
+&= -i(\frac{1}{\sqrt{2}} + i\frac{1}{\sqrt{2}})\frac{1}{\sqrt{2}} \\
+&= -i\frac{1+i}{2} \\
+&= \frac{1-i}{2} \\
+\end{aligned}$$

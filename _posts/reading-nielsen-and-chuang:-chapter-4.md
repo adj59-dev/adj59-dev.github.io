@@ -335,35 +335,54 @@ $$\begin{aligned}
 
 **Exercise 4.9**
 
-Explain why any single qubit unitary operator can be writtein the the form 4.12.
+Explain why any single qubit unitary operator can be written in the form 4.12.
 
-For an operator to be a unitary operator $U^\dagger U = UU^\dagger = I$. Therefore,
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We know from exercise 4.8, we know that $U=\exp(i\alpha)R_{\hat{n}}(\theta)$. We also know that for an operator to be a unitary operator $U^\dagger U = UU^\dagger = I$. Therefore,
 
 $$\begin{aligned}
-U = \begin{bmatrix} a & b \\\ c & d \end{bmatrix}
+U &= \exp(i\alpha)\begin{bmatrix} a & b \\\ c & d \end{bmatrix} \\
+&= \exp(i\alpha)\left(\cos\left(\frac{\theta}{2}\right)I - i\sin\left(\frac{\theta}{2}\right)\hat{n} \cdot \vec{\sigma}\right)\\
+&=\exp(i\alpha)\left(\cos\left(\frac{\theta}{2}\right)\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} - i\sin\left(\frac{\theta}{2}\right)\begin{bmatrix} n_z & n_x - i n_y \\\ n_x + i n_y & -n_z \end{bmatrix}\right)\\
+&=\exp(i\alpha)\left(\begin{bmatrix} \cos\left(\frac{\theta}{2}\right) - in_z\sin\left(\frac{\theta}{2}\right) & - i(n_x - i n_y)\sin\left(\frac{\theta}{2}\right) \\\ - i(n_x + i n_y)\sin\left(\frac{\theta}{2}\right) &  \cos\left(\frac{\theta}{2}\right) + in_z\sin\left(\frac{\theta}{2}\right)\end{bmatrix}\right)
 \end{aligned}$$
 
-Where the following conditions must be true,
+and so taking the determinant,
+
+$$\begin{aligned}
+\det \left( \begin{bmatrix} a & b \\\ c & d \end{bmatrix} \right) &= ad-bc \\
+&= \left(\cos\left(\frac{\theta}{2}\right) - in_z\sin\left(\frac{\theta}{2}\right)\right)\left(\cos\left(\frac{\theta}{2}\right) + in_z\sin\left(\frac{\theta}{2}\right)\right) - \left(- i(n_x - i n_y)\sin\left(\frac{\theta}{2}\right)\right)\left(- i(n_x + i n_y)\sin\left(\frac{\theta}{2}\right)\right)\\
+&= \cos^2\left(\frac{\theta}{2}\right) + n_z^2\sin^2\left(\frac{\theta}{2}\right) + (n_x^2 + n_y^2)\sin^2\left(\frac{\theta}{2}\right)\\
+&= \cos^2\left(\frac{\theta}{2}\right) + \sin^2\left(\frac{\theta}{2}\right)\\
+&= 1
+\end{aligned}$$
+
+Since $U$ is unitary the following conditions must be true,
 
 $$\begin{aligned}
 I &= UU^\dagger \\
-&= \begin{bmatrix} a & b \\\ c & d \end{bmatrix} \begin{bmatrix} a^\ast & c^\ast \\\ b^\ast & d^\ast \end{bmatrix} \\
+&= \exp(i\alpha)\exp(-i\alpha)\begin{bmatrix} a & b \\\ c & d \end{bmatrix} \begin{bmatrix} a^\ast & c^\ast \\\ b^\ast & d^\ast \end{bmatrix} \\
 &= \begin{bmatrix} aa^\ast + bb^\ast & ac^\ast + bd^\ast \\\ ca^\ast + db^\ast & cc^\ast + dd^\ast \end{bmatrix} \\
 \end{aligned}$$
 
-From exercise 4.8, we know that $U=\exp(i\alpha)R_{\hat{n}}(\theta)$
-
-$$\begin{aligned}
-e^{i\alpha} &= \det \vert U \vert \\
-&= ad - bc
-\end{aligned}$$
-
-and so
+Putting it all together we get these sets of equations
 
 $$\begin{aligned}
 1 &= aa^\ast + bb^\ast = \vert a \vert^2 + \vert b \vert^2 \\
-1 &= cc^\ast + dd^\ast = \vert c \vert^2 + \vert d \vert^2\\
+1 &= cc^\ast + dd^\ast = \vert c \vert^2 + \vert d \vert^2 \\
 0 &= ac^\ast + bd^\ast  \\
-0 &= ca^\ast + db^\ast
+1 &= ad - bc & \text{from the determinant} \\
 \end{aligned}$$
+
+Solving for these equations we get $c = -b^\ast$ and $d = a^\ast$, with the constraint $\vert a \vert^2 + \vert b \vert^2=1$. The following parameterization meets these conditions without loss of generality so can be used: $a = e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2}$ and $b = -e^{-i(\beta/2 - \delta/2)}\sin\frac{\gamma}{2}$. Therefore,
+
+$$\begin{aligned}
+U &= \exp(i\alpha)\begin{bmatrix} e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2} & -e^{-i(\beta/2 - \delta/2)}\sin\frac{\gamma}{2} \\\ e^{i(\beta/2 - \delta/2)}\sin\frac{\gamma}{2} & e^{i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2} \end{bmatrix} \\
+&= \begin{bmatrix} e^{i(\alpha - \beta/2 - \delta/2)}\cos\frac{\gamma}{2} & -e^{i(\alpha - \beta/2 + \delta/2)}\sin\frac{\gamma}{2} \\\ e^{i(\alpha + \beta/2 - \delta/2)}\sin\frac{\gamma}{2} & e^{i(\alpha + \beta/2 + \delta/2)}\cos\frac{\gamma}{2} \end{bmatrix} \\
+\end{aligned}$$
+
+</details>
+
 

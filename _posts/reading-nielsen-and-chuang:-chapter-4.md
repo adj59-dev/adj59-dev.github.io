@@ -386,3 +386,30 @@ U &= \exp(i\alpha)\begin{bmatrix} e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2}
 </details>
 
 
+**Exercise 4.10**
+
+Give a decomposition analogous to Theorem 4.1 but using $R_x$ instead of $R_z$.
+
+Theorem 4.1 says 
+
+$$\begin{aligned}
+U=e^{i\alpha} R_z(\beta)R_y(\gamma)R_z(\delta)\\
+\end{aligned}$$
+
+and so an analogous decomposition would be 
+
+$$\begin{aligned}
+U &= e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)\\
+&= e^{i\alpha} \begin{bmatrix} \cos\left(\frac{\beta}{2} \right) & -i\sin\left(\frac{\beta}{2} \right) \\\ -i\sin\left(\frac{\beta}{2} \right)  & \cos\left(\frac{\beta}{2} \right) \end{bmatrix} \begin{bmatrix} \cos\left(\frac{\gamma}{2} \right) & -\sin\left(\frac{\gamma}{2} \right) \\\ \sin\left(\frac{\gamma}{2} \right)  & \cos\left(\frac{\gamma}{2} \right) \end{bmatrix} \begin{bmatrix} \cos\left(\frac{\delta}{2} \right) & -i\sin\left(\frac{\delta}{2} \right) \\\ -i\sin\left(\frac{\delta}{2} \right)  & \cos\left(\frac{\delta}{2} \right) \end{bmatrix} \\
+&= e^{i\alpha} \begin{bmatrix} a & ib  \\\ ib  & a  \end{bmatrix} \begin{bmatrix} c & d \\\ -d  & c \end{bmatrix} \begin{bmatrix} e & if \\\ if  & e \end{bmatrix} \\
+&= e^{i\alpha} \begin{bmatrix} ac -ibd & ad + ibc  \\\ ibc - ad  & ibd + ac  \end{bmatrix}\begin{bmatrix} e & if \\\ if  & e \end{bmatrix}\\
+&= e^{i\alpha} \begin{bmatrix} (ac -ibd)e + i(ad + ibc)f & i(ac -ibd)f + (ad + ibc)e  \\\ (ibc - ad )e + i(ibd + ac)f & i(ibc - ad )f + (ibd + ac)e \end{bmatrix}
+\end{aligned}$$
+
+From exercise 4.9, we know that these criteria must be met $(ibc - ad )e + i(ibd + ac)f = -(i(ac -ibd)f + (iad + bc)e)^\ast$ and $i(ibc - ad )f + (ibd + ac)e = ((ac -ibd)e + i(ad + ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e + i(ad + ibc)f \vert^2 + \vert i(ac -ibd)f + (ad + ibc)e \vert^2=1$. So, let's check
+
+$$\begin{aligned}
+(ibc - ad )e + i(ibd + ac)f &= -(i(ac -ibd)f + (iad + bc)e)^\ast
+ibce - ade - bd + iacf &= -(iacf +bdf + iade + bce)^\ast
+ibce - ade - bdf + iacf &= iacf -bdf + iade - bce
+\end{aligned}$$

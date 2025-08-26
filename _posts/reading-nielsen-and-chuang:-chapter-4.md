@@ -390,6 +390,9 @@ U &= \exp(i\alpha)\begin{bmatrix} e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2}
 
 Give a decomposition analogous to Theorem 4.1 but using $R_x$ instead of $R_z$.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 Theorem 4.1 says 
 
 $$\begin{aligned}
@@ -401,15 +404,47 @@ and so an analogous decomposition would be
 $$\begin{aligned}
 U &= e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)\\
 &= e^{i\alpha} \begin{bmatrix} \cos\left(\frac{\beta}{2} \right) & -i\sin\left(\frac{\beta}{2} \right) \\\ -i\sin\left(\frac{\beta}{2} \right)  & \cos\left(\frac{\beta}{2} \right) \end{bmatrix} \begin{bmatrix} \cos\left(\frac{\gamma}{2} \right) & -\sin\left(\frac{\gamma}{2} \right) \\\ \sin\left(\frac{\gamma}{2} \right)  & \cos\left(\frac{\gamma}{2} \right) \end{bmatrix} \begin{bmatrix} \cos\left(\frac{\delta}{2} \right) & -i\sin\left(\frac{\delta}{2} \right) \\\ -i\sin\left(\frac{\delta}{2} \right)  & \cos\left(\frac{\delta}{2} \right) \end{bmatrix} \\
-&= e^{i\alpha} \begin{bmatrix} a & ib  \\\ ib  & a  \end{bmatrix} \begin{bmatrix} c & d \\\ -d  & c \end{bmatrix} \begin{bmatrix} e & if \\\ if  & e \end{bmatrix} \\
-&= e^{i\alpha} \begin{bmatrix} ac -ibd & ad + ibc  \\\ ibc - ad  & ibd + ac  \end{bmatrix}\begin{bmatrix} e & if \\\ if  & e \end{bmatrix}\\
-&= e^{i\alpha} \begin{bmatrix} (ac -ibd)e + i(ad + ibc)f & i(ac -ibd)f + (ad + ibc)e  \\\ (ibc - ad )e + i(ibd + ac)f & i(ibc - ad )f + (ibd + ac)e \end{bmatrix}
+&= e^{i\alpha} \begin{bmatrix} a & -ib  \\\ -ib  & a  \end{bmatrix} \begin{bmatrix} c & -d \\\ d  & c \end{bmatrix} \begin{bmatrix} e & -if \\\ -if  & e \end{bmatrix} &\text{introduce shorthand, where $a,b,c,d,e,f \in \mathbb{R}$} \\
+&= e^{i\alpha} \begin{bmatrix} ac -ibd & -ad - ibc  \\\ -ibc + ad  & ibd + ac  \end{bmatrix}\begin{bmatrix} e & -if \\\ -if  & e \end{bmatrix}\\
+&= e^{i\alpha} \begin{bmatrix} (ac -ibd)e - i(-ad - ibc)f & -i(ac -ibd)f + (-ad - ibc)e  \\\ (-ibc + ad )e - i(ibd + ac)f & -i(-ibc + ad )f + (ibd + ac)e \end{bmatrix}
 \end{aligned}$$
 
-From exercise 4.9, we know that these criteria must be met $(ibc - ad )e + i(ibd + ac)f = -(i(ac -ibd)f + (iad + bc)e)^\ast$ and $i(ibc - ad )f + (ibd + ac)e = ((ac -ibd)e + i(ad + ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e + i(ad + ibc)f \vert^2 + \vert i(ac -ibd)f + (ad + ibc)e \vert^2=1$. So, let's check
+From exercise 4.9, we know that these criteria must be met in order for this decomposition to work for any unitary operator: $(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast$ and $-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2=1$. So, let's check them
 
 $$\begin{aligned}
-(ibc - ad )e + i(ibd + ac)f &= -(i(ac -ibd)f + (iad + bc)e)^\ast
-ibce - ade - bd + iacf &= -(iacf +bdf + iade + bce)^\ast
-ibce - ade - bdf + iacf &= iacf -bdf + iade - bce
+(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast \\
+-ibce + ade + bdf - iacf &= -(-iacf - bdf - ade - ibce)^\ast \\
+-ibce + ade + bdf - iacf &= -iacf + bdf + ade - ibce & \text{the two sides are equal}
 \end{aligned}$$
+
+$$\begin{aligned}
+-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast \\
+-bcf - iadf + ibde + ace &= (ace - ibde + iadf - bcf)^\ast \\
+-bcf - iadf + ibde + ace &= ace + ibde - iadf - bcf & \text{the two sides are equal}
+\end{aligned}$$
+
+$$\begin{aligned}
+1 &= \vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2 \\
+&= ((ac -ibd)e + i(ad + ibc)f)((ac -ibd)e + i(ad + ibc)f)^\ast + (-i(ac -ibd)f - (ad + ibc)e )(-i(ac -ibd)f - (ad + ibc)e )^\ast \\
+&= (ace -ibde + iadf - bcf)(ace -ibde + iadf - bcf)^\ast + (-iacf -bdf - ade - ibce )(-iacf - bdf - ade - ibce )^\ast \\
+&= (ace -ibde + iadf - bcf)(ace +ibde - iadf - bcf) + (-iacf -bdf - ade - ibce )(iacf - bdf - ade + ibce ) \\
+&= (ace - bcf)^2 + (adf - bde)^2 + (ade + bdf)^2 + (acf + bce)^2 \\
+&= a^2c^2e^2 + b^2c^2f^2 - 2abc^2ef + a^2d^2f^2 + b^2d^2e^2 -2abd^2ef + a^2d^2e^2 + b^2d^2f^2 + 2abd^2ef + a^2c^2f^2 + b^2c^2f^2 + 2abc^2ef \\
+&= a^2c^2e^2 + b^2c^2f^2 + a^2d^2f^2 + b^2d^2e^2 + a^2d^2e^2 + b^2d^2f^2 + a^2c^2f^2 + b^2c^2f^2  \\
+&= (a^2 + b^2)(c^2e^2 + c^2f^2 + d^2f^2 + d^2e^2) \\
+&= (a^2 + b^2)(c^2 + d^2)(e^2 + f^2) \\
+&= \left(\cos^2\left(\frac{\beta}{2}\right) + \sin^2\left(\frac{\beta}{2}\right)\right)\left(\cos^2\left(\frac{\gamma}{2}\right) + \sin^2\left(\frac{\gamma}{2}\right)\right)\left(\cos^2\left(\frac{\delta}{2}\right) + \sin^2\left(\frac{\delta}{2}\right)\right) \\
+&= 1 
+\end{aligned}$$
+
+Since all required conditions are met, $U = e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)$ is a valid decomposition for any unitary operator. 
+
+</details>
+
+
+
+
+
+
+
+

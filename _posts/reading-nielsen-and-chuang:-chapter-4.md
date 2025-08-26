@@ -446,12 +446,12 @@ Since all required conditions are met, $U = e^{i\alpha} R_x(\beta)R_y(\gamma)R_x
 
 Suppose $\hat{m}$ and $\hat{n}$ are non-parallel real unit vecotrs in three dimensions. Use Theorem 4.1 to show that an arbitrary single qubit unitary $U$ may be written $U=e^{i\alpha}R_{\hat{n}}(\beta_1)R_{\hat{m}}(\gamma_1)R_{\hat{n}}(\beta_2)R_{\hat{m}}(\gamma_2)\cdots$ for appropriate choices of $\alpha, \beta_k, \gamma_k$. Note: per the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) the correct equation is different than what is in the book. 
 
-Let's start with Theorem 4.1 $U=e^{i\alpha}R_z(\beta)R_y(\gamma)R_z(\delta)$ and think about how we can write it in terms of rotations about two arbitrary axes $\hat{n}$ and $\hat{m}$. What we'd like to do is write $R_z$ and $R_y$ in terms of $R_{\hat{m}}$ and $R_{\hat{n}}$.
+Let's start with Theorem 4.1 $U=e^{i\alpha}R_z(\beta)R_y(\gamma)R_z(\delta)$ and think about how we can write it in terms of rotations about two arbitrary axes $\hat{n}$ and $\hat{m}$. What we'd like to do is write $R_z$ and $R_y$ in terms of $R_{\hat{m}}$ and $R_{\hat{n}}$. To do this, let's say that there is another unit vector $\hat{p} = \hat{m} \times \hat{n}$ which is orthogonal to both $\hat{m}$ and $\hat{n}$. Then using decomposition we can write,
 
 $$\begin{aligned}
-R_z(\theta) &= VR_{\hat{n}}(\theta)V^\dagger \\
-R_y(\theta) &= VR_{\hat{m}}(\theta)V^\dagger \\
+R_z(\theta_1) &= e^{i\alpha_1}R_{\hat{p}}(\beta_1)R_{\hat{n}}(\gamma_1)R_{\hat{p}}(\delta_1) \\
+R_y(\theta_2) &= e^{i\alpha_2}R_{\hat{p}}(\beta_2)R_{\hat{m}}(\gamma_2)R_{\hat{p}}(\delta_2) \\
 \end{aligned}$$
 
-
+Now let's think about what relationships there must be for these angles. 
 

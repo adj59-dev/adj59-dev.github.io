@@ -603,6 +603,35 @@ HZH &= \frac{1}{2}(X + Z)Z(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page
 </details>
 
 
+**Exercise 4.14**
+
+Use the previous exercise to show that $HTH = R_x(\pi/4)$ up to a global phase.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From exercise 4.3 we know that $T=R_z(\pi/4)$ up to a global phase. Therefore, the following is true up to a global phase
+
+$$\begin{aligned}
+HTH &= HR_z(\pi/4)H \\
+&= R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)R_z(\pi/4)R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) & \text{true up to a global phase per exercise 4.4} \\
+&=  R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2)R_z(\pi/2)R_z(\pi/2)R_z(\pi/4)R_z(\pi/2)R_z(\pi/2)R_z(-\pi/2)R_x(\pi/2)R_z(\pi/2)  & \text{since $R_z(-\pi/2)R_z(\pi/2)=I$}\\
+&=  R_y(\pi/2)R_z(2\pi + \pi/4)R_y(-\pi/2) & \text{decomposition} \\
+&=  R_y(\pi/2)R_z(\pi/4)R_y(-\pi/2) \\
+&= R_x(\pi/4) & \text{decomposition} 
+\end{aligned}$$
+
+</details>
+
+
+**Exercise 4.15**
+
+This exercise has us calculate the composition of two rotation operations on a single qubit. 
+
+
+
+
+
 
 
 

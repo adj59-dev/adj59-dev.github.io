@@ -626,10 +626,19 @@ HTH &= HR_z(\pi/4)H \\
 
 **Exercise 4.15**
 
-This exercise has us calculate the composition of two rotation operations on a single qubit. 
+This exercise has us calculate the composition of two rotation operations on a single qubit. Note: The [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that in Equations (4.20) and (4.22) the minus sign on the right-hand side should be a plus.
 
+So let's calculate this rotation with $c_i = \cos(\beta_i/2)$ and $s_i = \sin(\beta_i/2)$,
 
+$$\begin{aligned}
+R_{\hat{n_2}}(\beta_2)R_{\hat{n_1}}(\beta_1) &= \left(c_2I - is_2(\hat{n_2}\cdot \vec{\sigma})\right)\left(c_1I - is_1(\hat{n_1}\cdot \vec{\sigma})\right) \\
+&= c_1c_2II - ic_1s_2(\hat{n_2}\cdot \vec{\sigma})I - is_1c_2I(\hat{n_1}\cdot \vec{\sigma}) - s_1s_2(\hat{n_2}\cdot \vec{\sigma})(\hat{n_1}\cdot \vec{\sigma}) \\
+&= c_1c_2I - ic_1s_2(\hat{n_2}\cdot \vec{\sigma}) - is_1c_2(\hat{n_1}\cdot \vec{\sigma}) - s_1s_2((\hat{n_2} \cdot \hat{n_1})I + i(\hat{n_2} \times \hat{n_1})\cdot\vec{\sigma}) & \text{from exercise 4.6}\\
+&= (c_1c_2 - s_1s_2(\hat{n_2} \cdot \hat{n_1}))I - i(c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times \hat{n_1}))\cdot\vec{\sigma} \\
+&= c_{12}I - is_{12}(\hat{n_{12}}\cdot\vec{\sigma}) \\
+\end{aligned}$$
 
+where $c_{12} = c_1c_2 - s_1s_2(\hat{n_2} \cdot \hat{n_1})$ and $s_{12}\hat{n_{12}} = c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times \hat{n_1})$. 
 
 
 

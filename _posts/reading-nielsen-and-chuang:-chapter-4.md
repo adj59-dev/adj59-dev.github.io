@@ -738,5 +738,29 @@ $$\begin{aligned}
 </details>
 
 
+**Exercise 4.18**
+
+Here we are to show that Gate 1 = Gate 2
+
+<img width="559" height="207" alt="image" src="https://github.com/user-attachments/assets/bac7a835-2a0b-4d93-9233-ebdb74b0d191" />
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's compare the behavior of the two gates for a basis set of states.
+
+| $\ket{a}\ket{b}$ | $Z^b\ket{a}\ket{b}$ | $\ket{a}Z^a\ket{b}$ |
+|:----------------:|:-------------------:|:--------------------|
+| $\ket{0}\ket{0}$ | $\ket{0}\ket{0}$    | $\ket{0}\ket{0}$    |
+| $\ket{1}\ket{0}$ | $\ket{1}\ket{0}$    | $\ket{1}Z\ket{0}=\ket{1}\ket{0}$    |
+| $\ket{0}\ket{1}$ | $Z\ket{0}\ket{1}=\ket{0}\ket{1}$    | $\ket{0}\ket{1}$    |
+| $\ket{1}\ket{1}$ | $Z\ket{1}\ket{1} = -\ket{1}\ket{1}$   | $\ket{1}Z\ket{1}=-\ket{1}\ket{1}$   |
+
+Since the behavior of the two gates are the same for all the states, the two gates are equivalent. 
+
+</details>
+
+
+
 
 

@@ -566,5 +566,43 @@ ABC &= R_y(\pi/4)R_y(-\pi/4)R_z(-\pi/2)R_z(\pi/2)\\
 </details>
 
 
+**Exercise 4.13**
+
+We are asked to prove several identites involving the Pauli matrices and the Hadamard gate.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+HXH &= \frac{1}{2}(X + Z)X(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page 174}\\
+&= \frac{1}{2}(XX + ZX)(X + Z) \\
+&= \frac{1}{2}(XXX + ZXX + XXZ + ZXZ) \\
+&= \frac{1}{2}(XI + ZI + IZ - X) \\
+&= \frac{1}{2}(2Z) \\
+&= Z
+\end{aligned}$$
+
+$$\begin{aligned}
+HYH &= \frac{1}{2}(X + Z)Y(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page 174}\\
+&= \frac{1}{2}(XY + ZY)(X + Z) \\
+&= \frac{1}{2}(XYX + ZYX + XYZ + ZYZ)\\
+&= \frac{1}{2}(-Y + Z(-iZ) + (iZ)Z - Y) & \text{equation 2.78}\\
+&= \frac{1}{2}(-2Y) \\
+&= -Y \\
+\end{aligned}$$
+
+$$\begin{aligned}
+HZH &= \frac{1}{2}(X + Z)Z(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page 174}\\
+&= \frac{1}{2}(XZ + ZZ)(X + Z) \\
+&= \frac{1}{2}(XZX + ZZX + XZZ + ZZZ) \\
+&= \frac{1}{2}(-Z + IX + XI + IZ) \\
+&= \frac{1}{2}(2X) \\
+&= X
+\end{aligned}$$
+
+</details>
+
+
+
 
 

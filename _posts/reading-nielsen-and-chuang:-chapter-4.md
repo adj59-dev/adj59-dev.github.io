@@ -706,5 +706,37 @@ M &= H \otimes I \\
 </details>
 
 
+**Exercise 4.17**
+
+For this exercise we are to construct a CNOT gate from a controlled-Z gate and two Hadamard gates.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The matrix representation for a CNOT gate is
+
+$$\begin{aligned}
+CNOT = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix}
+\end{aligned}$$
+
+and the matrix representation for a controlled-Z gate is
+
+$$\begin{aligned}
+CZ = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -1 \end{bmatrix}
+\end{aligned}$$
+
+Let's try $(I \otimes H)CZ(I \otimes H)$ since we know $HZH = X$ from exercise 4.13 and it looks like CNOT is a controlled-X gate.
+
+$$\begin{aligned}
+(I \otimes H)CZ(I \otimes H) &= \frac{1}{2}\begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix} \\
+ &= \frac{1}{2}\begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & -1 \\\ 0 & 0 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix} \\
+ &= \frac{1}{2}\begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & 2 & 0 & 0 \\\ 0 & 0 & 0 & 2 \\\ 0 & 0 & 2 & 0 \end{bmatrix}  \\
+ &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} \\
+ &= CNOT
+\end{aligned}$$
+
+</details>
+
+
 
 

@@ -670,7 +670,8 @@ s_{12}\hat{n_{12}} &= c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| CNOT                                 | 4.3                       | Controlled-NOT gate. $\ket{c}\ket{t} \rightarrow \ket{c}\ket{t\oplus c}$ |
+| Controlled-U                         | 4.3                       | If the control qubit is set to $\ket{1}$ then $U$ is applied to the target qubit. $\ket{c}\ket{t} \rightarrow \ket{c}U^C\ket{t}$ |
 
 
 
@@ -679,7 +680,30 @@ s_{12}\hat{n_{12}} &= c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times
 ### Controlled operations - Exercises
 
 
+**Exercise 4.16**
 
+Find the matrix representation for a given circuit.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The first circuit applies the Hadamard operation to $\ket{x_2}$ and leaves $\ket{x_1}$ unchanged. Therefore for computation basis $\ket{x_1x_2}$,
+
+$$\begin{aligned}
+M &= I \otimes H \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \otimes \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
+&=\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix}
+\end{aligned}$$
+
+The second circuit applies the Hadamard operation to $\ket{x_1}$ and leaves $\ket{x_2}$ unchanged. Therefore for computation basis $\ket{x_1x_2}$,
+
+$$\begin{aligned}
+M &= H \otimes I \\
+&= \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}  \\
+&=\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 0 & 1 & 0 \\\ 0 & 1 & 0 & 1 \\\ 1 & 0 & -1 & 0 \\\ 0 & 1 & 0 & -1 \end{bmatrix}
+\end{aligned}$$
+
+</details>
 
 
 

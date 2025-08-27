@@ -43,6 +43,67 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 
 
 ### Single qubit operations - Exercises
+
+**Rotation Operator Decomposition**
+
+For several exercises in this section, I perform decomposition on the rotation operators $R_x$, $R_y$ and $R_z$ where I write one of these operators in terms of the other ones. I wanted to take a moment here to prove that this is valid and to confirm the signs of the rotations and their ordering; since they do not commute it is important to get their order correct. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Proof</summary>
+
+We can write $R_x$ in terms of $R_y$ and $R_z$ as follows
+
+$$\begin{aligned}
+R_x(\theta) &= R_z(-\pi/2)R_y(\theta)R_z(\pi/2) \\
+&= \left(\cos\frac{-\pi}{4}I - i\sin\frac{-\pi}{4}Z\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Y\right)\left(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}Z\right) \\
+&= \left(\frac{1}{\sqrt{2}}I + i\frac{1}{\sqrt{2}}Z\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Y\right)\left(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}Z\right) \\
+&= \frac{1}{2}\cos\frac{\theta}{2}I + i\frac{1}{2}\cos\frac{\theta}{2}Z - i\frac{1}{2}\sin\frac{\theta}{2}Y + \frac{1}{2}\sin\frac{\theta}{2}ZY - i\frac{1}{2}\cos\frac{\theta}{2}Z + \frac{1}{2}\cos\frac{\theta}{2}ZZ - \frac{1}{2}\sin\frac{\theta}{2}YZ - i\frac{1}{2}\sin\frac{\theta}{2}ZYZ \\
+&= \frac{1}{2}\cos\frac{\theta}{2}(I + ZZ) + i\frac{1}{2}\cos\frac{\theta}{2}(Z-Z) - i\frac{1}{2}\sin\frac{\theta}{2}(Y + ZYZ) + \frac{1}{2}\sin\frac{\theta}{2}(ZY - YZ) \\
+&= \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X & \text{since $ZZ=I$, $ZYZ=-Y$, and $ZY-YZ = -2iX$}\\
+\end{aligned}$$
+
+We can write $R_y$ in terms of $R_x$ and $R_z$ as follows
+
+$$\begin{aligned}
+R_y(\theta) &= R_x(-\pi/2)R_z(\theta)R_x(\pi/2) \\
+&= \left(\cos\frac{-\pi}{4}I - i\sin\frac{-\pi}{4}X\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z\right)\left(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}X\right) \\
+&= \left(\frac{1}{\sqrt{2}}I + i\frac{1}{\sqrt{2}}X\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z\right)\left(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}X\right) \\
+&= \frac{1}{2}\cos\frac{\theta}{2}I + i\frac{1}{2}\cos\frac{\theta}{2}X - i\frac{1}{2}\sin\frac{\theta}{2}Z + \frac{1}{2}\sin\frac{\theta}{2}XZ - i\frac{1}{2}\cos\frac{\theta}{2}X + \frac{1}{2}\cos\frac{\theta}{2}XX - \frac{1}{2}\sin\frac{\theta}{2}ZX - i\frac{1}{2}\sin\frac{\theta}{2}XZX \\
+&= \frac{1}{2}\cos\frac{\theta}{2}(I + XX) + i\frac{1}{2}\cos\frac{\theta}{2}(X-X) - i\frac{1}{2}\sin\frac{\theta}{2}(Z + XZX) + \frac{1}{2}\sin\frac{\theta}{2}(XZ - ZX) \\
+&= \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Y & \text{since $XX=I$, $XZX=-Z$, and $XZ-ZX = -2iY$}\\
+\end{aligned}$$
+
+We can write $R_z$ in terms of $R_y$ and $R_x$ as follows
+
+$$\begin{aligned}
+R_z(\theta) &= R_y(-\pi/2)R_x(\theta)R_y(\pi/2) \\
+&= \left(\cos\frac{-\pi}{4}I - i\sin\frac{-\pi}{4}Y\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X\right)\left(\cos\frac{\pi}{4}I - i\sin\frac{\pi}{4}Y\right) \\
+&= \left(\frac{1}{\sqrt{2}}I + i\frac{1}{\sqrt{2}}Y\right)\left(\cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X\right)\left(\frac{1}{\sqrt{2}}I - i\frac{1}{\sqrt{2}}Y\right) \\
+&= \frac{1}{2}\cos\frac{\theta}{2}I + i\frac{1}{2}\cos\frac{\theta}{2}Y - i\frac{1}{2}\sin\frac{\theta}{2}X + \frac{1}{2}\sin\frac{\theta}{2}YX - i\frac{1}{2}\cos\frac{\theta}{2}Y + \frac{1}{2}\cos\frac{\theta}{2}YY - \frac{1}{2}\sin\frac{\theta}{2}XY - i\frac{1}{2}\sin\frac{\theta}{2}YXY \\
+&= \frac{1}{2}\cos\frac{\theta}{2}(I + YY) + i\frac{1}{2}\cos\frac{\theta}{2}(Y-Y) - i\frac{1}{2}\sin\frac{\theta}{2}(X + YXY) + \frac{1}{2}\sin\frac{\theta}{2}(YX - XY) \\
+&= \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z & \text{since $YY=I$, $YXY=-Z$, and $YX-XY = -2iZ$}\\
+\end{aligned}$$
+
+The following is also true,
+
+$$\begin{aligned}
+R_x(\theta) &= R_y(\pi/2)R_z(\theta)R_y(-\pi/2) \\
+&= R_y(\pi/2)R_y(-\pi/2)R_x(\theta)R_y(\pi/2)R_y(-\pi/2) &\text{decomposition of $R_z$} \\
+&= R_x(\theta)
+\end{aligned}$$
+
+The same can be shown for $R_y$ and $R_z$, 
+
+$$\begin{aligned}
+R_y(\theta) &= R_z(\pi/2)R_x(\theta)R_z(-\pi/2) \\
+&= R_z(\pi/2)R_z(-\pi/2)R_y(\theta)R_z(\pi/2)R_z(-\pi/2) &\text{decomposition of $R_x$} \\
+&= R_y(\theta) \\
+R_z(\theta) &= R_x(\pi/2)R_y(\theta)R_x(-\pi/2) \\
+&= R_z(\pi/2)R_x(-\pi/2)R_x(-\pi/2)R_z(\theta)R_x(\pi/2)R_x(\pi/2)R_z(-\pi/2) &\text{decomposition of $R_y$} \\
+&= R_z(\theta)
+\end{aligned}$$
+
+</details>
   
 **Exercise 4.1** 
 

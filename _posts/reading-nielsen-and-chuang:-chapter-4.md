@@ -471,6 +471,39 @@ Therefore, an arbitrary single qubit unitary $U$ may be written $U=e^{i\alpha}R_
 
 **Exercise 4.12**
 
+Give $A$, $B$, $C$, and $\alpha$ for the Hadamard gate.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From Corollary 4.2 we know that there exist operators $A,B,C$ such that $U=e^{i\alpha}AXBXC$ and $ABC=I$. In exercise 4.4 we showed that the Hadamard gate can be written as $H=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$, but to write it in the requested form we'll need to have it written in terms of $R_z$ and $R_y$. We know,
+
+$$\begin{aligned}
+R_x(\theta) &= R_z(-\pi/2)R_y(\theta)R_z(\pi/2)
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+H &= e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)\\
+&= e^{i\pi/2}R_z(\pi/2)R_z(-\pi/2)R_y(\pi/2)R_z(\pi/2)R_z(\pi/2) & \text{decomposition of $R_x$}\\
+&= e^{i\pi/2}R_z(0)R_y(\pi/2)R_z(\pi) \\
+&= e^{i\pi/2}R_y(\pi/2)R_z(\pi) & \text{since $R_z(0)=I$}\\
+&= e^{i\pi/2}R_y(\pi/4)R_y(\pi/4)R_z(\pi/2)R_z(\pi/2) \\
+&= e^{i\pi/2}R_y(\pi/4)XR_y(-\pi/4)XXR_z(-\pi/2)XR_z(\pi/2) & \text{see corollary proof} \\
+&= e^{i\pi/2}R_y(\pi/4)XR_y(-\pi/4)R_z(-\pi/2)XR_z(\pi/2) & \text{since $XX=I$}
+\end{aligned}$$
+
+Therefore, $A = R_y(\pi/4)$, $B = R_y(-\pi/4)R_z(-\pi/2)$, $C = R_z(\pi/2)$, and $\alpha = \pi/2$. This satisfies the requirement that $ABC=I$, as shown below.
+
+$$\begin{aligned}
+ABC &= R_y(\pi/4)R_y(-\pi/4)R_z(-\pi/2)R_z(\pi/2)\\
+&= R_y(0)R_z(0) \\
+&= I
+\end{aligned}$$
+
+</details>
+
 
 
 

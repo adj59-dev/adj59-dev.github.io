@@ -628,6 +628,9 @@ HTH &= HR_z(\pi/4)H \\
 
 This exercise has us calculate the composition of two rotation operations on a single qubit. Note: The [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that in Equations (4.20) and (4.22) the minus sign on the right-hand side should be a plus.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 So let's calculate this rotation with $c_i = \cos(\beta_i/2)$ and $s_i = \sin(\beta_i/2)$,
 
 $$\begin{aligned}
@@ -640,7 +643,22 @@ R_{\hat{n_2}}(\beta_2)R_{\hat{n_1}}(\beta_1) &= \left(c_2I - is_2(\hat{n_2}\cdot
 
 where $c_{12} = c_1c_2 - s_1s_2(\hat{n_2} \cdot \hat{n_1})$ and $s_{12}\hat{n_{12}} = c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times \hat{n_1})$. 
 
+If $\beta_1 = \beta_2$ and $\hat{n_1} = \hat{z}$, then $c_1=c_2=c$, $s_1=s_2=s$,
 
+$$\begin{aligned}
+c_{12} &= c_1c_2 - s_1s_2(\hat{n_2} \cdot \hat{n_1})\\
+&= c^2 - s^2(\hat{n_2} \cdot \hat{z})\\
+\end{aligned}$$
+
+and
+
+$$\begin{aligned}
+s_{12}\hat{n_{12}} &= c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times \hat{n_1}) \\
+&= cs\hat{n_2} + sc\hat{z}+ s^2(\hat{n_2} \times \hat{z}) \\
+&= sc(\hat{z} + \hat{n_2})+ s^2(\hat{n_2} \times \hat{z}) \\
+\end{aligned}$$
+
+</details>
 
 
 

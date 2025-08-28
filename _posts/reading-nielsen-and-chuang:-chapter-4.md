@@ -843,7 +843,10 @@ The effect of a CNOT gate on the $\ket{\pm}\ket{\pm}$ states is shown in the mid
 
 **Exercise 4.21**
 
-We are to verify that figure 4.8 implements the $C^2(U)$ operation. 
+We are asked to verify that figure 4.8 implements the $C^2(U)$ operation. I did this by expressing all the gates in their matrix representation and multiplying together the ones on the right-hand side of the circuit inequality to get the effect of the combined circuit. Then I pointed out that this is equal to the matrix representation of the circuit on the left-hand side of the circuit inequality. Since each gate requires an 8x8 matrix, this was a lot of matrix multiplication.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 <img width="762" height="198" alt="image" src="https://github.com/user-attachments/assets/95534f9b-e2e3-4d01-81c2-23d867c3a7d3" />
 
@@ -900,7 +903,7 @@ $$\begin{aligned}
 CNOT_{ab} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix}
 \end{aligned}$$
 
-Then we expect $U$ to be given by 
+Then we expect $U_{abc}$ to be given by 
 
 $$\begin{aligned}
 \ket{000} &\xrightarrow{U} \ket{000} \\
@@ -914,7 +917,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 $$\begin{aligned}
-U  = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{11} & u_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{21} & u_{22} \end{bmatrix}
+U_{abc}  = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{11} & u_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{21} & u_{22} \end{bmatrix}
 \end{aligned}$$
 
 The left hand side of the circuit inequality is
@@ -923,4 +926,37 @@ $$\begin{aligned}
 V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{11} & v_{12} & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21} & v_{22} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11}^\ast & v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{12}^\ast & v_{22}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^\ast & v_{21}^\ast \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{12}^\ast & v_{22}^\ast \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11} & v_{12} & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{21} & v_{22} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \\
 &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & \vert v_{11} \vert^2 + \vert v_{21} \vert^2 & v_{12}v_{11}^\ast + v_{22}v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{11}v_{12}^\ast + v_{21}v_{22}^\ast & \vert v_{12} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & \vert v_{11} \vert^2 + \vert v_{12} \vert^2 & v_{11}v_{21}^\ast + v_{12}v_{22}^\ast & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21}v_{11}^\ast + v_{22}v_{12}^\ast & \vert v_{21} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^2 + v_{12}v_{21} & v_{12}(v_{11}+v_{22}) \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21}(v_{11} + v_{22}) & v_{12}v_{21} + v_{22}^2 \end{bmatrix} \\
 \end{aligned}$$
+
+We know that $V^2 = U$ so
+
+$$\begin{aligned}
+V^2 &= \begin{bmatrix} v_{11} & v_{12} \\\ v_{21} & v_{22} \end{bmatrix} \begin{bmatrix} v_{11} & v_{12} \\\ v_{21} & v_{22} \end{bmatrix} \\
+&= \begin{bmatrix} v_{11}^2 + v_{12}v_{21} & v_{12}(v_{11} + v_{22}) \\\ v_{21}(v_{11} + v_{22}) & v_{22}^2 + v_{12}v_{21} \end{bmatrix} \\
+&= \begin{bmatrix} u_{11} & u_{12} \\\ u_{21} & u_{22} \end{bmatrix}
+\end{aligned}$$
+
+We also know that $V$ is unitary so
+
+$$\begin{aligned}
+I &= VV^\dagger \\ 
+&= \begin{bmatrix} v_{11} & v_{12} \\\ v_{21} & v_{22} \end{bmatrix} \begin{bmatrix} v_{11}^\ast & v_{21}^\ast \\\ v_{12}^\ast & v_{22}^\ast \end{bmatrix} \\
+&= \begin{bmatrix} \vert v_{11} \vert^2 + \vert v_{12} \vert^2 & v_{11}v_{21}^\ast + v_{12}v_{22}^\ast \\\ v_{21}v_{11}^\ast +v_{22}v_{12}^\ast & \vert v_{22} \vert^2 + \vert v_{21} \vert^2 \end{bmatrix} \\
+&= V^\dagger V \\
+&= \begin{bmatrix} v_{11}^\ast & v_{21}^\ast \\\ v_{12}^\ast & v_{22}^\ast \end{bmatrix} \begin{bmatrix} v_{11} & v_{12} \\\ v_{21} & v_{22} \end{bmatrix} \\
+&= \begin{bmatrix} \vert v_{11} \vert^2 + \vert v_{21} \vert^2 & v_{11}^\ast v_{12} + v_{21}^\ast v_{22} \\\ v_{12}^\ast v_{11} +v_{22}^\ast v_{21} & \vert v_{22} \vert^2 + \vert v_{12} \vert^2 \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+Putting it all together we get 
+
+$$\begin{aligned}
+V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{11} & u_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{21} & u_{22} \end{bmatrix}
+&= U_{abc}
+\end{aligned}$$
+
+</details>
+
+
+
+
 

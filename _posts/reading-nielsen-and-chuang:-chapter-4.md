@@ -841,4 +841,36 @@ The effect of a CNOT gate on the $\ket{\pm}\ket{\pm}$ states is shown in the mid
 </details>
 
 
+**Exercise 4.21**
 
+We are to verify that figure 4.8 implements the $C^2(U)$ operation. 
+
+<img width="762" height="198" alt="image" src="https://github.com/user-attachments/assets/95534f9b-e2e3-4d01-81c2-23d867c3a7d3" />
+
+Let $V$ be represented as
+
+$$\begin{aligned}
+V_{bc} = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & v_{21} & v_{22}  \end{bmatrix}
+\end{aligned}$$
+
+$$\begin{aligned}
+V_{ac} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & v_{21} & v_{22}  \end{bmatrix}
+\end{aligned}$$
+
+$CNOT_{ab}$ is given by
+
+$$\begin{aligned}
+CNOT_{ab} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0  \end{bmatrix}
+\end{aligned}$$
+
+$U$ is given by 
+
+$$\begin{aligned}
+U = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & u_{11} & u_{12} \\\ 0 & 0 & 0 & 0 & u_{21} & u_{22}  \end{bmatrix}
+\end{aligned}$$
+
+and so the left hand side of the circuit inequality is
+
+$$\begin{aligned}
+V CNOT_{ab} V^\dagger CNOT_{ab} V 
+\end{aligned}$$

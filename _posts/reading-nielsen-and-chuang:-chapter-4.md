@@ -786,3 +786,59 @@ CNOT \rho CNOT^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 
 </details>
 
 
+**Exercise 4.20**
+
+We are asked to show that $(H \otimes H)CNOT_{12}(H\otimes H)$ is equivalent to $CNOT_{21}$ and then use that identity to show that the effect of a CNOT with the first qubit as the control and the second qubit as the target is as shown in the book.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+First let's calculate $H \otimes H$.
+
+$$\begin{aligned}
+\frac{1}{2}\begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix}  &= \frac{1}{2}\begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix} 
+\end{aligned}$$
+
+Now let's calculate $(H \otimes H)CNOT_{12}(H\otimes H)$
+
+$$\begin{aligned}
+(H \otimes H)CNOT_{12}(H\otimes H) &= \frac{1}{4}\begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix} \\ 
+&= \frac{1}{4}\begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & -1 & 1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & 1 & -1 \end{bmatrix} \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & -1 & 1 & -1 \\\ 1 & 1 & -1 & -1 \\\ 1 & -1 & -1 & 1 \end{bmatrix} \\ 
+&= \frac{1}{4}\begin{bmatrix} 4 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 4 \\\ 0 & 0 & 4 & 0 \\\ 0 & 4 & 0 & 0 \end{bmatrix} \\ 
+&= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \\\ 0 & 1 & 0 & 0 \end{bmatrix} \\
+&= CNOT_{21}
+\end{aligned}$$
+
+Now that we've proven this circuit identity, let's use it to show that the effect of a CNOT with the first qubit as the control and the second qubit as the target is as follows:
+
+$$\begin{aligned}
+\ket{+}\ket{+} &\xrightarrow{CNOT_{12}} \ket{+}\ket{+} \\
+\ket{-}\ket{+} &\xrightarrow{CNOT_{12}} \ket{-}\ket{+} \\
+\ket{+}\ket{-} &\xrightarrow{CNOT_{12}} \ket{-}\ket{-} \\
+\ket{-}\ket{-} &\xrightarrow{CNOT_{12}} \ket{+}\ket{-} \\
+\end{aligned}$$
+
+The $CNOT_{21}$ gate has the following effect:
+
+$$\begin{aligned}
+\ket{0}\ket{0} &\xrightarrow{CNOT_{21}} \ket{0}\ket{0} \\
+\ket{1}\ket{0} &\xrightarrow{CNOT_{21}} \ket{1}\ket{0} \\
+\ket{0}\ket{1} &\xrightarrow{CNOT_{21}} \ket{1}\ket{1} \\
+\ket{1}\ket{1} &\xrightarrow{CNOT_{21}} \ket{0}\ket{1} \\
+\end{aligned}$$
+
+The Hadamard gates transform $\ket{0} \rightarrow \ket{+}$ and $\ket{1} \rightarrow \ket{-}$. They also transform $\ket{+} \rightarrow \ket{0}$ and $\ket{-} \rightarrow \ket{1}$. Therefore looking at the effect of the $CNOT_{21}$ gate and using the circuit identity, we can write:
+
+$$\begin{aligned}
+\ket{0}\ket{0} &\xrightarrow{H \otimes H} \ket{+}\ket{+} &\xrightarrow{CNOT_{12}} \ket{+}\ket{+} &\xrightarrow{H \otimes H} \ket{0}\ket{0} \\
+\ket{1}\ket{0} &\xrightarrow{H \otimes H} \ket{-}\ket{+} &\xrightarrow{CNOT_{12}} \ket{-}\ket{+} &\xrightarrow{H \otimes H} \ket{1}\ket{0} \\
+\ket{0}\ket{1} &\xrightarrow{H \otimes H} \ket{+}\ket{-} &\xrightarrow{CNOT_{12}} \ket{-}\ket{-} &\xrightarrow{H \otimes H} \ket{1}\ket{1} \\
+\ket{1}\ket{1} &\xrightarrow{H \otimes H} \ket{-}\ket{-} &\xrightarrow{CNOT_{12}} \ket{+}\ket{-} &\xrightarrow{H \otimes H} \ket{0}\ket{1} \\
+\end{aligned}$$
+
+The effect of a CNOT gate on the $\ket{\pm}\ket{\pm}$ states is shown in the middle.
+
+</details>
+
+
+

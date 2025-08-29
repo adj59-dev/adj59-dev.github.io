@@ -959,13 +959,16 @@ V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 
 
 **Exercise 4.22**
 
-For this exercise we are to prove that a $C^2(U)$ gate for any single qubit unitary $U$ can be constructed using at most eight one-qubit gates, and six controlled-NOTs. 
+For this exercise we are asked to prove that a $C^2(U)$ gate for any single qubit unitary $U$ can be constructed using at most eight one-qubit gates and six controlled-NOTs. I found comparing the circuit that I was creating to the Toffoli gate on Wikipedia and rereading section 4.3 with this exercise in mind helpful when working on this exercise. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 From Corollary 4.2 we know that any unitary can be expressed as $U=e^{i\alpha}AXBXC$, so we can create the $V$ gates using two CNOTs and three one-qubit gates as $V=e^{i\alpha}AXBXC$. Then $V^\dagger = e^{-i\alpha}(AXBXC)^\dagger = e^{-i\alpha}C^\dagger X^\dagger B^\dagger X^\dagger A^\dagger = e^{-i\alpha}C^\dagger X B^\dagger X A^\dagger$. We can then construct the gate as so
 
 <img width="829" height="216" alt="image" src="https://github.com/user-attachments/assets/63880985-2e67-4b03-9100-9f097c3e5315" />
 
-However, this contains 9 one-qubit gates and 8 CNOTs. So, let's think about how we could make this with fewer gates. Well, we can get rid of the $U$ and $U^\dagger$ pairs for operators on the same wire that do not have a gate between them since $UU^\dagger = U^\dagger U = I$
+However, this circuit contains 9 one-qubit gates and 8 CNOTs. So, let's think about how we could make this with fewer gates. We can get rid of the $U$ and $U^\dagger$ pairs for operators on the same wire that do not have a gate between them since $UU^\dagger = U^\dagger U = I$
 
 <img width="816" height="196" alt="image" src="https://github.com/user-attachments/assets/75e2f1a9-8f9c-4cea-ab67-a6c78c3ce7ff" />
 
@@ -984,7 +987,7 @@ $$\begin{aligned}
 \ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} &\xrightarrow{CNOT_{ab}} \ket{100} &\xrightarrow{CNOT_{bc}} \ket{100} \\
 \end{aligned}$$
 
-It can be seen that $CNOT_{bc}CNOT_{ab}CNOT_{bc} = CNOT_{ab}CNOT_{ac}$, since when $a=1$ both $b$ and $c$ flip, but otherwise their values are left unchanged. So we can reduce at least one of the CNOT gates there. 
+It can be seen that $CNOT_{bc}CNOT_{ab}CNOT_{bc} = CNOT_{ab}CNOT_{ac}$, since when $a=1$ both $b$ and $c$ flip, but otherwise their values are left unchanged. So, we can reduce at least one of the CNOT gates there. 
 
 Now let's look at the three CNOTs between $B^\dagger$ and $B$. 
 
@@ -1020,40 +1023,122 @@ Ok, so now we have too few single qubit gates. What are we missing? Looking at f
 
 <img width="650" height="189" alt="image" src="https://github.com/user-attachments/assets/9ededfb9-2e97-46c3-95e4-dac47d241a1a" />
 
-I wrote the following python script to confirm that this circuit is equivelent to the previous one.
+I wrote the following python script to confirm that the circuits have been equivalent so far. This check initially shows that the circuit after the first simplification (of removing $A, A^\dagger, C^\dagger, C$ )resulted in a different circuit, but upon further review, one can see that this is due to a simplification error and all the circuits created so far are equivalent. 
 
 ```
-from sympy import Matrix, symbols
+from sympy import simplify, Matrix, symbols, exp, sin, cos, I
 from sympy.physics.quantum import TensorProduct
 
-a11, a12, a21, a22 = symbols('a11 a12 a21 a22')
-b11, b12, b21, b22 = symbols('b11 b12 b21 b22')
-c11, c12, c21, c22 = symbols('c11 c12 c21 c22')
+theta_a, alpha_a, beta_a, phi_a = symbols('theta_a alpha_a beta_a phi_a', real=True)
+theta_b, alpha_b, beta_b, phi_b = symbols('theta_b alpha_b beta_b phi_b', real=True)
+theta_c, alpha_c, beta_c, phi_c = symbols('theta_c alpha_c beta_c phi_c', real=True)
 
+A = exp(I*phi_a/2)*Matrix([[exp(I*alpha_a)*cos(theta_a), exp(I*beta_a)*sin(theta_a)], [-exp(-I*beta_a)*sin(theta_a), exp(-I*alpha_a)*cos(theta_a)]])
+B = exp(I*phi_b/2)*Matrix([[exp(I*alpha_b)*cos(theta_b), exp(I*beta_b)*sin(theta_b)], [-exp(-I*beta_b)*sin(theta_b), exp(-I*alpha_b)*cos(theta_b)]])
+C = exp(I*phi_c/2)*Matrix([[exp(I*alpha_c)*cos(theta_c), exp(I*beta_c)*sin(theta_c)], [-exp(-I*beta_c)*sin(theta_c), exp(-I*alpha_c)*cos(theta_c)]])
+Identity = Matrix([[1, 0], [0, 1]])
 
-A = Matrix([[a11, a12], [a21, a22]])
-B = Matrix([[b11, b12], [b21, b22]])
-C = Matrix([[c11, c12], [c21, c22]])
-I = Matrix([[1, 0], [0, 1]])
-
-Ac = TensorProduct(TensorProduct(I, I), A)
-Bc = TensorProduct(TensorProduct(I, I), B)
-Cc = TensorProduct(TensorProduct(I, I), C)
+Ac = TensorProduct(TensorProduct(Identity, Identity), A)
+Bc = TensorProduct(TensorProduct(Identity, Identity), B)
+Cc = TensorProduct(TensorProduct(Identity, Identity), C)
 
 CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
 CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
 CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
 
-circuit1 = Ac @ CNOTac @ Bc @ CNOTbc @ CNOTab @ Bc.adjoint() @ CNOTac @ CNOTab @ Bc @ CNOTbc @ Cc
-circuit2 = CNOTab @ CNOTab @ Ac @ CNOTac @ Bc @ CNOTbc @ Bc.adjoint() @ CNOTac @ Bc @ CNOTbc @ Cc
+circuit1 = simplify(Ac @ CNOTac @ Bc @ CNOTac @ Cc @ CNOTab @ Cc.adjoint() @ CNOTbc @ Bc.adjoint() @ CNOTbc @ Ac.adjoint() @ CNOTab @ Ac @ CNOTbc @ Bc @ CNOTbc @ Cc) 
+circuit2 = simplify(Ac @ CNOTac @ Bc @ CNOTac @ CNOTab @ CNOTbc @ Bc.adjoint() @ CNOTbc @ CNOTab @ CNOTbc @ Bc @ CNOTbc @ Cc)
+circuit3 = simplify(Ac @ CNOTac @ Bc @ CNOTbc @ CNOTab @ Bc.adjoint() @ CNOTac @ CNOTab @ Bc @ CNOTbc @ Cc)
+circuit4 = simplify(CNOTab @ CNOTab @ Ac @ CNOTac @ Bc @ CNOTbc @ Bc.adjoint() @ CNOTac @ Bc @ CNOTbc @ Cc)
 
-print("Circuit1:")
-print(circuit1)
-print("Circuit2:")
-print(circuit2)
-print("Are they the same?")
+check = simplify(circuit1 @ circuit4.adjoint())
+
+print("circuit1 = circuit2: ")
 print(circuit1 == circuit2)
+print("circuit2 = circuit3: ")
+print(circuit2 == circuit3)
+print("circuit3 = circuit4: ")
+print(circuit3 == circuit4)
+
+print("Circuit check:")
+print(check)
+
 
 ```
+
+We can further simplify the circuit by removing the two $CNOT_{ab}$ gates, as they combind to create an identity operation. However, we now have 5 single qubit gates and 4 CNOT gates. 
+
+<img width="556" height="180" alt="image" src="https://github.com/user-attachments/assets/e1c1345a-0563-40eb-9b0c-fa5e8e416c5b" />
+
+Looking back at figure 4.9, we can see that (if we combine the last two gates on the $c$ wire) there are 5 single qubit gates on the $c$ wire, like our current circuit. The additional single qubit gates are on the other wires. So now let's think about what we may have left out; it is the global phase component of our unitary operators. From figure 4.5 we see that we can create the equivalent of a controlled phase shift gate with a single qubit gate on the control wire for a two wire circuit. What we need is to create the three wire equivalent that we can add to our circuit.
+
+So, what we'd like to have is some circuit $G$ which applies a global phase when $a=\ket{1}$ and $b=\ket{1}$ as shown below
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{G} \ket{000} \\
+\ket{001} &\xrightarrow{G} \ket{001} \\
+\ket{010} &\xrightarrow{G} \ket{010} \\
+\ket{011} &\xrightarrow{G} \ket{011} \\
+\ket{100} &\xrightarrow{G} \ket{100} \\
+\ket{101} &\xrightarrow{G} \ket{101} \\
+\ket{110} &\xrightarrow{G} e^{i\alpha}\ket{110} \\
+\ket{111} &\xrightarrow{G} e^{i\alpha}\ket{111} \\
+\end{aligned}$$
+
+Therefore
+
+$$\begin{aligned}
+G = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} \end{bmatrix}
+\end{aligned}$$
+
+Let's say there is a single qubit gate $D$ such that
+
+$$\begin{aligned}
+D = \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\alpha/2} \end{bmatrix}
+\end{aligned}$$
+
+Looking at the Toffoli gate on Wikipedia (since the one in the book actually has too many gates) I'm going to try this
+
+<img width="505" height="194" alt="image" src="https://github.com/user-attachments/assets/64283b1d-c736-4635-a22f-f6b9d9e06d67" />
+
+and confirm that it is valid below 
+
+$$\begin{aligned}
+CNOT_{ab}D_{a}D_{b}^\dagger CNOT_{ab}D_{b} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} \end{bmatrix} = G
+\end{aligned}$$
+
+which was calculated using this python script
+
+```
+from sympy import Matrix, symbols, exp, I
+from sympy.physics.quantum import TensorProduct
+
+alpha_d = symbols('alpha_d', real=True)
+
+D = Matrix([[1, 0], [0, exp(I*alpha_d/2)]])
+
+Identity = Matrix([[1, 0], [0, 1]])
+
+Db = TensorProduct(TensorProduct(Identity, D), Identity)
+Da = TensorProduct(TensorProduct(D, Identity), Identity)
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+
+circuit5 = CNOTab @ Da @ Db.adjoint() @ CNOTab @ Db
+
+print(circuit5)
+
+```
+
+Thus, this is our final circuit which can be used to create any unitary gate with the appropriate selection of $A$, $B$, $C$, and $D$ gates. It contains 8 single qubit gates and 6 CNOT gates. Therefore, a $C^2(U)$ gate for any single qubit unitary $U$ can be constructed using at most eight one-qubit gates, and six controlled-NOT. 
+
+<img width="697" height="219" alt="image" src="https://github.com/user-attachments/assets/828089cd-2ca5-4545-8790-6c277ba226fe" />
+
+</details>
+
+
+
+
+
 
 

@@ -999,7 +999,7 @@ $$\begin{aligned}
 \ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} &\xrightarrow{CNOT_{ab}} \ket{100} &\xrightarrow{CNOT_{ac}} \ket{101} \\
 \end{aligned}$$
 
-It can be seen that $CNOT_{bc}CNOT_{ab}CNOT_{ac} = CNOT_{bc}CNOT_{ab}$, as I'll show below, so we can reduce another gate there.
+It can be seen that $CNOT_{ac}CNOT_{ab}CNOT_{bc} = CNOT_{bc}CNOT_{ab}$, as I'll show below, so we can reduce another gate there.
 
 $$\begin{aligned}
 \ket{000} &\xrightarrow{CNOT_{ab}} \ket{000} &\xrightarrow{CNOT_{bc}} \ket{000}  \\
@@ -1016,6 +1016,44 @@ Therefore, the circuit can be reduced to 6 CNOTs and 5 single qubit gates.
 
 <img width="632" height="192" alt="image" src="https://github.com/user-attachments/assets/3177406f-b4b0-48ce-9176-2e8f47d32869" />
 
-Ok, so now we have too few single qubit gates. What are we missing? 
+Ok, so now we have too few single qubit gates. What are we missing? Looking at figure 4.9, we see that the circuit is configured a little differently than ours. The $CNOT_{ab}$ gates are pulled out to the end of the circuit and then additional single qubit gates are added to the $a$ and $b$ wires. So first let's move the $CNOT_{ab}$ gates.
+
+<img width="650" height="189" alt="image" src="https://github.com/user-attachments/assets/9ededfb9-2e97-46c3-95e4-dac47d241a1a" />
+
+I wrote the following python script to confirm that this circuit is equivelent to the previous one.
+
+```
+from sympy import Matrix, symbols
+from sympy.physics.quantum import TensorProduct
+
+a11, a12, a21, a22 = symbols('a11 a12 a21 a22')
+b11, b12, b21, b22 = symbols('b11 b12 b21 b22')
+c11, c12, c21, c22 = symbols('c11 c12 c21 c22')
+
+
+A = Matrix([[a11, a12], [a21, a22]])
+B = Matrix([[b11, b12], [b21, b22]])
+C = Matrix([[c11, c12], [c21, c22]])
+I = Matrix([[1, 0], [0, 1]])
+
+Ac = TensorProduct(TensorProduct(I, I), A)
+Bc = TensorProduct(TensorProduct(I, I), B)
+Cc = TensorProduct(TensorProduct(I, I), C)
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+circuit1 = Ac @ CNOTac @ Bc @ CNOTbc @ CNOTab @ Bc.adjoint() @ CNOTac @ CNOTab @ Bc @ CNOTbc @ Cc
+circuit2 = CNOTab @ CNOTab @ Ac @ CNOTac @ Bc @ CNOTbc @ Bc.adjoint() @ CNOTac @ Bc @ CNOTbc @ Cc
+
+print("Circuit1:")
+print(circuit1)
+print("Circuit2:")
+print(circuit2)
+print("Are they the same?")
+print(circuit1 == circuit2)
+
+```
 
 

@@ -957,6 +957,18 @@ V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 
 </details>
 
 
+**Exercise 4.22**
 
+For this exercise we are to prove that a $C^2(U)$ gate for any single qubit unitary $U$ can be constructed using at most eight one-qubit gates, and six controlled-NOTs. 
+
+From Corollary 4.2 we know that any unitary can be expressed as $U=e^{i\alpha}AXBXC$, so we can create the $V$ gates using two CNOTs and three one-qubit gates as $V=e^{i\alpha}AXBXC$. Then $V^\dagger = e^{-i\alpha}(AXBXC)^\dagger = e^{-i\alpha}C^\dagger X^\dagger B^\dagger X^\dagger A^\dagger = e^{-i\alpha}C^\dagger X B^\dagger X A^\dagger$. We can then construct the gate as so
+
+<img width="828" height="198" alt="image" src="https://github.com/user-attachments/assets/e76bd398-121f-46bc-97df-5aea1d69255d" />
+
+However, this contains 9 one-qubit gates and 8 CNOTs. So, let's think about how we could make this with fewer gates. Well, we can get rid of the $U$ and $U^\dagger$ pairs for operators on the same wire that do not have a gate between them since $UU^\dagger = U^\dagger U = I$
+
+<img width="818" height="188" alt="image" src="https://github.com/user-attachments/assets/e9ba584c-1fb5-444d-9108-b52332a1cbff" />
+
+Now, let's see if we can merge any of the CNOTs.
 
 

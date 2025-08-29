@@ -963,12 +963,59 @@ For this exercise we are to prove that a $C^2(U)$ gate for any single qubit unit
 
 From Corollary 4.2 we know that any unitary can be expressed as $U=e^{i\alpha}AXBXC$, so we can create the $V$ gates using two CNOTs and three one-qubit gates as $V=e^{i\alpha}AXBXC$. Then $V^\dagger = e^{-i\alpha}(AXBXC)^\dagger = e^{-i\alpha}C^\dagger X^\dagger B^\dagger X^\dagger A^\dagger = e^{-i\alpha}C^\dagger X B^\dagger X A^\dagger$. We can then construct the gate as so
 
-<img width="828" height="198" alt="image" src="https://github.com/user-attachments/assets/e76bd398-121f-46bc-97df-5aea1d69255d" />
+<img width="829" height="216" alt="image" src="https://github.com/user-attachments/assets/63880985-2e67-4b03-9100-9f097c3e5315" />
 
 However, this contains 9 one-qubit gates and 8 CNOTs. So, let's think about how we could make this with fewer gates. Well, we can get rid of the $U$ and $U^\dagger$ pairs for operators on the same wire that do not have a gate between them since $UU^\dagger = U^\dagger U = I$
 
-<img width="818" height="188" alt="image" src="https://github.com/user-attachments/assets/e9ba584c-1fb5-444d-9108-b52332a1cbff" />
+<img width="816" height="196" alt="image" src="https://github.com/user-attachments/assets/75e2f1a9-8f9c-4cea-ab67-a6c78c3ce7ff" />
 
 Now, let's see if we can merge any of the CNOTs.
+
+For the three CNOTs between $B$ and $B^\dagger$ their effect is
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{CNOT_{bc}} \ket{000} &\xrightarrow{CNOT_{ab}} \ket{000} &\xrightarrow{CNOT_{bc}} \ket{000} \\
+\ket{001} &\xrightarrow{CNOT_{bc}} \ket{001} &\xrightarrow{CNOT_{ab}} \ket{001} &\xrightarrow{CNOT_{bc}} \ket{001} \\
+\ket{010} &\xrightarrow{CNOT_{bc}} \ket{011} &\xrightarrow{CNOT_{ab}} \ket{011} &\xrightarrow{CNOT_{bc}} \ket{010} \\
+\ket{011} &\xrightarrow{CNOT_{bc}} \ket{010} &\xrightarrow{CNOT_{ab}} \ket{010} &\xrightarrow{CNOT_{bc}} \ket{011} \\
+\ket{100} &\xrightarrow{CNOT_{bc}} \ket{100} &\xrightarrow{CNOT_{ab}} \ket{110} &\xrightarrow{CNOT_{bc}} \ket{111} \\
+\ket{101} &\xrightarrow{CNOT_{bc}} \ket{101} &\xrightarrow{CNOT_{ab}} \ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} \\
+\ket{110} &\xrightarrow{CNOT_{bc}} \ket{111} &\xrightarrow{CNOT_{ab}} \ket{101} &\xrightarrow{CNOT_{bc}} \ket{101} \\
+\ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} &\xrightarrow{CNOT_{ab}} \ket{100} &\xrightarrow{CNOT_{bc}} \ket{100} \\
+\end{aligned}$$
+
+It can be seen that $CNOT_{bc}CNOT_{ab}CNOT_{bc} = CNOT_{ab}CNOT_{ac}$, since when $a=1$ both $b$ and $c$ flip, but otherwise their values are left unchanged. So we can reduce at least one of the CNOT gates there. 
+
+Now let's look at the three CNOTs between $B^\dagger$ and $B$. 
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{CNOT_{bc}} \ket{000} &\xrightarrow{CNOT_{ab}} \ket{000} &\xrightarrow{CNOT_{ac}} \ket{000} \\
+\ket{001} &\xrightarrow{CNOT_{bc}} \ket{001} &\xrightarrow{CNOT_{ab}} \ket{001} &\xrightarrow{CNOT_{ac}} \ket{001} \\
+\ket{010} &\xrightarrow{CNOT_{bc}} \ket{011} &\xrightarrow{CNOT_{ab}} \ket{011} &\xrightarrow{CNOT_{ac}} \ket{011} \\
+\ket{011} &\xrightarrow{CNOT_{bc}} \ket{010} &\xrightarrow{CNOT_{ab}} \ket{010} &\xrightarrow{CNOT_{ac}} \ket{010} \\
+\ket{100} &\xrightarrow{CNOT_{bc}} \ket{100} &\xrightarrow{CNOT_{ab}} \ket{110} &\xrightarrow{CNOT_{ac}} \ket{111} \\
+\ket{101} &\xrightarrow{CNOT_{bc}} \ket{101} &\xrightarrow{CNOT_{ab}} \ket{111} &\xrightarrow{CNOT_{ac}} \ket{110} \\
+\ket{110} &\xrightarrow{CNOT_{bc}} \ket{111} &\xrightarrow{CNOT_{ab}} \ket{101} &\xrightarrow{CNOT_{ac}} \ket{100} \\
+\ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} &\xrightarrow{CNOT_{ab}} \ket{100} &\xrightarrow{CNOT_{ac}} \ket{101} \\
+\end{aligned}$$
+
+It can be seen that $CNOT_{bc}CNOT_{ab}CNOT_{ac} = CNOT_{bc}CNOT_{ab}$, as I'll show below, so we can reduce another gate there.
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{CNOT_{ab}} \ket{000} &\xrightarrow{CNOT_{bc}} \ket{000}  \\
+\ket{001} &\xrightarrow{CNOT_{ab}} \ket{001} &\xrightarrow{CNOT_{bc}} \ket{001}  \\
+\ket{010} &\xrightarrow{CNOT_{ab}} \ket{010} &\xrightarrow{CNOT_{bc}} \ket{011} \\
+\ket{011} &\xrightarrow{CNOT_{ab}} \ket{011} &\xrightarrow{CNOT_{bc}} \ket{010}  \\
+\ket{100} &\xrightarrow{CNOT_{ab}} \ket{110} &\xrightarrow{CNOT_{bc}} \ket{111} \\
+\ket{101} &\xrightarrow{CNOT_{ab}} \ket{111} &\xrightarrow{CNOT_{bc}} \ket{110} \\
+\ket{110} &\xrightarrow{CNOT_{ab}} \ket{100} &\xrightarrow{CNOT_{bc}} \ket{100} \\
+\ket{111} &\xrightarrow{CNOT_{ab}} \ket{101} &\xrightarrow{CNOT_{bc}} \ket{101} \\
+\end{aligned}$$
+
+Therefore, the circuit can be reduced to 6 CNOTs and 5 single qubit gates. 
+
+<img width="632" height="192" alt="image" src="https://github.com/user-attachments/assets/3177406f-b4b0-48ce-9176-2e8f47d32869" />
+
+Ok, so now we have too few single qubit gates. What are we missing? 
 
 

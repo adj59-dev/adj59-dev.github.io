@@ -195,10 +195,23 @@ Therefore, $e^{i\phi} = i$, so $\phi=\pi/2$ and we get $H=R_x(\pi)R_y(\pi/2)e^{i
 
 $$\begin{aligned}
 R_x(\pi)R_y(\pi/2) &= R_x(\pi)R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2) & \text{decomposition of $R_y$} \\
-&= R_z(-\pi/2)R_x(\pi)R_x(\pi/2)R_z(-\pi/2) & \text{conjugation flips $Z$ under a $\pi$ rotation about $X$} \\
+&= R_z(-\pi/2)R_x(\pi)R_x(\pi/2)R_z(-\pi/2) & \text{conjugation flips $Z$ under a $\pi$ rotation about $X$, shown below} \\
 &= R_z(-\pi/2)R_x(3\pi/2)R_z(-\pi/2) & \text{combinding the rotations about $X$}\\
 &= -R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2) & \text{$3\pi/2$ rotation is the same as a $-\pi/2$ rotation with a -1 global phase change} \\
 &= e^{-i\pi}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)
+\end{aligned}$$
+
+Here I'll show why conjugation flips $Z$ under a $\pi$ rotation about $X$
+
+$$\begin{aligned}
+R_x(\pi)R_z(\theta)R_x(\pi)^\dagger &= R_x(\pi)e^{-i\theta Z/2}R_x(\pi)^\dagger \\
+&= e^{-i\theta/2(R_x(\pi)ZR_x(\pi)^\dagger)} & \text{since $Ue^A U^\dagger = e^{UAU^\dagger}$} \\
+&= e^{-i\theta/2((-iX)Z(iX))} \\
+&= e^{-i\theta/2(XZX)} \\
+&= e^{-i\theta/2(-Z)} \\
+&= e^{i\theta/2Z} \\
+&= R_z(-\theta) \\
+R_x(\pi)R_z(\theta) &= R_z(-\theta)R_x(\pi) & \text{multiply both sides by $R_x(\pi)$ on the right}
 \end{aligned}$$
 
 Therefore, $H=e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$. Which will be shown below
@@ -1137,7 +1150,39 @@ Thus, this is our final circuit which can be used to create any unitary gate wit
 </details>
 
 
+**Exercise 4.23**
 
+Construct a $C^1(U)$ gate for $U=R_x(\theta)$ and $U=R_y(\theta)$ using only CNOT and single qubit gates. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From figure 4.6 we know we can create a $C^1(U)$ gate like this
+
+<img width="363" height="123" alt="image" src="https://github.com/user-attachments/assets/9ef2c443-8b0a-4bb0-af02-f359fa79860b" />
+
+We know that we can write $R_x(\theta)$ as
+
+$$\begin{aligned}
+R_x(\theta) &= R_z(-\pi/2)R_y(\theta)R_z(\pi/2) \\
+&= R_z(-\pi/2)R_y(\theta/2)R_y(\theta/2)R_z(\pi/2) \\
+&= R_z(-\pi/2)R_y(\theta/2)XR_y(-\theta/2)XR_z(\pi/2)
+\end{aligned}$$
+
+And so a gate can be constructed with $A= R_z(-\pi/2)R_y(\theta/2)$, $B=R_y(-\theta/2)$, $C=R_z(\pi/2)$, and no $D$ gate. 
+
+Now we are asked if we can reduce the number of single qubit gates needed from three to two. I don't think we can do that for $R_x$ since we need to use decomposition to write it as $R_y$ and $R_z$. 
+
+For $R_y$ we have
+
+$$\begin{aligned}
+R_y(\theta) &= R_y(\theta/2)R_y(\theta/2) \\
+&= R_y(\theta/2)XR_y(-\theta/2)X
+\end{aligned}$$
+
+And so a gate can be constructed with $A= R_y(\theta/2)$, $B=R_y(-\theta/2)$, no $C$ gate, and no $D$ gate. This uses two single qubit gates.
+
+</details>
 
 
 

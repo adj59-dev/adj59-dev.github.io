@@ -1301,7 +1301,45 @@ print(circuit1 == circuit2)
 
 Here, $V = \frac{(1-i)(I + iX)}{2}$ and $V^2 = X$. We could combine the first two gates (since they both only interact with the b and c wire) to form a single two qubit gate. This will give us a circuit with only 6 two qubit gates. 
 
-(4) In order to reduce the number of gates further, let's look at subsections of the circuit and see if we can replace it with a different equivelent circuit. 
+(4) In order to reduce the number of gates further, let's think about different circuit identities that we might be able to use. Since we know that $VV^\dagger=V^\daggerV=I$ we can insert $VV^\dagger$ or $V^\dagger V$ wherever we'd like. We also know that $V^2=X$, therefore $V_{ab}=V_{ab}V_{ab}V_{ab}^\dagger=CNOT_{ab}V_{ab}^\dagger$, and so we can write the equivelent circuit
+
+<img width="699" height="183" alt="image" src="https://github.com/user-attachments/assets/96adae4b-d974-470d-a960-79bb4d78ea9c" />
+
+We can swap $CNOT_{ac}$ and $V_{ab}^\dagger$
+
+<img width="699" height="196" alt="image" src="https://github.com/user-attachments/assets/b34497c1-3c6b-4fc9-81b3-f7279ccef4c4" />
+
+Now let's see if we can rewrite $CNOT_{bc}CNOT_{ab}CNOT_{ac}$ as something that we will be able to combinde to have fewer gates. Using the below python script, you can see that $CNOT_{bc}CNOT_{ab}CNOT_{ac} = CNOT_{ab}CNOT_{bc}$ 
+
+```
+from sympy import simplify, Matrix
+
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+circuit1 = simplify(CNOTbc @ CNOTab @ CNOTac) 
+circuit2 = simplify(CNOTab @ CNOTbc) 
+
+print("Circuit1:")
+print(circuit1)
+print("Circuit2:")
+print(circuit2)
+print("Circuit1 = Circuit2: ")
+print(circuit1 == circuit2)
+
+```
+
+Therefore our circuit can be constructed like so
+
+<img width="702" height="183" alt="image" src="https://github.com/user-attachments/assets/8f5d8352-5587-4244-9637-da14af3e1552" />
+
+We can swap $V_{cb}^\dagger$ and $V_{ab}^\dagger$. If you then combinde the $V_{cb}CNOT_{bc}$ gates and $CNOT_{bc}V_{cb}^\dagger$ gates, as shown below, you have five gates. 
+
+<img width="709" height="210" alt="image" src="https://github.com/user-attachments/assets/f068f0f4-82c9-4b9a-b75b-c1e49ba9c7eb" />
+
+
 
 
 

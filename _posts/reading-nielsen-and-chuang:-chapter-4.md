@@ -1236,3 +1236,72 @@ Toffoli = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 
 Which is the same as the matrix representation of the Toffoli gate. 
 
 </details>
+
+
+**Exercise 2.25**
+
+For this exercise we are to construct a Fredkin gate.
+
+(1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in exercise 3.32. I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
+
+<img width="696" height="192" alt="image" src="https://github.com/user-attachments/assets/cacb8cf7-10df-4796-be53-080234918dac" />
+
+
+(2) Now we are asked to show that the first and last gates can be replaced by CNOT gates. We already have the matrix representation for Toffoli gate with a and b as the control wires, now we need to find the matrix representation for a Toffoli gate with a and c as the control wires.
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{Toffoli_{acb}} \ket{000} \\
+\ket{001} &\xrightarrow{Toffoli_{acb}} \ket{001} \\
+\ket{010} &\xrightarrow{Toffoli_{acb}} \ket{010} \\
+\ket{011} &\xrightarrow{Toffoli_{acb}} \ket{011} \\
+\ket{100} &\xrightarrow{Toffoli_{acb}} \ket{100} \\
+\ket{101} &\xrightarrow{Toffoli_{acb}} \ket{111} \\
+\ket{110} &\xrightarrow{Toffoli_{acb}} \ket{110} \\
+\ket{111} &\xrightarrow{Toffoli_{acb}} \ket{101} \\
+\end{aligned}$$
+
+$$\begin{aligned}
+Toffoli_{acb} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
+\end{aligned}$$
+
+If we replace the first and last Toffoli gates by $CNOT_{bc}$ gates, we get the same effect, i.e. $Toffoli_{abc} Toffolie_{acb} Toffoli_{abc} = CNOT_{bc} Toffoli_{acb} CNOT_{bc}$
+
+<img width="712" height="196" alt="image" src="https://github.com/user-attachments/assets/d10d6a14-ab6a-4a59-bfbb-dfd1e06f7c87" />
+
+I confirm this circuit has the same effect using this python script.
+
+```
+
+from sympy import simplify, Matrix
+
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+Toffoliabc =  Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+Toffoliacb =  Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+
+circuit1 = simplify(Toffoliabc @ Toffoliacb @ Toffoliabc) 
+circuit2 = simplify(CNOTbc @ Toffoliacb @ CNOTbc) 
+
+print("Circuit1:")
+print(circuit1)
+print("Circuit2:")
+print(circuit2)
+print("Circuit1 = Circuit2: ")
+print(circuit1 == circuit2)
+
+```
+
+(3) Now we need to replace the middle Toffoli gate with the circuit in figure 4.8
+
+<img width="721" height="183" alt="image" src="https://github.com/user-attachments/assets/6503d390-ebc5-4ab8-ab28-69dcb1d78ad9" />
+
+
+Here, $V = \frac{(1-i)(I + iX)}{2}$ and $V^2 = X$. We could combine the first two gates (since they both only interact with the b and c wire) to form a single two qubit gate. This will give us a circuit with only 6 two qubit gates. 
+
+(4) In order to reduce the number of gates further, let's look at subsections of the circuit and see if we can replace it with a different equivelent circuit. 
+
+
+

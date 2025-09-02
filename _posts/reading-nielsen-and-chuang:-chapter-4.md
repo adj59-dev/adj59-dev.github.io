@@ -1185,5 +1185,54 @@ And so a gate can be constructed with $A= R_y(\theta/2)$, $B=R_y(-\theta/2)$, no
 </details>
 
 
+**Exercise 4.24**
+
+Verify that figure 4.9 implements the Toffoli gate.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+I wrote the following python code to calculate the matrix representation of the circuit in Figure 4.9.
+
+```
+from sympy import simplify, Matrix, exp, I, pi, sqrt
+from sympy.physics.quantum import TensorProduct
 
 
+T = Matrix([[1, 0], [0, exp(I*pi/4)]])
+S = Matrix([[1, 0], [0, I]])
+H = 1/sqrt(2)*Matrix([[1, 1], [1, -1]])
+
+Identity = Matrix([[1, 0], [0, 1]])
+
+Tc = TensorProduct(TensorProduct(Identity, Identity), T)
+Tb = TensorProduct(TensorProduct(Identity, T), Identity)
+Ta = TensorProduct(TensorProduct(T, Identity), Identity)
+
+Sb = TensorProduct(TensorProduct(Identity, S), Identity)
+
+Hc = TensorProduct(TensorProduct(Identity, Identity), H)
+
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+
+circuit = simplify(Hc @ CNOTbc @ Tc.adjoint() @ CNOTac @ Tc @ CNOTbc @ Tc.adjoint() @ CNOTac @ Tc @ Tb.adjoint() @ Hc @ CNOTab @ Tb.adjoint() @ CNOTab @ Sb @ Ta) 
+
+print("Circuit:")
+print(circuit)
+
+```
+
+
+The code produced the following 
+
+$$\begin{aligned}
+Toffoli = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \end{bmatrix}
+\end{aligned}$$
+
+Which is the same as the matrix representation of the Toffoli gate. 
+
+</details>

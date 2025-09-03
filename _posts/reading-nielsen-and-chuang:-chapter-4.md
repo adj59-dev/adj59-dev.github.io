@@ -1238,9 +1238,12 @@ Which is the same as the matrix representation of the Toffoli gate.
 </details>
 
 
-**Exercise 2.25**
+**Exercise 4.25**
 
 For this exercise we are to construct a Fredkin gate.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 (1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in exercise 3.32. I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
 
@@ -1264,7 +1267,7 @@ $$\begin{aligned}
 Toffoli_{acb} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
 \end{aligned}$$
 
-If we replace the first and last Toffoli gates by $CNOT_{bc}$ gates, we get the same effect, i.e. $Toffoli_{abc} Toffolie_{acb} Toffoli_{abc} = CNOT_{bc} Toffoli_{acb} CNOT_{bc}$
+If we replace the first and last Toffoli gates by $CNOT_{bc}$ gates, we get the same effect, i.e. $Toffoli_{abc} Toffoli_{acb} Toffoli_{abc} = CNOT_{bc} Toffoli_{acb} CNOT_{bc}$
 
 <img width="712" height="196" alt="image" src="https://github.com/user-attachments/assets/d10d6a14-ab6a-4a59-bfbb-dfd1e06f7c87" />
 
@@ -1301,7 +1304,7 @@ print(circuit1 == circuit2)
 
 Here, $V = \frac{(1-i)(I + iX)}{2}$ and $V^2 = X$. We could combine the first two gates (since they both only interact with the b and c wire) to form a single two qubit gate. This will give us a circuit with only 6 two qubit gates. 
 
-(4) In order to reduce the number of gates further, let's think about different circuit identities that we might be able to use. Since we know that $VV^\dagger=V^\daggerV=I$ we can insert $VV^\dagger$ or $V^\dagger V$ wherever we'd like. We also know that $V^2=X$, therefore $V_{ab}=V_{ab}V_{ab}V_{ab}^\dagger=CNOT_{ab}V_{ab}^\dagger$, and so we can write the equivelent circuit
+(4) In order to reduce the number of gates further, let's think about different circuit identities that we might be able to use. Since we know that $VV^\dagger = V^\dagger V=I$ we can insert $VV^\dagger$ or $V^\dagger V$ wherever we'd like. We also know that $V^2=X$, therefore $V_{ab}=V_{ab}V_{ab}V_{ab}^\dagger =CNOT_{ab}V_{ab}^\dagger$, and so we can write the equivalent circuit
 
 <img width="699" height="183" alt="image" src="https://github.com/user-attachments/assets/96adae4b-d974-470d-a960-79bb4d78ea9c" />
 
@@ -1309,7 +1312,7 @@ We can swap $CNOT_{ac}$ and $V_{ab}^\dagger$
 
 <img width="699" height="196" alt="image" src="https://github.com/user-attachments/assets/b34497c1-3c6b-4fc9-81b3-f7279ccef4c4" />
 
-Now let's see if we can rewrite $CNOT_{bc}CNOT_{ab}CNOT_{ac}$ as something that we will be able to combinde to have fewer gates. Using the below python script, you can see that $CNOT_{bc}CNOT_{ab}CNOT_{ac} = CNOT_{ab}CNOT_{bc}$ 
+Now let's see if we can rewrite $CNOT_{bc}CNOT_{ab}CNOT_{ac}$ as something that we will be able to combine to have fewer gates. Using the below python script, you can see that $CNOT_{bc}CNOT_{ab}CNOT_{ac} = CNOT_{ab}CNOT_{bc}$ 
 
 ```
 from sympy import simplify, Matrix
@@ -1331,15 +1334,44 @@ print(circuit1 == circuit2)
 
 ```
 
-Therefore our circuit can be constructed like so
+Therefore, our circuit can be constructed like so
 
 <img width="702" height="183" alt="image" src="https://github.com/user-attachments/assets/8f5d8352-5587-4244-9637-da14af3e1552" />
 
-We can swap $V_{cb}^\dagger$ and $V_{ab}^\dagger$. If you then combinde the $V_{cb}CNOT_{bc}$ gates and $CNOT_{bc}V_{cb}^\dagger$ gates, as shown below, you have five gates. 
+We can swap $V_{cb}^\dagger$ and $V_{ab}^\dagger$. If you then combine the $V_{cb}CNOT_{bc}$ gates and $CNOT_{bc}V_{cb}^\dagger$ gates, as shown below, you have five gates. 
 
 <img width="709" height="210" alt="image" src="https://github.com/user-attachments/assets/f068f0f4-82c9-4b9a-b75b-c1e49ba9c7eb" />
 
 
+I wrote a python script to confirm that the above circuit is equivalent to a Fredkin gate.
+
+```
+from sympy import simplify, Matrix, I
 
 
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+Toffoliabc =  Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+Toffoliacb =  Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+
+V =simplify((1 - I)*( Matrix([[1, 0], [0, 1]]) + I*Matrix([[0, 1], [1, 0]]) )/2)
+
+Vab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, V[0,0], 0, V[0,1], 0], [0, 0, 0, 0, 0, V[0,0], 0, V[0,1]], [0, 0, 0, 0, V[1,0], 0, V[1,1], 0], [0, 0, 0, 0, 0, V[1,0], 0, V[1,1]]])
+Vcb = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, V[0,0], 0, V[0,1], 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, V[1,0], 0, V[1,1], 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, V[0,0], 0, V[0,1]], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, V[1,0], 0, V[1,1]]])
+
+circuit1 = simplify(Toffoliabc @ Toffoliacb @ Toffoliabc) 
+circuit3 = simplify(CNOTab @ CNOTbc @ Vcb.adjoint() @ Vab.adjoint() @ CNOTac @ Vcb @ CNOTbc)
+
+print("Circuit1:")
+print(circuit1)
+print("Circuit3:")
+print(circuit3)
+print("Circuit1 = Circuit3: ")
+print(circuit1 == circuit3)
+
+```
+
+</details>
 

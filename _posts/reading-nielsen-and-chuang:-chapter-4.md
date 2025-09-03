@@ -1421,3 +1421,33 @@ C = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 
 This is the same as the Toffoli gate matrix except for a factor of -1 in the 6th row, which translates to a phase shift of $e^{i\pi}$ for $\ket{101}$.
 
 </details>
+
+
+**Exercise 4.27**
+
+Using just CNOTs and Toffoli gates, construct a quantum circuit to perform the transformation in equation 4.31. 
+
+The matrix representation of the circuit given by equation 4.31 is
+
+$$\begin{aligned}
+C = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \end{bmatrix}
+\end{aligned}$$
+
+Let's look at what this circuit is doing
+
+$$\begin{aligned}
+\ket{000} &\xrightarrow{C} \ket{000} \\
+\ket{001} &\xrightarrow{C} \ket{010} \\
+\ket{010} &\xrightarrow{C} \ket{011} \\
+\ket{011} &\xrightarrow{C} \ket{100} \\
+\ket{100} &\xrightarrow{C} \ket{101} \\
+\ket{101} &\xrightarrow{C} \ket{110} \\
+\ket{110} &\xrightarrow{C} \ket{111} \\
+\ket{111} &\xrightarrow{C} \ket{001} \\
+\end{aligned}$$
+
+and think about how we can write this out as a Boolean formula. a changes when b and c are 1. 
+
+$$\begin{aligned}
+\ket{a,b,c} &\xrightarrow{C} \ket{(b \land c)\oplus a, c \oplus b, (a \lor b) \oplus c}
+\end{aligned}$$

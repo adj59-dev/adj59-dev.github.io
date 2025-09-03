@@ -1427,6 +1427,9 @@ This is the same as the Toffoli gate matrix except for a factor of -1 in the 6th
 
 Using just CNOTs and Toffoli gates, construct a quantum circuit to perform the transformation in equation 4.31. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 The matrix representation of the circuit given by equation 4.31 is
 
 $$\begin{aligned}
@@ -1446,8 +1449,18 @@ $$\begin{aligned}
 \ket{111} &\xrightarrow{C} \ket{001} \\
 \end{aligned}$$
 
-and think about how we can write this out as a Boolean formula. a changes when b and c are 1. 
+and think about how we can write this out as a Boolean formula.  
 
 $$\begin{aligned}
-\ket{a,b,c} &\xrightarrow{C} \ket{(b \land c)\oplus a, c \oplus b, (a \lor b) \oplus c}
+\ket{a,b,c} &\xrightarrow{C} \ket{(b \land c)\oplus a, c \oplus b, c \oplus (((b \land c)\oplus a) \lor (c \oplus b))} \\
+&= \ket{(b \land c)\oplus a, c \oplus b, c \oplus ((b \land c)\oplus a) \oplus (c \oplus b) \oplus (((b \land c)\oplus a)\land (c \oplus b))}
 \end{aligned}$$
+
+Looking at the above formula, one can see that the a wire effect can be achived with a Toffoli gate with the b and c wires as the control wires. The b wire effect can be achieved with a $CNOT_{cb}$ gate. The c wire effect can be achieved with two CNOT and one additional Toffoli gates. The full circuit is shown below.
+
+<img width="759" height="183" alt="image" src="https://github.com/user-attachments/assets/af69a9ec-58de-4612-afcb-3225c14dcbc5" />
+
+</details>
+
+
+

@@ -1375,3 +1375,49 @@ print(circuit1 == circuit3)
 
 </details>
 
+
+
+**Exercise 4.26**
+
+In this exercise we are asked to show that a given circuit differs from a Toffoli gate only by a relative phase. The drawing of the circuit has several $R_y(\theta)$ single bit operations, but it is a little unclear (at least in my book) what $\theta$ is supposed to be, as it is written as $\pi/$. Through some trial and error, I think it is supposed to be $\frac{\pi}{4}$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+I wrote the following python script to calculate the matrix representation of the given circuit.
+
+```
+from sympy import simplify, Matrix, pi, cos, sin
+from sympy.physics.quantum import TensorProduct
+
+
+Identity = Matrix([[1, 0], [0, 1]])
+
+Ryp = Matrix([[cos(pi/8), -sin(pi/8)], [sin(pi/8), cos(pi/8)]])
+Ryn = Matrix([[cos(-pi/8), -sin(-pi/8)], [sin(-pi/8), cos(-pi/8)]])
+
+Rypc = TensorProduct(TensorProduct(Identity, Identity), Ryp)
+Rync = TensorProduct(TensorProduct(Identity, Identity), Ryn)
+
+
+CNOTab = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0]])
+CNOTbc = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+CNOTac = Matrix([[1, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0]])
+
+
+circuit = simplify(Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc) 
+
+print("Circuit:")
+print(circuit)
+
+```
+
+The resulting matrix is
+
+$$\begin{aligned}
+C = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \end{bmatrix}
+\end{aligned}$$
+
+This is the same as the Toffoli gate matrix except for a factor of -1 in the 6th row, which translates to a phase shift of $e^{i\pi}$ for $\ket{101}$.
+
+</details>

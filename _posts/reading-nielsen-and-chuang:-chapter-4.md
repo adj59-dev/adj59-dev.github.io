@@ -1463,4 +1463,49 @@ Looking at the above formula, one can see that the a wire effect can be achived 
 </details>
 
 
+**Exercise 4.28**
+
+For this exercise we are to construct a $C^5(U)$ gate analogous to that in Figure 4.10 but using no work qubits. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From exercise 4.21 we know that we can construct a $C^2(U)$ gate as shown below
+
+<img width="749" height="181" alt="image" src="https://github.com/user-attachments/assets/33962739-1a7f-4c15-874f-a08f56c14250" />
+
+Using a $C^1(V)$ gate, $C^1(V^\dagger)$ gate, $C^2(V)$ gate, and Toffoli gates we can construct a $C^3(U)$ gate as shown below
+
+<img width="752" height="240" alt="image" src="https://github.com/user-attachments/assets/7bda8e0b-6120-4be3-a85b-767f794f2598" />
+
+Similarly, we can create $C^4(U)$ gates 
+
+<img width="777" height="290" alt="image" src="https://github.com/user-attachments/assets/0f73294e-93f3-4469-a4b1-916c278884be" />
+
+and $C^5(U)$ gates
+
+<img width="774" height="364" alt="image" src="https://github.com/user-attachments/assets/f8ea8ba9-671e-4c42-a029-43c0d15bea05" />
+
+</details>
+
+
+**Exercise 4.29**
+
+Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates wich implements a $C^n(X)$ gate for $n>3$ using no work qubits.
+
+Continuing the trend from the previous exercise, we can construct this gate using a $C^1(V)$ gate, $C^1(V^\dagger)$ gate, $C^{n-1}(V)$ gate, and two $C^{n-1}$ CNOT gates, as shown below.
+
+<img width="768" height="349" alt="image" src="https://github.com/user-attachments/assets/9faaa608-6cd9-417a-8d52-a9fb81827178" />
+
+The $C^{n-1}(V)$ gate is constructed with a $C^1(W)$, $C^1(W^\dagger)$ gate, $C^{n-2}(W)$ gate, and two $C^{n-2}$ CNOT gates, where $V=W^2$ with $W$ unitary. A similar construction is done for the $C^{n-1}$ CNOT gates, then the $C^{n-2}$ gates, and so on until all gates are represented as CNOT and single qubit gates. Below is a table showing number of gates for each $n$.
+
+| n | single qubit gates                                 | CNOTs              | Note                               |
+|:-:|:--------------------------------------------------:|:------------------:|:----------------------------------:|
+| 1 | 0                                                  | 1                  | a CNOT gate is a controlled X gate |
+| 2 | 8                                                  | 6                  | From exercise 4.22                 |
+| 3 | $3 \times 8$ + gates for the $C^1$ gates           | 3x6                | 3 $C^2$ gates and 2 $C^1$ gates    | 
+| 4 | $3 \times 3 \times 8$ + gates for the $C^1$ gates  | 3x3x6              | 3 $C^3$ and 2 $C^1$ gates          |
+| n | $3^{n-2} \times 8$ + gates for the $C^1$ gates     | $3^{n-2} \times 6$ | 3 $C^{n-1}$ and 2 $C^1$ gates      |
+
+
 

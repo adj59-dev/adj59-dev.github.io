@@ -1499,13 +1499,15 @@ Continuing the trend from the previous exercise, we can construct this gate usin
 
 The $C^{n-1}(V)$ gate is constructed with a $C^1(W)$, $C^1(W^\dagger)$ gate, $C^{n-2}(W)$ gate, and two $C^{n-2}$ CNOT gates, where $V=W^2$ with $W$ unitary. A similar construction is done for the $C^{n-1}$ CNOT gates, then the $C^{n-2}$ gates, and so on until all gates are represented as CNOT and single qubit gates. Below is a table showing number of gates for each $n$.
 
-| n | single qubit gates                                 | CNOTs              | Note                               |
-|:-:|:--------------------------------------------------:|:------------------:|:----------------------------------:|
-| 1 | 0                                                  | 1                  | a CNOT gate is a controlled X gate |
-| 2 | 8                                                  | 6                  | From exercise 4.22                 |
-| 3 | $3 \times 8$ + gates for the $C^1$ gates           | 3x6                | 3 $C^2$ gates and 2 $C^1$ gates    | 
-| 4 | $3 \times 3 \times 8$ + gates for the $C^1$ gates  | 3x3x6              | 3 $C^3$ and 2 $C^1$ gates          |
-| n | $3^{n-2} \times 8$ + gates for the $C^1$ gates     | $3^{n-2} \times 6$ | 3 $C^{n-1}$ and 2 $C^1$ gates      |
+| n | single qubit gates                                 | CNOTs                                           | Note                               |
+|:-:|:--------------------------------------------------:|:-----------------------------------------------:|:----------------------------------:|
+| 1 | 0                                                  | 1                                               | a CNOT gate is a controlled X gate |
+| 2 | 8                                                  | 6                                               | From exercise 4.22                 |
+| 3 | $3 \times 8$ + gates for the $C^1$ gates           | 3x6 + gates for the $C^1$ gates                 | 3 $C^2$ gates and 2 $C^1$ gates    | 
+| 4 | $3 \times 3 \times 8$ + gates for the $C^1$ gates  | 3x3x6 + gates for the $C^1$ gates               | 3 $C^3$ and 2 $C^1$ gates          |
+| n | $3^{n-2} \times 8$ + gates for the $C^1$ gates     | $3^{n-2} \times 6$  + gates for the $C^1$ gates | 3 $C^{n-1}$ and 2 $C^1$ gates      |
+
+This is not $O(n^2)$ so there must be a way to reduce the number of gates. Let's look at the construction of the $C^nNOT$ gates to see if there can be any reduction there. 
 
 
 

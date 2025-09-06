@@ -1491,23 +1491,49 @@ and $C^5(U)$ gates
 
 **Exercise 4.29**
 
-Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates wich implements a $C^n(X)$ gate for $n>3$ using no work qubits.
+Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits.
 
-Continuing the trend from the previous exercise, we can construct this gate using a $C^1(V)$ gate, $C^1(V^\dagger)$ gate, $C^{n-1}(V)$ gate, and two $C^{n-1}$ CNOT gates, as shown below.
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
-<img width="768" height="349" alt="image" src="https://github.com/user-attachments/assets/9faaa608-6cd9-417a-8d52-a9fb81827178" />
+From the previous exercise we know that
 
-The $C^{n-1}(V)$ gate is constructed with a $C^1(W)$, $C^1(W^\dagger)$ gate, $C^{n-2}(W)$ gate, and two $C^{n-2}$ CNOT gates, where $V=W^2$ with $W$ unitary. A similar construction is done for the $C^{n-1}$ CNOT gates, then the $C^{n-2}$ gates, and so on until all gates are represented as CNOT and single qubit gates. Below is a table showing number of gates for each $n$.
+<img width="794" height="372" alt="image" src="https://github.com/user-attachments/assets/62b8103c-b167-4703-9ebd-fc715846d4a8" />
 
-| n | single qubit gates                                 | CNOTs                                           | Note                               |
-|:-:|:--------------------------------------------------:|:-----------------------------------------------:|:----------------------------------:|
-| 1 | 0                                                  | 1                                               | a CNOT gate is a controlled X gate |
-| 2 | 8                                                  | 6                                               | From exercise 4.22                 |
-| 3 | $3 \times 8$ + gates for the $C^1$ gates           | 3x6 + gates for the $C^1$ gates                 | 3 $C^2$ gates and 2 $C^1$ gates    | 
-| 4 | $3 \times 3 \times 8$ + gates for the $C^1$ gates  | 3x3x6 + gates for the $C^1$ gates               | 3 $C^3$ and 2 $C^1$ gates          |
-| n | $3^{n-2} \times 8$ + gates for the $C^1$ gates     | $3^{n-2} \times 6$  + gates for the $C^1$ gates | 3 $C^{n-1}$ and 2 $C^1$ gates      |
+Following a similar calculation as was done in exercise 4.22, where $V=e^{i\alpha}AXBXC$ and $D$ is the phase gate. 
 
-This is not $O(n^2)$ so there must be a way to reduce the number of gates. Let's look at the construction of the $C^nNOT$ gates to see if there can be any reduction there. 
+<img width="844" height="370" alt="image" src="https://github.com/user-attachments/assets/997e42f0-3973-4ce7-ad63-7e9755806543" />
 
+$AA^\dagger = I$ and so can be removed from the circuit.
+
+<img width="833" height="368" alt="image" src="https://github.com/user-attachments/assets/70cb8bc2-d95e-41f2-8ff7-9740c0823967" />
 
 
+This circuit has $6$ single qubit gates, 4 $CNOT$ gates, and 3 $C^{n-1}$ gates. Therefore, the total number of gates for a $C^n$ gate is
+
+$$\begin{aligned}
+N(C^n) &= 10 + 3 N(C^{n-1}) \\
+&= 10 + 3(10 + 3 N(C^{n-2})) \\
+&= 3^{n-2}N(C^2) + 10\sum_{i=0}^{n-3} 3^i \\
+&= 3^{n-2}N(C^2) + 10 \frac{1-3^{n-3+1}}{1 - 3} \\
+&= 3^{n-2}N(C^2) + 5 (3^{n-2}-1) \\
+&= 3^{n-2}(N(C^2) + 5) - 5
+\end{aligned}$$
+
+This would mean the circuit contains $O(3^n)$ gates, which is not in $O(n^2)$. I'm struggling to find an alternative solution that does not involve recursively generating $C^n$ gates from $aC^{n-1}$ gates, where $a \geq 2$, which I think would be needed to construct a circuit that has $O(n^2)$ gates. 
+
+Thinking back to exercise 4.26, we know that we can approximate a controlled X gate up to a relative phase by using the following circuit,
+
+<img width="707" height="361" alt="image" src="https://github.com/user-attachments/assets/0a23672b-1d44-4b1d-83e7-a958ce4f9617" />
+
+where $E=R_y(\pi/4)$. This circuit only has one $C^{n-1}$ gate and so will not grow exponentially with $n$. The number of gates is given by
+
+$$\begin{aligned}
+N(C^n) &= 6 + N(C^{n-1})\\
+&= 6 + (6 + N(C^{n-2}) \\
+&= 6(n-2)
+\end{aligned}$$
+
+And so the circuit contains $O(n)$ gates, which is in $O(n^2)$. However, this circuit is different from a controlled-X gate by relative phases. If we could construct a circuit that corrected for the phase with $O(n^2)$ gates, then this could be used to construct the circuit. I don't know how to do that at this moment and may return to this exercise later to complete it. 
+
+</details>

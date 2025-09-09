@@ -1683,3 +1683,8 @@ print(circuit1 == circuit2)
 
 ```
 </details>
+
+
+**Exercise 2.30**
+
+

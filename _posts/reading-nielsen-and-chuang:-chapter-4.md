@@ -1718,6 +1718,72 @@ This decomposition is valid for any $C^n(U)$ gate by selecting the appropriate $
 </details>
 
 
+**Exercise 4.31**
+
+In this exercise we are asked to prove sever circuit identities.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+I used the following script to confirm the identities. 
+
+```
+from sympy import simplify, Matrix, sin, cos, I, exp, symbols
+from sympy.physics.quantum import TensorProduct
+
+theta = symbols('theta', real=True)
+
+Identity = Matrix([[1, 0], [0, 1]])
+X = Matrix([[0, 1], [1, 0]])
+Y = Matrix([[0, -I], [I, 0]])
+Z = Matrix([[1, 0], [0, -1]])
+
+Rz = Matrix([[exp(-I*theta/2), 0], [0, exp(I*theta/2)]])
+Rx = Matrix([[cos(theta/2), -I*sin(theta/2)], [-I*sin(theta/2), cos(theta/2)]])
+
+C = Matrix([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
+
+print("CX1C = X1X2: ")
+print(simplify(C @ TensorProduct(X, Identity) @ C) == simplify(TensorProduct(X, Identity) @ TensorProduct(Identity, X)))
+print("CY1C = Y1X2: ")
+print(simplify(C @ TensorProduct(Y, Identity) @ C) == simplify(TensorProduct(Y, Identity) @ TensorProduct(Identity, X)))
+print("CZ1C = Z1: ")
+print(simplify(C @ TensorProduct(Z, Identity) @ C) == simplify(TensorProduct(Z, Identity)))
+print("CX2C = X2")
+print(simplify(C @ TensorProduct(Identity, X) @ C) == simplify(TensorProduct(Identity, X)))
+print("CY2C = Z1Y2: ")
+print(simplify(C @ TensorProduct(Identity, Y) @ C) == simplify(TensorProduct(Z, Identity) @ TensorProduct(Identity, Y)))
+print("CZ2C = Z1Z2: ")
+print(simplify(C @ TensorProduct(Identity, Z) @ C) == TensorProduct(Z, Identity) @ TensorProduct(Identity, Z))
+print("Rz1(theta)C = CRz1(theta): ")
+print(simplify(TensorProduct(Rz, Identity) @ C) == simplify(C @ TensorProduct(Rz, Identity)))
+print("Rx2(theta)C = C Rx2(theta): ")
+print(simplify(TensorProduct(Identity, Rx) @ C) == simplify(C @ TensorProduct(Identity, Rx)))
+
+```
+
+</details>
+
+
+## Measurement
+
+### Measurement - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+
+
+### Measurement - Exercises
+
+
+
+
+
 
 
 

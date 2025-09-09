@@ -1489,12 +1489,9 @@ and $C^5(U)$ gates
 </details>
 
 
-**Exercise 4.29**
+**Exercise 4.29 & 4.30**
 
-Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. I am not sure if this exercise is actually possible. I have included what I have tried below. When looking for additional resources, I found [Elementary gates for quantum computation](https://arxiv.org/pdf/quant-ph/9503016), but it looks like all the solutions that are $O(n^2)$ in this paper use at least one work qubit. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. I am not sure if this exercise is actually possible. I have included what I have tried below. When looking for additional resources, I found [Elementary gates for quantum computation](https://arxiv.org/pdf/quant-ph/9503016), but it looks like all the solutions that are $O(n^2)$ in this paper use at least one work qubit. In particular Corollary 7.6 says that the circuit can be constructed with $O(n^2)$ gates, but the proof uses Corollary 7.4 as justification for the cost of $\land_{n-2}(\sigma_x)$ gatex being $\Theta(n)$. Reading Corollary 7.4, one see that it uses one "extra" bit. This exercise asks us to use no work qubits, so I don't think this solution can be used for this exercise. 
 
 From the previous exercise we know that
 
@@ -1520,7 +1517,15 @@ N(C^n) &= 10 + 3 N(C^{n-1}) \\
 &= 3^{n-2}(N(C^2) + 5) - 5
 \end{aligned}$$
 
-This would mean the circuit contains $O(3^n)$ gates, which is not in $O(n^2)$. I'm struggling to find an alternative solution that does not involve recursively generating $C^n$ gates from $aC^{n-1}$ gates, where $a \geq 2$, which I think would be needed to construct a circuit that has $O(n^2)$ gates. 
+This would mean the circuit contains $O(3^n)$ gates, which is not in $O(n^2)$. I'm struggling to find an alternative solution that does not involve recursively generating $C^n$ gates from $aC^{n-1}$ gates, where $a \geq 2$, which I think would be needed to construct a circuit that has $O(n^2)$ gates. The paper I cited eariler gets around this by stating that the $C^{n-1}(X)$ gates are $O(n)$, which then would give the total number of gates for a $C^n$ gate as
+
+$$\begin{aligned}
+N(C^n) &= 10 + 2 O(n) + N(C^{n-1}) \\
+&= 10 + 2 O(n) + (10 + 2 O(n-1) + N(C^{n-2})) \\
+&= (n-2)10 + (n-2)O(n) + N(C^2)
+\end{aligned}$$
+
+This would be $O(n^2)$. However, their proof that $C^n(X)$ is $O(n)$ invloves using an "extra" bit. So if we can find a way to make these $C^{n-1}$ circuits with $O(n)$ gates and no work bits, we can make any $C^n(U)$ gate with $O(n^2)$ gates. 
 
 Thinking back to exercise 4.26, we know that we can approximate a controlled X gate up to a relative phase by using the following circuit,
 
@@ -1682,7 +1687,19 @@ print("Equal to CCCNOT gate: ")
 print(circuit1 == circuit2)
 
 ```
-</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **Exercise 2.30**

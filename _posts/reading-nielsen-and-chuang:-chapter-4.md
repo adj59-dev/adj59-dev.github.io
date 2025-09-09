@@ -1491,7 +1491,7 @@ and $C^5(U)$ gates
 
 **Exercise 4.29**
 
-Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits.
+Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. I am not sure if this exercise is actually possible. I have included what I have tried below. When looking for additional resources, I found [Elementary gates for quantum computation](https://arxiv.org/pdf/quant-ph/9503016), but it looks like all the solutions that are $O(n^2)$ in this paper use at least one work qubit. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1534,6 +1534,152 @@ N(C^n) &= 6 + N(C^{n-1})\\
 &= 6(n-2)
 \end{aligned}$$
 
-And so the circuit contains $O(n)$ gates, which is in $O(n^2)$. However, this circuit is different from a controlled-X gate by relative phases. If we could construct a circuit that corrected for the phase with $O(n^2)$ gates, then this could be used to construct the circuit. I don't know how to do that at this moment and may return to this exercise later to complete it. 
+And so the circuit contains $O(n)$ gates, which is in $O(n^2)$. However, this circuit is different from a controlled-X gate by relative phases. Looking back at the non-approximated circuit one sees that there are two $C^{n-1} NOT$ gates. Is it possible to replace these $C^{n-1} NOT$ gates with this approximation? 
 
+Let's first look at the $C^3(X)$ case, where $V = \frac{(1-i)(I+iX)}{2}$
+
+<img width="449" height="238" alt="image" src="https://github.com/user-attachments/assets/f58ae973-7333-4b95-b020-724ba7c1fa1a" />
+
+Now let's see if we can substitute in the approximation for the Toffoli gates.
+
+<img width="820" height="254" alt="image" src="https://github.com/user-attachments/assets/a5db94ad-68b4-4c9e-bc2e-dc963342396b" />
+
+Let's find the matrix representation for the different gates so we can calculate their effect. 
+
+For $V_{cd}$ 
+
+$$\begin{aligned}
+\ket{0000} &\xrightarrow{V_{cd}} \ket{0000} \\
+\ket{0001} &\xrightarrow{V_{cd}} \ket{0001} \\
+\ket{0010} &\xrightarrow{V_{cd}} V_d \ket{0010} \\
+\ket{0011} &\xrightarrow{V_{cd}} V_d \ket{0011} \\
+\ket{0100} &\xrightarrow{V_{cd}} \ket{0100} \\
+\ket{0101} &\xrightarrow{V_{cd}} \ket{0101} \\
+\ket{0110} &\xrightarrow{V_{cd}} V_d \ket{0110} \\
+\ket{0111} &\xrightarrow{V_{cd}} V_d \ket{0111} \\
+\ket{1000} &\xrightarrow{V_{cd}} \ket{1000} \\
+\ket{1001} &\xrightarrow{V_{cd}} \ket{1001} \\
+\ket{1010} &\xrightarrow{V_{cd}} V_d \ket{1010} \\
+\ket{1011} &\xrightarrow{V_{cd}} V_d \ket{1011} \\
+\ket{1100} &\xrightarrow{V_{cd}} \ket{1100} \\
+\ket{1101} &\xrightarrow{V_{cd}} \ket{1101} \\
+\ket{1110} &\xrightarrow{V_{cd}} V_d \ket{1110} \\
+\ket{1111} &\xrightarrow{V_{cd}} V_d \ket{1111} \\
+\end{aligned}$$
+
+$$\begin{aligned}
+V_{cd} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{00} & v_{01} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{10} & v_{11} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{00} & v_{01} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{10} & v_{11} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{00} & v_{01} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{10} & v_{11} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{00} & v_{01} \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{10} & v_{11} \end{bmatrix}
+\end{aligned}$$
+
+For $V_{abd}$ 
+
+$$\begin{aligned}
+\ket{0000} &\xrightarrow{V_{abd}} \ket{0000} \\
+\ket{0001} &\xrightarrow{V_{abd}} \ket{0001} \\
+\ket{0010} &\xrightarrow{V_{abd}} \ket{0010} \\
+\ket{0011} &\xrightarrow{V_{abd}} \ket{0011} \\
+\ket{0100} &\xrightarrow{V_{abd}} \ket{0100} \\
+\ket{0101} &\xrightarrow{V_{abd}} \ket{0101} \\
+\ket{0110} &\xrightarrow{V_{abd}} \ket{0110} \\
+\ket{0111} &\xrightarrow{V_{abd}} \ket{0111} \\
+\ket{1000} &\xrightarrow{V_{abd}} \ket{1000} \\
+\ket{1001} &\xrightarrow{V_{abd}} \ket{1001} \\
+\ket{1010} &\xrightarrow{V_{abd}} \ket{1010} \\
+\ket{1011} &\xrightarrow{V_{abd}} \ket{1011} \\
+\ket{1100} &\xrightarrow{V_{abd}} V_d \ket{1100} \\
+\ket{1101} &\xrightarrow{V_{abd}} V_d \ket{1101} \\
+\ket{1110} &\xrightarrow{V_{abd}} V_d \ket{1110} \\
+\ket{1111} &\xrightarrow{V_{abd}} V_d \ket{1111} \\
+\end{aligned}$$
+
+$$\begin{aligned}
+V_{abd} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{00} & v_{01} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{10} & v_{11} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{00} & v_{01} \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & v_{10} & v_{11} \end{bmatrix}
+\end{aligned}$$
+
+For $CNOT_{bc}$
+
+$$\begin{aligned}
+\ket{0000} &\xrightarrow{CNOT_{bc}} \ket{0000} \\
+\ket{0001} &\xrightarrow{CNOT_{bc}} \ket{0001} \\
+\ket{0010} &\xrightarrow{CNOT_{bc}} \ket{0010} \\
+\ket{0011} &\xrightarrow{CNOT_{bc}} \ket{0011} \\
+\ket{0100} &\xrightarrow{CNOT_{bc}} \ket{0110} \\
+\ket{0101} &\xrightarrow{CNOT_{bc}} \ket{0111} \\
+\ket{0110} &\xrightarrow{CNOT_{bc}} \ket{0100} \\
+\ket{0111} &\xrightarrow{CNOT_{bc}} \ket{0101} \\
+\ket{1000} &\xrightarrow{CNOT_{bc}} \ket{1000} \\
+\ket{1001} &\xrightarrow{CNOT_{bc}} \ket{1001} \\
+\ket{1010} &\xrightarrow{CNOT_{bc}} \ket{1010} \\
+\ket{1011} &\xrightarrow{CNOT_{bc}} \ket{1011} \\
+\ket{1100} &\xrightarrow{CNOT_{bc}} \ket{1110} \\
+\ket{1101} &\xrightarrow{CNOT_{bc}} \ket{1111} \\
+\ket{1110} &\xrightarrow{CNOT_{bc}} \ket{1100} \\
+\ket{1111} &\xrightarrow{CNOT_{bc}} \ket{1101} \\
+\end{aligned}$$
+
+$$\begin{aligned}
+CNOT_{bc} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
+\end{aligned}$$
+
+For $CNOT_{ac}$
+
+$$\begin{aligned}
+\ket{0000} &\xrightarrow{CNOT_{ac}} \ket{0000} \\
+\ket{0001} &\xrightarrow{CNOT_{ac}} \ket{0001} \\
+\ket{0010} &\xrightarrow{CNOT_{ac}} \ket{0010} \\
+\ket{0011} &\xrightarrow{CNOT_{ac}} \ket{0011} \\
+\ket{0100} &\xrightarrow{CNOT_{ac}} \ket{0100} \\
+\ket{0101} &\xrightarrow{CNOT_{ac}} \ket{0101} \\
+\ket{0110} &\xrightarrow{CNOT_{ac}} \ket{0110} \\
+\ket{0111} &\xrightarrow{CNOT_{ac}} \ket{0111} \\
+\ket{1000} &\xrightarrow{CNOT_{ac}} \ket{1010} \\
+\ket{1001} &\xrightarrow{CNOT_{ac}} \ket{1011} \\
+\ket{1010} &\xrightarrow{CNOT_{ac}} \ket{1000} \\
+\ket{1011} &\xrightarrow{CNOT_{ac}} \ket{1001} \\
+\ket{1100} &\xrightarrow{CNOT_{ac}} \ket{1110} \\
+\ket{1101} &\xrightarrow{CNOT_{ac}} \ket{1111} \\
+\ket{1110} &\xrightarrow{CNOT_{ac}} \ket{1100} \\
+\ket{1111} &\xrightarrow{CNOT_{ac}} \ket{1101} \\
+\end{aligned}$$
+
+$$\begin{aligned}
+CNOT_{ac} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
+\end{aligned}$$
+
+
+I used the following script to calculate the circuit and check if it matches a $C^3(X)$ gate; it does not. So it doesn't look like we can use this approximation in this way. 
+
+```
+
+from sympy import simplify, Matrix, sin, cos, I, pi
+from sympy.physics.quantum import TensorProduct
+
+Identity = Matrix([[1, 0], [0, 1]])
+X = Matrix([[0, 1], [1, 0]])
+
+V = (1-I)*(Identity + I*X)/2
+
+Ryp = Matrix([[cos(pi/8), -sin(pi/8)], [sin(pi/8), cos(pi/8)]])
+Ryn = Matrix([[cos(-pi/8), -sin(-pi/8)], [sin(-pi/8), cos(-pi/8)]])
+ID = TensorProduct(Identity, Identity, Identity, Identity)
+
+Rypc = TensorProduct(Identity, Identity, Ryp, Identity)
+Rync = TensorProduct(Identity, Identity, Ryn, Identity)
+
+CNOTbc = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
+CNOTac = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
+CCNOTabc = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
+
+Vabd = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
+Vcd = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
+
+circuit1 = simplify(Vabd @ Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc @ Vcd.adjoint() @ Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc @ Vcd)
+circuit2 = simplify(Vabd @ CCNOTabc @ Vcd.adjoint() @ CCNOTabc @ Vcd)
+
+print("Circuit:")
+print(circuit1)
+print("Equal to CCCNOT gate: ")
+print(circuit1 == circuit2)
+
+```
 </details>

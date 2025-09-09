@@ -1491,7 +1491,10 @@ and $C^5(U)$ gates
 
 **Exercise 4.29 & 4.30**
 
-Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. I am not sure if this exercise is actually possible. I have included what I have tried below. When looking for additional resources, I found [Elementary gates for quantum computation](https://arxiv.org/pdf/quant-ph/9503016), but it looks like all the solutions that are $O(n^2)$ in this paper use at least one work qubit. In particular Corollary 7.6 says that the circuit can be constructed with $O(n^2)$ gates, but the proof uses Corollary 7.4 as justification for the cost of $\land_{n-2}(\sigma_x)$ gatex being $\Theta(n)$. Reading Corollary 7.4, one see that it uses one "extra" bit. This exercise asks us to use no work qubits, so I don't think this solution can be used for this exercise. 
+Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. Then the next exercise asks us to find a circuit containing $O(n^2)$ gates which implements a $C^n(U)$ gate for $n>3$ using no work qubits. Since these exercises are closely related, I've combined them here. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 From the previous exercise we know that
 
@@ -1517,15 +1520,16 @@ N(C^n) &= 10 + 3 N(C^{n-1}) \\
 &= 3^{n-2}(N(C^2) + 5) - 5
 \end{aligned}$$
 
-This would mean the circuit contains $O(3^n)$ gates, which is not in $O(n^2)$. I'm struggling to find an alternative solution that does not involve recursively generating $C^n$ gates from $aC^{n-1}$ gates, where $a \geq 2$, which I think would be needed to construct a circuit that has $O(n^2)$ gates. The paper I cited eariler gets around this by stating that the $C^{n-1}(X)$ gates are $O(n)$, which then would give the total number of gates for a $C^n$ gate as
+This would mean the circuit contains $O(3^n)$ gates, which is not in $O(n^2)$. However, this calculation is done with the assumption that the $C^{n-1}(X)$ gates cost the same as other $C^{n-1}(V)$ gate, if they are less costly, say $O(n)$, then the total number of gates for a $C^n$ gate is
 
 $$\begin{aligned}
 N(C^n) &= 10 + 2 O(n) + N(C^{n-1}) \\
 &= 10 + 2 O(n) + (10 + 2 O(n-1) + N(C^{n-2})) \\
-&= (n-2)10 + (n-2)O(n) + N(C^2)
+&= 2\sum_{k=2}^n O(k) + (n-2)10 + N(C^2)\\
+&= O(n^2) + O(n) + O(1)
 \end{aligned}$$
 
-This would be $O(n^2)$. However, their proof that $C^n(X)$ is $O(n)$ invloves using an "extra" bit. So if we can find a way to make these $C^{n-1}$ circuits with $O(n)$ gates and no work bits, we can make any $C^n(U)$ gate with $O(n^2)$ gates. 
+This would be $O(n^2)$. So we need to find a different way to make these $C^{n-1}(X)$ circuits with $O(n)$ gates and no work bits. If we can do this, we can make any $C^n(U)$ gate with $O(n^2)$ gates. 
 
 Thinking back to exercise 4.26, we know that we can approximate a controlled X gate up to a relative phase by using the following circuit,
 
@@ -1536,10 +1540,10 @@ where $E=R_y(\pi/4)$. This circuit only has one $C^{n-1}$ gate and so will not g
 $$\begin{aligned}
 N(C^n) &= 6 + N(C^{n-1})\\
 &= 6 + (6 + N(C^{n-2}) \\
-&= 6(n-2)
+&= 6(n-2) + N(C^2)
 \end{aligned}$$
 
-And so the circuit contains $O(n)$ gates, which is in $O(n^2)$. However, this circuit is different from a controlled-X gate by relative phases. Looking back at the non-approximated circuit one sees that there are two $C^{n-1} NOT$ gates. Is it possible to replace these $C^{n-1} NOT$ gates with this approximation? 
+And so the circuit contains $O(n)$ gates. However, this circuit is different from a controlled-X gate by relative phases. Looking back at the non-approximated circuit one sees that there are two $C^{n-1} NOT$ gates. Is it possible to replace these $C^{n-1} NOT$ gates with this approximation and have the relative phase difference cancel out? 
 
 Let's first look at the $C^3(X)$ case, where $V = \frac{(1-i)(I+iX)}{2}$
 
@@ -1652,12 +1656,14 @@ CNOT_{ac} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 
 \end{aligned}$$
 
 
-I used the following script to calculate the circuit and check if it matches a $C^3(X)$ gate; it does not. So it doesn't look like we can use this approximation in this way. 
+I used the following script to calculate the circuit and check if it matches a $C^3(X)$ gate, which it does.  So this looks like a viable solution. 
 
 ```
 
 from sympy import simplify, Matrix, sin, cos, I, pi
 from sympy.physics.quantum import TensorProduct
+
+
 
 Identity = Matrix([[1, 0], [0, 1]])
 X = Matrix([[0, 1], [1, 0]])
@@ -1671,14 +1677,17 @@ ID = TensorProduct(Identity, Identity, Identity, Identity)
 Rypc = TensorProduct(Identity, Identity, Ryp, Identity)
 Rync = TensorProduct(Identity, Identity, Ryn, Identity)
 
-CNOTbc = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
-CNOTac = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
-CCNOTabc = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
 
-Vabd = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
-Vcd = Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
+CNOTbc=Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
+CNOTac=Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
+CCNOTabc=Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0]])
 
-circuit1 = simplify(Vabd @ Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc @ Vcd.adjoint() @ Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc @ Vcd)
+Vabd=Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
+Vcd=Matrix([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1],0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[0,0],V[0,1]],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,V[1,0],V[1,1]]])
+
+approx = Rync @ CNOTbc @ Rync @ CNOTac @ Rypc @ CNOTbc @ Rypc 
+
+circuit1 = simplify(Vabd @ approx @ Vcd.adjoint() @ approx @ Vcd)
 circuit2 = simplify(Vabd @ CCNOTabc @ Vcd.adjoint() @ CCNOTabc @ Vcd)
 
 print("Circuit:")
@@ -1688,6 +1697,25 @@ print(circuit1 == circuit2)
 
 ```
 
+It makes sense that these phases cancel out, since our approximation is equal to $approx = D \cdot C^{n-1}(X)$, where $D$ is a diagonal relative-phase error. Then the circuit is
+
+$$\begin{aligned}
+C^{n}(U) &= V (D C^{n-1}(X)) V^\dagger (D C^{n-1}(X)) V \\
+&= DD (VC^{n-1}(X) V^\dagger C^{n-1}(X) V) & \text{since $D$ is diagonal} \\
+&= VC^{n-1}(X) V^\dagger C^{n-1}(X) V & \text{$D$s cancel} \\
+&= C^{n}(U) 
+\end{aligned}$$
+
+This calculation will hold for all $n>3$.
+
+So the $C^n(X)$ circuit will be as shown below, where the $C^{n-2}(X)$ gates between the $E$ and $E^\dagger$ gates can be recursively decomposed into Toffoli, CNOT and single bit gates using the approximation $C^{n-2}(X) = E^\dagger \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E^\dagger \cdot C^{n-3}(X) \cdot E \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E$. This will construct a circuit using $O(n^2)$ gates. 
+
+<img width="824" height="347" alt="image" src="https://github.com/user-attachments/assets/f2303b42-6afd-4c94-bf2d-8c7d61990df3" />
+
+
+This decomposition is valid for any $C^n(U)$ gate by selecting the appropriate $V$ gates. 
+
+</details>
 
 
 
@@ -1697,11 +1725,5 @@ print(circuit1 == circuit2)
 
 
 
-
-
-
-
-
-**Exercise 2.30**
 
 

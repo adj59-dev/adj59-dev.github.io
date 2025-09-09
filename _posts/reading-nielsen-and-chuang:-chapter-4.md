@@ -1772,7 +1772,9 @@ print(simplify(TensorProduct(Identity, Rx) @ C) == simplify(C @ TensorProduct(Id
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Principle of deferred measurement    | 4.4                       | Measurements can always be moved from an intermediate stage of a quantum circuit to the end of the circuit; if the measurement results are used at any stage of the circuit then the classically controlled operation can be replaced by conditional quantum operations. |
+| Principle of implicit measurement    | 4.4                       | Without loss of generality, any unterminated quantum wires (qubits which are not measured) and the end of a quantum circuit may be assumed to be measured. |
+| Reversible measurement               | 4.4                       | In order for a measurement to be reversible, it must reveal no information about the quantum state being measured. |
 
 
 
@@ -1780,10 +1782,33 @@ print(simplify(TensorProduct(Identity, Rx) @ C) == simplify(C @ TensorProduct(Id
 
 ### Measurement - Exercises
 
+**Exercise 4.32**
 
+For this exercise we are to perform a projective measurement on the second qubit of a two qubit system, find the density matrix after the measurement, and show that the reduced density matrix for the first qubit is not affected by the measurement.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+The density matrix for a two qubit system after measurement is given by
 
+$$\begin{aligned}
+\rho' &= \sum_{k=0,1} P_k \rho P_k \\
+&= P_0 \rho P_0 + P_1 \rho P_1 
+\end{aligned}$$
+
+The reduced density matrix for the first qubit is given by 
+
+$$\begin{aligned}
+tr_2(\rho') &= tr_2(P_0 \rho P_0 + P_1 \rho P_1) \\
+&= tr_2(P_0 \rho P_0) + tr_2(P_1 \rho P_1) \\
+&= tr_2(\rho P_0^2) + tr_2(\rho P_1^2) \\
+&= tr_2(\rho P_0) + tr_2(\rho P_1) \\
+&= tr_2(\rho( P_0 + P_1)) \\
+&= tr_2(\rho I) \\
+&= tr_2(\rho ) \\
+\end{aligned}$$
+
+</details>
 
 
 

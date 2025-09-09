@@ -1811,6 +1811,10 @@ tr_2(\rho') &= tr_2(P_0 \rho P_0 + P_1 \rho P_1) \\
 </details>
 
 
+**Exercise 4.33**
+
+
+
 
 
 

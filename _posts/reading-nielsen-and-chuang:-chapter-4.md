@@ -1813,12 +1813,54 @@ tr_2(\rho') &= tr_2(P_0 \rho P_0 + P_1 \rho P_1) \\
 
 **Exercise 4.33**
 
+For this exercise we are asked to show that a given circuit performs a measurement in the basis of the Bell states.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+The matrix representation of the circuit is given by
 
+$$\begin{aligned}
+C &=  H_{a} CNOT_{ab}\\
+&= \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 0 & 0 & 1 \\\ 0 & 1 & 1 & 0 \\\ 1 & 0 & 0 & -1 \\\ 0 & 1 & -1 & 0 \end{bmatrix} \\
+\end{aligned}$$
 
+Looking at the matrix we see that the circuit has this effect on the computational basis
 
+$$\begin{aligned}
+\ket{00} \xrightarrow{C} \frac{1}{\sqrt{2}}(\ket{00} + \ket{10}) \\
+\ket{01} \xrightarrow{C} \frac{1}{\sqrt{2}}(\ket{01} + \ket{11}) \\
+\ket{10} \xrightarrow{C} \frac{1}{\sqrt{2}}(\ket{01} - \ket{11}) \\
+\ket{11} \xrightarrow{C} \frac{1}{\sqrt{2}}(\ket{00} - \ket{10}) \\
+\end{aligned}$$
 
+Therefore the effect on a Bell state basis is
 
+$$\begin{aligned}
+\ket{\beta_{00}} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \xrightarrow{C} \frac{1}{2}(\ket{00} + \ket{10} + \ket{00} - \ket{10}) = \ket{00} \\
+\ket{\beta_{01}} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) \xrightarrow{C} \frac{1}{2}(\ket{01} + \ket{11} + \ket{01} - \ket{11}) = \ket{01} \\
+\ket{\beta_{10}} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) \xrightarrow{C} \frac{1}{2}(\ket{00} + \ket{10} - \ket{00} + \ket{10}) = \ket{10} \\
+\ket{\beta_{11}} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) \xrightarrow{C} \frac{1}{2}(\ket{01} + \ket{11} - \ket{01} + \ket{11}) = \ket{11} \\
+\end{aligned}$$
 
+So the measurement operator can be written as
 
+$$\begin{aligned}
+M_{00} = \ket{00}\bra{\beta_{00}} \\
+M_{01} = \ket{01}\bra{\beta_{01}} \\
+M_{10} = \ket{10}\bra{\beta_{10}} \\
+M_{11} = \ket{11}\bra{\beta_{11}}
+\end{aligned}$$
+
+and the POVM elements given by $E_m = M_m^\dagger M_m$ are
+
+$$\begin{aligned}
+E_{00} = \ket{\beta_{00}}\bra{\beta_{00}} \\
+E_{01} = \ket{\beta_{01}}\bra{\beta_{01}} \\
+E_{10} = \ket{\beta_{10}}\bra{\beta_{10}} \\
+E_{11} = \ket{\beta_{11}}\bra{\beta_{11}}
+\end{aligned}$$
+
+These POVM elements are projectors onto the Bell states. 
+
+</details>

@@ -1870,18 +1870,13 @@ These POVM elements are projectors onto the Bell states.
 
 We are asked to show that the given circuit implements a measurement of $U$.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 Let's write $U$ as
 
 $$\begin{aligned}
 U = \begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix}
-\end{aligned}$$
-
-We know that U is both Hermitian and unitary, so we know $U = U^\dagger$ and $UU^dagger = I$, therefore
-
-$$\begin{aligned}
-I &= UU
-&= \begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix}\begin{bmatrix} u_{00} & u_{01} \\\ u_{10} & u_{11} \end{bmatrix} \\
-&= \begin{bmatrix} u_{00}^2 + u_{01}u_{10} & u_{01}u_{00} + u_{01}u_{11} \\\ u_{10}u_{00} + u_{10}u_{11} & u_{11}^2 + u_{10}u_{01} \end{bmatrix}
 \end{aligned}$$
 
 Then the matrix representation of the circuit is given by 
@@ -1901,5 +1896,20 @@ then the output is
 
 $$\begin{aligned}
 C (\ket{0} \otimes \ket{\psi_{in}}) &= \frac{1}{2} \begin{bmatrix} u_{00} + 1 & u_{01} & 1 - u_{00} & -u_{01} \\\ u_{10} & u_{11} + 1 & -u_{10} & 1 - u_{11} \\\ 1 - u_{00} & -u_{01} & u_{00} + 1 & u_{01} \\\ -u_{10} & 1-u_{11} & u_{10} & u_{11} + 1 \end{bmatrix}\begin{bmatrix} \psi_{0} \\\ \psi_{1} \\\ 0 \\\ 0 \end{bmatrix} \\
-&= \begin{bmatrix} (u_{00} + 1)\psi_{0} + u_{01}\psi_{1} \\\ u_{10} \psi_{0} + (u_{11} + 1)\psi_{1} \\\ (1 - u_{00})\psi_{0} + -u_{01}\psi_{1} \\\ -u_{10}\psi_{0} + (1-u_{11})\psi_{1} \end{bmatrix}
+&=  \frac{1}{2}\begin{bmatrix}  \psi_{0} + (u_{00}\psi_{0} + u_{01}\psi_{1}) \\\ \psi_{1} + (u_{10} \psi_{0} + u_{11}\psi_{1}) \\\ \psi_{0} - (u_{00}\psi_{0} + u_{01}\psi_{1}) \\\ \psi_{1} - (u_{10}\psi_{0} + u_{11}\psi_{1}) \end{bmatrix} \\
+&= \frac{1}{2}\begin{bmatrix}  (I + U)\begin{bmatrix} \psi_{0} \\\ \psi_{1} \end{bmatrix}  \\\ (I - U) \begin{bmatrix} \psi_{0} \\\ \psi_{1} \end{bmatrix} \end{bmatrix} \\
+&= \begin{bmatrix}  P_{+}\begin{bmatrix} \psi_{0} \\\ \psi_{1} \end{bmatrix}  \\\ P_{-}\begin{bmatrix} \psi_{0} \\\ \psi_{1} \end{bmatrix} \end{bmatrix} & \text{exercise 2.60} \\
+&= \ket{0} \otimes P_{+}\ket{\psi_{in}} + \ket{1} \otimes P_{-}\ket{\psi_{in}} \\
+&= \sqrt{p(+)}\ket{0} \otimes \ket{\psi_{+}} + \sqrt{p(-)}\ket{1} \otimes \ket{\psi_{-}}
 \end{aligned}$$
+
+Where $p(\pm) = \braket{\psi_{in} \vert P_{\pm} \vert \psi_{in}}$ and $P_{\pm}$ are the projectors for $U$. This shows that the first wire gives a measurement result that indicates one of the two eigenvalues of $U$ where $\ket{0}$ represents an eigenvalue of 1 and $\ket{1}$ represents an eigenvalue of -1 and leaves $\ket{\psi_{out}}$ as the corresponding eigenvector.
+
+</details>
+
+
+
+
+
+
+

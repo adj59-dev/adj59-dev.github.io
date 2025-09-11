@@ -1910,6 +1910,34 @@ Where $p(\pm) = \braket{\psi_{in} \vert P_{\pm} \vert \psi_{in}}$ and $P_{\pm}$ 
 
 **Exercise 4.35**
 
+For this exercise we are asked to show that measurements commute with quantum gates when the qubit being measured is a control qubit.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+In the exercise we are given three circuits that have a controlled $U$ gate such that $C_{U} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes U$. Let's say that the state of the system before the circuit is $\ket{\psi} = \alpha \ket{0}\ket{\psi_{b}} + \beta\ket{1}\ket{\psi_{b}}$
+
+First let's consider the case when the control qubit is measured after the quantum gate (the leftmost circuit). For this case $C_{U}$ is applied first which puts the system in the state
+
+$$\begin{aligned}
+C_{U}\ket{\psi} &= \left(\ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes U \right) \left(\alpha \ket{0}\ket{\psi_{b}} + \beta\ket{1}\ket{\psi_{b}}\right)\\
+&= \alpha \ket{0} \otimes \ket{\psi_{b}} + \beta \ket{1} \otimes U\ket{\psi_{b}}
+\end{aligned}$$
+
+Then when the control wire is measured there is a $\vert \alpha \vert^2$ probability of obtaining the result $\ket{0}$ putting the system in the state $\ket{0} \otimes \ket{\psi_{b}}$ and a $\vert \beta \vert^2$ probability of obtaining the result $\ket{1}$ putting the system in the state $\ket{1} \otimes U\ket{\psi_{b}}$.
+
+Now let's consider the case when the control qubit is measured before the quantum gate (the middle circuit). For this case first the control qubit is measured, where there is a $\vert \alpha \vert^2$ probability of measuring $\ket{0}$ and a $\vert \beta \vert^2$ probability of measuring $\ket{1}$, putting the control wires in the measured state. Then $C_U$ is applied, resulting in the system being in state $\ket{0} \otimes \ket{\psi_{b}}$ or $\ket{1} \otimes U\ket{\psi_{b}}$, depending on what the control qubit measurement was. 
+
+Both circuits have the same probability of obtaining one of the two same outputs and therefore are equivalent.
+
+</details>
+
+
+
+
+
+
+
 
 
 

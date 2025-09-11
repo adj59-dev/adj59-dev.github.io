@@ -1941,7 +1941,8 @@ Both circuits have the same probability of obtaining one of the two same outputs
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Universal quantum gate requirements  | 4.5                       | A set of gates is said to be universal for quantum computation if any unitary operation may be approximated to arbitrary accuracy by a quantum circuit involving only those gates. |
+| Universal quantum computation gate set | 4.5                     | Hadamard, phase, CNOT, and $\pi/8$ gates. Though, the phase gate can be constructed with two $\pi/8$ gates. |
 
 
 
@@ -1950,7 +1951,23 @@ Both circuits have the same probability of obtaining one of the two same outputs
 ### Universal quantum gates - Exercises
 
 
+**Exercise 4.36**
 
+Construct a quantum circuit to add two two-bit numbers $x$ and $y$ modulo 4. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+
+This circuit will perform the transformation $\ket{x,y} \rightarrow \ket{x, x+y \mod 4}$. Since $x$ and $y$ are two bit numbers each number will be written in the following convention $x=x_2 x_1$, where $x_1$ and $x_2$ are digits in the number $x$. Therefor the transformation can be written as
+
+$$\begin{aligned}
+\ket{x_1, x_2,y_1, y_2} &\rightarrow \ket{x_1, x_2, (x+y \mod 4)_1, (x+y \mod 4)_2} \\
+&= \ket{x_1, x_2, x_1 \oplus y_1, x_2 \oplus y_2 \oplus (x_1 \land y_1)}
+\end{aligned}$$
+
+The following circuit performs this transformation
+
+<img width="564" height="231" alt="image" src="https://github.com/user-attachments/assets/dc5a1bd0-af92-4e1a-a5a1-159cd8046896" />
+
+</details>
 
 

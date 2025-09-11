@@ -1943,6 +1943,7 @@ Both circuits have the same probability of obtaining one of the two same outputs
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Universal quantum gate requirements  | 4.5                       | A set of gates is said to be universal for quantum computation if any unitary operation may be approximated to arbitrary accuracy by a quantum circuit involving only those gates. |
 | Universal quantum computation gate set | 4.5                     | Hadamard, phase, CNOT, and $\pi/8$ gates. Though, the phase gate can be constructed with two $\pi/8$ gates. |
+| Two-level unitary gates are universal | 4.5.1                    | If we find two-level unitary matrices $U_1, \cdots, U_{k}$ such that $U_{k} \cdots U_1 U = I$ then $U = U_1^\dagger \cdots U_{k}^\dagger$, where $U$ is a $d \times d$ matrix and $k\leq (d-1) + (d-2) + \cdots + 1 = \frac{d(d-1)}{2}$.  |
 
 
 
@@ -1969,5 +1970,76 @@ The following circuit performs this transformation
 <img width="564" height="231" alt="image" src="https://github.com/user-attachments/assets/dc5a1bd0-af92-4e1a-a5a1-159cd8046896" />
 
 </details>
+
+
+**Exercise 4.37**
+
+Provide a decomposition of the transform given in equation 4.52. 
+
+Since $U$ is a $4 \times 4$ matrix, we'll need to find $U_1, U_2, U_3, U_4$ such that $U_4 U_3 U_2 U_1 = I$ using the a procedure similar to the one outlined in equations 4.44 - 4.50. 
+
+From equation 4.54
+
+$$\begin{aligned}
+U = \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & i & -1 & -i \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix}
+\end{aligned}$$
+
+Then let's set 
+
+$$\begin{aligned}
+U_1 = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 & 0 \\\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_1 U &= \begin{bmatrix} \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} & 0 & \frac{\sqrt{2}(1-i)}{2} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix} 
+\end{aligned}$$
+
+Now let's set 
+
+$$\begin{aligned}
+U_2 = U_1 = \begin{bmatrix} \frac{\sqrt{2}}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & 0 \\\ 0 & 1 & 0 & 0 \\\ \frac{1}{\sqrt{3}} & 0 & -\frac{\sqrt{2}}{\sqrt{3}} & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_2 U_1 U &= \begin{bmatrix} \sqrt{3} & \frac{\sqrt{3}i}{3} & \frac{\sqrt{3}}{3} & -\frac{\sqrt{3}i}{3} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 1 & -i & -1 & i \end{bmatrix} 
+\end{aligned}$$
+
+Now let's set
+
+$$\begin{aligned}
+U_3 = \begin{bmatrix} \frac{\sqrt{3}}{2} & 0 & 0 & \frac{1}{2} \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ \frac{1}{2} & 0 & 0 & -\frac{\sqrt{3}}{2} \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_3 U_2 U_1 U &= \begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
+\end{aligned}$$
+
+Now let's set
+
+$$\begin{aligned}
+U_4 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & \frac{3\sqrt{2}(1+i)}{4\sqrt{6}} & \frac{3 - i}{4} & 0 \\\ 0 & \frac{3 + i}{4} & -\frac{3\sqrt{2}(1-i)}{4\sqrt{6}} & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_4 U_3 U_2 U_1 U &= \begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{2 \sqrt{6}}{3} & \frac{\sqrt{6} i}{3} & \frac{\sqrt{6}}{3} \\\ 0 & 0 & \sqrt{2} & \sqrt{2} i \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
+\end{aligned}$$
+
+Now let's set
+
+$$\begin{aligned}
+U_5 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+\end{aligned}$$
+
+
+
+
 
 

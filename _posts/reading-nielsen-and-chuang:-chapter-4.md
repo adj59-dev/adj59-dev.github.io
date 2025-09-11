@@ -1957,6 +1957,7 @@ Both circuits have the same probability of obtaining one of the two same outputs
 Construct a quantum circuit to add two two-bit numbers $x$ and $y$ modulo 4. 
 
 <details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 This circuit will perform the transformation $\ket{x,y} \rightarrow \ket{x, x+y \mod 4}$. Since $x$ and $y$ are two bit numbers each number will be written in the following convention $x=x_2 x_1$, where $x_1$ and $x_2$ are digits in the number $x$. Therefor the transformation can be written as
 
@@ -1976,12 +1977,15 @@ The following circuit performs this transformation
 
 Provide a decomposition of the transform given in equation 4.52. 
 
-Since $U$ is a $4 \times 4$ matrix, we'll need to find $U_1, U_2, U_3, U_4$ such that $U_4 U_3 U_2 U_1 = I$ using the a procedure similar to the one outlined in equations 4.44 - 4.50. 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Since $U$ is a $4 \times 4$ matrix, we'll need to find $U_1, \cdots, U_k$ such that $U_k \cdots U_1 = I$ where $k \leq 6$ using a procedure similar to the one outlined in equations 4.44 - 4.50. 
 
 From equation 4.54
 
 $$\begin{aligned}
-U = \begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & i & -1 & -i \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix}
+U = \frac{1}{2}\begin{bmatrix} 1 & 1 & 1 & 1 \\\ 1 & i & -1 & -i \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix}
 \end{aligned}$$
 
 Then let's set 
@@ -1993,19 +1997,19 @@ U_1 = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 & 0 \\\ \frac{
 Which gives
 
 $$\begin{aligned}
-U_1 U &= \begin{bmatrix} \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} & 0 & \frac{\sqrt{2}(1-i)}{2} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix} 
+U_1 U = \frac{1}{2}\begin{bmatrix} \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} & 0 & \frac{\sqrt{2}(1-i)}{2} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 1 & -1 & 1 & -1 \\\ 1 & -i & -1 & i \end{bmatrix} 
 \end{aligned}$$
 
 Now let's set 
 
 $$\begin{aligned}
-U_2 = U_1 = \begin{bmatrix} \frac{\sqrt{2}}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & 0 \\\ 0 & 1 & 0 & 0 \\\ \frac{1}{\sqrt{3}} & 0 & -\frac{\sqrt{2}}{\sqrt{3}} & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+U_2 = \begin{bmatrix} \frac{\sqrt{2}}{\sqrt{3}} & 0 & \frac{1}{\sqrt{3}} & 0 \\\ 0 & 1 & 0 & 0 \\\ \frac{1}{\sqrt{3}} & 0 & -\frac{\sqrt{2}}{\sqrt{3}} & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
 \end{aligned}$$
 
 Which gives
 
 $$\begin{aligned}
-U_2 U_1 U &= \begin{bmatrix} \sqrt{3} & \frac{\sqrt{3}i}{3} & \frac{\sqrt{3}}{3} & -\frac{\sqrt{3}i}{3} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 1 & -i & -1 & i \end{bmatrix} 
+U_2 U_1 U = \frac{1}{2}\begin{bmatrix} \sqrt{3} & \frac{\sqrt{3}i}{3} & \frac{\sqrt{3}}{3} & -\frac{\sqrt{3}i}{3} \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 1 & -i & -1 & i \end{bmatrix} 
 \end{aligned}$$
 
 Now let's set
@@ -2017,7 +2021,7 @@ U_3 = \begin{bmatrix} \frac{\sqrt{3}}{2} & 0 & 0 & \frac{1}{2} \\\ 0 & 1 & 0 & 0
 Which gives
 
 $$\begin{aligned}
-U_3 U_2 U_1 U &= \begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
+U_3 U_2 U_1 U = \frac{1}{2}\begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{\sqrt{2}(1-i)}{2} & \sqrt{2} & \frac{\sqrt{2}(1+i)}{2} \\\ 0 & \frac{\sqrt{6}(3 + i)}{6} & -\frac{\sqrt{6}}{3} & \frac{\sqrt{6}(3 - i)}{6} \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
 \end{aligned}$$
 
 Now let's set
@@ -2029,17 +2033,57 @@ U_4 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & \frac{3\sqrt{2}(1+i)}{4\sqrt{6}} & \
 Which gives
 
 $$\begin{aligned}
-U_4 U_3 U_2 U_1 U &= \begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{2 \sqrt{6}}{3} & \frac{\sqrt{6} i}{3} & \frac{\sqrt{6}}{3} \\\ 0 & 0 & \sqrt{2} & \sqrt{2} i \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
+U_4 U_3 U_2 U_1 U = \frac{1}{2}\begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & \frac{2 \sqrt{6}}{3} & \frac{\sqrt{6} i}{3} & \frac{\sqrt{6}}{3} \\\ 0 & 0 & \sqrt{2} & \sqrt{2} i \\\ 0 & \frac{2\sqrt{3}i}{3} & \frac{2\sqrt{3}}{3} & -\frac{2\sqrt{3} i}{3} \end{bmatrix} 
 \end{aligned}$$
 
 Now let's set
 
 $$\begin{aligned}
-U_5 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 1 \end{bmatrix}
+U_5 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & \frac{\sqrt{6}}{3} & 0 & -\frac{\sqrt{3}i}{3} \\\ 0 & 0 & 1 & 0 \\\ 0 & \frac{\sqrt{3}i}{3} & 0 & -\frac{\sqrt{6}}{3} \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_5 U_4 U_3 U_2 U_1 U = \frac{1}{2}\begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & 2 & 0 & 0 \\\ 0 & 0 & \sqrt{2} & \sqrt{2} i \\\ 0 & 0 & -\sqrt{2} & \sqrt{2} i \end{bmatrix} 
+\end{aligned}$$
+
+Now let's set
+
+$$\begin{aligned}
+U_6 = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & \frac{\sqrt{2}}{2} & -\frac{\sqrt{2}}{2} \\\ 0 & 0 & -\frac{\sqrt{2} i}{2} & -\frac{\sqrt{2} i}{2} \end{bmatrix}
+\end{aligned}$$
+
+Which gives
+
+$$\begin{aligned}
+U_6 U_5 U_4 U_3 U_2 U_1 U = \frac{1}{2}\begin{bmatrix} 2 & 0 & 0 & 0 \\\ 0 & 2 & 0 & 0 \\\ 0 & 0 & 2 & 0 \\\ 0 & 0 & 0 & 2 \end{bmatrix} = I
 \end{aligned}$$
 
 
+Then $U$ can be written as 
 
+$$\begin{aligned}
+U = U_1^\dagger U_2^\dagger U_3^\dagger U_4^\dagger U_5^\dagger U_6^\dagger
+\end{aligned}$$
+
+I used the following script to confirm these results
+
+```
+from sympy import simplify, Matrix, I, sqrt
+
+U = Matrix([[1,1,1,1],[1,I,-1,-I],[1,-1,1,-1],[1,-I,-1,I]])/2
+U1 = Matrix([[1/sqrt(2),1/sqrt(2),0,0],[1/sqrt(2),-1/sqrt(2),0,0],[0,0,1,0],[0,0,0,1]])
+U2 = Matrix([[sqrt(2)/sqrt(3),0,1/sqrt(3),0],[0,1,0,0],[1/sqrt(3),0,-sqrt(2)/sqrt(3),0],[0,0,0,1]])
+U3 = Matrix([[sqrt(3)/2,0,0,1/2],[0,1,0,0],[0,0,1,0],[1/2,0,0,-sqrt(3)/2]])
+U4 = Matrix([[1,0,0,0],[0,3*sqrt(2)*(1+I)/(4*sqrt(6)),(3-I)/4,0],[0,(3+I)/4,-3*sqrt(2)*(1-I)/(4*sqrt(6)),0],[0,0,0,1]])
+U5 = Matrix([[1,0,0,0],[0,sqrt(6)/3,0,-sqrt(3)*I/3],[0,0,1,0],[0,sqrt(3)*I/3,0,-sqrt(6)/3]])
+U6 = Matrix([[1,0,0,0],[0,1,0,0],[0,0,sqrt(2)/2,-sqrt(2)/2],[0,0,-sqrt(2)/2*I,-sqrt(2)/2*I]])
+
+print(simplify(U6 @ U5 @ U4 @ U3 @ U2 @ U1 @ U).evalf(3))
+print(simplify(U1.adjoint() @ U2.adjoint() @ U3.adjoint() @ U4.adjoint() @ U5.adjoint() @ U6.adjoint() ).evalf(3))
+```
+</details>
 
 
 

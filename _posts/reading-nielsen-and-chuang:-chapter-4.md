@@ -2085,5 +2085,21 @@ print(simplify(U1.adjoint() @ U2.adjoint() @ U3.adjoint() @ U4.adjoint() @ U5.ad
 ```
 </details>
 
+**Exercise 4.38**
+
+Prove that there exists a $d \times d$ unitary matrix $U$ which cannot be decomposed as a product of fewer than $d-1$ two-level unitary matrices. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+A complex $d \times d$ matrix can have up to $2d^2$ parameters ($d^2$ real parts and $d^2$ imaginary parts for the $d^2$ matrix entries). However, having the matrix be unitary places additional constraints on the entries, reducing the number of independent parameters to $d^2$. 
+
+A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two-level unitary matrices together, we'll have $4k$ parameters. For all $d \geq 2$ the following inequality holds $d^2 \geq 4(d-1)$. Therefore, for all $d$ there exists some unitary matrix $U$ that requires $k \geq d-1$ two-level unitary matrices. 
+
+</details>
+
+
+
+
 
 

@@ -1944,6 +1944,9 @@ Both circuits have the same probability of obtaining one of the two same outputs
 | Universal quantum gate requirements  | 4.5                       | A set of gates is said to be universal for quantum computation if any unitary operation may be approximated to arbitrary accuracy by a quantum circuit involving only those gates. |
 | Universal quantum computation gate set | 4.5                     | Hadamard, phase, CNOT, and $\pi/8$ gates. Though, the phase gate can be constructed with two $\pi/8$ gates. |
 | Two-level unitary gates are universal | 4.5.1                    | If we find two-level unitary matrices $U_1, \cdots, U_{k}$ such that $U_{k} \cdots U_1 U = I$ then $U = U_1^\dagger \cdots U_{k}^\dagger$, where $U$ is a $d \times d$ matrix and $k\leq (d-1) + (d-2) + \cdots + 1 = \frac{d(d-1)}{2}$.  |
+| Single qubit and CNOT gates are universal | 4.5.2                | An arbitrary two-level unitary matrix operating on the state space of $n$ qubits can be implemented by single qubit and CNOT gates. |
+| Gray code                            | 4.5.2                     | A list of binary numbers starting with $s$ and ending with $t$ such taht adjacent members of the list differ in exactly one bit. |
+
 
 
 
@@ -2099,7 +2102,25 @@ A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two
 </details>
 
 
+**Exercise 4.39**
 
+Find a quantum circuit using single qubit operations and CNOTs to implement the transformation given in equation 4.60.
+
+This transformation acts non-trivially only on the states $\ket{010}$ and $\ket{111}$. We write a Gray code connecting $010$ and $111$
+
+$$\begin{aligned}
+A & B & C \\\
+0 & 1 & 0 \\\
+0 & 1 & 1 \\\
+1 & 1 & 1
+\end{aligned}$$
+
+Which can be implemented using this circuit
+
+<img width="307" height="192" alt="image" src="https://github.com/user-attachments/assets/a6d6dca5-8cd7-4d2a-9d2a-018a9ce55190" />
+
+As with the example given in section 4.5.2 of the book, each of the controlled operations in this circuit can be realized using $O(n)$ single qubit and CNOT gates.
+ 
 
 
 

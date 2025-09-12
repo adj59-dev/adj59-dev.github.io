@@ -2132,6 +2132,9 @@ As with the example given in section 4.5.2 of the book, each of the controlled o
 
 For an arbitrary $\alpha$ and $\beta$ show that equation 4.77 is valid and use it to justify equation 4.76.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 $$\begin{aligned}
 E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\alpha + \beta)) &= max \Vert (R_{\hat{n}}(\alpha) - R_{\hat{n}}(\alpha + \beta))\ket{\psi} \Vert \\
 &= max \Vert (R_{\hat{n}}(\alpha) - R_{\hat{n}}(\alpha + \beta))\ket{\psi} \Vert \\
@@ -2141,7 +2144,7 @@ E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\alpha + \beta)) &= max \Vert (R_{\hat{n}}(\a
 &= \vert 1 - \exp(i\beta/2) \vert
 \end{aligned}$$
 
-Then with $\theta$ given by $\cos(\theta/2) = \cos^2(\pi/8)$, making $\theta$ a irrational multiple of $2\pi$, we can write
+Then as stated in section 4.5.3, $\theta$ is given by $\cos(\theta/2) = \cos^2(\pi/8)$, making $\theta$ a irrational multiple of $2\pi$, so we can write
 
 $$\begin{aligned}
 E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) &= E(R_{\hat{n}}(\alpha), R_{\hat{n}}(n\theta)) \\
@@ -2150,4 +2153,8 @@ E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) &= E(R_{\hat{n}}(\alpha), R_{\hat{
 &< \frac{\epsilon}{3} & \text{for $\epsilon>0$ }
 \end{aligned}$$
 
-The last statement above can be made because $\theta$ is an irrational multiple of $2\pi$ which means that given sufficient $n$ we can make $(n\theta - \alpha) \mod 2\pi$ arbitrarily close to any value between $0$ and $2\pi$ that we want. Therefore, their exists a $n$ for any $\epsilon>0$ where $E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) < \frac{\epsilon}{3}$
+That last statement above can be made because $\theta$ is an irrational multiple of $2\pi$ which means that with the appropriate selection of $n$ we can make $(n\theta - \alpha)/2 \mod 2\pi$ arbitrarily close to zero and therefore make $\vert 1 - \exp(i(n\theta - \alpha)/2) \vert$ arbitrarily small. Thus, there exists a $n$ for any $\epsilon>0$ where $E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) < \frac{\epsilon}{3}$.
+
+</details>
+
+

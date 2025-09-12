@@ -1942,10 +1942,11 @@ Both circuits have the same probability of obtaining one of the two same outputs
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Universal quantum gate requirements  | 4.5                       | A set of gates is said to be universal for quantum computation if any unitary operation may be approximated to arbitrary accuracy by a quantum circuit involving only those gates. |
-| Universal quantum computation gate set | 4.5                     | Hadamard, phase, CNOT, and $\pi/8$ gates. Though, the phase gate can be constructed with two $\pi/8$ gates. |
+| Universal quantum computation gate set | 4.5                     | Hadamard, phase, CNOT, and $\pi/8$ gates is the standard set of universal gates. Though, the phase gate can be constructed with two $\pi/8$ gates. A different set is the Hadamard, phase, CNOT, and Toffoli gate. |
 | Two-level unitary gates are universal | 4.5.1                    | If we find two-level unitary matrices $U_1, \cdots, U_{k}$ such that $U_{k} \cdots U_1 U = I$ then $U = U_1^\dagger \cdots U_{k}^\dagger$, where $U$ is a $d \times d$ matrix and $k\leq (d-1) + (d-2) + \cdots + 1 = \frac{d(d-1)}{2}$.  |
 | Single qubit and CNOT gates are universal | 4.5.2                | An arbitrary two-level unitary matrix operating on the state space of $n$ qubits can be implemented by single qubit and CNOT gates. |
 | Gray code                            | 4.5.2                     | A list of binary numbers starting with $s$ and ending with $t$ such taht adjacent members of the list differ in exactly one bit. |
+| Error when approximating unitary operators | 4.5.3               | $E(U,V) = max \Vert (U-V)\ket{\psi} \Vert$ is the error when $V$ is implemented instead of $U$. If there is a sequence of gates the errors add at most linearly $E(U_m U_{m-1} \cdots U_1, V_m V_{m-1} \cdots V_1) \leq \sum_{j=1}^m E(U_j,V_j)$ |
 
 
 
@@ -2106,6 +2107,9 @@ A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two
 
 Find a quantum circuit using single qubit operations and CNOTs to implement the transformation given in equation 4.60.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 This transformation acts non-trivially only on the states $\ket{010}$ and $\ket{111}$. We write a Gray code connecting $010$ and $111$
 
 $$\begin{aligned}
@@ -2121,6 +2125,6 @@ Which can be implemented using this circuit
 
 As with the example given in section 4.5.2 of the book, each of the controlled operations in this circuit can be realized using $O(n)$ single qubit and CNOT gates.
  
-
+</details>
 
 

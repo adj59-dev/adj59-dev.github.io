@@ -2094,7 +2094,7 @@ Prove that there exists a $d \times d$ unitary matrix $U$ which cannot be decomp
 
 A complex $d \times d$ matrix can have up to $2d^2$ parameters ($d^2$ real parts and $d^2$ imaginary parts for the $d^2$ matrix entries). However, having the matrix be unitary places additional constraints on the entries, reducing the number of independent parameters to $d^2$. 
 
-A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two-level unitary matrices together, we'll have $4k$ parameters. For all $d \geq 2$ the following inequality holds $d^2 \geq 4(d-1)$. Therefore, for all $d$ there exists some unitary matrix $U$ that requires $k \geq d-1$ two-level unitary matrices. 
+A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two-level unitary matrices together, we'll then have $4k$ parameters. In order to decompose a $d \times d$ unitary matrix as the product of two-level unitary matrices, we'll need $4k \geq d^2$. For all $d \geq 2$ the following inequality holds $d^2 \geq 4(d-1)$.  Therefore, for all $d \geq 2$ there exists some $d \times d$ unitary matrix $U$ that requires $k \geq d-1$ two-level unitary matrices for the decomposition. 
 
 </details>
 

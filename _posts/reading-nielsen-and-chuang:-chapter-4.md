@@ -1720,7 +1720,7 @@ This decomposition is valid for any $C^n(U)$ gate by selecting the appropriate $
 
 **Exercise 4.31**
 
-In this exercise we are asked to prove sever circuit identities.
+In this exercise we are asked to prove several circuit identities.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

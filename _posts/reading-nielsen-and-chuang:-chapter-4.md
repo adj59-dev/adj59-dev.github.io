@@ -2158,3 +2158,36 @@ That last statement above can be made because $\theta$ is an irrational multiple
 </details>
 
 
+**Exercise 4.41**
+
+How that the circuit in Figure 4.17 applies the operation $R_{z}(\theta)$ to the third qubit if the measurement outcomes are both $0$, where $\cos \theta = 3/5$, and otherwise applies $Z$ to the target qubit. Show that the probability of both measurement outcomes being $0$ is $5/8$, and explain how repeated use of this circuit and $Z=S^2$ gates may be used to apply a $R_z(\theta)$ gate with probability approaching $1$.
+
+The matrix representation for the circuit is given by 
+
+$$\begin{aligned}
+C &= H_1 H_2 CCNOT_{123} S_3 CCNOT_{123} H_2 H_1 \\
+&= \frac{1}{4}\begin{bmatrix} 3 + i & 0 & 1-i & 0 & 1-i & 0 & -1 + i & 0 \\\ 0 & 1 + 3 i & 0 & -1 + i & 0 & -1 + i & 0 & 1-i \\\ 1-i & 0 & 3+i & 0 & -1+i & 0 & 1-i & 0 \\\ 0 & -1+i & 0 & 1+3i & 0 & 1-i & 0 & -1 + i \\\ 1 - i & 0 & -1 + i & 0 & 3 + i & 0 & 1 - i & 0 \\\ 0 & -1 + i & 0 & 1 - i & 0 & 1 + 3i & 0 & -1 + i \\\ -1 + i & 0 & 1 - i & 0 & 1 - i & 0 & 3 + i & 0 \\\ 0 & 1 - i & 0 & -1 + i & 0 & -1 + i & 0 & 1 + 3i \end{bmatrix}
+\end{aligned}$$
+
+Then the output of the circuit for an input $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$ is given by
+
+$$\begin{aligned}
+C (\ket{0} \otimes \ket{0} \otimes \ket{\psi} &= \frac{1}{4}\begin{bmatrix} 3 + i & 0 & 1-i & 0 & 1-i & 0 & -1 + i & 0 \\\ 0 & 1 + 3 i & 0 & -1 + i & 0 & -1 + i & 0 & 1-i \\\ 1-i & 0 & 3+i & 0 & -1+i & 0 & 1-i & 0 \\\ 0 & -1+i & 0 & 1+3i & 0 & 1-i & 0 & -1 + i \\\ 1 - i & 0 & -1 + i & 0 & 3 + i & 0 & 1 - i & 0 \\\ 0 & -1 + i & 0 & 1 - i & 0 & 1 + 3i & 0 & -1 + i \\\ -1 + i & 0 & 1 - i & 0 & 1 - i & 0 & 3 + i & 0 \\\ 0 & 1 - i & 0 & -1 + i & 0 & -1 + i & 0 & 1 + 3i \end{bmatrix} \begin{bmatrix} \alpha \\\ \beta \\\ 0 \\\ 0 \\\ 0 \\\ 0 \\\ 0 \\\ 0 \end{bmatrix} \\
+&= \frac{1}{4} \begin{bmatrix} \alpha (3 + i) \\\ \beta (1 + 3 i) \\\ \alpha(1 - i) \\\ -\beta(1 - i) \\\ \alpha(1 - i) \\\ \beta(-1 + i) \\\ -\alpha(1 - i) \\\ \beta(1 - i) \end{bmatrix} \\
+&=  \frac{1}{4}\begin{bmatrix} (1+i)\sqrt{5}\begin{bmatrix} \frac{2-i}{\sqrt{5}} & 0 \\\ 0 & \frac{2+i}{\sqrt{5}} \end{bmatrix} \begin{bmatrix} \alpha \\\ \beta \end{bmatrix} \\\ (1-i) \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} \alpha \\\ \beta \end{bmatrix}  \\\ (1-i) \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} \alpha \\\ \beta \end{bmatrix} \\\ -(1-i) \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} \alpha \\\ \beta \end{bmatrix}  \end{bmatrix} \\
+&=  \frac{1}{4}\begin{bmatrix} (1+i)\sqrt{5} R_z(\theta) \begin{bmatrix} \alpha \\\ \beta \end{bmatrix} \\\ (1-i) Z \begin{bmatrix} \alpha \\\ \beta \end{bmatrix}  \\\ (1-i) Z \begin{bmatrix} \alpha \\\ \beta \end{bmatrix} \\\ -(1-i) Z \begin{bmatrix} \alpha \\\ \beta \end{bmatrix}  \end{bmatrix} & \text{where $\cos\frac{\theta}{2}=\frac{2}{\sqrt{5}}$}\\
+&= \frac{(1+i)\sqrt{5}}{4}\ket{0} \otimes \ket{0} \otimes R_z(\theta) \ket{\psi} + \frac{1-i}{4}\ket{0}\otimes\ket{1}\otimes Z \ket{\psi} + \frac{1-i}{4}\ket{1}\otimes\ket{0} \otimes Z\ket{\psi} - \frac{1-i}{4}\ket{1}\otimes\ket{1}\otimes Z \ket{\psi} \\
+\end{aligned}$$
+
+Above it can be seen that when both the first and second qubit measure as $0$, the third has the operation $R_z(\theta)$ applied, and otherwise $Z$ is applied. It can also be seen that the probability of the first and second qubit measruing as $0$ is $5/8$. Let's check to see what $\cos\theta$ is now that we know $\cos\frac{\theta}{2}=\frac{2}{\sqrt{5}}$.
+
+$$\begin{aligned}
+\cos\theta &= 2\cos^2(\theta/2) - 1 \\
+&= 2\left(\frac{2}{\sqrt{5}}\right)^2 - 1 \\
+&= \frac{3}{5}
+\end{aligned}$$
+
+This agrees with what is expected based on the exercise description. 
+
+If we were to apply the gate a second time we would get the following results
+

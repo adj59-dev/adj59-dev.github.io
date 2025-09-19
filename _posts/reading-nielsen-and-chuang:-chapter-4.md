@@ -2162,8 +2162,6 @@ That last statement above can be made because $\theta$ is an irrational multiple
 
 Show that the circuit in Figure 4.17 applies the operation $R_{z}(\theta)$ to the third qubit if the measurement outcomes are both $0$, where $\cos \theta = 3/5$, and otherwise applies $Z$ to the target qubit. Show that the probability of both measurement outcomes being $0$ is $5/8$, and explain how repeated use of this circuit and $Z=S^2$ gates may be used to apply a $R_z(\theta)$ gate with probability approaching $1$.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
 
 The matrix representation for the circuit is given by 
 
@@ -2194,6 +2192,11 @@ This agrees with what is expected based on the exercise description.
 
 I am struggling a bit with the last part of this exercise and turned to Google for guidance. I found this solution on [stackexchange](https://quantumcomputing.stackexchange.com/questions/18077/exercise-4-41-in-nc-book-qcqi-how-can-i-implement-r-z-theta-using-the-circ), but I'm not quite convinced that this is correct. I'm going to move on to the next exercise for now but may return to this exercise latter. 
 
-</details>
+Let's look at 
+
+$$\begin{aligned}
+ZR_z(\theta) &= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} e^{-i\theta/2} & 0 \\\ 0 & e^{i\theta/2} \end{bmatrix} \\
+&= \begin{bmatrix} e^{-i\theta/2} & 0 \\\ 0 & -e^{i\theta/2} \end{bmatrix}
+\end{aligned}$$
 
 

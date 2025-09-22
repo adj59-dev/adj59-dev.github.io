@@ -2192,10 +2192,94 @@ $$\begin{aligned}
 
 This agrees with what is expected based on the exercise description. 
 
-We can use a Repeat Until Success strategy using a measurement + classical feed-forward step to increase the probability of applying the operation $R_z(\theta)$. This is done by measuring the ancilla qubits and if a measurement other than $\ket{00}$ is observed, the ancilla are reset to $\ket{0}$, the single-qubit operator $Z=S^2$ is applied to the target qubit to reset it to $\ket{\psi}$, and then $C$ is applied again. This process can be repeated until $\ket{00}$ is measured for the ancilla.   
+We can use a Repeat Until Success strategy using a measurement + classical feed-forward step to increase the probability of applying the operation $R_z(\theta)$ to the target qubit. This is done by measuring the ancilla qubits and if a measurement other than $\ket{00}$ is observed, the ancilla are reset to $\ket{0}$, the single-qubit operator $Z=S^2$ is applied to the target qubit to reset it to $\ket{\psi}$, and then $C$ is applied again. This process can be repeated until $\ket{00}$ is measured for the ancilla.   
 
 </details>
 
 **Exercise 4.42**
+
+Suppose $\cos\theta=3/5$. Give proof by contradiction that $\theta$ is an irrational multiple of $2\pi$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+(1) Since $\cos\theta=3/5$,  we know that $e^{i\theta}=\frac{3+4i}{5}$. Assume for contradiction that $\theta$ is a rational multiple of $2\pi$ and so can be written as $\theta = \frac{2\pi n}{m}$ for integers $m,n>0$. Then,
+
+$$\begin{aligned}
+\left(e^{i\theta}\right)^m &=\left(\frac{3+4i}{5}\right)^m \\
+e^{i m \theta} &= \frac{(3+4i)^m}{5^m} \\
+1 &= \frac{(3+4i)^m}{5^m} & \text{since $\theta = \frac{2\pi n}{m}$} \\
+5^m &= (3+4i)^m 
+\end{aligned}$$
+
+Therefore, if $\theta$ is rational then there exists positive integer $m$ such that $5^m = (3+4i)^m$.
+
+(2) Given the above,
+
+$$\begin{aligned}
+(3+4i)^2 &= 9 - 16 + 24 i \\
+&= -7 + 24i \\
+&= (3 + 4i) + (-10 + 20i) \\
+&= (3+4i) + 5(-2 + 4i) \\
+&= 3 + 4i \mod 5
+\end{aligned}$$
+
+Then by induction,
+
+$$\begin{aligned}
+(3+4i)^m &= (3+i4)^2 (3+i4)^{m-2} \\
+&= \left(3+i4 \mod 5 \right) (3+i4)^{m-2} \\
+&= (3+i4) (3+i4)^{m-2} \mod 5 \\
+&= (3+i4)^2 (3+i4)^{m-3} \mod 5 \\
+& \vdots \\
+&= 3+i4 \mod 5
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+5^m &= (3+4i)^m \\
+0 \mod 5 &= 3+i4 \mod 5
+\end{aligned}$$
+
+Since the above statement is false, there is no positive integer $m$ such that $5^m = (3+i4)^m$ and therefore $\theta$ is not a rational multiple of $2\pi$. 
+
+</details>
+
+
+**Exercise 4.43**
+
+Use the results of the previous two exercises to show that the Hadamard, phase, controlled-NOT, and Toffoli gates are universal for quantum computation.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From exercise 4.41, we know that we can apply $R_z(\theta)$ to a qubit with $\theta$ given by $\cos\theta=5/8$ using only Hadamard, phase, controlled-NOT, and Toffoli gates. From exercise 4.42, we know that this $\theta$ is an irrational multiple of $2\pi$. From exercise 4.40 and equation 4.76, we know that we can approximate a rotation $R_z(\alpha)$ from $R_z(\theta)^n$ for any $\alpha$ using an appropriately selected $n$ when $\theta$ is an irrational multiple of $2\pi$. Since we can approximate arbitrarily well rotation $R_z(\alpha)$ for arbitrary $\alpha$, we can then also approximate arbitrarily well rotation $R_x(\alpha)$ using Hadamard gates and $R_z(\alpha)$ since
+
+$$\begin{aligned}
+H R_z(\alpha) H &= H \left(\cos\frac{\alpha}{2} I - i\sin\frac{\alpha}{2} Z\right) H \\
+&= \cos\frac{\alpha}{2} HIH - i\sin\frac{\alpha}{2} HZH \\
+&= \cos\frac{\alpha}{2} I - i\sin\frac{\alpha}{2} X & \text{exercise 4.13} \\
+&= R_x(\alpha)
+\end{aligned}$$
+
+Then using decomposition we can approximate arbitrarily well $R_y(\alpha)$ rotations
+
+$$\begin{aligned}
+R_y(\alpha) &=  R_x(-\pi/2)R_z(\alpha)R_x(\pi/2) \\
+&= H R_z(-\pi/2) H R_z(\alpha) H R_z(\pi/2) H
+\end{aligned}$$
+
+Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create any arbitrary unitary operation, as demonstrated in Theorem 4.1 and exercise 4.10, using only the Hadamard, phase, controlled-NOT, and Toffoli gates. Therefore these gates are universal for quantum computation. 
+
+</details>
+
+
+
+
+
+
+
+
 
 

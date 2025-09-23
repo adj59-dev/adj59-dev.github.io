@@ -2275,11 +2275,44 @@ Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create a
 </details>
 
 
+**Exercise 4.44**
 
+Show that the three qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational.
 
+In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. These gates acted non-trivially only on two-or-fewer vector components with the form for a three bit system written as the following for arbitrary complex numbers $a=e^{i\phi}\cos\theta$ and $b=e^{i\psi}\sin\theta$
 
+$$\begin{aligned}
+U &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \frac{a^\ast}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} & \frac{b^\ast}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} \\\ 0 & 0 & 0 & 0 & 0 & 0 & \frac{b}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} & \frac{-a}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} \end{bmatrix}
+\end{aligned}$$
 
+The matrix representation of $G$ is given by
 
+$$\begin{aligned}
+G_{123} &= iR_x(\pi\alpha) \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & i\cos\frac{\pi\alpha}{2} & \sin\frac{\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 0 & 0 & \sin\frac{\pi\alpha}{2} & i\cos\frac{\pi\alpha}{2} \end{bmatrix}
+\end{aligned}$$
+
+Then the matrix representation of $G^n$ is given by
+
+$$\begin{aligned}
+G_{123}^n &= i^nR_x(\pi\alpha)^n \\
+&= i^n R_x(n\pi\alpha) \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & i^n\cos\frac{n\pi\alpha}{2} & -i^{n+1}\sin\frac{n\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 0 & 0 & -i^{n+1}\sin\frac{n\pi\alpha}{2} & i^n\cos\frac{n\pi\alpha}{2} \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{in\pi/2}\cos\frac{n\pi\alpha}{2} & -ie^{in\pi/2}\sin\frac{n\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 0 & 0 & -ie^{in\pi/2}\sin\frac{n\pi\alpha}{2} & e^{in\pi/2}\cos\frac{n\pi\alpha}{2} \end{bmatrix} \\
+\end{aligned}$$
+
+In order to create an arbitrary unitary matrix, we'll need another axis of rotation. It is not possible to do this with only acting on the last two indices, so we'll need to generate a matrix for another pair of indices.
+
+$$\begin{aligned}
+G_{231}^m &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{im\pi/2}\cos\frac{m\pi\alpha}{2} & 0 & 0 & 0 & -ie^{im\pi/2}\sin\frac{m\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -ie^{im\pi/2}\sin\frac{m\pi\alpha}{2} & 0 & 0 & 0 & e^{im\pi/2}\cos\frac{m\pi\alpha}{2} \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & -ie^{im\pi/2} \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -ie^{im\pi/2} & 0 & 0 & 0 & 0 \end{bmatrix} & \text{select $m$ such that $\cos\frac{m\pi\alpha}{2} \approx 0$}\\
+\end{aligned}$$
+
+Then,
+
+$$\begin{aligned}
+G_{231}^m G_{123}^n \left(G_{231}^m \right)^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{i\pi n/2}\cos(\pi\alpha n/2) & 0 & 0 & -e^{i\pi(n+m)/2}\sin(\pi\alpha n/2) & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & e^{i\pi(n-m)/2}\sin(\pi\alpha n/2) & 0 & 0 & e^{i\pi n/2}\cos(\pi\alpha n/2) & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{bmatrix} 
+\end{aligned}$$
 
 
 

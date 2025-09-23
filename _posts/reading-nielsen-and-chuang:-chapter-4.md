@@ -2277,7 +2277,7 @@ Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create a
 
 **Exercise 4.44**
 
-Show that the three qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational.
+Show that the three qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational. This exercise is based on [Quantum computational networks](https://royalsocietypublishing.org/doi/10.1098/rspa.1989.0099) by Deutsch. 
 
 In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. These gates acted non-trivially only on two-or-fewer vector components with the form for a three bit system written as the following for arbitrary complex numbers $a=e^{i\phi}\cos\theta$ and $b=e^{i\psi}\sin\theta$
 
@@ -2301,18 +2301,63 @@ G_{123}^n &= i^nR_x(\pi\alpha)^n \\
 &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{in\pi/2}\cos\frac{n\pi\alpha}{2} & -ie^{in\pi/2}\sin\frac{n\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 0 & 0 & -ie^{in\pi/2}\sin\frac{n\pi\alpha}{2} & e^{in\pi/2}\cos\frac{n\pi\alpha}{2} \end{bmatrix} \\
 \end{aligned}$$
 
-In order to create an arbitrary unitary matrix, we'll need another axis of rotation. It is not possible to do this with only acting on the last two indices, so we'll need to generate a matrix for another pair of indices.
+Let's think about what kind of gates can be created with $G_{123}^n$. Let's first look at $G_{123}^{4n+1}$
 
 $$\begin{aligned}
-G_{231}^m &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{im\pi/2}\cos\frac{m\pi\alpha}{2} & 0 & 0 & 0 & -ie^{im\pi/2}\sin\frac{m\pi\alpha}{2} \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -ie^{im\pi/2}\sin\frac{m\pi\alpha}{2} & 0 & 0 & 0 & e^{im\pi/2}\cos\frac{m\pi\alpha}{2} \end{bmatrix} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & -ie^{im\pi/2} \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -ie^{im\pi/2} & 0 & 0 & 0 & 0 \end{bmatrix} & \text{select $m$ such that $\cos\frac{m\pi\alpha}{2} \approx 0$}\\
+G_{123}^{4n+1} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & i\cos\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) & \sin\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & \sin\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) & i\cos\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) \end{bmatrix} \\
 \end{aligned}$$
 
-Then,
+We know that given any $\epsilon > 0$ there exists positive integers $n$ and $m$ such that $\left(2n+\frac{1}{2}\right)\pi\alpha$ is within $\epsilon$ of $\left(2m+\frac{1}{2}\right)\pi$. Therefore, with the appropriate selection of $n$, we can approximate a Toffoli gate and thus can approximate all logic gates since the Toffoli gate is universial relative to the set of all logic gates.   
+
+Now let's look at $G_{123}^{4n}$
 
 $$\begin{aligned}
-G_{231}^m G_{123}^n \left(G_{231}^m \right)^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{i\pi n/2}\cos(\pi\alpha n/2) & 0 & 0 & -e^{i\pi(n+m)/2}\sin(\pi\alpha n/2) & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & e^{i\pi(n-m)/2}\sin(\pi\alpha n/2) & 0 & 0 & e^{i\pi n/2}\cos(\pi\alpha n/2) & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{bmatrix} 
+G_{123}^{4n} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\left(2n\pi\alpha\right) & -i\sin\left(2n\pi\alpha\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -i\sin\left(2n\pi\alpha\right) & \cos\left(2n\pi\alpha\right) \end{bmatrix} \\
 \end{aligned}$$
 
+It can be seen that all $G_{123}^{4n}$ are off the form 
+
+$$\begin{aligned}
+U_\lambda &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\left(\lambda \right) & -i\sin\left(\lambda\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -i\sin\left(\lambda\right) & \cos\left(\lambda\right) \end{bmatrix} \\
+\end{aligned}$$
+
+and so $U_\lambda$ for any real $\lambda$ can be approximated by $G$. 
+
+Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $\lbrace P_{ij} \rbrace$ are made from logic gates and therefore able to be approximated by $G$. Then for small $\lambda$
+
+$$\begin{aligned}
+P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & \lambda^8/16 - \lambda^6/2 + \lambda^4/2 + 1 & i\lambda^3(-\lambda^4 + 4\lambda^2 + 4)/8 & i\lambda^3(\lambda^2 - 2)/4 \\\ 0 & 0 & 0 & 0 & 0 & i\lambda^3(2 - \lambda^2)/4 & 1 - \lambda^4/4 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & i\lambda^3((\lambda^2 - 2)^2 - 8)/8 & \lambda^6/4 - \lambda^2 & 1 - \lambda^4/4 \end{bmatrix} \\
+&= I + \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & - \lambda^2 & 0 \end{bmatrix} + O(\lambda^3) \\
+\end{aligned}$$
+
+The above calculation was done with the python script shown below
+
+```
+from sympy import simplify, Matrix, I,symbols
+
+L = symbols('L', real=True)
+
+Up =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1-L*L/2,-I*L],[0,0,0,0,0,0,-I*L,1-L*L/2]])
+Un =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1-L*L/2,I*L],[0,0,0,0,0,0,I*L,1-L*L/2]])
+
+P56 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1]])
+P57 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0]])
+
+circuit = simplify(P56 @ Up @ P57 @ Up @ P57 @ Un @ P57 @ Un @ P57 @ P56)
+
+print(circuit)
+```
+
+Therefore matrices of the form below can ben approximated by $G$
+
+$$\begin{aligned}
+\lim_{n \to \infty} \lbrace P_{56}(U_{\sqrt{\lambda/n}} P_{57})^2 (U_{-\sqrt{\lambda/n}} P_{57})^2 P_{56} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda & \sin\lambda \\\ 0 & 0 & 0 & 0 & 0 & 0 & - \sin\lambda & \cos\lambda \end{bmatrix} &= V_{\lambda}
+\end{aligned}$$
+
+Similarly, the following can also be approximated
+
+$$\begin{aligned}
+\lim_{n \to \infty} \lbrace U_{\sqrt{\lambda/2n}}V_{\sqrt{\lambda/2n}}U_{-\sqrt{\lambda/2n}}V_{-\sqrt{\lambda/2n}} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} \end{bmatrix} &= W_{\lambda}
+\end{aligned}$$
 
 

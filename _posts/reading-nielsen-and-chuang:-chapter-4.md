@@ -1947,6 +1947,8 @@ Both circuits have the same probability of obtaining one of the two same outputs
 | Single qubit and CNOT gates are universal | 4.5.2                | An arbitrary two-level unitary matrix operating on the state space of $n$ qubits can be implemented by single qubit and CNOT gates. |
 | Gray code                            | 4.5.2                     | A list of binary numbers starting with $s$ and ending with $t$ such taht adjacent members of the list differ in exactly one bit. |
 | Error when approximating unitary operators | 4.5.3               | $E(U,V) = max \Vert (U-V)\ket{\psi} \Vert$ is the error when $V$ is implemented instead of $U$. If there is a sequence of gates the errors add at most linearly $E(U_m U_{m-1} \cdots U_1, V_m V_{m-1} \cdots V_1) \leq \sum_{j=1}^m E(U_j,V_j)$ |
+| Complexity class **BQP**             | 4.5.5                     | Quantum complexity class consisting of decision problems that can be solved with bounded probability of error using a polynomial size quantum circuit. **BPP** $\in$ **BQP** $\in$ **PSPACE**. Proving **BQP** $\neq$ **PSPACE** (i.e. quantum computers are more powerful than classical computers) will show that **BPP** $\neq$ **PSPACE** |
+
 
 
 

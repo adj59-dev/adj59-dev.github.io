@@ -2277,13 +2277,10 @@ Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create a
 
 **Exercise 4.44**
 
-Show that the three qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational. This exercise is based on [Quantum computational networks](https://royalsocietypublishing.org/doi/10.1098/rspa.1989.0099) by Deutsch. 
+Show that the three-qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational. This exercise is based on [Quantum computational networks](https://royalsocietypublishing.org/doi/10.1098/rspa.1989.0099) by Deutsch, which I ended up having to reference to find the solution. 
 
-In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. These gates acted non-trivially only on two-or-fewer vector components with the form for a three bit system written as the following for arbitrary complex numbers $a=e^{i\phi}\cos\theta$ and $b=e^{i\psi}\sin\theta$
-
-$$\begin{aligned}
-U &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \frac{a^\ast}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} & \frac{b^\ast}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} \\\ 0 & 0 & 0 & 0 & 0 & 0 & \frac{b}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} & \frac{-a}{\sqrt{\vert a \vert^2 + \vert b \vert^2}} \end{bmatrix}
-\end{aligned}$$
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 The matrix representation of $G$ is given by
 
@@ -2307,7 +2304,7 @@ $$\begin{aligned}
 G_{123}^{4n+1} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & i\cos\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) & \sin\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & \sin\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) & i\cos\left(\left(2n+\frac{1}{2}\right)\pi\alpha\right) \end{bmatrix} \\
 \end{aligned}$$
 
-We know that given any $\epsilon > 0$ there exists positive integers $n$ and $m$ such that $\left(2n+\frac{1}{2}\right)\pi\alpha$ is within $\epsilon$ of $\left(2m+\frac{1}{2}\right)\pi$. Therefore, with the appropriate selection of $n$, we can approximate a Toffoli gate and thus can approximate all logic gates since the Toffoli gate is universial relative to the set of all logic gates.   
+We know that given any $\epsilon > 0$ there exists positive integers $n$ and $m$ such that $\left(2n+\frac{1}{2}\right)\pi\alpha$ is within $\epsilon$ of $\left(2m+\frac{1}{2}\right)\pi$. Therefore, with the appropriate selection of $n$, we can approximate a Toffoli gate and thus can approximate all logic gates since the Toffoli gate is universal relative to the set of all logic gates.   
 
 Now let's look at $G_{123}^{4n}$
 
@@ -2315,7 +2312,7 @@ $$\begin{aligned}
 G_{123}^{4n} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\left(2n\pi\alpha\right) & -i\sin\left(2n\pi\alpha\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -i\sin\left(2n\pi\alpha\right) & \cos\left(2n\pi\alpha\right) \end{bmatrix} \\
 \end{aligned}$$
 
-It can be seen that all $G_{123}^{4n}$ are off the form 
+All $G_{123}^{4n}$ are of the form 
 
 $$\begin{aligned}
 U_\lambda &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\left(\lambda \right) & -i\sin\left(\lambda\right) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -i\sin\left(\lambda\right) & \cos\left(\lambda\right) \end{bmatrix} \\
@@ -2323,41 +2320,114 @@ U_\lambda &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0
 
 and so $U_\lambda$ for any real $\lambda$ can be approximated by $G$. 
 
-Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $\lbrace P_{ij} \rbrace$ are made from logic gates and therefore able to be approximated by $G$. Then for small $\lambda$
+Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $\lbrace P_{ij} \rbrace$ are made from logic gates and therefore able to be approximated by $G$ since $G$ can approximate Toffoli gates. Then for small $\lambda$
 
 $$\begin{aligned}
-P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & \lambda^8/16 - \lambda^6/2 + \lambda^4/2 + 1 & i\lambda^3(-\lambda^4 + 4\lambda^2 + 4)/8 & i\lambda^3(\lambda^2 - 2)/4 \\\ 0 & 0 & 0 & 0 & 0 & i\lambda^3(2 - \lambda^2)/4 & 1 - \lambda^4/4 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & i\lambda^3((\lambda^2 - 2)^2 - 8)/8 & \lambda^6/4 - \lambda^2 & 1 - \lambda^4/4 \end{bmatrix} \\
-&= I + \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & - \lambda^2 & 0 \end{bmatrix} + O(\lambda^3) \\
+P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & (2\sin^2(\lambda) + \cos^3(\lambda))\cos(\lambda) & i(\sin^2(\lambda) + \cos^3(\lambda) - \cos^2(\lambda))\sin(\lambda) & i(\cos(\lambda) - 1)\sin(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(1 - \cos(\lambda))\sin(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) & \sin^2(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(-\sin^2(\lambda) - \cos^3(\lambda) + \cos^2(\lambda))\sin(\lambda) & (\cos(\lambda) - 2)\sin^2(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1-\lambda^4/2 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1-\lambda^4/2 \end{bmatrix} + O(\lambda^3)\\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos(\lambda^2) & \sin(\lambda^2) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\sin(\lambda^2) & \cos(\lambda^2) \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
 The above calculation was done with the python script shown below
 
 ```
-from sympy import simplify, Matrix, I,symbols
+from sympy import simplify, Matrix, I, symbols, cos, sin
 
 L = symbols('L', real=True)
 
-Up =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1-L*L/2,-I*L],[0,0,0,0,0,0,-I*L,1-L*L/2]])
-Un =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1-L*L/2,I*L],[0,0,0,0,0,0,I*L,1-L*L/2]])
+Up =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(L),-I*sin(L)],[0,0,0,0,0,0,-I*sin(L),cos(L)]])
+Un =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(-L),-I*sin(-L)],[0,0,0,0,0,0,-I*sin(-L),cos(-L)]])
 
 P56 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1]])
 P57 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0]])
 
-circuit = simplify(P56 @ Up @ P57 @ Up @ P57 @ Un @ P57 @ Un @ P57 @ P56)
+circuit = simplify(P56 @ (Up @ P57)**2  @ (Un @ P57)**2 @ P56)
 
 print(circuit)
 ```
 
-Therefore matrices of the form below can ben approximated by $G$
+Therefore, matrices of the form shown below can be approximated by $G$ using the Trotter product formula for any $\lambda$ 
 
 $$\begin{aligned}
 \lim_{n \to \infty} \lbrace P_{56}(U_{\sqrt{\lambda/n}} P_{57})^2 (U_{-\sqrt{\lambda/n}} P_{57})^2 P_{56} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda & \sin\lambda \\\ 0 & 0 & 0 & 0 & 0 & 0 & - \sin\lambda & \cos\lambda \end{bmatrix} &= V_{\lambda}
 \end{aligned}$$
 
-Similarly, the following can also be approximated
+Going back to the case of small $\lambda$
 
 $$\begin{aligned}
-\lim_{n \to \infty} \lbrace U_{\sqrt{\lambda/2n}}V_{\sqrt{\lambda/2n}}U_{-\sqrt{\lambda/2n}}V_{-\sqrt{\lambda/2n}} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} \end{bmatrix} &= W_{\lambda}
+U_{\lambda}V_{\lambda}U_{-\lambda}V_{-\lambda}  &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) & (-2 - 2i)\sin^3(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & 0 & (2 - 2i)\sin^3(\lambda)\cos(\lambda) & (1 - i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(2\lambda^2) + 1 - 2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & (1 - i)(2\lambda^2) + 1 - 2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 + i\sin(2\lambda^2) & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 + i\sin(-2\lambda^2) \end{bmatrix} + O(\lambda^3)\\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i2\lambda^2} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{-i2\lambda^2} \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
+
+The above calculation was done with the python script shown below
+
+```
+from sympy import simplify, Matrix, I, symbols, cos, sin
+
+L = symbols('L', real=True)
+
+Up =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(L),-I*sin(L)],[0,0,0,0,0,0,-I*sin(L),cos(L)]])
+Un =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(-L),-I*sin(-L)],[0,0,0,0,0,0,-I*sin(-L),cos(-L)]])
+
+P56 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1]])
+P57 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0]])
+
+Vp = Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(L),sin(L)],[0,0,0,0,0,0,-sin(L),cos(L)]])
+Vn = Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,cos(-L),sin(-L)],[0,0,0,0,0,0,-sin(-L),cos(-L)]])
+
+
+circuit = simplify(Up @ Vp @ Un @ Vn)
+
+print(circuit)
+```
+
+Therefore, matrices of the form shown below can be approximated by $G$ using the Trotter product formula for any $\lambda$ 
+
+$$\begin{aligned}
+\lim_{n \to \infty} \lbrace U_{\sqrt{\lambda/2n}}V_{\sqrt{\lambda/2n}}U_{-\sqrt{\lambda/2n}}V_{-\sqrt{\lambda/2n}} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda} \end{bmatrix} &= W_{\lambda}
+\end{aligned}$$
+
+Then using permutation operators and $W_{\lambda}$ the following can be approximated
+
+$$\begin{aligned}
+W_{-\lambda/8}P_{06}W_{-\lambda/8}P_{06}P_{16}W_{-\lambda/8}P_{16}P_{26}W_{-\lambda/8}P_{26}P_{36}W_{-\lambda/8}P_{36}P_{46}W_{-\lambda/8}P_{46}P_{56}W_{-\lambda/8}P_{56} &= \begin{bmatrix} e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i7\lambda/8} \end{bmatrix} \\
+&= e^{-i\lambda/8}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} \end{bmatrix} \\
+&= e^{-i\lambda/8} X_{\lambda}
+\end{aligned}$$
+
+where the global phase $e^{-i\lambda/8}$ can be ignored. I used the following python script to confirm the above calculation. 
+
+```
+from sympy import simplify, Matrix, I, symbols, exp
+
+L = symbols('L', real=True)
+
+W =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,exp(-I*L/8),0],[0,0,0,0,0,0,0,exp(I*L/8)]])
+
+P06 =  Matrix([[0,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1]])
+P16 =  Matrix([[1,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,1]])
+P26 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1]])
+P36 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,1]])
+P46 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,1]])
+P56 =  Matrix([[1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1]])
+
+circuit = simplify((W @ P06 @ W @ P06 @ P16 @ W @ P16 @ P26 @ W @ P26 @ P36 @ W @ P36 @ P46 @ W @ P46 @ P56 @ W @ P56) )
+
+print(circuit)
+```
+
+We can now approximate an arbitrary two-level unitary gate 
+
+$$\begin{aligned}
+U &= W_{\alpha}X_{2\alpha}W_{-\beta/2}V_{\gamma}W_{-\delta/2} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i(\alpha-\beta/2-\delta/2)}\cos\gamma & e^{i(\alpha-\beta/2+\delta/2)}\sin\gamma \\\ 0 & 0 & 0 & 0 & 0 & 0 & - e^{i(\alpha+\beta/2-\delta/2)}\sin\gamma & e^{i(\alpha+\beta/2+\delta/2)}\cos\gamma \end{bmatrix}
+\end{aligned}$$
+
+In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. Therefore, since we can approximate an arbitrary two-level unitary gate with $G$ gates, $G$ gates are universal.
+
+</details>
+
 
 

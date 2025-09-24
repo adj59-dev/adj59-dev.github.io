@@ -12,7 +12,6 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 * [Controlled operations](#controlled-operations)
 * [Measurement](#measurement)
 * [Universal quantum gates](#universal-quantum-gates)
-* [Summary of the quantum circuit model of computation](#summary-of-the-quantum-circuit-model-of-computation)
 * [Simulation of quantum systems](#simulation-of-quantum-systems)
 * [Chapter Problems](#chapter-problems)
 
@@ -2450,6 +2449,42 @@ T &= \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
 This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the form of $M$. So, if there is an even number of $\pi/8$ gates used it is possible (but not guaranteed) to construct $U$ in the form $2^{-k/2}M$ where $k$ is the number of $H$ gates used to construct $U$. If there is an odd number of $\pi/8$ gates then $U$ cannot be written in the form $2^{-k/2}M$. 
 
 </details>
+
+
+## Simulation of quantum systems
+
+### Simulation of quantum systems - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Key challenge in simulating quantum systems | 4.7.1              | Exponential number of differential equations which must be solved.                                     |
+
+
+
+
+
+
+
+### Simulation of quantum systems - Exercises
+
+**Exercise 4.46**
+
+Let $\rho$ be the density matrix describing the state of $n$ qubits. Show that describing $\rho$ requires $4^n-1$ independent real numbers. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+With $n$ qubits there are $2^n$ different states that comprise a basis set, and so the density matrix $\rho$ will be a $2^n \times 2^n$ matrix. This matrix will, therefore, have $4^n$ elements. For a density matrix, the diagonal elements are real numbers that sum to one. Therefore, $2^n-1$ real numbers are needed to represent these elements. The reason it isn't $2^n$ is that once $2^n-1$ elements are defined, the last one is also defined due to the requirement that they sum to 1. The off-diagonal elements are complex conjugates of each other, i.e. $\rho_{ij} = \rho_{ji}^\ast$. So, even though each off-diagonal element is defined by two real numbers (the real and the imaginary component) there are only $4^n - 2^n$ independent real numbers needed. Therefore, the total number of independent real numbers needed to describe $\rho$ is $2^n-1 + 4^n - 2^n = 4^n-1$.
+
+</details>
+
+
+
+
+
+
+
 
 
 

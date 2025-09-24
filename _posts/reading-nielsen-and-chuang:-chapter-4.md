@@ -2484,14 +2484,22 @@ With $n$ qubits there are $2^n$ different states that comprise a basis set, and 
 
 For $H=\sum_{k}^{L} H_{k}$, prove that $e^{-iHt}=e^{-iH_1t}e^{-iH_2t}\cdots e^{-iH_Lt}$ for all $t$ if $\lbrack H_j,H_k \rbrack = 0$, for all $j,k$.
 
-Since $\lbrack H_j,H_k \rbrack = 0$, $H_j$ and $H_k$ are simultaneously diagonalizeable, meaning they share a common basis and can be written as $H_j = \sum_{i} \lambda_{ji} \ket{i}\bra{i}$ and $H_k = \sum_{i} \lambda_{ki} \ket{i}\bra{i}$. Therefore $H_j + H_k = \sum_{i} (\lambda_{ji}+\lambda_{ki})\ket{i}\bra{i}$ and so $H=\sum_k^L H_{k} = \sum_i (sum_k^L \lambda_{ki})\ket{i}\bra{i}$. Thus,
+details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Since $\lbrack H_j,H_k \rbrack = 0$, $H_j$ and $H_k$ are simultaneously diagonalizable, meaning they share a common basis and can be written as $H_j = \sum_{i} \lambda_{ji} \ket{i}\bra{i}$ and $H_k = \sum_{i} \lambda_{ki} \ket{i}\bra{i}$. Therefore $H_j + H_k = \sum_{i} \left(\lambda_{ji}+\lambda_{ki}\right)\ket{i}\bra{i}$ and so $H=\sum_k^L H_{k} = \sum_i \left(\sum_k^L \lambda_{ki}\right)\ket{i}\bra{i}$. Thus,
 
 $$\begin{aligned}
-e^{-iHt} &= \sum_i e^{-i(sum_k^L \lambda_{ki})t}\ket{i}\bra{i} \\
-&= \sum_i (\prod_k^L e^{-i\lambda_{ki}t})\ket{i}\bra{i} \\
-&= \prod_k^L (\sum_i e^{-i\lambda_{ki}t}\ket{i}\bra{i}) \\
+e^{-iHt} &= \sum_i e^{-i\left(\sum_k^L \lambda_{ki}\right)t}\ket{i}\bra{i} \\
+&= \sum_i \left(\prod_k^L e^{-i\lambda_{ki}t}\right)\ket{i}\bra{i} \\
+&= \prod_k^L \left(\sum_i e^{-i\lambda_{ki}t}\ket{i}\bra{i}\right) \\
 &= \prod_k^L e^{-iH_kt}
 \end{aligned}$$
+
+</details>
+
+
+
 
 
 

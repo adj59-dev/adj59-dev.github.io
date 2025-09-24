@@ -2425,9 +2425,32 @@ U &= W_{\alpha}X_{2\alpha}W_{-\beta/2}V_{\gamma}W_{-\delta/2} \\
 &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i(\alpha-\beta/2-\delta/2)}\cos\gamma & e^{i(\alpha-\beta/2+\delta/2)}\sin\gamma \\\ 0 & 0 & 0 & 0 & 0 & 0 & - e^{i(\alpha+\beta/2-\delta/2)}\sin\gamma & e^{i(\alpha+\beta/2+\delta/2)}\cos\gamma \end{bmatrix}
 \end{aligned}$$
 
-In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. Therefore, since we can approximate an arbitrary two-level unitary gate with $G$ gates, $G$ gates are universal.
+and move its entries to different registries using permutation gates constructed with $G$ gates. In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. Therefore, since we can approximate an arbitrary two-level unitary gate with $G$ gates, $G$ gates are universal.
 
 </details>
+
+**Exercise 4.45**
+
+Suppose $U$ is a unitary transform implemented by an $n$ qubit quantum circuit constructed from $H$, $S$, $CNOT$, and Toffoli gates. Show that $U$ is of the form $2^{-k/2}M$ for some integer $k$, where $M$ is a $2^n\times 2^n$ matrix with only complex integer entries. Repeat this exercise with the Toffoli gate replaced by the $\pi/8$ gate. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$S$, $CNOT$, and Toffoli gates are of the form $M$. $H$ is of the form $2^{-1/2}M$. Therefore, any gate constructed from $H$, $S$, $CNOT$, and Toffoli gates will be of the form $2^{-k/2}M$ where $k$ is the number of $H$ gates used to construct the circuit. 
+
+Repeating this exercise with the Toffoli gate replaced by the $\pi/8$ gate. The $\pi/8$ gate is of the form 
+
+$$\begin{aligned}
+T &= \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & (1+i)/\sqrt{2} \end{bmatrix} \\
+\end{aligned}$$
+
+This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the form of $M$. So, if there is an even number of $\pi/8$ gates used it is possible (but not guaranteed) to construct $U$ in the form $2^{-k/2}M$ where $k$ is the number of $H$ gates used to construct $U$. If there is an odd number of $\pi/8$ gates then $U$ cannot be written in the form $2^{-k/2}M$. 
+
+</details>
+
+
+
 
 
 

@@ -2484,7 +2484,7 @@ With $n$ qubits there are $2^n$ different states that comprise a basis set, and 
 
 For $H=\sum_{k}^{L} H_{k}$, prove that $e^{-iHt}=e^{-iH_1t}e^{-iH_2t}\cdots e^{-iH_Lt}$ for all $t$ if $\lbrack H_j,H_k \rbrack = 0$, for all $j,k$.
 
-details style="margin-bottom: 20px;" markdown="1">
+<details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
 Since $\lbrack H_j,H_k \rbrack = 0$, $H_j$ and $H_k$ are simultaneously diagonalizable, meaning they share a common basis and can be written as $H_j = \sum_{i} \lambda_{ji} \ket{i}\bra{i}$ and $H_k = \sum_{i} \lambda_{ki} \ket{i}\bra{i}$. Therefore $H_j + H_k = \sum_{i} \left(\lambda_{ji}+\lambda_{ki}\right)\ket{i}\bra{i}$ and so $H=\sum_k^L H_{k} = \sum_i \left(\sum_k^L \lambda_{ki}\right)\ket{i}\bra{i}$. Thus,
@@ -2499,12 +2499,22 @@ e^{-iHt} &= \sum_i e^{-i\left(\sum_k^L \lambda_{ki}\right)t}\ket{i}\bra{i} \\
 </details>
 
 
+**Exercise 4.48**
 
+Show that the restriction of $H_k$ to involve at most $c$ particles implies that in the sum (4.97) $L$ is upper bounded by a polynomial in $n$.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+If $H_k$ is able to act on at most $c$ particles and there a $n$ particles that means that there are the following number of combination of particles that can be used for $H_k$
 
+$$\begin{aligned}
+\sum_{m=1}^{c} \binom{n}{m} \leq \sum_{m=1}^{c} \frac{n^m}{m!} = O(n^c) \\
+\end{aligned}$$
 
+Since the upper bound on the possible combinations of particles is $O(n^c)$ the upper bound on $L$ is polynomial in $n$. 
 
+</details>
 
 
 

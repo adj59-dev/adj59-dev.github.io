@@ -2457,6 +2457,7 @@ This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the for
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Key challenge in simulating quantum systems | 4.7.1              | Exponential number of differential equations which must be solved.                                     |
+| Trotter formula                      | 4.7.2                     | $\lim_{n \to \infty} \left(e^{iAt/n}e^{iBt/n}\right)^n = e^{i(A+B)t}$                                  |
 
 
 

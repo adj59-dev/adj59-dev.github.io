@@ -2612,7 +2612,18 @@ E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(
 </details>
 
 
+**Exercise 4.51**
 
+Construct a quantum circuit to simulate the Hamiltonian $H=X_1 \otimes Y_2 \otimes Z_3$ performing the unitary transform $e^{-i\Delta t H}$ for any $\Delta t$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We know that $X=HZH$ and that $Y = SXS^\dagger = SHZHS^\dagger$ and so we can construct the following circuit to simulate $H=X_1 \otimes Y_2 \otimes Z_3 = H_1Z_1H_1 \otimes S_2H_2Z_2H_2S_2^\dagger \otimes Z_3$. 
+
+<img width="766" height="288" alt="image" src="https://github.com/user-attachments/assets/1dc3eeeb-e34f-4f30-a5aa-98fcb0cd6ae0" />
+
+</details>
 
 
 

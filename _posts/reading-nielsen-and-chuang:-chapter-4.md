@@ -2460,6 +2460,7 @@ This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the for
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Key challenge in simulating quantum systems | 4.7.1              | Exponential number of differential equations which must be solved.                                     |
 | Trotter formula                      | 4.7.2                     | $\lim_{n \to \infty} \left(e^{iAt/n}e^{iBt/n}\right)^n = e^{i(A+B)t}$                                  |
+| Baker-Campbell-Hausdorf formula      | 4.7.2                     | $e^{(A+B)\Delta t} = e^{A \Delta t}e^{B \Delta t}e^{-\frac{1}{2} \lbrack A, B \rbrack \Delta t^2} + O(\Delta t^3)$ |
 
 
 
@@ -2518,6 +2519,53 @@ Since the upper bound on the possible combinations of particles is $O(n^c)$ the 
 </details>
 
 
+**Exercise 4.49**
+
+Prove equations 4.103, 4.104, and 4.105.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+To prove equation 4.105 we use the Taylor expansion
+
+$$\begin{aligned}
+e^{(A+B)\Delta t} &= I + (A+B)\Delta t + \frac{(A+B)^2\Delta t^2}{2} + O(\Delta t^3) \\
+&= I + (A+B)\Delta t + \frac{1}{2}(A^2 + AB + BA + B^2)\Delta t^2 + O(\Delta t^3) \\
+&= I + (A+B)\Delta t + \frac{1}{2}(A^2 + 2AB - \lbrack A,B \rbrack + B^2)\Delta t^2 + O(\Delta t^3) \\
+&= \left(I + A\Delta t + \frac{A^2 \Delta t^2}{2}\right)\left(I + B\Delta t + \frac{B^2 \Delta t^2}{2}\right)\left(I - \frac{1}{2}\lbrack A,B \rbrack \Delta t^2\right) + O(\Delta t^3) \\
+&= e^{A\Delta t}e^{B\Delta t}e^{-\frac{1}{2}\lbrack A,B \rbrack \Delta t^2} + O(\Delta t^3)
+\end{aligned}$$
+
+
+For equation 4.103, if we let $t/n=\Delta t$ then equations 4.100 become
+
+$$\begin{aligned}
+e^{iA\Delta t}e^{iB\Delta t} &= I + i(A+B)\Delta t + O(\Delta t^2)
+\end{aligned}$$
+
+Substituting $A+B$ for $A$ in equation 4.99 we get
+
+$$\begin{aligned}
+e^{i(A+B)\Delta t} &= I + i(A+B)\Delta t + O(\Delta t^2)
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+e^{i(A+B)\Delta t} = e^{iA\Delta t}e^{iB\Delta t} + O(\Delta t^2)
+\end{aligned}$$
+
+Now let's prove equation 4.104
+
+$$\begin{aligned}
+e^{(A+B)\Delta t} &= I + (A+B)\Delta t + \frac{(A+B)^2\Delta t^2}{2} + O(\Delta t^3) \\
+&= I + (A+B)\Delta t + \frac{1}{2}(A^2 + AB + BA + B^2)\Delta t^2 + O(\Delta t^3) \\
+&= I + (\frac{A}{2} + B + \frac{A}{2})\Delta t + (\frac{A^2}{4} + \frac{AB}{2} + \frac{B^2}{2} + \frac{BA}{2} + \frac{A^2}{4})\Delta t^2 + O(\Delta t^3) \\
+&= \left(I + \frac{A\Delta t}{2} + \frac{A^2 \Delta t^2}{4}\right)\left(I + B\Delta t + \frac{B^2 \Delta t^2}{2}\right)\left(I + \frac{A\Delta t}{2} + \frac{A^2 \Delta t^2}{4}\right) + O(\Delta t^3) \\
+&= e^{A\Delta t/2}e^{B\Delta t}e^{A\Delta t/2} + O(\Delta t^3)
+\end{aligned}$$
+
+</details>
 
 
 

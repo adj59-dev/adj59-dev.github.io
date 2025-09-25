@@ -2326,9 +2326,10 @@ Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $
 $$\begin{aligned}
 P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & (2\sin^2(\lambda) + \cos^3(\lambda))\cos(\lambda) & i(\sin^2(\lambda) + \cos^3(\lambda) - \cos^2(\lambda))\sin(\lambda) & i(\cos(\lambda) - 1)\sin(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(1 - \cos(\lambda))\sin(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) & \sin^2(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(-\sin^2(\lambda) - \cos^3(\lambda) + \cos^2(\lambda))\sin(\lambda) & (\cos(\lambda) - 2)\sin^2(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) \end{bmatrix} \\
 &\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1 \end{bmatrix} + O(\lambda^3)\\
+&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda^2 & \sin\lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\sin\lambda^2 & \cos\lambda^2 \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
-The above calculation was done with the python script shown below
+The above calculation was done with the python script shown below. It can be seen that this matrix is approximating a gate that has the first and second bit as control bits controlling the application of a small $R_y(-2\lambda^2)$ rotation. 
 
 ```
 from sympy import simplify, Matrix, I, symbols, cos, sin
@@ -2358,9 +2359,10 @@ $$\begin{aligned}
 U_{\lambda}V_{\lambda}U_{-\lambda}V_{-\lambda}  &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) & (-2 - 2i)\sin^3(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & 0 & (2 - 2i)\sin^3(\lambda)\cos(\lambda) & (1 - i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) \end{bmatrix} \\
 &\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(2\lambda^2) + 1 - 2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & (1 - i)(2\lambda^2) + 1 - 2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
 &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 + i2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 - i2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
+&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i2\lambda^2} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{-i2\lambda^2} \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
-The above calculation was done with the python script shown below
+The above calculation was done with the python script shown below. It can be seen that this matrix is approximating a gate that has the first and second bit as control bits controlling the application of a small $R_z(-4\lambda^2)$ rotation.
 
 ```
 from sympy import simplify, Matrix, I, symbols, cos, sin

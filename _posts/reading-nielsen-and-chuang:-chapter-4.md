@@ -2626,7 +2626,9 @@ Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We k
 </details>
 
 
+## Chapter Problems
 
+**Problem 4.1**
 
 
 

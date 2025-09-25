@@ -2325,8 +2325,7 @@ Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $
 
 $$\begin{aligned}
 P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & (2\sin^2(\lambda) + \cos^3(\lambda))\cos(\lambda) & i(\sin^2(\lambda) + \cos^3(\lambda) - \cos^2(\lambda))\sin(\lambda) & i(\cos(\lambda) - 1)\sin(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(1 - \cos(\lambda))\sin(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) & \sin^2(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(-\sin^2(\lambda) - \cos^3(\lambda) + \cos^2(\lambda))\sin(\lambda) & (\cos(\lambda) - 2)\sin^2(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) \end{bmatrix} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1-\lambda^4/2 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1-\lambda^4/2 \end{bmatrix} + O(\lambda^3)\\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos(\lambda^2) & \sin(\lambda^2) \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\sin(\lambda^2) & \cos(\lambda^2) \end{bmatrix} + O(\lambda^3)\\
+&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1 \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
 The above calculation was done with the python script shown below
@@ -2347,7 +2346,7 @@ circuit = simplify(P56 @ (Up @ P57)**2  @ (Un @ P57)**2 @ P56)
 print(circuit)
 ```
 
-Therefore, matrices of the form shown below can be approximated by $G$ using the Trotter product formula for any $\lambda$ 
+Therefore, matrices of the form shown below can be approximated by $G$ for any $\lambda$ 
 
 $$\begin{aligned}
 \lim_{n \to \infty} \lbrace P_{56}(U_{\sqrt{\lambda/n}} P_{57})^2 (U_{-\sqrt{\lambda/n}} P_{57})^2 P_{56} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda & \sin\lambda \\\ 0 & 0 & 0 & 0 & 0 & 0 & - \sin\lambda & \cos\lambda \end{bmatrix} &= V_{\lambda}
@@ -2357,9 +2356,8 @@ Going back to the case of small $\lambda$
 
 $$\begin{aligned}
 U_{\lambda}V_{\lambda}U_{-\lambda}V_{-\lambda}  &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) & (-2 - 2i)\sin^3(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & 0 & (2 - 2i)\sin^3(\lambda)\cos(\lambda) & (1 - i)(1 - \cos(4\lambda))/4 - \sin^4(\lambda) + \cos^4(\lambda) \end{bmatrix} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(2\lambda^2) + 1 - 2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & (1 - i)(2\lambda^2) + 1 - 2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 + i\sin(2\lambda^2) & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 + i\sin(-2\lambda^2) \end{bmatrix} + O(\lambda^3)\\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i2\lambda^2} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{-i2\lambda^2} \end{bmatrix} + O(\lambda^3)\\
+&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & (1 + i)(2\lambda^2) + 1 - 2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & (1 - i)(2\lambda^2) + 1 - 2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 + i2\lambda^2 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 - i2\lambda^2 \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
 The above calculation was done with the python script shown below
@@ -2384,7 +2382,7 @@ circuit = simplify(Up @ Vp @ Un @ Vn)
 print(circuit)
 ```
 
-Therefore, matrices of the form shown below can be approximated by $G$ using the Trotter product formula for any $\lambda$ 
+Therefore, matrices of the form shown below can be approximated by $G$ for any $\lambda$ 
 
 $$\begin{aligned}
 \lim_{n \to \infty} \lbrace U_{\sqrt{\lambda/2n}}V_{\sqrt{\lambda/2n}}U_{-\sqrt{\lambda/2n}}V_{-\sqrt{\lambda/2n}} \rbrace^n &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda} \end{bmatrix} &= W_{\lambda}

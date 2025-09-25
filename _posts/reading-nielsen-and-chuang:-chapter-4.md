@@ -2567,6 +2567,55 @@ e^{(A+B)\Delta t} &= I + (A+B)\Delta t + \frac{(A+B)^2\Delta t^2}{2} + O(\Delta 
 
 </details>
 
+**Exercise 4.50**
+
+Let $H=\sum_k^L H_k$, and define 
+
+$$\begin{aligned}
+U_{\Delta t} = \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_L \Delta t} \right\rbrack \left\lbrack e^{-iH_L \Delta t}e^{-iH_{L-1} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack \\
+\end{aligned}$$
+
+(a) Prove that $U_{\Delta t} = e^{-2iH\Delta t} + O(\Delta t^3)$.
+(b) Use the results in Box 4.1 to prove that for a positive integer $m$,
+
+$$\begin{aligned}
+E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) \leq m\alpha \Delta t^3
+\end{aligned}$$
+
+for some constant $\alpha$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+For (a)
+
+$$\begin{aligned}
+U_{\Delta t} &= \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_L \Delta t} \right\rbrack \left\lbrack e^{-iH_L \Delta t}e^{-iH_{L-1} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack \\
+&= \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_{L-1} \Delta t} \right\rbrack\left(e^{-iH_{L} \Delta t}e^{-iH_{L} \Delta t} \right) \left\lbrack e^{-iH_{L-1} \Delta t}e^{-iH_{L-2} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack \\
+&= \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_{L-1} \Delta t} \right\rbrack\left(e^{-i2H_{L} \Delta t} \right) \left\lbrack e^{-iH_{L-1} \Delta t}e^{-iH_{L-2} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack + O(\Delta t^3) & \text{per equation 4.105}\\
+&= \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_{L-2} \Delta t} \right\rbrack\left(e^{-iH_{L-1} \Delta t}e^{-i2H_{L} \Delta t}e^{-iH_{L-1} \Delta t} \right) \left\lbrack e^{-iH_{L-2} \Delta t}e^{-iH_{L-3} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack + O(\Delta t^3) \\
+&= \left\lbrack e^{-iH_1 \Delta t}e^{-iH_2 \Delta t}\cdots e^{-iH_{L-2} \Delta t} \right\rbrack\left(e^{-i2(H_{L-1} + H_{L}) \Delta t} \right) \left\lbrack e^{-iH_{L-2} \Delta t}e^{-iH_{L-3} \Delta t}\cdots e^{-iH_1 \Delta t} \right\rbrack + O(\Delta t^3) & \text{per equation 4.104}\\
+&\vdots &\text{repeat the previous step} \\
+&= e^{-i2(H_1 + \cdots + H_{L-1} + H_{L}) \Delta t} + O(\Delta t^3) \\
+&= e^{-i2H \Delta t} + O(\Delta t^3)
+\end{aligned}$$
+
+For (b)
+
+$$\begin{aligned}
+E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(e^{-2iH\Delta t} + O(\Delta t^3)\right)^m \right) &\text{from (a)}\\
+&\leq \sum_{j=1}^m E(U_{\Delta t}, e^{-2iH\Delta t} + O(\Delta t^3)) & \text{per equation 4.69} \\
+&= m O(\Delta t^3) \\
+&\leq m\alpha\Delta t^3 & \text{for some constant $\alpha$}
+\end{aligned}$$
+
+</details>
+
+
+
+
+
+
 
 
 

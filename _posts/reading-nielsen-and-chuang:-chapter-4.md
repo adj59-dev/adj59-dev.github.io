@@ -2660,5 +2660,32 @@ We can construct a gate similar to figure 4.10, but instead of having the target
 
 </details>
 
+**Problem 4.3**
+
+Suppose $U$ is a unitary matrix on $n$ qubits. Define $H = i \ln(U)$. Show that
+
+(1) $H$ is Hermitian, with eigenvalues in the range of $0$ to $2\pi$
+
+(2) $H$ can be written 
+
+$$\begin{aligned}
+H = \sum_{g} h_{g} g
+\end{aligned}$$
+
+where $h_g$ are real numbers and the sum is over all $n$-fold tensor products $g$ of the Pauli matrices $\lbrace I, X, Y, Z \rbrace$.
+
+(3) Let $\Delta = 1/k$, for some positive integer $k$. Explain how the unitary operation $\exp(-ih_g g\Delta)$ may be implemented using $O(n)$ one and two qubit operations.
+
+(4) Show that 
+
+$$\begin{aligned}
+\exp(-iH\Delta) = \prod_g \exp(-ih_g g\Delta) + O(4^n\Delta^2)
+\end{aligned}$$
+
+where the product is taken with respect to any fixed ordering of the $n$-fold tensor product of Pauli matrices, $g$. 
+
+
+We already did (1) in exercise 2.56 and 2.18. 
+
 
 

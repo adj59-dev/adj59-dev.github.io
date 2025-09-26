@@ -1854,11 +1854,12 @@ $$\begin{aligned}
 K &= - i \log (U) \\
 &= -i \sum_{E} \log (\lambda_E) \ket{E} \bra{E} \\
 &= -i \sum_{E} \log (e^{i \theta}) \ket{E} \bra{E} \\
-&= -i \sum_{E} i \theta \ket{E} \bra{E} \\
-&= \sum_{E} \theta \ket{E} \bra{E}
+&= -i \sum_{E} \frac{\ln (e^{i \theta})}{\ln(2)} \ket{E} \bra{E} & \text{change of base}\\
+&= -i \sum_{E} i \frac{\theta}{\ln(2)} \ket{E} \bra{E} \\
+&= \sum_{E} \frac{\theta}{\ln(2)} \ket{E} \bra{E}
 \end{aligned}$$
 
-Since $\theta$ is real, we know that $K = \sum_{E} \theta \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $K$ is Hermitian. 
+Since $\theta$ is real, we know that $K = \sum_{E} \frac{\theta}{\ln(2)} \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $K$ is Hermitian. 
 
 </details>
 

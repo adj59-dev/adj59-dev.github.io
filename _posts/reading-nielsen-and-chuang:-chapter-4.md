@@ -2630,5 +2630,24 @@ Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We k
 
 **Problem 4.1**
 
+Let $m$ and $n$ be positive integers. Suppose $f:\lbrace 0,\cdots,2^m-1\rbrace \to \lbrace 0,\cdots,2^n-1\rbrace$ is a classical function from $m$ to $n$ bits which may be computed reversibly using $T$ Toffoli gates, as described in section 3.2.5. Give a quantum circuit using $2T+n$ or fewer one, two, and three qubit gates to implement the unitary operation defined by 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+\ket{x} \to \exp\left(\frac{-2i\pi f(x)}{2^n}\right)\ket{x}
+\end{aligned}$$
+
+To create this circuit we can first apply the gate that is made of $T$ Toffoli gates that performs $f:\lbrace 0,\cdots,2^m-1\rbrace \to \lbrace 0,\cdots,2^n-1\rbrace$ from $m$ to $n$ bits. Then we can apply $n$ controlled Z rotations to $\ket{x}$, rotating it by $\frac{-2i\pi}{2^n}2^d$, where $d$ is the digit that the control qubit represents. Finally apply the inverse of the gate that performed $f(x)$. This will take $2T+n$ gates; $2T$ for the $f(x)$ and $f^{-1}(x)$ gates and $n$ for the rotation gates. 
+
+<img width="1047" height="491" alt="image" src="https://github.com/user-attachments/assets/3cfdfa51-283d-45f4-a680-79333c904762" />
+
+In the diagram I have $\Delta t = \frac{2\pi}{2^n}$.
+
+</details>
+
+
+
 
 

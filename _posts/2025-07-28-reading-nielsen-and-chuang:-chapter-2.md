@@ -1844,7 +1844,7 @@ $$\begin{aligned}
 U = \sum_{E} \lambda_E \ket{E} \bra{E}
 \end{aligned}$$
 
-where $\lambda_i$ eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
+where $\lambda_E$ are the eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
 
 From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $e^{i \theta}$ for some real $\theta$.
 

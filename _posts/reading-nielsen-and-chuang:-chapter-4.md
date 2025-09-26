@@ -2647,7 +2647,18 @@ In the diagram I have $\Delta t = \frac{2\pi}{2^n}$.
 
 </details>
 
+**Problem 4.2**
 
+Find a depth $O(\log n)$ construction for the $C^n(X)$ gate. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We can construct a gate similar to figure 4.10, but instead of having the target qubit of the Toffoli gate be a control qubit for the next one in the circuit, we can first split the $n$ control qubits into pairs for the first timestamp and target $n/2$ work qubits with the pairs as controls for $n/2$ Toffoli gates. Then split these $n/2$ work qubits into pairs and use them as controls for $n/4$ Toffoli gates targeting an addition $n/4$ work qubits. Then continue this trend until a timestamp only requires one Toffoli gate which targets the final qubit. This circuit will require $O(\log n)$ timestamps and so has a depth $O(\log n)$. The $n=8$ case is shown below. I've put a box around the different time stamps in the diagram.
+
+<img width="624" height="457" alt="image" src="https://github.com/user-attachments/assets/cd77008c-3b01-42c8-9aa1-ce0b02a09713" />
+
+</details>
 
 
 

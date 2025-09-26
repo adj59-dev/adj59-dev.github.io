@@ -1846,20 +1846,20 @@ U = \sum_{E} \lambda_E \ket{E} \bra{E}
 
 where $\lambda_E$ are the eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
 
-From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $e^{i \theta}$ for some real $\theta$.
+From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{i \theta_E}$ for some real $\theta_E$.
 
 Looking at our definition of $K$ we see
 
 $$\begin{aligned}
 K &= - i \log (U) \\
 &= -i \sum_{E} \log (\lambda_E) \ket{E} \bra{E} \\
-&= -i \sum_{E} \log (e^{i \theta}) \ket{E} \bra{E} \\
-&= -i \sum_{E} \frac{\ln (e^{i \theta})}{\ln(2)} \ket{E} \bra{E} & \text{change of base}\\
-&= -i \sum_{E} i \frac{\theta}{\ln(2)} \ket{E} \bra{E} \\
-&= \sum_{E} \frac{\theta}{\ln(2)} \ket{E} \bra{E}
+&= -i \sum_{E} \log (e^{i \theta_E}) \ket{E} \bra{E} \\
+&= -i \sum_{E} \frac{\ln (e^{i \theta_E})}{\ln(2)} \ket{E} \bra{E} & \text{change of base}\\
+&= -i \sum_{E} i \frac{\theta_E}{\ln(2)} \ket{E} \bra{E} \\
+&= \sum_{E} \frac{\theta_E}{\ln(2)} \ket{E} \bra{E}
 \end{aligned}$$
 
-Since $\theta$ is real, we know that $K = \sum_{E} \frac{\theta}{\ln(2)} \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $K$ is Hermitian. 
+Since $\theta_E$ are real, we know that $K = \sum_{E} \frac{\theta_E}{\ln(2)} \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $K$ is Hermitian. 
 
 </details>
 

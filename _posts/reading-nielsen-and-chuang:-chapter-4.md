@@ -2685,7 +2685,61 @@ $$\begin{aligned}
 where the product is taken with respect to any fixed ordering of the $n$-fold tensor product of Pauli matrices, $g$. 
 
 
-We already did (1) in exercise 2.56 and 2.18. 
+(1) Since $U$ is unitary using spectral decomposition we know that it can be written
+
+$$\begin{aligned}
+U = \sum_{E} \lambda_E \ket{E} \bra{E}
+\end{aligned}$$
+
+where $\lambda_E$ are eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
+
+From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{-i \theta_E}$ for some real $\theta_E$.
+
+Looking at our definition of $H$ we see
+
+$$\begin{aligned}
+H &= i \ln (U) \\
+&= i \sum_{E} \ln (\lambda_E) \ket{E} \bra{E} \\
+&= i \sum_{E} \ln (e^{-i \theta_E}) \ket{E} \bra{E} \\
+&= i \sum_{E} -i \theta_E \ket{E} \bra{E} \\
+&= \sum_{E} \theta_E \ket{E} \bra{E}
+\end{aligned}$$
+
+Since $\theta_E$ are real, we know that $H = \sum_{E} \theta_E \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $H$ is Hermitian. We can see the relationship between the eigenvalues of $U$ and $H$ is  $\lambda_E = e^{-i \theta_E}$, therefore only a range of $2\pi$ in $\theta_E$ will correspond to unique values for $\lambda_E$.
+
+(2) $\lbrace I, X, Y, Z \rbrace$ form a basis for any single qubit operation. So, a $n$-fold tensor product of $\lbrace I, X, Y, Z \rbrace$ form a basis for any $n$ qubit operation. Therefore, $H$ can be written as
+
+$$\begin{aligned}
+H &=\sum_{g} h_{g} g
+\end{aligned}$$
+
+where $h_{g}$ are some constant values, which we can find by taking the inner product of $H$ with $g$
+
+$$\begin{aligned}
+(g, H) &= \text{tr}(g^\dagger H) & \text{equation 2.65} \\
+&= \text{tr}(g H) & \text{g is Hermitian}\\
+&= \sum_{g'} h_{g} \text{tr}(g g') & \text{exercise 2.38}\\
+&= 2^n h_{g} & \text{since $\text{tr}(g g') = 2^n \delta_{g, g'}$ per exercise 2.36 and equation 2.78}
+\end{aligned}$$
+
+To determine whether $h_{g}$ is real, we can also look at
+
+$$\begin{aligned}
+(2^n h_{g})^\ast &= \left(\text{tr}(g H)\right)^\ast \\
+ &= \left(\text{tr}(g H)^T\right)^\ast \\
+&= \text{tr}((g H)^\dagger) \\
+&= \text{tr}(H^\dagger g^\dagger) \\
+&= \text{tr}(H g) \\
+&= \text{tr}(g H) & \text{per exercise 2.37}\\
+&= 2^n h_{g}
+\end{aligned}$$
+
+Since $h_{g}^\ast = h_{g}$, $h_{g}$ must be real. 
+
+
+
+
+
 
 
 

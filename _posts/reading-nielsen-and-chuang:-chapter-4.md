@@ -2789,8 +2789,20 @@ N_{gates} &= k \times (\text{gates per $g$}) \times (\text{number of $g$ per $H$
 </details>
 
 
+**Problem 4.4**
 
+This problem looks at the minimum number of gates needed to construct a Toffoli gate.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+(1) 5, the construction is shown in Figure 4.8
+
+(2) 14, from exercise 4.22
+
+(3) 14, take the construction from exercise 4.22, but exchange the CNOTs with controlled-Z gates that have Hadamard gates on either side since $CNOT_{ab} = H_b CZ_{ab} H_b$. Those Hadamard gates can be combined with neighboring single qubit gates so they do not increase the total gate count. 
+
+</details>
 
 
 

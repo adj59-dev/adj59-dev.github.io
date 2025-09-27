@@ -2804,6 +2804,23 @@ This problem looks at the minimum number of gates needed to construct a Toffoli 
 
 </details>
 
+**Problem 4.5**
+
+Construct a family of Hamiltonians, $\lbrace H_n \rbrace$, on $n$ qubits, such that simulating $H_n$ requires a number of operations super-polynomial in $n$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+In exercise 4.48 we showed that for Hamiltonian $H_n = \sum_{k=1}^L H_k$, restricting the maximum number of particles interacting via each operation $H_k$ to a constant value $c$ limited the upper bounds of $L$ (the number of operations) to $O(n^c)$. If there was no constant limit and instead the maximum number of particles interacting via $H_k$ grew with $n$, let's say by $f(n)$, then $L$ would be $O(n^{f(n)})$. Therefore, if the maximum number of particles interacting for each operation grows with $n$, then $H_n$ is super-polynomial in $n$.
+
+</details>
+
+**Problem 4.6**
+
+
+
+
+
 
 
 

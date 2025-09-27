@@ -2687,12 +2687,15 @@ where the product is taken with respect to any fixed ordering of the $n$-fold te
 (5) Show that
 
 $$\begin{aligned}
-U = \left \lbrack \proc_g \exp(-ih_g g \Delta) \right\rbrack^k + O(4^n\Delta)
+U = \left \lbrack \prod_g \exp(-ih_g g \Delta) \right\rbrack^k + O(4^n\Delta)
 \end{aligned}$$
 
 (6) Explain how to approximate $U$ to within a distance $\epsilon > 0$ using $O(n16^n/\epsilon$ one and two qubit unitary operations.
 
-(1) Since $U$ is unitary using spectral decomposition we know that it can be written
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+(1) Since $U$ is unitary using spectral decomposition, we know that it can be written
 
 $$\begin{aligned}
 U = \sum_{E} \lambda_E \ket{E} \bra{E}
@@ -2712,7 +2715,7 @@ H &= i \ln (U) \\
 &= \sum_{E} \theta_E \ket{E} \bra{E}
 \end{aligned}$$
 
-Since $\theta_E$ are real, we know that $H = \sum_{E} \theta_E \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $H$ is Hermitian. We can see the relationship between the eigenvalues of $U$ and $H$ is  $\lambda_E = e^{-i \theta_E}$, therefore only a range of $2\pi$ in $\theta_E$ will correspond to unique values for $\lambda_E$.
+Since $\theta_E$ are real, we know that $H = \sum_{E} \theta_E \ket{E} \bra{E}$ is in the form of a Hermitian matrix. Therefore $H$ is Hermitian. We can see the relationship between the eigenvalues of $U$ and $H$ is  $\lambda_E = e^{-i \theta_E}$, therefore only an interval of length $2\pi$ in $\theta_E$ will correspond to unique values for $\lambda_E$.
 
 (2) $\lbrace I, X, Y, Z \rbrace$ form a basis for any single qubit operation. So, a $n$-fold tensor product of $\lbrace I, X, Y, Z \rbrace$ form a basis for any $n$ qubit operation. Therefore, $H$ can be written as
 
@@ -2720,30 +2723,31 @@ $$\begin{aligned}
 H &=\sum_{g} h_{g} g
 \end{aligned}$$
 
-where $h_{g}$ are some constant values and the sum is over all $n$-fold tensor products $g$ of the Pauli matrices $\lbrace I, X, Y, Z \rbrace$. We can find $h_{g} by taking the inner product of $H$ with $g$
+where $h_{g}$ are some constant values and the sum is over all $n$-fold tensor products $g$ of the Pauli matrices $\lbrace I, X, Y, Z \rbrace$. We can find $h_{g}$ by taking the inner product of $H$ with $g$
 
 $$\begin{aligned}
 (g, H) &= \text{tr}(g^\dagger H) & \text{equation 2.65} \\
 &= \text{tr}(g H) & \text{g is Hermitian}\\
-&= \sum_{g'} h_{g} \text{tr}(g g') & \text{exercise 2.38}\\
-&= 2^n h_{g} & \text{since $\text{tr}(g g') = 2^n \delta_{g, g'}$ per exercise 2.36 and equation 2.78}
+&= \sum_{g'} h_{g'} \text{tr}(g g') & \text{exercise 2.38}\\
+&= 2^n h_{g} & \text{since $\text{tr}(g g') = 2^n \delta_{g, g'}$ per exercise 2.36 and equation 2.78} \\
+& \Rightarrow h_{g} = \frac{1}{2^n} \text{tr}(g H)
 \end{aligned}$$
 
 To determine whether $h_{g}$ is real, we can also look at
 
 $$\begin{aligned}
-(2^n h_{g})^\ast &= \left(\text{tr}(g H)\right)^\ast \\
- &= \left(\text{tr}(g H)^T\right)^\ast \\
-&= \text{tr}((g H)^\dagger) \\
-&= \text{tr}(H^\dagger g^\dagger) \\
-&= \text{tr}(H g) \\
-&= \text{tr}(g H) & \text{per exercise 2.37}\\
-&= 2^n h_{g}
+h_{g}^\ast &= \left(\frac{1}{2^n}\text{tr}(g H)\right)^\ast \\
+ &= \frac{1}{2^n}\left(\text{tr}(g H)^T\right)^\ast \\
+&= \frac{1}{2^n}\text{tr}((g H)^\dagger) \\
+&= \frac{1}{2^n}\text{tr}(H^\dagger g^\dagger) \\
+&= \frac{1}{2^n}\text{tr}(H g) \\
+&= \frac{1}{2^n}\text{tr}(g H) & \text{per exercise 2.37}\\
+&= h_{g}
 \end{aligned}$$
 
 Since $h_{g}^\ast = h_{g}$, $h_{g}$ must be real. 
 
-(3) Letting $\Delta = 1/k$ for some postive integer $k$, we can construct a circuit similar to the one created in exercise 4.51 for each $h_{g} g$ because $g$ is of the form specified in equation 4.114 and so we are able to simulate $g$ with the outlined procedure. This circuit will have one $Z$ rotation gate, $2n$ CNOT gates, and up to $2n$ single qubit gates for an upper bounds of $4n+1$ gates which is $O(n)$.
+(3) Letting $\Delta = 1/k$ for some postive integer $k$, we can construct a circuit like the one created in exercise 4.51 for each $h_{g} g$ because $g$ is of the form specified in equation 4.114 and so we are able to simulate $g$ with the outlined procedure. This circuit will have one $Z$ rotation gate, $2n$ CNOT gates, and up to $2n$ single qubit gates for an upper bounds of $4n+1$ gates which is $O(n)$.
 
 (4) Looking at $\exp(-iH\Delta)$ we get
 
@@ -2751,11 +2755,40 @@ $$\begin{aligned}
 \exp(-iH\Delta) &= \exp(-i\sum_{g = g_1}^{g_{4^n}} h_{g} g \Delta) \\
 &= \exp(-ih_{g_1}g_1\Delta)\exp(-i\sum_{g=g_2}^{g_{4^n}} h_{g} g \Delta) + O(\Delta^2) & \text{equation 4.103} \\
 &\vdots & \text{repeat the previous step $4^n-2$ times} \\
-&=\prod_g \exp(-ih_g g\Delta) + (4^n-1)O(\Delta^2) \\
 &= \prod_g \exp(-ih_g g\Delta) + O(4^n\Delta^2)
 \end{aligned}$$
 
-(5) Then
+(5) Then 
+
+$$\begin{aligned}
+U &= \exp(-iH) \\
+&= \exp(-ikH\Delta) \\
+&= \left\lbrack \prod_g \exp(-ih_g g\Delta) \right\rbrack\exp(-i(k-1)H\Delta) + O(4^n\Delta^2) \\
+&\vdots & \text{repeat $k-2$ times} \\
+&= \left\lbrack \prod_g \exp(-ih_g g\Delta) \right\rbrack^k + O(4^nk\Delta^2) \\
+&= \left\lbrack \prod_g \exp(-ih_g g\Delta) \right\rbrack^k + O(4^n\Delta) &\text{since $\Delta = 1/k$}
+\end{aligned}$$
+
+
+(6) To construct this circuit, use $k$ iterations of the circuit outlined in (3). We need to choose $\Delta = 1/k$ such that 
+
+$$\begin{aligned}
+O(4^n\Delta) \leq \epsilon \\
+\Rightarrow \Delta \leq O\left(\frac{\epsilon}{4^n}\right)\\
+\Rightarrow k \geq O\left(\frac{4^n}{\epsilon}\right)
+\end{aligned}$$
+
+Combinding this with our results from (3)
+
+$$\begin{aligned}
+N_{gates} &= k \times (\text{gates per $g$}) \times (\text{number of $g$ per $H$}) \\
+&= O\left(\frac{4^n}{\epsilon}\right)O(n)O\left(4^n\right) \\
+&= O\left(\frac{n16^n}{\epsilon}\right)
+\end{aligned}$$
+
+</details>
+
+
 
 
 

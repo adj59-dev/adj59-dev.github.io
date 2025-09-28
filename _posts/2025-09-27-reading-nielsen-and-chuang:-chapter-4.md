@@ -790,9 +790,9 @@ $$\begin{aligned}
 Therefore the impact to the density matrix is $\rho \rightarrow CNOT \rho CNOT^\dagger$, as shown below
 
 $$\begin{aligned}
-CNOT \rho CNOT^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix}\begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{31} & p_{32} & p_{33} & p_{34} \\\p_{41} & p_{42} & p_{43} & p_{44} \end{bmatrix}  \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix}^\dagger \\
-&= \begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{41} & p_{42} & p_{43} & p_{44} \\\p_{31} & p_{32} & p_{33} & p_{34} \end{bmatrix}  \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} \\
-&= \begin{bmatrix} p_{11} & p_{12} & p_{14} & p_{13} \\\ p_{21} & p_{22} & p_{24} & p_{23} \\\ p_{41} & p_{42} & p_{44} & p_{43} \\\p_{31} & p_{32} & p_{34} & p_{33} \end{bmatrix} 
+CNOT \rho CNOT^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix}\begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{31} & p_{32} & p_{33} & p_{34} \\\ p_{41} & p_{42} & p_{43} & p_{44} \end{bmatrix}  \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix}^\dagger \\
+&= \begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{41} & p_{42} & p_{43} & p_{44} \\\ p_{31} & p_{32} & p_{33} & p_{34} \end{bmatrix}  \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} \\
+&= \begin{bmatrix} p_{11} & p_{12} & p_{14} & p_{13} \\\ p_{21} & p_{22} & p_{24} & p_{23} \\\ p_{41} & p_{42} & p_{44} & p_{43} \\\ p_{31} & p_{32} & p_{34} & p_{33} \end{bmatrix} 
 \end{aligned}$$
 
 </details>

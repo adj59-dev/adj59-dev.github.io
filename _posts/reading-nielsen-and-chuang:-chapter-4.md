@@ -2817,12 +2817,15 @@ In exercise 4.48 we showed that for Hamiltonian $H_n = \sum_{k=1}^L H_k$, restri
 
 **Problem 4.6**
 
+Controlled-NOT gates and single qubit gates form a universal set of quantum logic gates. Show that an alternative universal set of resources is comprised of single qubit unitaries, the ability to perform measurements of pairs of qubits in the Bell basis, and the ability to prepare aribitrary four qubit entangled states. The authors reference this paper for this problem in the History and further reading section: [Quantum teleportation is a universal computational primitive](https://arxiv.org/pdf/quant-ph/9908010)
 
+If we can demonstrate that we can construct a Controlled-NOT gate with the alternative set of resources, then that will be sufficient to show the set is universal since the alternative set includes single qubit unitaries and the problem states that Controlled-NOT gates with single qubit gates form a universal set of quantum logic gates. 
 
+Let's say we have two arbitrary single qubits $\ket{\alpha} = a\ket{0} + \beta\ket{1}$ and $\ket{\beta} = c\ket{0} + d\ket{1}$. Then we generate a four qubit entangled state
 
-
-
-
+$$\begin{aligned}
+\ket{\chi} = \frac{(\ket{00} + \ket{11})\ket{00} + (\ket{01} + \ket{10})\ket{11}}{\sqrt{2}} 
+\end{aligned}$$
 
 
 

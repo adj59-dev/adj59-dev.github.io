@@ -21,6 +21,7 @@ I just finished reading Chapter 5 of *Quantum Computation and Quantum Informatio
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Quantum Fourier transform            | 5.1                       | Fourier transform on an orthonormal basis $\ket{0},\cdots,\ket{N-1}$ is <br> $\ket{j} \to \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{2\pi i j k/N}\ket{k}$. <br> The action on an arbitrary state is <br> $\sum_{j=0}^{N-1} x_j \ket{j} \to \sum_{k=0}^{N-1} y_k \ket{k}$ |
+| Product representation of quantum Fourier transform | 5.1        | Write state $\ket{j}$ using the binary representation $j = j_12^{n-1} + j_22^{n-2} + \cdots + j_n2^0$. With the binary fraction represented as $0.j_lj_{l+1}\cdots j_m = j_l/2+j_{l+1}/4 + \cdots + j_m/2^{m-l+1}$. Then the Fourier transform can be written as <br> $\ket{j_1,\cdots,j_n} \to \frac{\left(\ket{0} + e^{2\pi i  0.j_n }\right)\left(\ket{0} + e^{2\pi i  0.j_{n-1}j_n }\right)\cdots \left(\ket{0} + e^{2\pi i  0.j_1j_2\cdots j_n }\right)}{2^{n/2}}$$
 
   
 ### The quantum Fourier transform - Exercises

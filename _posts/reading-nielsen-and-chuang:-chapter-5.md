@@ -7,7 +7,7 @@ I just finished reading Chapter 5 of *Quantum Computation and Quantum Informatio
 
 * [The quantum Fourier transform](#the-quantum-fourier-transform)
 * [Phase estimation](#phase-estimation)
-* [Applications: order-finding and factoring](#applications:-order-finding-and-factoring)
+* [Order-finding and factoring applications](#order-finding-and-factoring-applications)
 * [General applications of the quantum Fourier transform](#general-applications-of-the-quantum-fourier-transform)
 
 

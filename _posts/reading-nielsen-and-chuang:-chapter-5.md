@@ -49,6 +49,28 @@ Therefore $T$ is unitary.
 </details>
 
 
+**Exercise 5.2**
+
+Explicitly compute the Fourier transform of the $n$ qubit state $\ket{00\cdots 0}$. For the equations below, $N=2^n$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+T\ket{00\cdots 0} &= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i j k/N}\ket{k}\braket{j \vert 00\cdots 0} \\
+&= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i j k/N} \delta_{j,0}\ket{k} \\
+&= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\ket{k}
+\end{aligned}$$
+
+</details>
+
+
+
+
+
+
+
+
 
 
 

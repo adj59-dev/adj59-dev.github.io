@@ -229,6 +229,7 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 | Phase estimation procedure           | 5.2                       | Procedure outlined on pages 221-223. Schematic from Figure 5.3: <br> <img width="505" height="177" alt="image" src="https://github.com/user-attachments/assets/45be88b1-1add-4976-a8fc-b63c8e0ee10e" /> |
 
 
+
   
 ### Phase estimation - Exercises
 
@@ -302,6 +303,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Nomenclature and notation            | A4.1                      | Integers is the set $\lbrace \cdots, -2, -1, 0, 1, 2, \cdots \rbrace$, denoted $\mathbb{Z}$ <br> Natural numbers are non-negative integers. They are also called positive integers. <br> An integer $d$ divides $n$ (written $d\vert n$ ) if there exists an integer $k$ such that $n=dk$. We say in this case that $d$ is a factor or divisor of $n$. <br> When $d$ does not divide $n$ we write $d \nmid n$. | 
+| Fundamental theorem of arithmetic    | A4.1                      | Let $a$ be any integer greater than 1. Then a has a prime factorization of the form $a=p_1^{a_1}p_2^{a_1}\cdots p_n^{a_n}$ where $p_1,\cdots, p_n$ are distinct prime numbers, and $a_1,\cdots, a_n$ are positive integers. |
 
   
 ### Appendix 4 - Exercises
@@ -338,6 +340,22 @@ Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b
 If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and $b$ are both positive integers, then $k\geq 1$ and so $a\leq b$. If $b\vert a$ is also true, then $a=lb$ for some integer $l$. Therefore, $a=lb=lka$ and so $lk=1$. Since $l\geq 1$ and $k\geq 1$ and $lk = 1$ then $l=k=1$ and thus $a=b$.
 
 </details>
+
+**Exercise A4.4**
+
+Find the prime factorization of 697 and 36300.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+697 = 17 \times 41 \\
+36300 = 2^2 \times 3 \times 5^2 \times 11^2
+\end{aligned}$$
+
+</details>
+
+
 
 
 

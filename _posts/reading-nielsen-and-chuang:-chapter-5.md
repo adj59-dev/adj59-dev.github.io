@@ -236,13 +236,19 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 Show that the effect of the sequence of controlled- $U$ operations like that in Figure 5.2 is to take the state $\ket{j}\ket{u} \to \ket{j}U^j\ket{u}$.
 
-The Hadamard gate on $\ket{j}$ transforms $\ket{j}\ket{u}= \ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}$. Then the controlled- $U$ gates trasform 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The Hadamard gates transforms $\ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}$. Then the controlled- $U$ gates transform the following
 
 $$\begin{aligned}
-\frac{1}{2^{t/2}}\left(\ket{0} + \ket{1}U_u^{2^{t-1}}\right)\left(\ket{0} + \ket{1}U_u^{2^{t-2}}\right)\cdots\left(\ket{0} + \ket{1}U_u^{0}\right)\ket{u} &= \frac{1}{2^{t/2}}\left(\ket{0} + e^{2\pi i2^{t-1}\phi}\ket{1}\right)\left(\ket{0} + e^{2\pi i2^{t-2}\phi}\ket{1}\right)\cdots\left(\ket{0} + e^{2\pi i2^{0}\phi}\ket{1}\right)\ket{u} \\
-&= \frac{1}{2^{t/2}}\sum_{k=0}^{2^t-1}e^{2\pi i \phi k}\ket{k}\ket{u}
+\frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} &\to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}}U^{j_{t-2}2^{t-2}}\cdots U^{j_0 2^0} \ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0} \ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1} \ket{j} U^j \ket{u} & \text{for $j=j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0$}
 \end{aligned}$$
 
+</details>
 
 
 

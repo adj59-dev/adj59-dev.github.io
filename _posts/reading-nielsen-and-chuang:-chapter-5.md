@@ -217,3 +217,18 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 </details>
 
+
+## Phase estimation
+
+### Phase estimation - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+  
+### Phase estimation - Exercises
+
+
+
+

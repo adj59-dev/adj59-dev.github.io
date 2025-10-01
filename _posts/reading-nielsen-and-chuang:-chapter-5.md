@@ -187,8 +187,16 @@ print(circuit)
 </details>
 
 
+**Exercise 5.5**
 
+Give a quantum circuit to perform the inverse quantum Fourier transform.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Since the quantum Fourier transform is a unitary operation, the adjoint of the operation will give us the inverse quantum Fourier transform. So, to construct a circuit for the inverse quantum Fourier transform, we can take the circuit in Figure 5.1 (or Box 5.1) and apply the adjoints of each of the gates in reverse order. 
+
+</details>
 
 
 

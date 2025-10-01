@@ -225,7 +225,7 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Phase estimation procedure           | 5.2                       | Outlined on pages 221-223                                                                              |
+| Phase estimation procedure           | 5.2                       | Procedure outlined on pages 221-223. Schematic from Figure 5.3: <br> <img width="505" height="177" alt="image" src="https://github.com/user-attachments/assets/45be88b1-1add-4976-a8fc-b63c8e0ee10e" /> |
 
 
   
@@ -249,6 +249,33 @@ $$\begin{aligned}
 \end{aligned}$$
 
 </details>
+
+
+**Exercise 5.8**
+
+Suppose the phase estimation algorithm takes the state $\ket{0}\ket{u}$ to the state $\ket{\tilde{\phi_u}}\ket{u}$. so that given the input $\ket{0}\left(\sum_u c_u\ket{u}\right)$, the algorithm outputs $\sum_u c_u \ket{\tilde{\phi_u}}\ket{u}$. Show that if $t$ is chosen according to (5.35), then the probability for measuring $\phi_u$ accurate to $n$ bits at the conclusion of the phase estimation algorithm is at least $\vert c_u \vert^2(1-\epsilon)$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Equation 5.35 is
+
+$$\begin{aligned}
+t = n + \left\lceil \log\left(2+\frac{1}{2\epsilon}\right) \right\rceil
+\end{aligned}$$
+
+Earlier in section 5.2.1 the authors showed that when selecting $t$ given by equation 5.35, the probability of obtaining a measurement of $\phi$ accurate to $n$ bits is given by $p_{accurate} \geq 1-\epsilon$.
+
+The output from the algorithm is now given by
+
+$$\begin{aligned}
+\sum_u c_u \ket{\tilde{\phi_u}}\ket{u}
+\end{aligned}$$
+
+where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. Therefore, the probability of accurately measuring $\phi_u$ is given by multiplying the probability of measuring $\ket{u}$ with the probability of obtaining an accurate measurement. Therefore, the probability of measuring $\phi_u$ accurate to $n$ bits is $p \geq p_u p_{accurate} = \vert c_u\vert^2(1-\epsilon)$.
+
+</details>
+
 
 
 

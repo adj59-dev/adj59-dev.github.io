@@ -1,12 +1,13 @@
 # Reading Nielsen and Chuang: Chapter 5
 
-I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
+I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 4, which the authors recommend that you read before starting section 5.3 to make sure you have the needed background in number theory.
 
 
 ## Navigation
 
 * [The quantum Fourier transform](#the-quantum-fourier-transform)
 * [Phase estimation](#phase-estimation)
+* [Appendix 4](#appendix-4)
 * [Order-finding and factoring applications](#order-finding-and-factoring-applications)
 * [General applications of the quantum Fourier transform](#general-applications-of-the-quantum-fourier-transform)
 
@@ -291,6 +292,21 @@ Since the eigenvalues are $\pm 1$ we know that $\phi = 0$ or $\phi = \frac{1}{2}
 The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagger = H^\dagger = H$. Looking at exercise 4.34, we see that this circuit is the same as the one in that exercise.
 
 </details>
+
+
+## Appendix 4
+
+### Appendix 4 - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+  
+### Appendix 4 - Exercises
+
 
 
 ## Order-finding and factoring applications

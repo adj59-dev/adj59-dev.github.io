@@ -121,5 +121,77 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 **Exercise 5.4**
 
-<img width="494" height="171" alt="image" src="https://github.com/user-attachments/assets/4d90e1b8-5f45-4c43-beab-1e659650df4a" />
+Give a decomposition of the controlled-$R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
+
+$$\begin{aligned}
+R_k = \begin{bmatrix} 1 & 0 \\\ 0 & e^{2\pi i/2^k} \end{bmatrix}
+\end{aligned}$$
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+I came up with this gate
+
+<img width="497" height="198" alt="image" src="https://github.com/user-attachments/assets/6daa4352-e9c1-4be3-8dc2-54c7cfd0e275" />
+
+Using single qubit phase gates
+
+$$\begin{aligned}
+P(\theta) = \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\theta} \end{bmatrix}
+\end{aligned}$$
+
+Which has this effect on the qubits
+
+$$\begin{aligned}
+CNOT_{12} P_2(-2\pi/2^{k+1}) CNOT_{12} P_2(2\pi/2^{k+1}) P_1(2\pi/2^{k+1}) &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & e^{2\pi/2^k} \end{bmatrix}
+\end{aligned}$$
+
+I confirmed this result with this python script
+
+```
+from sympy import simplify, Matrix, symbols, exp, I, pi
+from sympy.physics.quantum import TensorProduct
+
+k = symbols('k', real=True)
+
+Identity = Matrix([[1, 0], [0, 1]])
+
+CNOT = Matrix([
+    [1,0,0,0],
+    [0,1,0,0],
+    [0,0,0,1],
+    [0,0,1,0]
+    ])
+
+
+Pp = Matrix([
+    [1,0],
+    [0,exp(I*2*pi/2**(k+1))],
+    ])
+
+Pn = Matrix([
+    [1,0],
+    [0,exp(-I*2*pi/2**(k+1))],
+    ])
+
+
+Ppa = TensorProduct(Pp, Identity)
+Ppb = TensorProduct(Identity, Pp)
+Pnb = TensorProduct(Identity, Pn)
+
+circuit =simplify(CNOT @ Pnb @ CNOT @ Ppb @ Ppa)
+
+print(circuit)
+```
+
+</details>
+
+
+
+
+
+
+
+
+
 

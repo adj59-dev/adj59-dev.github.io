@@ -119,4 +119,7 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 </details>
 
+**Exercise 5.4**
+
+<img width="494" height="171" alt="image" src="https://github.com/user-attachments/assets/4d90e1b8-5f45-4c43-beab-1e659650df4a" />
 

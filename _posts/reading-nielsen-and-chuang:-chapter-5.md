@@ -328,6 +328,19 @@ We know that there exists an integer $k$ such that $a=kd$. We also know that the
 
 </details>
 
+**Exercise A4.3**
+
+Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b$. Conclude that if $a\vert b$ and $b\vert a$ then $a=b$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and $b$ are both positive integers, then $k\geq 1$ and so $a\leq b$. If $b\vert a$ is also true, then $a=lb$ for some integer $l$. Therefore, $a=lb=lka$ and so $lk=1$. Since $l\geq 1$ and $k\geq 1$ and $lk = 1$ then $l=k=1$ and thus $a=b$.
+
+</details>
+
+
+
 ## Order-finding and factoring applications
 
 ### Order-finding and factoring applications - Key Concepts

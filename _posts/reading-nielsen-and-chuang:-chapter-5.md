@@ -293,4 +293,19 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 </details>
 
 
+## Order-finding and factoring applications
+
+### Order-finding and factoring applications - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+  
+### Order-finding and factoring applications - Exercises
+
+
+
 

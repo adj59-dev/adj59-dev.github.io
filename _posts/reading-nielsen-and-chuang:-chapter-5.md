@@ -301,13 +301,32 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
+| Nomenclature and notation            | A4.1                      | Integers is the set $\lbrace \cdots, -2, -1, 0, 1, 2, \cdots \rbrace$, denoted $\mathbb{Z}$ <br> Natural numbers are non-negative integers. They are also called positive integers. <br> An integer $d$ divides $n$ (written $d\vert n$ ) if there exists an integer $k$ such that $n=dk$. We say in this case that $d$ is a factor or divisor of $n$. <br> When $d$ does not divide $n$ we write $d \nmid n$. | 
 
   
 ### Appendix 4 - Exercises
 
+**Exercise A4.1**
 
+Show that if $a\vert b$ and $b \vert c$ then $a \vert c$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We know that there exists an integer $k$ such that $b=ka$. We also know that there exists an integer $l$ such that $c=lb$. Knowing this, we can say that $c = lb = lka$. Since $l$ and $k$ are integers, $lk$ is an integer. Therefore, $a \vert c$. 
+
+</details>
+
+**Exercise A4.2**
+
+Show that if $d\vert a$ and $d\vert b$ then $d$ also divides linear combinations of $a$ and $b$, $ax+by$, where $x$ and $y$ are integers.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We know that there exists an integer $k$ such that $a=kd$. We also know that there exists an integer $l$ such that $b=ld$. Knowing this, we can say that $ax+by = (kd)x + (ld)y = d(kx+ly)$. Therefore, since $kx+ly \in \mathbb{Z}$ we can say $d \vert (ax+by)$
+
+</details>
 
 ## Order-finding and factoring applications
 

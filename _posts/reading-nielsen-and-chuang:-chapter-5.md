@@ -199,7 +199,21 @@ Since the quantum Fourier transform is a unitary operation, the adjoint of the o
 </details>
 
 
+**Exercise 5.6**
 
+Let $U$ be the ideal quantum Fourier transform on $n$ qubits, and $V$ be the transform which results if the controlled- $R_k$ gates are performed to a precision $\Delta=1/p(n)$ for some polynomial $p(n)$. Show that the error $E(U,V) = max_{\ket{\psi}}\Vert (U-V)\ket{\psi}\Vert$ scales as $\Theta(n^2/p(n))$, and thus polynomial precision in each gate is sufficient to guarantee polynomial accuracy in the output state. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+From equation 4.69 we know that
+
+$$\begin{aligned}
+E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
+&\leq \sum_{j=1}^m E(U_j,V_j) \\
+&= \frac{n(n-1)}{2}\frac{1}{p(n)} & \text{since there are $\frac{n(n-1)}{2}$ controlled-$R_k$ gates}\\
+&= \Theta(n^2/p(n))
+\end{aligned}$$
+
+</details>
 

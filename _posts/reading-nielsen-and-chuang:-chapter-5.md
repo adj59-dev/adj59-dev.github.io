@@ -225,9 +225,24 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Phase estimation procedure           | 5.2                       | Outlined on pages 221-223                                                                              |
+
 
   
 ### Phase estimation - Exercises
+
+
+**Exercise 5.7**
+
+Show that the effect of the sequence of controlled- $U$ operations like that in Figure 5.2 is to take the state $\ket{j}\ket{u} \to \ket{j}U^j\ket{u}$.
+
+The Hadamard gate on $\ket{j}$ transforms $\ket{j}\ket{u}= \ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}$. Then the controlled- $U$ gates trasform 
+
+$$\begin{aligned}
+\frac{1}{2^{t/2}}\left(\ket{0} + \ket{1}U_u^{2^{t-1}}\right)\left(\ket{0} + \ket{1}U_u^{2^{t-2}}\right)\cdots\left(\ket{0} + \ket{1}U_u^{0}\right)\ket{u} &= \frac{1}{2^{t/2}}\left(\ket{0} + e^{2\pi i2^{t-1}\phi}\ket{1}\right)\left(\ket{0} + e^{2\pi i2^{t-2}\phi}\ket{1}\right)\cdots\left(\ket{0} + e^{2\pi i2^{0}\phi}\ket{1}\right)\ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{k=0}^{2^t-1}e^{2\pi i \phi k}\ket{k}\ket{u}
+\end{aligned}$$
+
 
 
 

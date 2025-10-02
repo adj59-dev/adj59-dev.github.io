@@ -364,6 +364,19 @@ $$\begin{aligned}
 
 **Exercise A4.5**
 
+For a prime $p$ prove that all integers in the range $1$ to $p-1$ have multiplicative inverses modulo $p$. Which integers in the range $1$ to $p^2-1$ do not have multiplicative inverses modulo $p^2$?
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's assume $a$ is an integer with value $1\leq a\leq p-1$. Since $p$ is a prime number and $1\leq a\leq p-1$ we know that $\text{gcd}(a,p)=1$, therefore by Theorem A4.2 we know that $ax+py=1$ where $x$ and $y$ are integers. Rearranging the equation, we get $ax = 1 + (-y)p$. Here we can see that $x$ is the multiplicative inverse modulo $p$ of $a$. 
+
+Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is a prime number, we know that $\text{gcd}(a,p^2)=p$ when $a=p,2p,3p,\cdots,(p-1)p$ and $\text{gcd}(a,p^2)=1$ for all other $a$. By the same reasoning as the previous proof, if $a$ is not a multiple of $p$ then $a$ has a multiplicative inverse modulo $p^2$ and if $a$ is a multiple of $p$ then it does not. 
+
+</details>
+
+
+
 
 ## Order-finding and factoring applications
 

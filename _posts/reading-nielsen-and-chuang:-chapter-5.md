@@ -376,6 +376,46 @@ Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is
 </details>
 
 
+**Exercise A4.6**
+
+Find the multiplicative inverse of 17 modulo 24.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We need to find $b$ such that $17b = 1 + k24$ for some integer $k$. This relation is true for $k=12$ and $b=17$. Therefore, 17 is a multiplicative inverse of 17 modulo 24. 
+
+</details>
+
+
+**Exercise A4.7**
+
+Find the multiplicative inverse of $n+1$ modulo $n^2$, where $n$ is any integer greater than 1. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We need to find $b$ such that $(n+1)b = 1 + kn^2$ for some integer $k$. This relation is true for $k=n$ and $b=n^2-n+1$
+
+$$\begin{aligned}
+1+n^3 &= (n+1)b \\
+&= (n+1)(n^2-n+1) \\
+&=n^3+1 
+\end{aligned}$$
+
+</details>
+
+
+**Exercise A4.8**
+
+Suppose $b$ and $b'$ are multiplicative inverses of $a$, modulo $n$. Prove that $b=b' \mod n$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+kn$ and $ab'=1+ln$ for some integers $k$ and $l$. Therefore, $a(b-b') = (k-l)n = 0 \mod n$ and so $n \vert a(b-b')$. Because an inverse exists, we know $\text{gcd}(a,n) = 1$, and so $n \vert (b-b')$ which means $b=b' \mod n$.
+
+</details>
 
 
 ## Order-finding and factoring applications

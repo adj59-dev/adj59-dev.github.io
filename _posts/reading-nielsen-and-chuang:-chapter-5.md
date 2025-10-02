@@ -308,6 +308,10 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Representation theorem for the gcd   | A4.2                      | The greatest common divisor for two integers $a$ and $b$ is the least positive integer that can be written in the form $ax+by$, where $x$ and $y$ are integers. |
 | Co-primality                         | A4.2                      | Integers $a$ and $b$ are said to be co-prime if their greatest common divisor is 1.                    |
 | Multiplicative inverse modulo $n$    | A4.2                      | $a$ has a multiplicative inverse $a^{-1}$ modulo $n$ if $aa^{-1}=1+kn$ for some integer $k$            |
+| Euclid's algorithm                   | A4.2                      | A way to find the greatest common divisor of two positive integers outlined on page 628                |
+| Chinese remainder theorem            | A4.2                      | Suppose $m_1,\cdots,m_m$ are positive integers such that any pair $m_i$ and $m_j$ $(i\neq j)$ are co-prime. Then the system of equations <br> $x=a_1\mod m_1$ <br> $x=a_2\mod m_2$ <br> $\vdots$ <br> $x=a_m\mod m_m$ <br> has a solution. Moreover, any two solutions to this system of equations are equal modulo $M=m_1m_2\cdots m_m$ | 
+| Fermat's little theorem              | A4.2                      | Suppose $p$ is a prime, and $a$ is any integer. Then $a^p=a \mod p$. If $a$ is not divisible by $p$ then $a^{p-1}=1\mod p$ |
+| Euler $\varphi$ function             | A4.2                      | $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$                |
 
 
 
@@ -439,6 +443,69 @@ $$\begin{aligned}
 
 </details>
 
+
+**Exercise A4.10**
+
+What is $\varphi(187)$?
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+First we need to find the prime factorization of 187
+
+$$\begin{aligned}
+187 = 11 \times 17
+\end{aligned}$$
+
+Then we use equation A4.23 
+
+$$\begin{aligned}
+\varphi(187) &= \prod_{j=1}^k p_j^{\alpha_{j}-1}(p_j-1) \\
+&= 11^{1-1}(11-1) \times 17^{1-1}(17-1) \\
+&= 160
+\end{aligned}$$
+
+</details>
+
+
+**Exercise A4.11**
+
+Prove that 
+
+$$\begin{aligned}
+n = \sum_{d\vert n}\varphi(d)
+\end{aligned}$$
+
+where the sum is over all positive divisors $d$ of $n$, including 1 and $n$. Hint: Prove the results for $n=p^\alpha$ first, then use the multiplicative property (A4.22) of $\varphi$ to complete the proof.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's first look at the case where $n=p^\alpha$. Here the only divisors are $d=1,p, p^2, \cdots, p^\alpha$.
+
+$$\begin{aligned}
+n &= \sum_{d\vert n}\varphi(d)\\
+&= \varphi(1) + \varphi(p) + \cdots + \varphi(p^\alpha) \\
+&= 1 + p^{1-1}(p-1) + p^{2-1}(p-1) + \cdots + p^{\alpha-1}(p-1) & \text{equation A4.23}\\
+&= 1 + \sum_{j=0}^{\alpha-1}p^{j+1} - p^j \\
+&= \sum_{j=0}^{\alpha}p^{j} - \sum_{i=0}^{\alpha-1} p^i \\
+&= p^\alpha \\
+&= n
+\end{aligned}$$
+
+Then for $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$. Now $d$ can equal 1, all powers of $p_j$ up to $\alpha_j$, and any multiples of those. 
+
+$$\begin{aligned}
+n &= \sum_{d\vert n}\varphi(d)\\
+&= \varphi(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}) + \varphi(p_2^{\alpha_2}\cdots p_k^{\alpha_k}) +\varphi(p_1^{\alpha_1}\cdots p_k^{\alpha_k}) + \varphi(p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_{k-1}^{\alpha_{k-1}}) + \cdots + \varphi(1) \\
+&= \varphi(p_1^{\alpha_1})\varphi(p_2^{\alpha_2})\cdots\varphi(p_k^{\alpha_k}) + \varphi(p_2^{\alpha_2})\cdots\varphi(p_k^{\alpha_k}) + \varphi(p_1^{\alpha_1})\cdots\varphi(p_k^{\alpha_k}) + \cdots + \varphi(p_1^{\alpha_1})\varphi(p_2^{\alpha_2})\cdots\varphi(p_{k-1}^{\alpha_{k-1}}) + \cdots + \varphi(1) & \text{per A4.22}\\
+&= \sum_{j_1,j_2,\cdots,j_k=0}^{\alpha_1,\alpha_2,\cdots\alpha_k} \varphi(p_1^{j_1})\varphi(p_2^{j_2})\cdots\varphi(p_k^{j_k}) \\
+&= \left(\sum_{j_1=0}^{\alpha_1} \varphi(p_1^{j_1})\right)\left(\sum_{j_2=0}^{\alpha_2} \varphi(p_2^{j_2})\right)\cdots\left(\sum_{j_k=0}^{\alpha_k} \varphi(p_k^{j_k})\right) \\
+&= p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k} & \text{per the first part of this exercise} \\
+&= n
+\end{aligned}$$
+
+</details>
 
 
 

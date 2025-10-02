@@ -418,6 +418,33 @@ Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+
 </details>
 
 
+**Exercise A4.9**
+
+Explain how to find $\text{gcd}(a,b)$ if the prime factorizations of $a$ and $b$ are known. Find the prime factorizations of 6825 and 1430, and then use them to compute $\text{gcd}(6825,1430)$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Here is a procedure
+1) Look at prime factorization and identify factors shared by both $a$ and $b$
+2) multiply those shared factors together to get gcd
+
+Here are the prime factorizations
+
+$$\begin{aligned}
+6825 &= 3 \times 5^2 \times 7 \times 13\\
+1430 &= 2 \times 5 \times 11 \times 13\\
+\text{gcd}(6825, 1430) &= 5 \times 13 = 65
+\end{aligned}$$
+
+</details>
+
+
+
+
+
+
+
 ## Order-finding and factoring applications
 
 ### Order-finding and factoring applications - Key Concepts

@@ -304,6 +304,12 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Nomenclature and notation            | A4.1                      | Integers is the set $\lbrace \cdots, -2, -1, 0, 1, 2, \cdots \rbrace$, denoted $\mathbb{Z}$ <br> Natural numbers are non-negative integers. They are also called positive integers. <br> An integer $d$ divides $n$ (written $d\vert n$ ) if there exists an integer $k$ such that $n=dk$. We say in this case that $d$ is a factor or divisor of $n$. <br> When $d$ does not divide $n$ we write $d \nmid n$. | 
 | Fundamental theorem of arithmetic    | A4.1                      | Let $a$ be any integer greater than 1. Then a has a prime factorization of the form $a=p_1^{a_1}p_2^{a_1}\cdots p_n^{a_n}$ where $p_1,\cdots, p_n$ are distinct prime numbers, and $a_1,\cdots, a_n$ are positive integers. |
+| Greatest common divisor              | A4.2                      | Written as $\text{gcd}(a,b)$                                                                           |
+| Representation theorem for the gcd   | A4.2                      | The greatest common divisor for two integers $a$ and $b$ is the least positive integer that can be written in the form $ax+by$, where $x$ and $y$ are integers. |
+| Co-primality                         | A4.2                      | Integers $a$ and $b$ are said to be co-prime if their greatest common divisor is 1.                    |
+| Multiplicative inverse modulo $n$    | A4.2                      | $a$ has a multiplicative inverse $a^{-1}$ modulo $n$ if $aa^{-1}=1+kn$ for some integer $k$            |
+
+
 
   
 ### Appendix 4 - Exercises
@@ -356,7 +362,7 @@ $$\begin{aligned}
 </details>
 
 
-
+**Exercise A4.5**
 
 
 ## Order-finding and factoring applications

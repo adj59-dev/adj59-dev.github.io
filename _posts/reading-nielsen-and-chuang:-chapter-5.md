@@ -335,6 +335,26 @@ Thus for any element $g$ of a finite group, there always exists a positive integ
 
 </details>
 
+**Exercise A2.2**
+
+Prove Lagrange's theorem.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $G$ be a finite multiplicative group with $\vert G \vert=n$ and $H$ be a subgroup of $G$. Additionally, let $h$ be the elements of $H$ and $g$ be the elements of $G$. Since $H$ is a subgroup of $G$ we know that $h\in G$ for all $h$. Therefore, $gh \in G$ for any $h \in H$ and $g \in G$. The map $H \to gH$ is a bijection and so $\vert gH \vert = \vert H \vert$. 
+
+Let's consider elements $x$. If $x \in gH$ then there must exists an $h \in H$ such that $gh=x$ and so $xH=(gh)H=g(hH)=gH$. Therefore, if $x$ belogs to $gH$ then $gH=xH$ and thus the cosets $gH$ are disjoint. 
+
+Every element of $G$ lines in some $gH$ since $e \in H$, therefore $\lbrace gH : g\in G\rbrace$ covers $G$. 
+
+Since the cosets $gH$ are disjoint and cover $G$, they partition $G$. 
+
+Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\vert G \vert = k \vert H \vert$. Therefore $\vert H \vert$ divides $\vert G \vert$. This proves Lagrange's theorem. 
+
+</details>
+
+
 ## Appendix 4
 
 ### Appendix 4 - Key Concepts

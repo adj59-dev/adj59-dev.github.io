@@ -1,6 +1,6 @@
 # Reading Nielsen and Chuang: Chapter 5
 
-I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 4, which the authors recommend that you read before starting section 5.3 to make sure you have the needed background in number theory.
+I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 2 and Appendix 4, which the authors recommend that you read before starting section 5.3 to make sure you have the needed background in group theory and number theory.
 
 
 ## Navigation
@@ -303,13 +303,37 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Definition of group $(G,\cdot)$      | A2.1                      | A group $(G,\cdot)$ is a non-empty set $G$ with a binary group multiplication operation $\cdot$ with the following properties: <br> (closure) $g_1\cdot g_2 \in G$ for all $g_1,g_2\in G$ <br> (associativity) $(g_1\cdot g_2)\cdot g_3 = g_1 \cdot (g_2 \cdot g_3)$ for all $g_1,g_2,g_3 \in G$ <br> (identity) there exists $e\in G$ such that $\forall g\in G$, $g\cdot e = e\cdot g = g$ <br> (inverses) for all $g\in G$ there exists $g^{-1}\in G$ such that $g\cdot g^{-1}=e$ | 
+| Finite group                         | A2.1                      | A group is finite if the number of elements in the group is finitie                                    |
+| Order of a finite group              | A2.1                      | The order of a finite group is the number of elements it contains, denoted as $\vert G \vert$ for group $G$ |
+| Abelian groups                       | A2.1                      | A group is said to be Abelian if $g_1 g_2 = g_2 g_1$ for all $g_1,g_2 \in G$                           |
+| Order of an element in a multiplicative group       | A2.1                      | The order of an element $g\in G$ is the smallest positive integer $r$ such that $g^r=e$ where $e$ is the identity element. |
+| Subgroup                             | A2.1                      | A subgroup $H$ of $G$ is a subset of $G$ which forms a group under the same group multiplication operation as $G$ |
+| Lagrange's theorem                   | A2.1                      | If $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$. 
 
 
 
   
 ### Appendix 2 - Exercises
 
+**Exercise A2.1**
+
+Prove that for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$. That is, every element of such a group has an order.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $G$ be a finite multiplicative group with $\vert G \vert=n$ and let $g\in G$. Since $G$ is a multiplicative group, $g^r \in G$ for all positive integer $r$. Let's consider the $n+1$ elements $e,g,g^2,\cdots,g^n$. Since there are only $n$ elements in $G$, by the pigeonhole principle two of these must be equal, therefore for some integers $0\leq i < j \leq n$ 
+
+$$\begin{aligned}
+g^i &= g^j \\
+e &= g^{j-i} & \text{multiply both sides by $(g^i)^{-1}$} \\
+e &= g^r & \text{let $r=j-i$}
+\end{aligned}$$
+
+Thus for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$.
+
+</details>
 
 ## Appendix 4
 

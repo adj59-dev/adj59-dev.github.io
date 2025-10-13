@@ -295,6 +295,21 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 </details>
 
 
+## Appendix 2
+
+### Appendix 2 - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+  
+### Appendix 2 - Exercises
+
+
 ## Appendix 4
 
 ### Appendix 4 - Key Concepts
@@ -312,6 +327,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Chinese remainder theorem            | A4.2                      | Suppose $m_1,\cdots,m_m$ are positive integers such that any pair $m_i$ and $m_j$ $(i\neq j)$ are co-prime. Then the system of equations <br> $x=a_1\mod m_1$ <br> $x=a_2\mod m_2$ <br> $\vdots$ <br> $x=a_m\mod m_m$ <br> has a solution. Moreover, any two solutions to this system of equations are equal modulo $M=m_1m_2\cdots m_m$ | 
 | Fermat's little theorem              | A4.2                      | Suppose $p$ is a prime, and $a$ is any integer. Then $a^p=a \mod p$. If $a$ is not divisible by $p$ then $a^{p-1}=1\mod p$ |
 | Euler $\varphi$ function             | A4.2                      | $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$                |
+| Euler's totient theorem              | A4.2                      | If $a$ is co-prime to $n$ then $a^{\varphi(n)}=1 \mod n$                                               |
 
 
 
@@ -506,6 +522,8 @@ n &= \sum_{d\vert n}\varphi(d)\\
 \end{aligned}$$
 
 </details>
+
+**Exercise A4.13**
 
 
 

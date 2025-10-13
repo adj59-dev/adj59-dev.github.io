@@ -309,7 +309,8 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Abelian groups                       | A2.1                      | A group is said to be Abelian if $g_1 g_2 = g_2 g_1$ for all $g_1,g_2 \in G$                           |
 | Order of an element in a multiplicative group       | A2.1                      | The order of an element $g\in G$ is the smallest positive integer $r$ such that $g^r=e$ where $e$ is the identity element. |
 | Subgroup                             | A2.1                      | A subgroup $H$ of $G$ is a subset of $G$ which forms a group under the same group multiplication operation as $G$ |
-| Lagrange's theorem                   | A2.1                      | If $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$. 
+| Lagrange's theorem                   | A2.1                      | If $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$.               |
+| Conjugacy class                      | A2.1                      | The conjugacy class $G_x$ of an element $x$ in a group $G$ is defined by $G_x = \lbrace g^{-1}xg \vert g\in G \rbrace$. |
 
 
 
@@ -362,6 +363,25 @@ Show that the order of an element $g\in G$ divides $\vert G \vert$.
 <summary>Solution</summary>
 
 Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^2, \cdots, g^{r-1} \rbrace$ is a subgroup of $G$ and $\vert \braket{g} \vert = r$. Using Lagrange's theorem, we know that $\vert \braket{g} \vert$ divides $\vert G \vert$. Therefore the order of an element $g\in G$ divides $\vert G \vert$. 
+
+</details>
+
+**Exercise A2.4**
+
+Show that if $y\in G_x$ then $G_y=G_x$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $G_x = \lbrace g^{-1}xg \vert g\in G \rbrace$ and $G_y = \lbrace h^{-1}yh \vert h\in G \rbrace$ for elements $x$ and $y$ in a group $G$. If $y\in G_x$ that means for some $g\in G$, $y=g^{-1}x g$ therefore for any $h \in G$
+
+$$\begin{aligned}
+h^{-1}yh &= h^{-1}(g^{-1} x g) h \\
+&= (gh)^{-1} x (gh) \\
+&\in G_x & \text{since $gh \in G$}
+\end{aligned}$$
+
+Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made with $x$ and $y$ swapped giving $G_x \subseteq G_y$. Thus, $G_x=G_y$ if $y \in G_x$. 
 
 </details>
 

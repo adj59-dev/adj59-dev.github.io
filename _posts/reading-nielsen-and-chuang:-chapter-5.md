@@ -311,6 +311,9 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Subgroup                             | A2.1                      | A subgroup $H$ of $G$ is a subset of $G$ which forms a group under the same group multiplication operation as $G$ |
 | Lagrange's theorem                   | A2.1                      | If $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$.               |
 | Conjugacy class                      | A2.1                      | The conjugacy class $G_x$ of an element $x$ in a group $G$ is defined by $G_x = \lbrace g^{-1}xg \vert g\in G \rbrace$. |
+| Pauli group on a single qubit        | A2.1                      | $G_1=\lbrace \pm I, \pm iI, \pm X, \pm iX, \pm Y, \pm iY, \pm Z, \pm iZ \rbrace$ <br> This set of matrices forms a group under the operation of matrix multiplication. |
+| Group generators                     | A2.1.1                    | A set of elements $g_1,cdots,g_l$ in a group $G$ is said to generate the group $G$ if evey element of $G$ can be written as a product of (possibly repeated) elements from the list $g_1,\cdots,g_l$, and we write $G=\braket{g_1,cdots,g_l}$. For example, $G_1=\braket{X,Z,iI}$ |
+| Cyclic group                         | A2.1.2                    | A cyclic group $G$ possesses an element $a$ such that any element $g\in G$ can be expressed as $a^n$ for some integer $n$. |
 
 
 
@@ -401,6 +404,17 @@ g^{-1} x g &= g^{-1}g x & \text{since the group is Abelian} \\
 \end{aligned}$$
 
 Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
+
+</details>
+
+**Exercise A2.6**
+
+Show that any group of prime order is cyclic.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. Consider the subgroup $\braket{g}$ for any $g\in G$ with $g\neq e$. From Lagrange's theorem we know that $\vert \braket{g}\vert \vert \vert G \vert$. Since $p$ is prime and $\vert \braket{g} \vert \neq 1$ (since $g \neq e$), then $\vert \braket{g} \vert = p$ and so $\braket{g}=G$. Therefore any group of prime order is cyclic. 
 
 </details>
 

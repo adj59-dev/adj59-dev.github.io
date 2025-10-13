@@ -354,6 +354,16 @@ Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\ve
 
 </details>
 
+**Exercise A2.3**
+
+Show that the order of an element $g\in G$ divides $\vert G \vert$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^2, \cdots, g^{r-1} \rbrace$ is a subgroup of $G$ and $\vert \braket{g} \vert = r$. Using Lagrange's theorem, we know that $\vert \braket{g} \vert$ divides $\vert G \vert$. Therefore the order of an element $g\in G$ divides $\vert G \vert$. 
+
+</details>
 
 ## Appendix 4
 

@@ -385,6 +385,27 @@ Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made
 
 </details>
 
+**Exercise A2.5**
+
+Show that if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+A group is said to be Abelian if $g_1 g_2 = g_2 g_1$ for all $g_1,g_2 \in G$. Therefore, for any $g$
+
+$$\begin{aligned}
+g^{-1} x g &= g^{-1}g x & \text{since the group is Abelian} \\
+&= ex \\
+&= x
+\end{aligned}$$
+
+Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
+
+</details>
+
+
+
 ## Appendix 4
 
 ### Appendix 4 - Key Concepts

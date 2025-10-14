@@ -426,15 +426,13 @@ Show that every subgroup of a cyclic group is cyclic.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-Let $G$ be a cyclic group such that any element $g\in G$ can be expressed as $a^n$ for some set of integers $n \in N$. Let $H$ be a subgroup of $G$, where the elements of $H$ are $a^k$ for some set of integers $k \in K$. Since $H$ is a multiplicative group, if $a^{k_1} \in H$ and $a^{k_2} \in H$ then $a^{k_1}a^{k_2}=a^{k_1+k_2} \in H$ and so $(k_1 + k_2) \in K$. If $k\in K$ then $(a^k)^{-1}=a^{-k} \in H$ and so $-k\in K$. Additionally, $0\in K$ since $e=a^0$. Therefore, $K$ is an additive subgroup. By similar logic, we can say that $N$ is also an additive subgroup and that $K$ is a subset of $N$. For $K$ to be a subset of $N$, $K=dN$ for some positive integer $d$. Therefore,
+Let $G$ be a cyclic group of order $r$ such that any element $g\in G$ can be expressed as $a^n$ for some set of integers $N=\lbrace 0, 1, \cdots, r-1 \rbrace$. Let $H$ be a subgroup of $G$, where the elements of $H$ are $a^k$ for some set of integers $k \in K$. 
 
-$$\begin{aligned}
-H &=\lbrace a^k : k \in K \rbrace \\
-&= \lbrace a^{dm} : m \in N \rbrace \\
-&= \braket{a^d}
-\end{aligned}$$
+Since $H$ is a multiplicative group, if $a^{k_1} \in H$ and $a^{k_2} \in H$ then $a^{k_1}a^{k_2}=a^{k_1+k_2 \mod r} \in H$ and so $(k_1 + k_2 \mod r) \in K$, satisfying the closure axiom for an additive group. If $a^{k_1},a^{k_2},a^{k_3}\in H$ then $a^{(k_1+k_2)+k_3 \mod r}=a^{k_1+(k_2+k_3) \mod r}\in H$ therefore $(k_1+k_2)+k_3 \mod r=k_1+(k_2+k_3) \mod r\in K$, satisfying the associativity axiom for an additive group. If $k\in K$ then $(a^k)^{-1}=a^{-k} \in H$ and so $-k\in K$, satisfying the inverse axiom for an additive group. Additionally, $0\in K$ since $e=a^0$, satisfying the identity axiom for an additive group. Therefore, $K$ is an additive subgroup of $\mathbb{Z_{r}}$. 
 
-Therefore $H$ is cyclic. 
+If $K$ is a subgroup of $\mathbb{Z_{r}}$, its elements must form an arithmetic progression modulo $r$ with a common difference $d$ where $d \vert r$. This can be seen by taking any element $k\in K$ and writing it in terms of $d$ which we'll say is the least positive element in $K$, an integer multiplier $m$, and some other integer $t$ where $0\leq t\leq d$, so $k=md+t$. Since $k$ and $md$ are in $K$, their difference is also in $K$, therefore $k-md=(md+t)-md=t$ and so $t\in K$. However, we said $t<d$ and $d$ is the least positive element in $K$, therefore $t=0$ and so $k=md$.  Since $a^{r}=e\in H$, we know $r=md$ for some integer $m$, thus $d \vert r$. Since $r \mod r = 0$, the maximum value of $m$ is $\frac{r-d}{d}$.
+
+We can now say that $K=\lbrace 0,d,2d,\cdots,r-d\rbrace$, and so $H=\braket{a^d}$. Therefore $H$ is cyclic. 
 
 </details>
 

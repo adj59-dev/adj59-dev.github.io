@@ -419,6 +419,25 @@ Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. 
 </details>
 
 
+**Exercise A2.7**
+
+Show that every subgroup of a cyclic group is cyclic.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $G$ be a cyclic group such that any element $g\in G$ can be expressed as $a^n$ for some set of integers $n \in N$. Let $H$ be a subgroup of $G$, where the elements of $H$ are $a^k$ for some set of integers $k \in K$. Since $H$ is a multiplicative group, if $a^{k_1} \in H$ and $a^{k_2} \in H$ then $a^{k_1}a^{k_2}=a^{k_1+k_2} \in H$ and so $(k_1 + k_2) \in K$. If $k\in K$ then $(a^k)^{-1}=a^{-k} \in H$ and so $-k\in K$. Additionally, $0\in K$ since $e=a^0$. Therefore, $K$ is an additive subgroup. By similar logic, we can say that $N$ is also an additive subgroup and that $K$ is a subset of $N$. For $K$ to be a subset of $N$, $K=dN$ for some positive integer $d$. Therefore,
+
+$$\begin{aligned}
+H &=\lbrace a^k : k \in K \rbrace \\
+&= \lbrace a^{dm} : m \in N \rbrace \\
+&= \braket{a^d}
+\end{aligned}$$
+
+Therefore $H$ is cyclic. 
+
+</details>
+
 
 ## Appendix 4
 

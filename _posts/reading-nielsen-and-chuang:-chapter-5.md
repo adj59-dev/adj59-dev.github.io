@@ -314,6 +314,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Pauli group on a single qubit        | A2.1                      | $G_1=\lbrace \pm I, \pm iI, \pm X, \pm iX, \pm Y, \pm iY, \pm Z, \pm iZ \rbrace$ <br> This set of matrices forms a group under the operation of matrix multiplication. |
 | Group generators                     | A2.1.1                    | A set of elements $g_1,cdots,g_l$ in a group $G$ is said to generate the group $G$ if evey element of $G$ can be written as a product of (possibly repeated) elements from the list $g_1,\cdots,g_l$, and we write $G=\braket{g_1,cdots,g_l}$. For example, $G_1=\braket{X,Z,iI}$ |
 | Cyclic group                         | A2.1.2                    | A cyclic group $G$ possesses an element $a$ such that any element $g\in G$ can be expressed as $a^n$ for some integer $n$. |
+| Cosets                               | A2.1.3                    | For $H$ a subgroup of $G$, the left coset of $H$ in $G$ determined by $g\in G$ is the set $gH\equiv \lbrace gh \vert h\in H \rbrace$. The right coset is defined similarly. |
 
 
 
@@ -453,6 +454,9 @@ If $m \equiv n \mod r$, then $g^m=g^{n+kr}=g^n(g^r)^k=g^ne^k=g^n$.
 Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \equiv n \mod r$. 
 
 </details>
+
+
+**Exercise A2.9**
 
 
 

@@ -458,6 +458,21 @@ Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \e
 
 **Exercise A2.9**
 
+Show that $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If there exists an $h \in H$ such that $g_2=g_1h$, then $g_2H=(g_1h)H=g_1(hH)=g_1H$ and so $g_1$ and $g_2$ must be in the same coset.  
+
+If $g_1$ and $g_2$ are in the same coset, then $g_1H=g_2H$. Multiply both sides by $g_1^{-1}$, then $H=g_1^{-1}g_2 H$, so $g_1^{-1}g_2 \in H$. Let $h=g_1^{-1}g_2 \in H$. Then $g_2=g_1 h$. 
+
+Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
+
+</details>
+
+
+
 
 
 

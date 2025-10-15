@@ -578,11 +578,10 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 </details>
 
 
-**Exercise 2.12**
+**Exercise A2.12**
 
-Show that every matrix group is equivalent to a unitary matrix group. 
+Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
 
-Two matrix groups are said to be equivalent if they are isomorphic, and corresponding elements under the isomorphism have the same character. So we need to show that there is a one-to-one map that maps $g\in G \subset M_n$ to $\rho(g) \in U$. Since $G$ is a finite group, each $g\in G$ has a finite order $m$ such that $g^m=I$. 
 
 
 

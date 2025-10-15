@@ -504,12 +504,12 @@ Prove the properties of characters given above.
 
 The properties are as follows:
 
-(1) $\chi(I)=n$
-(2) $\vert \chi(g)\vert \leq n$
-(3) $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$
-(4) $\chi$ is constant on any given conjugacy class of $G$
-(5) $\chi(g^{-1})=\chi^\ast(g)$
-(6) $\chi(g)$ is an algebraic number for all $g$
+(1) $\chi(I)=n$ <br>
+(2) $\vert \chi(g)\vert \leq n$ <br>
+(3) $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$ <br>
+(4) $\chi$ is constant on any given conjugacy class of $G$ <br>
+(5) $\chi(g^{-1})=\chi^\ast(g)$ <br>
+(6) $\chi(g)$ is an algebraic number for all $g$ <br>
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -577,6 +577,12 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 
 </details>
 
+
+**Exercise 2.12**
+
+Show that every matrix group is equivalent to a unitary matrix group. 
+
+Two matrix groups are said to be equivalent if they are isomorphic, and corresponding elements under the isomorphism have the same character. So we need to show that there is a one-to-one map that maps $g\in G \subset M_n$ to $\rho(g) \in U$. Since $G$ is a finite group, each $g\in G$ has a finite order $m$ such that $g^m=I$. 
 
 
 

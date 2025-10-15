@@ -511,7 +511,10 @@ The properties are as follows:
 (5) $\chi(g^{-1})=\chi^\ast(g)$
 (6) $\chi(g)$ is an algebraic number for all $g$
 
-The character of a matrix group $G \subset M_n$ is a function on the group defined by $\chi(g)=\text{tr}(g)$, for $g\in G$, where $\text{tr}(\cdot)$ is the usual trace function on matrices. 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+For this section of the book $G$ is assumed to be finite. The character of a matrix group $G \subset M_n$ is a function on the group defined by $\chi(g)=\text{tr}(g)$, for $g\in G$, where $\text{tr}(\cdot)$ is the usual trace function on matrices. For this exercise I'll prove these properties for unitary matrix groups. The next exercise we show that every matrix group is equivalent to a unitary matrix group. 
 
 For (1)
 
@@ -527,8 +530,52 @@ $$\begin{aligned}
 \vert \chi(g) \vert &=\vert \text{tr}(g)\vert\\
 &=\left\vert \sum_i^n g_{ii}\right\vert \\
 &= \left\vert \sum_i^n \lambda_i \right\vert & \text{where $\lambda_i$ are the eigenvalues of $g$} \\
-&\leq n \max_i \vert \lambda_i \vert = n \\
+&\leq \sum_i^n \vert \lambda_i \vert = n  & \text{if $g$ is unitary}\\
 \end{aligned}$$
+
+For (3)
+
+If $g$ is unitary then all the eigenvalues can be written of the form $e^{i\theta}$. Then,
+
+$$\begin{aligned}
+\vert \chi(g) \vert &= \left\vert \sum_i^n e^{i\theta} \right\vert \\
+&\leq n
+\end{aligned}$$
+
+and equality occurs if and only if all terms point in exactly the same direction in the complex plane. That is, $e^{i\theta_1}=e^{i\theta_2}=\cdots = e^{i\theta_n}\e^{i\theta}$. If all eigenvalues are equal to $e^{i\theta}$ then $g=e^{i\theta}I$. Therefore, $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$.
+
+For (4)
+
+Conjugation class $G_x=\lbrace g^{-1}xg \vert g\in G \rbrace$ for $x\in G$. So
+
+$$\begin{aligned}
+\chi(g^{-1}xg) &=\text{tr}(g^{-1}xg)\\
+&= \text{tr}(xgg^{-1}) & \text{per exercise 2.37}\\
+&= \text{tr}(xI) \\
+&= \text{tr}(x) \\
+&= \chi(x)
+\end{aligned}$$
+
+So $\chi$ for all elements of $G_x$ will be the same. 
+
+For (5)
+
+$$\begin{aligned}
+\chi(g^{-1}) &= \text{tr}(g^{-1}) \\
+&= \text{tr}(g^\dagger g g^{-1}) & \text{since $g^\dagger g = I$ if $g$ is unitary}\\
+&= \text{tr}(g^\dagger) \\
+&= \text{tr}(g^T)^\ast \\
+&= \text{tr}(g)^\ast \\
+&= \chi(g)^\ast
+\end{aligned}$$
+
+For (6)
+
+An algebraic number is a number that is a root of a non-zero polynomial in one variable with integer (or rational) coefficients. 
+
+For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the minimal polynomial of $g$ divides $x^m-1 \in \mathbb{Z}\lbrack x \rbrack$. Hence the eigenvalues of $g$ are $m$-th roots of unity, which are algebraic integers. The sum $\chi(g)$ is therefore an algebraic number. 
+
+</details>
 
 
 

@@ -315,6 +315,14 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 | Group generators                     | A2.1.1                    | A set of elements $g_1,cdots,g_l$ in a group $G$ is said to generate the group $G$ if evey element of $G$ can be written as a product of (possibly repeated) elements from the list $g_1,\cdots,g_l$, and we write $G=\braket{g_1,cdots,g_l}$. For example, $G_1=\braket{X,Z,iI}$ |
 | Cyclic group                         | A2.1.2                    | A cyclic group $G$ possesses an element $a$ such that any element $g\in G$ can be expressed as $a^n$ for some integer $n$. |
 | Cosets                               | A2.1.3                    | For $H$ a subgroup of $G$, the left coset of $H$ in $G$ determined by $g\in G$ is the set $gH\equiv \lbrace gh \vert h\in H \rbrace$. The right coset is defined similarly. |
+| Matrix group                         | A2.2                      | Let $M_n$ be a set of $n\times n$ complex matrices. A matrix group is a set of matrices in $M_n$ which satisfy the properties of a group under matrix multiplicaiton. | 
+| Representation $\rho$ of a group     | A2.2                      | A function which maps a group to a matrix group, preserving group multiplication.                      |
+| Homomorphism                         | A2.2                      | A map of many to one. |
+| Isomorphism                          | A2.2                      | A map of one to one.  |
+| Dimension                            | A2.2                      | A representation $\rho$ which maps into $M_n$ has dimensions $d_\rho=n$ |
+| Equivalence                          | A2.2.1                    | Two matix groups are equivalent if they are isomorphic, and corresponding elements under the isomorphism have the same character. |
+| Reducibility                         | A2.2.1                    | A matrix group $G$ in $M_n$ is said to be completely reducible if it is equivalent to another matrix group $H$ which is of block diagonal form. Otherwise, the matrix group is irreducible. |
+
 
 
 
@@ -490,7 +498,37 @@ Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert
 </details>
 
 
+**Exercise A2.11**
 
+Prove the properties of characters given above.
+
+The properties are as follows:
+
+(1) $\chi(I)=n$
+(2) $\vert \chi(g)\vert \leq n$
+(3) $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$
+(4) $\chi$ is constant on any given conjugacy class of $G$
+(5) $\chi(g^{-1})=\chi^\ast(g)$
+(6) $\chi(g)$ is an algebraic number for all $g$
+
+The character of a matrix group $G \subset M_n$ is a function on the group defined by $\chi(g)=\text{tr}(g)$, for $g\in G$, where $\text{tr}(\cdot)$ is the usual trace function on matrices. 
+
+For (1)
+
+$$\begin{aligned}
+\chi(I)&=\text{tr}(I)\\
+&= \sum_i^n I_{ii} \\
+&= n 
+\end{aligned}$$
+
+For (2)
+
+$$\begin{aligned}
+\vert \chi(g) \vert &=\vert \text{tr}(g)\vert\\
+&=\left\vert \sum_i^n g_{ii}\right\vert \\
+&= \left\vert \sum_i^n \lambda_i \right\vert & \text{where $\lambda_i$ are the eigenvalues of $g$} \\
+&\leq n \max_i \vert \lambda_i \vert = n \\
+\end{aligned}$$
 
 
 

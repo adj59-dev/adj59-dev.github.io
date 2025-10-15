@@ -349,9 +349,9 @@ Prove Lagrange's theorem.
 
 Let $G$ be a finite multiplicative group with $\vert G \vert=n$ and $H$ be a subgroup of $G$. Additionally, let $h$ be the elements of $H$ and $g$ be the elements of $G$. Since $H$ is a subgroup of $G$ we know that $h\in G$ for all $h$. Therefore, $gh \in G$ for any $h \in H$ and $g \in G$. The map $H \to gH$ is a bijection and so $\vert gH \vert = \vert H \vert$. 
 
-Let's consider elements $x$. If $x \in gH$ then there must exists an $h \in H$ such that $gh=x$ and so $xH=(gh)H=g(hH)=gH$. Therefore, if $x$ belogs to $gH$ then $gH=xH$ and thus the cosets $gH$ are disjoint. 
+Let's consider elements $x$. If $x \in gH$ then there must exist an $h \in H$ such that $gh=x$ and so $xH=(gh)H=g(hH)=gH$. Therefore, if $x$ belongs to $gH$ then $gH=xH$ and thus the cosets $gH$ are disjoint. 
 
-Every element of $G$ lines in some $gH$ since $e \in H$, therefore $\lbrace gH : g\in G\rbrace$ covers $G$. 
+Every element of $G$ lies in some $gH$ since $e \in H$, therefore $\lbrace gH : g\in G\rbrace$ covers $G$. 
 
 Since the cosets $gH$ are disjoint and cover $G$, they partition $G$. 
 
@@ -470,6 +470,25 @@ If $g_1$ and $g_2$ are in the same coset, then $g_1H=g_2H$. Multiply both sides 
 Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
 
 </details>
+
+
+**Exercise A2.10**
+
+How many cosets of H are there in G?
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The map $H \to gH$ is a bijection and so $\vert gH \vert = \vert H \vert$. So all the cosets have the same size as $H$. 
+
+Let's consider elements $x \in G$. If $x \in gH$ then there must exist an $h \in H$ such that $gh=x$ and so $xH=(gh)H=g(hH)=gH$. Therefore, if $x$ belongs to $gH$ then $gH=xH$ and thus the cosets $gH$ are disjoint. 
+
+Every element of $G$ lies in some $gH$ since $e \in H$, therefore $\lbrace gH : g\in G\rbrace$ covers $G$. 
+
+Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert H \vert}$.
+
+</details>
+
 
 
 

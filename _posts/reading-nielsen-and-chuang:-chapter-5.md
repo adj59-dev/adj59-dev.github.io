@@ -606,6 +606,8 @@ Prove that if $\rho$ is an irreducible representation of $G$, then $\vert G \ver
 
 
 
+
+
 ## Appendix 4
 
 ### Appendix 4 - Key Concepts
@@ -849,6 +851,34 @@ For inverses, all $a \in \mathbb{Z}_n^\ast$ have an inverse $b \in \mathbb{Z}_n^
 The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$. 
 
 </details>
+
+
+**Exercise A4.13**
+
+Let $a$ be an arbitrary element of $\mathbb{Z}_n^\ast$. Show that $S\equiv \lbrace 1, a, a^2, \cdots \rbrace$ forms a subgroup of $\mathbb{Z}_n^\ast$, and that the size of $S$ is the least value of $r$ such that $a^r=1 \mod n$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From Theorem A4.9, we know that if $a$ is co-prime to $n$, then $a^{\varphi(n)} = 1 \mod n$. Though, it is possible that the powers of $a$ may cycle earlier, so we'll say there is a $r\leq \varphi(n)$ such that $a^r=1\mod n$. This can be written as $a^{m}a^{r-m}=1\mod n$ for integer $m$ with values $1\leq m < r$ and so $S=\lbrace 1, a, a^2, \cdots, a^{r-1}\rbrace$ and is size $r$.
+
+For $S$ to be a subgroup of $\mathbb{Z}_n^\ast$ it needs to satisfy the group axioms under the same operation as $\mathbb{Z}_n^\ast$.
+
+For closure, if $a^i \in S$ and $a^j \in S$ then $a^ia^j=a^{i+j} \in S$
+
+For associativity, $(a^ia^j)a^k=a^i(a^ja^k)$
+
+For identity, $1 \in S$
+
+For inverses, for each $a^m$ there is a $a^{r-m}$ which is its inverse mod $n$, as shown above.
+
+Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
+
+</details>
+
+
+
+
 
 
 

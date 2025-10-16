@@ -877,9 +877,16 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 </details>
 
 
+**Exercise A4.15**
 
+Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+We know from exercise A4.12 that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$. If $g$ is a generator for $\mathbb{Z}_n^\ast$ then $\braket{g} = \lbrace 1, g, g^2, \cdots \rbrace = \mathbb{Z}_n^\ast$ and so $g$ must have order $\varphi(n)$.
+
+</details>
 
 
 

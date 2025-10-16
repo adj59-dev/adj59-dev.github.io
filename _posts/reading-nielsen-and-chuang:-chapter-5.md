@@ -123,7 +123,7 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 **Exercise 5.4**
 
-Give a decomposition of the controlled-$R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
+Give a decomposition of the controlled- $R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
 
 $$\begin{aligned}
 R_k = \begin{bmatrix} 1 & 0 \\\ 0 & e^{2\pi i/2^k} \end{bmatrix}
@@ -626,6 +626,7 @@ Prove that if $\rho$ is an irreducible representation of $G$, then $\vert G \ver
 | Fermat's little theorem              | A4.2                      | Suppose $p$ is a prime, and $a$ is any integer. Then $a^p=a \mod p$. If $a$ is not divisible by $p$ then $a^{p-1}=1\mod p$ |
 | Euler $\varphi$ function             | A4.2                      | $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$                |
 | Euler's totient theorem              | A4.2                      | If $a$ is co-prime to $n$ then $a^{\varphi(n)}=1 \mod n$                                               |
+| Order finding problem                | A4.3                      | Equivalent to factoring.  For positive integer $N$ and co-prime $x$ find least positive integer $r$ such that $x^r=1 \mod N$. |
 
 
 
@@ -908,6 +909,19 @@ a^{\varphi(n)} &= a^{mr} \\
 \end{aligned}$$
 
 </details>
+
+
+**Exercise A4.16**
+
+Use theorem A4.9 to show that the order of $x$ modulo $N$ must divide $\varphi(N)$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From exercise A4.15, we know that this means there is a subgroup $S=\lbrace 1, x, x^2, \cdots, x^{r-1}\rbrace$ of size $r$ where $r$ divides $\varphi(N)$. This $r$ is equal to the order of $x \mod N$. Therefore, the order of $x$ modulo $N$ must divide $\varphi(N)$.
+
+</details>
+
 
 
 

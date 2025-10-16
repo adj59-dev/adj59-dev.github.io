@@ -819,9 +819,36 @@ n &= \sum_{d\vert n}\varphi(d)\\
 
 </details>
 
-**Exercise A4.13**
+**Exercise A4.12**
 
+Verify that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$ under the operation of multiplication modulo $n$. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$\mathbb{Z}_n^\ast$ is the set of all elements in $\mathbb{Z}_n$ which have inverses modulo $n$, which is the set of all elements in $\mathbb{Z}_n$ which are co-primes to $n$. Therefore, we know $a \in \mathbb{Z}_n^\ast$ if and only if there is a $b \in \mathbb{Z}_n^\ast$ such that $ab=1\mod n$. 
+
+Now we need to verify that $\mathbb{Z}_n^\ast$ forms a group under the operation of multiplication modulo $n$, by confiming the closure, associativity, identity, and inverses properties of a group. 
+
+For closure, if $a_1 \in \mathbb{Z}_n^\ast$ then there exists a $b_1 \in \mathbb{Z}_n^\ast$ such that $a_1b_1=1\mod n$. Similarly, if $a_2 \in \mathbb{Z}_n^\ast$ then there exists a $b_2 \in \mathbb{Z}_n^\ast$ such that $a_2b_2=1\mod n$. Therefore, for $a_1 \cdot a_2$ we have a $b_1 \cdot b_2$ such that
+
+$$\begin{aligned}
+(a_1a_2)(b_1b_2) &= (a_1b_1)(a_2b_2) \\
+&= (1 \mod n)(1 \mod n) \\
+&= 1 \mod n
+\end{aligned}$$
+
+and so $a_1 \cdot a_2 \in \mathbb{Z}_n^\ast$ for all $a_1,a_2 \in \mathbb{Z}_n^\ast$. 
+
+For associativity, $(a_1\cdot a_2) \cdot a_3 = a_1 \cdot (a_2 \cdot a_3)$ becuase multiplication in $\mathbb{Z}$ is associative and reduction mod $n$ respects products, so multiplication mod $n$ is associative. 
+
+For identity, $1$ satisfies $1\cdot a = a\cdot 1 = a$ for all $a\in \mathbb{Z}_n^\ast$. Also $\text{gcd}(1,n)=1$ so $1\in \mathbb{Z}_n^\ast$ and is the identity element.
+
+For inverses, all $a \in \mathbb{Z}_n^\ast$ have an inverse $b \in \mathbb{Z}_n^\ast$ such that $ab=1\mod n$.
+
+The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$. 
+
+</details>
 
 
 

@@ -1,6 +1,6 @@
 # Reading Nielsen and Chuang: Chapter 5
 
-I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 2 and Appendix 4, which the authors recommend that you read before starting section 5.3 to make sure you have the needed background in group theory and number theory.
+I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 2 and Appendix 4, which the authors refference at the beginning of section 5.3, to make sure I had the needed background in group theory and number theory.
 
 
 ## Navigation

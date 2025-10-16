@@ -877,7 +877,7 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 </details>
 
 
-**Exercise A4.15**
+**Exercise A4.14**
 
 Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
 
@@ -885,6 +885,27 @@ Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have orde
 <summary>Solution</summary>
 
 We know from exercise A4.12 that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$. If $g$ is a generator for $\mathbb{Z}_n^\ast$ then $\braket{g} = \lbrace 1, g, g^2, \cdots \rbrace = \mathbb{Z}_n^\ast$ and so $g$ must have order $\varphi(n)$.
+
+</details>
+
+
+**Exercise A4.15**
+
+Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is, show that $a^{\varphi(n)}=1 \mod n$ for any $a\in \mathbb{Z}_n^\ast$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Lagrange's theorem says that if $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$. 
+
+From exercise A4.12 we know that $\mathbb{Z}_n^\ast$ is a group of size $\varphi(n)$. From exercise A4.12 we know that $S=\lbrace 1, a, a^2, \cdots, a^{r-1}\rbrace$ is a subgroup of $\mathbb{Z}_n^\ast$ where $r$ is the least value such that $a^r=1\mod n$ and that $\vert S\vert = r$. From Lagrange's theorem, we know that $r$ must divide $\varphi(n)$ and so $\varphi(n) = mr$ for some integer $m$. Therefore,
+
+$$\begin{aligned}
+a^{\varphi(n)} &= a^{mr} \\
+&= (a^r)^m \\
+&\equiv 1^m \mod n \\
+&\equiv 1 \mod n
+\end{aligned}$$
 
 </details>
 

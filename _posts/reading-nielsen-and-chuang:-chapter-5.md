@@ -599,7 +599,11 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 </details>
 
 
+**Exercise A2.14**
 
+Prove that if $\rho$ is an irreducible representation of $G$, then $\vert G \vert / d_p$ is an integer. 
+
+If $\rho$ is an irreducible representation of $G$, that means that $G$ is also irreducible. Using Lemma A2.2, we know that $\vert G \vert = \vert H \vert$, where $H = \rho^{-1} G \rho$. 
 
 
 ## Appendix 4

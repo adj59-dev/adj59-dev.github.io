@@ -583,6 +583,23 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
 
 
+**Exercise A2.13**
+
+Show that every irreducible Abelian matrix group is one dimensional. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+For a matrix group $G$ to be irreducible, it must not be equivalent to another matrix group $H$ which is of block diagonal form. For a matrix group $G$ to be Abelian, $g_1 g_2=g_2 g_1$ for all $g \in G$. We can rewrite this requirement in the form of Lemma A2.2, where $H=G$, $S=g_1$, $g_i=g_2$, and $h_i = g_2$. This tells us that either $g_1$ is the zero matrix or $g_1$ is a square nonsingular matrix. A nonsingular matrix is a square matrix that is invertible, i.e. $g_1 g_1^{-1}=g_1^{-1}g_1=I_n$.  
+
+Let's now consider the eigenvalue $\lambda_1$ of $g_1$ for eigenvector $v$, so $g_1 v = \lambda_1 v$. Since $g_1$ commutes with $g_2$, $g_2(g_1 v) = g_2 \lambda_1 v = \lambda_1 (g_2 v)$ and so $g_2 v$ is also an eigenvector of $g_1$ with the same eigenvalue $\lambda_1$. Using this, one can extrapolate that all eigenvectors of $g_1$ have the eigenvalue $\lambda_1$ and so $g_1=\lambda_1 I_n$. Since $g_1$ was an arbitrary element of $G$, this means all $g\in G$ are the form $g=\lambda I_n$.
+
+When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely reducible because you can trivially write each matrix as $\lambda I_n = diag(\lambda, \lambda, \cdots, \lambda)$ which is in block-diagonal form. Therefore, every irreducible Abelian matrix group must be one-dimensional. 
+
+</details>
+
+
+
 
 
 ## Appendix 4

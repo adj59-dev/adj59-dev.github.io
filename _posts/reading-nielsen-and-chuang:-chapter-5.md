@@ -1,6 +1,6 @@
 # Reading Nielsen and Chuang: Chapter 5
 
-I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also finished Appendix 2 and Appendix 4, which the authors refference at the beginning of section 5.3, to make sure I had the needed background in group theory and number theory.
+I just finished reading Chapter 5 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. I also worked through section A2.1 of Appendix 2 and all of Appendix 4. The authors refferenced Appendix 4 at the beginning of section 5.3 to make sure the reader had sufficient backgroun in number theory before starting the section. While working through Appendix 4, I realized that I needed to learn some group theory before continuing and so went to Appendix 2 which was very helpful until I got to A2.2 on representations, where I begain to struggle. Fortunatly, A2.1 had all I needed to complete Appendix 4 and get back to Chapter 5. I have purchased *Group Theory and Its Application to Physical Problems* by Morton Hamermesh and plan to work through it alongside this book. 
 
 
 ## Navigation
@@ -598,10 +598,6 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 
 </details>
 
-
-**Exercise A2.14**
-
-Prove that if $\rho$ is an irreducible representation of $G$, then $\vert G \vert / d_p$ is an integer. 
 
 
 

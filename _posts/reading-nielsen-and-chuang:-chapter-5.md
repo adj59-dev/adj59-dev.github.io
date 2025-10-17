@@ -922,6 +922,23 @@ From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From exercise A4.15, we know that 
 
 </details>
 
+**Exercise A4.17**
+
+Show that an efficient factoring algorithm would allow us to efficiently find the order modulo $N$ of any $x$ co-prime to $N$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If we had an algorithm that efficiently identified all the factors of a number, we could use the following algorithm to efficiently find the order modulo $N$ of any $x$ co-prime to $N$: <br>
+(1) Factor $N=\prod_i p_i^{\alpha_i} <br>
+(2) Calculate $\varphi(N) = \prod_i p_i^{\alpha_{i}-1}(p_i-1)$  and set $r=\varphi(N)$ <br>
+(3) Factor $\varphi(N) = \prod_j q_j^{\beta_j}$ and find its distinct primes $\lbrace q_1, \cdots, q_t\rbrace$<br>
+(4) For each $q\in \lbrace q_1, \cdots, q_t \rbrace$: while $q \vert r$ and $x^{r/q} = 1 \mod N$ set $r = r/q$. <br>
+(5) return $r$
+
+We know step (1) and step (3) are efficient because they are the efficient factoring algorithm. Step (2) is efficient because it is $O(\log N)$ integer multiplications. Step (4) is efficient because it is $O(\log \varphi(N)) \leq O(\log N)$ arithmetic checks. Therefore, this order modulo $N$ algorithm is efficient.
+
+</details>
 
 
 

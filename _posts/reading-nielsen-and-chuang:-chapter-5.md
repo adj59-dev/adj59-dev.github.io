@@ -1024,7 +1024,7 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Quantum order finding algorithm      | 5.3.1                     | The phase estimation algorithm applied to the unitary operator $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in \lbrace 0,1\rbrace^L$ |
 
 
   
@@ -1064,10 +1064,57 @@ From Theorem A4.9 we know that $x^{\varphi(N)} = 1 \mod N$ and so $r \leq \varph
 </details>
 
 
+**Exercise 5.12**
 
+Show that $U$ is unitary.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+From equation 5.36, $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in\lbrace 0,1 \rbrace^L$. From equations 5.38 and 5.39 we know that we can write $U$ as
 
+$$\begin{aligned}
+U &= \sum_{s}\exp\left\lbrack\frac{2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s}
+\end{aligned}$$
+
+where $\ket{u_s}$ are the eigenstates. We can then write
+
+$$\begin{aligned}
+U^\dagger &= \sum_{s}\exp\left\lbrack\frac{-2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s}
+\end{aligned}$$
+
+and so,
+
+$$\begin{aligned}
+UU^\dagger &= \left(\sum_{s}\exp\left\lbrack\frac{2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s} \right)\left(\sum_{s'}\exp\left\lbrack\frac{-2\pi i s'}{r}\right\rbrack \ket{u_{s'}}\bra{u_{s'}} \right) \\
+&= \sum_{s}\sum_{s'}\exp\left\lbrack\frac{2\pi i (s-s')}{r}\right\rbrack \ket{u_s}\braket{u_s \vert u_{s'}}\bra{u_{s'}} \\
+&= \sum_{s}\sum_{s'}\exp\left\lbrack\frac{2\pi i (s-s')}{r}\right\rbrack \delta_{ss'} \ket{u_s}\bra{u_{s'}} \\
+&= \sum_{s}\ket{u_s}\bra{u_{s}} \\
+&= I
+\end{aligned}$$
+
+Since $UU\dagger = I$, $U$ is unitary. 
+
+An alternative solution (and the one I was probably supposed to do based on the hint) is 
+
+$$\begin{aligned}
+\braket{ Uy \vert Uy'} &= \braket{xy \mod N \vert xy' \mod N} \\
+&= \delta_{xy \mod N, xy' \mod N} \\
+&= \delta_{y,y'} & \text{see below for justification}\\
+\end{aligned}$$
+
+For the delta function above, we wanted to find when $xy \equiv xy' \mod N$. Using the fact that $x$ is co-prime to $N$ and therefore has an inverse modulo $N$ we can write,
+
+$$\begin{aligned}
+xy \equiv xy' \mod N \\
+x^{-1}xy \equiv x^{-1}xy' \mod N \\
+y \equiv y' \mod N \\
+y = y' & \text{$U$ only acts nontrivially when $0\leq y\leq N-1$}
+\end{aligned}$$
+
+Therefore, $U$ is unitary since it preserves the inner product. 
+
+</details>
 
 
 

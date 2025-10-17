@@ -972,6 +972,53 @@ So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
 </details>
 
 
+**Exercise A4.19**
+
+Show that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. Use this fact to conclude that $\text{gcd}(p_n,q_n)=1$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From Theorem A4.15 we know that for $2\leq n \leq N$
+
+$$\begin{aligned}
+p_n \equiv a_np_{n-1} + p_{n-2} \\
+q_n \equiv a_nq_{n-1} + q_{n-2}
+\end{aligned}$$
+
+For $n=0$ we are given
+
+$$\begin{aligned}
+p_0 = a_0 \\
+q_0 = 1
+\end{aligned}$$
+
+For $n=1$ we are given
+
+$$\begin{aligned}
+p_1 = 1 + a_0a_1 \\
+q_1 = a_1
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+q_np_{n-1} - p_nq_{n-1} &= (a_nq_{n-1} + q_{n-2})p_{n-1}-(a_np_{n-1} + p_{n-2})q_{n-1} \\
+&= a_nq_{n-1}p_{n-1} + q_{n-2}p_{n-1} - a_np_{n-1}q_{n-1} - p_{n-2}q_{n-1}\\
+&= q_{n-2}p_{n-1} - p_{n-2}q_{n-1}\\
+&= -(q_{n-1}p_{n-2} - p_{n-1}q_{n-2}) & \text{this is $-1$ times the same expression at $n-1$}\\
+&= \vdots & \text{repeat until we reach the base case of $n=1$}\\
+&= (-1)^{n-1}(q_1p_0 - p_1q_0) \\
+&= (-1)^{n-1}(a_1a_0 - (1+a_0a_1)) \\
+&= (-1)^{n-1}(-1)\\
+&= (-1)^n
+\end{aligned}$$
+
+Therefore, $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. 
+
+If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$. So $d \vert 1$ and so $d=1$ which means $\text{gcd}(p_n,q_n)=1$.
+
+</details>
 
 
 ## Order-finding and factoring applications

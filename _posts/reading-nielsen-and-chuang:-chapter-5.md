@@ -1052,6 +1052,21 @@ The least positive $r$ such that $x^r=1\mod 21$ is 6. Therefore, the order of $x
 </details>
 
 
+**Exercise 5.11**
+
+Show that the order of $x$ satisfies $r \leq N$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From Theorem A4.9 we know that $x^{\varphi(N)} = 1 \mod N$ and so $r \leq \varphi(N)$. By definition, $\varphi(N)$ is the number of positive integers less than $N$ which are co-prime to $N$, which means $\varphi(N) \leq N$. Therefore, $r \leq \varphi(N) \leq N$. Thus, the order of $x$ satisfies $r \leq N$.   
+
+</details>
+
+
+
+
+
 
 
 

@@ -940,6 +940,38 @@ We know step (1) and step (3) are efficient because they are the efficient facto
 
 </details>
 
+**Exercise A4.18**
+
+Find the continued fraction expansion for $x=19/17$ and $x=77/65$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+x &= \frac{19}{17} \\
+&= 1 + \frac{2}{17} \\
+&= 1 + \frac{1}{\frac{17}{2}} \\
+&= 1 + \frac{1}{8 + \frac{1}{2}} \\
+\end{aligned}$$
+
+So, $x=\lbrack 1, 8, 2 \rbrack$
+
+$$\begin{aligned}
+x &= \frac{77}{65} \\
+&= 1 + \frac{12}{65} \\
+&= 1 + \frac{1}{\frac{65}{12}} \\
+&= 1 + \frac{1}{5 + \frac{5}{12}} \\
+&= 1 + \frac{1}{5 + \frac{1}{\frac{12}{5}}} \\
+&= 1 + \frac{1}{5 + \frac{1}{2 + \frac{2}{5}}} \\
+&= 1 + \frac{1}{5 + \frac{1}{2 + \frac{1}{\frac{5}{2}}}} \\
+&= 1 + \frac{1}{5 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}} \\
+\end{aligned}$$
+
+So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
+
+</details>
+
+
 
 
 ## Order-finding and factoring applications

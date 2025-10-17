@@ -1031,5 +1031,31 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 ### Order-finding and factoring applications - Exercises
 
 
+**Exercise 5.10**
+
+Show that the order of $x=5 \mod 21$ is 6. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+So we want to find the least positive $r$ such that $x^r=1\mod 21$, when $x=5\mod 21$. 
+
+Check $r=1$, $x = 5 \mod 21 \neq 1 \mod 21$ <br>
+Check $r=2$, $x^2 = 4 \mod 21 \neq 1 \mod 21$ <br>
+Check $r=3$, $x^3 = 20 \mod 21 \neq 1 \mod 21$ <br>
+Check $r=4$, $x^4 = 16 \mod 21 \neq 1 \mod 21$ <br>
+Check $r=5$, $x^5 = 17 \mod 21 \neq 1 \mod 21$ <br>
+Check $r=6$, $x^6 = 1 \mod 21$
+
+The least positive $r$ such that $x^r=1\mod 21$ is 6. Therefore, the order of $x$ is 6.
+
+</details>
+
+
+
+
+
+
+
 
 

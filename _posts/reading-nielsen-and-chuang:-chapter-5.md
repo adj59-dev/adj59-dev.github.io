@@ -1071,31 +1071,7 @@ Show that $U$ is unitary.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From equation 5.36, $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in\lbrace 0,1 \rbrace^L$. From equations 5.38 and 5.39 we know that we can write $U$ as
-
-$$\begin{aligned}
-U &= \sum_{s}\exp\left\lbrack\frac{2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s}
-\end{aligned}$$
-
-where $\ket{u_s}$ are the eigenstates. We can then write
-
-$$\begin{aligned}
-U^\dagger &= \sum_{s}\exp\left\lbrack\frac{-2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s}
-\end{aligned}$$
-
-and so,
-
-$$\begin{aligned}
-UU^\dagger &= \left(\sum_{s}\exp\left\lbrack\frac{2\pi i s}{r}\right\rbrack \ket{u_s}\bra{u_s} \right)\left(\sum_{s'}\exp\left\lbrack\frac{-2\pi i s'}{r}\right\rbrack \ket{u_{s'}}\bra{u_{s'}} \right) \\
-&= \sum_{s}\sum_{s'}\exp\left\lbrack\frac{2\pi i (s-s')}{r}\right\rbrack \ket{u_s}\braket{u_s \vert u_{s'}}\bra{u_{s'}} \\
-&= \sum_{s}\sum_{s'}\exp\left\lbrack\frac{2\pi i (s-s')}{r}\right\rbrack \delta_{ss'} \ket{u_s}\bra{u_{s'}} \\
-&= \sum_{s}\ket{u_s}\bra{u_{s}} \\
-&= I
-\end{aligned}$$
-
-Since $UU\dagger = I$, $U$ is unitary. 
-
-An alternative solution (and the one I was probably supposed to do based on the hint) is 
+From equation 5.36, $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in\lbrace 0,1 \rbrace^L$ and so,
 
 $$\begin{aligned}
 \braket{ Uy \vert Uy'} &= \braket{xy \mod N \vert xy' \mod N} \\

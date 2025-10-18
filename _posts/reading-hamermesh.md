@@ -62,4 +62,43 @@ Therefore, the cross ratio is invariant under projective transformation.
 
 </details>
 
+**Page 11**
+
+(1) Show that (A) and (B) are the only possible structures for the group of order 4.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+For the two groups given $a^2 = b$ and $a^2 = b^2 = c^2 = e$. We know $a^2 \neq a$ because then $a=e$. If we said $a^2 = c$ then we would get a group of the same form as (A), just with $b$ and $c$ swapped so this would not be a distinct structure. There are no other elements of the group that we could say $a^2$ is equal to, therefore there are no other distinct structures for a group of order 4. 
+
+</details>
+
+(2) Show directly that the group of order 4 must be abelian.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Group (A) is $\lbrace e, a, a^2, a^3 \rbrace$ and group (B) is $\lbrace e, a, b, c \rbrace$. To show that a group is abelian, we need to show that $ab = ba$ for all $a,b$ in the group. 
+
+For group (A),  since it is cyclic it is abelian. 
+
+For group (B), for any $a,b$ in the group, since $a^2=e$ and $b^2=e$, then $a=a^{-1}$ and $b=b^{-1}$. Therefore, $(ab)^{-1} = b^{-1}a^{-1} = ba$. But since $(ab)^2 = c^2 = e$, then also $(ab)^{-1} = ab$ and so $ab=(ab)^{-1} = ba$. Therefore, group (B) is abelian.
+
+</details>
+
+(3) Give a realization of each of the groups of order 4.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+For group (A), a realization could be $0^\circ$, $90^\circ$, $180^\circ$, and $270^\circ$ rotation about a fixed axis in three dimensions. 
+
+For group (B), a realization could be no rotation, $180^\circ$ rotation about the x-axis, $180^\circ$ rotation about the y-axis, and $180^\circ$ rotation about the z-axis in three dimensions.
+
+</details>
+
+
+
+
+
 

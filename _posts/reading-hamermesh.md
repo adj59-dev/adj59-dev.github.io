@@ -1,6 +1,6 @@
 # Reading Hamermesh
 
-I just finished reading *Group Theory And Its Application To Physical Problems* by Morton Hamermesh. 
+I just finished reading *Group Theory And Its Application To Physical Problems* by Morton Hamermesh. I read this in parallel with the book *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
 
 ## Navigation
@@ -38,7 +38,7 @@ $$\begin{aligned}
 where $x_1,x_2,x_3,x_4$ are the coordinates of the four points. Show that the cross ratio is invariant under projective transformation.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Proof</summary>
+<summary>Solution</summary>
 
 Projective transformation of a line is defined by
 

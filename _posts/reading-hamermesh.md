@@ -37,6 +37,9 @@ $$\begin{aligned}
 
 where $x_1,x_2,x_3,x_4$ are the coordinates of the four points. Show that the cross ratio is invariant under projective transformation.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Proof</summary>
+
 Projective transformation of a line is defined by
 
 $$\begin{aligned}
@@ -50,7 +53,13 @@ $$\begin{aligned}
 &= \frac{\left(\frac{ax_1+b}{cx_1+d}-\frac{ax_2+b}{cx_2+d}\right)\left(\frac{ax_3+b}{cx_3+d}-\frac{ax_4+b}{cx_4+d}\right)}{\left(\frac{ax_3+b}{cx_3+d}-\frac{ax_2+b}{cx_2+d}\right)\left(\frac{ax_1+b}{cx_1+d}-\frac{ax_4+b}{cx_4+d}\right)} \\
 &= \frac{\left(\frac{(ax_1+b)(cx_2+d)-(ax_2+b)(cx_1+d)}{(cx_1+d)(cx_2+d)}\right)\left(\frac{(ax_3+b)(cx_4+d)-(ax_4+b)(cx_3+d)}{(cx_3+d)(cx_4+d)}\right)}{\left(\frac{(ax_3+b)(cx_2+d)-(ax_2+b)(cx_3+d)}{(cx_3+d)(cx_2+d)}\right)\left(\frac{(ax_1+b)(cx_4+d)-(ax_4+b)(cx_1+d)}{(cx_1+d)(cx_4+d)}\right)}\\
 &= \frac{\left((ax_1+b)(cx_2+d)-(ax_2+b)(cx_1+d)\right)\left((ax_3+b)(cx_4+d)-(ax_4+b)(cx_3+d)\right)}{\left((ax_3+b)(cx_2+d)-(ax_2+b)(cx_3+d)\right)\left((ax_1+b)(cx_4+d)-(ax_4+b)(cx_1+d)\right)}\\
+&= \frac{\left((ad-bc)(x_1-x_2)\right)\left((ad-bc)(x_3-x_4)\right)}{\left((ad-bc)(x_3-x_2)\right)\left((ad-bc)(x_1-x_4)\right)}\\
+&= \frac{(x_1-x_2)(x_3-x_4)}{(x_3-x_2)(x_1-x_4)}\\
+&= \frac{(x_1-x_2)/(x_3-x_2)}{(x_1-x_4)/(x_3-x_4)}
 \end{aligned}$$
 
+Therefore, the cross ratio is invariant under projective transformation.
+
+</details>
 
 

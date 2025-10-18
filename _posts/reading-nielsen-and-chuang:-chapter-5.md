@@ -1025,6 +1025,7 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Quantum order finding algorithm      | 5.3.1                     | The phase estimation algorithm applied to the unitary operator $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in \lbrace 0,1\rbrace^L$ |
+| Modular exponentiation               | 5.3.1                     | A procedure to implement a controlled- $U^{2^j}$ operation for any integer $j$ outlined in Box 5.2.    |
 
 
   

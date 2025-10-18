@@ -98,7 +98,31 @@ For group (B), a realization could be no rotation, $180^\circ$ rotation about th
 </details>
 
 
+**Page 20**
 
+(1) Give the elements of the regular subgroup of $S_6$ which is isomorphic with the cyclic group of order $6$. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+The elements are $e$, $(123456)$, and the powers of $(123456)$ which are $(135)(246)$, $(14)(25)(36)$, $(153)(264)$, and $(165432)$.
+
+</details>
+
+(2) Use Cayley's theorem to find the possible structures of groups of order 6.
+
+This problem is equivalent to finding the structure of the regular subgroups of $S_6$. For regular permutation subgroups, we know that all the cycles in a permutation must have the same length. Therefore, we know that the elements in a subgroup must have either one 6-cycle, two 3-cycles, or three 2-cycles. 
+
+The elements of a subgroup containing a 6-cycle are given in problem (1) which is a cyclic group of order 6, $C_6$. 
+
+The order of two 3-cycles can be found by taking powers of an example permutation, say $(135)(246)$, which are $(153)(264)$, and $e$. Therefore, two 3-cycles are of order 3. 
+
+The order of three 2-cycles can also be found by taking powers of an example permutation, say $(14)(25)(36)$, when you square this permutation, you get $e$, so three 2-cycles are of order 2. 
+
+Therefore, every non-identity element must be one of: <br>
+* a single 6-cycle (order 6) <br>
+* a product of two disjoint 3-cycles (order 3) <br>
+* a product of three disjoint 2-cycles (order 2) <br>
+
+If the group has a 6-cycle element it is $C_6$. Otherwise, it is $S_3$.
 

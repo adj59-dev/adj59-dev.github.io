@@ -111,6 +111,9 @@ The elements are $e$, $(123456)$, and the powers of $(123456)$ which are $(135)(
 
 (2) Use Cayley's theorem to find the possible structures of groups of order 6.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 This problem is equivalent to finding the structure of the regular subgroups of $S_6$. For regular permutation subgroups, we know that all the cycles in a permutation must have the same length. Therefore, we know that the elements in a subgroup must have either one 6-cycle, two 3-cycles, or three 2-cycles. 
 
 The elements of a subgroup containing a 6-cycle are given in problem (1) which is a cyclic group of order 6, $C_6$. 
@@ -124,5 +127,12 @@ Therefore, every non-identity element must be one of: <br>
 * a product of two disjoint 3-cycles (order 3) <br>
 * a product of three disjoint 2-cycles (order 2) <br>
 
-If the group has a 6-cycle element it is $C_6$. Otherwise, it is $S_3$.
+Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (14)(25)(36), (15)(26)(34), (16)(24)(35) \rbrace$ which is of order 6. This subgroup is isomorphic to $S_3$
+
+Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
+
+</details>
+
+
+
 

@@ -127,7 +127,7 @@ Therefore, every non-identity element must be one of: <br>
 * a product of two disjoint 3-cycles (order 3) <br>
 * a product of three disjoint 2-cycles (order 2) <br>
 
-Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (14)(25)(36), (15)(26)(34), (16)(24)(35) \rbrace$ which is of order 6. This subgroup is isomorphic to $S_3$
+Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (14)(25)(36), (15)(26)(34), (16)(24)(35) \rbrace$ which is of order 6. If we set $(123)(456)=a$ and $(14)(25)(36)=b$, we see that this group is equivalent to $\lbrace e, a, a^2, b, ba, ba^2 \rbrace$ with $bab=a^{-1}$ and so this group is isomorphic to $S_3$
 
 Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
 

@@ -118,16 +118,16 @@ This problem is equivalent to finding the structure of the regular subgroups of 
 
 The elements of a subgroup containing a 6-cycle are given in problem (1) which is a cyclic group of order 6, $C_6$. 
 
-The order of two 3-cycles can be found by taking powers of an example permutation, say $(135)(246)$, which are $(153)(264)$, and $e$. Therefore, two 3-cycles are of order 3. 
+The order of two 3-cycles can be found by taking powers of an example permutation, say $(123)(456)$, which are $(132)(465)$, and $e$. Therefore, two 3-cycles are of order 3. 
 
-The order of three 2-cycles can also be found by taking powers of an example permutation, say $(14)(25)(36)$, when you square this permutation, you get $e$, so three 2-cycles are of order 2. 
+The order of three 2-cycles can also be found by taking powers of an example permutation, say $(15)(24)(36)$, when you square this permutation, you get $e$, so three 2-cycles are of order 2. 
 
 Therefore, every non-identity element must be one of: <br>
 * a single 6-cycle (order 6) <br>
 * a product of two disjoint 3-cycles (order 3) <br>
 * a product of three disjoint 2-cycles (order 2) <br>
 
-Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (14)(25)(36), (15)(26)(34), (16)(24)(35) \rbrace$ which is of order 6. If we set $(123)(456)=a$ and $(14)(25)(36)=b$, we see that this group is equivalent to $\lbrace e, a, a^2, b, ba, ba^2 \rbrace$ with $bab=a^{-1}$ and so this group is isomorphic to $S_3$
+Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (15)(24)(36), (14)(26)(35), (16)(25)(34) \rbrace$ which is of order 6. If we set $(123)(456)=a$ and $(15)(24)(36)=b$, we see that this group is equivalent to $\lbrace e, a, a^2, b, ba, ba^2 \rbrace$ with $bab=a^{-1}$ and so this group is isomorphic to $S_3$
 
 Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
 
@@ -138,10 +138,13 @@ Therefore, for groups that are order 6, if the group has an element of order 6 i
 
 The cyclic permutations on four symbols form a subgroup $H$ of $S_4$. Resolve $S_4$ into left cosets with respect to $H$. Compare this resolution with one into right cosets. 
 
-By taking successive powers of $(1234)$ we get the cyclic $S_4$ subgroup $H=\lbrace (1234), (13)(24), (1432), e \rbrace$. Let's calculate some left cosets. 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+By taking successive powers of $(1234)$ we get the cyclic subgroup of $S_4$, $H=\lbrace (1234), (13)(24), (1432), e \rbrace$. Let's calculate some left cosets. 
 
 $$\begin{aligned}
-eH &= \lbrace (1234), (13)(24), (1432), e \rbrace \\
+eH &= \lbrace (1234), (13)(24), (1432), e \rbrace = H \\
 (12)H &= \lbrace (234), (1324), (143), (12) \rbrace \\
 (13)H &= \lbrace (12)(34), (24), (14)(23), (13) \rbrace \\
 (14)H &= \lbrace (123), (1342), (243), (14) \rbrace \\
@@ -151,9 +154,24 @@ eH &= \lbrace (1234), (13)(24), (1432), e \rbrace \\
 \end{aligned}$$
 
 
-The number of elements in $S_4 = 4! = 24$. Therefore, we can define $S_4 = eH + (12)H + (13)H + (14)H + (23)H + (34)H$, which has 24 unique elements. 
+The number of elements in $S_4 = 4! = 24$. Therefore, we can define $S_4 = H + (12)H + (13)H + (14)H + (23)H + (34)H$, which has 24 unique elements. 
+
+Now let's do the same for right cosets.
+
+$$\begin{aligned}
+He &= \lbrace (1234), (13)(24), (1432), e \rbrace = H \\
+H(12) &= \lbrace (134), (1423), (243), (12) \rbrace \\
+H(13) &= \lbrace (14)(23), (24), (12)(34), (13) \rbrace \\
+H(14) &= \lbrace (234), (1243), (132), (14) \rbrace \\
+H(23) &= \lbrace (124), (1342), (143), (23) \rbrace \\
+H(24) &= \lbrace (12)(34), (13), (14)(23), (24) \rbrace = H(13)\\
+H(34) &= \lbrace (123), (1324), (142), (34) \rbrace \\
+\end{aligned}$$
 
 
+Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This is a similar resolution as in the same permutations are multiplied to $H$, however the left and right cosets are not equal.
+
+</details>
 
 
 

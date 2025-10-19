@@ -134,5 +134,29 @@ Therefore, for groups that are order 6, if the group has an element of order 6 i
 </details>
 
 
+**Page 22**
+
+The cyclic permutations on four symbols form a subgroup $H$ of $S_4$. Resolve $S_4$ into left cosets with respect to $H$. Compare this resolution with one into right cosets. 
+
+By taking successive powers of $(1234)$ we get the cyclic $S_4$ subgroup $H=\lbrace (1234), (13)(24), (1432), e \rbrace$. Let's calculate some left cosets. 
+
+$$\begin{aligned}
+eH &= \lbrace (1234), (13)(24), (1432), e \rbrace \\
+(12)H &= \lbrace (234), (1324), (143), (12) \rbrace \\
+(13)H &= \lbrace (12)(34), (24), (14)(23), (13) \rbrace \\
+(14)H &= \lbrace (123), (1342), (243), (14) \rbrace \\
+(23)H &= \lbrace (134), (1243), (142), (23) \rbrace \\
+(24)H &= \lbrace (14)(23), (13), (12)(34), (24) \rbrace = (13)H \\
+(34)H &= \lbrace (124), (1423), (132), (34) \rbrace \\
+\end{aligned}$$
+
+
+The number of elements in $S_4 = 4! = 24$. Therefore, we can define $S_4 = eH + (12)H + (13)H + (14)H + (23)H + (34)H$, which has 24 unique elements. 
+
+
+
+
+
+
 
 

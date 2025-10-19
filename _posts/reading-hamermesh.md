@@ -180,9 +180,36 @@ Find the possible structures of groups of order 8.
 
 If the group contains an element $a$ of order 8, then the group is a cyclic group $\lbrace a, a^2, a^3, a^4, a^5, a^6, a^7, a^8=e \rbrace$. 
 
-To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. The element $b$ has order 2 or 4. If $b$ is order 4, then the element $b^3$ and $b^2$ must be equal to one of the 8 distinct elements. We can't have $b^3=e$ because  we assumed it has order 4. If $b^3=a$ it implies $ba=e$, if $b^3=a^2$ it implies $ba^2=e$, if $b^3=a^3$ it implies $ba^3=e$ any of these contradict the assumtion that $ba, ba^2, ba^3$ are distinct elements. For $b^3=b, ba, ba^2 \text{ or }, ba^3$ implies $b^2=e,a,a^2 \text{ or }, a^3$, respectively, $b^2=e$ is not possible because we assumed $b$ is order 4 and $b^2=a$ implies $ba^2=b$ which contradictions the assumtion that $b$ and $ba^2$ are distict elements. 
+To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. 
 
-There are no contradictions for $b^3=ba^3$ and $b^3=ba^2$ because for these it was implied that $b^2=a^3$ which implies $ba^3 = b^3$ and $b^2=a^2$ which implies $ba^2=b^3$. 
+The element $b$ has order 2 or 4. If $b$ is order 4, then the element $b^3$ and $b^2$ must each be equal to one of the 8 distinct elements. Let's consider the options:
+* $b^2=e$ or $b^3=e$: neither of these work because we assumed that $b$ has order 4
+* $b^3=a$ or $b^2=a$: if $b^3=a$ that implies $ba=e$ and if $b^2=a$ that impiles $a^2=e$, these contradict the assumtion that $ba$ and $a^2$ are distinct elements.
+* $b^3=a^2$: if $b^3=a^2$ it implies $ba^2=e$ which contradicts the assumption that $ba$ is a distinct element.
+* $b^3=a^3$ or $b^2=a^3$: if $b^3=a^3$ it implies $ba^3=e$ and if $b^2=a^3$ it implies $e = a^2$ these contradict the assumption that $ba^3$ and $a^2$ are distinct elements.
+* $b^3=b$ or $b^2=b$: if $b^3=b$ that implies $b^2=e$ which we already domonstrated is not possible and if $b^2=b$ it implies that $b=e$ which contradicts the assumption that $b$ is a distinct element.
+* $b^3=ba$ or $b^2=ba$: if $b^3=ba$ it implies that $a=b^2$ which we already demonstrated is not possible and if $b^2=ba$ it implies that $b=a$ which contradicts the assumption that $b$ is a distinct element.
+* $b^2=ba^2$: if $b^2=ba^2$ it implies that $b=a^2$ which contradicts the assumption that $b$ is a distinct element.
+* $b^3=ba^3$ or $b^2=ba^3$: if $b^3=ba^3$ it implies that $b^2=a^3$ which we already demonstrated is not possible and if $b^2=ba^3$ that implies $b=a^3$ which contradicts the assumption that $b$ is a distinct element. 
+
+Looking at what is left we see
+* $b^2=a^2$
+* $b^3=ba^2$
+
+Therefore, $b$ can have order 4 if and only if $b^2=a^2$. Otherwise, $b$ has order 2 and $b^2=e$.
+
+The group table is shown below for when $a$ is order 8
+
+| $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  | $a^7$  |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  | $a^7$  | $e$    |
+| $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  | $a^7$  | $e$    | $a$    |
+| $a^3$  | $a^4$  | $a^5$  | $a^6$  | $a^7$  | $e$    | $a$    | $a^2$  | 
+| $a^4$  | $a^5$  | $a^6$  | $a^7$  | $e$    | $a$    | $a^2$  | $a^3$  |
+| $a^5$  | $a^6$  | $a^7$  | $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  |
+| $a^6$  | $a^7$  | $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  |
+| $a^7$  | $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  |
+
 
 
 

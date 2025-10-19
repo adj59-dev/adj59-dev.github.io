@@ -174,6 +174,15 @@ Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This
 </details>
 
 
+**Page 23**
+
+Find the possible structures of groups of order 8.
+
+If the group contains an element $a$ of order 8, then the group is a cyclic group $\lbrace a, a^2, a^3, a^4, a^5, a^6, a^7, a^8=e \rbrace$. 
+
+To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. The element $b$ has order 2 or 4. If $b$ is order 4, then the element $b^3$ and $b^2$ must be equal to one of the 8 distinct elements. We can't have $b^3=e$ because  we assumed it has order 4. If $b^3=a$ it implies $ba=e$, if $b^3=a^2$ it implies $ba^2=e$, if $b^3=a^3$ it implies $ba^3=e$ any of these contradict the assumtion that $ba, ba^2, ba^3$ are distinct elements. For $b^3=b, ba, ba^2 \text{ or }, ba^3$ implies $b^2=e,a,a^2 \text{ or }, a^3$, respectively, $b^2=e$ is not possible because we assumed $b$ is order 4 and $b^2=a$ implies $ba^2=b$ which contradictions the assumtion that $b$ and $ba^2$ are distict elements. 
+
+There are no contradictions for $b^3=ba^3$ and $b^3=ba^2$ because for these it was implied that $b^2=a^3$ which implies $ba^3 = b^3$ and $b^2=a^2$ which implies $ba^2=b^3$. 
 
 
 

@@ -180,7 +180,7 @@ Find the possible structures of groups of order 8.
 
 If the group contains an element $a$ of order 8, then the group is a cyclic group $\lbrace a, a^2, a^3, a^4, a^5, a^6, a^7, a^8=e \rbrace$. 
 
-To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. 
+To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another distinct element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. 
 
 The element $b$ has order 2 or 4. If $b$ is order 4, then the element $b^3$ and $b^2$ must each be equal to one of the 8 distinct elements. Let's consider the options:
 * $b^2=e$ or $b^3=e$: neither of these work because we assumed that $b$ has order 4
@@ -198,7 +198,7 @@ Looking at what is left we see
 
 Therefore, $b$ can have order 4 if and only if $b^2=a^2$. Otherwise, $b$ has order 2 and $b^2=e$. 
 
-Now let's check to see if the elements $a$ and $b$ commute. If they commute $ab = ba$ and so $(ab)^2 = (ab)(ab) = a^2 b^2$. When $b$ is order 4, $a^2b^2 = a^4=e$ and so for some groups $a$ and $b$ can commute. When $b$ is order 2, $a^2b^2 = a^2 \neq e$. Checking larger powers we see $(ab)^3 = ba^3$, $(ab)^4 = e$ and so $(ab)$ is order 4, which is allowed so $a$ and $b$ can commute for some groups. 
+Now let's check to see if the elements $a$ and $b$ can commute. In the book, the authors check the order of $ab$ when determining the possible structure of groups of order 6 to see if it contradicts any assumptions made thus far and so we'll perform a similar check for groups of order 8. If $a$ and $b$ commute $ab = ba$ and so $(ab)^2 = (ab)(ab) = (ab)(ba) = ab^2a$. When $b$ is order 4, $ab^2a = a^4=e$, which does not contradict any assumptions. When $b$ is order 2, $ab^2a = a^2 \neq e$. Checking larger powers, we see $(ab)^3 = ba^3$, $(ab)^4 = e$ and so $(ab)$ is order 4, which also does not contradict any assumptions. So unlike groups of order 6, groups of order 8 can have the elements commute.
 
 Let's now suppose the group contains no order 4 or order 8 elements. Now we have $a$, $b$, and $c$ all of order 2. Then the elements are $\lbrace e, a, b, c, ab, ac, bc, abc \rbrace$. 
 

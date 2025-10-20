@@ -5,7 +5,7 @@ I just finished reading *Group Theory And Its Application To Physical Problems* 
 
 ## Navigation
 
-* [Chapter 1. Elements of Group Theory](#chapter-1.-elements-of-group-theory)
+* [Chapter 1 Elements of Group Theory](#chapter-1-elements-of-group-theory)
 * [Chapter 2](#chapter-2)
 * [Chapter 3](#chapter-3)
 * [Chapter 4](#chapter-4)
@@ -21,7 +21,7 @@ I just finished reading *Group Theory And Its Application To Physical Problems* 
 
 
 
-## Chapter 1. Elements of Group Theory
+## Chapter 1 Elements of Group Theory
 
 
 

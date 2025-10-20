@@ -343,3 +343,43 @@ $$\begin{aligned}
 </details>
 
 
+**Page 28**
+
+By taking successive products of the permutations 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+$$\begin{aligned}
+(1234)(5678) & \text{and} & (1537)(2846)
+\end{aligned}$$
+
+show that one generates a group of order 8. Separate the elements of the group into conjugate classes. Show that this group (the quaternion group) is isomorphic to the group with elements
+
+$$\begin{aligned}
+1, -1, i, -i, j, -j, k, -k;\\
+\end{aligned}$$
+
+$$\begin{aligned}
+i^2=j^2=k^2=-1, & ij=k, & jk=i, & ki=j
+\end{aligned}$$
+
+Let $a=(1234)(5678)$ and $b=(1537)(2846)$ then 
+
+$$\begin{aligned}
+a^2 &= (13)(24)(57)(68) & &\Leftrightarrow i^2 = -1\\
+b^2 &= (13)(24)(57)(68) &= a^2 &\Leftrightarrow j^2 = -1\\
+ab &= (1638)(2547) &= c &\Leftrightarrow ij=k\\
+c^2 &= (13)(24)(57)(68) &= a^2 = b^2 &\Leftrightarrow k^2 = -1\\
+bc &= (1234)(5678) &= a &\Leftrightarrow jk = i\\
+ca &= (1537)(2846) &= b &\Leftrightarrow ki = j\\
+a^4 &= e & = b^4 = c^4 &\Leftrightarrow 1 = i^4=j^4=k^4\\
+\end{aligned}$$
+
+Therefore, the group $\lbrace e, a^2, a, a^3, b, b^3, ab, (ab)^3\rbrace$ is isomorphic to $\lbrace  1, -1, i, -i, j, -j, k, -k \rbrace$. 
+
+</details>
+
+
+
+

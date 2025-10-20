@@ -178,6 +178,9 @@ Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This
 
 Find the possible structures of groups of order 8.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 If the group contains an element $a$ of order 8, then the group is a cyclic group $\lbrace a, a^2, a^3, a^4, a^5, a^6, a^7, a^8=e \rbrace$. 
 
 To find other possible structure, suppose that the group contains no elements of order 8, but instead has element $a$ of order 4. Thus, the group contains the subgroup $\lbrace a, a^2, a^3, a^4=e \rbrace$. If the group contains another distinct element, b, then it contains 8 distinct elements $\lbrace e, a, a^2, a^3, b, ba, ba^2, ba^3 \rbrace$. 
@@ -198,16 +201,19 @@ Looking at what is left we see
 
 Therefore, $b$ can have order 4 if and only if $b^2=a^2$. Otherwise, $b$ has order 2 and $b^2=e$. 
 
-Now let's check to see if the elements $a$ and $b$ can commute. In the book, the authors check the order of $ab$ when determining the possible structure of groups of order 6 to see if it contradicts any assumptions made thus far and so we'll perform a similar check for groups of order 8. If $a$ and $b$ commute $ab = ba$ and so $(ab)^2 = (ab)(ab) = (ab)(ba) = ab^2a$. When $b$ is order 4, $ab^2a = a^4=e$, which does not contradict any assumptions. When $b$ is order 2, $ab^2a = a^2 \neq e$. Checking larger powers, we see $(ab)^3 = ba^3$, $(ab)^4 = e$ and so $(ab)$ is order 4, which also does not contradict any assumptions. So unlike groups of order 6, groups of order 8 can have the elements commute.
+Now let's check to see if the elements $a$ and $b$ can commute. In the book, the authors check the order of $ab$ when determining the possible structure of groups of order 6 to see if it contradicts any assumptions made thus far and so we'll perform a similar check for groups of order 8. If $a$ and $b$ commute $ab = ba$ and so $(ab)^2 = (ab)(ab) = (ab)(ba) = ab^2a$. When $b$ is order 4, $ab^2a = a^4=e$, which does not contradict any assumptions. When $b$ is order 2, $ab^2a = a^2 \neq e$. Checking larger powers, we see $(ab)^3 = ba^3$, $(ab)^4 = e$ and so $(ab)$ is order 4, which also does not contradict any assumptions. So unlike groups of order 6, non-cyclic groups of order 8 can have the elements commute.
 
-Let's now suppose the group contains no order 4 or order 8 elements. Now we have $a$, $b$, and $c$ all of order 2. Then the elements are $\lbrace e, a, b, c, ab, ac, bc, abc \rbrace$. 
+Let's now suppose the group contains no order 4 or order 8 elements. Now we have $a$, $b$, and $c$ all of order 2. Then the elements are $\lbrace e, a, b, c, ab, ac, bc, abc \rbrace$. Since all the elements are order 2, $(ab)^2=(bc)^2=(ca)^2=e$ and so, using $ab$ as an example, $(ab)^2=abab = e \Rightarrow ab=ba$. Therefore, all terms must commute. 
 
+Therefore, the following groups are possible for groups of order 8:
+* $\braket{a \vert a^8=e}$
+* $\braket{a,b \vert a^4=b^4=e, a^2=b^2, bab^{-1} = a}$
+* $\braket{a,b \vert a^4=b^2=e, bab^{-1} = a}$
+* $\braket{a,b \vert a^4=b^4=e, a^2=b^2, bab^{-1} = a^{-1}}$
+* $\braket{a,b \vert a^4=b^2=e, bab^{-1} = a^{-1}}$
+* $\braket{a,b,c \vert a^2=b^2=c^2=e, \text{all commute}}$
 
-
-
-
-
-The group table is shown below for when $a$ is order 8
+The group table for $\braket{a \vert a^8=e}$ is
 
 | $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  | $a^7$  |
 |:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
@@ -220,6 +226,66 @@ The group table is shown below for when $a$ is order 8
 | $a^7$  | $e$    | $a$    | $a^2$  | $a^3$  | $a^4$  | $a^5$  | $a^6$  |
 
 
+The group table for $\braket{a,b \vert a^4=b^4=e, a^2=b^2, bab^{-1} = a}$ is
 
+| $e$    | $a$    | $a^2$  | $a^3$  | $b$    | $ba$   | $ba^2$ | $ba^3$ |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $a^2$  | $a^3$  | $e$    | $ba$   | $ba^2$ | $ba^3$ | $b$    |
+| $a^2$  | $a^3$  | $e$    | $a$    | $ba^2$ | $ba^3$ | $b$    | $ba$   |
+| $a^3$  | $e$    | $a$    | $a^2$  | $ba^3$ | $b$    | $ba$   | $ba^2$ | 
+| $b$    | $ba$   | $ba^2$ | $ba^3$ | $a^2$  | $a^3$  | $e$    | $a$    |
+| $ba$   | $ba^2$ | $ba^3$ | $b$    | $a^3$  | $e$    | $a$    | $a^2$  |
+| $ba^2$ | $ba^3$ | $b$    | $ba$   | $e$    | $a$    | $a^2$  | $a^3$  |
+| $ba^3$ | $b$    | $ba$   | $ba^2$ | $a$    | $a^2$  | $a^3$  | $e$    |
+
+The group table for $\braket{a,b \vert a^4=b^2=e, bab^{-1} = a}$ is
+
+| $e$    | $a$    | $a^2$  | $a^3$  | $b$    | $ba$   | $ba^2$ | $ba^3$ |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $a^2$  | $a^3$  | $e$    | $ba$   | $ba^2$ | $ba^3$ | $b$    |
+| $a^2$  | $a^3$  | $e$    | $a$    | $ba^2$ | $ba^3$ | $b$    | $ba$   |
+| $a^3$  | $e$    | $a$    | $a^2$  | $ba^3$ | $b$    | $ba$   | $ba^2$ | 
+| $b$    | $ba$   | $ba^2$ | $ba^3$ | $e$    | $a$    | $a^2$  | $a^3$  |
+| $ba$   | $ba^2$ | $ba^3$ | $b$    | $a$    | $a^2$  | $a^3$  | $e$    |
+| $ba^2$ | $ba^3$ | $b$    | $ba$   | $a^2$  | $a^3$  | $e$    | $a$    |
+| $ba^3$ | $b$    | $ba$   | $ba^2$ | $a^3$  | $e$    | $a$    | $a^2$  |
+
+The group table for $\braket{a,b \vert a^4=b^4=e, a^2=b^2, bab^{-1} = a^{-1}}$ is
+
+| $e$    | $a$    | $a^2$  | $a^3$  | $b$    | $ba$   | $ba^2$ | $ba^3$ |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $a^2$  | $a^3$  | $e$    | $ba^3$ | $b$    | $ba$   | $ba^2$ |
+| $a^2$  | $a^3$  | $e$    | $a$    | $ba^2$ | $ba^3$ | $b$    | $ba$   |
+| $a^3$  | $e$    | $a$    | $a^2$  | $ba$   | $ba^2$ | $ba^3$ | $b$    | 
+| $b$    | $ba$   | $ba^2$ | $ba^3$ | $a^2$  | $a^3$  | $e$    | $a$    |
+| $ba$   | $ba^2$ | $ba^3$ | $b$    | $a$    | $a^2$  | $a^3$  | $e$    |
+| $ba^2$ | $ba^3$ | $b$    | $ba$   | $e$    | $a$    | $a^2$  | $a^3$  |
+| $ba^3$ | $b$    | $ba$   | $ba^2$ | $a^3$  | $e$    | $a$    | $a^2$  |
+
+The group table for $\braket{a,b \vert a^4=b^2=e, bab^{-1} = a^{-1}}$ is
+
+| $e$    | $a$    | $a^2$  | $a^3$  | $b$    | $ba$   | $ba^2$ | $ba^3$ |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $a^2$  | $a^3$  | $e$    | $ba^3$ | $b$    | $ba$   | $ba^2$ |
+| $a^2$  | $a^3$  | $e$    | $a$    | $ba^2$ | $ba^3$ | $b$    | $ba$   |
+| $a^3$  | $e$    | $a$    | $a^2$  | $ba$   | $ba^2$ | $ba^3$ | $b$    | 
+| $b$    | $ba$   | $ba^2$ | $ba^3$ | $e$    | $a$    | $a^2$  | $a^3$  |
+| $ba$   | $ba^2$ | $ba^3$ | $b$    | $a^3$  | $e$    | $a$    | $a^2$  |
+| $ba^2$ | $ba^3$ | $b$    | $ba$   | $a^2$  | $a^3$  | $e$    | $a$    |
+| $ba^3$ | $b$    | $ba$   | $ba^2$ | $a$    | $a^2$  | $a^3$  | $e$    |
+
+The group table for $\braket{a,b,c \vert a^2=b^2=c^2=e, \text{all commute}}$ is
+
+| $e$    | $a$    | $b$    | $c$    | $ab$   | $bc$   | $ca$   | $abc$  |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| $a$    | $e$    | $ab$   | $ca$   | $b$    | $abc$  | $c$    | $bc$   |
+| $b$    | $ab$   | $e$    | $bc$   | $a$    | $c$    | $abc$  | $ca$   |
+| $c$    | $ca$   | $bc$   | $e$    | $abc$  | $b$    | $a$    | $ab$   | 
+| $ab$   | $b$    | $a$    | $abc$  | $e$    | $ca$   | $bc$   | $c$    |
+| $bc$   | $abc$  | $c$    | $b$    | $ca$   | $e$    | $ab$   | $a$    |
+| $ca$   | $c$    | $abc$  | $a$    | $bc$   | $ab$   | $e$    | $b$    |
+| $abc$  | $bc$   | $ca$   | $ab$   | $c$    | $a$    | $b$    | $e$    |
+
+</details>
 
 

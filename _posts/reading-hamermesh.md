@@ -310,7 +310,7 @@ In $S_5$ the distinct classes are:
 
 **Page 27**
 
-Continue the table to $n=5,6,7$. For $n=5$, give the cycle structure corresponding to each partition.
+Continue the table to $n=5,6,7$. For $n=5$, give the cycle structure corresponding to each partition. Find the number of permutations in each class of $S_5$.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -330,18 +330,16 @@ S_7: & (7), (61), (52), (51^2), (43), (421), (41^3), (3^21), (32^2), (321^2), (3
 In the book, these partitions for $S_5$ are of the form $(\lambda_1 \lambda_2 \lambda_3 \lambda_4 \lambda_5)$, where the number of $j-\text{cycles}$ is given by $v_j = \lambda_j-\lambda_{j+1}$ for $j<5$ and $v_5=\lambda_5$. Therefore, the structure for each partition for $S_5$ is
 
 $$\begin{aligned}
-\text{partition (book notation)} & (\lambda_1 \lambda_2 \lambda_3 \lambda_4 \lambda_5) & (v_1 v_2 v_3 v_4 v_5) & \text{example}\\
-(5) & (50000) & (50000): & e\\
-(41) & (41000) & (31000): & (12) \\
-(32) & (32000) & (12000): & (12)(34) \\
-(31^2) & (31100) & (20100): & (123) \\
-(2^21) & (22100) & (01100): & (123)(45)\\
-(21^3) & (21110) & (10010): & (1234) \\
-(1^5) & (11111) & (00001): & (12345)
+\text{partition (book notation)} & (\lambda_1 \lambda_2 \lambda_3 \lambda_4 \lambda_5) & (v_1 v_2 v_3 v_4 v_5) & \text{example} & \text{number of permutations} \\
+(5) & (50000) & (50000) & e & 1\\ 
+(41) & (41000) & (31000) & (12) & 10 \\
+(32) & (32000) & (12000) & (12)(34) & 15\\
+(31^2) & (31100) & (20100) & (123) & 20 \\
+(2^21) & (22100) & (01100) & (123)(45) & 20\\
+(21^3) & (21110) & (10010) & (1234) & 30\\
+(1^5) & (11111) & (00001) & (12345) & 24\\
 \end{aligned}$$
 
 </details>
-
-
 
 

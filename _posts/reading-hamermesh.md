@@ -327,16 +327,17 @@ S_6: & (6), (51), (42), (41^2), (3^2), (321), (31^3), (2^3), (2^21^2), (21^4), (
 S_7: & (7), (61), (52), (51^2), (43), (421), (41^3), (3^21), (32^2), (321^2), (31^4), (2^31), (2^21^3), (21^5), (1^7); & r= 15
 \end{aligned}$$
 
-The structure for each partition for $S_5$ is
+In the book, these partitions for $S_5$ are of the form $(\lambda_1 \lambda_2 \lambda_3 \lambda_4 \lambda_5)$, where the number of $j-\text{cycles}$ is given by $v_j = \lambda_j-\lambda_{j+1}$ for $j<5$ and $v_5=\lambda_5$. Therefore, the structure for each partition for $S_5$ is
 
 $$\begin{aligned}
-(5): & (12345)\\
-(41): & (1234) \\
-(32): & (123)(45) \\
-(31^2): & (123) \\
-(2^21): & (12)(34)\\
-(21^3): & (12) \\
-(1^5): & e
+\text{partition (book notation)} & (\lambda_1 \lambda_2 \lambda_3 \lambda_4 \lambda_5) & (v_1 v_2 v_3 v_4 v_5) & \text{example}\\
+(5) & (50000) & (50000): & e\\
+(41) & (41000) & (31000): & (12) \\
+(32) & (32000) & (12000): & (12)(34) \\
+(31^2) & (31100) & (20100): & (123) \\
+(2^21) & (22100) & (01100): & (123)(45)\\
+(21^3) & (21110) & (10010): & (1234) \\
+(1^5) & (11111) & (00001): & (12345)
 \end{aligned}$$
 
 </details>

@@ -308,3 +308,39 @@ In $S_5$ the distinct classes are:
 </details>
 
 
+**Page 27**
+
+Continue the table to $n=5,6,7$. For $n=5$, give the cycle structure corresponding to each partition.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The table through $n=7$ is 
+
+$$\begin{aligned}
+S_1: & (1); & r=1, \\
+S_2: & (2), (1^2); & r=2 \\
+S_3: & (3), (21), (1^3); & r=3 \\
+S_4: & (4), (31), (2^2), (21^2), (1^4); & r=5 \\
+S_5: & (5), (41), (32), (31^2), (2^21), (21^3), (1^5); & r= 7 \\
+S_6: & (6), (51), (42), (41^2), (3^2), (321), (31^3), (2^3), (2^21^2), (21^4), (1^6); & r= 11\\
+S_7: & (7), (61), (52), (51^2), (43), (421), (41^3), (3^21), (32^2), (321^2), (31^4), (2^31), (2^21^3), (21^5), (1^7); & r= 15
+\end{aligned}$$
+
+The structure for each partition for $S_5$ is
+
+$$\begin{aligned}
+(5): & (12345)\\
+(41): & (1234) \\
+(32): & (123)(45) \\
+(31^2): & (123) \\
+(2^21): & (12)(34)\\
+(21^3): & (12) \\
+(1^5): & e
+\end{aligned}$$
+
+</details>
+
+
+
+

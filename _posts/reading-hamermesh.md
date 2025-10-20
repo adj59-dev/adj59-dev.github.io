@@ -196,7 +196,16 @@ Looking at what is left we see
 * $b^2=a^2$
 * $b^3=ba^2$
 
-Therefore, $b$ can have order 4 if and only if $b^2=a^2$. Otherwise, $b$ has order 2 and $b^2=e$.
+Therefore, $b$ can have order 4 if and only if $b^2=a^2$. Otherwise, $b$ has order 2 and $b^2=e$. 
+
+Now let's check to see if the elements $a$ and $b$ commute. To do this, we'll look at $bab^{-1} \in \lbrace a, a^{-1} \rbrace$. For $b$ of order 4, if $a$ and $b$ commute $bab^{-1} = bab^3 = ab^4 = a$ and therefore $a$ and $b$ can commute for some groups. If they can't commute $bab^{-1} = a^{-1}$ 
+
+Let's now suppose the group contains no order 4 or order 8 elements. Now we have $a$, $b$, and $c$ all of order 2. Then the elements are $\lbrace e, a, b, c, ab, ac, bc, abc \rbrace$. 
+
+
+
+
+
 
 The group table is shown below for when $a$ is order 8
 

@@ -1171,11 +1171,30 @@ Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ modulo 
 
 **Exercise 5.15**
 
+Show that the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$, and thus may be computed in $O(L^2)$ operations if $x$ and $y$ are $L$ bit numbers. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If $z$ is the least common multiple of $x$ and $y$ that means it is the smallest integer where $z=mx=ny$ for some integers $m$ and $n$. Let $g=\text{gcd}(x,y)$ we know that $x=ga$ and $y=gb$ with $\text{gcd}(a,b)=1$ and so $ma=nb$. Since $a$ and $b$ are coprime, we know that $b \vert ma$ implies $b \vert m$ and that $a \vert nb$ implies $a \vert n$, therefore $m=bt$ and $n=at$ for some integer $t$. Thus 
+
+$$\begin{aligned}
+z &= mx = ny \\
+&= btga = atgb & \text{always true}\\
+&= bga & \text{let $t=1$ since $z$ is the least common multiple} \\
+&= \frac{(ga)(gb)}{g} \\
+&= \frac{xy}{g}
+\end{aligned}$$
+
+</details>
 
 
 
 
 
+
+
+Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$.
 
 
 

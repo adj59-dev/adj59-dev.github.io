@@ -381,5 +381,45 @@ Therefore, the group $\lbrace e, a^2, a, a^3, b, b^3, ab, (ab)^3\rbrace$ is isom
 </details>
 
 
+**Page 29**
+
+(1) Without enumerating, find the conjugate subgroups of $S_3$ in $S_4$; of $S_2$ in $S_4$; of the cyclic group $\lbrack e, (123), (132) \rbrack$ in $S_4$. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The subgroups are invariant if they contain either all or none of the elements in a given class of $S_4$. None of these subgroups are invariant. 
+
+The conjugate subgroups are calculated from $aHa^{-1}$ where $a$ is any element in $S_4$ and $H$ are the subgroups of $S_4$. When we form $aHa^{-1}$ with elements $a$ from $S_4$, we must get cycle structures that are the same as those of elements of $H$ and a subgroup that is the same size as $H$. 
+
+For $S_3$ each conjugate subgroup will be of the structure $\lbrace e, (12), (13), (23), (123), (132) \rbrace$, with just permutations of the numbers $\lbrace 1,2,3,4 \rbrace$. There will be four such conjugates. 
+
+For $S_2$ each conjugate subgroup with be of the structure $\lbrace e, (12) \rbrace$, with just permutations of the numbers $\lbrace 1,2,3,4 \rbrace$. There will be six such conjugates.
+
+Similarly, for the cyclic group each conjugate subgroup with be of the structure $\lbrack e, (123), (132) \rbrack$, with just permutations of the numbers $\lbrace 1,2,3,4 \rbrace$. There will be four such conjugates. 
+
+</details>
+
+(2) Prove that a subgroup of index 2 is necessarily invariant.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+The index of a subgroup is the number of distinct cosets of $H$ there are in $G$. If the index is 2, there are only two distinct left cosets in $G$: $H$ and $aH$ for $a\notin H$. There are also only two distinct right cosets: $H$ and $Ha$ for $a\notin H$. We see that $aH$ is all elements of $G$ that are not in $H$ and $Ha$ is also all elements of $G$ that are not in $H$. Therefore, $aH=Ha$. So, for any $g\in G$ it is either in $H$ and so $gH=H=Hg$ or it is not in $H$ and so $gH=aH=Ha=Hg$. Thus $gH=Hg$ for all $g$. Therefore $H$ is invariant. 
+
+</details>
+
+(3) Show that all subgroups of the quaternion group are invariant.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+A quaternion group is defined by $G=\lbrace 1,-1,i,-i,j,-j,k,-k\rbrace$ where $i^2=j^2=k^2=-1$, $ij=k$, $jk=i$, $ki=j$. Since any group with two of the components in $\lbrace i,j,k \rbrace$ will be able to generate the third component, the only nontrivial subgroups only contain one (or none) of them and is therefore of the structure $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, $\lbrace 1, -1 \rbrace$, or is $\lbrace 1 \rbrace$.
+
+For subgroups $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, their index is 2 and so by problem (2) are necessarily invariant. For $H=\lbrace 1, -1 \rbrace$ for every $g\in G$, $gHg^{-1}=H$ since all elements in $H$ commute with all $g\in G$ and so $H$ is invariant. The same can be said for $\lbrace 1 \rbrace$. Therefore, all subgroups in the quaternion group are invariant. 
+
+</details>
+
+
 
 

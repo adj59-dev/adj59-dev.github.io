@@ -1130,6 +1130,44 @@ $$\begin{aligned}
 </details>
 
 
+**Exercise 5.14**
+
+The quantum state produced in the order-finding algorithm, before the inverse Fourier transform, is 
+
+$$\begin{aligned}
+\ket{\psi}=\sum_{j=0}^{2^t-1}\ket{j}U^j \ket{1} = \sum_{j=0}^{2^t-1}\ket{j}\ket{x^j\mod N}
+\end{aligned}$$
+
+if we initialize the second register as $\ket{1}$. Show that the same state is obtained if we replace $U^j$ with a different unitary transform $V$, which computes
+
+$$\begin{aligned}
+V\ket{j}\ket{k} = \ket{j}\ket{k+x^j\mod N}
+\end{aligned}$$
+
+and start the second register in the state $\ket{0}$. Also show how to construct $V$ using $O(L^3)$ gates.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If we applied a different unitary transform $V$ and started the second register in state $\ket{0}$ then
+
+$$\begin{aligned}
+\ket{\psi} &= \sum_{j=0}^{2^t-1}V\ket{j}\ket{0} \\
+&=  \sum_{j=0}^{2^t-1}\ket{j}\ket{0 + x^j \mod N} & \text{since $k=0$} \\
+&= \sum_{j=0}^{2^t-1}\ket{j}\ket{x^j\mod N} \\
+&= \sum_{j=0}^{2^t-1}\ket{j}U^j\ket{1} \\
+\end{aligned}$$
+
+The transformation that we want to compute is
+
+$$\begin{aligned}
+\ket{j}\ket{k} &\rightarrow \ket{j}\ket{k+x^j\mod N}
+\end{aligned}$$
+
+Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ to the contents of the second register. This can be done by reversibly computing the function $x^j\mod N$ of $j$ in a third register and then reversibly adding it to the contents of the second register, using the trick of uncomputation to erase the contents of the third register upon completion. The algorithm for computing the modular exponential is the same as the one described in Box 5.2 and uses $O(L^3)$ gates. 
+
+</details>
+
 
 
 

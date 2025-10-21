@@ -1094,6 +1094,47 @@ Therefore, $U$ is unitary since it preserves the inner product.
 </details>
 
 
+**Exercise 5.13**
+
+Prove (5.44). In fact, prove that
+
+$$\begin{aligned}
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s}=\ket{x^k\mod N}
+\end{aligned}$$
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From equation (5.37) we know that
+
+$$\begin{aligned}
+\ket{u_s} \equiv \frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n\mod N}
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s} &= \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\left(\frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n \mod N}\right)\\
+&= \frac{1}{r}\sum_{s=0}^{r-1}\sum_{n=0}^{r-1}e^{2\pi is(k-n)/r}\ket{x^n\mod N} \\
+&= \frac{1}{r}\sum_{n=0}^{r-1}\left(\sum_{s=0}^{r-1}e^{2\pi is(k-n)/r}\right)\ket{x^n\mod N} \\
+&= \frac{1}{r}\sum_{n=0}^{r-1}\left(r \delta_{kn}\right)\ket{x^n\mod N} & \text{from the hint}\\
+&=\ket{x^k\mod N}
+\end{aligned}$$
+
+then for $k=0$
+
+$$\begin{aligned}
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s} &=\ket{x^0\mod N} &= \ket{1}
+\end{aligned}$$
+
+</details>
+
+
+
+
+
+
+
 
 
 

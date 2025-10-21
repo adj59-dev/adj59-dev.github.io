@@ -1186,15 +1186,34 @@ z &= mx = ny \\
 &= \frac{xy}{g}
 \end{aligned}$$
 
+Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$.
+
 </details>
 
 
+**Exercise 5.16**
+
+For all $x\geq 2$ prove that $\int_x^{x+1} 1/y^2 \ dy \geq 2/3x^2$. Show that 
+
+$$\begin{aligned}
+\sum_q \frac{1}{q^2} \leq \frac{3}{2} \int_2^\infty \frac{1}{y^2} \ dy = \frac{3}{4}
+\end{aligned}$$
+
+and thus that (5.58) holds.
+
+First,
+
+$$\begin{aligned}
+\int_x^{x+1} \frac{1}{y^2} \ dy &= \left. -\frac{1}{y}\right\vert_x^{x+1} & \text{for $x\neq 0 \text{ or } -1$}\\
+&= \frac{1}{x} - \frac{1}{x+1} \\
+&=\frac{x+1}{x(x+1)} - \frac{x}{x(x+1)} \\
+&= \frac{x}{x^2+x}
+\end{aligned}$$
+
+The numerator $x \geq 2$ for all $x\geq 2$. The denomenator $x^2+x < 3x^2$ for all $x\geq 2$. Therefore, $\int_x^{x+1} 1/y^2 \ dy=\frac{x}{x^2+x} \geq \frac{2}{3x^2}$ for all $x\geq 2$.   
 
 
 
-
-
-Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$.
 
 
 

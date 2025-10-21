@@ -1164,10 +1164,12 @@ $$\begin{aligned}
 \ket{j}\ket{k} &\rightarrow \ket{j}\ket{k+x^j\mod N}
 \end{aligned}$$
 
-Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ to the contents of the second register. This can be done by reversibly computing the function $x^j\mod N$ of $j$ in a third register and then reversibly adding it to the contents of the second register, using the trick of uncomputation to erase the contents of the third register upon completion. The algorithm for computing the modular exponential is the same as the one described in Box 5.2 and uses $O(L^3)$ gates. 
+Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ modulo $N$ to the contents of the second register. This can be done by reversibly computing the function $x^j\mod N$ of $j$ in a third register and then reversibly adding it modulo $N$ to the contents of the second register, using the trick of uncomputation to erase the contents of the third register upon completion. The algorithm for computing the modular exponential is the same as the one described in Box 5.2 and uses $O(L^3)$ gates. 
 
 </details>
 
+
+**Exercise 5.15**
 
 
 

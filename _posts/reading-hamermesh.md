@@ -6,8 +6,8 @@ I just finished reading *Group Theory And Its Application To Physical Problems* 
 ## Navigation
 
 * [Chapter 1 Elements of Group Theory](#chapter-1-elements-of-group-theory)
-* [Chapter 2](#chapter-2)
-* [Chapter 3](#chapter-3)
+* [Chapter 2 Symmetry Groups](#chapter-2-symmetry-groups)
+* [Chapter 3 Group Representations](#chapter-3-group-representations)
 * [Chapter 4](#chapter-4)
 * [Chapter 5](#chapter-5)
 * [Chapter 6](#chapter-6)
@@ -23,7 +23,7 @@ I just finished reading *Group Theory And Its Application To Physical Problems* 
 
 ## Chapter 1 Elements of Group Theory
 
-
+When comparing the information in this chapter of the book to other resources, I noticed that the term "invariant subgroup" seems to be outdated - it seems to be referred to a "normal subgroup" nowadays.
 
 ### Elements of Group Theory - Problems
 
@@ -421,5 +421,30 @@ For subgroups $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, their i
 </details>
 
 
+## Chapter 2 Symmetry Groups
 
+
+
+### Symmetry Groups - Problems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Chapter 3 Group Representations
+
+
+
+### Group Representations - Problems
 

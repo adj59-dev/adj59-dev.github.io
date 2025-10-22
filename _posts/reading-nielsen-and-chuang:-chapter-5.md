@@ -1024,8 +1024,9 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum order finding algorithm      | 5.3.1                     | The phase estimation algorithm applied to the unitary operator $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in \lbrace 0,1\rbrace^L$ |
+| Quantum order finding algorithm      | 5.3.1                     | The phase estimation algorithm applied to the unitary operator $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in \lbrace 0,1\rbrace^L$ <br> Procedure: <br> 1. initial state $\ket{0}\ket{1}$ <br> 2. create superposition $\rightarrow \frac{1}{\sqrt{2^t}} \sum_{j=0}^{2^t-1}\ket{j}\ket{1}$ <br> 3. apply $U_{x,N}$, $\rightarrow \frac{1}{\sqrt{2^t}} \sum_{j=0}^{2^t-1}\ket{j}\ket{x^{j}\mod N}\approx \frac{1}{\sqrt{r2^t}}\sum_{x=0}^{r-1}\sum_{j=0}^{2^t-1} e^{2\pi isj/r}\ket{j}\ket{u_s}$ <br> 4. apply inverse Fourier transform to the first register $\rightarrow \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{\widetilde{s/r}}\ket{u_x}$ <br> 5. measure first register $\rightarrow \widetilde{s/r}$ <br> 6. apply continued fractions algorithm $\rightarrow r$ |
 | Modular exponentiation               | 5.3.1                     | A procedure to implement a controlled- $U^{2^j}$ operation for any integer $j$ outlined in Box 5.2.    |
+| Reduction of factoring to order-finding | 5.3.2                  | 1. if $N$ is even, return the factor 2. <br> 2. Determine whether $N=a^b$ for integers $a\geq 1$ and $b\geq 2$, and if so return the factor $a$. <br> 3. Randomly choose $x$ in the range 1 to $N-1$. if $\text{gcd}(x,N)>1$ then return the factor $\text{gcd}(x,N)$. <br> 4. Use the order-finding subroutine to find the order $r$ of $x$ modulo $N$. <br> 5. If $r$ is even and $x^{r/2}\neq -1\mod N$ then compute $\text{gcd}(x^{r/2}-1,N)$ and $\text{gcd}(x^{r/2}+1,N)$, and test to see if one of these is a non-trivial factor, returning that factor if so. Otherwise, the algorithm fails. |
 
 
   
@@ -1226,6 +1227,39 @@ $$\begin{aligned}
 and thus (5.58) holds. 
 
 </details>
+
+
+**Exercise 5.17**
+
+Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 1$. (Note: I switched the values for $a$ and $b$ from what is in the book.) This may be done as follows: <br>
+(1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
+(2) Show that it takes at most $O(L^2)$ operations to compute $\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. <br>
+(3) Show that it takes at most $O(L^2)$ operations to compute $u_1^b$ and $u_2^b$ (use repeated squaring) and check to see if either is equal to $N$. <br>
+(4) Combine the previous results to give an $O(L^3)$ operation algorithm to determine whether $N=a^b$ for integers $a$ and $b$. 
+
+For (1), if $b$ exists,
+
+$$\begin{aligned}
+L &= \lfloor \log(N)\rfloor+1 \\
+&= \lfloor \log(a^b) \rfloor +1 \\
+&= \lfloor b\log(a) \rfloor +1 \\
+&\geq b & \text{since $a\geq 2$}
+\end{aligned}$$
+
+For (2), 
+
+To compute $\log(N)$ you just need to find the most significant 1-bit for N which takes $O(\log(N))=O(L)$ operations to scan for MSB. 
+
+To compute $x=y/b$ for $b\leq L$, Schoolbook long division could be used which requires $O(b^2) \leq O(L^2)$ operations, though faster algorithms do exists. 
+
+To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then increment and decrement by 1. If $2^x$ is calculated with $x$ multiplications, each multiplication uses $O(n)$ operations where $n$ is the number of bits used for the numbers. $O(x)$ bits are needed to store $2^x$ and so the calculation will have less than $O(x^2) \leq O(L^2)$ operations, if $x\leq L$. 
+
+
+
+
+
+
+
 
 
 

@@ -1253,12 +1253,29 @@ $$\begin{aligned}
 \frac{1}{2} &> \vert 2^{\tilde{x}} - 2^x \vert \\
 &= \vert 2^x(2^{\tilde{x}-x} - 1) \vert \\
 &= \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$}\\
-&= \vert a \ln(2) (\tilde{x}-x) \vert & \text{since $a\approx 2^x$} \\
-\frac{1}{2\ln(2)a} &> \vert \tilde{x}-x \vert \\
+&= \vert \ln(2)2^x (\tilde{x}-x) \vert \\
+\frac{1}{2\ln(2)2^x} &> \vert \tilde{x}-x \vert \\
 \end{aligned}$$
 
-Therefore, we'll need $p$ fractional bits such that $2^{-p} < \frac{1}{2\ln(2)a}$ and so $p>\log(2\ln(2)a)$. We'll also need the approximately $\log(\frac{L}{b})$ integer bits, which is negligible compared to the number of fractional bits. Therefore, the total number of bits needed is $O(\log(a))\approx O(\frac{L}{b})$. 
+We can write $N=a2^n$ for some integer $n$ and $a\in (0.5, 1 \rbrack$. Therefore, $\log (N) = \log(a) + n$. We can find $n$ by taking powers of $2$ and checking if they are greater than $N$, the last power that is less than $N$ is $n$. This will invlove multiplication of a $2$ bit number and a number of up to $n$ bits and so is $O(n^2)$ operations. Then, we'll need to calculate $a = N/2^n$. This can be done with schoolbook long division which requires $O(L^2)$ operations. Then we need to calculate $\log(a)$ to the appropriate precision. This can be done using the Maclaurin series 
 
+$$\begin{aligned}
+\log(a + 1) &= \frac{1}{\ln(2)}\sum_{j=1}^{\infty}\frac{(-1)^{j-1}}{j}a^{j} \\
+\end{aligned}$$
+
+We'll need a number of terms $k$ such that 
+
+$$\begin{aligned}
+\frac{1}{2\ln(2)2^x} > \frac{a^{k}}{k} \\
+\end{aligned}$$
+
+This will most likely be true before $k=N$ because
+
+$$\begin{aligned}
+\frac{1}{2\ln(2)2^x} > \frac{1}{2\ln(2)N} > \frac{a^{N}}{N} \\
+\end{aligned}$$
+
+The number of operations needed to calculate these terms is dependent on the number of bits needed to represent them to the necessary precision.  
 
 To compute $x=y/b=\log(N)/b=L/b$ for $b\leq L$, schoolbook long division could be used which requires $O(L^2)$ operations, though faster algorithms do exists. 
 

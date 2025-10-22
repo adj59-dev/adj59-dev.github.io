@@ -1233,7 +1233,7 @@ and thus (5.58) holds.
 
 Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 1$. (Note: I switched the values for $a$ and $b$ from what is in the book.) This may be done as follows: <br>
 (1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
-(2) Show that it takes at most $O(L^2)$ operations to compute $\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. <br>
+(2) Show that it takes at most $O(L^2)$ operations to compute $y=\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. (Note: changed $\log N$ to $y=\log N$.) <br>
 (3) Show that it takes at most $O(L^2)$ operations to compute $u_1^b$ and $u_2^b$ (use repeated squaring) and check to see if either is equal to $N$. <br>
 (4) Combine the previous results to give an $O(L^3)$ operation algorithm to determine whether $N=a^b$ for integers $a$ and $b$. 
 
@@ -1246,13 +1246,15 @@ L &= \lfloor \log(N)\rfloor+1 \\
 &\geq b & \text{since $a\geq 2$}
 \end{aligned}$$
 
-For (2), 
+For (2), To compute $y=\log(N)$ you just need to find the most significant 1-bit for N which takes $O(\log(N))=O(L)$ operations to scan for MSB. 
 
-To compute $\log(N)$ you just need to find the most significant 1-bit for N which takes $O(\log(N))=O(L)$ operations to scan for MSB. 
+To compute $x=y/b=\log(N)/b=L/b$ for $b\leq L$, schoolbook long division could be used which requires $O(L^2)$ operations, though faster algorithms do exists. 
 
-To compute $x=y/b$ for $b\leq L$, Schoolbook long division could be used which requires $O(b^2) \leq O(L^2)$ operations, though faster algorithms do exists. 
+To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then increment and decrement by 1. If $2^x$ is calculated with $x$ multiplications. Each multiplication will invlove a $2$ bit number and a $n$ bit number where $2 \leq n \leq x$, and so each multiplication will be $O(x)$. Since there are $x$ multiplications, the entire calculation will be $O(x^2)$ operations to calculate $2^x$ and $O(1)$ operations to increment or decrement the value, this is $O(L^2)$ since $x\leq L$. 
 
-To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then increment and decrement by 1. If $2^x$ is calculated with $x$ multiplications, each multiplication uses $O(n)$ operations where $n$ is the number of bits used for the numbers. $O(x)$ bits are needed to store $2^x$ and so the calculation will have less than $O(x^2) \leq O(L^2)$ operations, if $x\leq L$. 
+For (3), both $u_1$ and $u_2$ are $O(L)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log b)$ multiplications which is $O(\log L)$, then each multiplication would be $O(L^2)$ operations. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L^2\log L)$.  
+
+
 
 
 

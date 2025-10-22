@@ -1231,7 +1231,7 @@ and thus (5.58) holds.
 
 **Exercise 5.17**
 
-Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 1$. (Note: I switched the values for $a$ and $b$ from what is in the book.) This may be done as follows: <br>
+Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 1$ and $b\geq 2$. This may be done as follows: <br>
 (1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
 (2) Show that it takes at most $O(L^2)$ operations to compute $y=\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. (Note: changed $\log N$ to $y=\log N$.) <br>
 (3) Show that it takes at most $O(L^2)$ operations to compute $u_1^b$ and $u_2^b$ (use repeated squaring) and check to see if either is equal to $N$. <br>
@@ -1243,16 +1243,46 @@ $$\begin{aligned}
 L &= \lfloor \log(N)\rfloor+1 \\
 &= \lfloor \log(a^b) \rfloor +1 \\
 &= \lfloor b\log(a) \rfloor +1 \\
-&\geq b & \text{since $a\geq 2$}
+&\geq b + 1 & \text{if $a\geq 2$} \\
+&\geq b
 \end{aligned}$$
 
-For (2), To compute $y=\log(N)$ you just need to find the most significant 1-bit for N which takes $O(\log(N))=O(L)$ operations to scan for MSB. 
+For (2), To compute $y=\log(N)$ the number of operations depends on how many significant digits we need in the decimal place. For this algorithm, we need enough digits to calculate $2^x$ with an error less than $0.5$ and so
+
+$$\begin{aligned}
+\frac{1}{2} &> \vert 2^{\tilde{x}} - 2^x \vert \\
+&= \vert 2^x(2^{\tilde{x}-x} - 1) \vert \\
+&= \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$}\\
+&= \vert a \ln(2) (\tilde{x}-x) \vert & \text{since $a\approx 2^x$} \\
+\frac{1}{2\ln(2)a} &> \vert \tilde{x}-x \vert \\
+\end{aligned}$$
+
+Therefore, we'll need $p$ fractional bits such that $2^{-p} < \frac{1}{2\ln(2)a}$ and so $p>\log(2\ln(2)a)$. We'll also need the approximately $\log(\frac{L}{b})$ integer bits, which is negligible compared to the number of fractional bits. Therefore, the total number of bits needed is $O(\log(a))\approx O(\frac{L}{b})$. 
+
 
 To compute $x=y/b=\log(N)/b=L/b$ for $b\leq L$, schoolbook long division could be used which requires $O(L^2)$ operations, though faster algorithms do exists. 
 
-To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then increment and decrement by 1. If $2^x$ is calculated with $x$ multiplications. Each multiplication will invlove a $2$ bit number and a $n$ bit number where $2 \leq n \leq x$, and so each multiplication will be $O(x)$. Since there are $x$ multiplications, the entire calculation will be $O(x^2)$ operations to calculate $2^x$ and $O(1)$ operations to increment or decrement the value, this is $O(L^2)$ since $x\leq L$. 
+To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then round up or down. If $2^x$ is calculated with $x$ multiplications. Each multiplication will invlove a $2$ bit number and a $n$ bit number where $2 \leq n \leq x$, and so each multiplication will be $O(x)$. Since there are $x$ multiplications, the entire calculation will be $O(x^2)$ operations to calculate $2^x$ and $O(1)$ operations to round the value to the two nearest integers, this is $O(L^2)$ since $x\leq L$. 
 
-For (3), both $u_1$ and $u_2$ are $O(L)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log b)$ multiplications which is $O(\log L)$, then each multiplication would be $O(L^2)$ operations. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L^2\log L)$.  
+For (3), both $u_1$ and $u_2$ are $O(L)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log b)$ multiplications, which is $O(\log L)$. Then each multiplication would be $O(L\log L)$ operations, using the Harvey-Hoeven algorithm. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L(\log L)^2)$, which is better than $O(L^2)$.  
+
+For (4), 
+
+```
+for b = 2 to L:
+  x=log(N)/b        #O(L^2)
+  d = 2^x           #O(L^2)
+  u1 = floor(d)     #O(1)
+  u2 = ceil(d)      #O(1)
+  a1 = u1^b         #O(L(logL)^2)
+  if a1 = N:        #O(L)
+    return a1       #O(L)
+  a2 = u2^b         #O(L(logL)^2)
+  if a2 = N:        #O(L)
+    return a2       #O(L)
+```
+
+The code in the for loop is $O(L(\log L)^2)$ and the loop is executed $O(L)$ times, therefore, this algorithm is $O(L^2(\log L)^2)$, which is in $O(L^3)$. 
 
 
 

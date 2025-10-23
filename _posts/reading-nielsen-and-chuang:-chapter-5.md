@@ -1318,7 +1318,7 @@ Step 2. Determine whether $91=a^b$. Using the algorithm from exercise 5.17, I ge
 
 Step 3. $x=4$ was randomly chosen and it was determined that it is co-prime to $91$ since $\text{gcd}(4,91) = 1$.
 
-Step 4. find the order $r$ or $x=4$ for $N=91$. Using a brute force calculation, shown below, we see that $r=6$ and $x^{r/2} \mod 91 = x^{3} \mod 91 = 64 \neq -1 \mod 91$. 
+Step 4. find the order $r$ of $x=4$ for $N=91$. Using a brute force calculation, shown below, we see that $r=6$ and $x^{r/2} \mod 91 = x^{3} \mod 91 = 64 \neq -1 \mod 91$. 
 
 | $r$ | $x^r$ |	$x^r \mod N$ |
 |:---:|:-----:|:------------:|
@@ -1352,7 +1352,21 @@ From this, we know that both 7 and 13 are factors of 91.
 </details>
 
 
+**Exercise 5.19**
 
+Show that $N=15$ is the smallest number for which the order-finding subroutine is required, that is, it is the smallest composite number that is not even or a power of some smaller integer. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's look at the requirements:
+* Is a composite number. So, needs at least two non-trivial factors $a \geq 2$ and $b \geq 2$.
+* Is not even. Therefore, neither $a$ nor $b$ can be even.
+* Is not a power of some smaller integer. Therefore, $a \neq b$.
+  
+The smallest number for which the order-finding subroutine is required will be the number with the smallest possible factors $a$ and $b$. The smallest possible $a$ is $3$, since $a$ can't be even. Since $b \neq a$, the smallest possible $b$ is then 5. Therefore, the smallest number for which the order-finding subroutine is required is $3 \times 5 = 15$. 
+
+</details>
 
 
 

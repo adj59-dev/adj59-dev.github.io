@@ -1252,7 +1252,7 @@ For (2), To compute $y=\log(N)$ the number of operations depends on how many sig
 $$\begin{aligned}
 \frac{1}{2} &> \vert 2^{\tilde{x}} - 2^x \vert \\
 &= \vert 2^x(2^{\tilde{x}-x} - 1) \vert \\
-&\approx \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$}\\
+&\approx \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$ from the Taylor series}\\
 &= \vert \ln(2)2^x (\tilde{x}-x) \vert \\
 \frac{1}{2\ln(2)2^x} &> \vert \tilde{x}-x \vert \\
 \end{aligned}$$
@@ -1276,7 +1276,11 @@ The number of operations needed to calculate each of these terms is dependent on
 
 To compute $x=y/b=\log(N)/b$ for $b\leq L$, schoolbook long division could be used which requires $O(p^2)$ operations, though faster algorithms do exists. So the number of operations will be $O((L/b)^2)$
 
-To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then round up or down. Since $x$ is not an integer, we should first split $x$ into two parts $x=g + f$ where $g=\lfloor x \rfloor$ and $f\in\lbrack 0, 1)$. I am not quite sure how to calculate the number of operations for $2^f$, but once you calculate that you can get $2^x=2^g2^f$. Multiplying $2^f$ with $2^g$ will just be a bit shift $O(L/b)$
+To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then round up or down. Since $x$ is not an integer, we should first split $x$ into two parts $x=g + f$ where $g=\lfloor x \rfloor$ and $f\in\lbrack 0, 1)$. Then you can do a Taylor series expasion for $2^f$
+
+$$\begin{aligned}
+2^f &= \sum_{q=0}^{\infty} \frac{\ln(2)}{q!}f^q
+\end{aligned}$$
 
 For (3), both $u_1$ and $u_2$ are $O(L/b)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log (b))$ multiplications. Then each multiplication would be $O((L)\log (L))$ operations, using the Harvey-Hoeven algorithm. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L(\log L)(\log b))$, which is better than $O(L^2)$.  
 

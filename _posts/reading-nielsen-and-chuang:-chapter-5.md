@@ -1283,10 +1283,10 @@ for b = 2 to L:
   u2 = ceil(d)      #O(1)
   a1 = u1^b         #O(L(\log(L))^2)
   if a1 = N:        #O(L)
-    return a1       
+    return u1       
   a2 = u2^b         #O(L(\log(L))^2)
   if a2 = N:        #O(L)
-    return a2
+    return u2
 return nothing      
 ```
 
@@ -1295,12 +1295,61 @@ Looking at the algorithm, we can see that the calculations in the for loop are $
 </details>
 
 
+**Exercise 5.18**
+
+Suppose we wish to factor $N=91$. Confirm that steps 1 and 2 are passed. For step 3, suppose we choose $x=4$, which is co-prime to 91. Compute the order $r$ of $x$ with respect to $N$, and show that $x^{r/2} \mod 91 = 64 \neq -1 \mod 91$, so the algorithm succeeds, giving $\text{gcd}(64-1,91)=7$. Note: I fixed the error reported on the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html).
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Step 1. check if $91$ is even. $91/2 = 45.5$ therefore, $91$ is not even.
+
+Step 2. Determine whether $91=a^b$. Using the algorithm from exercise 5.17, I generated the table below. Since none of the $a_1$ or $a_2$ equal $91$ there is no $a$ such that $91=a^b$.
 
 
+| $b$ |	$x=\log(91)/b$ |	$d=2^x$	| $u_1=\lfloor d \rfloor$ |	$u_2= \lceil d \rceil$ |	$a_1 = u_1^b$ |	$a_2=u_2^b$ |
+|:---:|:--------------:|:--------:|:-----------------------:|:----------------------:|:--------------:|:-----------:|
+| 2   |	3.25           |	9.51    |	9	                      | 10                     |	81            |	100         |
+| 3   |	2.17           |	4.5     |	4                       |	5                      |	64            |	125         |
+| 4   |	1.63           |	3.1     |	3                       |	4                      |	81            |	256         |
+| 5   |	1.30           |	2.46    |	2                       |	3                      |	32            |	243         |
+| 6   |	1.08           |	2.11    |	2                       |	3                      |	64            |	729         |
+| 7	  | 0.93           |	1.91    |	1                       |	2                      |	1             |	128         |
 
+Step 3. $x=4$ was randomly chosen and it was determined that it is co-prime to $91$ since $\text{gcd}(4,91) = 1$.
 
+Step 4. find the order $r$ or $x=4$ for $N=91$. Using a brute force calculation, shown below, we see that $r=6$ and $x^{r/2} \mod 91 = x^{3} \mod 91 = 64 \neq -1 \mod 91$. 
 
+| $r$ | $x^r$ |	$x^r \mod N$ |
+|:---:|:-----:|:------------:|
+| 1	  | 4     |	4            |
+| 2	  | 16    |	16           |
+| 3   |	64    |	64           |
+| 4   |	256   |	74           |
+| 5   |	1024  |	23           |
+| 6   |	4096  |	1            |
 
+Step 5. compute $\text{gcd}(64-1, 91)$ and $\text{gcd}(64+1, 91)$ and test to see if one of these is a non-trivial factor. We'll use Euclid's algorithm from section A4.2.
+
+$$\begin{aligned}
+91 &= 1 \times 63 + 28 \\
+63 &= 2 \times 28 + 7 \\
+28 &= 4 \times 7 \\
+\end{aligned}$$
+
+Therefore $\text{gcd}(63, 91) = 7$.
+
+$$\begin{aligned}
+91 &= 1 \times 65 + 26 \\
+65 &= 2 \times 26 + 13 \\
+26 &= 2 \times 13 \\
+\end{aligned}$$
+
+Therefore $\text{gcd}(65, 91) = 13$.
+
+From this, we know that both 7 and 13 are factors of 91.
+
+</details>
 
 
 

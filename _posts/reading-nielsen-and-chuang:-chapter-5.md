@@ -1370,3 +1370,22 @@ The smallest number for which the order-finding subroutine is required will be t
 
 
 
+
+## General applications of the quantum Fourier transform
+
+### General applications of the quantum Fourier transform - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Hidden subgroup problem              | 5.4                       | A generalization of the task of finding the unknown period of a periodic function, in a context where the structure of the domain and range of the function may be very intricate. |
+
+
+  
+### General applications of the quantum Fourier transform - Exercises
+
+
+
+
+
+

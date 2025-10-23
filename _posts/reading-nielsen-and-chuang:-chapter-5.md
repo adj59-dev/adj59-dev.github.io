@@ -1233,7 +1233,7 @@ and thus (5.58) holds.
 
 Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 1$ and $b\geq 2$. This may be done as follows: <br>
 (1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
-(2) Show that it takes at most $O(L^2)$ operations to compute $y=\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. (Note: changed $\log N$ to $y=\log N$.) <br>
+(2) Show that it takes at most $O(L^2)$ operations to compute $y=\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. (Note: I changed $\log N$ to $y=\log N$.) <br>
 (3) Show that it takes at most $O(L^2)$ operations to compute $u_1^b$ and $u_2^b$ (use repeated squaring) and check to see if either is equal to $N$. <br>
 (4) Combine the previous results to give an $O(L^3)$ operation algorithm to determine whether $N=a^b$ for integers $a$ and $b$. 
 
@@ -1252,54 +1252,51 @@ For (2), To compute $y=\log(N)$ the number of operations depends on how many sig
 $$\begin{aligned}
 \frac{1}{2} &> \vert 2^{\tilde{x}} - 2^x \vert \\
 &= \vert 2^x(2^{\tilde{x}-x} - 1) \vert \\
-&= \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$}\\
+&\approx \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$}\\
 &= \vert \ln(2)2^x (\tilde{x}-x) \vert \\
 \frac{1}{2\ln(2)2^x} &> \vert \tilde{x}-x \vert \\
 \end{aligned}$$
 
-We can write $N=a2^n$ for some integer $n$ and $a\in (0.5, 1 \rbrack$. Therefore, $\log (N) = \log(a) + n$. We can find $n$ by taking powers of $2$ and checking if they are greater than $N$, the last power that is less than $N$ is $n$. This will invlove multiplication of a $2$ bit number and a number of up to $n$ bits and so is $O(n^2)$ operations. Then, we'll need to calculate $a = N/2^n$. This can be done with schoolbook long division which requires $O(L^2)$ operations. Then we need to calculate $\log(a)$ to the appropriate precision. This can be done using the Maclaurin series 
+We can write $N=c2^n$ for some integer $n$ and $c\in (0.5, 1 \rbrack$. Therefore, $\log (N) = \log(c) + n$. We can find $n$ from counting the bit length of $N$, which takes $O(L)$ operations. Then, we'll need to calculate $c = N/2^n$. This can be done by applying a bit shift which requires $O(L)$ operations. Then we need to calculate $\log(c)$ to the appropriate precision. This can be done using the Maclaurin series 
 
 $$\begin{aligned}
-\log(a + 1) &= \frac{1}{\ln(2)}\sum_{j=1}^{\infty}\frac{(-1)^{j-1}}{j}a^{j} \\
+\log(c) &= \frac{1}{\ln(2)}\sum_{j=1}^{\infty}\frac{(-1)^{j}}{j}(1-c)^{j} \\
 \end{aligned}$$
 
 We'll need a number of terms $k$ such that 
 
 $$\begin{aligned}
-\frac{1}{2\ln(2)2^x} > \frac{a^{k}}{k} \\
+\frac{1}{2\ln(2)2^x} > \frac{(1-c)^{k}}{\ln(2)k} \\
+\frac{1}{2^{x+1}} > \frac{1}{2^kk} \geq \frac{(1-c)^k}{k} & \text{because $(1-c)\in \lbrack 0, 0.5)$}
 \end{aligned}$$
 
-This will most likely be true before $k=N$ because
+This will be true before $k=x=\log(N)/b$ and so there will be $O(\frac{L}{b})$ terms.
 
-$$\begin{aligned}
-\frac{1}{2\ln(2)2^x} > \frac{1}{2\ln(2)N} > \frac{a^{N}}{N} \\
-\end{aligned}$$
+The number of operations needed to calculate each of these terms is dependent on the number of bits needed to represent them to the necessary precision. We'll need $p$ fractional bits such that $2^{-p} < \frac{1}{2\ln(2)2^x}$ and so $p>\log(2\ln(2)2^x)\approx \frac{L}{b}$. The calculation of each of the terms in the series is then just multiplication of $p$ bit numbers which is $O(p\log p)$ using the Harvey–Hoeven algorithm, which is in $O(\frac{L}{b}\log \frac{L}{b})$. Since this calculation will be done for $O(\frac{L}{b})$ terms, along with some $p$ bit addition of $O(\frac{L}{b})$, the entire calculation will be $O((L/b)^2\log (L/b))$.  
 
-The number of operations needed to calculate these terms is dependent on the number of bits needed to represent them to the necessary precision.  
+To compute $x=y/b=\log(N)/b$ for $b\leq L$, schoolbook long division could be used which requires $O(p^2)$ operations, though faster algorithms do exists. So the number of operations will be $O((L/b)^2)$
 
-To compute $x=y/b=\log(N)/b=L/b$ for $b\leq L$, schoolbook long division could be used which requires $O(L^2)$ operations, though faster algorithms do exists. 
+To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then round up or down. Since $x$ is not an integer, we should first split $x$ into two parts $x=g + f$ where $g=\lfloor x \rfloor$ and $f\in\lbrack 0, 1)$. I am not quite sure how to calculate the number of operations for $2^f$, but once you calculate that you can get $2^x=2^g2^f$. Multiplying $2^f$ with $2^g$ will just be a bit shift $O(L/b)$
 
-To compute the two integers $u_1$ and $u_2$ nearest to $2^x$, we would first need to calculate $2^x$ and then round up or down. If $2^x$ is calculated with $x$ multiplications. Each multiplication will invlove a $2$ bit number and a $n$ bit number where $2 \leq n \leq x$, and so each multiplication will be $O(x)$. Since there are $x$ multiplications, the entire calculation will be $O(x^2)$ operations to calculate $2^x$ and $O(1)$ operations to round the value to the two nearest integers, this is $O(L^2)$ since $x\leq L$. 
-
-For (3), both $u_1$ and $u_2$ are $O(L)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log b)$ multiplications, which is $O(\log L)$. Then each multiplication would be $O(L\log L)$ operations, using the Harvey-Hoeven algorithm. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L(\log L)^2)$, which is better than $O(L^2)$.  
+For (3), both $u_1$ and $u_2$ are $O(L/b)$ bit numbers. Exponentiation by repeated squaring is an efficient algorithm to compute large exponenets by repeatedly squaring the base and would invlove $O(\log (b))$ multiplications. Then each multiplication would be $O((L)\log (L))$ operations, using the Harvey-Hoeven algorithm. The check for equality is $O(L)$. Therefore, the entire calculation would be $O(L(\log L)(\log b))$, which is better than $O(L^2)$.  
 
 For (4), 
 
 ```
 for b = 2 to L:
-  x=log(N)/b        #O(L^2)
-  d = 2^x           #O(L^2)
-  u1 = floor(d)     #O(1)
-  u2 = ceil(d)      #O(1)
-  a1 = u1^b         #O(L(logL)^2)
-  if a1 = N:        #O(L)
-    return a1       #O(L)
-  a2 = u2^b         #O(L(logL)^2)
-  if a2 = N:        #O(L)
-    return a2       #O(L)
+  x=log(N)/b        
+  d = 2^x           
+  u1 = floor(d)     
+  u2 = ceil(d)      
+  a1 = u1^b         
+  if a1 = N:        
+    return a1       
+  a2 = u2^b        
+  if a2 = N:      
+    return a2      
 ```
 
-The code in the for loop is $O(L(\log L)^2)$ and the loop is executed $O(L)$ times, therefore, this algorithm is $O(L^2(\log L)^2)$, which is in $O(L^3)$. 
+
 
 
 

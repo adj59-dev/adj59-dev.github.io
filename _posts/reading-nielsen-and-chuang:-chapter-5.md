@@ -1385,6 +1385,38 @@ The smallest number for which the order-finding subroutine is required will be t
 ### General applications of the quantum Fourier transform - Exercises
 
 
+**Exercise 5.20**
+
+Suppose $f(x+r)=f(x)$, and $0\leq x < N$, for $N$ an integer multiple of $r$. Compute
+
+$$\begin{aligned}
+\hat{f}(l)\equiv \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1} e^{-2\pi ilx/N}f(x)
+\end{aligned}$$
+
+and relate the result to (5.63). You will need to use the fact that 
+
+$$\begin{aligned}
+\sum_{k\in \lbrace 0,r,2r,\cdots,N-r \rbrace} e^{2\pi ikl/N} = \begin{cases}
+    N/r & \text{if $l$ is an integer multiple of $N/r$} \\
+    0 & \text{otherwise} 
+\end{cases}
+\end{aligned}$$
+
+
+$$\begin{aligned}
+\hat{f}(l) &\equiv \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1} e^{-2\pi ilx/N}f(x) \\
+&= \frac{1}{\sqrt{N}}\sum_{x\in \lbrace 0,r,2r,\cdots,N-r \rbrace} e^{-2\pi ilx/N}f(x) + \frac{1}{\sqrt{N}}\sum_{x\in \lbrace 1,r+1,2r+1,\cdots,N-r+1 \rbrace} e^{-2\pi ilx/N}f(x) + \cdots + \frac{1}{\sqrt{N}}\sum_{x\in \lbrace r-1,2r-1,3r-1,\cdots,N-1 \rbrace} e^{-2\pi ilx/N}f(x)\\
+&=
+\end{aligned}$$
+
+
+
+
+
+
+
+
+
 
 
 

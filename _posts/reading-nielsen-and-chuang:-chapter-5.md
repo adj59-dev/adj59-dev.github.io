@@ -1402,17 +1402,35 @@ $$\begin{aligned}
 \end{cases}
 \end{aligned}$$
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let $N=qr$ where $q$ is some integer. Then every $x$ can be written as $x=a+kr$ where $a\in \lbrace 0, \cdots, r-1 \rbrace$ and $k\in \lbrace 0, \cdots, q-1 \rbrace$ and so
 
 $$\begin{aligned}
 \hat{f}(l) &\equiv \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1} e^{-2\pi ilx/N}f(x) \\
-&= \frac{1}{\sqrt{N}}\sum_{x\in \lbrace 0,r,2r,\cdots,N-r \rbrace} e^{-2\pi ilx/N}f(x) + \frac{1}{\sqrt{N}}\sum_{x\in \lbrace 1,r+1,2r+1,\cdots,N-r+1 \rbrace} e^{-2\pi ilx/N}f(x) + \cdots + \frac{1}{\sqrt{N}}\sum_{x\in \lbrace r-1,2r-1,3r-1,\cdots,N-1 \rbrace} e^{-2\pi ilx/N}f(x)\\
-&=
+&= \frac{1}{\sqrt{N}}\sum_{a=0}^{r-1} \sum_{k=0}^{q-1} e^{-2\pi il(a+kr)/N}f(a + kr) \\ 
+&= \frac{1}{\sqrt{N}}\sum_{a=0}^{r-1} \sum_{k=0}^{q-1} e^{-2\pi il(a+kr)/N}f(a) & \text{since we know $f(x+r)=f(x)$} \\ 
+&= \frac{1}{\sqrt{N}}\sum_{a=0}^{r-1}  e^{-2\pi ila/N}f(a) \sum_{k=0}^{q-1} e^{-2\pi ilkr/N} \\
+&= \frac{1}{\sqrt{N}}\sum_{a=0}^{r-1}  e^{-2\pi ila/N}f(a) \sum_{j\in \lbrace 0,r,2r,\cdots,N-r \rbrace} e^{-2\pi ijl/N} & \text{where $j=kr$} \\
+&= \begin{cases}
+  \frac{\sqrt{N}}{r}\sum_{a=0}^{r-1}  e^{-2\pi ila/N}f(a) &  \text{if $l$ is an integer multiple of $N/r$} \\
+  0 & \text{otherwise}  \\
+\end{cases}
 \end{aligned}$$
 
+For $l$ that are integer multiples of $N/r$ we can write $l=mN/r=mq$, and so $e^{-2\pi ila/N}=e^{-2\pi i(mq)a/(qr)}=e^{-2\pi ima/r}$. Thus,
 
+$$\begin{aligned}
+\hat{f}(l) &= \begin{cases}
+  \frac{\sqrt{N}}{r}\sum_{a=0}^{r-1}  e^{-2\pi ima/r}f(a) &  \text{if $l$ is an integer multiple of $N/r$} \\
+  0 & \text{otherwise}  \\
+\end{cases}
+\end{aligned}$$
 
+The case where $l$ is an integer multiplier of $N/r$ has a similar form to (5.63). 
 
-
+</details>
 
 
 

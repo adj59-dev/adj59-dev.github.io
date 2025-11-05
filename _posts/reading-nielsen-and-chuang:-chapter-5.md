@@ -1433,6 +1433,46 @@ The case where $l$ is an integer multiplier of $N/r$ has a similar form to (5.63
 </details>
 
 
+**Exercise 5.21**
+
+Suppose you are given a unitary operator $U_y$ which performs the transformation $U_y\ket{f(x)}=\ket{f(x+y)}$, for the periodic function described above.
+
+(1) Show that the eigenvectors of $U_y$ are $\ket{\hat{f}(l)}$, and calculate their eigenvalues. <br>
+(2) Show that given $\ket{f(x_0)}$ for some $x_0$, $U_y$ can be used to realize a black box which is as useful as $U$ in solving the period-finding problem. 
+
+For (1) we can write $U_y$ as
+
+$$\begin{aligned}
+U_y &= \sum_{k=0}^{r-1}\ket{f(k+y)}\bra{f(k)} \\
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+U_y\ket{\hat{f}(l)} &= \left(\sum_{k=0}^{r-1}\ket{f(k+y)}\bra{f(k)} \right)\left(\frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi ilx/r}\ket{f(x)} \right) \\
+&= \sum_{k=0}^{r-1}\sum_{x=0}^{r-1}\frac{1}{\sqrt{r}}e^{-2\pi ilx/r}\ket{f(k+y)}\braket{f(k) \vert f(x)}  \\
+&= \frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi ilx/r}\ket{f(x+y)}  \\
+&= e^{2\pi ily/r}\frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi il(x+y)/r}\ket{f(x+y)}  \\
+&= e^{2\pi ily/r}\ket{\hat{f}(l)} \\
+\end{aligned}$$
+
+Therefore, $\ket{\hat{f}(l)}$ is an eigenvector with eigenvalue $e^{2\pi ily/r}$.
+
+For (2) we can follow the first two steps fo the period-finding algorithm and get $\frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x)}$. Then for step 3 we apply $U_y$ instead of $U$ and get
+
+$$\begin{aligned}
+U_y \left(\frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x)} \right) &= 
+\end{aligned}$$
+
+
+
+
+
+
+
+
+
+
 
 
 

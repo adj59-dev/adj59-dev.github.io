@@ -1379,6 +1379,7 @@ The smallest number for which the order-finding subroutine is required will be t
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Hidden subgroup problem              | 5.4                       | A generalization of the task of finding the unknown period of a periodic function, in a context where the structure of the domain and range of the function may be very intricate. |
+| Discrete logarithm problem           | 5.4.2                     | Given $a$ and $b=a^s$, what is $s$?                                                                    |
 
 
   
@@ -1493,12 +1494,51 @@ Divide measurement by $y$ and then apply the continued fractions algorithm to ge
 </details>
 
 
+**Exercise 5.22**
 
+Show that
 
+$$\begin{aligned}
+\ket{\hat{f}(l_1,l_2)} &= \sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(x_1,x_2)}&=\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2 j/r}\ket{f(0,j)}
+\end{aligned}$$
 
+and we are constrained to have $l_1/s-l_2$ be an integer multiple of $r$ for this expression to be non-zero.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+We know that
 
+$$\begin{aligned}
+f(x_1,x_2) &= b^{x_1}a^{x_2} \\
+&= \left(a^s\right)^{x_1}a^{x_2} \\
+&= a^{sx_1+x_2} \\
+&= f(0, sx_1+x_2)
+\end{aligned}$$
+
+Therefore, 
+
+$$\begin{aligned}
+\ket{\hat{f}(l_1,l_2)} &= \sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(x_1,x_2)}\\
+&= \sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(0, sx_1+x_2)}\\
+&= \sum_{x_1=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2(j-sx_1))/r}\ket{f(0,j)} & \text{let $j=sx_1+x_2$} \\
+&= \sum_{x_1=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i((l_1-sl_2)x_1+l_2j)/r}\ket{f(0,j)} \\
+&= \sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\sum_{x_1=0}^{r-1}e^{-2\pi i(l_1-sl_2)x_1/r}\ket{f(0,j)} \\
+&= \frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} & \text{when $l_1-sl_2 = 0 \mod r$, otherwise $0$}\\
+\end{aligned}$$
+
+From above we see the constraint is 
+
+$$\begin{aligned}
+l_1-sl_2 &= 0 \mod r \\
+l_1 &= sl_2 \mod r \\
+l_1/s &= l_2 \mod r \\
+l_1/s - l_2 &= 0 \mod r
+\end{aligned}$$
+
+Therefore $l_1/s-l_2$ must be an integer multiple of $r$ for this expression to be non-zero.
+
+</details>
 
 
 

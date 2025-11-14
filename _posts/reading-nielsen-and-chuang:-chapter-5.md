@@ -1440,6 +1440,9 @@ Suppose you are given a unitary operator $U_y$ which performs the transformation
 (1) Show that the eigenvectors of $U_y$ are $\ket{\hat{f}(l)}$, and calculate their eigenvalues. <br>
 (2) Show that given $\ket{f(x_0)}$ for some $x_0$, $U_y$ can be used to realize a black box which is as useful as $U$ in solving the period-finding problem. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 For (1) we can write $U_y$ as
 
 $$\begin{aligned}
@@ -1458,14 +1461,36 @@ U_y\ket{\hat{f}(l)} &= \left(\sum_{k=0}^{r-1}\ket{f(k+y)}\bra{f(k)} \right)\left
 
 Therefore, $\ket{\hat{f}(l)}$ is an eigenvector with eigenvalue $e^{2\pi ily/r}$.
 
-For (2) we can follow the first two steps fo the period-finding algorithm and get $\frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x)}$. Then for step 3 we apply $U_y$ instead of $U$ and get
+For (2) let's assume that we start with the state $\ket{0}\ket{f(x_0)}$. Then we create a superposition, like what is done in step 2 of the period-finding algorithm,
 
 $$\begin{aligned}
-U_y \left(\frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x)} \right) &= 
+\rightarrow & \frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x_0)} \\
 \end{aligned}$$
 
+Then you can apply controlled powers of $U_y$
 
+$$\begin{aligned}
+\rightarrow & \frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}U_y^x\ket{f(x_0)}\\
+&= \frac{1}{\sqrt{2^t}}\sum_{x=0}^{2^t-1}\ket{x}\ket{f(x_0 + xy)}\\
+&= \frac{1}{\sqrt{r2^t}}\sum_{l=0}^{r-1}\sum_{x=0}^{2^t-1}e^{2\pi il(x_0+xy)/r}\ket{x}\ket{\hat{f}(l)}\\
+&= \frac{1}{\sqrt{r2^t}}\sum_{l=0}^{r-1}e^{2\pi ilx_0/r}\sum_{x=0}^{2^t-1}e^{2\pi ilxy/r}\ket{x}\ket{\hat{f}(l)}\\
+\end{aligned}$$
 
+Then we can apply the inverse Fourier transform
+
+$$\begin{aligned}
+\rightarrow & \frac{1}{\sqrt{r}}\sum_{l=0}^{r-1}e^{2\pi ilx_0/r}\ket{\widetilde{ly/r}}\ket{\hat{f}(l)}\\
+\end{aligned}$$
+
+Then we measure the first register and get
+
+$$\begin{aligned}
+\rightarrow & \widetilde{ly/r}
+\end{aligned}$$
+
+Divide measurement by $y$ and then apply the continued fractions algorithm to get $r$. Therefore $U_y$ is as useful as $U$ in solving the period-finding problem. 
+
+</details>
 
 
 

@@ -1541,6 +1541,20 @@ Therefore $l_1/s-l_2$ must be an integer multiple of $r$ for this expression to 
 </details>
 
 
+**Exercise 5.23**
 
+Compute
+
+$$\begin{aligned}
+\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)}
+\end{aligned}$$
+
+using (5.70), and show that the result is $f(x_1,x_2)$.
+
+Using (5.70) we get
+
+$$\begin{aligned}
+\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} &= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
+\end{aligned}$$
 
 

@@ -1524,7 +1524,7 @@ $$\begin{aligned}
 &= \sum_{x_1=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2(j-sx_1))/r}\ket{f(0,j)} & \text{let $j=sx_1+x_2$} \\
 &= \sum_{x_1=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i((l_1-sl_2)x_1+l_2j)/r}\ket{f(0,j)} \\
 &= \sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\sum_{x_1=0}^{r-1}e^{-2\pi i(l_1-sl_2)x_1/r}\ket{f(0,j)} \\
-&= \frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} & \text{when $l_1-sl_2 = 0 \mod r$, otherwise $0$}\\
+&= r\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} & \text{when $l_1-sl_2 = 0 \mod r$, otherwise $0$}\\
 \end{aligned}$$
 
 From above we see the constraint is 
@@ -1537,6 +1537,8 @@ l_1/s - l_2 &= 0 \mod r
 \end{aligned}$$
 
 Therefore $l_1/s-l_2$ must be an integer multiple of $r$ for this expression to be non-zero.
+
+If we compare our solution to equation 5.72, we see that the prefactor is different. In our equation it is $r$ in 5.72 it is $\frac{1}{\sqrt{r}}$. I assume that this is due to the book normalizing the vector. 
 
 </details>
 
@@ -1551,10 +1553,36 @@ $$\begin{aligned}
 
 using (5.70), and show that the result is $f(x_1,x_2)$.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 Using (5.70) we get
 
 $$\begin{aligned}
 \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} &= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
+&= \frac{1}{r\sqrt{r}} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2+l_2j)/r}\ket{f(0,j)}\\ 
+&= \frac{1}{r\sqrt{r}} \sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi il_2(sx_1+x_2+j)/r}\ket{f(0,j)} & \text{since the terms are non-zero when $l_1=sl_2$}\\ 
+&= \frac{1}{\sqrt{r}} \sum_{j=0}^{r-1}\delta_{sx_1+x_2+j\equiv 0\mod r}\ket{f(0,j)} \\ 
+&= \frac{1}{\sqrt{r}}\ket{f(0,-(sx_1+x_2))} \\ 
+&= \frac{1}{\sqrt{r}}f(-x_1,-x_2)
 \end{aligned}$$
+
+This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to use the non-normalized form of equation 5.70, that would give us a result without the $\frac{1}{\sqrt{r}}$. I also wonder if equation 5.73 was supposed to have a positive exponent.  
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

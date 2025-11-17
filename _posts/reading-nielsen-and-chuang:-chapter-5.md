@@ -1590,6 +1590,11 @@ as a candidate value for $s$. Test this using the known $a$ and $b$ by checking 
 </details>
 
 
+**Exercise 5.25**
+
+Construct a quantum circuit for the black box $U$ used in the quantum discrete logarithm algorithm, which takes $a$ and $b$ as parameters, and performs the unitary transformation $\ket{x_1}\ket{x_2}\ket{y} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1}a^{x_2}}$. How many elementary operations are required?
+
+
 
 
 

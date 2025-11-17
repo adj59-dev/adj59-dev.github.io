@@ -1572,8 +1572,22 @@ This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to us
 </details>
 
 
+**Exercise 5.24**
 
+Construct the generalized continued fractions algorithm needed in step 6 of the discrete logarithm algorithm to determine $s$ from estimates of $sl_2/r$ and $l_2/r$. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Apply the continued fractions algorithm to both $sl_2/r$ and $l_2/r$ to generate their successive convergents, using equation (5.49) to compute each rational approximation $p_n/q_n$. For each pair of convergents, form approximations $x_1 \approx sl_2/r$ and $x_2\approx l_2/r$. Then compute
+
+$$\begin{aligned}
+s_{cand} = \text{round}\left(\frac{x_1}{x_2}  \right)
+\end{aligned}$$
+
+as a candidate value for $s$. Test this using the known $a$ and $b$ by checking whether $a^{s_{cand}}=b$. If so, stop. Otherwise, proceed to the next convergents, compute the new approximations using equation (5.49), recompute $s_{cand}$, and test again. Repeat until the correct value of $s$ is found.
+
+</details>
 
 
 

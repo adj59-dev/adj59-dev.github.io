@@ -599,6 +599,8 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 </details>
 
 
+**Exercise A2.14**
+
 
 
 
@@ -1380,6 +1382,7 @@ The smallest number for which the order-finding subroutine is required will be t
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Hidden subgroup problem              | 5.4                       | A generalization of the task of finding the unknown period of a periodic function, in a context where the structure of the domain and range of the function may be very intricate. |
 | Discrete logarithm problem           | 5.4.2                     | Given $a$ and $b=a^s$, what is $s$?                                                                    |
+| The hidden subgroup problem          | 5.4.3                     | The general problem which defines a broad framework that captures problems such as order-finding, discrete logarithms, period-finding, etc. |
 
 
   

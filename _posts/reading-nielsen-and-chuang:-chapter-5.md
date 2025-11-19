@@ -1633,6 +1633,40 @@ This gives a total complexity of $O(L^3)$.
 
 Since $K$ is a subgroup of $G$, when we decompose $G$ into a product of cyclic groups of prime power order, this also decomposes $K$. Re-express (5.77) to show that determining $l_i'$ allows one to sample from the corresponding cyclic subgroup $K_p$ of $K$. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+From equation 5.77 we know that equation 5.76 has near zero amplitudes for all values of $l$ except those which satisfy
+
+$$\begin{aligned}
+\vert K \vert &= \sum_{h\in K} e^{-2\pi ilh/\vert G\vert} \\
+&= \sum_{h\in K} \prod_{i=1}^{M} e^{-2\pi il_i' h_i/p_i} & \text{equation 5.78}\\
+&= \sum_{(h_p)_{p}\in \prod_{p}K_p} \prod_{i=1}^{M} e^{-2\pi il_i' h_i/p_i} \\
+&=  \prod_{i=1}^{M} \left( \sum_{h_{p_i}\in K_{p_i}} e^{-2\pi il_i' h_{p_i}/p_i} \right)\\
+\end{aligned}$$
+
+From equation 5.69 we know that
+
+$$\begin{aligned}
+\sum_{h_{p_i}\in K_{p_i}} e^{-2\pi il_i' h_{p_i}/p_i} &=  \begin{cases}
+  \vert K_{p_i} \vert &  \text{if $l_i'$ is an integer multiple of $\vert K_{p_i} \vert$} \\
+  0 & \text{otherwise}  \\
+  \end{cases}
+\end{aligned}$$
+
+Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p_i} \vert$ in order for equation 5.76 to have a non-near zero amplitude. 
+
+</details>
+
+
+
+
+
+
+
+
+
+
 
 
 

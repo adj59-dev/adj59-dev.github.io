@@ -1594,12 +1594,38 @@ as a candidate value for $s$. Test this using the known $a$ and $b$ by checking 
 
 Construct a quantum circuit for the black box $U$ used in the quantum discrete logarithm algorithm, which takes $a$ and $b$ as parameters, and performs the unitary transformation $\ket{x_1}\ket{x_2}\ket{y} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1}a^{x_2}}$. How many elementary operations are required?
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+We want a circuit implementing
 
+$$\begin{aligned}
+U\ket{x_1}\ket{x_2}\ket{y} = \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1} a^{x_2}}
+\end{aligned}$$
 
+This can be done by initializing a set of ancilla register to 1 and using modular exponentiation outlined in Box 5.2 to calculate
 
+$$\begin{aligned}
+\ket{x_1}\ket{x_2}\ket{y}\ket{1} \rightarrow \ket{x_1}\ket{x_2}\ket{y}\ket{b^{x_1} a^{x_2}}
+\end{aligned}$$
 
+This calculation uses $O(L^3)$ gates, where $L=\lceil \log(N)\rceil$.
 
+Then $O(L)$ CNOT gates are used to calculate
+
+$$\begin{aligned}
+\ket{x_1}\ket{x_2}\ket{y}\ket{b^{x_1} a^{x_2}} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1} a^{x_2}}\ket{b^{x_1} a^{x_2}}
+\end{aligned}$$
+
+Then another $O(L^3)$ gates are used to uncompute the ancilla register
+
+$$\begin{aligned}
+\ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1} a^{x_2}}\ket{b^{x_1} a^{x_2}} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1} a^{x_2}}\ket{1}
+\end{aligned}$$
+
+This gives a total complexity of $O(L^3)$. 
+
+</details>
 
 
 

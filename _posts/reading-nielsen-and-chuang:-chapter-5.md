@@ -1659,8 +1659,11 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 </details>
 
 
+**Exercise 5.27**
 
+Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
 
+I needed to reference [The hidden subgroup problem and eigenvalue estimation on a quantum computer](https://arxiv.org/pdf/quant-ph/9903071) to find the solution to this problem. 
 
 
 

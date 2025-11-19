@@ -599,8 +599,6 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 </details>
 
 
-**Exercise A2.14**
-
 
 
 
@@ -1630,6 +1628,10 @@ This gives a total complexity of $O(L^3)$.
 
 </details>
 
+
+**Exercise 5.26**
+
+Since $K$ is a subgroup of $G$, when we decompose $G$ into a product of cyclic groups of prime power order, this also decomposes $K$. Re-express (5.77) to show that determining $l_i'$ allows one to sample from the corresponding cyclic subgroup $K_p$ of $K$. 
 
 
 

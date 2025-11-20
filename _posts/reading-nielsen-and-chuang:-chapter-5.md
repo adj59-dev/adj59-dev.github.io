@@ -1685,8 +1685,7 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 
 Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
 
-I found this paper from the History and further reading section for this chapter, which was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). This was also a good resource [THE HIDDEN SUBGROUP PROBLEM - REVIEW AND OPEN
-PROBLEMS](https://arxiv.org/pdf/quant-ph/0411037). None of these resources use the same notation as the book.
+I had to reference several resources to understand the hidden subgroup problem. This paper from the History and further reading section for this chapter was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). [THE HIDDEN SUBGROUP PROBLEM - REVIEW AND OPEN PROBLEMS](https://arxiv.org/pdf/quant-ph/0411037) was also a good resource. Unfortunately, none of these resources use the same notation as the book.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

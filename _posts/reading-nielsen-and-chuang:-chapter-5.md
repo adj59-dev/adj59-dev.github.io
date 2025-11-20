@@ -1663,7 +1663,27 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 
 Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
 
-I needed to reference [The hidden subgroup problem and eigenvalue estimation on a quantum computer](https://arxiv.org/pdf/quant-ph/9903071) to find the solution to this problem. 
+$$\begin{aligned}
+\frac{lg}{\vert G \vert} &= \sum_{i=1}^M \frac{l_i'g_i}{p_i} \\
+&= \sum_{i=1}^M \frac{m_i \vert K_{p_i} \vert g_i}{p_i} & \text{for some integer $m_i$}
+\end{aligned}$$
+
+We know how to get $\widetilde{l/\vert G \vert}$ using an algorithm similar to what was applied to other problems eariler in this chapter, but as is pointed out in the book, $l$ and $G$ are not guaranteed to not have any common factors. 
+
+**Exercise 5.28**
+
+Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
+
+Algorithm to solve the hidden subgroup problem: 
+
+$$\begin{aligned}
+1 & \ket{0}\ket{0} & \text{initial state}\\
+2 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\ket{g}\ket{0} & \text{create superposition}\\
+3 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\ket{g}\ket{f(g)} & \text{apply $U$}\\
+   & \approx \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\sum_{l=0}^{\vert G \vert -1}e^{2\pi ilg/\vert G \vert}\ket{g}\ket{\hat{f}(l)}\\
+4 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{l=0}^{\vert G \vert -1}\ket{\widetilde{l/\vert G \vert}}\ket{\hat{f}(l)} & \text{apply inverse FT to first register} \\
+5 & \rightarrow \widetilde{l/\vert G \vert} & \text{measure first register}\\
+\end{aligned}$$
 
 
 

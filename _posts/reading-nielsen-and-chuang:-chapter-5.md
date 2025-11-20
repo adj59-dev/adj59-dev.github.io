@@ -1685,7 +1685,11 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 
 Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
 
-I found this paper from the History and further reading section for this chapter, which was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). This was also a good resource [Quantum Algorithms and the Fourier Transform](https://arxiv.org/pdf/quant-ph/9707033) None of these resources use the same notation as the book.
+I found this paper from the History and further reading section for this chapter, which was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). This was also a good resource [THE HIDDEN SUBGROUP PROBLEM - REVIEW AND OPEN
+PROBLEMS](https://arxiv.org/pdf/quant-ph/0411037). None of these resources use the same notation as the book.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 Algorithm to solve the hidden subgroup problem: 
 
@@ -1701,11 +1705,7 @@ $$\begin{aligned}
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
-The number of times steps 1-6 needs to repeate will depend on the size of the generating set for $K = \braket{S}$. This will be $\vert T\vert \leq \log \vert K\vert \leq \log\vert G \vert$. The probability of sucess after $n$ measurements can be calculated as
-
-$$\begin{aligned}
-p(n) &= \frac{1}{\vert T \vert^n}\sum_{k=0}^{\vert T \vert}(-1)^k \left( \frac{\vert T \vert ! (\vert T \vert - k)^n}{k!(\vert T \vert - k)!} \right)
-\end{aligned}$$
+</details>
 
 
 

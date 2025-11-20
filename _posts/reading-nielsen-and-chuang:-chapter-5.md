@@ -1663,12 +1663,16 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 
 Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
 
-$$\begin{aligned}
-\frac{lg}{\vert G \vert} &= \sum_{i=1}^M \frac{l_i'g_i}{p_i} \\
-&= \sum_{i=1}^M \frac{m_i \vert K_{p_i} \vert g_i}{p_i} & \text{for some integer $m_i$}
-\end{aligned}$$
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
-We know how to get $\widetilde{l/\vert G \vert}$ using an algorithm similar to what was applied to other problems eariler in this chapter, but as is pointed out in the book, $l$ and $G$ are not guaranteed to not have any common factors. 
+Algorithm for decomposition: 
+1. Randomly select $O(\log\vert G \vert)$ elements in $G$
+2. Use the quantum order-finding algorithm to find their order
+3. Use the hidden subgroup problem algorithm to identify the independent cyclic components
+4. Use the quantum factoring algorithm on each cyclic component to split it into prime-power orders
+
+</details>
 
 **Exercise 5.28**
 

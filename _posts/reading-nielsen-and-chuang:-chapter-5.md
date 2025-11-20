@@ -1670,9 +1670,16 @@ Algorithm for decomposition:
 1. Randomly select $O(\log\vert G \vert)$ elements in $G$
 2. Use the quantum order-finding algorithm to find their order
 3. Use the hidden subgroup problem algorithm to identify the independent cyclic components
-4. Use the quantum factoring algorithm on each cyclic component to split it into prime-power orders
+4. Use the quantum factoring algorithm on each cyclic component to split it into prime orders
+
+The final result then looks like
+
+$$\begin{aligned}
+G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_M}
+\end{aligned}$$
 
 </details>
+
 
 **Exercise 5.28**
 

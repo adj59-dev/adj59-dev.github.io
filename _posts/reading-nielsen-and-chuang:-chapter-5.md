@@ -1685,18 +1685,27 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 
 Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
 
+I found this paper from the History and further reading section for this chapter, which was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). This was also a good resource [Quantum Algorithms and the Fourier Transform](https://arxiv.org/pdf/quant-ph/9707033) None of these resources use the same notation as the book.
+
 Algorithm to solve the hidden subgroup problem: 
 
 $$\begin{aligned}
-1 & \ket{0}\ket{0} & \text{initial state}\\
-2 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\ket{g}\ket{0} & \text{create superposition}\\
-3 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\ket{g}\ket{f(g)} & \text{apply $U$}\\
-   & \approx \frac{1}{\sqrt{\vert G \vert}}\sum_{g \in G}\sum_{l=0}^{\vert G \vert -1}e^{2\pi ilg/\vert G \vert}\ket{g}\ket{\hat{f}(l)}\\
-4 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{l=0}^{\vert G \vert -1}\ket{\widetilde{l/\vert G \vert}}\ket{\hat{f}(l)} & \text{apply inverse FT to first register} \\
-5 & \rightarrow \widetilde{l/\vert G \vert} & \text{measure first register}\\
+1 & \ket{0}^{\otimes M}\ket{0} & \text{initial state}\\
+2 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{0} & \text{create superposition}\\
+3 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{f(g_1,\cdots,g_M)} & \text{apply $U$}\\
+   & \approx \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\sum_{l_1'\cdots l_M'}\prod_{i=1}^{M}e^{2\pi i l_i' g_i/p_i}\ket{g_1}\cdots\ket{g_M}\ket{\hat{f}(l_1',\cdots,l_M')}\\
+4 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
+5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
+6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{p_i} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
+7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
+The number of times steps 1-6 needs to repeate will depend on the size of the generating set for $K = \braket{S}$. This will be $\vert T\vert \leq \log \vert K\vert \leq \log\vert G \vert$. The probability of sucess after $n$ measurements can be calculated as
 
+$$\begin{aligned}
+p(n) &= \frac{1}{\vert T \vert^n}\sum_{k=0}^{\vert T \vert}(-1)^k \left( \frac{\vert T \vert ! (\vert T \vert - k)^n}{k!(\vert T \vert - k)!} \right)
+\end{aligned}$$
 
 
 

@@ -1808,6 +1808,12 @@ Since $U$ is unitary, we know that it can be approximated using Hadamard, phase,
 </details>
 
 
+**Problem 5.2**
+
+Suppose the quantum Fourier transform is performed as the last step of a quantum computation, followed by a measurement in the computational basis. Show that the combination of quantum Fourier transform and measurement is equivalent to a circuit consisting entirely of one qubit gates and measurement, with classical control, and no two qubit gates. You may find the discussion of Section 4.4 useful.
+
+This paper was cited in the History and further reading section for this problem: [Semiclassical Fourier Transform for Quantum Computation](https://arxiv.org/pdf/quant-ph/9511007).
+
 
 
 

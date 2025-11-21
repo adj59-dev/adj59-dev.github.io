@@ -1696,7 +1696,7 @@ Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\
 
 Outputs: A generating set for the hidden subgroup $K \leq G$.
 
-Runtime: $n$ uses of $U$, and $O(n\log\vert G \vert^2)$ operations. Succeeds with probability $O\left(1-\left(\frac{1}{2}\right)^{\Omega(n)}\right)$.   
+Runtime: $n$ uses of $U$, and $O(n\lceil\log\vert G \vert\rceil^2)$ operations. Succeeds with probability of at least $1-2^{-\Omega(n)}$, where $n$ is the number of repetitions of steps 1-6 in the procedure. 
 
 Procedure:
 

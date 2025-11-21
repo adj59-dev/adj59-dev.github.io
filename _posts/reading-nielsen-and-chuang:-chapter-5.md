@@ -1705,7 +1705,7 @@ $$\begin{aligned}
 2 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{0} & \text{create superposition}\\
 3 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{f(g_1,\cdots,g_M)} & \text{apply $U$}\\
    & \approx \frac{1}{\sqrt{\vert G \vert}}\sum_{g_1,\cdots,g_M}\sum_{l_1'\cdots l_M'}\prod_{i=1}^{M}e^{2\pi i l_i' g_i/p_i}\ket{g_1}\cdots\ket{g_M}\ket{\hat{f}(l_1',\cdots,l_M')}\\
-4 & \rightarrow \frac{1}{\sqrt{\vert G \vert}}\sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
+4 & \rightarrow \sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{p_i} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
 7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
@@ -1715,9 +1715,55 @@ $$\begin{aligned}
 </details>
 
 
+**Exercise 5.29**
 
+Give quantum algorithms to solve the Deutsch and Simon problems listed in Figure 5.5, using the framework of the hidden subgroup problem.
 
+Algorithm: Deutsch problem
 
+Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h \oplus f(g)}$ for $g\in \lbrace 0,1\rbrace$ and $h\in \lbrace 0,1\rbrace$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) a one qubit registers initialized to $\ket{0}$.
+
+Outputs: Decide whether the hidden subgroup is $K=\lbrace 0\rbrace$ or $K=\lbrace 0,1 \rbrace$. 
+
+Runtime: $n$ uses of $U$, and $O(n)$ operations. Succeeds with probability of at least $1-2^{-\Omega(n)}$, where $n$ is the number of repetitions of steps 1-6 in the procedure.
+
+Procedure:
+
+$$\begin{aligned}
+1 & \ket{0}\ket{0} & \text{initial state}\\
+2 & \rightarrow \frac{1}{\sqrt{2}}\sum_{g \in \lbrace 0,1 \rbrace}\ket{g}\ket{0} & \text{create superposition}\\
+3 & \rightarrow \frac{1}{\sqrt{2}}\sum_{g \in \lbrace 0,1 \rbrace}\ket{g}\ket{f(g)}& \text{apply $U$}\\
+   & \approx \frac{1}{\sqrt{2}}\sum_{g \in \lbrace 0,1 \rbrace}\sum_{l'\in \lbrace 0,1 \rbrace}e^{2\pi i l' g/2}\ket{g}\ket{\hat{f}(l')}\\
+4 & \rightarrow \sum_{l'\in \lbrace 0,1 \rbrace}\ket{\widetilde{l'}}\ket{\hat{f}(l')} & \text{apply inverse FT to first register} \\
+5 & \rightarrow \widetilde{l'} & \text{measure first register}\\
+6 & \rightarrow  \frac{l'h}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\\widetilde{l'}$}\\
+7  & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+8 & \rightarrow K & \text{compute $K$ to decide the Deutsch problem}
+\end{aligned}$$
+
+Looking at the procedure, we see that if in step 6 we measure $1$ this tells us that $K=\lbrace 0 \rbrace$. However, if we measure $0$ both $K=\lbrace 0\rbrace$ or $K=\lbrace 0,1 \rbrace$ could still be true. Therefore, we would need to repeate the measurement to increase the probability of correctly deciding $K$. This provides no significant advantage over the classical algorithm. We saw in eariler chapters that there is a quantum algorithm that can decide this problem in one measurement. Therefore, even though the HSP framework can be used to solve the Deutsch problem, it is not the most efficient algorithm to use. 
+
+Algorithm: Simon problem
+
+Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h\oplus f(g)}$ for $g\in \lbrace 0,1 \rbrace^M$ and $h\in \text{any finite set}$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) $M$ times $t=O(M + \log(1/\epsilon))$ qubit registers initialized to $\ket{0}$.
+
+Outputs: A generating set for the hidden subgroup $K \leq G$.
+
+Runtime: $n$ uses of $U$, and $O(nM^2)$ operations. Succeeds with probability of at least $1-2^{-\Omega(n)}$, where $n$ is the number of repetitions of steps 1-6 in the procedure. 
+
+Procedure:
+
+$$\begin{aligned}
+1 & \ket{0}^{\otimes M}\ket{0} & \text{initial state}\\
+2 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{0} & \text{create superposition}\\
+3 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{f(g_1,\cdots,g_M)} & \text{apply $U$}\\
+   & \approx \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\sum_{l_1'\cdots l_M'}\prod_{i=1}^{M}e^{2\pi i l_i' g_i/2}\ket{g_1}\cdots\ket{g_M}\ket{\hat{f}(l_1',\cdots,l_M')}\\
+4 & \rightarrow \sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
+5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
+6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
+7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+8 & \rightarrow K & \text{compute $K$}
+\end{aligned}$$
 
 
 

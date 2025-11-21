@@ -1719,6 +1719,9 @@ $$\begin{aligned}
 
 Give quantum algorithms to solve the Deutsch and Simon problems listed in Figure 5.5, using the framework of the hidden subgroup problem.
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 Algorithm: Deutsch problem
 
 Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h \oplus f(g)}$ for $g\in \lbrace 0,1\rbrace$ and $h\in \lbrace 0,1\rbrace$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) a one qubit registers initialized to $\ket{0}$.
@@ -1741,11 +1744,11 @@ $$\begin{aligned}
 8 & \rightarrow K & \text{compute $K$ to decide the Deutsch problem}
 \end{aligned}$$
 
-Looking at the procedure, we see that if in step 6 we measure $1$ this tells us that $K=\lbrace 0 \rbrace$. However, if we measure $0$ both $K=\lbrace 0\rbrace$ or $K=\lbrace 0,1 \rbrace$ could still be true. Therefore, we would need to repeate the measurement to increase the probability of correctly deciding $K$. This provides no significant advantage over the classical algorithm. We saw in eariler chapters that there is a quantum algorithm that can decide this problem in one measurement. Therefore, even though the HSP framework can be used to solve the Deutsch problem, it is not the most efficient algorithm to use. 
+Looking at the procedure, we see that if in step 6 we measure $1$ this tells us that $K=\lbrace 0 \rbrace$. However, if we measure $0$ both $K=\lbrace 0\rbrace$ or $K=\lbrace 0,1 \rbrace$ could still be true. Therefore, we would need to repeate the measurement to increase the probability of correctly deciding $K$. This provides no significant advantage over the classical algorithm. We saw in earlier chapters that there is a quantum algorithm that can decide this problem in one measurement. Therefore, even though the HSP framework can be used to solve the Deutsch problem, it is not the most efficient algorithm to use. 
 
 Algorithm: Simon problem
 
-Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h\oplus f(g)}$ for $g\in \lbrace 0,1 \rbrace^M$ and $h\in \text{any finite set}$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) $M$ times $t=O(M + \log(1/\epsilon))$ qubit registers initialized to $\ket{0}$.
+Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h\oplus f(g)}$ for $g\in \lbrace 0,1 \rbrace^M$ and $h\in \text{any finite set}$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) $M$ one qubit registers initialized to $\ket{0}^{\otimes M}$.
 
 Outputs: A generating set for the hidden subgroup $K \leq G$.
 
@@ -1755,17 +1758,25 @@ Procedure:
 
 $$\begin{aligned}
 1 & \ket{0}^{\otimes M}\ket{0} & \text{initial state}\\
-2 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{0} & \text{create superposition}\\
-3 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\ket{g_1}\cdots\ket{g_M}\ket{f(g_1,\cdots,g_M)} & \text{apply $U$}\\
-   & \approx \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M}\sum_{l_1'\cdots l_M'}\prod_{i=1}^{M}e^{2\pi i l_i' g_i/2}\ket{g_1}\cdots\ket{g_M}\ket{\hat{f}(l_1',\cdots,l_M')}\\
-4 & \rightarrow \sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
+2 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M \in \lbrace 0,1\rbrace}\ket{g_1}\cdots\ket{g_M}\ket{0} & \text{create superposition}\\
+3 & \rightarrow \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M\in \lbrace 0,1\rbrace}\ket{g_1}\cdots\ket{g_M}\ket{f(g_1,\cdots,g_M)} & \text{apply $U$}\\
+   & \approx \frac{1}{\sqrt{2^M}}\sum_{g_1,\cdots,g_M\in \lbrace 0,1\rbrace}\sum_{l_1'\cdots l_M'\in \lbrace 0,1\rbrace}\prod_{i=1}^{M}e^{2\pi i l_i' g_i/2}\ket{g_1}\cdots\ket{g_M}\ket{\hat{f}(l_1',\cdots,l_M')}\\
+4 & \rightarrow \sum_{l_1'\cdots l_M'\in \lbrace 0,1\rbrace}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
 7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
+The constraint calculated from step 6 can be written as 
 
+$$\begin{aligned}
+\sum_{i=1}^M \frac{l_i's_i}{2} \in \mathbb{Z}  \\
+\Rightarrow \sum_{i=1}^M l_i's_i \equiv 0 \mod 2  \\
+\Rightarrow l'\cdot s = 0 \mod 2
+\end{aligned}$$
 
+It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefore solve this problem, whereas the classical algorithm would need at least $\Omega(2^{M/2})$ measurements. Therefore, this algorithm, using the HSP framework, does show an advantage over the classical algorithm.
 
+</details>
 

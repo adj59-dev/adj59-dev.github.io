@@ -11,6 +11,7 @@ I just finished reading Chapter 5 of *Quantum Computation and Quantum Informatio
 * [Appendix 4](#appendix-4)
 * [Order-finding and factoring applications](#order-finding-and-factoring-applications)
 * [General applications of the quantum Fourier transform](#general-applications-of-the-quantum-fourier-transform)
+* [Chapter problems](#chapter-problems)
 
 
 
@@ -1779,4 +1780,41 @@ $$\begin{aligned}
 It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefore solve this problem, whereas the classical algorithm would need at least $\Omega(2^{M/2})$ measurements. Therefore, this algorithm, using the HSP framework, does show an advantage over the classical algorithm.
 
 </details>
+
+
+## Chapter problems
+
+**Problem 5.1**
+
+Construct a quantum circuit to perform the quantum Fourier transform 
+
+$$\begin{aligned}
+\ket{j} \rightarrow \frac{1}{\sqrt{p}}\sum_{k=0}^{p-1}e^{2\pi ijk/p}\ket{k}
+\end{aligned}$$
+
+where $p$ is prime. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+This is the same as equation 5.2, where $N=p$. Reading further in section 5.1, we see that they set $N=2^n$ and constructed a circuit that performs the quantum Fourier transform, shown in Figure 5.1. Unfortunately for us, $N$ is now prime and so $N\neq 2^n$. We will still have $n=\lceil p \rceil$ qubits and registers containing states $\ket{0},\cdots,\ket{2^n-1}, but we only want to apply the Fourier transform on the first $p$ of these basis states and so we need to construct a circuit that performs the operation
+
+$$\begin{aligned}
+U &= \begin{bmatrix} F_p & 0 \\\ 0 & I_{2^n-p} \end{bmatrix}
+\end{aligned}$$
+
+Since $U$ is unitary, we know that it can be approximated using Hadamard, phase, CNOT, and $\pi/8$ gates (as shown in section 4.5.3). However, since $F_p$ cannot be represented as the simple product decomposition of equation 5.10, the circuit shown in figure 5.1 does not apply. For prime $p$, the resulting circuit has no particularly simple structure, but it exists and can be systematically constructed by decomposing $U$ into elementary 1- and 2-qubit gates.
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
 

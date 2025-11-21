@@ -1692,11 +1692,11 @@ I had to reference several resources to understand the hidden subgroup problem. 
 
 Algorithm: Hidden subgroup problem
 
-Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h\oplus f(g)}$ for $g\in G$, $h\in X$, and $\oplus$ an appropriately chosen binary operation on $X$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) $O(\log\vert G \vert)$ $t=O(\lceil \log \vert G\vert\rceil + \log(1/\epsilon))$ qubit registers initialized to $\ket{0}$.
+Inputs: (1) a black box which performs the operation $U\ket{g}\ket{h} = \ket{g}\ket{h\oplus f(g)}$ for $g\in G$, $h\in X$, and $\oplus$ an appropriately chosen binary operation on $X$, (2) a state to store the function evaluation, initialized to $\ket{0}$, and (3) $M$ times $t=O(\lceil \log \vert G\vert\rceil + \log(1/\epsilon))$ qubit registers initialized to $\ket{0}$.
 
 Outputs: A generating set for the hidden subgroup $K \leq G$.
 
-Runtime: $O(\log\vert G \vert)$ uses of $U$, and $O(\log\vert G \vert^3)$ operations. Succeeds with probability $1-\epsilon$.   
+Runtime: $n$ uses of $U$, and $O(n\log\vert G \vert^2)$ operations. Succeeds with probability $O\left(1-\left(\frac{1}{2}\right)^{\Omega(n)}\right)$.   
 
 Procedure:
 

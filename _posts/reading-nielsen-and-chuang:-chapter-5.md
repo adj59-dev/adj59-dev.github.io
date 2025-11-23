@@ -1814,11 +1814,22 @@ Suppose the quantum Fourier transform is performed as the last step of a quantum
 
 This paper was cited in the History and further reading section for this problem: [Semiclassical Fourier Transform for Quantum Computation](https://arxiv.org/pdf/quant-ph/9511007).
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+I'm going to use a 4 qubit example to show that the combination of quantum Fourier transform and measurement is equivalent to a circuit consisting entirely of one qubit gates and measurement, with classical control, and no two qubit gates, but the same reasoning can be applied to a circuit of any number of qubits. 
 
+Using the design shown in Figure 5.1, we can write a Fourier transform for a 4 qubit circuit as the following,
 
+<img width="851" height="296" alt="image" src="https://github.com/user-attachments/assets/88c18ce0-8ebf-45ed-bec0-f102ded18ad0" />
 
+Since the controlled $R_k$ operation is a controlled-phase gate, we can swap the control and target qubits without changing the output of the circuit (as we showed in Exercise 4.18) and so our circuit can be constructed like so
 
+<img width="814" height="288" alt="image" src="https://github.com/user-attachments/assets/a98c3f37-e8f6-499d-9b27-d76c907cb495" />
+
+In Exercise 4.35 we showed that measurement commutes with controls and so if we measured each qubit after the Hadamard gate, but prior to them serving as controls for the $R_k$ gates, then that would be equivalent to measuring the qubits after the Fourier transform has completed. Measuring earlier vs. measuring at the end gives the same outcome distribution. After commuting the measurement forward, the remaining $R_k$ operations are just single-qubit gates whose application pattern is chosen classically from the measured bits, so there is no 2-qubit gates in the circuit. 
+
+</details>
 
 
 

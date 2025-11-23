@@ -1832,6 +1832,34 @@ In Exercise 4.35 we showed that measurement commutes with controls and so if we 
 </details>
 
 
+**Problem 5.3**
+
+Consider the quantum circuit shown on page 243 where $\ket{u}$ is an eigenstate of $U$ with eigenvalue $e^{2\pi i\varphi}$. Show that the top qubit is measured to be $0$ with probability $p\equiv \cos^2(\pi\varphi)$. Since the state $\ket{u}$ is unaffected by the circuit it may be reused; if $U$ can be replaced by $U^k$, where $k$ is an arbitrary integer under your control, show that by repeating this circuit and increasing $k$ appropriately, you can efficiently obtain as many bits of $p$ as desired, and thus, of $\varphi$. This is an alternative to the pase estimation algorithm. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+This circuit is similar to the one we investigated in Exercise 4.34, but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
+
+$$\begin{aligned}
+p_k(0) &= \braket{u \vert M_{k}^\dagger M_{k} \vert u} \\
+&= \frac{1}{4} \braket{u \vert (I + U^{k\dagger})(I+U^k) \vert u} \\
+&= \frac{1}{4} \braket{u \vert (2I + U^k + U^{k\dagger}) \vert u} \\
+&= \frac{1}{4} \left( \braket{u \vert 2I \vert u} +\braket{u \vert U^k \vert u}+\braket{u \vert  U^{k\dagger} \vert u}\right) \\
+&= \frac{1}{4} \left( 2 + e^{i2\pi\varphi k} + e^{-i2\pi\varphi k}\right) \\
+&= \frac{1}{4} \left( 2 + 2\cos(2\pi\varphi k)\right) \\
+&= \cos^2(\pi\varphi k)
+\end{aligned}$$
+
+With a probability of $1-\cos^2(\pi\varphi k)=\sin^2(\pi\varphi k)$ of measuring $1$.
+
+By tuning $k$ and collecting multiple measurements at different values we could find two values $k_m$ and $k_{m+1}$ for which the measured outcome is almost always $0$. Then we could calculate $\varphi \approx \frac{1}{k_{m+1} - k_m}$.
+
+</details>
+
+
+
+
 
 
 

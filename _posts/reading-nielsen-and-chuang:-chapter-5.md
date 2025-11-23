@@ -1858,8 +1858,29 @@ By tuning $k$ and collecting multiple measurements at different values we could 
 </details>
 
 
+**Problem 5.4**
 
+The runtime bound $O(L^3)$ we have given for the factoring algorithm is not tight. Show that a better upper bound of $O(L^2\log L\log\log L)$ operations can be achieved. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Looking at the Algorithm on page 233-234, we see that when reducing factoring to order-finding there are two steps that the book labeled as having $O(L^3)$ operations: step 2 and step 4. 
+
+In Exercise 5.17, we already showed that by using more efficient mathematical operation algorithms, step 2 can be completed in $O(L^2(\log(L))^2)$ operations. This comes from repeating a $O(L(\log(L))^2)$ operation algorithm $L$ times, once for each value of $b$ between 2 and $L$. However, we do not need to run the algorithm for all of those values. It is sufficient to just run them for prime values between 2 and $L$. This is because we can write $b=p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$ and so for all $p\in \lbrace p_1,p_2,\cdots,p_n \rbrace$
+
+$$\begin{aligned}
+N &= a^{b} \\
+&= a^{p(b/p)} \\
+&= (a^{b/p})^p \\
+&= c^p
+\end{aligned}$$
+
+and so if there is a solution for $N=a^b$ there is also a solution for $N=c^p$ and we can return factor $c$ in step 2. From the prime number theorem, we know that there is about $L/log(L)$ prime numbers less than $L$ and so by only sampling prime numbers between $2$ and $L$ only $O(L^2\log(L))$ operations are needed, which is better than $O(L^2\log L\log\log L)$.
+
+For step 4, the book lists the quantum order finding algorithm as having $O(L^3)$ operations. From our HSP algorithm analysis, we know this comes from one use of $U$, and $O(L^2)$ other operations, so in order to look for improvements, we need to focus on $U$. Looking in Box 5.2 where the modular exponentiation calculation is outlined, it is noted that this calculation is computed using $O(L^3)$ gates, but more efficient algorithms are possible based on more efficient algorithms for multiplication. It looks like this calculation was done using shcoolbook long multiplication which is $O(L^2)$. However, if we use the Sch&ouml;nhage-Strassen algorithm it can be done in $O(L\log L\log\log L)$ (and can be done even more efficiently with Harvey-Hoeven). If we switched to this multiplication algorithm, the computation can be done in $O(L^2\log L\log\log L)$ and so the factoring algorithm would be in $O(L^2\log L\log\log L)$.
+
+</details>
 
 
 

@@ -1885,17 +1885,20 @@ For step 4, the book lists the quantum order finding algorithm as having $O(L^3)
 
 **Problem 5.5**
 
-From History and further readings:
+Let $f$ be a function on a finite group $G$ to an arbitrary finite range $X$, which is promised to be constant and distinct on distinct left cosets of a subgroup $K$. Start with the state
 
-[On Quantum Algorithms for Noncommutative Hidden Subgroups](https://arxiv.org/pdf/quant-ph/9807029)
+$$\begin{aligned}
+\frac{1}{\sqrt{\vert G \vert^m}}\sum_{g_1,\cdots,g_m}\ket{g_1,\cdots,g_m}\ket{f(g_1),\cdots,f(g_m)}
+\end{aligned}$$
 
-[Fast Quantum Fourier Transforms for a Class of Non-abelian Groups](https://arxiv.org/pdf/quant-ph/9807064)
+and prove that picking $m = 4 \log \vert G\vert + 2$ allows $K$ to be identified with probability at least $1 − 1/\vert G\vert$. Note that $G$ does not necessarily have to be Abelian, and being able to perform a Fourier transform over $G$ is not required. This result shows that one can produce (using only $O(\log \vert G\vert)$ oracle calls) a final result in which the pure state outcomes corresponding to different possible hidden subgroups are nearly orthogonal. However, it is unknown whether a POVM exists or not which allows the hidden subgroup to be identified efficiently (i.e. using poly($\log \vert G\vert$) operations) from this final state. 
 
-[Quantum Lower Bounds by Polynomials](https://arxiv.org/pdf/quant-ph/9802049)
+These articles are cited as being related to this problem in the History and further readings section:
 
-[Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034)
-
-
-
+* [On Quantum Algorithms for Noncommutative Hidden Subgroups](https://arxiv.org/pdf/quant-ph/9807029)
+* [Fast Quantum Fourier Transforms for a Class of Non-abelian Groups](https://arxiv.org/pdf/quant-ph/9807064)
+* [Quantum Lower Bounds by Polynomials](https://arxiv.org/pdf/quant-ph/9802049)
+* [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034)
+* [Polynomial-Time Solution to the Hidden Subgroup Problem for a Class of non-abelian Groups](https://arxiv.org/pdf/quant-ph/9812070)
 
 

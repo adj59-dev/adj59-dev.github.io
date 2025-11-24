@@ -1883,4 +1883,19 @@ For step 4, the book lists the quantum order finding algorithm as having $O(L^3)
 </details>
 
 
+**Problem 5.5**
+
+From History and further readings:
+
+[On Quantum Algorithms for Noncommutative Hidden Subgroups](https://arxiv.org/pdf/quant-ph/9807029)
+
+[Fast Quantum Fourier Transforms for a Class of Non-abelian Groups](https://arxiv.org/pdf/quant-ph/9807064)
+
+[Quantum Lower Bounds by Polynomials](https://arxiv.org/pdf/quant-ph/9802049)
+
+[Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034)
+
+
+
+
 

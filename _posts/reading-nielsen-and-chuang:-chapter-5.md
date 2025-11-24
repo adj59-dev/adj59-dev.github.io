@@ -1898,7 +1898,26 @@ These articles are cited as being related to this problem in the History and fur
 * [On Quantum Algorithms for Noncommutative Hidden Subgroups](https://arxiv.org/pdf/quant-ph/9807029)
 * [Fast Quantum Fourier Transforms for a Class of Non-abelian Groups](https://arxiv.org/pdf/quant-ph/9807064)
 * [Quantum Lower Bounds by Polynomials](https://arxiv.org/pdf/quant-ph/9802049)
-* [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034)
+* [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034) - this one contains the solution to this problem
 * [Polynomial-Time Solution to the Hidden Subgroup Problem for a Class of non-abelian Groups](https://arxiv.org/pdf/quant-ph/9812070)
+
+
+Starting with the state 
+
+$$\begin{aligned}
+\frac{1}{\sqrt{\vert G \vert^m}}\sum_{g_1,\cdots,g_m}\ket{g_1,\cdots,g_m}\ket{f(g_1),\cdots,f(g_m)}
+\end{aligned}$$
+
+We can then measure the second register and obtain state $\ket{\Psi} = \ket{a_1H}\otimes \ket{a_2H}\otimes\cdots\otimes\ket{a_mH}$ where $\lbrace a_1,\cdots,a_m\rbrace \subseteq G$. We know that for any subgroup $K\leq G$ and subset $\lbrace b_1,\cdots,b_m \rbrace \subseteq G$ we can define a state
+
+$$\begin{aligned}
+\ket{\Psi(K,\lbrace b_i\rbrace)} = \ket{b_1K}\otimes\ket{b_2K}\otimes\cdots\otimes\ket{b_mK}
+\end{aligned}$$
+
+If $K\nleq H$ then $\braket{\Psi\vert \Psi(K,\lbrace b_i\rbrace)}\approx 0$ and so we can define a family of POVMs $A_K$ of the form $A_K=P_K-P_K^{\bot}$, where $P_K$ is the projector onto the subspace spanned by all the vectors of the form $\ket{\Psi(K,\lbrace b_i\rbrace)}$ for all subsets $\lbrace b_i\rbrace$ and $P_K^{\bot}$ is the orthogonal complement. 
+
+
+
+
 
 

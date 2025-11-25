@@ -1955,7 +1955,7 @@ Going back to our procedure we can now add the last step.
 
 $$\begin{aligned}
 & \ket{x} = \ket{x_1,\cdots,x_n} & \text{initial state}\\
-&\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & &\text{apply quantum Fourier transform}\\
+&\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} &\text{apply quantum Fourier transform}\\
 &\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + y/2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + y/2^2)}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + y/2^n)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
 &=\frac{1}{2^{n/2}} \otimes_{l=1}^{n}\lbrack \ket{0} + e^{2\pi i(x+y \mod 2^l)2^{-l}}\ket{1} \rbrack\\
 &=\frac{1}{2^{n/2}}\sum_{k=0}^{2^n-1}e^{2\pi i (x+y \mod 2^n)k/2^{n}} & \text{following equations 5.5-5.9 in reverse} \\

@@ -1,3 +1,22 @@
+---
+title: "Reading Nielsen and Chuang: Chapter 4"
+description: "Notes and worked exercises for QCQI Chapter 4: quantum algorithms, single qubit operations, controlled operations, measurement, and simulation of quantum systems."
+categories:
+  - Quantum Computation and Quantum Information
+tags:
+  - QCQI
+  - quantum computing
+  - Nielsen & Chuang
+  - chapter 4
+  - quantum algorithms
+  - single qubit operations
+  - controlled operations
+  - measurement
+  - simulation
+  - solutions
+---
+
+
 # Reading Nielsen and Chuang: Chapter 4
 
 I just finished reading Chapter 4 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. This is the first chapter in Part II, which focuses on quantum computation. Chapter 4 introduces quantum circuits as the fundamental model of quantum computation and shows that there exists a universal set of gates capable of approximating any quantum operation.

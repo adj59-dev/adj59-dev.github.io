@@ -1,4 +1,8 @@
-## Leaving Intel And What Is Next
+---
+title: "Leaving Intel and What Is Next"
+---
+
+## Leaving Intel and What Is Next
 
 On Monday I was notified that I’ll be laid off at the end of the month from my job at Intel — along with a large percentage of their workforce. This wasn’t entirely unwelcome. I had been intending to leave the company in September, when Intel’s four-day return-to-office (RTO) policy was set to begin, so this departure simply came a little earlier than planned. 
 

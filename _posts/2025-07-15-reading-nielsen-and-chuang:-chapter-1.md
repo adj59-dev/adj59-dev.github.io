@@ -1,3 +1,18 @@
+---
+title: "Reading Nielsen and Chuang: Chapter 1"
+description: "Notes and worked exercises for QCQI Chapter 1: introduction and overview."
+categories:
+  - Quantum Computation and Quantum Information
+tags:
+  - QCQI
+  - quantum computing
+  - Nielsen & Chuang
+  - chapter 1
+  - introduction
+  - overview
+  - solutions
+---
+
 ## Reading Nielsen and Chuang: Chapter 1
 
 I recently started reading *Quantum Computation and Quantum Information* by Nielsen and Chuang. I don’t always read the introductory chapters of textbooks—often it is mostly material that is covered later in more detail—but with some unexpected free time, I decided to give this one a read.

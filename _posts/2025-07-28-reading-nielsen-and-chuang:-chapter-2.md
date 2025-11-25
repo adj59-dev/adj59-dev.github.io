@@ -1,3 +1,18 @@
+---
+title: "Reading Nielsen and Chuang: Chapter 2"
+description: "Notes and worked exercises for QCQI Chapter 2: linear algebra and quantum mechanics."
+categories:
+  - Quantum Computation and Quantum Information
+tags:
+  - QCQI
+  - quantum computing
+  - Nielsen & Chuang
+  - chapter 2
+  - linear algebra
+  - quantum mechanics
+  - solutions
+---
+
 # Reading Nielsen and Chuang: Chapter 2
 
 I just finished reading Chapter 2 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. While the chapter serves as a brief introduction to quantum mechanics, much of it is devoted to linear algebra — with 50 out of 82 exercises focused on that topic. 

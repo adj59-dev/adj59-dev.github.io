@@ -549,7 +549,7 @@ $$\begin{aligned}
 &\leq n
 \end{aligned}$$
 
-and equality occurs if and only if all terms point in exactly the same direction in the complex plane. That is, $e^{i\theta_1}=e^{i\theta_2}=\cdots = e^{i\theta_n}\e^{i\theta}$. If all eigenvalues are equal to $e^{i\theta}$ then $g=e^{i\theta}I$. Therefore, $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$.
+and equality occurs if and only if all terms point in exactly the same direction in the complex plane. That is, $e^{i\theta_1}=e^{i\theta_2}=\cdots = e^{i\theta_n}e^{i\theta}$. If all eigenvalues are equal to $e^{i\theta}$ then $g=e^{i\theta}I$. Therefore, $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$.
 
 For (4)
 
@@ -933,7 +933,7 @@ Show that an efficient factoring algorithm would allow us to efficiently find th
 <summary>Solution</summary>
 
 If we had an algorithm that efficiently identified all the factors of a number, we could use the following algorithm to efficiently find the order modulo $N$ of any $x$ co-prime to $N$: <br>
-(1) Factor $N=\prod_i p_i^{\alpha_i} <br>
+(1) Factor $N=\prod_i p_i^{\alpha_i}$ <br>
 (2) Calculate $\varphi(N) = \prod_i p_i^{\alpha_{i}-1}(p_i-1)$  and set $r=\varphi(N)$ <br>
 (3) Factor $\varphi(N) = \prod_j q_j^{\beta_j}$ and find its distinct primes $\lbrace q_1, \cdots, q_t\rbrace$<br>
 (4) For each $q\in \lbrace q_1, \cdots, q_t \rbrace$: while $q \vert r$ and $x^{r/q} = 1 \mod N$ set $r = r/q$. <br>
@@ -1715,7 +1715,7 @@ $$\begin{aligned}
 4 & \rightarrow \sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{p_i} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
-7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+7 & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
@@ -1746,8 +1746,8 @@ $$\begin{aligned}
    & \approx \frac{1}{\sqrt{2}}\sum_{g \in \lbrace 0,1 \rbrace}\sum_{l'\in \lbrace 0,1 \rbrace}e^{2\pi i l' g/2}\ket{g}\ket{\hat{f}(l')}\\
 4 & \rightarrow \sum_{l'\in \lbrace 0,1 \rbrace}\ket{\widetilde{l'}}\ket{\hat{f}(l')} & \text{apply inverse FT to first register} \\
 5 & \rightarrow \widetilde{l'} & \text{measure first register}\\
-6 & \rightarrow  \frac{l'h}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\\widetilde{l'}$}\\
-7  & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+6 & \rightarrow  \frac{l'h}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\widetilde{l'}$}\\
+7  & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$ to decide the Deutsch problem}
 \end{aligned}$$
 
@@ -1771,7 +1771,7 @@ $$\begin{aligned}
 4 & \rightarrow \sum_{l_1'\cdots l_M'\in \lbrace 0,1\rbrace}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
-7 & \text{repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+7 & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
@@ -1803,7 +1803,7 @@ where $p$ is prime.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-This is the same as equation 5.2, where $N=p$. Reading further in section 5.1, we see that they set $N=2^n$ and constructed a circuit that performs the quantum Fourier transform, shown in Figure 5.1. Unfortunately for us, $N$ is now prime and so $N\neq 2^n$. We will still have $n=\lceil p \rceil$ qubits and registers containing states $\ket{0},\cdots,\ket{2^n-1}, but we only want to apply the Fourier transform on the first $p$ of these basis states and so we need to construct a circuit that performs the operation
+This is the same as equation 5.2, where $N=p$. Reading further in section 5.1, we see that they set $N=2^n$ and constructed a circuit that performs the quantum Fourier transform, shown in Figure 5.1. Unfortunately for us, $N$ is now prime and so $N\neq 2^n$. We will still have $n=\lceil p \rceil$ qubits and registers containing states $\ket{0},\cdots,\ket{2^n-1}$, but we only want to apply the Fourier transform on the first $p$ of these basis states and so we need to construct a circuit that performs the operation
 
 $$\begin{aligned}
 U &= \begin{bmatrix} F_p & 0 \\\ 0 & I_{2^n-p} \end{bmatrix}
@@ -1920,19 +1920,19 @@ Consider the task of constructing a quantum circuit to compute $\ket{x} \rightar
 Let's look at the first two steps
 
 $$\begin{aligned}
-\ket{x} = \ket{x_1,\cdots,x_n} & \text{initial state}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + \varphi_n)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + \varphi_{n-1})}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + \varphi_1)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
+& \ket{x} = \ket{x_1,\cdots,x_n} & \text{initial state}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + \varphi_n)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + \varphi_{n-1})}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + \varphi_1)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
 \end{aligned}$$
 
 Just to get a feel for what's going on let's walk through a couple of examples. First let's think about the case where $x=11$ and $y=1$ and so $11 = (1)2^{3}+(0)2^{2} + (1)2^{1} + (1)2^{0}$, then $x+y = (1)2^{3}+(1)2^{2} + (0)2^{1} + (0)2^{0}$
 
 $$\begin{aligned}
-\ket{1011} & \text{initial state}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
-= \frac{\left(\ket{0} + e^{2\pi i0.0_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.00_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.100_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1100_2}\ket{1}\right)}{4} & \text{this is what we want}\\
-\rightarrow \ket{1100} & \text{inverse Fourier transform}
+& \ket{1011} & \text{initial state}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
+& = \frac{\left(\ket{0} + e^{2\pi i0.0_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.00_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.100_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1100_2}\ket{1}\right)}{4} & \text{this is what we want}\\
+& \rightarrow \ket{1100} & \text{inverse Fourier transform}
 \end{aligned}$$
 
 For this example, we need $\varphi_4 = 0.1_2 = y/2$, $\varphi_3 = 0.01_2=y/4$, $\varphi_2 = 0.001_2=y/8$, and $\varphi_1 = 0.0001_2=y/16$.
@@ -1941,11 +1941,11 @@ For this example, we need $\varphi_4 = 0.1_2 = y/2$, $\varphi_3 = 0.01_2=y/4$, $
 Now let's think about the case where $x=11$ and $y=2$ and so $11 = (1)2^{3}+(0)2^{2} + (1)2^{1} + (1)2^{0}$, then $x+y = (1)2^{3}+(1)2^{2} + (0)2^{1} + (1)2^{0}$
 
 $$\begin{aligned}
-\ket{1011} & \text{initial state}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
-\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
-= \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.01_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.101_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1101_2}\ket{1}\right)}{4} & \text{this is what we want}\\
-\rightarrow \ket{1101} & \text{apply inverse Fourier transform}
+& \ket{1011} & \text{initial state}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+& \rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
+& = \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.01_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.101_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1101_2}\ket{1}\right)}{4} & \text{this is what we want}\\
+& \rightarrow \ket{1101} & \text{apply inverse Fourier transform}
 \end{aligned}$$
 
 For this example, we need $\varphi_4 = 1.0_2=y/2 \equiv 0.0_2 \mod 1$, $\varphi_3 = 0.10_2=y/4$, $\varphi_2 = 0.010_2=y/8$, and $\varphi_1 = 0.0010_2=y/16$. This follows the same trend as the first example. 
@@ -1954,7 +1954,7 @@ For this example, we need $\varphi_4 = 1.0_2=y/2 \equiv 0.0_2 \mod 1$, $\varphi_
 Going back to our procedure we can now add the last step.
 
 $$\begin{aligned}
-\ket{x} &= \ket{x_1,\cdots,x_n} & \text{initial state}\\
+& \ket{x} = \ket{x_1,\cdots,x_n} & \text{initial state}\\
 &\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & &\text{apply quantum Fourier transform}\\
 &\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + y/2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + y/2^2)}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + y/2^n)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
 &=\frac{1}{2^{n/2}} \otimes_{l=1}^{n}\lbrack \ket{0} + e^{2\pi i(x+y \mod 2^l)2^{-l}}\ket{1} \rbrack\\

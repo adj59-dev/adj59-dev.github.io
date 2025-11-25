@@ -15,7 +15,6 @@ I just finished reading Chapter 5 of *Quantum Computation and Quantum Informatio
 
 
 
-
 ## The quantum Fourier transform
 
 ### The quantum Fourier transform - Key Concepts
@@ -1898,26 +1897,66 @@ These articles are cited as being related to this problem in the History and fur
 * [On Quantum Algorithms for Noncommutative Hidden Subgroups](https://arxiv.org/pdf/quant-ph/9807029)
 * [Fast Quantum Fourier Transforms for a Class of Non-abelian Groups](https://arxiv.org/pdf/quant-ph/9807064)
 * [Quantum Lower Bounds by Polynomials](https://arxiv.org/pdf/quant-ph/9802049)
-* [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034) - this one contains the solution to this problem
+* [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034) 
 * [Polynomial-Time Solution to the Hidden Subgroup Problem for a Class of non-abelian Groups](https://arxiv.org/pdf/quant-ph/9812070)
 
+I'm not going to reproduce the solution here, it is written out clearly in [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034).
 
-Starting with the state 
+
+**Problem 5.6**
+
+Consider the task of constructing a quantum circuit to compute $\ket{x} \rightarrow \ket{x+y\mod 2^n}$, where $y$ is a fixed constant, and $0 \leq x < 2^n$. Show that one efficient way to do this, for values of $y$ such as 1, is to first perform a quantum Fourier transform, then to apply single qubit phase shifts, then an inverse Fourier transform. What values of $y$ can be added easily this way, and how many operations are required?
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+Let's look at the first two steps
 
 $$\begin{aligned}
-\frac{1}{\sqrt{\vert G \vert^m}}\sum_{g_1,\cdots,g_m}\ket{g_1,\cdots,g_m}\ket{f(g_1),\cdots,f(g_m)}
+\ket{x} = \ket{x_1,\cdots,x_n} & \text{initial state}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + \varphi_n)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + \varphi_{n-1})}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + \varphi_1)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
 \end{aligned}$$
 
-We can then measure the second register and obtain state $\ket{\Psi} = \ket{a_1H}\otimes \ket{a_2H}\otimes\cdots\otimes\ket{a_mH}$ where $\lbrace a_1,\cdots,a_m\rbrace \subseteq G$. We know that for any subgroup $K\leq G$ and subset $\lbrace b_1,\cdots,b_m \rbrace \subseteq G$ we can define a state
+Just to get a feel for what's going on let's walk through a couple of examples. First let's think about the case where $x=11$ and $y=1$ and so $11 = (1)2^{3}+(0)2^{2} + (1)2^{1} + (1)2^{0}$, then $x+y = (1)2^{3}+(1)2^{2} + (0)2^{1} + (0)2^{0}$
 
 $$\begin{aligned}
-\ket{\Psi(K,\lbrace b_i\rbrace)} = \ket{b_1K}\otimes\ket{b_2K}\otimes\cdots\otimes\ket{b_mK}
+\ket{1011} & \text{initial state}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
+= \frac{\left(\ket{0} + e^{2\pi i0.0_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.00_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.100_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1100_2}\ket{1}\right)}{4} & \text{this is what we want}\\
+\rightarrow \ket{1100} & \text{inverse Fourier transform}
 \end{aligned}$$
 
-If $K\nleq H$ then $\braket{\Psi\vert \Psi(K,\lbrace b_i\rbrace)}\approx 0$ and so we can define a family of POVMs $A_K$ of the form $A_K=P_K-P_K^{\bot}$, where $P_K$ is the projector onto the subspace spanned by all the vectors of the form $\ket{\Psi(K,\lbrace b_i\rbrace)}$ for all subsets $\lbrace b_i\rbrace$ and $P_K^{\bot}$ is the orthogonal complement. 
+For this example, we need $\varphi_4 = 0.1_2 = y/2$, $\varphi_3 = 0.01_2=y/4$, $\varphi_2 = 0.001_2=y/8$, and $\varphi_1 = 0.0001_2=y/16$.
 
 
+Now let's think about the case where $x=11$ and $y=2$ and so $11 = (1)2^{3}+(0)2^{2} + (1)2^{1} + (1)2^{0}$, then $x+y = (1)2^{3}+(1)2^{2} + (0)2^{1} + (1)2^{0}$
+
+$$\begin{aligned}
+\ket{1011} & \text{initial state}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.11_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.011_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1011_2}\ket{1}\right)}{2^{n/2}} & \text{apply quantum Fourier transform}\\
+\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.1_2 + \varphi_4)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.11_2 + \varphi_3)}\ket{1}\right)  \left(\ket{0} + e^{2\pi i(0.011_2 + \varphi_2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.1011_2 + \varphi_1)}\ket{1}\right)}{4}  & \text{apply single qubit phase shifts}\\
+= \frac{\left(\ket{0} + e^{2\pi i0.1_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.01_2}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.101_2}\ket{1}\right)\left(\ket{0} + e^{2\pi i0.1101_2}\ket{1}\right)}{4} & \text{this is what we want}\\
+\rightarrow \ket{1101} & \text{apply inverse Fourier transform}
+\end{aligned}$$
+
+For this example, we need $\varphi_4 = 1.0_2=y/2 \equiv 0.0_2 \mod 1$, $\varphi_3 = 0.10_2=y/4$, $\varphi_2 = 0.010_2=y/8$, and $\varphi_1 = 0.0010_2=y/16$. This follows the same trend as the first example. 
 
 
+Going back to our procedure we can now add the last step.
+
+$$\begin{aligned}
+\ket{x} &= \ket{x_1,\cdots,x_n} & \text{initial state}\\
+&\rightarrow \frac{\left(\ket{0} + e^{2\pi i0.x_n}\ket{1}\right) \left(\ket{0} + e^{2\pi i0.x_{n-1}x_n}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i0.x_1x_2\cdots x_n}\ket{1}\right)}{2^{n/2}} & &\text{apply quantum Fourier transform}\\
+&\rightarrow \frac{\left(\ket{0} + e^{2\pi i(0.x_n + y/2)}\ket{1}\right) \left(\ket{0} + e^{2\pi i(0.x_{n-1}x_n + y/2^2)}\ket{1}\right) \cdots \left(\ket{0} + e^{2\pi i(0.x_1x_2\cdots x_n + &y/2^n)}\ket{1}\right)}{2^{n/2}}  & \text{apply single qubit phase shifts}\\
+&=\frac{1}{2^{n/2}} \otimes_{l=1}^{n}\lbrack \ket{0} + e^{2\pi i(x+y \mod 2^l)2^{-l}}\ket{1} \rbrack\\
+&=\frac{1}{2^{n/2}}\sum_{k=0}^{2^n-1}e^{2\pi i (x+y \mod 2^n)k/2^{n}} & \text{following equations 5.5-5.9 in reverse} \\
+&\rightarrow \ket{x+y \mod 2^n} & \text{apply inverse Fourier transform}
+\end{aligned}$$
+
+Any integer values of $y$ could be easily added this way. The Fourier transform and inverse Fourier transform can be done with $\Theta(n^2)$ gates. Then we'll need $O(n)$ single qubit phase shift gates. So, the whole circuit requires $O(n^2)$ operations.
+
+</details>
 
 

@@ -53,14 +53,14 @@ This matches the desired behavior and so the unitary operator corresponding to t
 
 Show that the operation $(2\ket{\psi}\bra{\psi}-I)$ applied to a general state $\sum_{k}\alpha_k\ket{k}$ produces
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
-
 $$\begin{aligned}
 \sum_{k}\lbrack -\alpha_k+2\braket{\alpha}\rbrack\ket{k},
 \end{aligned}$$
 
 where $\braket{\alpha}\equiv \sum_k\alpha_k/N$ is the mean value of the $\alpha_k$. For this reason, $(2\ket{\psi}\bra{\psi}-I)$ is sometimes referred to as the inversion about mean operation.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 First let's rewrite $\ket{\psi}\bra{\psi}$ using equation 6.4
 
@@ -84,7 +84,7 @@ $$\begin{aligned}
 </details>
 
 
-
+**Exercise 6.3**
 
 
 

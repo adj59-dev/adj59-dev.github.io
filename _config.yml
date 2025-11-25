@@ -20,6 +20,9 @@ linkedin_username: "alex-d-johnson"
 #########################################################################################
 theme: "minima"
 
+url: "https://adj59-dev.github.io"
+baseurl: ""   # important: empty string for a user site
+
 rss: rss
 
 kramdown:

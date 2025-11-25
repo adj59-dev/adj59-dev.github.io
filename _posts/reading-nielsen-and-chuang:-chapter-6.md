@@ -86,13 +86,33 @@ $$\begin{aligned}
 
 **Exercise 6.3**
 
+Show that in the $\ket{\alpha}$, $\ket{\beta}$ basis, we may write the Grover iteration as
 
+$$\begin{aligned}
+G = \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\theta \end{bmatrix},
+\end{aligned}$$
 
+where $\theta$ is a real number in the range $0$ to $\pi/2$ (assuming for simplicity that $M\leq N/2$; this limitation will be lifted shortly, chosen so that 
 
+$$\begin{aligned}
+\sin\theta = \frac{2\sqrt{M(N-M)}}{N}
+\end{aligned}$$
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+We start with $\ket{\psi} = \cos\frac{\theta}{2}\ket{\alpha} + \sin\frac{\theta}{2}\ket{\beta}$ then
 
+$$\begin{aligned}
+G\ket{\psi} &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\theta \end{bmatrix}\begin{bmatrix} \cos\frac{\theta}{2} \\\ \sin\frac{\theta}{2} \end{bmatrix}\\
+&= \begin{bmatrix} \cos\theta\cos\frac{\theta}{2} - \sin\theta\sin\frac{\theta}{2} \\\ \sin\theta\cos\frac{\theta}{2} + \cos\theta\sin\frac{\theta}{2} \end{bmatrix}\\
+&= \begin{bmatrix} \cos\frac{3\theta}{2} \\\ \sin\frac{3\theta}{2} \end{bmatrix}\\
+&= \cos\frac{3\theta}{2}\ket{\alpha} + \sin\frac{3\theta}{2}\ket{\beta}
+\end{aligned}$$
 
+This agrees with equation 6.11. Therefore, the Grover iteration may be written as matrix $G$ in the $\ket{\alpha}$, $\ket{\beta}$ basis. 
+
+</details>
 
 
 

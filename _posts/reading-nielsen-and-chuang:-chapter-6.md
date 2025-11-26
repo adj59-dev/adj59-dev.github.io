@@ -197,6 +197,74 @@ O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
 </details>
 
 
+**Exercise 6.6**
+
+Verify that the gates in the dotted box in the second figure of Box 6.1 perform the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+These are the gates that we need to verify:
+
+<img width="369" height="179" alt="image" src="https://github.com/user-attachments/assets/a362d05c-22ca-473b-945e-eeeb9d8f3229" />
+
+If we start with a generic two qubit state $\ket{\psi_0} = \alpha_{00}\ket{00} + \alpha_{10}\ket{10} + \alpha_{01}\ket{01} + \alpha_{11}\ket{11}$ and apply an X gate to each of the qubits we get
+
+$$\begin{aligned}
+\ket{\psi_1} = \alpha_{00}\ket{11} + \alpha_{10}\ket{01} + \alpha_{01}\ket{10} + \alpha_{11}\ket{00}
+\end{aligned}$$
+
+Then applying the Hadamard gate to the second qubit we get
+
+$$\begin{aligned}
+\ket{\psi_2} = \alpha_{00}\left(\frac{\ket{10}-\ket{11}}{\sqrt{2}}\right) + \alpha_{10}\left(\frac{\ket{00}-\ket{01}}{\sqrt{2}}\right) + \alpha_{01}\left(\frac{\ket{10}+\ket{11}}{\sqrt{2}}\right) + \alpha_{11}\left(\frac{\ket{00}+\ket{01}}{\sqrt{2}}\right)
+\end{aligned}$$
+
+Then we apply the CNOT gate to get
+
+$$\begin{aligned}
+\ket{\psi_3} = \alpha_{00}\left(\frac{\ket{11}-\ket{10}}{\sqrt{2}}\right) + \alpha_{10}\left(\frac{\ket{00}-\ket{01}}{\sqrt{2}}\right) + \alpha_{01}\left(\frac{\ket{11}+\ket{10}}{\sqrt{2}}\right) + \alpha_{11}\left(\frac{\ket{00}+\ket{01}}{\sqrt{2}}\right)
+\end{aligned}$$
+
+
+Then the Hadamard gate on the second qubit
+
+$$\begin{aligned}
+\ket{\psi_4} = -\alpha_{00}\ket{11} + \alpha_{10}\ket{01} + \alpha_{01}\ket{10} + \alpha_{11}\ket{00}
+\end{aligned}$$
+
+
+Then the final two X gates
+
+$$\begin{aligned}
+\ket{\psi_5} &= -\alpha_{00}\ket{00} + \alpha_{10}\ket{10} + \alpha_{01}\ket{01} + \alpha_{11}\ket{11} \\
+&=-\left(\alpha_{00}\ket{00} - \alpha_{10}\ket{10} - \alpha_{01}\ket{01} - \alpha_{11}\ket{11}\right) \\
+&=e^{i\pi}\left(2\alpha_{00}\ket{00}-\left(\alpha_{00}\ket{00} + \alpha_{10}\ket{10} + \alpha_{01}\ket{01} + \alpha_{11}\ket{11}\right)\right) \\
+&= e^{i\pi}\left(2\ket{00}\bra{00}-I\right)\ket{\psi_0} \\
+\end{aligned}$$
+
+Therefore, the dotted box in the second figure of Box 6.1 performs the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

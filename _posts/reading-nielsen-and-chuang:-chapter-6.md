@@ -263,7 +263,21 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 ### Quantum search as a quantum simulation - Exercises
 
 
+**Exercise 6.7**
 
+Verify that the circuits shown in Figures 6.4 and 6.5 implement the operations $\exp(-i\ket{x}\bra{x}\Delta t)$ and $\exp(-i\ket{\psi}\bra{\psi}\Delta t)$, respectively, with $\ket{\psi}$ as in (6.24).
+
+
+Figure 6.4 performs the operation
+
+$$\begin{aligned}
+O\left(I_n\otimes P(\Delta t)\right)O\ket{y}\ket{0} &= O\left(I_n\otimes P(\Delta t)\right)\ket{y}\ket{f(y)}\\
+&= Oe^{i\Delta t\delta_{1f(y)}}\ket{y}\ket{f(y)}\\
+&= e^{i\Delta t\delta_{1f(y)}}\ket{y}\ket{0}\\
+&= \vdots & \text{what we're working on}\\
+&= \left(\cos(\Delta t)I + i\sin(\Delta t)\ket{x}\bra{x}\right)\ket{y}\ket{0} \\
+&= \exp(-i\ket{x}\bra{x}\Delta t)
+\end{aligned}$$
 
 
 

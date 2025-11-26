@@ -267,24 +267,58 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 
 Verify that the circuits shown in Figures 6.4 and 6.5 implement the operations $\exp(-i\ket{x}\bra{x}\Delta t)$ and $\exp(-i\ket{\psi}\bra{\psi}\Delta t)$, respectively, with $\ket{\psi}$ as in (6.24).
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 Figure 6.4 performs the operation
 
 $$\begin{aligned}
 O\left(I_n\otimes P(\Delta t)\right)O\ket{y}\ket{0} &= O\left(I_n\otimes P(\Delta t)\right)\ket{y}\ket{f(y)}\\
-&= Oe^{i\Delta t\delta_{1f(y)}}\ket{y}\ket{f(y)}\\
-&= e^{i\Delta t\delta_{1f(y)}}\ket{y}\ket{0}\\
-&= \vdots & \text{what we're working on}\\
-&= \left(\cos(\Delta t)I + i\sin(\Delta t)\ket{x}\bra{x}\right)\ket{y}\ket{0} \\
-&= \exp(-i\ket{x}\bra{x}\Delta t)
+&= O\left(1 + \left(e^{i\Delta t}-1\right)\delta_{1f(y)}\right)\ket{y}\ket{f(y)}\\
+&= \left(1 + \left(e^{i\Delta t}-1\right)\delta_{1f(y)}\right)O\ket{y}\ket{f(y)}\\
+&= \left(1 + \left(e^{i\Delta t}-1\right)\delta_{1f(y)}\right)\ket{y}\ket{0}\\
+&= \left(I + \left(e^{i\Delta t}-1\right)\ket{x}\bra{x}\right)\ket{y}\ket{0}\\
+&= \exp(i\ket{x}\bra{x}\Delta t)\ket{y}\ket{0}
 \end{aligned}$$
 
+That last step can be justified because operator $\ket{x}\bra{x}$ has two eigenvalues, 1 for the subspace spanned by $\ket{x}$ and 0 for the orthogonal subspace. Therefore, for any scalar $a$
 
+$$\begin{aligned}
+e^{a\ket{x}\bra{x}} &= e^{a(0)}(I-\ket{x}\bra{x}) + e^{a(1)}\ket{x}\bra{x} \\
+&= I + (e^a-1)\ket{x}\bra{x}
+\end{aligned}$$
 
+One can see that the circuit in Figure 6.4 implements the operation $\exp(i\ket{x}\bra{x}\Delta t)\neq \exp(-i\ket{x}\bra{x}\Delta t)$. This can be fixed by using the gate 
 
+$$\begin{aligned}
+\begin{bmatrix} 1 & 0 \\\ 0 & e^{-i\Delta t}\end{bmatrix} 
+\end{aligned}$$
 
+instead of the one drawn in the figure.  
 
+Figure 6.5 performs the operation
 
+$$\begin{aligned}
+\left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT\left(H^{\otimes n}\otimes I\right)\ket{y}\ket{0} &= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT \left(\frac{1}{2^{n/2}}\otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\right)\ket{0}\\
+&= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\frac{1}{2^{n/2}}\left(\ket{0\cdots 0}\ket{1} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\
+&= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\frac{1}{2^{n/2}}\left(e^{i\Delta t}\ket{0\cdots 0}\ket{1} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\
+&= \left(H^{\otimes n}\otimes I\right)\frac{1}{2^{n/2}}\left(e^{i\Delta t}\ket{0\cdots 0}\ket{0} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\
+&= \ket{y}\ket{0} + \left(H^{\otimes n}\otimes I\right)\frac{1}{2^{n/2}}\left(e^{i\Delta t} - 1\right)\ket{0\cdots 0}\ket{0}\\
+&= \ket{y}\ket{0} + \frac{1}{2^{n/2}}\left(e^{i\Delta t} - 1\right)\frac{\sum_{x}\ket{x}}{\sqrt{N}}\ket{0}\\
+&= \ket{y}\ket{0} + \frac{1}{2^{n/2}}\left(e^{i\Delta t} - 1\right)\ket{\psi}\ket{0}\\
+&= \left(I + \left(e^{i\Delta t} - 1\right)\ket{\psi}\bra{\psi}\right)\ket{y}\ket{0} & \text{since $\braket{\psi\vert y}= \frac{1}{2^{n/2}}$}\\
+&= \exp(i\ket{\psi}\bra{\psi}\Delta t)
+\end{aligned}$$
+
+Like with Figure 6.4, there is a sign difference that can be fixed by using the gate 
+
+$$\begin{aligned}
+\begin{bmatrix} 1 & 0 \\\ 0 & e^{-i\Delta t}\end{bmatrix} 
+\end{aligned}$$
+
+instead of the one drawn in the figure.
+
+</details>
 
 
 

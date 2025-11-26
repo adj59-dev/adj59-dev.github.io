@@ -146,4 +146,58 @@ $$\begin{aligned}
 </details>
 
 
+**Exercise 6.5**
+
+Show that the augmented oracle $O'$ may be constructed using one application of $O$, and elementary quantum gates, using the extra qubit $\ket{q}$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+We can build a circuit like the one below to make $O'$ by using one application of $O$ and two controlled-Z gates.
+
+<img width="634" height="428" alt="image" src="https://github.com/user-attachments/assets/d804265b-e1bb-4b8e-af21-d941790f8874" />
+
+We'll have one oracle bit $y$ initialized to $(\ket{0}-\ket{1})/\sqrt{2}$ and so before applying $O'$ we'll have
+
+$$\begin{aligned}
+\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)
+\end{aligned}$$
+
+If $q=0$ then the controlled-Z gates won't do anything and only $O$ will be applied. If $q=1$ then after the first controlled-Z gate the state will be
+
+$$\begin{aligned}
+\ket{x}\ket{q}\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right)
+\end{aligned}$$
+
+Then when $O$ is applied the state will not change, regardless of what $f(x)$ equals
+
+$$\begin{aligned}
+O\ket{x}\ket{q}\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) &= \ket{x}\ket{q}\left(\frac{\ket{0 \oplus f(x)}+\ket{1 \oplus f(x)}}{\sqrt{2}}\right) \\
+&= \begin{cases}
+\ket{x}\ket{q}\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right) & \text{when $f(x)=1$} \\
+\ket{x}\ket{q}\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) & \text{when $f(x)=0$} \\
+\end{cases}
+\end{aligned}$$
+
+Then the second controlled-Z gate will be applied restoring the state to
+
+$$\begin{aligned}
+\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)
+\end{aligned}$$
+
+Therefore, the circuit performs the desired calculation
+
+$$\begin{aligned}
+O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
+(-1)^{f(x)}\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right), & \text{when $q=0$}\\
+\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right), & \text{when $q=1$}\\
+\end{cases}
+\end{aligned}$$
+
+</details>
+
+
+
+
+
 

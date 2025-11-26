@@ -249,6 +249,18 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 
 
 
+## Quantum search as a quantum simulation
+
+### Quantum search as a quantum simulation - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+### Quantum search as a quantum simulation - Exercises
 
 
 

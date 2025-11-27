@@ -339,11 +339,11 @@ Verify Equation (6.25).
 
 $$\begin{aligned}
 U(\Delta t) &= e^{-i\ket{\psi}\bra{\psi}\Delta t}e^{-i\ket{x}\bra{x}\Delta t}\\
-&= \left(I + \left(e^{-i\Delta t}-1\right)\ket{x}\bra{x}\right)\left(I + \left(e^{-i\Delta t}-1\right)\ket{\psi}\bra{\psi}\right)\\
-&= I + \left(e^{-i\Delta t}-1\right)\left(\ket{x}\bra{x} + \ket{\psi}\bra{\psi}\right) + \left(e^{-i\Delta t}-1\right)^2\left(\ket{x}\bra{x}\ket{\psi}\bra{\psi} + \ket{\psi}\bra{\psi}\ket{x}\bra{x}\right)\\
-&= I + \left(e^{-i\Delta t}-1\right)\left(\left(I + \hat{z}\cdot\vec{\sigma}\right)/2 + \left(I+\vec{\psi}\cdot\vec{\sigma}\right)/2\right) + \left(e^{-i\Delta t}-1\right)^2\left(\left(I + \hat{z}\cdot\vec{\sigma}\right)\left(I+\vec{\psi}\cdot\vec{\sigma}\right)/4 + \left(I+\vec{\psi}\cdot\vec{\sigma}\right)\left(I + \hat{z}\cdot\vec{\sigma}\right)/4\right)\\
-&= I + \left(e^{-i\Delta t}-1\right)\left(I + \frac{\hat{z}\cdot\vec{\sigma}}{2} + \frac{\vec{\psi}\cdot\vec{\sigma}}{2}\right) + \left(e^{-i\Delta t}-1\right)^2\left(2I+2\vec{\psi}\cdot\vec{\sigma} + 2\hat{z}\cdot\vec{\sigma} + (\hat{z}\cdot\vec{\sigma})(\vec{\psi}\cdot\vec{\sigma}) + (\vec{\psi}\cdot\vec{\sigma})(\hat{z}\cdot\vec{\sigma})\right)/4\\
-&= I + \left(e^{-i\Delta t}-1\right)\left(I + \frac{\hat{z}\cdot\vec{\sigma}}{2} + \frac{\vec{\psi}\cdot\vec{\sigma}}{2}\right) + \left(e^{-i\Delta t}-1\right)^2\left(2I+2\vec{\psi}\cdot\vec{\sigma} + 2\hat{z}\cdot\vec{\sigma} + (\hat{z}\cdot\vec{\psi})I+i(\hat{z}\times\vec{\psi})\cdot\vec{\sigma} + (\vec{\psi}\cdot\hat{z})I+i(\vec{\psi}\times\hat{z})\cdot\vec{\sigma}\right)/4 & \text{Exercise 4.6}\\
+&= \left(I + \left(e^{-i\Delta t}-1\right)\ket{\psi}\bra{\psi}\right)\left(I + \left(e^{-i\Delta t}-1\right)\ket{x}\bra{x}\right)\\
+&= I + \left(e^{-i\Delta t}-1\right)\left(\ket{\psi}\bra{\psi} + \ket{x}\bra{x}\right) + \left(e^{-i\Delta t}-1\right)^2\left(\ket{\psi}\bra{\psi}\ket{x}\bra{x}\right)\\
+&= I + \frac{e^{-i\Delta t}-1}{2}\left(\left(I + \vec{\psi}\cdot\vec{\sigma}\right) + \left(I+\hat{z}\cdot\vec{\sigma}\right)\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(\left(I + \vec{\psi}\cdot\vec{\sigma}\right)\left(I+\hat{z}\cdot\vec{\sigma}\right) \right)\\
+&= I + \frac{e^{-i\Delta t}-1}{2}\left(2I + \vec{\psi}\cdot\vec{\sigma}+ \hat{z}\cdot\vec{\sigma}\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(I+\hat{z}\cdot\vec{\sigma} + \vec{\psi}\cdot\vec{\sigma} + (\vec{\psi}\cdot\vec{\sigma})(\hat{z}\cdot\vec{\sigma})\right)\\
+&= I + \left(e^{-i\Delta t}-1\right)\left(I + \frac{\vec{\psi}\cdot\vec{\sigma}}{2} + \frac{\hat{z}\cdot\vec{\sigma}}{2}\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(I+\hat{z}\cdot\vec{\sigma} + \vec{\psi}\cdot\vec{\sigma} + (\vec{\psi}\cdot\hat{z})I+i(\vec{\psi}\times\hat{z})\cdot\vec{\sigma}\right) & \text{Exercise 4.6}\\
 \end{aligned}$$
 
 

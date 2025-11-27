@@ -337,16 +337,85 @@ Since the step length is $\Delta t$ the total number of steps required is $t/\De
 
 Verify Equation (6.25).
 
+I couldn't initially find a "simple calculation" to verify this equation because I wasn't sure how to convert the equation into a composition of two rotation operations and so I instead brute forced it using some identities that I derived in Exercise 4.6. Later, I did figure it out (I think) and re-did the exercise using the results from Exercise 4.15, which was significantly easier. I've left both solutions below.  
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
 $$\begin{aligned}
 U(\Delta t) &= e^{-i\ket{\psi}\bra{\psi}\Delta t}e^{-i\ket{x}\bra{x}\Delta t}\\
 &= \left(I + \left(e^{-i\Delta t}-1\right)\ket{\psi}\bra{\psi}\right)\left(I + \left(e^{-i\Delta t}-1\right)\ket{x}\bra{x}\right)\\
 &= I + \left(e^{-i\Delta t}-1\right)\left(\ket{\psi}\bra{\psi} + \ket{x}\bra{x}\right) + \left(e^{-i\Delta t}-1\right)^2\left(\ket{\psi}\bra{\psi}\ket{x}\bra{x}\right)\\
 &= I + \frac{e^{-i\Delta t}-1}{2}\left(\left(I + \vec{\psi}\cdot\vec{\sigma}\right) + \left(I+\hat{z}\cdot\vec{\sigma}\right)\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(\left(I + \vec{\psi}\cdot\vec{\sigma}\right)\left(I+\hat{z}\cdot\vec{\sigma}\right) \right)\\
 &= I + \frac{e^{-i\Delta t}-1}{2}\left(2I + \vec{\psi}\cdot\vec{\sigma}+ \hat{z}\cdot\vec{\sigma}\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(I+\hat{z}\cdot\vec{\sigma} + \vec{\psi}\cdot\vec{\sigma} + (\vec{\psi}\cdot\vec{\sigma})(\hat{z}\cdot\vec{\sigma})\right)\\
-&= I + \left(e^{-i\Delta t}-1\right)\left(I + \frac{\vec{\psi}\cdot\vec{\sigma}}{2} + \frac{\hat{z}\cdot\vec{\sigma}}{2}\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(I+\hat{z}\cdot\vec{\sigma} + \vec{\psi}\cdot\vec{\sigma} + (\vec{\psi}\cdot\hat{z})I+i(\vec{\psi}\times\hat{z})\cdot\vec{\sigma}\right) & \text{Exercise 4.6}\\
+&= I + \frac{e^{-i\Delta t}-1}{2}\left(2I + \vec{\psi}\cdot\vec{\sigma}+ \hat{z}\cdot\vec{\sigma}\right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\left(I+\hat{z}\cdot\vec{\sigma} + \vec{\psi}\cdot\vec{\sigma} + (\vec{\psi}\cdot\hat{z})I+i(\vec{\psi}\times\hat{z})\cdot\vec{\sigma}\right) & \text{Exercise 4.6}\\
+&=\left(e^{-i\Delta t} + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}+ \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\vec{\psi}\cdot\hat{z}\right)I + \left(\frac{e^{-i\Delta t}-1}{2} + \frac{\left(e^{-i\Delta t}-1\right)^2}{4} \right)\left(\vec{\psi}\cdot\vec{\sigma}+ \hat{z}\cdot\vec{\sigma} \right) + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}i(\vec{\psi}\times\hat{z})\cdot\vec{\sigma}\\
+&=e^{-i\Delta t}\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - ie^{-i\Delta t}\left(\sin\left(\frac{\Delta t}{2}\right)\cos\left(\frac{\Delta t}{2}\right) \right)\left(\vec{\psi}\cdot\vec{\sigma}+ \hat{z}\cdot\vec{\sigma} \right) - ie^{-i\Delta t}\sin^2\left(\frac{\Delta t}{2}\right)(\vec{\psi}\times\hat{z})\cdot\vec{\sigma} & \text{shown below}\\
+&= e^{-i\Delta t} \left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\Delta t}{2}\right)\left(\cos\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\right\rbrack\\
 \end{aligned}$$
 
 
+Here are some calculations that I used above:
+
+$$\begin{aligned}
+\sin^2\left(\frac{\Delta t}{2}\right) &=\left(\frac{e^{-i\Delta t/2} - e^{i\Delta t/2}}{2i}\right)^2\\
+&= -\frac{\left(e^{-i\Delta t/2} - e^{i\Delta t/2}\right)^2}{4}\\
+&= -e^{i\Delta t}\frac{\left(e^{-i\Delta t} - 1\right)^2}{4}\\
+\end{aligned}$$
+
+$$\begin{aligned}
+\cos^2\left(\frac{\Delta t}{2}\right) &=\left(\frac{e^{i\Delta t/2} + e^{-i\Delta t/2}}{2}\right)^2\\
+&= \frac{\left(e^{i\Delta t/2} + e^{-i\Delta t/2}\right)^2}{4}\\
+&= \frac{e^{i\Delta t} + e^{-i\Delta t} + 2}{4}\\
+&= e^{i\Delta t}\left(e^{-i\Delta t} + \frac{1 + e^{-2i\Delta t} - 2e^{-i\Delta t}}{4}\right)\\
+&= e^{i\Delta t}\left(e^{-i\Delta t} + \frac{\left(e^{-i\Delta t}-1\right)^2}{4}\right)\\
+\end{aligned}$$
+
+$$\begin{aligned}
+\sin\left(\frac{\Delta t}{2}\right)\cos\left(\frac{\Delta t}{2}\right) &= -\left(\frac{e^{-i\Delta t/2} - e^{i\Delta t/2}}{2i}\right)\left(\frac{e^{i\Delta t/2} + e^{-i\Delta t/2}}{2}\right)\\
+&= -\frac{e^{-i\Delta t}-e^{i\Delta t}}{4i}\\
+&= -e^{i\Delta t}\frac{e^{-i2\Delta t}-1}{4i}\\
+&= -e^{i\Delta t}\frac{2e^{-i\Delta t}-2 + e^{-i2\Delta t}+1-2e^{-i\Delta t}}{4i}\\
+&= -e^{i\Delta t}\left(\frac{e^{-i\Delta t}-1}{2i} + \frac{\left(e^{-i\Delta t}-1\right)^2}{4i}\right)\\
+\end{aligned}$$
+
+Now let's try to verify this equation the way the authors intended. So, we now know that the unimportant global phase factor is $e^{-i\Delta t}$ and so we can write
+
+$$\begin{aligned}
+U(\Delta t) &= e^{-i\ket{\psi}\bra{\psi}\Delta t}e^{-i\ket{x}\bra{x}\Delta t}\\
+&= e^{-i\Delta t}\left(e^{i\Delta t/2}e^{-i\ket{\psi}\bra{\psi}\Delta t}\right)\left(e^{i\Delta t/2}e^{-i\ket{x}\bra{x}\Delta t}\right)\\
+&= e^{-i\Delta t}e^{-i(\ket{\psi}\bra{\psi}-I/2)\Delta t}e^{-i(\ket{x}\bra{x}-I/2)\Delta t}\\
+&= e^{-i\Delta t}e^{-i\frac{\Delta t}{2}\vec{\psi}\cdot\vec{\sigma}}e^{-i\frac{\Delta t}{2}\hat{z}\cdot\vec{\sigma}}\\
+\end{aligned}$$
+
+Which is the composition of two rotation operations. From exercise 4.15 we know that we can calculate the composition of two rotation operations using
+
+$$\begin{aligned}
+R_{\hat{n_2}}(\beta_2)R_{\hat{n_1}}(\beta_1) &= c_{12}I - is_{12}(\hat{n_{12}}\cdot\vec{\sigma}) \\
+\end{aligned}$$
+
+In our case, since  $\beta_1 = \beta_2$ and $\hat{n_1} = \hat{z}$, 
+
+$$\begin{aligned}
+c_{12} &= c^2 - s^2(\hat{n_2} \cdot \hat{z})\\
+&= \cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)(\vec{\psi} \cdot \hat{z})
+\end{aligned}$$
+
+and
+
+$$\begin{aligned}
+s_{12}\hat{n_{12}} &= sc(\hat{z} + \hat{n_2})+ s^2(\hat{n_2} \times \hat{z}) \\
+&= \sin\left(\frac{\Delta t}{2}\right)\cos\left(\frac{\Delta t}{2}\right)(\hat{z} + \vec{\psi})+ \sin^2\left(\frac{\Delta t}{2}\right)(\vec{\psi} \times \hat{z}) 
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)(\vec{\psi} \cdot \hat{z})\right)I - i\left(\sin\left(\frac{\Delta t}{2}\right)\cos\left(\frac{\Delta t}{2}\right)(\hat{z} + \vec{\psi})+ \sin^2\left(\frac{\Delta t}{2}\right)(\vec{\psi} \times \hat{z}) \right)\cdot\vec{\sigma}\right\rbrack \\
+&= e^{-i\Delta t} \left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\Delta t}{2}\right)\left(\cos\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\right\rbrack\\
+\end{aligned}$$
+
+</details>
 
 
 

@@ -1,18 +1,16 @@
 ---
 title: "Reading Nielsen and Chuang: Chapter 4"
-description: "Notes and worked exercises for QCQI Chapter 4: quantum algorithms, single qubit operations, controlled operations, measurement, and simulation of quantum systems."
+description: "Notes and exercise solutions for QCQI Chapter 4: quantum algorithms, single qubit operations, controlled operations, measurement, and simulation of quantum systems."
 categories:
   - Quantum Computation and Quantum Information
 tags:
   - QCQI
   - quantum computing
+  - Quantum Computation and Quantum Information
   - Nielsen & Chuang
   - chapter 4
-  - quantum algorithms
-  - single qubit operations
-  - controlled operations
-  - measurement
-  - simulation
+  - exercise
+  - problem
   - solutions
 ---
 

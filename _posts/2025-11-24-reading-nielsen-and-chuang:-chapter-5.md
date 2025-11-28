@@ -1,17 +1,16 @@
 ---
 title: "Reading Nielsen and Chuang: Chapter 5"
-description: "Notes and worked exercises for QCQI Chapter 5: QFT, phase estimation, factoring, order finding, and other applications."
+description: "Notes and exercise solutions for QCQI Chapter 5: QFT, phase estimation, factoring, order finding, and other applications."
 categories:
   - Quantum Computation and Quantum Information
 tags:
   - QCQI
   - quantum computing
+  - Quantum Computation and Quantum Information
   - Nielsen & Chuang
   - chapter 5
-  - quantum Fourier transform
-  - phase estimation
-  - factoring
-  - order finding
+  - exercise
+  - problem
   - solutions
 ---
 

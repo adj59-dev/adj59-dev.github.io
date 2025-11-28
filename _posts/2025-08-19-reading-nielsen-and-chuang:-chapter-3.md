@@ -64,7 +64,7 @@ As with Chapter 2, I’ve included my notes and exercise solutions below. The so
 
 ### Models for computation - Exercises
   
-**Exercise 3.1** 
+#### Exercise 3.1
 
 This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. Minsky chapter 5 discusses the idea of computability. 
 
@@ -75,7 +75,7 @@ To recognize that a process in Nature computes a function not computable by a Tu
 
 </details>
 
-**Exercise 3.2**
+#### Exercise 3.2
 
 I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
 
@@ -116,7 +116,7 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 </details>
 
 
-**Exercise 3.3**
+#### Exercise 3.3
 
 Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape turing machine to create this solution, as recommended in the hint. 
 
@@ -240,7 +240,7 @@ Here is an example of how it would run
 </details>
 
 
-**Exercise 3.4**
+#### Exercise 3.4
 
 For this exercise we are asked to describe a Turing machine which adds two binary numbers modulo 2. I also used two tapes for this machine. 
 
@@ -359,7 +359,7 @@ Here is an example of how it would run for $x = 100$ and $y=111$
 </details>
 
 
-**Exercise 3.5**
+#### Exercise 3.5
 
 In Box 3.2 the authors introduce the halting problem for a Turing machine with an input equal to its Turing number. For this exercise, we are asked to think about the halting problem for a Turing machine with no inputs. The blank tape halting problem is discussed by Minsky in section 8.3.3 of his book, if you'd like another resource for this exercise. 
 
@@ -373,7 +373,7 @@ From Box 3.2, we know that there is no algorithm that can be used to determine i
 </details>
 
 
-**Exercise 3.6**
+#### Exercise 3.6
 
 In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. On page 127, the autors talk about creating a probabilistic Turing machine by adding a random component to the change in internal states with the execution of each program line. I am not confident in my solution to this exercise, as I don't have much experience with this area of theoretical computer science, but I'll put what I have below. Let me know if you have a better solution. 
 
@@ -416,7 +416,7 @@ Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and
 </details>
 
 
-**Exercise 3.7**
+#### Exercise 3.7
 
 This exercise asks if adding an oracle to a Turing machine resolves the halting problem. 
 
@@ -428,7 +428,7 @@ An oracle machine with access to a halting problem oracle for standard Turing ma
 </details>
 
 
-**Exercise 3.8**
+#### Exercise 3.8
 
 For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to teh NAND gates. 
 
@@ -504,7 +504,7 @@ This is how you can make a XOR gate with NAND gates
 
 ### The analysis of computational problems - Exercises
 
-**Exercise 3.9**
+#### Exercise 3.9
 
 For this exercise we are to prove that $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $\Omega (f(n))$ and that $f(n)$ is $\Theta (g(n))$ if and only if $g(n)$ is $\Theta (f(n))$. We can do this using the details I listed in the notes above for these different notations.
 
@@ -518,7 +518,7 @@ We know that $f(n)$ is $\Theta (g(n))$ when $f(n)$ behaves the same as $g(n)$ as
 </details>
 
 
-**Exercise 3.10**
+#### Exercise 3.10
 
 For this exercise we are to show that a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
 
@@ -530,7 +530,7 @@ To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some r
 </details>
 
 
-**Exercise 3.11**
+#### Exercise 3.11
 
 Show that log $n$ is $O(n^k)$ for any $k > 0$.
 
@@ -554,7 +554,7 @@ Since we know $i'k \geq 1$ and all the terms in the summations are positive, we 
 </details>
 
 
-**Exercise 3.12**
+#### Exercise 3.12
 
 Show that $n^{\log n}$ is super-polynomial.
 
@@ -575,7 +575,7 @@ It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which 
 </details>
 
 
-**Exercise 3.13**
+#### Exercise 3.13
 
 Show that $n^{\log n}$ is sub-exponential.
 
@@ -598,7 +598,7 @@ We know that $n$ grows faster than $(\log(n))^2$ (this can easily be seen by tak
 </details>
 
 
-**Exercise 3.14**
+#### Exercise 3.14
 
 Suppose $e(n)$ is $O(f(n))$ and $g(n)$ is $O(h(n))$. Show that $e(n)g(n)$ is $O(f(n)h(n))$. 
 
@@ -618,7 +618,7 @@ Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for 
 </details>
 
 
-**Exercise 3.15**
+#### Exercise 3.15
 
 In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $O(n \log n)$. You will need to use Stirling's approximation to do this. 
 
@@ -655,7 +655,7 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 </details>
 
 
-**Exercise 3.16**
+#### Exercise 3.16
 
 This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
 
@@ -712,7 +712,7 @@ If we set $m = \frac{2^n}{n}$ then we would have $\frac{2^n}{n}\log(\frac{2^n}{n
 </details>
 
 
-**Exercise 3.17**
+#### Exercise 3.17
 
 For this exercise we are to prove that a polynomial-time algorithm for finding the factors of a number $m$ exist if and only if the factoring decision problem is **P**. The factoring decision problem is as follows: given a composite interger $m$ and $l<m$, does $m$ have a non-trival factor less than $l$? 
 
@@ -733,7 +733,7 @@ Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same
 
 </details>
 
-**Exercise 3.18**
+#### Exercise 3.18
 
 For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\neq$ **NP**. I found it useful to read more about complement complexity classes in Papadimitriou section 7.1 before solving this exercise. 
 
@@ -745,7 +745,7 @@ For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\ne
 </details>
 
 
-**Exercise 3.19**
+#### Exercise 3.19
 
 For this exercise we are asked to show that we can determine whether there is a path between two specified vertices in a graph using $O(n)$ operations where $n$ is the number of vertices. Then we are asked to show that it is possible to decide whether a graph is connected in $O(n^2)$ operations. 
 
@@ -796,7 +796,7 @@ Here an algorithm like the path function runs for each vertex in V, but instead 
 </details>
 
 
-**Exercise 3.20**
+#### Exercise 3.20
 
 In this exercise we are asked to prove Euler's theorem, which is: a connected graph contains an Euler cycle if and only if every vertex has an even number of edges incident upon it. An Euler cycle is an ordering of the edges of a graph $G$ so that every edge in the graph is visited exactly once. Then we are also asked to give a constructive procedure for finding an Euler cycle. 
 
@@ -883,7 +883,7 @@ EulerCycle(starting_vertex, graph):
 </details>
 
 
-**Exercise 3.21**
+#### Exercise 3.21
 
 Here we are to demonstrate the transitive property of reduction using the defition of reducible given on page 145.
 
@@ -898,7 +898,7 @@ Therefore, if $L_1$ is reducible to $L_2$ and $L_2$ is reducible to $L_3$ then $
 
 </details>
 
-**Exercise 3.22**
+#### Exercise 3.22
 
 For this exercise we are to show that if $L$ is complete for a complexity class, and $L'$ is another language in the complexity class such that $L$ reduces to $L'$, then $L'$ is also complete for the complexity class. 
 
@@ -909,7 +909,7 @@ Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. 
 
 </details>
 
-**Exercise 3.23**
+#### Exercise 3.23
 
 For this exercise we are asked to show that SAT is **NP**-complete. 
 
@@ -938,7 +938,7 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 </details>
 
-**Exercise 3.24**
+#### Exercise 3.24
 
 In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to look at figure 9-1 before starting the exercise, to confirm that I understood what these graphs look like, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
 
@@ -1001,7 +1001,7 @@ Here is pseudocode to solve 2SAT.
 </details>
 
 
-**Exercise 2.25**
+#### Exercise 2.25
 
 For this exercise we are to prove that **PSPACE** $\subseteq$ **EXP**. The authors give a very generous hint for this exercise. 
 
@@ -1025,7 +1025,7 @@ For $k$ larger than the degree of $p(n)$, there will be a sufficiently large $n_
 </details>
 
 
-**Exercise 3.26**
+#### Exercise 3.26
 
 For this exercise we are to show that **L** $\subseteq$ **P**.
 
@@ -1047,7 +1047,7 @@ This function is a polynomial with degree $\frac{1}{\log_m(k)}$. Therefore, **L*
 
 </details>
 
-**Exercise 3.27**
+#### Exercise 3.27
 
 In this exercise we are to prove that the given algorithm approximates the vertex cover for a graph $G$ within a factor of two of being a minimal vertex cover. Per [Wikipedia](https://en.wikipedia.org/wiki/Vertex_cover), in graph theory, a vertex cover of a graph is a set of vertices that includes at least one endpoint of every edge of the graph.
 
@@ -1070,7 +1070,7 @@ $$\begin{aligned}
 
 </details>
 
-**Exercise 3.28**
+#### Exercise 3.28
 
 For this exercise we are asked to show the arbitrariness of the constant in the definition of BPP. Papadimitriou discusses Randomized Complexity classes, of which BPP is one, in section 11.2. 
 
@@ -1086,7 +1086,7 @@ We can do something similar for our Turing machine $M$, where we build a new Tur
 </details>
 
 
-**Exercise 3.29**
+#### Exercise 3.29
 
 Show that applying two consecutive Fredkin gates gives the same outputs as inputs.
 
@@ -1108,7 +1108,7 @@ In the table below, the first two columns are the same as Figure 3.15 in the tex
 
 </details>
 
-**Exercise 3.30**
+#### Exercise 3.30
 
 Verify that the billiard ball computer in Figure 3.14 computes the Fredkin gate.
 
@@ -1122,7 +1122,7 @@ Below are the billiard ball trajectories for all inputs listed in Figure 3.15. T
 </details>
 
 
-**Exercise 3.31**
+#### Exercise 3.31
 
 In this exercise we are asked to construct a reversible half-adder circuit where the input is two bits $x$ and $y$, and the outputs are $(x,y,c,x\oplus y)$. Right before this exercise, the authors discuss how to do uncomputation; I followed these instructions for constructing this circuit. 
 
@@ -1142,7 +1142,7 @@ Here is the same circuit drawn as a quantum circuit diagram.
 
 </details>
 
-**Exercise 3.32**
+#### Exercise 3.32
 
 In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
 

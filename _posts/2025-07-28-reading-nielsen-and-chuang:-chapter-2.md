@@ -383,7 +383,7 @@ Z = \ket{0}\bra{0} - \ket{1}\bra{1}
 
 With the eigenvectors $\ket{0}$, $\ket{1}$ and corresponding eigenvalues 1, -1. 
 
-X can be diagonalized by converting to the basis set $\ket{+}$ and $\ket{-}$, like we did in Exercise 2.2
+X can be diagonalized by converting to the basis set $\ket{+}$ and $\ket{-}$, like we did in [Exercise 2.2](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-22)
 
 $$\begin{aligned}
 X &= \ket{0}\bra{1} + \ket{1}\bra{0} \\
@@ -537,7 +537,7 @@ P^2 &= PP \\
 
 #### Exercise 2.17
 
-In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from exercise 2.13. 
+In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-213). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

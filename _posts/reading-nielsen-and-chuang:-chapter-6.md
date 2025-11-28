@@ -354,7 +354,7 @@ Since the step length is $\Delta t$ the total number of steps required is $t/\De
 
 Verify Equation (6.25).
 
-I couldn't initially find a "simple calculation" to verify this equation because I wasn't sure how to convert the equation into a composition of two rotation operations and so I instead brute forced it using some identities that I derived in [Exercise 4.6](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html). Later, I did figure it out (I think) and re-did the exercise using the results from [Exercise 4.15](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html), which was significantly easier. I've left both solutions below.  
+I couldn't initially find a "simple calculation" to verify this equation because I wasn't sure how to convert the equation into a composition of two rotation operations and so I instead brute forced it using some identities that I derived in [Exercise 4.6](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#ex-4-6). Later, I did figure it out (I think) and re-did the exercise using the results from [Exercise 4.15](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#ex-4-15), which was significantly easier. I've left both solutions below.  
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

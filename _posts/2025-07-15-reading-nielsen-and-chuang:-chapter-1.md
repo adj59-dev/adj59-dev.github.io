@@ -6,10 +6,11 @@ categories:
 tags:
   - QCQI
   - quantum computing
+  - Quantum Computation and Quantum Information
   - Nielsen & Chuang
   - chapter 1
-  - introduction
-  - overview
+  - exercise
+  - problem
   - solutions
 ---
 

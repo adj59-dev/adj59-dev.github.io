@@ -1,19 +1,16 @@
 ---
 title: "Reading Nielsen and Chuang: Chapter 3"
-description: "Notes and worked exercises for QCQI Chapter 3: models for computation, the analysis of computational problems, and perspectives on computer science."
+description: "Notes and exercise solutions for QCQI Chapter 3: models for computation, the analysis of computational problems, and perspectives on computer science."
 categories:
   - Quantum Computation and Quantum Information
 tags:
   - QCQI
   - quantum computing
+  - Quantum Computation and Quantum Information
   - Nielsen & Chuang
   - chapter 3
-  - models for computation
-  - analysis of computational problems
-  - complexity classes
-  - graph theory
-  - Turing machines
-  - circuits
+  - exercise
+  - problem
   - solutions
 ---
 

@@ -1,15 +1,16 @@
 ---
 title: "Reading Nielsen and Chuang: Chapter 2"
-description: "Notes and worked exercises for QCQI Chapter 2: linear algebra and quantum mechanics."
+description: "Notes and exercise solutions for QCQI Chapter 2: linear algebra and quantum mechanics."
 categories:
   - Quantum Computation and Quantum Information
 tags:
   - QCQI
   - quantum computing
+  - Quantum Computation and Quantum Information
   - Nielsen & Chuang
   - chapter 2
-  - linear algebra
-  - quantum mechanics
+  - exercise
+  - problem
   - solutions
 ---
 

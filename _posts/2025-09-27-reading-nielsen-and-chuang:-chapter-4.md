@@ -281,7 +281,7 @@ $$\begin{aligned}
 
 
 
-**Exercise 4.6**
+<a id="ex-4-6"></a> **Exercise 4.6**
 
 Prove that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ about the $\hat{n}$ axis of the Bloch sphere. Use the evolution of the density operator upon rotation to demonstrate that the Bloch vector after rotation looks like Rodrigues’ rotation formula. Good luck! It is a lot of math. 
 
@@ -654,7 +654,7 @@ HTH &= HR_z(\pi/4)H \\
 </details>
 
 
-**Exercise 4.15**
+<a id="ex-4-15"></a> **Exercise 4.15**
 
 This exercise has us calculate the composition of two rotation operations on a single qubit. Note: The [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that in Equations (4.20) and (4.22) the minus sign on the right-hand side should be a plus.
 

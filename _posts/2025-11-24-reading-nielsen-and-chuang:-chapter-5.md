@@ -53,7 +53,7 @@ As with the earlier chapters, I’ve included my notes and exercise solutions be
   
 ### The quantum Fourier transform - Exercises
 
-**Exercise 5.1**
+#### Exercise 5.1
 
 Give a direct proof that the linear transformation defined by equation 5.2 is unitary. 
 
@@ -77,7 +77,7 @@ Therefore $T$ is unitary.
 </details>
 
 
-**Exercise 5.2**
+#### Exercise 5.2
 
 Explicitly compute the Fourier transform of the $n$ qubit state $\ket{00\cdots 0}$. 
 
@@ -95,7 +95,7 @@ T\ket{00\cdots 0} &= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i
 </details>
 
 
-**Exercise 5.3**
+#### Exercise 5.3
 
 Suppose we wish to perform a Fourier transform of a vector containing $2^n$ complex numbers on a classical computer. Verify that the straightforward method for performing the Fourier transform, based upon direct evaluation of Equation (5.1) requires $\Theta(2^{2n})$ elementary arithmetic operations. Find a method for reducing this to $\Theta(n2^n)$ based upon Equation (5.4).
 
@@ -145,7 +145,7 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 </details>
 
-**Exercise 5.4**
+#### Exercise 5.4
 
 Give a decomposition of the controlled- $R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
 
@@ -213,7 +213,7 @@ print(circuit)
 </details>
 
 
-**Exercise 5.5**
+#### Exercise 5.5
 
 Give a quantum circuit to perform the inverse quantum Fourier transform.
 
@@ -225,7 +225,7 @@ Since the quantum Fourier transform is a unitary operation, the adjoint of the o
 </details>
 
 
-**Exercise 5.6**
+#### Exercise 5.6
 
 Let $U$ be the ideal quantum Fourier transform on $n$ qubits, and $V$ be the transform which results if the controlled- $R_k$ gates are performed to a precision $\Delta=1/p(n)$ for some polynomial $p(n)$. Show that the error $E(U,V) = max_{\ket{\psi}}\Vert (U-V)\ket{\psi}\Vert$ scales as $\Theta(n^2/p(n))$, and thus polynomial precision in each gate is sufficient to guarantee polynomial accuracy in the output state. 
 
@@ -259,7 +259,7 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 ### Phase estimation - Exercises
 
 
-**Exercise 5.7**
+#### Exercise 5.7
 
 Show that the effect of the sequence of controlled- $U$ operations like that in Figure 5.2 is to take the state $\ket{j}\ket{u} \to \ket{j}U^j\ket{u}$.
 
@@ -278,7 +278,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise 5.8**
+#### Exercise 5.8
 
 Suppose the phase estimation algorithm takes the state $\ket{0}\ket{u}$ to the state $\ket{\tilde{\phi_u}}\ket{u}$. so that given the input $\ket{0}\left(\sum_u c_u\ket{u}\right)$, the algorithm outputs $\sum_u c_u \ket{\tilde{\phi_u}}\ket{u}$. Show that if $t$ is chosen according to (5.35), then the probability for measuring $\phi_u$ accurate to $n$ bits at the conclusion of the phase estimation algorithm is at least $\vert c_u \vert^2(1-\epsilon)$.
 
@@ -304,7 +304,7 @@ where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. T
 </details>
 
 
-**Exercise 5.9**
+#### Exercise 5.9
 
 Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with Exercise 4.34. 
 
@@ -1057,7 +1057,7 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 ### Order-finding and factoring applications - Exercises
 
 
-**Exercise 5.10**
+#### Exercise 5.10
 
 Show that the order of $x=5 \mod 21$ is 6. 
 
@@ -1078,7 +1078,7 @@ The least positive $r$ such that $x^r=1\mod 21$ is 6. Therefore, the order of $x
 </details>
 
 
-**Exercise 5.11**
+#### Exercise 5.11
 
 Show that the order of $x$ satisfies $r \leq N$. 
 
@@ -1090,7 +1090,7 @@ From Theorem A4.9 we know that $x^{\varphi(N)} = 1 \mod N$ and so $r \leq \varph
 </details>
 
 
-**Exercise 5.12**
+#### Exercise 5.12
 
 Show that $U$ is unitary.
 
@@ -1119,7 +1119,7 @@ Therefore, $U$ is unitary since it preserves the inner product.
 </details>
 
 
-**Exercise 5.13**
+#### Exercise 5.13
 
 Prove (5.44). In fact, prove that
 
@@ -1155,7 +1155,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise 5.14**
+#### Exercise 5.14
 
 The quantum state produced in the order-finding algorithm, before the inverse Fourier transform, is 
 
@@ -1194,7 +1194,7 @@ Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ modulo 
 </details>
 
 
-**Exercise 5.15**
+#### Exercise 5.15
 
 Show that the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$, and thus may be computed in $O(L^2)$ operations if $x$ and $y$ are $L$ bit numbers. 
 
@@ -1216,7 +1216,7 @@ Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\te
 </details>
 
 
-**Exercise 5.16**
+#### Exercise 5.16
 
 For all $x\geq 2$ prove that $\int_x^{x+1} 1/y^2 \ dy \geq 2/3x^2$. Show that 
 
@@ -1253,7 +1253,7 @@ and thus (5.58) holds.
 </details>
 
 
-**Exercise 5.17**
+#### Exercise 5.17
 
 Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 2$. (Note: I changed $a\geq 1$ to $a\geq 2$.) This may be done as follows: <br>
 (1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
@@ -1319,7 +1319,7 @@ Looking at the algorithm, we can see that the calculations in the for loop are $
 </details>
 
 
-**Exercise 5.18**
+#### Exercise 5.18
 
 Suppose we wish to factor $N=91$. Confirm that steps 1 and 2 are passed. For step 3, suppose we choose $x=4$, which is co-prime to 91. Compute the order $r$ of $x$ with respect to $N$, and show that $x^{r/2} \mod 91 = 64 \neq -1 \mod 91$, so the algorithm succeeds, giving $\text{gcd}(64-1,91)=7$. Note: I fixed the error reported on the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html).
 
@@ -1376,7 +1376,7 @@ From this, we know that both 7 and 13 are factors of 91.
 </details>
 
 
-**Exercise 5.19**
+#### Exercise 5.19
 
 Show that $N=15$ is the smallest number for which the order-finding subroutine is required, that is, it is the smallest composite number that is not even or a power of some smaller integer. 
 
@@ -1411,7 +1411,7 @@ The smallest number for which the order-finding subroutine is required will be t
 ### General applications of the quantum Fourier transform - Exercises
 
 
-**Exercise 5.20**
+#### Exercise 5.20
 
 Suppose $f(x+r)=f(x)$, and $0\leq x < N$, for $N$ an integer multiple of $r$. Compute
 
@@ -1459,7 +1459,7 @@ The case where $l$ is an integer multiplier of $N/r$ has a similar form to (5.63
 </details>
 
 
-**Exercise 5.21**
+#### Exercise 5.21
 
 Suppose you are given a unitary operator $U_y$ which performs the transformation $U_y\ket{f(x)}=\ket{f(x+y)}$, for the periodic function described above.
 
@@ -1519,7 +1519,7 @@ Divide measurement by $y$ and then apply the continued fractions algorithm to ge
 </details>
 
 
-**Exercise 5.22**
+#### Exercise 5.22
 
 Show that
 
@@ -1568,7 +1568,7 @@ If we compare our solution to equation 5.72, we see that the prefactor is differ
 </details>
 
 
-**Exercise 5.23**
+#### Exercise 5.23
 
 Compute
 
@@ -1597,7 +1597,7 @@ This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to us
 </details>
 
 
-**Exercise 5.24**
+#### Exercise 5.24
 
 Construct the generalized continued fractions algorithm needed in step 6 of the discrete logarithm algorithm to determine $s$ from estimates of $sl_2/r$ and $l_2/r$. 
 
@@ -1615,7 +1615,7 @@ as a candidate value for $s$. Test this using the known $a$ and $b$ by checking 
 </details>
 
 
-**Exercise 5.25**
+#### Exercise 5.25
 
 Construct a quantum circuit for the black box $U$ used in the quantum discrete logarithm algorithm, which takes $a$ and $b$ as parameters, and performs the unitary transformation $\ket{x_1}\ket{x_2}\ket{y} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1}a^{x_2}}$. How many elementary operations are required?
 
@@ -1653,7 +1653,7 @@ This gives a total complexity of $O(L^3)$.
 </details>
 
 
-**Exercise 5.26**
+#### Exercise 5.26
 
 Since $K$ is a subgroup of $G$, when we decompose $G$ into a product of cyclic groups of prime power order, this also decomposes $K$. Re-express (5.77) to show that determining $l_i'$ allows one to sample from the corresponding cyclic subgroup $K_p$ of $K$. 
 
@@ -1683,7 +1683,7 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 </details>
 
 
-**Exercise 5.27**
+#### Exercise 5.27
 
 Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
 
@@ -1705,7 +1705,7 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 </details>
 
 
-**Exercise 5.28**
+#### Exercise 5.28
 
 Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
 
@@ -1739,7 +1739,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise 5.29**
+#### Exercise 5.29
 
 Give quantum algorithms to solve the Deutsch and Simon problems listed in Figure 5.5, using the framework of the hidden subgroup problem.
 

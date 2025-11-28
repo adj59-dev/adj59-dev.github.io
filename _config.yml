@@ -43,3 +43,6 @@ defaults:
       type: post
     values:
       tags: Other
+
+permalink: /:year/:month/:day/:title:output_ext
+

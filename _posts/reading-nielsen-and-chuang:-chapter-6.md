@@ -435,11 +435,34 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 </details>
 
 
+**Exercise 6.10**
 
+Show that by choosing $\Delta t$ appropriately we can obtain a quantum search algorithm which uses $O(\sqrt{N})$ queries, and for which the final state is $\ket{x}$ exactly, that is, the algorithm works with probability 1, rather than with some smaller probability. 
 
+If we chose $\Delta t=\pi$ then each oracle call rotates the state by $\theta\approx 4/\sqrt{N}$ and so the number of oracal calls required will be 
 
+$$\begin{aligned}
+\frac{\pi}{\theta} &= \frac{\pi}{4/\sqrt{N}}\\
+&= \frac{\pi\sqrt{N}}{4}\\
+&= O(\sqrt{N})
+\end{aligned}$$
 
+One oracal call results in the rotation about $\vec{r}$ defined by
 
+$$\begin{aligned}
+U(\pi) &= \left(\cos^2\left(\frac{\pi}{2}\right) - \sin^2\left(\frac{\pi}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\pi}{2}\right)\left(\cos\left(\frac{\pi}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\pi}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\\
+&= \left( - \vec{\psi}\cdot\hat{z}\right)I - 2i\left(\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\\
+&= -\left(\alpha^2-\beta^2 \right)I - 2i\left(\frac{-2\alpha\beta\hat{y}}{2}\right)\cdot \vec{\sigma} & \text{since $\hat{z}=(0,0,1)$ and $\vec{\psi}=(2\alpha\beta,0,(\alpha^2-\beta^2))$}\\
+&= -\left(\alpha^2-\beta^2 \right)I + i\alpha\beta Y\\
+&= -\left(\frac{2}{N}-1 \right)I + i\alpha\beta Y
+\end{aligned}$$
+
+Applying $U(\pi)$ to $\ket{\psi}$ we get
+
+$$\begin{aligned}
+U(\pi)\ket{\psi} &= \left(-\left(\frac{2}{N}-1 \right)I + i\alpha\beta Y\right)\left(\alpha\ket{x} + \beta\ket{y}\right)\\
+&= -\left(\frac{2}{N}-1 \right)\left(\alpha\ket{x} + \beta\ket{y}\right) + i\alpha\beta Y\left(\alpha\ket{x} + \beta\ket{y}\right)\\
+\end{aligned}$$
 
 
 

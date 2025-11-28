@@ -76,7 +76,7 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 
 ### Linear Algebra - Exercises
   
-  #### Exercise 2.1 
+#### Exercise 2.1
 
 In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 

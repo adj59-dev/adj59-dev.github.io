@@ -155,7 +155,7 @@ $$\begin{align}
 &= \cos(x) I + i\sin(x) A
 \end{align}$$
 
-Now we use the result to verify equations 4.4 - 4.6. From exercise 2.19 we know that the Pauli matrices are Hermitian and unitary (i.e. $A^2=I$), therefore we can directly use the result above to generate equations 4.4-4.6 by replacing $A$ with $X$, $Y$, or $Z$. 
+Now we use the result to verify equations 4.4 - 4.6. From [exercise 2.19](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-219) we know that the Pauli matrices are Hermitian and unitary (i.e. $A^2=I$), therefore we can directly use the result above to generate equations 4.4-4.6 by replacing $A$ with $X$, $Y$, or $Z$. 
 
 $$\begin{aligned}
 R_x(\theta) = e^{-i\theta X/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X = \cos\frac{\theta}{2}\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} - i\sin\frac{\theta}{2}\begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} \cos\frac{\theta}{2} & -i\sin\frac{\theta}{2} \\\ -i\sin\frac{\theta}{2} & \cos\frac{\theta}{2} \end{bmatrix} \\
@@ -288,7 +288,7 @@ Prove that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 2.72, we know that we can write the density matrix for a single qubit with Bloch vector $\vec{\lambda}$ as
+From [exercise 2.72](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-272), we know that we can write the density matrix for a single qubit with Bloch vector $\vec{\lambda}$ as
 
 $$\begin{aligned}
 \rho = \frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2}
@@ -376,7 +376,7 @@ Prove that an arbitrary single qubit unitary operator can be written in the form
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 2.56, we know that $U=\exp(iK)$ for some Hermitian operator $K$. We also know that any 2x2 Hermitian operator can be written as $K=\alpha I - \frac{\theta}{2}\hat{n}\cdot\vec{\sigma}$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$, since $\lbrace I, \sigma_x, \sigma_y, \sigma_z\rbrace$ form a basis set. Therefore, 
+From [exercise 2.56](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-256), we know that $U=\exp(iK)$ for some Hermitian operator $K$. We also know that any 2x2 Hermitian operator can be written as $K=\alpha I - \frac{\theta}{2}\hat{n}\cdot\vec{\sigma}$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$, since $\lbrace I, \sigma_x, \sigma_y, \sigma_z\rbrace$ form a basis set. Therefore, 
 
 $$\begin{aligned}
 U&=\exp(iK)\\
@@ -431,7 +431,7 @@ Explain why any single qubit unitary operator can be written in the form 4.12.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-We know from exercise 4.8, we know that $U=\exp(i\alpha)R_{\hat{n}}(\theta)$. We also know that for an operator to be a unitary operator $U^\dagger U = UU^\dagger = I$. Therefore,
+We know from [exercise 4.8](#exercise-48), we know that $U=\exp(i\alpha)R_{\hat{n}}(\theta)$. We also know that for an operator to be a unitary operator $U^\dagger U = UU^\dagger = I$. Therefore,
 
 $$\begin{aligned}
 U &= \exp(i\alpha)\begin{bmatrix} a & b \\\ c & d \end{bmatrix} \\
@@ -500,7 +500,7 @@ U &= e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)\\
 &= e^{i\alpha} \begin{bmatrix} (ac -ibd)e - i(-ad - ibc)f & -i(ac -ibd)f + (-ad - ibc)e  \\\ (-ibc + ad )e - i(ibd + ac)f & -i(-ibc + ad )f + (ibd + ac)e \end{bmatrix}
 \end{aligned}$$
 
-From exercise 4.9, we know that these criteria must be met in order for this decomposition to work for any unitary operator: $(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast$ and $-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2=1$. So, let's check them
+From [exercise 4.9](#exercise-49), we know that these criteria must be met in order for this decomposition to work for any unitary operator: $(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast$ and $-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2=1$. So, let's check them
 
 $$\begin{aligned}
 (-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast \\
@@ -567,7 +567,7 @@ Give $A$, $B$, $C$, and $\alpha$ for the Hadamard gate.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From Corollary 4.2 we know that there exist operators $A,B,C$ such that $U=e^{i\alpha}AXBXC$ and $ABC=I$. In exercise 4.4 we showed that the Hadamard gate can be written as $H=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$, but to write it in the requested form we'll need to have it written in terms of $R_z$ and $R_y$. We know,
+From Corollary 4.2 we know that there exist operators $A,B,C$ such that $U=e^{i\alpha}AXBXC$ and $ABC=I$. In [exercise 4.4](#exercise-44) we showed that the Hadamard gate can be written as $H=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$, but to write it in the requested form we'll need to have it written in terms of $R_z$ and $R_y$. We know,
 
 $$\begin{aligned}
 R_x(\theta) &= R_z(-\pi/2)R_y(\theta)R_z(\pi/2)
@@ -640,7 +640,7 @@ Use the previous exercise to show that $HTH = R_x(\pi/4)$ up to a global phase.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 4.3 we know that $T=R_z(\pi/4)$ up to a global phase. Therefore, the following is true up to a global phase
+From [exercise 4.3](#exercise-43) we know that $T=R_z(\pi/4)$ up to a global phase. Therefore, the following is true up to a global phase
 
 $$\begin{aligned}
 HTH &= HR_z(\pi/4)H \\
@@ -754,7 +754,7 @@ $$\begin{aligned}
 CZ = \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -1 \end{bmatrix}
 \end{aligned}$$
 
-Let's try $(I \otimes H)CZ(I \otimes H)$ since we know $HZH = X$ from exercise 4.13 and it looks like CNOT is a controlled-X gate.
+Let's try $(I \otimes H)CZ(I \otimes H)$ since we know $HZH = X$ from [exercise 4.13](#exercise-413) and it looks like CNOT is a controlled-X gate.
 
 $$\begin{aligned}
 (I \otimes H)CZ(I \otimes H) &= \frac{1}{2}\begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 1 & 0 & 0 \\\ 1 & -1 & 0 & 0 \\\ 0 & 0 & 1 & 1 \\\ 0 & 0 & 1 & -1 \end{bmatrix} \\
@@ -1261,7 +1261,7 @@ For this exercise we are to construct a Fredkin gate.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-(1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in exercise 3.32. I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
+(1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in [exercise 3.32](https://adj59-dev.github.io/2025/08/19/reading-nielsen-and-chuang-chapter-3.html#exercise-332). I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
 
 <img width="696" height="192" alt="image" src="https://github.com/user-attachments/assets/cacb8cf7-10df-4796-be53-080234918dac" />
 
@@ -1486,7 +1486,7 @@ For this exercise we are to construct a $C^5(U)$ gate analogous to that in Figur
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 4.21 we know that we can construct a $C^2(U)$ gate as shown below
+From [exercise 4.21](#exercise-421) we know that we can construct a $C^2(U)$ gate as shown below
 
 <img width="749" height="181" alt="image" src="https://github.com/user-attachments/assets/33962739-1a7f-4c15-874f-a08f56c14250" />
 
@@ -1516,7 +1516,7 @@ From the previous exercise we know that
 
 <img width="794" height="372" alt="image" src="https://github.com/user-attachments/assets/62b8103c-b167-4703-9ebd-fc715846d4a8" />
 
-Following a similar calculation as was done in exercise 4.22, where $V=e^{i\alpha}AXBXC$ and $D$ is the phase gate. 
+Following a similar calculation as was done in [exercise 4.22](#exercise-422), where $V=e^{i\alpha}AXBXC$ and $D$ is the phase gate. 
 
 <img width="844" height="370" alt="image" src="https://github.com/user-attachments/assets/997e42f0-3973-4ce7-ad63-7e9755806543" />
 
@@ -1547,7 +1547,7 @@ N(C^n) &= 10 + 2 O(n) + N(C^{n-1}) \\
 
 This would be $O(n^2)$. So we need to find a different way to make these $C^{n-1}(X)$ circuits with $O(n)$ gates and no work bits. If we can do this, we can make any $C^n(U)$ gate with $O(n^2)$ gates. 
 
-Thinking back to exercise 4.26, we know that we can approximate a controlled X gate up to a relative phase by using the following circuit,
+Thinking back to [exercise 4.26](#exercise-426), we know that we can approximate a controlled X gate up to a relative phase by using the following circuit,
 
 <img width="707" height="361" alt="image" src="https://github.com/user-attachments/assets/0a23672b-1d44-4b1d-83e7-a958ce4f9617" />
 
@@ -2272,7 +2272,7 @@ Use the results of the previous two exercises to show that the Hadamard, phase, 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 4.41, we know that we can apply $R_z(\theta)$ to a qubit with $\theta$ given by $\cos\theta=5/8$ using only Hadamard, phase, controlled-NOT, and Toffoli gates. From exercise 4.42, we know that this $\theta$ is an irrational multiple of $2\pi$. From exercise 4.40 and equation 4.76, we know that we can approximate a rotation $R_z(\alpha)$ from $R_z(\theta)^n$ for any $\alpha$ using an appropriately selected $n$ when $\theta$ is an irrational multiple of $2\pi$. Since we can approximate arbitrarily well rotation $R_z(\alpha)$ for arbitrary $\alpha$, we can then also approximate arbitrarily well rotation $R_x(\alpha)$ using Hadamard gates and $R_z(\alpha)$ since
+From [exercise 4.41](#exercise-441), we know that we can apply $R_z(\theta)$ to a qubit with $\theta$ given by $\cos\theta=5/8$ using only Hadamard, phase, controlled-NOT, and Toffoli gates. From [exercise 4.42](#exercise-442), we know that this $\theta$ is an irrational multiple of $2\pi$. From [exercise 4.40](#exercise-440) and equation 4.76, we know that we can approximate a rotation $R_z(\alpha)$ from $R_z(\theta)^n$ for any $\alpha$ using an appropriately selected $n$ when $\theta$ is an irrational multiple of $2\pi$. Since we can approximate arbitrarily well rotation $R_z(\alpha)$ for arbitrary $\alpha$, we can then also approximate arbitrarily well rotation $R_x(\alpha)$ using Hadamard gates and $R_z(\alpha)$ since
 
 $$\begin{aligned}
 H R_z(\alpha) H &= H \left(\cos\frac{\alpha}{2} I - i\sin\frac{\alpha}{2} Z\right) H \\
@@ -2288,7 +2288,7 @@ R_y(\alpha) &=  R_x(-\pi/2)R_z(\alpha)R_x(\pi/2) \\
 &= H R_z(-\pi/2) H R_z(\alpha) H R_z(\pi/2) H
 \end{aligned}$$
 
-Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create any arbitrary unitary operation, as demonstrated in Theorem 4.1 and exercise 4.10, using only the Hadamard, phase, controlled-NOT, and Toffoli gates. Therefore these gates are universal for quantum computation. 
+Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create any arbitrary unitary operation, as demonstrated in Theorem 4.1 and [exercise 4.10](#exercise-410), using only the Hadamard, phase, controlled-NOT, and Toffoli gates. Therefore these gates are universal for quantum computation. 
 
 </details>
 
@@ -2720,7 +2720,7 @@ U = \sum_{E} \lambda_E \ket{E} \bra{E}
 
 where $\lambda_E$ are eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
 
-From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{-i \theta_E}$ for some real $\theta_E$.
+From [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218), we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{-i \theta_E}$ for some real $\theta_E$.
 
 Looking at our definition of $H$ we see
 
@@ -2764,7 +2764,7 @@ h_{g}^\ast &= \left(\frac{1}{2^n}\text{tr}(g H)\right)^\ast \\
 
 Since $h_{g}^\ast = h_{g}$, $h_{g}$ must be real. 
 
-(3) Letting $\Delta = 1/k$ for some postive integer $k$, we can construct a circuit like the one created in exercise 4.51 for each $h_{g} g$ because $g$ is of the form specified in equation 4.114 and so we are able to simulate $g$ with the outlined procedure. This circuit will have one $Z$ rotation gate, $2n$ CNOT gates, and up to $2n$ single qubit gates for an upper bounds of $4n+1$ gates which is $O(n)$.
+(3) Letting $\Delta = 1/k$ for some postive integer $k$, we can construct a circuit like the one created in [exercise 4.51](#exercise-451) for each $h_{g} g$ because $g$ is of the form specified in equation 4.114 and so we are able to simulate $g$ with the outlined procedure. This circuit will have one $Z$ rotation gate, $2n$ CNOT gates, and up to $2n$ single qubit gates for an upper bounds of $4n+1$ gates which is $O(n)$.
 
 (4) Looking at $\exp(-iH\Delta)$ we get
 
@@ -2815,9 +2815,9 @@ This problem looks at the minimum number of gates needed to construct a Toffoli 
 
 (1) 5, the construction is shown in Figure 4.8
 
-(2) 14, from exercise 4.22
+(2) 14, from [exercise 4.22](#exercise-422)
 
-(3) 14, take the construction from exercise 4.22, but exchange the CNOTs with controlled-Z gates that have Hadamard gates on either side since $CNOT_{ab} = H_b CZ_{ab} H_b$. Those Hadamard gates can be combined with neighboring single qubit gates so they do not increase the total gate count. 
+(3) 14, take the construction from [exercise 4.22](#exercise-422), but exchange the CNOTs with controlled-Z gates that have Hadamard gates on either side since $CNOT_{ab} = H_b CZ_{ab} H_b$. Those Hadamard gates can be combined with neighboring single qubit gates so they do not increase the total gate count. 
 
 </details>
 
@@ -2828,7 +2828,7 @@ Construct a family of Hamiltonians, $\lbrace H_n \rbrace$, on $n$ qubits, such t
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-In exercise 4.48 we showed that for Hamiltonian $H_n = \sum_{k=1}^L H_k$, restricting the maximum number of particles interacting via each operation $H_k$ to a constant value $c$ limited the upper bounds of $L$ (the number of operations) to $O(n^c)$. If there was no constant limit and instead the maximum number of particles interacting via $H_k$ grew with $n$, let's say by $f(n)$, then $L$ would be $O(n^{f(n)})$. Therefore, if the maximum number of particles interacting for each operation grows with $n$, then $H_n$ is super-polynomial in $n$.
+In [exercise 4.48](#exercise-448) we showed that for Hamiltonian $H_n = \sum_{k=1}^L H_k$, restricting the maximum number of particles interacting via each operation $H_k$ to a constant value $c$ limited the upper bounds of $L$ (the number of operations) to $O(n^c)$. If there was no constant limit and instead the maximum number of particles interacting via $H_k$ grew with $n$, let's say by $f(n)$, then $L$ would be $O(n^{f(n)})$. Therefore, if the maximum number of particles interacting for each operation grows with $n$, then $H_n$ is super-polynomial in $n$.
 
 </details>
 

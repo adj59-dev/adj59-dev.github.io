@@ -1849,7 +1849,7 @@ Therefore $U$ is unitary.
 
 #### Exercise 2.56
 
-In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in exercise 2.18. 
+In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

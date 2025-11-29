@@ -306,7 +306,7 @@ where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. T
 
 #### Exercise 5.9
 
-Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with Exercise 4.34. 
+Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with [Exercise 4.34](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-434). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -353,7 +353,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
   
 ### Appendix 2 - Exercises
 
-**Exercise A2.1**
+#### Exercise A2.1
 
 Prove that for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$. That is, every element of such a group has an order.
 
@@ -372,7 +372,7 @@ Thus for any element $g$ of a finite group, there always exists a positive integ
 
 </details>
 
-**Exercise A2.2**
+#### Exercise A2.2
 
 Prove Lagrange's theorem.
 
@@ -391,7 +391,7 @@ Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\ve
 
 </details>
 
-**Exercise A2.3**
+#### Exercise A2.3
 
 Show that the order of an element $g\in G$ divides $\vert G \vert$. 
 
@@ -402,7 +402,7 @@ Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^
 
 </details>
 
-**Exercise A2.4**
+#### Exercise A2.4
 
 Show that if $y\in G_x$ then $G_y=G_x$.
 
@@ -421,7 +421,7 @@ Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made
 
 </details>
 
-**Exercise A2.5**
+#### Exercise A2.5
 
 Show that if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
 
@@ -440,7 +440,7 @@ Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abe
 
 </details>
 
-**Exercise A2.6**
+#### Exercise A2.6
 
 Show that any group of prime order is cyclic.
 
@@ -452,7 +452,7 @@ Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. 
 </details>
 
 
-**Exercise A2.7**
+#### Exercise A2.7
 
 Show that every subgroup of a cyclic group is cyclic.
 
@@ -468,7 +468,7 @@ We can now say that $K=\lbrace 0,d,2d,\cdots,r-d\rbrace$, and so $H=\braket{a^d}
 </details>
 
 
-**Exercise A2.8**
+#### Exercise A2.8
 
 Show that if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \equiv n \mod r$. 
 
@@ -488,7 +488,7 @@ Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \e
 </details>
 
 
-**Exercise A2.9**
+#### Exercise A2.9
 
 Show that $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
 
@@ -504,7 +504,7 @@ Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there e
 </details>
 
 
-**Exercise A2.10**
+#### Exercise A2.10
 
 How many cosets of H are there in G?
 
@@ -522,7 +522,7 @@ Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert
 </details>
 
 
-**Exercise A2.11**
+#### Exercise A2.11
 
 Prove the properties of characters given above.
 
@@ -602,12 +602,12 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 </details>
 
 
-**Exercise A2.12**
+#### Exercise A2.12
 
 Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
 
 
-**Exercise A2.13**
+#### Exercise A2.13
 
 Show that every irreducible Abelian matrix group is one dimensional. 
 
@@ -653,7 +653,7 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
   
 ### Appendix 4 - Exercises
 
-**Exercise A4.1**
+#### Exercise A4.1
 
 Show that if $a\vert b$ and $b \vert c$ then $a \vert c$.
 
@@ -664,7 +664,7 @@ We know that there exists an integer $k$ such that $b=ka$. We also know that the
 
 </details>
 
-**Exercise A4.2**
+#### Exercise A4.2
 
 Show that if $d\vert a$ and $d\vert b$ then $d$ also divides linear combinations of $a$ and $b$, $ax+by$, where $x$ and $y$ are integers.
 
@@ -675,7 +675,7 @@ We know that there exists an integer $k$ such that $a=kd$. We also know that the
 
 </details>
 
-**Exercise A4.3**
+#### Exercise A4.3
 
 Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b$. Conclude that if $a\vert b$ and $b\vert a$ then $a=b$. 
 
@@ -686,7 +686,7 @@ If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and
 
 </details>
 
-**Exercise A4.4**
+#### Exercise A4.4
 
 Find the prime factorization of 697 and 36300.
 
@@ -701,7 +701,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.5**
+#### Exercise A4.5
 
 For a prime $p$ prove that all integers in the range $1$ to $p-1$ have multiplicative inverses modulo $p$. Which integers in the range $1$ to $p^2-1$ do not have multiplicative inverses modulo $p^2$?
 
@@ -715,7 +715,7 @@ Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is
 </details>
 
 
-**Exercise A4.6**
+#### Exercise A4.6
 
 Find the multiplicative inverse of 17 modulo 24.
 
@@ -727,7 +727,7 @@ We need to find $b$ such that $17b = 1 + k24$ for some integer $k$. This relatio
 </details>
 
 
-**Exercise A4.7**
+#### Exercise A4.7
 
 Find the multiplicative inverse of $n+1$ modulo $n^2$, where $n$ is any integer greater than 1. 
 
@@ -745,7 +745,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.8**
+#### Exercise A4.8
 
 Suppose $b$ and $b'$ are multiplicative inverses of $a$, modulo $n$. Prove that $b=b' \mod n$.
 
@@ -757,7 +757,7 @@ Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+
 </details>
 
 
-**Exercise A4.9**
+#### Exercise A4.9
 
 Explain how to find $\text{gcd}(a,b)$ if the prime factorizations of $a$ and $b$ are known. Find the prime factorizations of 6825 and 1430, and then use them to compute $\text{gcd}(6825,1430)$.
 
@@ -779,7 +779,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.10**
+#### Exercise A4.10
 
 What is $\varphi(187)$?
 
@@ -803,7 +803,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.11**
+#### Exercise A4.11
 
 Prove that 
 
@@ -842,7 +842,7 @@ n &= \sum_{d\vert n}\varphi(d)\\
 
 </details>
 
-**Exercise A4.12**
+#### Exercise A4.12
 
 Verify that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$ under the operation of multiplication modulo $n$. 
 
@@ -874,7 +874,7 @@ The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$
 </details>
 
 
-**Exercise A4.13**
+#### Exercise A4.13
 
 Let $a$ be an arbitrary element of $\mathbb{Z}_n^\ast$. Show that $S\equiv \lbrace 1, a, a^2, \cdots \rbrace$ forms a subgroup of $\mathbb{Z}_n^\ast$, and that the size of $S$ is the least value of $r$ such that $a^r=1 \mod n$.
 
@@ -898,19 +898,19 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 </details>
 
 
-**Exercise A4.14**
+#### Exercise A4.14
 
 Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-We know from exercise A4.12 that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$. If $g$ is a generator for $\mathbb{Z}_n^\ast$ then $\braket{g} = \lbrace 1, g, g^2, \cdots \rbrace = \mathbb{Z}_n^\ast$ and so $g$ must have order $\varphi(n)$.
+We know from [exercise A4.12](#exercise-a412) that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$. If $g$ is a generator for $\mathbb{Z}_n^\ast$ then $\braket{g} = \lbrace 1, g, g^2, \cdots \rbrace = \mathbb{Z}_n^\ast$ and so $g$ must have order $\varphi(n)$.
 
 </details>
 
 
-**Exercise A4.15**
+#### Exercise A4.15
 
 Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is, show that $a^{\varphi(n)}=1 \mod n$ for any $a\in \mathbb{Z}_n^\ast$.
 
@@ -919,7 +919,7 @@ Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is,
 
 Lagrange's theorem says that if $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$. 
 
-From exercise A4.12 we know that $\mathbb{Z}_n^\ast$ is a group of size $\varphi(n)$. From exercise A4.12 we know that $S=\lbrace 1, a, a^2, \cdots, a^{r-1}\rbrace$ is a subgroup of $\mathbb{Z}_n^\ast$ where $r$ is the least value such that $a^r=1\mod n$ and that $\vert S\vert = r$. From Lagrange's theorem, we know that $r$ must divide $\varphi(n)$ and so $\varphi(n) = mr$ for some integer $m$. Therefore,
+From [exercise A4.12](#exercise-a412) we know that $\mathbb{Z}_n^\ast$ is a group of size $\varphi(n)$. From exercise A4.12 we know that $S=\lbrace 1, a, a^2, \cdots, a^{r-1}\rbrace$ is a subgroup of $\mathbb{Z}_n^\ast$ where $r$ is the least value such that $a^r=1\mod n$ and that $\vert S\vert = r$. From Lagrange's theorem, we know that $r$ must divide $\varphi(n)$ and so $\varphi(n) = mr$ for some integer $m$. Therefore,
 
 $$\begin{aligned}
 a^{\varphi(n)} &= a^{mr} \\
@@ -931,18 +931,18 @@ a^{\varphi(n)} &= a^{mr} \\
 </details>
 
 
-**Exercise A4.16**
+#### Exercise A4.16
 
 Use theorem A4.9 to show that the order of $x$ modulo $N$ must divide $\varphi(N)$.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From exercise A4.15, we know that this means there is a subgroup $S=\lbrace 1, x, x^2, \cdots, x^{r-1}\rbrace$ of size $r$ where $r$ divides $\varphi(N)$. This $r$ is equal to the order of $x \mod N$. Therefore, the order of $x$ modulo $N$ must divide $\varphi(N)$.
+From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From [exercise A4.15](#exercise-a415), we know that this means there is a subgroup $S=\lbrace 1, x, x^2, \cdots, x^{r-1}\rbrace$ of size $r$ where $r$ divides $\varphi(N)$. This $r$ is equal to the order of $x \mod N$. Therefore, the order of $x$ modulo $N$ must divide $\varphi(N)$.
 
 </details>
 
-**Exercise A4.17**
+#### Exercise A4.17
 
 Show that an efficient factoring algorithm would allow us to efficiently find the order modulo $N$ of any $x$ co-prime to $N$. 
 
@@ -960,7 +960,7 @@ We know step (1) and step (3) are efficient because they are the efficient facto
 
 </details>
 
-**Exercise A4.18**
+#### Exercise A4.18
 
 Find the continued fraction expansion for $x=19/17$ and $x=77/65$.
 
@@ -992,7 +992,7 @@ So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
 </details>
 
 
-**Exercise A4.19**
+#### Exercise A4.19
 
 Show that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. Use this fact to conclude that $\text{gcd}(p_n,q_n)=1$. 
 
@@ -1328,7 +1328,7 @@ Suppose we wish to factor $N=91$. Confirm that steps 1 and 2 are passed. For ste
 
 Step 1. check if $91$ is even. $91/2 = 45.5$ therefore, $91$ is not even.
 
-Step 2. Determine whether $91=a^b$. Using the algorithm from exercise 5.17, I generated the table below. Since none of the $a_1$ or $a_2$ equal $91$ there is no $a$ such that $91=a^b$.
+Step 2. Determine whether $91=a^b$. Using the algorithm from [exercise 5.17](#exercise-517), I generated the table below. Since none of the $a_1$ or $a_2$ equal $91$ there is no $a$ such that $91=a^b$.
 
 
 | $b$ |	$x=\log(91)/b$ |	$d=2^x$	| $u_1=\lfloor d \rfloor$ |	$u_2= \lceil d \rceil$ |	$a_1 = u_1^b$ |	$a_2=u_2^b$ |
@@ -1846,11 +1846,11 @@ Using the design shown in Figure 5.1, we can write a Fourier transform for a 4 q
 
 <img width="851" height="296" alt="image" src="https://github.com/user-attachments/assets/88c18ce0-8ebf-45ed-bec0-f102ded18ad0" />
 
-Since the controlled $R_k$ operation is a controlled-phase gate, we can swap the control and target qubits without changing the output of the circuit (as we showed in Exercise 4.18) and so our circuit can be constructed like so
+Since the controlled $R_k$ operation is a controlled-phase gate, we can swap the control and target qubits without changing the output of the circuit (as we showed in [Exercise 4.18](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-418)) and so our circuit can be constructed like so
 
 <img width="814" height="288" alt="image" src="https://github.com/user-attachments/assets/a98c3f37-e8f6-499d-9b27-d76c907cb495" />
 
-In Exercise 4.35 we showed that measurement commutes with controls and so if we measured each qubit after the Hadamard gate, but prior to them serving as controls for the $R_k$ gates, then that would be equivalent to measuring the qubits after the Fourier transform has completed. Measuring earlier vs. measuring at the end gives the same outcome distribution. After commuting the measurement forward, the remaining $R_k$ operations are just single-qubit gates whose application pattern is chosen classically from the measured bits, so there is no 2-qubit gates in the circuit. 
+In [Exercise 4.35](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-435) we showed that measurement commutes with controls and so if we measured each qubit after the Hadamard gate, but prior to them serving as controls for the $R_k$ gates, then that would be equivalent to measuring the qubits after the Fourier transform has completed. Measuring earlier vs. measuring at the end gives the same outcome distribution. After commuting the measurement forward, the remaining $R_k$ operations are just single-qubit gates whose application pattern is chosen classically from the measured bits, so there is no 2-qubit gates in the circuit. 
 
 </details>
 
@@ -1862,7 +1862,7 @@ Consider the quantum circuit shown on page 243 where $\ket{u}$ is an eigenstate 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-This circuit is similar to the one we investigated in Exercise 4.34, but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
+This circuit is similar to the one we investigated in [Exercise 4.34](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-434), but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
 
 $$\begin{aligned}
 p_k(0) &= \braket{u \vert M_{k}^\dagger M_{k} \vert u} \\
@@ -1890,7 +1890,7 @@ The runtime bound $O(L^3)$ we have given for the factoring algorithm is not tigh
 
 Looking at the Algorithm on page 233-234, we see that when reducing factoring to order-finding there are two steps that the book labeled as having $O(L^3)$ operations: step 2 and step 4. 
 
-In Exercise 5.17, we already showed that by using more efficient mathematical operation algorithms, step 2 can be completed in $O(L^2(\log(L))^2)$ operations. This comes from repeating a $O(L(\log(L))^2)$ operation algorithm $L$ times, once for each value of $b$ between 2 and $L$. However, we do not need to run the algorithm for all of those values. It is sufficient to just run them for prime values between 2 and $L$. This is because we can write $b=p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$ and so for all $p\in \lbrace p_1,p_2,\cdots,p_n \rbrace$
+In [Exercise 5.17](#exercise-517), we already showed that by using more efficient mathematical operation algorithms, step 2 can be completed in $O(L^2(\log(L))^2)$ operations. This comes from repeating a $O(L(\log(L))^2)$ operation algorithm $L$ times, once for each value of $b$ between 2 and $L$. However, we do not need to run the algorithm for all of those values. It is sufficient to just run them for prime values between 2 and $L$. This is because we can write $b=p_1^{k_1}p_2^{k_2}\cdots p_n^{k_n}$ and so for all $p\in \lbrace p_1,p_2,\cdots,p_n \rbrace$
 
 $$\begin{aligned}
 N &= a^{b} \\

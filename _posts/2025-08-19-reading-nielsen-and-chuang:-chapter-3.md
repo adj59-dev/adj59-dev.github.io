@@ -905,7 +905,7 @@ For this exercise we are to show that if $L$ is complete for a complexity class,
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. Since $L$ is complete, we know that all other languages in the complexity class (which are the set of all $L_i$ and $L'$) reduce to $L$. We are given that $L$ reduces to $L'$ and so by the transitive property shown in exercise 3.21 we know that all $L_i$ reduce to $L'$. Since we've shown that $L_i$ and $L$ (which are all the other languages in the complexity class) reduce to $L'$ we know that $L'$ is complete.
+Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. Since $L$ is complete, we know that all other languages in the complexity class (which are the set of all $L_i$ and $L'$) reduce to $L$. We are given that $L$ reduces to $L'$ and so by the transitive property shown in [exercise 3.21](#exercise-321) we know that all $L_i$ reduce to $L'$. Since we've shown that $L_i$ and $L$ (which are all the other languages in the complexity class) reduce to $L'$ we know that $L'$ is complete.
 
 </details>
 
@@ -963,7 +963,7 @@ Examples e-h show graphs with more than one literal/negation pairs. The way of r
 
 Examples i and j are graphs of not satisfiable functions. Here we run into the same contradiction as we saw in example d where we find that $x_1$ must be true and $¬x_1$ must be true. There are paths going from $x_1$ to $¬x_1$ and $¬x_1$ to $x_1$. This trend holds for all 2SAT functions. Due to the structure of the implication graph, if there are paths from $x$ to $¬x$ and from $¬x$ to $x$ for some $x$, the function is not satisfiable. 
 
-(2) For this part we are asked to show that, given a directed graph $G$ containing $n$ vertices, it is possible to determine whether two vertices $v_1$ and $v_2$ are connected in polynomial time. We can use the path function from in exercise 3.19 with a few minor modifications to do this check. We have already demonstrated that this function is $O(n)$, the modifications will not change this and so the function can be used to determine whether the two vertices are connected in polynomial time.
+(2) For this part we are asked to show that, given a directed graph $G$ containing $n$ vertices, it is possible to determine whether two vertices $v_1$ and $v_2$ are connected in polynomial time. We can use the path function from in [exercise 3.19](#exercise-319) with a few minor modifications to do this check. We have already demonstrated that this function is $O(n)$, the modifications will not change this and so the function can be used to determine whether the two vertices are connected in polynomial time.
 
 The following function written in pseudocode determines whether there is a path between vertex v1 and vertex v2. 
 

@@ -708,7 +708,7 @@ In this exercise we are to prove that two eigenvectors of a Hermitian operator w
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian operator $M$ with eigenvalues $\lambda_v$ and $\lambda_w$. From equation 2.32 we know that $(\ket{v}, M \ket{w}) = (M^\dagger \ket{v}, \ket{w})$. Since M is Hermitian $M^\dagger=M$ so $(\ket{v}, M \ket{w}) = (M \ket{v}, \ket{w})$ and therefore $(\ket{v}, \lambda_w \ket{w}) = (\lambda_v \ket{v}, \ket{w})$. Using linearity in the second and conjugate-linearity in the first arguments we get $\lambda_w(\ket{v}, \ket{w}) = \lambda_v^\ast( \ket{v}, \ket{w})$. As shown in Exercise 2.17, we know that the eigenvalues of a Hermitian operator are real and therefore $\lambda_w(\ket{v}, \ket{w}) = \lambda_v( \ket{v}, \ket{w})$. This can only be true if $\lambda_w = \lambda_v$ or $(\ket{v}, \ket{w}) =0$, i.e. the vectors are orthogonal. Therefore if $\lambda_w \neq \lambda_v$ then the vectors must be orthogonal. 
+Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian operator $M$ with eigenvalues $\lambda_v$ and $\lambda_w$. From equation 2.32 we know that $(\ket{v}, M \ket{w}) = (M^\dagger \ket{v}, \ket{w})$. Since M is Hermitian $M^\dagger=M$ so $(\ket{v}, M \ket{w}) = (M \ket{v}, \ket{w})$ and therefore $(\ket{v}, \lambda_w \ket{w}) = (\lambda_v \ket{v}, \ket{w})$. Using linearity in the second and conjugate-linearity in the first arguments we get $\lambda_w(\ket{v}, \ket{w}) = \lambda_v^\ast( \ket{v}, \ket{w})$. As shown in [Exercise 2.17](#exercise-217), we know that the eigenvalues of a Hermitian operator are real and therefore $\lambda_w(\ket{v}, \ket{w}) = \lambda_v( \ket{v}, \ket{w})$. This can only be true if $\lambda_w = \lambda_v$ or $(\ket{v}, \ket{w}) =0$, i.e. the vectors are orthogonal. Therefore if $\lambda_w \neq \lambda_v$ then the vectors must be orthogonal. 
 
 </details>
 
@@ -959,7 +959,7 @@ Use the definition of a projector to show that the tensor product of two project
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-From exercise 2.16 we know that any projector $P$ satisfies the equation $P^2 = P$. Lets say we have two projectors $P_1$ and $P_2$, then lets check the square of their tensor product 
+From [exercise 2.16](#exercise-216) we know that any projector $P$ satisfies the equation $P^2 = P$. Lets say we have two projectors $P_1$ and $P_2$, then lets check the square of their tensor product 
 
 $$\begin{aligned}
 (P_1 \otimes P_2)^2 &= (P_1 \otimes P_2)(P_1 \otimes P_2) \\
@@ -1343,7 +1343,7 @@ $$\begin{aligned}
 
 #### Exercise 2.43
 
-To verify equation 2.78 you will need to use the results from exercises 2.19, 2.41, and 2.42.
+To verify equation 2.78 you will need to use the results from exercises [2.19](#exercise-219), [2.41](#exercise-241), and [2.42](#exercise-242).
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1509,7 +1509,7 @@ for $\lambda_i \neq 0$ and then define $U \equiv \sum_{i} \ket{e_i}\bra{i}$. If 
 
 Then $A = UJ = KU$. 
 
-This may look the same as the results for the Hermitian matrix in Exercise 2.48, but now $\lambda_i$ can be complex and so $U$ not only represents the sign of $\lambda_i$ but also contains information about the complex component of the eigenvalues. 
+This may look the same as the results for the Hermitian matrix in [Exercise 2.48](#exercise-248), but now $\lambda_i$ can be complex and so $U$ not only represents the sign of $\lambda_i$ but also contains information about the complex component of the eigenvalues. 
 
 </details>
 
@@ -1862,7 +1862,7 @@ U = \sum_{E} \lambda_E \ket{E} \bra{E}
 
 where $\lambda_E$ are the eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
 
-From exercise 2.18, we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{i \theta_E}$ for some real $\theta_E$.
+From [exercise 2.18](#exercise-218), we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{i \theta_E}$ for some real $\theta_E$.
 
 Looking at our definition of $K$ we see
 
@@ -1947,7 +1947,7 @@ $$\begin{aligned}
 
 #### Exercise 2.59
 
-In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from exercise 2.9, exercise 2.19, and the calculations outlined in section 2.2.5.
+In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from [exercise 2.9](#exercise-29), [exercise 2.19](#exercise-219), and the calculations outlined in section 2.2.5.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -1981,7 +1981,7 @@ From equation 2.113 we know that the average value of the measurement is $\brake
 
 #### Exercise 2.60
 
-For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in exercise 2.35.
+For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in [exercise 2.35](#exercise-235).
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -2095,7 +2095,7 @@ $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=
 
 #### Exercise 2.65
 
-In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from exercise 2.11.
+In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from [exercise 2.11](#exercise-211).
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -2114,7 +2114,7 @@ which are the states given in the exercise. When written like this, they are not
 
 #### Exercise 2.66
 
-In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from exercise 2.9. and use equation 2.113 with $M=X_1Z_2$.
+In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from [exercise 2.9](#exercise-29). and use equation 2.113 with $M=X_1Z_2$.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -2428,7 +2428,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 
 #### Exercise 2.72
 
-For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from Exercise 2.60 where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
+For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from [Exercise 2.60](#exercise-260) where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
@@ -3085,7 +3085,7 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 
 **Problem 2.1**
 
-This problem is similar to exercise 2.35 but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
+This problem is similar to [exercise 2.35](#exercise-235) but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>

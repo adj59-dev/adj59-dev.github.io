@@ -439,7 +439,10 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 
 Show that by choosing $\Delta t$ appropriately we can obtain a quantum search algorithm which uses $O(\sqrt{N})$ queries, and for which the final state is $\ket{x}$ exactly, that is, the algorithm works with probability 1, rather than with some smaller probability. 
 
-If we chose $\Delta t=\pi$ then each oracle call rotates the state by $\theta\approx 4/\sqrt{N}$ and so the number of oracal calls required will be 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+If we chose $\Delta t=\pi$ then each oracle call rotates the state by $\theta\approx 4/\sqrt{N}$ and so the number of oracle calls required will be 
 
 $$\begin{aligned}
 \frac{\pi}{\theta} &= \frac{\pi}{4/\sqrt{N}}\\
@@ -447,26 +450,18 @@ $$\begin{aligned}
 &= O(\sqrt{N})
 \end{aligned}$$
 
-One oracal call results in the rotation about $\vec{r}$ defined by
+The Grover iteration can be written as $G=(2\ket{\psi}\bra{\psi}-I)O=(2\ket{\psi}\bra{\psi}-I)(I-2\ket{x}\bra{x})$. Calculating $U(\pi)$ we get
 
 $$\begin{aligned}
-U(\pi) &= \left(\cos^2\left(\frac{\pi}{2}\right) - \sin^2\left(\frac{\pi}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\pi}{2}\right)\left(\cos\left(\frac{\pi}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\pi}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\\
-&= \left( - \vec{\psi}\cdot\hat{z}\right)I - 2i\left(\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\\
-&= -\left(\alpha^2-\beta^2 \right)I - 2i\left(\frac{-2\alpha\beta\hat{y}}{2}\right)\cdot \vec{\sigma} & \text{since $\hat{z}=(0,0,1)$ and $\vec{\psi}=(2\alpha\beta,0,(\alpha^2-\beta^2))$}\\
-&= -\left(\alpha^2-\beta^2 \right)I + i\alpha\beta Y\\
-&= -\left(\frac{2}{N}-1 \right)I + i\alpha\beta Y
+U(\pi) &= e^{-i\ket{\psi}\bra{\psi}\pi}e^{-i\ket{x}\bra{x}\pi}\\
+&= (I-2\ket{\psi}\bra{\psi})(I-2\ket{x}\bra{x}) \\
+&= e^{i\pi}(2\ket{\psi}\bra{\psi}-I)(I-2\ket{x}\bra{x})\\
+&= e^{i\pi}G
 \end{aligned}$$
 
-Applying $U(\pi)$ to $\ket{\psi}$ we get
+Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and Grover’s algorithm can be tuned to reach $\ket{x}$ exactly with an appropriate number of iterations, the algorithm using $U(\pi)$ also succeeds with probability 1.
 
-$$\begin{aligned}
-U(\pi)\ket{\psi} &= \left(-\left(\frac{2}{N}-1 \right)I + i\alpha\beta Y\right)\left(\alpha\ket{x} + \beta\ket{y}\right)\\
-&= -\left(\frac{2}{N}-1 \right)\left(\alpha\ket{x} + \beta\ket{y}\right) + i\alpha\beta Y\left(\alpha\ket{x} + \beta\ket{y}\right)\\
-\end{aligned}$$
-
-
-
-
+</details>
 
 
 

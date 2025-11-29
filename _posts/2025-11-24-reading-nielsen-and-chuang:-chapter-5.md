@@ -353,7 +353,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
   
 ### Appendix 2 - Exercises
 
-**Exercise A2.1**
+#### Exercise A2.1
 
 Prove that for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$. That is, every element of such a group has an order.
 
@@ -372,7 +372,7 @@ Thus for any element $g$ of a finite group, there always exists a positive integ
 
 </details>
 
-**Exercise A2.2**
+#### Exercise A2.2
 
 Prove Lagrange's theorem.
 
@@ -391,7 +391,7 @@ Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\ve
 
 </details>
 
-**Exercise A2.3**
+#### Exercise A2.3
 
 Show that the order of an element $g\in G$ divides $\vert G \vert$. 
 
@@ -402,7 +402,7 @@ Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^
 
 </details>
 
-**Exercise A2.4**
+#### Exercise A2.4
 
 Show that if $y\in G_x$ then $G_y=G_x$.
 
@@ -421,7 +421,7 @@ Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made
 
 </details>
 
-**Exercise A2.5**
+#### Exercise A2.5
 
 Show that if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
 
@@ -440,7 +440,7 @@ Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abe
 
 </details>
 
-**Exercise A2.6**
+#### Exercise A2.6
 
 Show that any group of prime order is cyclic.
 
@@ -452,7 +452,7 @@ Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. 
 </details>
 
 
-**Exercise A2.7**
+#### Exercise A2.7
 
 Show that every subgroup of a cyclic group is cyclic.
 
@@ -468,7 +468,7 @@ We can now say that $K=\lbrace 0,d,2d,\cdots,r-d\rbrace$, and so $H=\braket{a^d}
 </details>
 
 
-**Exercise A2.8**
+#### Exercise A2.8
 
 Show that if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \equiv n \mod r$. 
 
@@ -488,7 +488,7 @@ Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \e
 </details>
 
 
-**Exercise A2.9**
+#### Exercise A2.9
 
 Show that $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
 
@@ -504,7 +504,7 @@ Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there e
 </details>
 
 
-**Exercise A2.10**
+#### Exercise A2.10
 
 How many cosets of H are there in G?
 
@@ -522,7 +522,7 @@ Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert
 </details>
 
 
-**Exercise A2.11**
+#### Exercise A2.11
 
 Prove the properties of characters given above.
 
@@ -602,12 +602,12 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 </details>
 
 
-**Exercise A2.12**
+#### Exercise A2.12
 
 Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
 
 
-**Exercise A2.13**
+#### Exercise A2.13
 
 Show that every irreducible Abelian matrix group is one dimensional. 
 
@@ -653,7 +653,7 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
   
 ### Appendix 4 - Exercises
 
-**Exercise A4.1**
+#### Exercise A4.1
 
 Show that if $a\vert b$ and $b \vert c$ then $a \vert c$.
 
@@ -664,7 +664,7 @@ We know that there exists an integer $k$ such that $b=ka$. We also know that the
 
 </details>
 
-**Exercise A4.2**
+#### Exercise A4.2
 
 Show that if $d\vert a$ and $d\vert b$ then $d$ also divides linear combinations of $a$ and $b$, $ax+by$, where $x$ and $y$ are integers.
 
@@ -675,7 +675,7 @@ We know that there exists an integer $k$ such that $a=kd$. We also know that the
 
 </details>
 
-**Exercise A4.3**
+#### Exercise A4.3
 
 Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b$. Conclude that if $a\vert b$ and $b\vert a$ then $a=b$. 
 
@@ -686,7 +686,7 @@ If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and
 
 </details>
 
-**Exercise A4.4**
+#### Exercise A4.4
 
 Find the prime factorization of 697 and 36300.
 
@@ -701,7 +701,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.5**
+#### Exercise A4.5
 
 For a prime $p$ prove that all integers in the range $1$ to $p-1$ have multiplicative inverses modulo $p$. Which integers in the range $1$ to $p^2-1$ do not have multiplicative inverses modulo $p^2$?
 
@@ -715,7 +715,7 @@ Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is
 </details>
 
 
-**Exercise A4.6**
+#### Exercise A4.6
 
 Find the multiplicative inverse of 17 modulo 24.
 
@@ -727,7 +727,7 @@ We need to find $b$ such that $17b = 1 + k24$ for some integer $k$. This relatio
 </details>
 
 
-**Exercise A4.7**
+#### Exercise A4.7
 
 Find the multiplicative inverse of $n+1$ modulo $n^2$, where $n$ is any integer greater than 1. 
 
@@ -745,7 +745,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.8**
+#### Exercise A4.8
 
 Suppose $b$ and $b'$ are multiplicative inverses of $a$, modulo $n$. Prove that $b=b' \mod n$.
 
@@ -757,7 +757,7 @@ Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+
 </details>
 
 
-**Exercise A4.9**
+#### Exercise A4.9
 
 Explain how to find $\text{gcd}(a,b)$ if the prime factorizations of $a$ and $b$ are known. Find the prime factorizations of 6825 and 1430, and then use them to compute $\text{gcd}(6825,1430)$.
 
@@ -779,7 +779,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.10**
+#### Exercise A4.10
 
 What is $\varphi(187)$?
 
@@ -803,7 +803,7 @@ $$\begin{aligned}
 </details>
 
 
-**Exercise A4.11**
+#### Exercise A4.11
 
 Prove that 
 
@@ -842,7 +842,7 @@ n &= \sum_{d\vert n}\varphi(d)\\
 
 </details>
 
-**Exercise A4.12**
+#### Exercise A4.12
 
 Verify that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$ under the operation of multiplication modulo $n$. 
 
@@ -874,7 +874,7 @@ The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$
 </details>
 
 
-**Exercise A4.13**
+#### Exercise A4.13
 
 Let $a$ be an arbitrary element of $\mathbb{Z}_n^\ast$. Show that $S\equiv \lbrace 1, a, a^2, \cdots \rbrace$ forms a subgroup of $\mathbb{Z}_n^\ast$, and that the size of $S$ is the least value of $r$ such that $a^r=1 \mod n$.
 
@@ -898,7 +898,7 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 </details>
 
 
-**Exercise A4.14**
+#### Exercise A4.14
 
 Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
 
@@ -910,7 +910,7 @@ We know from [exercise A4.12](#exercise-a412) that $\mathbb{Z}_n^\ast$ forms a g
 </details>
 
 
-**Exercise A4.15**
+#### Exercise A4.15
 
 Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is, show that $a^{\varphi(n)}=1 \mod n$ for any $a\in \mathbb{Z}_n^\ast$.
 
@@ -931,7 +931,7 @@ a^{\varphi(n)} &= a^{mr} \\
 </details>
 
 
-**Exercise A4.16**
+#### Exercise A4.16
 
 Use theorem A4.9 to show that the order of $x$ modulo $N$ must divide $\varphi(N)$.
 
@@ -942,7 +942,7 @@ From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From [exercise A4.15](#exercise-a4
 
 </details>
 
-**Exercise A4.17**
+#### Exercise A4.17
 
 Show that an efficient factoring algorithm would allow us to efficiently find the order modulo $N$ of any $x$ co-prime to $N$. 
 
@@ -960,7 +960,7 @@ We know step (1) and step (3) are efficient because they are the efficient facto
 
 </details>
 
-**Exercise A4.18**
+#### Exercise A4.18
 
 Find the continued fraction expansion for $x=19/17$ and $x=77/65$.
 
@@ -992,7 +992,7 @@ So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
 </details>
 
 
-**Exercise A4.19**
+#### Exercise A4.19
 
 Show that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. Use this fact to conclude that $\text{gcd}(p_n,q_n)=1$. 
 

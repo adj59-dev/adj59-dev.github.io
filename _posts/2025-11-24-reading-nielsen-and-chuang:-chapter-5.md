@@ -13,6 +13,77 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
+exercises:
+  - anchor: exercise-51
+    label: Exercise 5.1
+  - anchor: exercise-52
+    label: Exercise 5.2
+  - anchor: exercise-53
+    label: Exercise 5.3
+  - anchor: exercise-54
+    label: Exercise 5.4
+  - anchor: exercise-55
+    label: Exercise 5.5
+  - anchor: exercise-56
+    label: Exercise 5.6
+  - anchor: exercise-57
+    label: Exercise 5.7
+  - anchor: exercise-58
+    label: Exercise 5.8
+  - anchor: exercise-59
+    label: Exercise 5.9
+  - anchor: exercise-510
+    label: Exercise 5.10
+  - anchor: exercise-511
+    label: Exercise 5.11
+  - anchor: exercise-512
+    label: Exercise 5.12
+  - anchor: exercise-513
+    label: Exercise 5.13
+  - anchor: exercise-514
+    label: Exercise 5.14
+  - anchor: exercise-515
+    label: Exercise 5.15
+  - anchor: exercise-516
+    label: Exercise 5.16
+  - anchor: exercise-517
+    label: Exercise 5.17
+  - anchor: exercise-518
+    label: Exercise 5.18
+  - anchor: exercise-519
+    label: Exercise 5.19
+  - anchor: exercise-520
+    label: Exercise 5.20
+  - anchor: exercise-521
+    label: Exercise 5.21
+  - anchor: exercise-522
+    label: Exercise 5.22
+  - anchor: exercise-523
+    label: Exercise 5.23
+  - anchor: exercise-524
+    label: Exercise 5.24
+  - anchor: exercise-525
+    label: Exercise 5.25
+  - anchor: exercise-526
+    label: Exercise 5.26
+  - anchor: exercise-527
+    label: Exercise 5.27
+  - anchor: exercise-528
+    label: Exercise 5.28
+  - anchor: exercise-529
+    label: Exercise 5.29
+  - anchor: problem-51
+    label: Problem 5.1
+  - anchor: problem-52
+    label: Problem 5.2
+  - anchor: problem-53
+    label: Problem 5.3
+  - anchor: problem-54
+    label: Problem 5.4
+  - anchor: problem-55
+    label: Problem 5.5
+  - anchor: problem-56
+    label: Problem 5.6
 ---
 
 

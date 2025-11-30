@@ -13,6 +13,11 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
+exercises:
+  - anchor: exercise-11
+    label: Exercise 1.1
+  - anchor: exercise-12
+    label: Exercise 1.2
 ---
 
 ## Reading Nielsen and Chuang: Chapter 1

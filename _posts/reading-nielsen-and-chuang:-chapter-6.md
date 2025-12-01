@@ -536,10 +536,38 @@ Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and G
 </details>
 
 
+#### Exercise 6.11 {#exercise-611}
 
+Guess a Hamiltonian with which one may solve the continuous time search problem in the case where the search problem has $M$ solutions. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
+I'm going to guess the following Hamiltonian
 
+$$\begin{aligned}
+H = \ket{\beta}\bra{\beta} + \ket{\psi}\bra{\psi}
+\end{aligned}$$
+
+where $\ket{\beta}=\frac{1}{\sqrt{M}}\sum_{x}'\ket{x}$ and $\sum_{x}'$ indicates a sum over all $x$ which are solutions to the search problem. 
+
+Like with the case of one solution, we can restrict the analysis to the two-dimensional space spanned by $\ket{\beta}$ and $\ket{\psi}$. Performing the Gram-Schmidt procedure, we can find $\ket{y}$ such that $\ket{\beta}$, $\ket{y}$ form an orthonormal basis for this space and that $\ket{\psi} = a\ket{\beta} + b\ket{y}$ where $a^2+b^2=1$. For convenience we have chosen the phases of $\ket{\beta}$ and $\ket{y}$ so that $a$ and $b$ are real and non-negative. In this basis we have
+
+$$\begin{aligned}
+H = \begin{bmatrix} 1 & 0 \\\ 0 & 0 \end{bmatrix} + \begin{bmatrix} a^2 & ab \\\ ab & b^2 \end{bmatrix} = I + a(bX+aZ)
+\end{aligned}$$
+
+Thus
+
+$$\begin{aligned}
+\exp(-iHt)\ket{\psi} = \exp(-it)\lbrack\cos(at)\ket{\psi}-i\sin(at)\ket{\beta}\rbrack.
+\end{aligned}$$
+
+Thus at time $t=\frac{\pi}{2a}$ yields the result $\ket{\beta}$ with probability one. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
 
 
 

@@ -96,7 +96,7 @@ While working through Appendix 4, I realized that I needed to learn some group t
 
 To strengthen my understanding going forward, I’ve purchased *Group Theory and Its Application to Physical Problems* by Morton Hamermesh and plan to work through it alongside QCQI. It seems to offer a gentler introduction to group theory than QCQI, although some of the terminology is a bit dated.
 
-As with the earlier chapters, I’ve included my notes and exercise solutions below. The solutions are collapsed to save space and to avoid spoilers for anyone who wants to try the problems independently.
+As with the earlier chapters, I’ve included my notes and exercise solutions below. The solutions are collapsed to save space and to avoid spoilers for anyone who wants to try the problems independently. 
 
 
 

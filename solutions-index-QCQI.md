@@ -37,7 +37,6 @@ tags:
 
   {% if post.exercises %}
   <br>
-  <strong>Solutions</strong>
   <ul>
     {% for ex in post.exercises %}
     <li>

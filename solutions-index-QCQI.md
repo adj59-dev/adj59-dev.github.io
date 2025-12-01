@@ -1,6 +1,6 @@
 ---
 layout: page
-title: QCQI Chapter-by-Chapter Solutions Index
+title: QCQI Solutions Index
 permalink: /solutions-index/
 description: "Complete index of notes and exercise solutions for Nielsen & Chuang's Quantum Computation and Quantum Information."
 tags:

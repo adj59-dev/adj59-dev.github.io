@@ -33,7 +33,7 @@ tags:
   {%- assign chapter_posts = qcqi_posts | where: "chapter", ch | sort: "date" -%}
   {%- if chapter_posts.size > 0 -%}
 
-  <h2>Chapter {{ ch }}</h2>
+    <h2>Chapter {{ ch }}</h2>
 
     {%- comment -%}
     List all posts for this chapter.

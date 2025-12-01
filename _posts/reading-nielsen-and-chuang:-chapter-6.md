@@ -12,8 +12,60 @@ tags:
   - exercise
   - problem
   - solutions
+last_modified_at: 2025-11-29 19:10:00 -08:00
+exercises:
+  - anchor: exercise-61
+    label: Exercise 6.1
+  - anchor: exercise-62
+    label: Exercise 6.2
+  - anchor: exercise-63
+    label: Exercise 6.3
+  - anchor: exercise-64
+    label: Exercise 6.4
+  - anchor: exercise-65
+    label: Exercise 6.5
+  - anchor: exercise-66
+    label: Exercise 6.6
+  - anchor: exercise-67
+    label: Exercise 6.7
+  - anchor: exercise-68
+    label: Exercise 6.8
+  - anchor: exercise-69
+    label: Exercise 6.9
+  - anchor: exercise-610
+    label: Exercise 6.10
+  - anchor: exercise-611
+    label: Exercise 6.11
+  - anchor: exercise-612
+    label: Exercise 6.12
+  - anchor: exercise-613
+    label: Exercise 6.13
+  - anchor: exercise-614
+    label: Exercise 6.14
+  - anchor: exercise-615
+    label: Exercise 6.15
+  - anchor: exercise-616
+    label: Exercise 6.16
+  - anchor: exercise-617
+    label: Exercise 6.17
+  - anchor: exercise-618
+    label: Exercise 6.18
+  - anchor: exercise-619
+    label: Exercise 6.19
+  - anchor: exercise-620
+    label: Exercise 6.20
+  - anchor: problem-61
+    label: Problem 6.1
+  - anchor: problem-62
+    label: Problem 6.2
+  - anchor: problem-63
+    label: Problem 6.3
+  - anchor: problem-64
+    label: Problem 6.4
+chapter: 6
 ---
 
+<a id="top"></a>
 
 # Reading Nielsen and Chuang: Chapter 6
 
@@ -46,7 +98,7 @@ I just finished reading Chapter 6 of *Quantum Computation and Quantum Informatio
 
 ### The quantum search algorithm - Exercises
 
-**Exercise 6.1**
+#### Exercise 6.1 {#exercise-61}
 
 Show that the unitary operator corresponding to the phase shift in the Grover iteration is $2\ket{0}\bra{0} - I$.
 
@@ -64,10 +116,12 @@ U\ket{x} &= \left(2\ket{0}\bra{0} - I\right)\ket{x} \\
 
 This matches the desired behavior and so the unitary operator corresponding to the phase shift in the Grover iteration is $2\ket{0}\bra{0} - I$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.2**
+#### Exercise 6.2 {#exercise-62}
 
 Show that the operation $(2\ket{\psi}\bra{\psi}-I)$ applied to a general state $\sum_{k}\alpha_k\ket{k}$ produces
 
@@ -99,10 +153,12 @@ $$\begin{aligned}
 &= \sum_{k}\lbrack 2\braket{\alpha} - \alpha_k\rbrack\ket{k} \\
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.3**
+#### Exercise 6.3 {#exercise-63}
 
 Show that in the $\ket{\alpha}$, $\ket{\beta}$ basis, we may write the Grover iteration as
 
@@ -130,10 +186,12 @@ G\ket{\psi} &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\th
 
 This agrees with equation 6.11. Therefore, the Grover iteration may be written as matrix $G$ in the $\ket{\alpha}$, $\ket{\beta}$ basis. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.4**
+#### Exercise 6.4 {#exercise-64}
 
 Give explicit steps for the quantum search algorithm, as above, but for the case of multiple solutions $(1<M<N/2)$.
 
@@ -160,10 +218,12 @@ $$\begin{aligned}
 4 & \rightarrow x\in S & \text{measure the first $n$ qubits} \\
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.5**
+#### Exercise 6.5 {#exercise-65}
 
 Show that the augmented oracle $O'$ may be constructed using one application of $O$, and elementary quantum gates, using the extra qubit $\ket{q}$.
 
@@ -211,10 +271,12 @@ O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
 \end{cases}
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.6**
+#### Exercise 6.6 {#exercise-66}
 
 Verify that the gates in the dotted box in the second figure of Box 6.1 perform the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
 
@@ -262,6 +324,8 @@ $$\begin{aligned}
 
 Therefore, the dotted box in the second figure of Box 6.1 performs the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -280,7 +344,7 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 ### Quantum search as a quantum simulation - Exercises
 
 
-**Exercise 6.7**
+#### Exercise 6.7 {#exercise-67}
 
 Verify that the circuits shown in Figures 6.4 and 6.5 implement the operations $\exp(-i\ket{x}\bra{x}\Delta t)$ and $\exp(-i\ket{\psi}\bra{\psi}\Delta t)$, respectively, with $\ket{\psi}$ as in (6.24).
 
@@ -335,10 +399,12 @@ $$\begin{aligned}
 
 instead of the one drawn in the figure.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.8**
+#### Exercise 6.8 {#exercise-68}
 
 Suppose the simulation step is performed to an accuracy $O(\Delta t^r)$. Show that the number of oracle calls required to simulate $H$ to reasonable accuracy is $O\left(N^{r/2(r-1)}\right)$.
 
@@ -347,10 +413,12 @@ Suppose the simulation step is performed to an accuracy $O(\Delta t^r)$. Show th
 
 Since the step length is $\Delta t$ the total number of steps required is $t/\Delta t=\Theta(\sqrt{N}/\Delta t)$, and thus the cumulative error is $O(\Delta t^r\times \sqrt{N}/\Delta t) = O(\Delta t^{r-1}\sqrt{N})$. We need the error to be $O(1)$, which means we must choose $\Delta t = \Theta\left(N^{-\frac{1}{2(r-1)}}\right)$ and so the number of oracle calls scales like $O\left(\sqrt{N}/N^{-\frac{1}{2(r-1)}}\right) = O\left(N^{\frac{1}{2} + \frac{1}{2(r-1)}}\right) = O\left(N^{r/2(r-1)}\right)$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.9**
+#### Exercise 6.9 {#exercise-69}
 
 Verify Equation (6.25).
 
@@ -432,10 +500,12 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 &= e^{-i\Delta t} \left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\Delta t}{2}\right)\left(\cos\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\right\rbrack\\
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
-**Exercise 6.10**
+#### Exercise 6.10 {#exercise-610}
 
 Show that by choosing $\Delta t$ appropriately we can obtain a quantum search algorithm which uses $O(\sqrt{N})$ queries, and for which the final state is $\ket{x}$ exactly, that is, the algorithm works with probability 1, rather than with some smaller probability. 
 
@@ -460,6 +530,8 @@ U(\pi) &= e^{-i\ket{\psi}\bra{\psi}\pi}e^{-i\ket{x}\bra{x}\pi}\\
 \end{aligned}$$
 
 Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and Grover’s algorithm can be tuned to reach $\ket{x}$ exactly with an appropriate number of iterations, the algorithm using $U(\pi)$ also succeeds with probability 1.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 

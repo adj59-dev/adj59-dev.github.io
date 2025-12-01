@@ -13,77 +13,6 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
-exercises:
-  - anchor: exercise-51
-    label: Exercise 5.1
-  - anchor: exercise-52
-    label: Exercise 5.2
-  - anchor: exercise-53
-    label: Exercise 5.3
-  - anchor: exercise-54
-    label: Exercise 5.4
-  - anchor: exercise-55
-    label: Exercise 5.5
-  - anchor: exercise-56
-    label: Exercise 5.6
-  - anchor: exercise-57
-    label: Exercise 5.7
-  - anchor: exercise-58
-    label: Exercise 5.8
-  - anchor: exercise-59
-    label: Exercise 5.9
-  - anchor: exercise-510
-    label: Exercise 5.10
-  - anchor: exercise-511
-    label: Exercise 5.11
-  - anchor: exercise-512
-    label: Exercise 5.12
-  - anchor: exercise-513
-    label: Exercise 5.13
-  - anchor: exercise-514
-    label: Exercise 5.14
-  - anchor: exercise-515
-    label: Exercise 5.15
-  - anchor: exercise-516
-    label: Exercise 5.16
-  - anchor: exercise-517
-    label: Exercise 5.17
-  - anchor: exercise-518
-    label: Exercise 5.18
-  - anchor: exercise-519
-    label: Exercise 5.19
-  - anchor: exercise-520
-    label: Exercise 5.20
-  - anchor: exercise-521
-    label: Exercise 5.21
-  - anchor: exercise-522
-    label: Exercise 5.22
-  - anchor: exercise-523
-    label: Exercise 5.23
-  - anchor: exercise-524
-    label: Exercise 5.24
-  - anchor: exercise-525
-    label: Exercise 5.25
-  - anchor: exercise-526
-    label: Exercise 5.26
-  - anchor: exercise-527
-    label: Exercise 5.27
-  - anchor: exercise-528
-    label: Exercise 5.28
-  - anchor: exercise-529
-    label: Exercise 5.29
-  - anchor: problem-51
-    label: #### Problem 5.1 {#problem-51}
-  - anchor: problem-52
-    label: #### Problem 5.2 {#problem-52}
-  - anchor: problem-53
-    label: #### Problem 5.3 {#problem-53}
-  - anchor: problem-54
-    label: #### Problem 5.4 {#problem-54}
-  - anchor: problem-55
-    label: #### Problem 5.5 {#problem-55}
-  - anchor: problem-56
-    label: #### Problem 5.6 {#problem-56}
 ---
 
 
@@ -125,7 +54,7 @@ As with the earlier chapters, I’ve included my notes and exercise solutions be
   
 ### The quantum Fourier transform - Exercises
 
-#### Exercise 5.1 {#exercise-51}
+#### Exercise 5.1
 
 Give a direct proof that the linear transformation defined by equation 5.2 is unitary. 
 
@@ -149,7 +78,7 @@ Therefore $T$ is unitary.
 </details>
 
 
-#### Exercise 5.2 {#exercise-52}
+#### Exercise 5.2
 
 Explicitly compute the Fourier transform of the $n$ qubit state $\ket{00\cdots 0}$. 
 
@@ -167,7 +96,7 @@ T\ket{00\cdots 0} &= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i
 </details>
 
 
-#### Exercise 5.3 {#exercise-53}
+#### Exercise 5.3
 
 Suppose we wish to perform a Fourier transform of a vector containing $2^n$ complex numbers on a classical computer. Verify that the straightforward method for performing the Fourier transform, based upon direct evaluation of Equation (5.1) requires $\Theta(2^{2n})$ elementary arithmetic operations. Find a method for reducing this to $\Theta(n2^n)$ based upon Equation (5.4).
 
@@ -217,7 +146,7 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 </details>
 
-#### Exercise 5.4 {#exercise-54}
+#### Exercise 5.4
 
 Give a decomposition of the controlled- $R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
 
@@ -285,7 +214,7 @@ print(circuit)
 </details>
 
 
-#### Exercise 5.5 {#exercise-55}
+#### Exercise 5.5
 
 Give a quantum circuit to perform the inverse quantum Fourier transform.
 
@@ -297,7 +226,7 @@ Since the quantum Fourier transform is a unitary operation, the adjoint of the o
 </details>
 
 
-#### Exercise 5.6 {#exercise-56}
+#### Exercise 5.6
 
 Let $U$ be the ideal quantum Fourier transform on $n$ qubits, and $V$ be the transform which results if the controlled- $R_k$ gates are performed to a precision $\Delta=1/p(n)$ for some polynomial $p(n)$. Show that the error $E(U,V) = max_{\ket{\psi}}\Vert (U-V)\ket{\psi}\Vert$ scales as $\Theta(n^2/p(n))$, and thus polynomial precision in each gate is sufficient to guarantee polynomial accuracy in the output state. 
 
@@ -331,7 +260,7 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 ### Phase estimation - Exercises
 
 
-#### Exercise 5.7 {#exercise-57}
+#### Exercise 5.7
 
 Show that the effect of the sequence of controlled- $U$ operations like that in Figure 5.2 is to take the state $\ket{j}\ket{u} \to \ket{j}U^j\ket{u}$.
 
@@ -350,7 +279,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 5.8 {#exercise-58}
+#### Exercise 5.8
 
 Suppose the phase estimation algorithm takes the state $\ket{0}\ket{u}$ to the state $\ket{\tilde{\phi_u}}\ket{u}$. so that given the input $\ket{0}\left(\sum_u c_u\ket{u}\right)$, the algorithm outputs $\sum_u c_u \ket{\tilde{\phi_u}}\ket{u}$. Show that if $t$ is chosen according to (5.35), then the probability for measuring $\phi_u$ accurate to $n$ bits at the conclusion of the phase estimation algorithm is at least $\vert c_u \vert^2(1-\epsilon)$.
 
@@ -376,7 +305,7 @@ where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. T
 </details>
 
 
-#### Exercise 5.9 {#exercise-59}
+#### Exercise 5.9
 
 Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with [Exercise 4.34](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-434). 
 
@@ -425,7 +354,7 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
   
 ### Appendix 2 - Exercises
 
-#### Exercise A2.1 {#exercise-a21}
+#### Exercise A2.1
 
 Prove that for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$. That is, every element of such a group has an order.
 
@@ -444,7 +373,7 @@ Thus for any element $g$ of a finite group, there always exists a positive integ
 
 </details>
 
-#### Exercise A2.2 {#exercise-a22}
+#### Exercise A2.2
 
 Prove Lagrange's theorem.
 
@@ -463,7 +392,7 @@ Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\ve
 
 </details>
 
-#### Exercise A2.3 {#exercise-a23}
+#### Exercise A2.3
 
 Show that the order of an element $g\in G$ divides $\vert G \vert$. 
 
@@ -474,7 +403,7 @@ Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^
 
 </details>
 
-#### Exercise A2.4 {#exercise-a24}
+#### Exercise A2.4
 
 Show that if $y\in G_x$ then $G_y=G_x$.
 
@@ -493,7 +422,7 @@ Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made
 
 </details>
 
-#### Exercise A2.5 {#exercise-a25}
+#### Exercise A2.5
 
 Show that if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
 
@@ -512,7 +441,7 @@ Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abe
 
 </details>
 
-#### Exercise A2.6 {#exercise-a26}
+#### Exercise A2.6
 
 Show that any group of prime order is cyclic.
 
@@ -524,7 +453,7 @@ Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. 
 </details>
 
 
-#### Exercise A2.7 {#exercise-a27}
+#### Exercise A2.7
 
 Show that every subgroup of a cyclic group is cyclic.
 
@@ -540,7 +469,7 @@ We can now say that $K=\lbrace 0,d,2d,\cdots,r-d\rbrace$, and so $H=\braket{a^d}
 </details>
 
 
-#### Exercise A2.8 {#exercise-a28}
+#### Exercise A2.8
 
 Show that if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \equiv n \mod r$. 
 
@@ -560,7 +489,7 @@ Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \e
 </details>
 
 
-#### Exercise A2.9 {#exercise-a29}
+#### Exercise A2.9
 
 Show that $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
 
@@ -576,7 +505,7 @@ Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there e
 </details>
 
 
-#### Exercise A2.10 {#exercise-a210}
+#### Exercise A2.10
 
 How many cosets of H are there in G?
 
@@ -594,7 +523,7 @@ Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert
 </details>
 
 
-#### Exercise A2.11 {#exercise-a211}
+#### Exercise A2.11
 
 Prove the properties of characters given above.
 
@@ -674,12 +603,12 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 </details>
 
 
-#### Exercise A2.12 {#exercise-a212}
+#### Exercise A2.12
 
 Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
 
 
-#### Exercise A2.13 {#exercise-a213}
+#### Exercise A2.13
 
 Show that every irreducible Abelian matrix group is one dimensional. 
 
@@ -725,7 +654,7 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
   
 ### Appendix 4 - Exercises
 
-#### Exercise A4.1 {#exercise-a41}
+#### Exercise A4.1
 
 Show that if $a\vert b$ and $b \vert c$ then $a \vert c$.
 
@@ -736,7 +665,7 @@ We know that there exists an integer $k$ such that $b=ka$. We also know that the
 
 </details>
 
-#### Exercise A4.2 {#exercise-a42}
+#### Exercise A4.2
 
 Show that if $d\vert a$ and $d\vert b$ then $d$ also divides linear combinations of $a$ and $b$, $ax+by$, where $x$ and $y$ are integers.
 
@@ -747,7 +676,7 @@ We know that there exists an integer $k$ such that $a=kd$. We also know that the
 
 </details>
 
-#### Exercise A4.3 {#exercise-a43}
+#### Exercise A4.3
 
 Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b$. Conclude that if $a\vert b$ and $b\vert a$ then $a=b$. 
 
@@ -758,7 +687,7 @@ If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and
 
 </details>
 
-#### Exercise A4.4 {#exercise-a44}
+#### Exercise A4.4
 
 Find the prime factorization of 697 and 36300.
 
@@ -773,7 +702,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise A4.5 {#exercise-a45}
+#### Exercise A4.5
 
 For a prime $p$ prove that all integers in the range $1$ to $p-1$ have multiplicative inverses modulo $p$. Which integers in the range $1$ to $p^2-1$ do not have multiplicative inverses modulo $p^2$?
 
@@ -787,7 +716,7 @@ Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is
 </details>
 
 
-#### Exercise A4.6 {#exercise-a46}
+#### Exercise A4.6
 
 Find the multiplicative inverse of 17 modulo 24.
 
@@ -799,7 +728,7 @@ We need to find $b$ such that $17b = 1 + k24$ for some integer $k$. This relatio
 </details>
 
 
-#### Exercise A4.7 {#exercise-a47}
+#### Exercise A4.7
 
 Find the multiplicative inverse of $n+1$ modulo $n^2$, where $n$ is any integer greater than 1. 
 
@@ -817,7 +746,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise A4.8 {#exercise-a48}
+#### Exercise A4.8
 
 Suppose $b$ and $b'$ are multiplicative inverses of $a$, modulo $n$. Prove that $b=b' \mod n$.
 
@@ -829,7 +758,7 @@ Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+
 </details>
 
 
-#### Exercise A4.9 {#exercise-a49}
+#### Exercise A4.9
 
 Explain how to find $\text{gcd}(a,b)$ if the prime factorizations of $a$ and $b$ are known. Find the prime factorizations of 6825 and 1430, and then use them to compute $\text{gcd}(6825,1430)$.
 
@@ -851,7 +780,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise A4.10 {#exercise-a410}
+#### Exercise A4.10
 
 What is $\varphi(187)$?
 
@@ -875,7 +804,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise A4.11 {#exercise-a411}
+#### Exercise A4.11
 
 Prove that 
 
@@ -914,7 +843,7 @@ n &= \sum_{d\vert n}\varphi(d)\\
 
 </details>
 
-#### Exercise A4.12 {#exercise-a412}
+#### Exercise A4.12
 
 Verify that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$ under the operation of multiplication modulo $n$. 
 
@@ -946,7 +875,7 @@ The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$
 </details>
 
 
-#### Exercise A4.13 {#exercise-a413}
+#### Exercise A4.13
 
 Let $a$ be an arbitrary element of $\mathbb{Z}_n^\ast$. Show that $S\equiv \lbrace 1, a, a^2, \cdots \rbrace$ forms a subgroup of $\mathbb{Z}_n^\ast$, and that the size of $S$ is the least value of $r$ such that $a^r=1 \mod n$.
 
@@ -970,7 +899,7 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 </details>
 
 
-#### Exercise A4.14 {#exercise-a414}
+#### Exercise A4.14
 
 Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
 
@@ -982,7 +911,7 @@ We know from [exercise A4.12](#exercise-a412) that $\mathbb{Z}_n^\ast$ forms a g
 </details>
 
 
-#### Exercise A4.15 {#exercise-a415}
+#### Exercise A4.15
 
 Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is, show that $a^{\varphi(n)}=1 \mod n$ for any $a\in \mathbb{Z}_n^\ast$.
 
@@ -1003,7 +932,7 @@ a^{\varphi(n)} &= a^{mr} \\
 </details>
 
 
-#### Exercise A4.16 {#exercise-a416}
+#### Exercise A4.16
 
 Use theorem A4.9 to show that the order of $x$ modulo $N$ must divide $\varphi(N)$.
 
@@ -1014,7 +943,7 @@ From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From [exercise A4.15](#exercise-a4
 
 </details>
 
-#### Exercise A4.17 {#exercise-a417}
+#### Exercise A4.17
 
 Show that an efficient factoring algorithm would allow us to efficiently find the order modulo $N$ of any $x$ co-prime to $N$. 
 
@@ -1032,7 +961,7 @@ We know step (1) and step (3) are efficient because they are the efficient facto
 
 </details>
 
-#### Exercise A4.18 {#exercise-a418}
+#### Exercise A4.18
 
 Find the continued fraction expansion for $x=19/17$ and $x=77/65$.
 
@@ -1064,7 +993,7 @@ So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
 </details>
 
 
-#### Exercise A4.19 {#exercise-a419}
+#### Exercise A4.19
 
 Show that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. Use this fact to conclude that $\text{gcd}(p_n,q_n)=1$. 
 
@@ -1129,7 +1058,7 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 ### Order-finding and factoring applications - Exercises
 
 
-#### Exercise 5.10 {#exercise-510}
+#### Exercise 5.10
 
 Show that the order of $x=5 \mod 21$ is 6. 
 
@@ -1150,7 +1079,7 @@ The least positive $r$ such that $x^r=1\mod 21$ is 6. Therefore, the order of $x
 </details>
 
 
-#### Exercise 5.11 {#exercise-511}
+#### Exercise 5.11
 
 Show that the order of $x$ satisfies $r \leq N$. 
 
@@ -1162,7 +1091,7 @@ From Theorem A4.9 we know that $x^{\varphi(N)} = 1 \mod N$ and so $r \leq \varph
 </details>
 
 
-#### Exercise 5.12 {#exercise-512}
+#### Exercise 5.12
 
 Show that $U$ is unitary.
 
@@ -1191,7 +1120,7 @@ Therefore, $U$ is unitary since it preserves the inner product.
 </details>
 
 
-#### Exercise 5.13 {#exercise-513}
+#### Exercise 5.13
 
 Prove (5.44). In fact, prove that
 
@@ -1227,7 +1156,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 5.14 {#exercise-514}
+#### Exercise 5.14
 
 The quantum state produced in the order-finding algorithm, before the inverse Fourier transform, is 
 
@@ -1266,7 +1195,7 @@ Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ modulo 
 </details>
 
 
-#### Exercise 5.15 {#exercise-515}
+#### Exercise 5.15
 
 Show that the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$, and thus may be computed in $O(L^2)$ operations if $x$ and $y$ are $L$ bit numbers. 
 
@@ -1288,7 +1217,7 @@ Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\te
 </details>
 
 
-#### Exercise 5.16 {#exercise-516}
+#### Exercise 5.16
 
 For all $x\geq 2$ prove that $\int_x^{x+1} 1/y^2 \ dy \geq 2/3x^2$. Show that 
 
@@ -1325,7 +1254,7 @@ and thus (5.58) holds.
 </details>
 
 
-#### Exercise 5.17 {#exercise-517}
+#### Exercise 5.17
 
 Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 2$. (Note: I changed $a\geq 1$ to $a\geq 2$.) This may be done as follows: <br>
 (1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
@@ -1391,7 +1320,7 @@ Looking at the algorithm, we can see that the calculations in the for loop are $
 </details>
 
 
-#### Exercise 5.18 {#exercise-518}
+#### Exercise 5.18
 
 Suppose we wish to factor $N=91$. Confirm that steps 1 and 2 are passed. For step 3, suppose we choose $x=4$, which is co-prime to 91. Compute the order $r$ of $x$ with respect to $N$, and show that $x^{r/2} \mod 91 = 64 \neq -1 \mod 91$, so the algorithm succeeds, giving $\text{gcd}(64-1,91)=7$. Note: I fixed the error reported on the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html).
 
@@ -1448,7 +1377,7 @@ From this, we know that both 7 and 13 are factors of 91.
 </details>
 
 
-#### Exercise 5.19 {#exercise-519}
+#### Exercise 5.19
 
 Show that $N=15$ is the smallest number for which the order-finding subroutine is required, that is, it is the smallest composite number that is not even or a power of some smaller integer. 
 
@@ -1483,7 +1412,7 @@ The smallest number for which the order-finding subroutine is required will be t
 ### General applications of the quantum Fourier transform - Exercises
 
 
-#### Exercise 5.20 {#exercise-520}
+#### Exercise 5.20
 
 Suppose $f(x+r)=f(x)$, and $0\leq x < N$, for $N$ an integer multiple of $r$. Compute
 
@@ -1531,7 +1460,7 @@ The case where $l$ is an integer multiplier of $N/r$ has a similar form to (5.63
 </details>
 
 
-#### Exercise 5.21 {#exercise-521}
+#### Exercise 5.21
 
 Suppose you are given a unitary operator $U_y$ which performs the transformation $U_y\ket{f(x)}=\ket{f(x+y)}$, for the periodic function described above.
 
@@ -1591,7 +1520,7 @@ Divide measurement by $y$ and then apply the continued fractions algorithm to ge
 </details>
 
 
-#### Exercise 5.22 {#exercise-522}
+#### Exercise 5.22
 
 Show that
 
@@ -1640,7 +1569,7 @@ If we compare our solution to equation 5.72, we see that the prefactor is differ
 </details>
 
 
-#### Exercise 5.23 {#exercise-523}
+#### Exercise 5.23
 
 Compute
 
@@ -1669,7 +1598,7 @@ This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to us
 </details>
 
 
-#### Exercise 5.24 {#exercise-524}
+#### Exercise 5.24
 
 Construct the generalized continued fractions algorithm needed in step 6 of the discrete logarithm algorithm to determine $s$ from estimates of $sl_2/r$ and $l_2/r$. 
 
@@ -1687,7 +1616,7 @@ as a candidate value for $s$. Test this using the known $a$ and $b$ by checking 
 </details>
 
 
-#### Exercise 5.25 {#exercise-525}
+#### Exercise 5.25
 
 Construct a quantum circuit for the black box $U$ used in the quantum discrete logarithm algorithm, which takes $a$ and $b$ as parameters, and performs the unitary transformation $\ket{x_1}\ket{x_2}\ket{y} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1}a^{x_2}}$. How many elementary operations are required?
 
@@ -1725,7 +1654,7 @@ This gives a total complexity of $O(L^3)$.
 </details>
 
 
-#### Exercise 5.26 {#exercise-526}
+#### Exercise 5.26
 
 Since $K$ is a subgroup of $G$, when we decompose $G$ into a product of cyclic groups of prime power order, this also decomposes $K$. Re-express (5.77) to show that determining $l_i'$ allows one to sample from the corresponding cyclic subgroup $K_p$ of $K$. 
 
@@ -1755,7 +1684,7 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 </details>
 
 
-#### Exercise 5.27 {#exercise-527}
+#### Exercise 5.27
 
 Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
 
@@ -1777,7 +1706,7 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 </details>
 
 
-#### Exercise 5.28 {#exercise-528}
+#### Exercise 5.28
 
 Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
 
@@ -1811,7 +1740,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 5.29 {#exercise-529}
+#### Exercise 5.29
 
 Give quantum algorithms to solve the Deutsch and Simon problems listed in Figure 5.5, using the framework of the hidden subgroup problem.
 
@@ -1879,7 +1808,7 @@ It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefo
 
 ## Chapter problems
 
-**#### Problem 5.1 {#problem-51}**
+**Problem 5.1**
 
 Construct a quantum circuit to perform the quantum Fourier transform 
 
@@ -1903,7 +1832,7 @@ Since $U$ is unitary, we know that it can be approximated using Hadamard, phase,
 </details>
 
 
-**#### Problem 5.2 {#problem-52}**
+**Problem 5.2**
 
 Suppose the quantum Fourier transform is performed as the last step of a quantum computation, followed by a measurement in the computational basis. Show that the combination of quantum Fourier transform and measurement is equivalent to a circuit consisting entirely of one qubit gates and measurement, with classical control, and no two qubit gates. You may find the discussion of Section 4.4 useful.
 
@@ -1927,7 +1856,7 @@ In [Exercise 4.35](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-ch
 </details>
 
 
-#### Problem 5.3 {#problem-53}
+**Problem 5.3**
 
 Consider the quantum circuit shown on page 243 where $\ket{u}$ is an eigenstate of $U$ with eigenvalue $e^{2\pi i\varphi}$. Show that the top qubit is measured to be $0$ with probability $p\equiv \cos^2(\pi\varphi)$. Since the state $\ket{u}$ is unaffected by the circuit it may be reused; if $U$ can be replaced by $U^k$, where $k$ is an arbitrary integer under your control, show that by repeating this circuit and increasing $k$ appropriately, you can efficiently obtain as many bits of $p$ as desired, and thus, of $\varphi$. This is an alternative to the pase estimation algorithm. 
 
@@ -1953,7 +1882,7 @@ By tuning $k$ and collecting multiple measurements at different values we could 
 </details>
 
 
-#### Problem 5.4 {#problem-54}
+**Problem 5.4**
 
 The runtime bound $O(L^3)$ we have given for the factoring algorithm is not tight. Show that a better upper bound of $O(L^2\log L\log\log L)$ operations can be achieved. 
 
@@ -1978,7 +1907,7 @@ For step 4, the book lists the quantum order finding algorithm as having $O(L^3)
 </details>
 
 
-#### Problem 5.5 {#problem-55}
+**Problem 5.5**
 
 Let $f$ be a function on a finite group $G$ to an arbitrary finite range $X$, which is promised to be constant and distinct on distinct left cosets of a subgroup $K$. Start with the state
 
@@ -1999,7 +1928,7 @@ These articles are cited as being related to this problem in the History and fur
 I'm not going to reproduce the solution here, it is written out clearly in [Hidden Subgroup States are Almost Orthogonal](https://arxiv.org/pdf/quant-ph/9901034).
 
 
-#### Problem 5.6 {#problem-56}
+**Problem 5.6**
 
 Consider the task of constructing a quantum circuit to compute $\ket{x} \rightarrow \ket{x+y\mod 2^n}$, where $y$ is a fixed constant, and $0 \leq x < 2^n$. Show that one efficient way to do this, for values of $y$ such as 1, is to first perform a quantum Fourier transform, then to apply single qubit phase shifts, then an inverse Fourier transform. What values of $y$ can be added easily this way, and how many operations are required?
 

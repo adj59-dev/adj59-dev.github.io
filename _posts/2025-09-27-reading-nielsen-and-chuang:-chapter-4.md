@@ -129,6 +129,7 @@ exercises:
 chapter: 4
 ---
 
+<a id="top"></a>
 
 # Reading Nielsen and Chuang: Chapter 4
 
@@ -235,6 +236,8 @@ R_z(\theta) &= R_x(\pi/2)R_y(\theta)R_x(-\pi/2) \\
 &= R_z(\theta)
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
   
 #### Exercise 4.1 {#exercise-41} 
@@ -249,6 +252,8 @@ The eigenvectors for $Z$ are $\ket{0}$ and $\ket{1}$. These correspond to Bloch 
 The eigenvectors for $X$ are $\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$ and $\frac{1}{\sqrt{2}}(\ket{0} - \ket{1})$. These correspond to Bloch vectors of $(1, 0, 0)$ and $(-1, 0, 0)$.
 
 The eigenvectors for $Y$ are $\frac{1}{\sqrt{2}}(\ket{0} + i\ket{1})$ and $\frac{1}{\sqrt{2}}(\ket{0} - i\ket{1})$. These correspond to Bloch vectors of $(0, 1, 0)$ and $(0, -1, 0)$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -278,6 +283,8 @@ R_y(\theta) = e^{-i\theta Y/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Y 
 R_z(\theta) = e^{-i\theta Z/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z = \cos\frac{\theta}{2}\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} - i\sin\frac{\theta}{2}\begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} e^{-i\theta/2} & 0 \\\ 0 & e^{i\theta/2} \end{bmatrix}
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -298,6 +305,8 @@ R_z(\pi/4) &= \begin{bmatrix} e^{-i(\pi/4)/2} & 0 \\\ 0 & e^{i(\pi/4)/2} \end{bm
 \end{aligned}$$
 
 Therefore,  up to a global phase $e^{-i\pi/8}$, the $\pi/8$ gate satisfies $T=R_z(\pi/4)$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -356,6 +365,8 @@ e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) &= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4
 &= H
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -391,6 +402,8 @@ $$\begin{aligned}
 &=\cos(\theta/2)I - i\sin(\theta/2)(\hat{n}\cdot \vec{\sigma}) \\
 &=\cos(\theta/2)I - i\sin(\theta/2)(n_xX + n_yY + n_zZ)
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -453,6 +466,8 @@ $$\begin{aligned}
 
 This vector is the same as Rodrigues’ rotation formula, proving that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ about the $\hat{n}$ axis of the Bloch sphere.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -480,6 +495,8 @@ XR_y(\theta)X &= X(\cos(\frac{\theta}{2})I - i\sin(\frac{\theta}{2})Y)X \\
 &= \cos(\frac{-\theta}{2})I - i\sin(\frac{-\theta}{2})Y \\
 &= R_y(-\theta)
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -537,6 +554,8 @@ $$\begin{aligned}
 &= \frac{1-i}{2} \\
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Exercise 4.9 {#exercise-49}
@@ -588,6 +607,8 @@ $$\begin{aligned}
 U &= \exp(i\alpha)\begin{bmatrix} e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2} & -e^{-i(\beta/2 - \delta/2)}\sin\frac{\gamma}{2} \\\ e^{i(\beta/2 - \delta/2)}\sin\frac{\gamma}{2} & e^{i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2} \end{bmatrix} \\
 &= \begin{bmatrix} e^{i(\alpha - \beta/2 - \delta/2)}\cos\frac{\gamma}{2} & -e^{i(\alpha - \beta/2 + \delta/2)}\sin\frac{\gamma}{2} \\\ e^{i(\alpha + \beta/2 - \delta/2)}\sin\frac{\gamma}{2} & e^{i(\alpha + \beta/2 + \delta/2)}\cos\frac{\gamma}{2} \end{bmatrix} \\
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -645,6 +666,8 @@ $$\begin{aligned}
 
 Since all required conditions are met, $U = e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)$ is a valid decomposition for any unitary operator. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -671,6 +694,8 @@ U &= e^{i\alpha}R_z(\theta_1)R_y(\theta_2)R_z(\theta_3) \\
 \end{aligned}$$
 
 Therefore, an arbitrary single qubit unitary $U$ may be written $U=e^{i\alpha}R_{\hat{n}}(\beta_1)R_{\hat{m}}(\gamma_1)R_{\hat{n}}(\beta_2)R_{\hat{m}}(\gamma_2)\cdots$ for appropriate choices of $\alpha, \beta_k, \gamma_k$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -707,6 +732,8 @@ ABC &= R_y(\pi/4)R_y(-\pi/4)R_z(-\pi/2)R_z(\pi/2)\\
 &= R_y(0)R_z(0) \\
 &= I
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -745,6 +772,8 @@ HZH &= \frac{1}{2}(X + Z)Z(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page
 &= X
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -765,6 +794,8 @@ HTH &= HR_z(\pi/4)H \\
 &=  R_y(\pi/2)R_z(\pi/4)R_y(-\pi/2) \\
 &= R_x(\pi/4) & \text{decomposition} 
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -802,6 +833,8 @@ s_{12}\hat{n_{12}} &= c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times
 &= cs\hat{n_2} + sc\hat{z}+ s^2(\hat{n_2} \times \hat{z}) \\
 &= sc(\hat{z} + \hat{n_2})+ s^2(\hat{n_2} \times \hat{z}) \\
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -847,6 +880,8 @@ M &= H \otimes I \\
 &=\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 0 & 1 & 0 \\\ 0 & 1 & 0 & 1 \\\ 1 & 0 & -1 & 0 \\\ 0 & 1 & 0 & -1 \end{bmatrix}
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -879,6 +914,8 @@ $$\begin{aligned}
  &= CNOT
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -901,6 +938,8 @@ Let's compare the behavior of the two gates for a basis set of states.
 | $\ket{1}\ket{1}$ | $Z\ket{1}\ket{1} = -\ket{1}\ket{1}$   | $\ket{1}Z\ket{1}=-\ket{1}\ket{1}$   |
 
 Since the behavior of the two gates are the same for all the states, the two gates are equivalent. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -926,6 +965,8 @@ CNOT \rho CNOT^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 
 &= \begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{41} & p_{42} & p_{43} & p_{44} \\\ p_{31} & p_{32} & p_{33} & p_{34} \end{bmatrix}  \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 1 \\\ 0 & 0 & 1 & 0 \end{bmatrix} \\
 &= \begin{bmatrix} p_{11} & p_{12} & p_{14} & p_{13} \\\ p_{21} & p_{22} & p_{24} & p_{23} \\\ p_{41} & p_{42} & p_{44} & p_{43} \\\ p_{31} & p_{32} & p_{34} & p_{33} \end{bmatrix} 
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -981,6 +1022,8 @@ $$\begin{aligned}
 \end{aligned}$$
 
 The effect of a CNOT gate on the $\ket{\pm}\ket{\pm}$ states is shown in the middle.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1097,6 +1140,8 @@ $$\begin{aligned}
 V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{11} & u_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & u_{21} & u_{22} \end{bmatrix}
 &= U_{abc}
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1278,6 +1323,8 @@ Thus, this is our final circuit which can be used to create any unitary gate wit
 
 <img width="697" height="219" alt="image" src="https://github.com/user-attachments/assets/828089cd-2ca5-4545-8790-6c277ba226fe" />
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1312,6 +1359,8 @@ R_y(\theta) &= R_y(\theta/2)R_y(\theta/2) \\
 \end{aligned}$$
 
 And so a gate can be constructed with $A= R_y(\theta/2)$, $B=R_y(-\theta/2)$, no $C$ gate, and no $D$ gate. This uses two single qubit gates.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1365,6 +1414,8 @@ Toffoli = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 
 \end{aligned}$$
 
 Which is the same as the matrix representation of the Toffoli gate. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1504,6 +1555,8 @@ print(circuit1 == circuit3)
 
 ```
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1551,6 +1604,8 @@ C = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 
 
 This is the same as the Toffoli gate matrix except for a factor of -1 in the 6th row, which translates to a phase shift of $e^{i\pi}$ for $\ket{101}$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1591,6 +1646,8 @@ Looking at the above formula, one can see that the a wire effect can be achived 
 
 <img width="759" height="183" alt="image" src="https://github.com/user-attachments/assets/af69a9ec-58de-4612-afcb-3225c14dcbc5" />
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1616,6 +1673,8 @@ Similarly, we can create $C^4(U)$ gates
 and $C^5(U)$ gates
 
 <img width="774" height="364" alt="image" src="https://github.com/user-attachments/assets/f8ea8ba9-671e-4c42-a029-43c0d15bea05" />
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1846,6 +1905,8 @@ So the $C^n(X)$ circuit will be as shown below, where the $C^{n-2}(X)$ gates bet
 
 This decomposition is valid for any $C^n(U)$ gate by selecting the appropriate $V$ gates. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1893,6 +1954,8 @@ print(simplify(TensorProduct(Identity, Rx) @ C) == simplify(C @ TensorProduct(Id
 
 ```
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -1938,6 +2001,8 @@ tr_2(\rho') &= tr_2(P_0 \rho P_0 + P_1 \rho P_1) \\
 &= tr_2(\rho I) \\
 &= tr_2(\rho ) \\
 \end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -1994,6 +2059,8 @@ E_{11} = \ket{\beta_{11}}\bra{\beta_{11}}
 
 These POVM elements are projectors onto the Bell states. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2036,6 +2103,8 @@ C (\ket{0} \otimes \ket{\psi_{in}}) &= \frac{1}{2} \begin{bmatrix} u_{00} + 1 & 
 
 Where $p(\pm) = \braket{\psi_{in} \vert P_{\pm} \vert \psi_{in}}$ and $P_{\pm}$ are the projectors for $U$. This shows that the first wire gives a measurement result that indicates one of the two eigenvalues of $U$ where $\ket{0}$ represents an eigenvalue of 1 and $\ket{1}$ represents an eigenvalue of -1 and leaves $\ket{\psi_{out}}$ as the corresponding eigenvector.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2060,6 +2129,8 @@ Then when the control wire is measured there is a $\vert \alpha \vert^2$ probabi
 Now let's consider the case when the control qubit is measured before the quantum gate (the middle circuit). For this case first the control qubit is measured, where there is a $\vert \alpha \vert^2$ probability of measuring $\ket{0}$ and a $\vert \beta \vert^2$ probability of measuring $\ket{1}$, putting the control wires in the measured state. Then $C_U$ is applied, resulting in the system being in state $\ket{0} \otimes \ket{\psi_{b}}$ or $\ket{1} \otimes U\ket{\psi_{b}}$, depending on what the control qubit measurement was. 
 
 Both circuits have the same probability of obtaining one of the two same outputs and therefore are equivalent.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2106,6 +2177,8 @@ $$\begin{aligned}
 The following circuit performs this transformation
 
 <img width="564" height="231" alt="image" src="https://github.com/user-attachments/assets/dc5a1bd0-af92-4e1a-a5a1-159cd8046896" />
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2220,6 +2293,9 @@ U6 = Matrix([[1,0,0,0],[0,1,0,0],[0,0,sqrt(2)/2,-sqrt(2)/2],[0,0,-sqrt(2)/2*I,-s
 print(simplify(U6 @ U5 @ U4 @ U3 @ U2 @ U1 @ U).evalf(3))
 print(simplify(U1.adjoint() @ U2.adjoint() @ U3.adjoint() @ U4.adjoint() @ U5.adjoint() @ U6.adjoint() ).evalf(3))
 ```
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Exercise 4.38 {#exercise-438}
@@ -2232,6 +2308,8 @@ Prove that there exists a $d \times d$ unitary matrix $U$ which cannot be decomp
 A complex $d \times d$ matrix can have up to $2d^2$ parameters ($d^2$ real parts and $d^2$ imaginary parts for the $d^2$ matrix entries). However, having the matrix be unitary places additional constraints on the entries, reducing the number of independent parameters to $d^2$. 
 
 A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two-level unitary matrices together, we'll then have $4k$ parameters. In order to decompose a $d \times d$ unitary matrix as the product of two-level unitary matrices, we'll need $4k \geq d^2$. For all $d \geq 2$ the following inequality holds $d^2 \geq 4(d-1)$.  Therefore, for all $d \geq 2$ there exists some $d \times d$ unitary matrix $U$ that requires $k \geq d-1$ two-level unitary matrices for the decomposition. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2257,7 +2335,9 @@ Which can be implemented using this circuit
 <img width="307" height="192" alt="image" src="https://github.com/user-attachments/assets/a6d6dca5-8cd7-4d2a-9d2a-018a9ce55190" />
 
 As with the example given in section 4.5.2 of the book, each of the controlled operations in this circuit can be realized using $O(n)$ single qubit and CNOT gates.
- 
+
+ | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2287,6 +2367,8 @@ E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) &= E(R_{\hat{n}}(\alpha), R_{\hat{
 \end{aligned}$$
 
 That last statement above can be made because $\theta$ is an irrational multiple of $2\pi$ which means that with the appropriate selection of $n$ we can make $(n\theta - \alpha)/2 \mod 2\pi$ arbitrarily close to zero and therefore make $\vert 1 - \exp(i(n\theta - \alpha)/2) \vert$ arbitrarily small. Thus, there exists a $n$ for any $\epsilon>0$ where $E(R_{\hat{n}}(\alpha), R_{\hat{n}}(\theta)^n) < \frac{\epsilon}{3}$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2326,6 +2408,8 @@ $$\begin{aligned}
 This agrees with what is expected based on the exercise description. 
 
 We can use a Repeat Until Success strategy using a measurement + classical feed-forward step to increase the probability of applying the operation $R_z(\theta)$ to the target qubit. This is done by measuring the ancilla qubits and if a measurement other than $\ket{00}$ is observed, the ancilla are reset to $\ket{0}$, the single-qubit operator $Z=S^2$ is applied to the target qubit to reset it to $\ket{\psi}$, and then $C$ is applied again. This process can be repeated until $\ket{00}$ is measured for the ancilla.   
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2377,6 +2461,8 @@ $$\begin{aligned}
 
 Since the above statement is false, there is no positive integer $m$ such that $5^m = (3+i4)^m$ and therefore $\theta$ is not a rational multiple of $2\pi$. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2404,6 +2490,8 @@ R_y(\alpha) &=  R_x(-\pi/2)R_z(\alpha)R_x(\pi/2) \\
 \end{aligned}$$
 
 Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create any arbitrary unitary operation, as demonstrated in Theorem 4.1 and [exercise 4.10](#exercise-410), using only the Hadamard, phase, controlled-NOT, and Toffoli gates. Therefore these gates are universal for quantum computation. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2560,6 +2648,8 @@ U &= W_{\alpha}X_{2\alpha}W_{-\beta/2}V_{\gamma}W_{-\delta/2} \\
 
 and move its entries to different registries using permutation gates constructed with $G$ gates. In section 4.5.1 the authors demonstrated that two-level unitary gates are universal. Therefore, since we can approximate an arbitrary two-level unitary gate with $G$ gates, $G$ gates are universal.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Exercise 4.45 {#exercise-445}
@@ -2579,6 +2669,8 @@ T &= \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
 \end{aligned}$$
 
 This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the form of $M$. So, if there is an even number of $\pi/8$ gates used it is possible (but not guaranteed) to construct $U$ in the form $2^{-k/2}M$ where $k$ is the number of $H$ gates used to construct $U$. If there is an odd number of $\pi/8$ gates then $U$ cannot be written in the form $2^{-k/2}M$. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2611,6 +2703,8 @@ Let $\rho$ be the density matrix describing the state of $n$ qubits. Show that d
 
 With $n$ qubits there are $2^n$ different states that comprise a basis set, and so the density matrix $\rho$ will be a $2^n \times 2^n$ matrix. This matrix will, therefore, have $4^n$ elements. For a density matrix, the diagonal elements are real numbers that sum to one. Therefore, $2^n-1$ real numbers are needed to represent these elements. The reason it isn't $2^n$ is that once $2^n-1$ elements are defined, the last one is also defined due to the requirement that they sum to 1. The off-diagonal elements are complex conjugates of each other, i.e. $\rho_{ij} = \rho_{ji}^\ast$. So, even though each off-diagonal element is defined by two real numbers (the real and the imaginary component) there are only $4^n - 2^n$ independent real numbers needed. Therefore, the total number of independent real numbers needed to describe $\rho$ is $2^n-1 + 4^n - 2^n = 4^n-1$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2630,6 +2724,8 @@ e^{-iHt} &= \sum_i e^{-i\left(\sum_k^L \lambda_{ki}\right)t}\ket{i}\bra{i} \\
 &= \prod_k^L e^{-iH_kt}
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2647,6 +2743,8 @@ $$\begin{aligned}
 \end{aligned}$$
 
 Since the upper bound on the possible combinations of particles is $O(n^c)$ the upper bound on $L$ is polynomial in $n$. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2697,6 +2795,8 @@ e^{(A+B)\Delta t} &= I + (A+B)\Delta t + \frac{(A+B)^2\Delta t^2}{2} + O(\Delta 
 &= e^{A\Delta t/2}e^{B\Delta t}e^{A\Delta t/2} + O(\Delta t^3)
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Exercise 4.50 {#exercise-450}
@@ -2741,6 +2841,8 @@ E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(
 &\leq m\alpha\Delta t^3 & \text{for some constant $\alpha$}
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2754,6 +2856,8 @@ Construct a quantum circuit to simulate the Hamiltonian $H=X_1 \otimes Y_2 \otim
 Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We know that $X=HZH$ and that $Y = SXS^\dagger = SHZHS^\dagger$ and so we can construct the following circuit to simulate $H=X_1 \otimes Y_2 \otimes Z_3 = H_1Z_1H_1 \otimes S_2H_2Z_2H_2S_2^\dagger \otimes Z_3$. 
 
 <img width="766" height="288" alt="image" src="https://github.com/user-attachments/assets/1dc3eeeb-e34f-4f30-a5aa-98fcb0cd6ae0" />
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2777,6 +2881,8 @@ To create this circuit we can first apply the gate that is made of $T$ Toffoli g
 
 In the diagram I have $\Delta t = \frac{2\pi}{2^n}$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Problem 4.2 {#problem-42}
@@ -2789,6 +2895,8 @@ Find a depth $O(\log n)$ construction for the $C^n(X)$ gate.
 We can construct a gate similar to figure 4.10, but instead of having the target qubit of the Toffoli gate be a control qubit for the next one in the circuit, we can first split the $n$ control qubits into pairs for the first timestamp and target $n/2$ work qubits with the pairs as controls for $n/2$ Toffoli gates. Then split these $n/2$ work qubits into pairs and use them as controls for $n/4$ Toffoli gates targeting an addition $n/4$ work qubits. Then continue this trend until a timestamp only requires one Toffoli gate which targets the final qubit. This circuit will require $O(\log n)$ timestamps and so has a depth $O(\log n)$. The $n=8$ case is shown below. I've put a box around the different time stamps in the diagram.
 
 <img width="624" height="457" alt="image" src="https://github.com/user-attachments/assets/cd77008c-3b01-42c8-9aa1-ce0b02a09713" />
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
 
@@ -2918,6 +3026,8 @@ N_{gates} &= k \times (\text{gates per $g$}) \times (\text{number of $g$ per $H$
 &= O\left(\frac{n16^n}{\epsilon}\right)
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 
@@ -2934,6 +3044,8 @@ This problem looks at the minimum number of gates needed to construct a Toffoli 
 
 (3) 14, take the construction from [exercise 4.22](#exercise-422), but exchange the CNOTs with controlled-Z gates that have Hadamard gates on either side since $CNOT_{ab} = H_b CZ_{ab} H_b$. Those Hadamard gates can be combined with neighboring single qubit gates so they do not increase the total gate count. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Problem 4.5 {#problem-45}
@@ -2945,6 +3057,8 @@ Construct a family of Hamiltonians, $\lbrace H_n \rbrace$, on $n$ qubits, such t
 
 In [exercise 4.48](#exercise-448) we showed that for Hamiltonian $H_n = \sum_{k=1}^L H_k$, restricting the maximum number of particles interacting via each operation $H_k$ to a constant value $c$ limited the upper bounds of $L$ (the number of operations) to $O(n^c)$. If there was no constant limit and instead the maximum number of particles interacting via $H_k$ grew with $n$, let's say by $f(n)$, then $L$ would be $O(n^{f(n)})$. Therefore, if the maximum number of particles interacting for each operation grows with $n$, then $H_n$ is super-polynomial in $n$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
 
 #### Problem 4.6 {#problem-46}
@@ -2952,3 +3066,6 @@ In [exercise 4.48](#exercise-448) we showed that for Hamiltonian $H_n = \sum_{k=
 Controlled-NOT gates and single qubit gates form a universal set of quantum logic gates. Show that an alternative universal set of resources is comprised of single qubit unitaries, the ability to perform measurements of pairs of qubits in the Bell basis, and the ability to prepare arbitrary four qubit entangled states. 
 
 The authors reference a paper for this problem in the History and further reading section: [Quantum teleportation is a universal computational primitive](https://arxiv.org/pdf/quant-ph/9908010). The solution in the paper uses **classically controlled single qubit gates**, the ability to perform measurements of pairs of qubits in the Bell basis, and the ability to prepare arbitrary four qubit entangled states. I had been trying to solve this problem with just single qubit gates (as that is what I thought the question was asking for), but it turns out what was needed is to have classical feed-forward corrections. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+

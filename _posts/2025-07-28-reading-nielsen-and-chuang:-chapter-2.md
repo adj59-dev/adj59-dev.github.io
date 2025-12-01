@@ -180,6 +180,7 @@ exercises:
     label: Problem 2.2
   - anchor: problem-23
     label: Problem 2.3
+chapter: 2
 ---
 
 # Reading Nielsen and Chuang: Chapter 2

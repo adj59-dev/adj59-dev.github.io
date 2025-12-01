@@ -69,4 +69,20 @@ img {
   padding-left: 1.2rem; /* keeps bullet alignment tidy */
 }
 
+.exercise-columns li {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+@media (max-width: 900px) {
+  .exercise-columns ul {
+    columns: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .exercise-columns ul {
+    columns: 1;
+  }
+}
 

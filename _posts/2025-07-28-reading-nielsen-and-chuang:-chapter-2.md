@@ -1,4 +1,3 @@
-
 ---
 title: "Reading Nielsen and Chuang: Chapter 2"
 description: "Notes and exercise solutions for QCQI Chapter 2: linear algebra and quantum mechanics."

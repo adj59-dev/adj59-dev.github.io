@@ -13,6 +13,11 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
+exercises:
+  - anchor: exercise-11
+    label: Exercise 1.1
+  - anchor: exercise-12
+    label: Exercise 1.2
 ---
 
 ## Reading Nielsen and Chuang: Chapter 1
@@ -27,7 +32,7 @@ There are two exercises and two problems in this chapter. It is suggested to wai
 
 When working through textbook problems on my own, outside of a class setting, I like to check my work against other people's solutions that I find online. I didn't see anyone solve these exercises exactly in the same way that I did, though similar reasoning was used. So, after attempting them on your own, I encourage anyone reading this to reference multiple sources to see how different people approached these exercises. 
 
-### Exercise 1.1
+### Exercise 1.1 {#exercise-11}
 
 In section 1.4.4 the authors describe the Deutsch-Jozsa algorithm and demonstrate how it can be used to solve Deutsch's problem in a single evaluation. In contrast a classical algorithm would require $2^n/2+1$ evaluations to solve the problem *with certainty*.  For this exercise the authors ask the reader instead to determine how many evaluations would be needed to solve the problem with some probability of error $\epsilon<1/2$.
 
@@ -49,7 +54,7 @@ $$\begin{aligned} \epsilon &= P(f(x_1)=f(x_2) \cap B) \\
 
 We know that $P(B) \leq 1$. It can be shown that $(2^n/2-1)/(2^n-1) < 1/2$ for all n. Therefore $\epsilon < 1/2$ for all n with only two evaluations. 
 
-### Exercise 1.2
+### Exercise 1.2 {#exercise-12}
 In section 1.6.1 the authors introduce the idea of quantum distinguishability and say that it is not possible to reliably distinguish between non-orthogonal quantum states. In this exercise they ask the reader to explain how a device which, upon input of one of two non-orthogonal states correctly identifies the state, could be used to build a device which cloned the state, in violation of the no-cloning theorem. They then ask how a cloning device could be used to distinguish non-orthogonal quantum states. 
 
 Let's say there is a device that is able to act upon two non-orthogonal quantum states $\ket{\psi}$ and $\ket{\phi}$ using some operator A and produce one of two states $\ket{\Psi}$ and $\ket{\Phi}$ which are easily distinguishable upon measurement (i.e. orthogonal) such that 

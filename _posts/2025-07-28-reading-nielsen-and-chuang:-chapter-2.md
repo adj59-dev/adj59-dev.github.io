@@ -13,6 +13,173 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
+exercises:
+  - anchor: exercise-21
+    label: Exercise 2.1
+  - anchor: exercise-22
+    label: Exercise 2.2
+  - anchor: exercise-23
+    label: Exercise 2.3
+  - anchor: exercise-24
+    label: Exercise 2.4
+  - anchor: exercise-25
+    label: Exercise 2.5
+  - anchor: exercise-26
+    label: Exercise 2.6
+  - anchor: exercise-27
+    label: Exercise 2.7
+  - anchor: exercise-28
+    label: Exercise 2.8
+  - anchor: exercise-29
+    label: Exercise 2.9
+  - anchor: exercise-210
+    label: Exercise 2.10
+  - anchor: exercise-211
+    label: Exercise 2.11
+  - anchor: exercise-212
+    label: Exercise 2.12
+  - anchor: exercise-213
+    label: Exercise 2.13
+  - anchor: exercise-214
+    label: Exercise 2.14
+  - anchor: exercise-215
+    label: Exercise 2.15
+  - anchor: exercise-216
+    label: Exercise 2.16
+  - anchor: exercise-217
+    label: Exercise 2.17
+  - anchor: exercise-218
+    label: Exercise 2.18
+  - anchor: exercise-219
+    label: Exercise 2.19
+  - anchor: exercise-220
+    label: Exercise 2.20
+  - anchor: exercise-221
+    label: Exercise 2.21
+  - anchor: exercise-222
+    label: Exercise 2.22
+  - anchor: exercise-223
+    label: Exercise 2.23
+  - anchor: exercise-224
+    label: Exercise 2.24
+  - anchor: exercise-225
+    label: Exercise 2.25
+  - anchor: exercise-226
+    label: Exercise 2.26
+  - anchor: exercise-227
+    label: Exercise 2.27
+  - anchor: exercise-228
+    label: Exercise 2.28
+  - anchor: exercise-229
+    label: Exercise 2.29
+  - anchor: exercise-230
+    label: Exercise 2.30
+  - anchor: exercise-231
+    label: Exercise 2.31
+  - anchor: exercise-232
+    label: Exercise 2.32
+  - anchor: exercise-233
+    label: Exercise 2.33
+  - anchor: exercise-234
+    label: Exercise 2.34
+  - anchor: exercise-235
+    label: Exercise 2.35
+  - anchor: exercise-236
+    label: Exercise 2.36
+  - anchor: exercise-237
+    label: Exercise 2.37
+  - anchor: exercise-238
+    label: Exercise 2.38
+  - anchor: exercise-239
+    label: Exercise 2.39
+  - anchor: exercise-240
+    label: Exercise 2.40
+  - anchor: exercise-241
+    label: Exercise 2.41
+  - anchor: exercise-242
+    label: Exercise 2.42
+  - anchor: exercise-243
+    label: Exercise 2.43
+  - anchor: exercise-244
+    label: Exercise 2.44
+  - anchor: exercise-245
+    label: Exercise 2.45
+  - anchor: exercise-246
+    label: Exercise 2.46
+  - anchor: exercise-247
+    label: Exercise 2.47
+  - anchor: exercise-248
+    label: Exercise 2.48
+  - anchor: exercise-249
+    label: Exercise 2.49
+  - anchor: exercise-250
+    label: Exercise 2.50
+  - anchor: exercise-251
+    label: Exercise 2.51
+  - anchor: exercise-252
+    label: Exercise 2.52
+  - anchor: exercise-253
+    label: Exercise 2.53
+  - anchor: exercise-254
+    label: Exercise 2.54
+  - anchor: exercise-255
+    label: Exercise 2.55
+  - anchor: exercise-256
+    label: Exercise 2.56
+  - anchor: exercise-257
+    label: Exercise 2.57
+  - anchor: exercise-258
+    label: Exercise 2.58
+  - anchor: exercise-259
+    label: Exercise 2.59
+  - anchor: exercise-260
+    label: Exercise 2.60
+  - anchor: exercise-261
+    label: Exercise 2.61
+  - anchor: exercise-262
+    label: Exercise 2.62
+  - anchor: exercise-263
+    label: Exercise 2.63
+  - anchor: exercise-264
+    label: Exercise 2.64
+  - anchor: exercise-265
+    label: Exercise 2.65
+  - anchor: exercise-266
+    label: Exercise 2.66
+  - anchor: exercise-267
+    label: Exercise 2.67
+  - anchor: exercise-268
+    label: Exercise 2.68
+  - anchor: exercise-269
+    label: Exercise 2.69
+  - anchor: exercise-270
+    label: Exercise 2.70
+  - anchor: exercise-271
+    label: Exercise 2.71
+  - anchor: exercise-272
+    label: Exercise 2.72
+  - anchor: exercise-273
+    label: Exercise 2.73
+  - anchor: exercise-274
+    label: Exercise 2.74
+  - anchor: exercise-275
+    label: Exercise 2.75
+  - anchor: exercise-276
+    label: Exercise 2.76
+  - anchor: exercise-277
+    label: Exercise 2.77
+  - anchor: exercise-278
+    label: Exercise 2.78
+  - anchor: exercise-279
+    label: Exercise 2.79
+  - anchor: exercise-280
+    label: Exercise 2.80
+  - anchor: problem-21
+    label: Problem 2.1
+  - anchor: problem-22
+    label: Problem 2.2
+  - anchor: problem-23
+    label: Problem 2.3
 ---
 
 # Reading Nielsen and Chuang: Chapter 2
@@ -77,7 +244,7 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 
 ### Linear Algebra - Exercises
   
-#### Exercise 2.1
+#### Exercise 2.1 {#exercise-21}
 
 In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 
@@ -92,7 +259,7 @@ This is true when $a_1=1, a_2=1,$ and $a_3=-1$. Therefore these vectors are line
 
 </details>
 
-#### Exercise 2.2
+#### Exercise 2.2 {#exercise-22}
 
 In section 2.1.2 the authors talk about how linear operators can be represented as matrices. In this exercise you get practice representing a linear operator as a matrix. The first part of this exercise is straight forward, you just need to use the definition of the matrix representation of an operator, equation 2.12. The second part may be a bit more challenging if you haven't worked with the Pauli matrices before. I suggest reviewing section 1.3.3 if you are struggling with this exercise.
 
@@ -120,7 +287,7 @@ $$A = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$$
 
 </details>
 
-#### Exercise 2.3
+#### Exercise 2.3 {#exercise-23}
 
 This exercise provides further practice in representing linear operators as matrices. It also allows you to confirm for yourself that the matrix representation of a linear transformation $BA$ is a matrix product of the matrix representations of $B$ and $A$. To do this you'll once again use equation 2.12. You’ll also need the definition of matrix multiplication, which isn’t provided in the book, but is readily available online. Additionally, if it has been a while since you’ve work with the summation operator, reviewing common summation identities may be helpful, as they play a role in the derivation. 
 
@@ -150,7 +317,7 @@ From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which mean
 
 </details>
 
-#### Exercise 2.4
+#### Exercise 2.4 {#exercise-24}
 
 This is the final exercise focused on practicing how to represent linear operators as matrices. Here you will use equation 2.12 along with the definition of the identity operator given in section 2.1.2 ($I_V \ket{v} \equiv \ket{v}$) to confirm the matrix representation of the identity operator.
 
@@ -163,7 +330,7 @@ $$\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$$
 
 </details>
 
-#### Exercise 2.5
+#### Exercise 2.5 {#exercise-25}
 
 In section 2.1.4 the authors introduce the concept of an inner product and list three requirements that need to be satisfied for something to be considered an inner product. In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet these three requirements.
 
@@ -204,7 +371,7 @@ Since all three requirements are met, $( \cdot , \cdot)$ is an inner product.
 
 </details>
 
-#### Exercise 2.6
+#### Exercise 2.6 {#exercise-26}
 
 For this exercise you will demonstrate that the inner product is conjugate-linear in the first argument using the properties that you just verified in the previous exercise.
 
@@ -220,7 +387,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.7
+#### Exercise 2.7 {#exercise-27}
 
 In section 2.1.4 the authors discuss orthogonal vectors, stating that vectors are orthogonal if their inner product is zero. They also define unit vectors and discuss how to normalize a vector to make it a unit vector. Here you will use that information to demonstrate that two vectors are orthogonal and calculate their normalized forms.  
 
@@ -240,7 +407,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.8
+#### Exercise 2.8 {#exercise-28}
 
 In section 2.1.4 the authors introduce the Gram-Schmidt procedure. Here you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
 
@@ -310,7 +477,7 @@ We know that this set of vectors spans $V$ because it has the same number of ele
 
 </details>
 
-#### Exercise 2.9
+#### Exercise 2.9 {#exercise-29}
 
 In section 2.1.4 the authors introduce outer product representation for linear operators. For this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25. The Pauli matrices are given in section 2.1.3.
 
@@ -353,7 +520,7 @@ X &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ke
 
 </details>
 
-#### Exercise 2.10
+#### Exercise 2.10 {#exercise-210}
 
 This exercise provides more practice with outer product notation. This time you will use equation 2.25 to find the matrix representation for an operator that is given in outer product notation. 
 
@@ -364,7 +531,7 @@ From equation 2.25 we can write $A=\sum_{mn} \braket{v_m \vert A \vert v_n} \ket
 
 </details>
 
-#### Exercise 2.11
+#### Exercise 2.11 {#exercise-211}
 
 In this exercise you are asked to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$. The book explains how to calculate the eigenvalues by using the characteristic equation for operators that are in the matrix representation, but it assumes that you’re already familiar with how to find the corresponding eigenvectors. 
 
@@ -421,7 +588,7 @@ With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, 
 
 </details>
 
-#### Exercise 2.12
+#### Exercise 2.12 {#exercise-212}
 
 For this exercise you need to prove that a specific matrix is not diagonalizable. In section 2.1.5 we are told that an operator is diagonalizable if it has diagonal representation. So to prove that it is not diagonalizable, you need to show that it does not have diagonal representation.
 
@@ -453,7 +620,7 @@ For a matrix to have a diagonal representation, it needs to have an orthonormal 
 
 </details>
 
-#### Exercise 2.13
+#### Exercise 2.13 {#exercise-213}
 
 In section 2.1.6 the authors introduce the adjoint of operators. For this exercise we are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified.
 
@@ -476,7 +643,7 @@ From the first and last line it can be seen that $(\ket{w}\bra{v})^\dagger = \ke
 
 </details>
 
-#### Exercise 2.14
+#### Exercise 2.14 {#exercise-214}
 
 We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
@@ -496,7 +663,7 @@ From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right
 
 </details>
 
-#### Exercise 2.15
+#### Exercise 2.15 {#exercise-215}
 
 We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
@@ -516,7 +683,7 @@ From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 
 </details>
 
-#### Exercise 2.16
+#### Exercise 2.16 {#exercise-216}
 
 In section 2.1.6 the authors introduce the concept of projectors. For this exercise you use the definition of projector $P$ from equation 2.35 and basis vector orthogonality to demonstrate the $P^2=P$. 
 
@@ -536,7 +703,7 @@ P^2 &= PP \\
 
 </details>
 
-#### Exercise 2.17
+#### Exercise 2.17 {#exercise-217}
 
 In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-213). 
 
@@ -555,7 +722,7 @@ Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can be
 
 </details>
 
-#### Exercise 2.18
+#### Exercise 2.18 {#exercise-218}
 
 Here we show that all eigenvalues of a unitary matrix has modulus 1 using the definition of a unitary matrix, the outer product representation for $U$ and $I$, and vector orthogonality.
 
@@ -590,7 +757,7 @@ Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 
 </details>
 
-#### Exercise 2.19
+#### Exercise 2.19 {#exercise-219}
 
 This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. To do this you just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
 
@@ -658,7 +825,7 @@ Z^\dagger Z &= Z Z \\
 
 </details>
 
-#### Exercise 2.20
+#### Exercise 2.20 {#exercise-220}
 
 For this exercise you are asked to find the relationship between two different matrix representations of operator $A$. This can be done using the completeness relation as shown in equation 2.23.
 
@@ -677,7 +844,7 @@ A_{ij}' &= \braket{v_i \vert A \vert v_j} & \text{definition of $A_{ij}'$} \\
 
 </details>
 
-#### Exercise 2.21
+#### Exercise 2.21 {#exercise-221}
 
 For this exercise we are asked to repeat the spectral decomposition proof, but with a Hermitian operator instead of a normal operator. There are a couple of places where simplifications can be made. One is when demonstrating that $PMQ = 0$ and then another when showing that $QMQ$ is normal. 
 
@@ -702,7 +869,7 @@ Therefore $QMQ$ is normal. The rest of the proof is same as in the book where yo
 
 </details>
 
-#### Exercise 2.22
+#### Exercise 2.22 {#exercise-222}
 
 In this exercise we are to prove that two eigenvectors of a Hermitian operator with different eigenvalues are orthogonal. To do this you can use equation 2.32, the fact that for a Hermitian operator $H=H^\dagger$, and properties of the inner product.
 
@@ -713,7 +880,7 @@ Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian opera
 
 </details>
 
-#### Exercise 2.23
+#### Exercise 2.23 {#exercise-223}
 
 Here we show that the eigenvalues of a projector are all either $0$ or $1$ by comparing the definition of $P$ to the diagonal representation for an operator. 
 
@@ -724,7 +891,7 @@ By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector
 
 </details>
 
-#### Exercise 2.24
+#### Exercise 2.24 {#exercise-224}
 
 For this exercise follow the hint’s advice and find Hermitian operators $B$ and $C$ that satisfies $A=B+iC$ for an arbitrary operator $A$. Then use the definition of a positive operator to find what constraints there are on $B$ and $C$ if $A$ is a positive operator. You will find that $A$ must be Hermitian. 
 
@@ -760,7 +927,7 @@ If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. P
 
 </details>
 
-#### Exercise 2.25
+#### Exercise 2.25 {#exercise-225}
 
 To show that $A^\dagger A$ is positive, use the definition of a positive operator, equation 2.32, and the positive semi-definiteness of the inner product.
 
@@ -778,7 +945,7 @@ Due to the positive semi-definiteness of inner products, we know that $\left(A \
 
 </details>
 
-#### Exercise 2.26
+#### Exercise 2.26 {#exercise-226}
 
 In section 2.1.7 the authors introduce the concept of tensor products. In this exercise you will gain experience with tensor power notation and the Kronecker product. 
 
@@ -819,7 +986,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.27
+#### Exercise 2.27 {#exercise-227}
 
 This exercise is just further practice with the Kronecker product. To check if the tensor product is commutative compare your results from (b) and (c).
 
@@ -860,7 +1027,7 @@ By comparing (b) and (c) we can see that the tensor product is not commutative.
 
 </details>
 
-#### Exercise 2.28
+#### Exercise 2.28 {#exercise-228}
 
 For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
 
@@ -895,7 +1062,7 @@ $\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right
 
 </details>
 
-#### Exercise 2.29
+#### Exercise 2.29 {#exercise-229}
 
 Use the definition of a unitary operator to show that the tensor product of two unitary operators is unitary.
 
@@ -920,7 +1087,7 @@ Therefore $A \otimes B$ is unitary.
 
 </details>
 
-#### Exercise 2.30
+#### Exercise 2.30 {#exercise-230}
 
 Use the definition of a Hermitian operator to show that the tensor product of two Hermitian operators is Hermitian.
 
@@ -935,7 +1102,7 @@ Therefore $A \otimes B$ is Hermitian.
 
 </details>
 
-#### Exercise 2.31
+#### Exercise 2.31 {#exercise-231}
 
 Use the definition of a positive operator to show that the tensor product of two positive operators is positive.
 
@@ -953,7 +1120,7 @@ Since both $A$ and $B$ are positive operators, we know that $\braket{a \vert A \
 
 </details>
 
-#### Exercise 2.32
+#### Exercise 2.32 {#exercise-232}
 
 Use the definition of a projector to show that the tensor product of two projector is a projector.
 
@@ -972,7 +1139,7 @@ Therefore the tensor product of two projectors is a projector.
 
 </details>
 
-#### Exercise 2.33
+#### Exercise 2.33 {#exercise-233}
 
 For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is now well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamar transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
 
@@ -1006,7 +1173,7 @@ H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{b
 
 </details>
 
-#### Exercise 2.34
+#### Exercise 2.34 {#exercise-234}
 
 In section 2.1.8 the authors introduce the concept of operator functions and describe how to calculate them. In this exercise you get practice performing that calculation on a given matrix. Since this matrix is not in diagonal representation, you will first need to find its diagonal representation, then execute the operation on its eigen values, and then reconstruct the operator in matrix representation. 
 
@@ -1077,7 +1244,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.35
+#### Exercise 2.35 {#exercise-235}
 
 In this exercise you will confirm the exponential of the Pauli matrices. To do this, you'll need to find the diagonal representation of $\vec{v} \cdot \vec{\sigma}$, then use Euler's formula and the operator function calculation.
 
@@ -1138,7 +1305,7 @@ Well, it looks like we didn't need to calculate the eigenvectors for this proof,
 
 </details>
 
-#### Exercise 2.36
+#### Exercise 2.36 {#exercise-236}
 
 In section 2.1.8 the authors introduce the concept of the trace. Use the definition of the trace to calculate the trace of the Pauli matrices. 
 
@@ -1156,7 +1323,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.37
+#### Exercise 2.37 {#exercise-237}
 
 For this exercise you use the definition of the trace and the definition of matrix multiplication to demonstrate that $\text{tr}(AB) = \text{tr}(BA)$.
 
@@ -1187,7 +1354,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.38
+#### Exercise 2.38 {#exercise-238}
 
 For this exercise you use the definition of the trace and the definition of matrix addition to demonstrate that $\text{tr}(A+B) = \text{tr}(A) + \text{tr}(B)$. You will also use the definition of the trace to demonstrate that $\text{tr}(zA) = z \text{tr}(A)$.
 
@@ -1221,7 +1388,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.39
+#### Exercise 2.39 {#exercise-239}
 
 This exercise has multiple parts. For the first part, you need to show that $(\cdot, \cdot)$ on $L_V \times L_V$ is an inner product using the requirements listed in section 2.1.4 and the Hilbert-Schmidt inner product defined in equation 2.65. Then you need to demonstrate that $L_V$ has dimensions $d^2$ by finding how many linear independent elements there are in the set of operators that span $L_V$. Finally, you need to find an orthonormal basis of Hermitian matrices for $L_V$. This can be done by taking the inner product of two arbitrary linear operators in $L_V$ and identifying what requirements are needed to make them orthonormal. 
 
@@ -1284,7 +1451,7 @@ L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
 
  </details>
 
-#### Exercise 2.40
+#### Exercise 2.40 {#exercise-240}
 
 In section 2.19 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
 
@@ -1305,7 +1472,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.41
+#### Exercise 2.41 {#exercise-241}
 
 In this exercise you will use the definition of the anti-commutator to verify anti-commutation relations of the Pauli matrices.
 
@@ -1326,7 +1493,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.42
+#### Exercise 2.42 {#exercise-242}
 
 In this exercise you will use the definition of the commutator and anti-commutator to verify equation 2.77.
 
@@ -1342,7 +1509,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.43
+#### Exercise 2.43 {#exercise-243}
 
 To verify equation 2.78 you will need to use the results from exercises [2.19](#exercise-219), [2.41](#exercise-241), and [2.42](#exercise-242).
 
@@ -1359,7 +1526,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.44
+#### Exercise 2.44 {#exercise-244}
 
 In section 2.1.9 the authors introduce the simultaneous diagonalization theorem. Here you will use that theorem along with the diagonal representation of $A$ and $B$ and the invertible matrix theorem (which is not in the book) to show that $B$ must be zero. 
 
@@ -1381,7 +1548,7 @@ Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for mat
 
 </details>
 
-#### Exercise 2.45
+#### Exercise 2.45 {#exercise-245}
 
 For this exercise you will use the definition of commutation and the properties of the adjoint to demonstrate the relation shown in the question.
 
@@ -1397,7 +1564,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.46
+#### Exercise 2.46 {#exercise-246}
 
 For this exercise you will use the definition of commutation to demonstrate the relation shown in the question.
 
@@ -1408,7 +1575,7 @@ $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 
 </details>
 
-#### Exercise 2.47
+#### Exercise 2.47 {#exercise-247}
 
 Here you will use the definition of Hermitian, the definition of commutation, and properties of the adjoint to show that $i \lbrack A,B \rbrack$ is Hermitian. 
 
@@ -1430,7 +1597,7 @@ Therefore $i \lbrack A,B \rbrack$ is Hermitian.
 
 </details>
 
-#### Exercise 2.48
+#### Exercise 2.48 {#exercise-248}
 
 In section 2.1.10 the authors introduce the concept of polar decomposition which is a method used to break a general linear operator up into products of unitary operators and positive operators. In this exercise you are asked to perform polar decomposition on a positive matrix, a unitary matrix, and a Hermitian matrix. You can follow the calculation outlined in the book, but simplifications can also be made when taking into consideration the properties of the different matrices and the goal of polar decomposition.
 
@@ -1478,7 +1645,7 @@ Then $H = UJ = KU$.
 
 </details>
 
-#### Exercise 2.49
+#### Exercise 2.49 {#exercise-249}
 
 For this exercise you will perform a similar calculation as was done in the previous exercise, but this time for a normal matrix. 
 
@@ -1514,7 +1681,7 @@ This may look the same as the results for the Hermitian matrix in [Exercise 2.48
 
 </details>
 
-#### Exercise 2.50
+#### Exercise 2.50 {#exercise-250}
 
 For this exercise you will perform polar decomposition on a given matrix. The procedure is like the previous two exercises but since the matrix is not currently in diagonal representation, you’ll first need to diagonalize it. Unfortunately, this calculation is complex and so I recommend using a calculator.  This matrix is invertible – which you can confirm for yourself – so you can use the inverse of the matrix to calculate $U$. 
 
@@ -1677,7 +1844,7 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 
 ### The Postulates of Quantum Mechanics - Exercises
 
-#### Exercise 2.51
+#### Exercise 2.51 {#exercise-251}
 
 In section 2.2.2 the authors discuss how any unitary operator can be used to evolve the state of a single qubit and then ask us to confirm that the Hadamard gate is unitary. This can be done using the definition of a unitary operator $U^\dagger U = U U^\dagger = I$.
 
@@ -1714,7 +1881,7 @@ Since $H^\dagger H = I$ that means $H$ is unitary.
 
 </details>
 
-#### Exercise 2.52
+#### Exercise 2.52 {#exercise-252}
 
 The authors now ask us to verify that $H^2=I$. This can easily be done by using an observation noted in the previous exercise. 
 
@@ -1725,7 +1892,7 @@ In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\d
 
 </details>
 
-#### Exercise 2.53
+#### Exercise 2.53 {#exercise-253}
 
 We are now asked to find the eigenvalues and eigenvectors of H. We will do this using the same methods that we used in the previous secion. We'll first find the eigenvalues $\lambda$ using the characteristic equation and then solve $0 = (\lambda I - H)\ket{e}$ to find the eigenvectors. 
 
@@ -1760,7 +1927,7 @@ For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_+} = \fra
 </details>
 
 
-#### Exercise 2.54
+#### Exercise 2.54 {#exercise-254}
 
 We are asked to show that $\exp(A)\exp(B)=\exp(A+B)$ for commuting Hermitian operators $A$ and $B$. To do this, we need to use the simultaneous diagonalization theorem given in section 2.1.9 and knowledge of operator functions. 
 
@@ -1799,7 +1966,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.55
+#### Exercise 2.55 {#exercise-255}
 
 Here we are to prove that equation 2.91 is unitary, meaning $U^\dagger U = U U^\dagger = I$, using the knowledge that $H$ is a Hermitian operator and the results from the previous exercise. 
 
@@ -1848,7 +2015,7 @@ Therefore $U$ is unitary.
 </details>
 
 
-#### Exercise 2.56
+#### Exercise 2.56 {#exercise-256}
 
 In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218). 
 
@@ -1881,7 +2048,7 @@ Since $\theta_E$ are real, we know that $K = \sum_{E} \frac{\theta_E}{\ln(2)} \k
 </details>
 
 
-#### Exercise 2.57
+#### Exercise 2.57 {#exercise-257}
 
 In section 2.2.3 the authors discuss measuring a quantum system and in equation 2.93 show what the state of the system is after measurement. Here you are asked to show that two sequential measurement operations are the equivalent of a single measurement operation that is the matrix multiplication of both individual measurement operators.
 
@@ -1915,7 +2082,7 @@ We can see that $\ket{\psi''}=\ket{\psi'''}$ therefore the sequential measuremen
 </details>
 
 
-#### Exercise 2.58
+#### Exercise 2.58 {#exercise-258}
 
 In section 2.2.5 the authors introduce the concept of projective measurements and show how to calculate the average observed value and standard deviation for an observable operator. For this exercise you will get practice with these calculations for eigenvector $\ket{\psi}$ of observable $M$ with eigenvalue $m$. 
 
@@ -1946,7 +2113,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.59
+#### Exercise 2.59 {#exercise-259}
 
 In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from [exercise 2.9](#exercise-29), [exercise 2.19](#exercise-219), and the calculations outlined in section 2.2.5.
 
@@ -1980,7 +2147,7 @@ From equation 2.113 we know that the average value of the measurement is $\brake
 </details>
 
 
-#### Exercise 2.60
+#### Exercise 2.60 {#exercise-260}
 
 For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in [exercise 2.35](#exercise-235).
 
@@ -2020,7 +2187,7 @@ Which shows that $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$.
 
 </details>
 
-#### Exercise 2.61
+#### Exercise 2.61 {#exercise-261}
 
 Use the results from the previous exercise as well as equations 2.103 and 2.104 to find the probability of obtaining the measurement result of $+1$ and the state of the system after the measurement if $+1$ is obtained when the state prior to measurement is $\ket{0}$.
 
@@ -2050,7 +2217,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.62
+#### Exercise 2.62 {#exercise-262}
 
 For this exercise, we are to show that any measurement where the measurement operators and the POVM elements coincide (i.e. where $E_m = M_m$) is a projective measurement.
 
@@ -2069,7 +2236,7 @@ We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ 
 </details>
 
 
-#### Exercise 2.63
+#### Exercise 2.63 {#exercise-263}
 
 In this exercise we are to show that there exists unitar operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
 
@@ -2082,7 +2249,7 @@ From equation 2.117 we know that $E_m = M_m^\dagger M_m$, therefore $\sqrt{E_m} 
 
 </details>
 
-#### Exercise 2.64
+#### Exercise 2.64 {#exercise-264}
 
 Create a set of $E_m$ such that if outcome $E_i$ occurs then you know with certainty that state $\ket{\psi_i}$ from the linearly independent set $\ket{\psi_1}, \dots, \ket{\psi_m}$ was measured. This set will include $E_{m+1}$ to satisfy the completeness relation. 
 
@@ -2094,7 +2261,7 @@ $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=
 </details>
 
 
-#### Exercise 2.65
+#### Exercise 2.65 {#exercise-265}
 
 In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from [exercise 2.11](#exercise-211).
 
@@ -2113,7 +2280,7 @@ which are the states given in the exercise. When written like this, they are not
 </details>
 
 
-#### Exercise 2.66
+#### Exercise 2.66 {#exercise-266}
 
 In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from [exercise 2.9](#exercise-29). and use equation 2.113 with $M=X_1Z_2$.
 
@@ -2155,7 +2322,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.67
+#### Exercise 2.67 {#exercise-267}
 
 $U$ is linear operator that preserves the inner product in $W$, which is a subspace fo $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
 
@@ -2192,7 +2359,7 @@ Therefore $U'\ket{w} = U \ket{w}$ for all $\ket{w}$ in $W$.
 </details>
 
 
-#### Exercise 2.68
+#### Exercise 2.68 {#exercise-268}
 
 Prove that $\ket{\psi} \neq \ket{a}\ket{b}$ for all single qubit states $\ket{a}$ and $\ket{b}$. You may find it helpful to refer back to section 1.2.1 when solving this problem. 
 
@@ -2241,7 +2408,7 @@ However, there are cases where this cannot be true, such as the Bell state $\ket
 
 ### Superdense Coding - Exercises
 
-#### Exercise 2.69
+#### Exercise 2.69 {#exercise-269}
 
 In section 2.3 the authors discuss how to used an entangled pair of qubits to transfer two bits of classical information. The possible resulting states are the Bell states. In this exercise we verify that these states form an orthonormal basis for the two qubit state space. In order for these states to form an orthonormal basis, they must be orthogonal, they must be unit vectors, and they must span the state space.
 
@@ -2336,7 +2503,7 @@ The state space is $2x2$ dimensions and therefore we need $4$ vectors to form a 
 </details>
 
 
-#### Exercise 2.70
+#### Exercise 2.70 {#exercise-270}
 
 Show that $\braket{\psi \vert E \otimes I \vert \psi}$ takes the same value when $\psi$ is any of the four Bell states for some positive operator $E$. Then use the results to answer the second half of the question: if Alice's qubit was intercepted on its way to Bob, would the person who intercepted it be able to determine anything?
 
@@ -2403,7 +2570,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 
 ### The Density Operator - Exercises
 
-#### Exercise 2.71
+#### Exercise 2.71 {#exercise-271}
 
 In this exercise we show that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a pure state using the definition of $\rho$ and the fact that $\sum_i p_i = 1$.
 
@@ -2427,7 +2594,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 </details>
 
 
-#### Exercise 2.72
+#### Exercise 2.72 {#exercise-272}
 
 For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from [Exercise 2.60](#exercise-260) where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
@@ -2467,7 +2634,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.73
+#### Exercise 2.73 {#exercise-273}
 
 For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$.  
 
@@ -2533,7 +2700,7 @@ Going back to the second condition, we can see that this is met. Therefore $u_{i
 </details>
 
 
-#### Exercise 2.74
+#### Exercise 2.74 {#exercise-274}
 
 Suppose a composite state os systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
 
@@ -2568,7 +2735,7 @@ Therefore the reduced density operator of system $A$ is a pure state.
 
 </details>
 
-#### Exercise 2.75
+#### Exercise 2.75 {#exercise-275}
 
 In this exercise we find the reduced density operator for each qubit for each of the four Bell states. The authors already did this for one of the qubits for one of the Bell states in equations 2.185 - 2.191. 
 
@@ -2684,7 +2851,7 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 
 ### The Schmidt decomposition and purifications - Exercises
 
-#### Exercise 2.76
+#### Exercise 2.76 {#exercise-276}
 
 In this exercise we extend the Schmidt decomposition proof to include $A$ and $B$ with different dimensionality. It is useful to look up singular value decomposition for non-square matrices to complete this exercise. 
 
@@ -2736,7 +2903,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.77
+#### Exercise 2.77 {#exercise-277}
 
 In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. This is done by picking a state which it doesn't work for and then demonstrating that the different reduced density matrices for the different components have different Schmidt coefficients. 
 
@@ -2793,7 +2960,7 @@ By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2
 </details>
 
 
-#### Exercise 2.78
+#### Exercise 2.78 {#exercise-278}
 
 Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure what the authors wanted for this solution since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. But just pointing that out didn't seem like enough, so I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. 
 
@@ -2886,7 +3053,7 @@ which is not a product state.
 
 </details>
 
-#### Exercise 2.79
+#### Exercise 2.79 {#exercise-279}
 
 In this exercise we are to find the Schmidt decomposition of three given states. For states that are not already written as a Schmidt decomposition, you can find their eigenvalues and eigenvectors using the reduced density matrices. 
 
@@ -2981,7 +3148,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.80
+#### Exercise 2.80 {#exercise-280}
 
 In this exercise we show some properties of unitary transformations on pure composite system states using the definition of a unitary operator from section 2.1.6, $U=\sum_{i} \ket{w_i}\bra{v_i}$, and the fact that $U\ket{\phi} = \sum_i \lambda_i (U\ket{i_A})\ket{i_B}$ if $U$ is a unitary operator acting on $A$ alone. 
 
@@ -2995,7 +3162,7 @@ Therefore if $\ket{\psi} = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ and $\ket{\phi} 
 </details>
 
 
-#### Exercise 2.81
+#### Exercise 2.81 {#exercise-281}
 
 In this exercise we prove that there exists a unitary transformation $U_R$ acting on reference system $R$ such that $\ket{AR_1} = (I_A \otimes U_R)\ket{AR_2}$ for purification states $\ket{AR_1}$ and $\ket{AR_2}$ of state $\rho^A$ by using equation 2.207 and the results from the previous exercise. 
 
@@ -3020,7 +3187,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.82
+#### Exercise 2.82 {#exercise-282}
 
 In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition and equation 2.131. For the third part we use theorem 2.6.  
 
@@ -3084,7 +3251,7 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 
 ## Chapter Problems
 
-**Problem 2.1**
+#### Problem 2.1 {#problem-21}
 
 This problem is similar to [exercise 2.35](#exercise-235) but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
 
@@ -3108,7 +3275,7 @@ f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+
 
 </details>
 
-**Problem 2.2**
+#### Problem 2.2 {#problem-22}
 
 In this problem we explore some of the properties of the Schmidt number using what we learned in section 2.5. 
 
@@ -3147,7 +3314,7 @@ The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which c
 
 </details>
 
-**Problem 2.3**
+#### Problem 2.3 {#problem-23}
 
 For this problem we derive Tsirelson's inequality. To do this we'll use equation 2.78, equation 2.107, equation 2.115 and the definition of the commutator. 
 

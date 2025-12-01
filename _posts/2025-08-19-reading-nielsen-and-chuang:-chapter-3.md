@@ -1,4 +1,3 @@
-
 ---
 title: "Reading Nielsen and Chuang: Chapter 3"
 description: "Notes and exercise solutions for QCQI Chapter 3: models for computation, the analysis of computational problems, and perspectives on computer science."

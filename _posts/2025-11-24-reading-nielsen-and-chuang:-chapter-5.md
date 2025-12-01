@@ -73,17 +73,18 @@ exercises:
   - anchor: exercise-529
     label: Exercise 5.29
   - anchor: problem-51
-    label: #### Problem 5.1 {#problem-51}
+    label: Problem 5.1
   - anchor: problem-52
-    label: #### Problem 5.2 {#problem-52}
+    label: Problem 5.2
   - anchor: problem-53
-    label: #### Problem 5.3 {#problem-53}
+    label: Problem 5.3
   - anchor: problem-54
-    label: #### Problem 5.4 {#problem-54}
+    label: Problem 5.4
   - anchor: problem-55
-    label: #### Problem 5.5 {#problem-55}
+    label: Problem 5.5
   - anchor: problem-56
-    label: #### Problem 5.6 {#problem-56}
+    label: Problem 5.6
+chapter: 5
 ---
 
 

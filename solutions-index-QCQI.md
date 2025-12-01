@@ -37,13 +37,15 @@ tags:
 
   {% if post.exercises %}
   <br>
-  <ul>
-    {% for ex in post.exercises %}
-    <li>
-      <a href="{{ post.url | relative_url }}#{{ ex.anchor }}">{{ ex.label }}</a>
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="exercise-columns">
+    <ul>
+      {% for ex in post.exercises %}
+      <li>
+        <a href="{{ post.url | relative_url }}#{{ ex.anchor }}">{{ ex.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
   {% else %}
   <br><em>No solutions listed.</em>
   {% endif %}

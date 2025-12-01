@@ -18,6 +18,7 @@ exercises:
     label: Exercise 1.1
   - anchor: exercise-12
     label: Exercise 1.2
+chapter: 1
 ---
 
 ## Reading Nielsen and Chuang: Chapter 1

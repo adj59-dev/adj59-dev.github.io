@@ -126,6 +126,7 @@ exercises:
     label: Problem 4.5
   - anchor: problem-46
     label: Problem 4.6
+chapter: 4
 ---
 
 

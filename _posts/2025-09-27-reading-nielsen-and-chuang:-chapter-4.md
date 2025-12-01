@@ -13,119 +13,6 @@ tags:
   - problem
   - solutions
 last_modified_at: 2025-11-29 19:10:00 -08:00
-exercises:
-  - anchor: exercise-41
-    label: Exercise 4.1
-  - anchor: exercise-42
-    label: Exercise 4.2
-  - anchor: exercise-43
-    label: Exercise 4.3
-  - anchor: exercise-44
-    label: Exercise 4.4
-  - anchor: exercise-45
-    label: Exercise 4.5
-  - anchor: exercise-46
-    label: Exercise 4.6
-  - anchor: exercise-47
-    label: Exercise 4.7
-  - anchor: exercise-48
-    label: Exercise 4.8
-  - anchor: exercise-49
-    label: Exercise 4.9
-  - anchor: exercise-410
-    label: Exercise 4.10
-  - anchor: exercise-411
-    label: Exercise 4.11
-  - anchor: exercise-412
-    label: Exercise 4.12
-  - anchor: exercise-413
-    label: Exercise 4.13
-  - anchor: exercise-414
-    label: Exercise 4.14
-  - anchor: exercise-415
-    label: Exercise 4.15
-  - anchor: exercise-416
-    label: Exercise 4.16
-  - anchor: exercise-417
-    label: Exercise 4.17
-  - anchor: exercise-418
-    label: Exercise 4.18
-  - anchor: exercise-419
-    label: Exercise 4.19
-  - anchor: exercise-420
-    label: Exercise 4.20
-  - anchor: exercise-421
-    label: Exercise 4.21
-  - anchor: exercise-422
-    label: Exercise 4.22
-  - anchor: exercise-423
-    label: Exercise 4.23
-  - anchor: exercise-424
-    label: Exercise 4.24
-  - anchor: exercise-425
-    label: Exercise 4.25
-  - anchor: exercise-426
-    label: Exercise 4.26
-  - anchor: exercise-427
-    label: Exercise 4.27
-  - anchor: exercise-428
-    label: Exercise 4.28
-  - anchor: exercise-429
-    label: Exercise 4.29 & 4.30
-  - anchor: exercise-431
-    label: Exercise 4.31
-  - anchor: exercise-432
-    label: Exercise 4.32
-  - anchor: exercise-433
-    label: Exercise 4.33
-  - anchor: exercise-434
-    label: Exercise 4.34
-  - anchor: exercise-435
-    label: Exercise 4.35
-  - anchor: exercise-436
-    label: Exercise 4.36
-  - anchor: exercise-437
-    label: Exercise 4.37
-  - anchor: exercise-438
-    label: Exercise 4.38
-  - anchor: exercise-439
-    label: Exercise 4.39
-  - anchor: exercise-440
-    label: Exercise 4.40
-  - anchor: exercise-441
-    label: Exercise 4.41
-  - anchor: exercise-442
-    label: Exercise 4.42
-  - anchor: exercise-443
-    label: Exercise 4.43
-  - anchor: exercise-444
-    label: Exercise 4.44
-  - anchor: exercise-445
-    label: Exercise 4.45
-  - anchor: exercise-446
-    label: Exercise 4.46
-  - anchor: exercise-447
-    label: Exercise 4.47
-  - anchor: exercise-448
-    label: Exercise 4.48
-  - anchor: exercise-449
-    label: Exercise 4.49
-  - anchor: exercise-450
-    label: Exercise 4.50
-  - anchor: exercise-451
-    label: Exercise 4.51
-  - anchor: problem-41
-    label: Problem 4.1
-  - anchor: problem-42
-    label: Problem 4.2
-  - anchor: problem-43
-    label: Problem 4.3
-  - anchor: problem-44
-    label: Problem 4.4
-  - anchor: problem-45
-    label: Problem 4.5
-  - anchor: problem-46
-    label: Problem 4.6
 ---
 
 
@@ -236,7 +123,7 @@ R_z(\theta) &= R_x(\pi/2)R_y(\theta)R_x(-\pi/2) \\
 
 </details>
   
-#### Exercise 4.1 {#exercise-41} 
+#### Exercise 4.1 
 
 For this exercise we are asked to find the points on the Bloch sphere which correspond to the normalized eigenvectors of the different Pauli matrices.
 
@@ -251,7 +138,7 @@ The eigenvectors for $Y$ are $\frac{1}{\sqrt{2}}(\ket{0} + i\ket{1})$ and $\frac
 
 </details>
 
-#### Exercise 4.2 {#exercise-42}
+#### Exercise 4.2
 
 Show that $\exp(iAx)=\cos(x)I+i\sin(x)A$ when $x$ is a real number and $A$ is a matrix such that $A^2=I$. Then use that result to verify equations 4.4-4.6.
 
@@ -280,7 +167,7 @@ R_z(\theta) = e^{-i\theta Z/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}Z 
 </details>
 
 
-#### Exercise 4.3 {#exercise-43}
+#### Exercise 4.3
 
 Show that, up to a global phase, the $\pi/8$ gate satisfies $T=R_z(\pi/4)$.
 
@@ -301,7 +188,7 @@ Therefore,  up to a global phase $e^{-i\pi/8}$, the $\pi/8$ gate satisfies $T=R_
 </details>
 
 
-#### Exercise 4.4 {#exercise-44}
+#### Exercise 4.4
 
 Express the Hadamard gate $H$ as a product of $R_x$ and $R_z$ rotations and $e^{i\phi}$ for some $\phi$. 
 
@@ -358,7 +245,7 @@ e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) &= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4
 </details>
 
 
-#### Exercise 4.5 {#exercise-45}
+#### Exercise 4.5
 
 Prove that $(\hat{n}\cdot \vec{\sigma})^2 = I$ and use it to verify equation 4.8.
 
@@ -395,7 +282,7 @@ $$\begin{aligned}
 
 
 
-#### Exercise 4.6 {#exercise-46}
+#### Exercise 4.6
 
 Prove that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ about the $\hat{n}$ axis of the Bloch sphere. Use the evolution of the density operator upon rotation to demonstrate that the Bloch vector after rotation looks like Rodrigues’ rotation formula. Good luck! It is a lot of math. 
 
@@ -455,7 +342,7 @@ This vector is the same as Rodrigues’ rotation formula, proving that $R_{\hat{
 </details>
 
 
-#### Exercise 4.7 {#exercise-47}
+#### Exercise 4.7
 
 Show that $XYX = -Y$ and use this to prove that $XR_y(\theta)X=R_y(-\theta)$
 
@@ -483,7 +370,7 @@ XR_y(\theta)X &= X(\cos(\frac{\theta}{2})I - i\sin(\frac{\theta}{2})Y)X \\
 </details>
 
 
-#### Exercise 4.8 {#exercise-48}
+#### Exercise 4.8
 
 Prove that an arbitrary single qubit unitary operator can be written in the form $U=\exp(i\alpha)R_{\hat{n}}(\theta)$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$. Then find the values for $\alpha$, $\theta$, and $\hat{n}$ for the Hadamard gate and the phase gate. 
 
@@ -538,7 +425,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 4.9 {#exercise-49}
+#### Exercise 4.9
 
 Explain why any single qubit unitary operator can be written in the form 4.12.
 
@@ -591,7 +478,7 @@ U &= \exp(i\alpha)\begin{bmatrix} e^{-i(\beta/2 + \delta/2)}\cos\frac{\gamma}{2}
 </details>
 
 
-#### Exercise 4.10 {#exercise-410}
+#### Exercise 4.10
 
 Give a decomposition analogous to Theorem 4.1 but using $R_x$ instead of $R_z$.
 
@@ -647,7 +534,7 @@ Since all required conditions are met, $U = e^{i\alpha} R_x(\beta)R_y(\gamma)R_x
 </details>
 
 
-#### Exercise 4.11 {#exercise-411}
+#### Exercise 4.11
 
 Suppose $\hat{m}$ and $\hat{n}$ are non-parallel real unit vectors in three dimensions. Use Theorem 4.1 to show that an arbitrary single qubit unitary $U$ may be written $U=e^{i\alpha}R_{\hat{n}}(\beta_1)R_{\hat{m}}(\gamma_1)R_{\hat{n}}(\beta_2)R_{\hat{m}}(\gamma_2)\cdots$ for appropriate choices of $\alpha, \beta_k, \gamma_k$. Note: per the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) the correct equation is different than what is in the book. 
 
@@ -674,7 +561,7 @@ Therefore, an arbitrary single qubit unitary $U$ may be written $U=e^{i\alpha}R_
 </details>
 
 
-#### Exercise 4.12 {#exercise-412}
+#### Exercise 4.12
 
 Give $A$, $B$, $C$, and $\alpha$ for the Hadamard gate.
 
@@ -710,7 +597,7 @@ ABC &= R_y(\pi/4)R_y(-\pi/4)R_z(-\pi/2)R_z(\pi/2)\\
 </details>
 
 
-#### Exercise 4.13 {#exercise-413}
+#### Exercise 4.13
 
 We are asked to prove several identites involving the Pauli matrices and the Hadamard gate.
 
@@ -747,7 +634,7 @@ HZH &= \frac{1}{2}(X + Z)Z(X + Z) & \text{$H=\frac{X+Z}{\sqrt{2}}$ given on page
 </details>
 
 
-#### Exercise 4.14 {#exercise-414}
+#### Exercise 4.14
 
 Use the previous exercise to show that $HTH = R_x(\pi/4)$ up to a global phase.
 
@@ -768,7 +655,7 @@ HTH &= HR_z(\pi/4)H \\
 </details>
 
 
-#### Exercise 4.15 {#exercise-415}
+#### Exercise 4.15
 
 This exercise has us calculate the composition of two rotation operations on a single qubit. Note: The [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that in Equations (4.20) and (4.22) the minus sign on the right-hand side should be a plus.
 
@@ -823,7 +710,7 @@ s_{12}\hat{n_{12}} &= c_1s_2\hat{n_2} + s_1c_2\hat{n_1}+ s_1s_2(\hat{n_2} \times
 ### Controlled operations - Exercises
 
 
-#### Exercise 4.16 {#exercise-416}
+#### Exercise 4.16
 
 Find the matrix representation for a given circuit.
 
@@ -849,7 +736,7 @@ M &= H \otimes I \\
 </details>
 
 
-#### Exercise 4.17 {#exercise-417}
+#### Exercise 4.17
 
 For this exercise we are to construct a CNOT gate from a controlled-Z gate and two Hadamard gates.
 
@@ -881,7 +768,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 4.18 {#exercise-418}
+#### Exercise 4.18
 
 Here we are to show that Gate 1 = Gate 2
 
@@ -904,7 +791,7 @@ Since the behavior of the two gates are the same for all the states, the two gat
 </details>
 
 
-#### Exercise 4.19 {#exercise-419}
+#### Exercise 4.19
 
 Explicitly write out the action of the CNOT gate on the density matrix in the computational basis.
 
@@ -929,7 +816,7 @@ CNOT \rho CNOT^\dagger &= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 \\\ 0 
 </details>
 
 
-#### Exercise 4.20 {#exercise-420}
+#### Exercise 4.20
 
 We are asked to show that $(H \otimes H)CNOT_{12}(H\otimes H)$ is equivalent to $CNOT_{21}$ and then use that identity to show that the effect of a CNOT with the first qubit as the control and the second qubit as the target is as shown in the book.
 
@@ -984,7 +871,7 @@ The effect of a CNOT gate on the $\ket{\pm}\ket{\pm}$ states is shown in the mid
 </details>
 
 
-#### Exercise 4.21 {#exercise-421}
+#### Exercise 4.21
 
 We are asked to verify that figure 4.8 implements the $C^2(U)$ operation. I did this by expressing all the gates in their matrix representation and multiplying together the ones on the right-hand side of the circuit inequality to get the effect of the combined circuit. Then I pointed out that this is equal to the matrix representation of the circuit on the left-hand side of the circuit inequality. Since each gate requires an 8x8 matrix, this was a lot of matrix multiplication.
 
@@ -1100,7 +987,7 @@ V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} &= \begin{bmatrix} 1 & 0 & 0 & 
 </details>
 
 
-#### Exercise 4.22 {#exercise-422}
+#### Exercise 4.22
 
 For this exercise we are asked to prove that a $C^2(U)$ gate for any single qubit unitary $U$ can be constructed using at most eight one-qubit gates and six controlled-NOTs. I found comparing the circuit that I was creating to the Toffoli gate on Wikipedia and rereading section 4.3 with this exercise in mind helpful when working on this exercise. 
 
@@ -1280,7 +1167,7 @@ Thus, this is our final circuit which can be used to create any unitary gate wit
 </details>
 
 
-#### Exercise 4.23 {#exercise-423}
+#### Exercise 4.23
 
 Construct a $C^1(U)$ gate for $U=R_x(\theta)$ and $U=R_y(\theta)$ using only CNOT and single qubit gates. 
 
@@ -1315,7 +1202,7 @@ And so a gate can be constructed with $A= R_y(\theta/2)$, $B=R_y(-\theta/2)$, no
 </details>
 
 
-#### Exercise 4.24 {#exercise-424}
+#### Exercise 4.24
 
 Verify that figure 4.9 implements the Toffoli gate.
 
@@ -1368,7 +1255,7 @@ Which is the same as the matrix representation of the Toffoli gate.
 </details>
 
 
-#### Exercise 4.25 {#exercise-425}
+#### Exercise 4.25
 
 For this exercise we are to construct a Fredkin gate.
 
@@ -1507,7 +1394,7 @@ print(circuit1 == circuit3)
 
 
 
-#### Exercise 4.26 {#exercise-426}
+#### Exercise 4.26
 
 In this exercise we are asked to show that a given circuit differs from a Toffoli gate only by a relative phase. The drawing of the circuit has several $R_y(\theta)$ single bit operations, but it is a little unclear (at least in my book) what $\theta$ is supposed to be, as it is written as $\pi/$. Through some trial and error, I think it is supposed to be $\frac{\pi}{4}$. 
 
@@ -1553,7 +1440,7 @@ This is the same as the Toffoli gate matrix except for a factor of -1 in the 6th
 </details>
 
 
-#### Exercise 4.27 {#exercise-427}
+#### Exercise 4.27
 
 Using just CNOTs and Toffoli gates, construct a quantum circuit to perform the transformation in equation 4.31. 
 
@@ -1593,7 +1480,7 @@ Looking at the above formula, one can see that the a wire effect can be achived 
 </details>
 
 
-#### Exercise 4.28 {#exercise-428}
+#### Exercise 4.28
 
 For this exercise we are to construct a $C^5(U)$ gate analogous to that in Figure 4.10 but using no work qubits. 
 
@@ -1619,7 +1506,7 @@ and $C^5(U)$ gates
 </details>
 
 
-#### Exercise 4.29 & 4.30 {#exercise-429}
+#### Exercise 4.29 & 4.30
 
 Find a circuit containing $O(n^2)$ Toffoli, CNOT and single qubit gates which implements a $C^n(X)$ gate for $n>3$ using no work qubits. Then the next exercise asks us to find a circuit containing $O(n^2)$ gates which implements a $C^n(U)$ gate for $n>3$ using no work qubits. Since these exercises are closely related, I've combined them here. 
 
@@ -1848,7 +1735,7 @@ This decomposition is valid for any $C^n(U)$ gate by selecting the appropriate $
 </details>
 
 
-#### Exercise 4.31 {#exercise-431}
+#### Exercise 4.31
 
 In this exercise we are asked to prove several circuit identities.
 
@@ -1912,7 +1799,7 @@ print(simplify(TensorProduct(Identity, Rx) @ C) == simplify(C @ TensorProduct(Id
 
 ### Measurement - Exercises
 
-#### Exercise 4.32 {#exercise-432}
+#### Exercise 4.32
 
 For this exercise we are to perform a projective measurement on the second qubit of a two qubit system, find the density matrix after the measurement, and show that the reduced density matrix for the first qubit is not affected by the measurement.
 
@@ -1941,7 +1828,7 @@ tr_2(\rho') &= tr_2(P_0 \rho P_0 + P_1 \rho P_1) \\
 </details>
 
 
-#### Exercise 4.33 {#exercise-433}
+#### Exercise 4.33
 
 For this exercise we are asked to show that a given circuit performs a measurement in the basis of the Bell states.
 
@@ -1996,7 +1883,7 @@ These POVM elements are projectors onto the Bell states.
 </details>
 
 
-#### Exercise 4.34 {#exercise-434}
+#### Exercise 4.34
 
 We are asked to show that the given circuit implements a measurement of $U$.
 
@@ -2038,7 +1925,7 @@ Where $p(\pm) = \braket{\psi_{in} \vert P_{\pm} \vert \psi_{in}}$ and $P_{\pm}$ 
 </details>
 
 
-#### Exercise 4.35 {#exercise-435}
+#### Exercise 4.35
 
 For this exercise we are asked to show that measurements commute with quantum gates when the qubit being measured is a control qubit.
 
@@ -2088,7 +1975,7 @@ Both circuits have the same probability of obtaining one of the two same outputs
 ### Universal quantum gates - Exercises
 
 
-#### Exercise 4.36 {#exercise-436}
+#### Exercise 4.36
 
 Construct a quantum circuit to add two two-bit numbers $x$ and $y$ modulo 4. 
 
@@ -2109,7 +1996,7 @@ The following circuit performs this transformation
 </details>
 
 
-#### Exercise 4.37 {#exercise-437}
+#### Exercise 4.37
 
 Provide a decomposition of the transform given in equation 4.52. 
 
@@ -2221,7 +2108,7 @@ print(simplify(U1.adjoint() @ U2.adjoint() @ U3.adjoint() @ U4.adjoint() @ U5.ad
 ```
 </details>
 
-#### Exercise 4.38 {#exercise-438}
+#### Exercise 4.38
 
 Prove that there exists a $d \times d$ unitary matrix $U$ which cannot be decomposed as a product of fewer than $d-1$ two-level unitary matrices. 
 
@@ -2235,7 +2122,7 @@ A two-level unitary matrix then has $2^2=4$ parameters. When multiplying $k$ two
 </details>
 
 
-#### Exercise 4.39 {#exercise-439}
+#### Exercise 4.39
 
 Find a quantum circuit using single qubit operations and CNOTs to implement the transformation given in equation 4.60.
 
@@ -2260,7 +2147,7 @@ As with the example given in section 4.5.2 of the book, each of the controlled o
 </details>
 
 
-#### Exercise 4.40 {#exercise-440}
+#### Exercise 4.40
 
 For an arbitrary $\alpha$ and $\beta$ show that equation 4.77 is valid and use it to justify equation 4.76.
 
@@ -2290,7 +2177,7 @@ That last statement above can be made because $\theta$ is an irrational multiple
 </details>
 
 
-#### Exercise 4.41 {#exercise-441}
+#### Exercise 4.41
 
 Show that the circuit in Figure 4.17 applies the operation $R_{z}(\theta)$ to the third qubit if the measurement outcomes are both $0$, where $\cos \theta = 3/5$, and otherwise applies $Z$ to the target qubit. Show that the probability of both measurement outcomes being $0$ is $5/8$, and explain how repeated use of this circuit and $Z=S^2$ gates may be used to apply a $R_z(\theta)$ gate with probability approaching $1$.
 
@@ -2328,7 +2215,7 @@ We can use a Repeat Until Success strategy using a measurement + classical feed-
 
 </details>
 
-#### Exercise 4.42 {#exercise-442}
+#### Exercise 4.42
 
 Suppose $\cos\theta=3/5$. Give proof by contradiction that $\theta$ is an irrational multiple of $2\pi$.
 
@@ -2379,7 +2266,7 @@ Since the above statement is false, there is no positive integer $m$ such that $
 </details>
 
 
-#### Exercise 4.43 {#exercise-443}
+#### Exercise 4.43
 
 Use the results of the previous two exercises to show that the Hadamard, phase, controlled-NOT, and Toffoli gates are universal for quantum computation.
 
@@ -2407,7 +2294,7 @@ Since we can create arbitrary $R_z$, $R_x$, and $R_y$ rotations, we can create a
 </details>
 
 
-#### Exercise 4.44 {#exercise-444}
+#### Exercise 4.44
 
 Show that the three-qubit gate $G$ is universal for quantum computation whenever $\alpha$ is irrational. This exercise is based on [Quantum computational networks](https://royalsocietypublishing.org/doi/10.1098/rspa.1989.0099) by Deutsch, which I ended up having to reference to find the solution. 
 
@@ -2561,7 +2448,7 @@ and move its entries to different registries using permutation gates constructed
 
 </details>
 
-#### Exercise 4.45 {#exercise-445}
+#### Exercise 4.45
 
 Suppose $U$ is a unitary transform implemented by an $n$ qubit quantum circuit constructed from $H$, $S$, $CNOT$, and Toffoli gates. Show that $U$ is of the form $2^{-k/2}M$ for some integer $k$, where $M$ is a $2^n\times 2^n$ matrix with only complex integer entries. Repeat this exercise with the Toffoli gate replaced by the $\pi/8$ gate. 
 
@@ -2601,7 +2488,7 @@ This can't be written in the form of $2^{-1/2}M$. However, $T^2=S$ is in the for
 
 ### Simulation of quantum systems - Exercises
 
-#### Exercise 4.46 {#exercise-446}
+#### Exercise 4.46
 
 Let $\rho$ be the density matrix describing the state of $n$ qubits. Show that describing $\rho$ requires $4^n-1$ independent real numbers. 
 
@@ -2613,7 +2500,7 @@ With $n$ qubits there are $2^n$ different states that comprise a basis set, and 
 </details>
 
 
-#### Exercise 4.47 {#exercise-447}
+#### Exercise 4.47
 
 For $H=\sum_{k}^{L} H_{k}$, prove that $e^{-iHt}=e^{-iH_1t}e^{-iH_2t}\cdots e^{-iH_Lt}$ for all $t$ if $\lbrack H_j,H_k \rbrack = 0$, for all $j,k$.
 
@@ -2632,7 +2519,7 @@ e^{-iHt} &= \sum_i e^{-i\left(\sum_k^L \lambda_{ki}\right)t}\ket{i}\bra{i} \\
 </details>
 
 
-#### Exercise 4.48 {#exercise-448}
+#### Exercise 4.48
 
 Show that the restriction of $H_k$ to involve at most $c$ particles implies that in the sum (4.97) $L$ is upper bounded by a polynomial in $n$.
 
@@ -2650,7 +2537,7 @@ Since the upper bound on the possible combinations of particles is $O(n^c)$ the 
 </details>
 
 
-#### Exercise 4.49 {#exercise-449}
+#### Exercise 4.49
 
 Prove equations 4.103, 4.104, and 4.105.
 
@@ -2698,7 +2585,7 @@ e^{(A+B)\Delta t} &= I + (A+B)\Delta t + \frac{(A+B)^2\Delta t^2}{2} + O(\Delta 
 
 </details>
 
-#### Exercise 4.50 {#exercise-450}
+#### Exercise 4.50
 
 Let $H=\sum_k^L H_k$, and define 
 
@@ -2743,7 +2630,7 @@ E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(
 </details>
 
 
-#### Exercise 4.51 {#exercise-451}
+#### Exercise 4.51
 
 Construct a quantum circuit to simulate the Hamiltonian $H=X_1 \otimes Y_2 \otimes Z_3$ performing the unitary transform $e^{-i\Delta t H}$ for any $\Delta t$. 
 
@@ -2759,7 +2646,7 @@ Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We k
 
 ## Chapter Problems
 
-#### Problem 4.1 {#problem-41}
+**Problem 4.1**
 
 Let $m$ and $n$ be positive integers. Suppose $f:\lbrace 0,\cdots,2^m-1\rbrace \to \lbrace 0,\cdots,2^n-1\rbrace$ is a classical function from $m$ to $n$ bits which may be computed reversibly using $T$ Toffoli gates, as described in section 3.2.5. Give a quantum circuit using $2T+n$ or fewer one, two, and three qubit gates to implement the unitary operation defined by 
 
@@ -2778,7 +2665,7 @@ In the diagram I have $\Delta t = \frac{2\pi}{2^n}$.
 
 </details>
 
-#### Problem 4.2 {#problem-42}
+**Problem 4.2**
 
 Find a depth $O(\log n)$ construction for the $C^n(X)$ gate. 
 
@@ -2791,7 +2678,7 @@ We can construct a gate similar to figure 4.10, but instead of having the target
 
 </details>
 
-#### Problem 4.3 {#problem-43}
+**Problem 4.3**
 
 Suppose $U$ is a unitary matrix on $n$ qubits. Define $H = i \ln(U)$. Show that
 
@@ -2920,7 +2807,7 @@ N_{gates} &= k \times (\text{gates per $g$}) \times (\text{number of $g$ per $H$
 </details>
 
 
-#### Problem 4.4 {#problem-44}
+**Problem 4.4**
 
 This problem looks at the minimum number of gates needed to construct a Toffoli gate.
 
@@ -2935,7 +2822,7 @@ This problem looks at the minimum number of gates needed to construct a Toffoli 
 
 </details>
 
-#### Problem 4.5 {#problem-45}
+**Problem 4.5**
 
 Construct a family of Hamiltonians, $\lbrace H_n \rbrace$, on $n$ qubits, such that simulating $H_n$ requires a number of operations super-polynomial in $n$. 
 
@@ -2946,7 +2833,7 @@ In [exercise 4.48](#exercise-448) we showed that for Hamiltonian $H_n = \sum_{k=
 
 </details>
 
-#### Problem 4.6 {#problem-46}
+**Problem 4.6**
 
 Controlled-NOT gates and single qubit gates form a universal set of quantum logic gates. Show that an alternative universal set of resources is comprised of single qubit unitaries, the ability to perform measurements of pairs of qubits in the Bell basis, and the ability to prepare arbitrary four qubit entangled states. 
 

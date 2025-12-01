@@ -15,7 +15,6 @@ tags:
   - textbook solutions
 ---
 
-# QCQI Solutions Index
 
 {%- assign qcqi_posts = site.categories["Quantum Computation and Quantum Information"] | sort: "chapter" -%}
 {%- assign current_chapter = nil -%}

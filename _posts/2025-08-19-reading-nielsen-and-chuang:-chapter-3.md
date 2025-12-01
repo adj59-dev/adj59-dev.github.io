@@ -98,6 +98,7 @@ exercises:
     label: Problem 3.9
   - anchor: problem-310
     label: Problem 3.10
+chapter: 3
 ---
 
 # Reading Nielsen and Chuang: Chapter 3

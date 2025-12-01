@@ -2,7 +2,7 @@
 layout: page
 title: QCQI Solutions Index
 permalink: /solutions-index/
-description: "Complete index of notes and exercise solutions for Nielsen & Chuang's Quantum Computation and Quantum Information."
+description: "Index of notes and exercise solutions for Nielsen & Chuang's Quantum Computation and Quantum Information."
 tags:
   - QCQI
   - QCQI solutions
@@ -15,6 +15,7 @@ tags:
   - textbook solutions
 ---
 
+This page indexes all of my notes and exercise solutions for Nielsen & Chuang’s *Quantum Computation and Quantum Information*. You can navigate by chapter or jump directly to specific exercises. This page will continue to be updated as I work through the book.
 
 {%- assign qcqi_posts = site.categories["Quantum Computation and Quantum Information"] | sort: "chapter" -%}
 {%- assign current_chapter = nil -%}

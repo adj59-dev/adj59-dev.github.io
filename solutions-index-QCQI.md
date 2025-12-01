@@ -17,46 +17,42 @@ tags:
 
 # QCQI Solutions Index
 
-{%- comment -%}
-1. Get all posts that belong to QCQI (based on category).
-   Each relevant post should have:
-   - category: Quantum Computation and Quantum Information
-   - chapter: <number>  (e.g., 5)
-{%- endcomment -%}
-{%- assign qcqi_posts = site.categories["Quantum Computation and Quantum Information"] -%}
+{%- assign qcqi_posts = site.categories["Quantum Computation and Quantum Information"] | sort: "chapter" -%}
+{%- assign current_chapter = nil -%}
 
-{%- comment -%}
-2. Loop over chapter numbers in order.
-   Adjust 1..12 if you add more chapters later.
-{%- endcomment -%}
-{% for ch in (1..12) %}
-  {%- assign chapter_posts = qcqi_posts | where: "chapter", ch | sort: "date" -%}
-  {%- if chapter_posts.size > 0 -%}
+{% for post in qcqi_posts %}
+  {% if post.chapter %}
+    {% if post.chapter != current_chapter %}
+      {% unless forloop.first %}
+</ul>
+      {% endunless %}
 
-    <h2>Chapter {{ ch }}</h2>
+<h2>Chapter {{ post.chapter }}</h2>
 
-    {%- comment -%}
-    List all posts for this chapter.
-    {%- endcomment -%}
-    {% for post in chapter_posts %}
-  - 📄 **[{{ post.title }}]({{ post.url | relative_url }})**
-
-    {% if post.exercises %}
-    <br>
-    **Solutions**
-    <ul>
-      {% for ex in post.exercises %}
-        <li>
-          <a href="{{ post.url | relative_url }}#{{ ex.anchor }}">
-            {{ ex.label }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-      <br><em>No solutions listed.</em>
+<ul>
+      {% assign current_chapter = post.chapter %}
     {% endif %}
+
+<li>
+  📄 <strong><a href="{{ post.url | relative_url }}">{{ post.title }}</a></strong>
+
+  {% if post.exercises %}
+  <br>
+  <strong>Solutions</strong>
+  <ul>
+    {% for ex in post.exercises %}
+    <li>
+      <a href="{{ post.url | relative_url }}#{{ ex.anchor }}">{{ ex.label }}</a>
+    </li>
     {% endfor %}
+  </ul>
+  {% else %}
+  <br><em>No solutions listed.</em>
+  {% endif %}
+</li>
 
   {% endif %}
 {% endfor %}
+
+</ul>
+

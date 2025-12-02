@@ -628,7 +628,60 @@ The total number of oracle calls will be dependent on the number of steps taken 
 
 ### Quantum counting - Exercises
 
+#### Exercise 6.13 {#exercise-613}
 
+Consider a classical algorithm for the counting problem which samples uniformly and independently $k$ times from the search space, and let $X_1,\cdots,X_k$ be the results of the oracle calls, that is, $X_j=1$ if the *j*th oracle call revealed a solution to the problem, and $X_j=0$ if the *j*th oracle call did not reveal a solution to the problem. This algorithm returns the estimate $S\equiv N\times \sum_j X_j/k$ for the number of solutions to the search problem. Show that the standard deviation in $S$ is $\Delta S=\sqrt{M(N-M)/k}$. Prove that to obtain a probability at least $3/4$ of estimating $M$ correctly to within an accuracy of $\sqrt{M}$ for all values of $M$ we must have $k=\Omega(N)$.
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
+
+This oracle is sampling a Bernoulli distribution where there is a $p=\frac{M}{N}$ probability of the oracle call returning $X_j=1$ and a $1-p=\frac{N-M}{N}$ probability of returning $X_j=0$. The variance of a Bernoulli distribution for each $X_j$ is given by 
+
+$$\begin{aligned}
+\text{Var}\lbrack X_j \rbrack &= p(1-p)\\
+&= \frac{M(N-M)}{N^2}
+\end{aligned}$$
+
+The variance of the sample mean $\bar{X}=\frac{1}{k}\sum_{j=1}^k X_j$ for $k$ oracle calls is then
+
+$$\begin{aligned}
+\text{Var}\lbrack\bar{X}\rbrack &= \frac{\text{Var}\lbrack X_j\rbrack}{k} \\
+&= \frac{M(N-M)}{kN^2}
+\end{aligned}$$
+
+Since $S=N \bar{X}$
+
+$$\begin{aligned}
+\text{Var}\lbrack S \rbrack &= \text{Var}\lbrack\bar{X}\rbrack N^2 \\
+&= \frac{M(N-M)}{k}
+\end{aligned}$$
+
+and so the standard deviation is
+
+$$\begin{aligned}
+\Delta S &= \sqrt{\text{Var}\lbrack S \rbrack} \\
+&= \sqrt{\frac{M(N-M)}{k}}
+\end{aligned}$$
+
+Using the Chebyshev's inequality, we know
+
+$$\begin{aligned}
+Pr\left(\vert S - M \vert \geq \sqrt{M}\right) \leq \frac{\Delta S^2}{M} \\
+\end{aligned}$$
+
+We want $Pr\left(\vert S - M \vert \geq \sqrt{M}\right)\leq \frac{1}{4}$ and so we need
+
+$$\begin{aligned}
+\frac{1}{4} &\geq \frac{\Delta S^2}{M} \\
+&= \frac{M(N-M)}{kM} \\
+&= \frac{N-M}{k} \\
+\end{aligned}$$
+
+which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then need $k \geq 4(N-1)$ and so $k=\Omega(N)$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
 
 
 

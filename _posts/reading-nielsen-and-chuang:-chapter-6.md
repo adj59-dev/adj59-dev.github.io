@@ -582,6 +582,8 @@ H=\ket{x}\bra{\psi} + \ket{\psi}\bra{x}
 
 (2) Explain how a quantum simulation of the Hamiltonian $H$ may be performed and determine the number of oracle calls your simulation technique requrires to obtain the solution with high probability. 
 
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
 (1) Following the same steps that are on page 257, we can restrict the analysis to the two-dimensional space spanned by $\ket{x}$ and $\ket{\psi}$. Performing the Gram-Schmidt procedure, we can find $\ket{y}$ such that $\ket{x}$, $\ket{y}$ form an orthonormal basis for this space and that $\ket{\psi} = a\ket{x} + b\ket{y}$ where $a^2+b^2=1$. For convenience we have chosen the phases of $\ket{x}$ and $\ket{y}$ so that $a$ and $b$ are real and non-negative. In this basis we have
 
@@ -604,19 +606,21 @@ $$\begin{aligned}
 You can see that at time $t=\frac{\pi}{2}$ this yields the result $\ket{x}$ with probability one. Notice, this does not depend on $a$ or $b$ and so the evolution time under $H$ is constant - it is $O(1)$. 
 
 
-(2) Let's label the Hamiltonians from equation 6.18 and 6.19 as $H_{6.18} = \ket{x}\bra{x} + \ket{\psi}\bra{\psi}$ and $H_{6.19}=\ket{x}\bra{\psi}+\ket{\psi}\bra{x}$, respectively and set $\ket{\psi}=\frac{\sum_x\ket{x}}{\sqrt{N}}$ as in equation 6.24. Comparing part 1 of this exercise to equations 6.22 and 6.23, we see that  
+(2) Let's label the Hamiltonians from equation 6.18 and 6.19 as $H_{6.18} = \ket{x}\bra{x} + \ket{\psi}\bra{\psi}$ and $H_{6.19}=\ket{x}\bra{\psi}+\ket{\psi}\bra{x}$, respectively, and set $\ket{\psi}=\frac{\sum_x\ket{x}}{\sqrt{N}}$ as in equation 6.24. Comparing part 1 of this exercise to equations 6.22 and 6.23, we see that  
 
 $$\begin{aligned}
-\exp\left(-iH_{6.19} t\right)\ket{\psi} &= \exp\left(-iH_{6.18} t/a\right)\ket{\psi}  \\
-&= \exp\left(-iH_{6.18} t\sqrt{N}\right)\ket{\psi}  & \text{from equation 6.24}\\
-&= \left(\exp\left(-iH_{6.18} t\right)\right)^{\sqrt{N}}\ket{\psi} \\
+\exp\left(-iH_{6.19} \Delta t\right)\ket{\psi} &= \exp\left(-iH_{6.18} \Delta t/a\right)\ket{\psi}  \\
+&= \exp\left(-iH_{6.18} \Delta t\sqrt{N}\right)\ket{\psi}  & \text{from equation 6.24}\\
+&= \left(\exp\left(-iH_{6.18} \Delta t\right)\right)^{\sqrt{N}}\ket{\psi} \\
 \end{aligned}$$
 
 up to an unimportant global phase. Therefore, it is possible to simulate $\exp\left(-iH_{6.19} \Delta t\right)$ by $\sqrt{N}$ number of implementations of the simulation for $\exp\left(-iH_{6.18} \Delta t\right)$. We confirmed in [exercise 6.7](#exercise-67) that it takes 2 oracle calls to simulate $\exp\left(-iH_{6.18} \Delta t\right)$ and so it will take $2\sqrt{N}$ oracle calls to simulate $\exp\left(-iH_{6.19} \Delta t\right)$. 
 
-The total number of oracle calls will be dependent on the simulation step length $\Delta t$. If we use a simulation step length that is accurate to $O(\Delta t^r)$ from [exercise 6.8](#exercise-68) we know that $O\left(N^{r/2(r-1)}\right)$ steps will be needed and so $O\left(N^{\frac{r}{2(r-1)}}\sqrt{N}\right)=O\left(N^{\frac{2r-1}{2(r-1)}}\right)$ oracle calls will be needed. 
+The total number of oracle calls will be dependent on the number of steps taken which will equal $s=t/\Delta t$. The accuracy of the simulation will be dependent on the accuracy of each $\exp\left(-iH_{6.18} \Delta t\right)$ simulation, if we say that accuracy is $O(\Delta t^r)$ then the total error behaves like $\Delta t^r \frac{t}{\Delta t}\sqrt{N} = t\sqrt{N}\Delta t^{r-1}$. Therefore, to get $O(1)$ total error, we need $\Delta t = O\left(\left(t\sqrt{N}\right)^{-\frac{1}{r-1}}\right)$. Therefore $s=O\left(t\left(t\sqrt{N}\right)^{\frac{1}{r-1}}\right)=O\left(\left(\sqrt{N}\right)^{\frac{1}{r-1}}\right)$, since $t=O(1)$. Then the total number of oracle calls will be $O\left(N^{r/2(r-1)}\right)$. This is the same as what we got for $H_{6.18}$ in [exercise 6.8](#exercise-68).
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+</details>
 
 
 

@@ -332,14 +332,6 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 
 ## Quantum search as a quantum simulation
 
-### Quantum search as a quantum simulation - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
-
 
 ### Quantum search as a quantum simulation - Exercises
 
@@ -623,7 +615,18 @@ The total number of oracle calls will be dependent on the number of steps taken 
 </details>
 
 
+## Quantum counting
 
+### Quantum counting - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+### Quantum counting - Exercises
 
 
 

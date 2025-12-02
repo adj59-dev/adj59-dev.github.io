@@ -570,6 +570,63 @@ Thus at time $t=\frac{\pi}{2a}$ yields the result $\ket{\beta}$ with probability
 </details>
 
 
+#### Exercise 6.12 {#exercise-612}
+
+Suppose 
+
+$$\begin{aligned}
+H=\ket{x}\bra{\psi} + \ket{\psi}\bra{x}
+\end{aligned}$$
+
+(1) Show that it takes $O(1)$ to rotate from the state $\ket{\psi}$ to the state $\ket{x}$, given an evolution according to the Hamiltonian $H$.
+
+(2) Explain how a quantum simulation of the Hamiltonian $H$ may be performed and determine the number of oracle calls your simulation technique requrires to obtain the solution with high probability. 
+
+
+(1) Following the same steps that are on page 257, we can restrict the analysis to the two-dimensional space spanned by $\ket{x}$ and $\ket{\psi}$. Performing the Gram-Schmidt procedure, we can find $\ket{y}$ such that $\ket{x}$, $\ket{y}$ form an orthonormal basis for this space and that $\ket{\psi} = a\ket{x} + b\ket{y}$ where $a^2+b^2=1$. For convenience we have chosen the phases of $\ket{x}$ and $\ket{y}$ so that $a$ and $b$ are real and non-negative. In this basis we have
+
+$$\begin{aligned}
+H &= \begin{bmatrix} 1 \\\ 0 \end{bmatrix}\begin{bmatrix} a & b \end{bmatrix} + \begin{bmatrix} a \\\ b \end{bmatrix}\begin{bmatrix} 1 & 0 \end{bmatrix} \\
+&= \begin{bmatrix} a & b \\\ 0 & 0 \end{bmatrix} + \begin{bmatrix} a & 0 \\\ b & 0 \end{bmatrix}\\
+&= \begin{bmatrix} 2a & b \\\ b & 0 \end{bmatrix} \\
+&= a(I + Z) + bX\\
+\end{aligned}$$
+
+Thus
+
+$$\begin{aligned}
+\exp(-iHt)\ket{\psi} &= \exp\left(-it\left(aI + aZ + bX\right)\right)\ket{\psi}\\
+&= \exp\left(-iat\right)\exp\left(-it\left(aZ + bX\right)\right)\ket{\psi}\\
+&= \exp\left(-iat\right)\left\lbrack \cos(t) - i\sin(t)\left(aZ + bX\right)\right\rbrack\ket{\psi} & \text{equation 4.7}\\
+&= \exp\left(-iat\right)\left\lbrack \cos(t)\ket{\psi} - i\sin(t)\ket{x}\right\rbrack \\
+\end{aligned}$$
+
+You can see that at time $t=\frac{\pi}{2}$ this yields the result $\ket{x}$ with probability one. Notice, this does not depend on $a$ or $b$ and so the evolution time under $H$ is constant - it is $O(1)$. 
+
+
+(2) I suppose we now need to come up with circuits that implement the operations $\exp(-i\ket{x}\bra{\psi}\Delta t)$ and $\exp(-\ket{\psi}\bra{x}\Delta t)$, similar to what was done on page 258. We can rewrite the operations as
+
+$$\begin{aligned}
+\exp(-i\ket{x}\bra{\psi} \Delta t)&= I - i\Delta t\ket{x}\bra{\psi} - \frac{\left(\Delta t\right)^2}{2!}\ket{x}\braket{\psi \vert x}\bra{\psi} + i\frac{\left(\Delta t\right)^3}{3!}\ket{x}\braket{\psi \vert x}\braket{\psi \vert x}\bra{\psi} + \cdots\\ 
+&= I - i\Delta t\ket{x}\bra{\psi} - \frac{\left(\Delta t\right)^2 a}{2!}\ket{x}\bra{\psi} + i\frac{\left(\Delta t\right)^3 a^2}{3!}\ket{x}\bra{\psi} + \cdots\\ 
+\end{aligned}$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

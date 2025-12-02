@@ -604,16 +604,17 @@ $$\begin{aligned}
 You can see that at time $t=\frac{\pi}{2}$ this yields the result $\ket{x}$ with probability one. Notice, this does not depend on $a$ or $b$ and so the evolution time under $H$ is constant - it is $O(1)$. 
 
 
-(2) I suppose we now need to come up with circuits that implement the operations $\exp(-i\ket{x}\bra{\psi}\Delta t)$ and $\exp(-\ket{\psi}\bra{x}\Delta t)$, similar to what was done on page 258. We can rewrite the operations as
+(2) Let's label the Hamiltonians from equation 6.18 and 6.19 as $H_{6.18} = \ket{x}\bra{x} + \ket{\psi}\bra{\psi}$ and $H_{6.19}=\ket{x}\bra{\psi}+\ket{\psi}\bra{x}$, respectively and set $\ket{\psi}=\frac{\sum_x\ket{x}}{\sqrt{N}}$ as in equation 6.24. Comparing part 1 of this exercise to equations 6.22 and 6.23, we see that  
 
 $$\begin{aligned}
-\exp(-i\ket{x}\bra{\psi} \Delta t)&= I - i\Delta t\ket{x}\bra{\psi} - \frac{\left(\Delta t\right)^2}{2!}\ket{x}\braket{\psi \vert x}\bra{\psi} + i\frac{\left(\Delta t\right)^3}{3!}\ket{x}\braket{\psi \vert x}\braket{\psi \vert x}\bra{\psi} + \cdots\\ 
-&= I - i\Delta t\ket{x}\bra{\psi} - \frac{\left(\Delta t\right)^2 a}{2!}\ket{x}\bra{\psi} + i\frac{\left(\Delta t\right)^3 a^2}{3!}\ket{x}\bra{\psi} + \cdots\\ 
+\exp\left(-iH_{6.19} t\right)\ket{\psi} &= \exp\left(-iH_{6.18} t/a\right)\ket{\psi}  \\
+&= \exp\left(-iH_{6.18} t\sqrt{N}\right)\ket{\psi}  & \text{from equation 6.24}\\
+&= \left(\exp\left(-iH_{6.18} t\right)\right)^{\sqrt{N}}\ket{\psi} \\
 \end{aligned}$$
 
+up to an unimportant global phase. Therefore, it is possible to simulate $\exp\left(-iH_{6.19} \Delta t\right)$ by $\sqrt{N}$ number of implementations of the simulation for $\exp\left(-iH_{6.18} \Delta t\right)$. We confirmed in [exercise 6.7](#exercise-67) that it takes 2 oracle calls to simulate $\exp\left(-iH_{6.18} \Delta t\right)$ and so it will take $2\sqrt{N}$ oracle calls to simulate $\exp\left(-iH_{6.19} \Delta t\right)$. 
 
-
-
+The total number of oracle calls will be dependent on the simulation step length $\Delta t$. If we use a simulation step length that is accurate to $O(\Delta t^r)$ from [exercise 6.8](#exercise-68) we know that $O\left(N^{r/2(r-1)}\right)$ steps will be needed and so $O\left(N^{\frac{r}{2(r-1)}}\sqrt{N}\right)=O\left(N^{\frac{2r-1}{2(r-1)}}\right)$ oracle calls will be needed. 
 
 
 

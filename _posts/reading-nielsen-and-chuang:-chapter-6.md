@@ -697,12 +697,27 @@ A classical algorithm makes $k$ oracle queries. Even the best possible algorithm
 $$\begin{aligned}
 S = \frac{N}{k}X\\
 \text{E}\lbrack X \rbrack = k\frac{M}{N}\\
-\text{Var}\lbrack X \rbrack = k\left(\frac{M}{N}\right)\left(\frac{N-M}{N}\right)\left(\frac{N-k}{N-1}\right)\\
+\text{Var}( X ) = k\left(\frac{M}{N}\right)\left(\frac{N-M}{N}\right)\left(\frac{N-k}{N-1}\right)\\
 \end{aligned}$$
 
+Let's compare the distributions for two different (but nearby) values of $M$. We'll call them $M_1$ and $M_2=M_1+2c\sqrt{M_1}$. Then their means differ by 
 
+$$\begin{aligned}
+\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack &= k\frac{M_2-M_1}{N}\\
+&= 2kc\frac{\sqrt{M_1}}{N}
+\end{aligned}$$
 
+Since $M_1$ is close to $M_2$, $\text{Var}( X_{M_1} )\approx \text{Var}( X_{M_2} )$ and so
 
+$$\begin{aligned}
+\frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}} &= \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sqrt{\text{Var}( X_{M_1} )}} \\
+&= \frac{2kc\frac{\sqrt{M_1}}{N}}{\sqrt{k\left(\frac{M_1}{N}\right)\left(\frac{N-M_1}{N}\right)\left(\frac{N-k}{N-1}\right)}}\\
+&= 2c\sqrt{\frac{k}{\left(N-M_1\right)\left(\frac{N-k}{N-1}\right)}}\\
+&= 2c\sqrt{\frac{kN}{\left(N-M_1\right)\left(N-k\right)}} & \text{since $1 \lt\lt N$ } \\
+&= 2c\sqrt{\frac{k}{N-M_1}} & \text{if $k \lt\lt N$ } \\
+\end{aligned}$$
+
+When $k<<N$ you can see that this value becomes small, showing that the distributions for $M_1$ and $M_2$ almost entirely overlap, meaning we would not be able differentiate between $S_{M_1}$ and $S_{M_2}$. This is not good because we want to be able to estimate both $M_1$ and $M_2$ within $c\sqrt{M_1}$ and $c\sqrt{M_2}\approx c\sqrt{M_1}$, respectively. Since these $M$ values are $2c\sqrt{M_1}$ appart, if we can't distinguish between the two estimates, we are clearly not estimating them within the desired accuracy. 
 
 
 

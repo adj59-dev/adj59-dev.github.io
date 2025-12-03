@@ -690,31 +690,15 @@ Prove that any classical counting algorithm with a probability of at least $3/4$
 
 For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ requires $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
 
-Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one could make a more efficient algorithm. In exercise 6.13, each sample is independent and so it is possible to sample the same candidate solution multiple times, which may be inefficient. Let's say instead we made a perfect sampling algorithm that always samples $X_j=1$ and $X_j=0$ candidate solutions as close to the true distribution as possible and so the estimate of $M$ is given by
+Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalize this to any classical counting algorithm. 
+
+A classical algorithm makes $k$ oracle queries. Even the best possible algorithm can only extract at most the following information: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and a estimate $S$ for $M$. Here we list distinct indicies since repeated queries of the same index do not provide any new information. Since we are now sampling without replacement we are working with a hypergeometric distribution. So if we say $X=\sum_{j=1}^k X_j$, then 
 
 $$\begin{aligned}
-S &= \frac{N}{k}\left\lfloor\frac{Mk}{N}\right\rceil
+S = \frac{N}{k}X\\
+\text{E}\lbrack X \rbrack = k\frac{M}{N}\\
+\text{Var}\lbrack X \rbrack = k\left(\frac{M}{N}\right)\left(\frac{N-M}{N}\right)\left(\frac{N-k}{N-1}\right)\\
 \end{aligned}$$
-
-with a probability of 1.
-
-We need the error in this estimate to be less than $c\sqrt{M}$ and so we need
-
-$$\begin{aligned}
-c\sqrt{M} \geq \left\vert \frac{N}{k}\left\lfloor\frac{Mk}{N}\right\rceil - M \right\vert
-\end{aligned}$$
-
-This will be the most challenging to achieve for small, non-zero, $M$. Since this algorithm needs to work for all $M$ let's look at the extreme case of $M=1$. 
-
-$$\begin{aligned}
-& c &\geq \left\vert \frac{N}{k}\left\lfloor\frac{k}{N}\right\rceil - 1 \right\vert \\
-& &= \frac{N}{k}-1 & \text{for $N/2 < k \leq N$} \\
-\Rightarrow & k &\geq \frac{N}{c+1}
-\end{aligned}$$
-
-Therefore, $k=\Omega(N)$.
-
-
 
 
 

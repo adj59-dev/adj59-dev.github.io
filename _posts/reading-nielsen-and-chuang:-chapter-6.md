@@ -684,6 +684,43 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 </details>
 
 
+#### Exercise 6.14 {#exercise-614}
+
+Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
+
+For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ requires $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
+
+Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one could make a more efficient algorithm. In exercise 6.13, each sample is independent and so it is possible to sample the same candidate solution multiple times, which may be inefficient. Let's say instead we made a perfect sampling algorithm that always samples $X_j=1$ and $X_j=0$ candidate solutions as close to the true distribution as possible and so the estimate of $M$ is given by
+
+$$\begin{aligned}
+S &= \frac{N}{k}\left\lfloor\frac{Mk}{N}\right\rceil
+\end{aligned}$$
+
+with a probability of 1.
+
+We need the error in this estimate to be less than $c\sqrt{M}$ and so we need
+
+$$\begin{aligned}
+c\sqrt{M} \geq \left\vert \frac{N}{k}\left\lfloor\frac{Mk}{N}\right\rceil - M \right\vert
+\end{aligned}$$
+
+This will be the most challenging to achieve for small, non-zero, $M$. Since this algorithm needs to work for all $M$ let's look at the extreme case of $M=1$. 
+
+$$\begin{aligned}
+& c &\geq \left\vert \frac{N}{k}\left\lfloor\frac{k}{N}\right\rceil - 1 \right\vert \\
+& &= \frac{N}{k}-1 & \text{for $N/2 < k \leq N$} \\
+\Rightarrow & k &\geq \frac{N}{c+1}
+\end{aligned}$$
+
+Therefore, $k=\Omega(N)$.
+
+
+
+
+
+
+
+
 
 
 

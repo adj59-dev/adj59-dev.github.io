@@ -690,21 +690,22 @@ Prove that any classical counting algorithm with a probability of at least $3/4$
 
 For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ requires $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
 
-Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalize this to any classical counting algorithm. 
+Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalizes this to any classical counting algorithm. 
 
-A classical algorithm makes $k$ oracle queries. Even the best possible algorithm can only extract at most the following information: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and a estimate $S$ for $M$. Here we list distinct indicies since repeated queries of the same index do not provide any new information. Since we are now sampling without replacement we are working with a hypergeometric distribution. So if we say $X=\sum_{j=1}^k X_j$, then 
+A classical algorithm makes $k$ oracle queries. Even the best possible algorithm can only extract at most the following information: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$. Here we list distinct indices since repeated queries of the same index do not provide any new information, therefore sampling will be done without replacement. Since we are now randomly sampling without replacement we are working with a hypergeometric distribution. So, if we say $X=\sum_{j=1}^k X_j$, then 
 
 $$\begin{aligned}
-S = \frac{N}{k}X\\
 \text{E}\lbrack X \rbrack = k\frac{M}{N}\\
 \text{Var}( X ) = k\left(\frac{M}{N}\right)\left(\frac{N-M}{N}\right)\left(\frac{N-k}{N-1}\right)\\
 \end{aligned}$$
 
-Let's compare the distributions for two different (but nearby) values of $M$. We'll call them $M_1$ and $M_2=M_1+2c\sqrt{M_1}$. Then their means differ by 
+Let's compare the distributions for two different (but nearby) values of $M$. We'll call them $M_1 = \frac{N}{a}$ and $M_2=M_1+2c\sqrt{M_1}=\frac{N}{a}+2c\sqrt{\frac{N}{a}}$, where $a>1$. Then their means differ by 
 
 $$\begin{aligned}
 \text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack &= k\frac{M_2-M_1}{N}\\
-&= 2kc\frac{\sqrt{M_1}}{N}
+&= 2kc\frac{\sqrt{M_1}}{N}\\
+&= 2kc\frac{\sqrt{\frac{N}{a}}}{N}\\
+&= \frac{2kc}{\sqrt{aN}}
 \end{aligned}$$
 
 Since $M_1$ is close to $M_2$, $\text{Var}( X_{M_1} )\approx \text{Var}( X_{M_2} )$ and so
@@ -713,11 +714,44 @@ $$\begin{aligned}
 \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}} &= \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sqrt{\text{Var}( X_{M_1} )}} \\
 &= \frac{2kc\frac{\sqrt{M_1}}{N}}{\sqrt{k\left(\frac{M_1}{N}\right)\left(\frac{N-M_1}{N}\right)\left(\frac{N-k}{N-1}\right)}}\\
 &= 2c\sqrt{\frac{k}{\left(N-M_1\right)\left(\frac{N-k}{N-1}\right)}}\\
-&= 2c\sqrt{\frac{kN}{\left(N-M_1\right)\left(N-k\right)}} & \text{since $1 \lt\lt N$ } \\
-&= 2c\sqrt{\frac{k}{N-M_1}} & \text{if $k \lt\lt N$ } \\
+&= 2c\sqrt{\frac{kN}{\left(N-M_1\right)\left(N-k\right)}} & \text{since $N-1\approx N$ } \\
+&= 2c\sqrt{\frac{kN}{\left(N-\frac{N}{a}\right)\left(N-k\right)}} \\
+&= 2c\sqrt{\frac{k}{N}}\sqrt{\frac{1}{\left(1-\frac{1}{a}\right)\left(1-\frac{k}{N}\right)}} \\
+&= 2c\sqrt{\frac{k}{N}}\Theta(1) & \text{as long as $k\lt N$}
 \end{aligned}$$
 
-When $k<<N$ you can see that this value becomes small, showing that the distributions for $M_1$ and $M_2$ almost entirely overlap, meaning we would not be able differentiate between $S_{M_1}$ and $S_{M_2}$. This is not good because we want to be able to estimate both $M_1$ and $M_2$ within $c\sqrt{M_1}$ and $c\sqrt{M_2}\approx c\sqrt{M_1}$, respectively. Since these $M$ values are $2c\sqrt{M_1}$ appart, if we can't distinguish between the two estimates, we are clearly not estimating them within the desired accuracy. 
+If $k<<N$ you can see that this value becomes very small, showing that the distributions for $X_{M_1}$ and $X_{M_2}$ almost entirely overlap, meaning we would not be able differentiate between them. This is not good because we want to be able to estimate both $M_1$ and $M_2$ within $c\sqrt{M_1}$ and $c\sqrt{M_2}\approx c\sqrt{M_1}$, respectively. Since these $M$ values are $2c\sqrt{M_1}$ apart, if we can't distinguish between these distributions, we are not able to estimate $M$ within the desired accuracy. 
+
+If we want to be able to distinguish between the two distributions, we need $\frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}}$ to be sufficiently large. Let's say it needs to be at least the positive constant $Z_{M_1}$ to get the desired accuracy. Therefore,
+
+$$\begin{aligned}
+Z_{M_1} &\leq \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}}\\
+&= 2c\sqrt{\frac{k}{N}}\Theta(1)
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+k \geq N\left(\frac{Z_{M1}}{2c\Theta(1)}\right)^2
+\end{aligned}$$
+
+Then, $k=\Omega(N)$ is needed to distinguish between the two distributions with the desired accuracy. If we can distinguish between the two distributions with the desired accuracy, we can estimate $M$ with the desired accuracy. Therefore, any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

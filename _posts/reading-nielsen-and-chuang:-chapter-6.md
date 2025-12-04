@@ -635,7 +635,7 @@ Consider a classical algorithm for the counting problem which samples uniformly 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
-This oracle is sampling a Bernoulli distribution where there is a $p=\frac{M}{N}$ probability of the oracle call returning $X_j=1$ and a $1-p=\frac{N-M}{N}$ probability of returning $X_j=0$. The variance of a Bernoulli distribution for each $X_j$ is given by 
+Since the samples are uniform and independent, this oracle is sampling a Bernoulli distribution where there is a $p=\frac{M}{N}$ probability of the oracle call returning $X_j=1$ and a $1-p=\frac{N-M}{N}$ probability of returning $X_j=0$. The variance of a Bernoulli distribution for each $X_j$ is given by 
 
 $$\begin{aligned}
 \text{Var}\lbrack X_j \rbrack &= p(1-p)\\
@@ -688,19 +688,25 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 
 Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
-For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ will make it so we now require $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
+I found this to be a really challenging exercise and I'm not confidant that the way I approached the solution is what the authors had in mind. When trying to find resources online, I saw that the Adversary Argument is a common approach for finding lower bounds for algorithms, but I couldn't figure out how to make it work with algorithms that don't need to be successful every time.   
+
+For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ will make it so we now require $k\geq\frac{4(N-1)}{c^2}$ oracle calls and so $k=\Omega(N)$.
 
 Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalizes this to any classical counting algorithm. 
 
 What we know:<br>
-(1) Any of the algorithms make oracle queries. <br>
-(2) $M$ is estimated based on the results of these oracle queries. <br>
+(1) Any classical counting algorithm makes oracle calls. <br>
+(2) $M$ is estimated based on the results of those oracle calls. <br>
 
 What we don't know: <br>
-(1) How samples indices are chosen for the queries. <br>
-(2) How the estimation is calculated from the results of the oracle queries. <br>
+(1) How samples are chosen for the oracle calls, i.e. random or deterministic and independent or not independent. <br>
+(2) How the estimation is calculated from the results of the oracle calls. <br>
 
-A classical algorithm makes $k$ oracle queries. Even the best possible algorithm can only extract at most the following information: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$. Here we list distinct indices since repeated queries of the same index do not provide any new information, therefore sampling will be done without replacement. Since we are now randomly sampling without replacement we are working with a hypergeometric distribution. So, if we say $X=\sum_{j=1}^k X_j$, then 
+With those considerations in mind, we can say that a classical algorithm makes $k$ oracle calls. Regardless of its internal computation, the algorithm will at most get the following information from the oracle calls: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$ based on an unknown calculation. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do better. 
+
+The lower bounds for $k$ for randomized sampling should be lower than or equal to the lower bounds for deterministic sampling. This is because random sampling is not susceptible to adversarial inputs. Therefore, if we can show that any algorithm with random sampling must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms with deterministic sampling can't do better.   
+
+Since we are now randomly sampling without replacement we are working with a hypergeometric distribution. So, if we say $X=\sum_j X_j$, then 
 
 $$\begin{aligned}
 \text{E}\lbrack X \rbrack = k\frac{M}{N}\\
@@ -744,6 +750,7 @@ k \geq N\left(\frac{Z_{M1}}{2c\Theta(1)}\right)^2
 \end{aligned}$$
 
 Then, $k=\Omega(N)$ is needed to distinguish between the two distributions with the desired accuracy. If we can distinguish between the two distributions with the desired accuracy, we can estimate $M$ with the desired accuracy. Therefore, any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls.
+
 
 
 

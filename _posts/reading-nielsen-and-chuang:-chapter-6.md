@@ -688,9 +688,17 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 
 Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
-For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ requires $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
+For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ will make it so we now require $k\geq\frac{4(N-1)}{c^2}$ and so $k=\Omega(N)$.
 
 Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalizes this to any classical counting algorithm. 
+
+What we know:<br>
+(1) Any of the algorithms make oracle queries. <br>
+(2) $M$ is estimated based on the results of these oracle queries. <br>
+
+What we don't know: <br>
+(1) How samples indices are chosen for the queries. <br>
+(2) How the estimation is calculated from the results of the oracle queries. <br>
 
 A classical algorithm makes $k$ oracle queries. Even the best possible algorithm can only extract at most the following information: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$. Here we list distinct indices since repeated queries of the same index do not provide any new information, therefore sampling will be done without replacement. Since we are now randomly sampling without replacement we are working with a hypergeometric distribution. So, if we say $X=\sum_{j=1}^k X_j$, then 
 

@@ -759,23 +759,53 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
-
-
-
-### Speeding up the solution of NP-complete problems - Exercises
-
+| Quantum searching can speed up the solution to NP problems | 6.4 |  Asymptotically the quantum algorithm requires the square root of the number of operations the classical algorithm requires. |
 
 
 
 
 
 
+## Quantum search of an unstructured database
+
+### Quantum search of an unstructured database - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Quantum search algorithms are not suitable for searching classical databases. | 6.5 | The modest speedup does not outweight the enormous hardware cost.                   |
+
+
+
+## Optimality of the search algorithm
+
+### Optimality of the search algorithm - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 
 
 
 
+
+### Optimality of the search algorithm - Exercises
+
+
+
+##  Black box algorithm limits
+
+###  Black box algorithm limits - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+
+## Black box algorithm limits - Exercises
 
 
 

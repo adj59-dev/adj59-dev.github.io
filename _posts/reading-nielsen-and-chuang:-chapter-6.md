@@ -688,19 +688,40 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 
 Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
-I found this to be a really challenging exercise and I'm not confidant that the way I approached the solution is what the authors had in mind. When trying to find resources online, I saw that the Adversary Argument is a common approach for finding lower bounds for algorithms, but I couldn't figure out how to make it work with algorithms that don't need to be successful every time.   
+I found this to be a really challenging exercise since I don't have much experience finding the lower bounds for a class of algorithms. Looking online, there seems to be a few common concepts used for doing this analysis:
+* Comparison-based lower bounds (decision trees)
+* Adversary arguments
+* Information theory
+* Reduction
+* Yao's minimax principle
 
-For the algorithm in exercise 6.13, changing the accuracy from $\sqrt{M}$ to $c\sqrt{M}$ for some constant $c$ will make it so we now require $k\geq\frac{4(N-1)}{c^2}$ oracle calls and so $k=\Omega(N)$.
+I reviewed some lecture notes to get an idea of what these things are. [Lecture 12: Lower Bounds](https://jeffe.cs.illinois.edu/teaching/algorithms/notes/12-lowerbounds.pdf) discusses decision trees, adversary arguments, and touches on information theory. [Adversary Lower Bound Technique](https://goldman.cse.wustl.edu/crc2007/handouts/adv-lb.pdf) goes into more detail about the adversary arguments. [Chapter G1: Lower Bounds](https://people.computing.clemson.edu/~goddard/texts/algor/G1.pdf) provides more details about information theory and adversary arguments.  
 
-Now, this exercise asks us to prove this is true for *any* classical counting algorithm, not just the one from the previous exercise. So, let's think about how one generalizes this to any classical counting algorithm. 
+Based on what I read in those notes, I tracked down these YouTube videos to have someone walk me through it:
+* [Introduction to Information Theory Lower Bounds](https://www.youtube.com/watch?v=xIryno2jMjY&t=1068s)
+* [Second Lecture on Information Theory Lower Bounds](https://www.youtube.com/watch?v=Ws7EYLT43u4)
+* [Adversary Lower Bound Arguments](https://www.youtube.com/watch?v=GjimDZlQeJM&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14)
+* [Second Lecture on Adversary Lower Bounds](https://www.youtube.com/watch?v=4y6xstHvpz0&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14) - not as helpful
+
+Notably, nearly everything I found discussed finding the lower bound requirements needed for the algorithm to always be sucessful, which is not what we are doing in this exercise.
+
+
+First we need to create a framework that defines the class of algorithms the authors call *any* classical counting algorithm. 
 
 What we know:<br>
 (1) Any classical counting algorithm makes oracle calls. <br>
 (2) $M$ is estimated based on the results of those oracle calls. <br>
+(3) enough oracle calls are made such that the algorithm has a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ <br>
+(3) If we define $k$ as the number of oracle calls made and we need to prove $k=\Omega(N)$ <br>
 
 What we don't know: <br>
 (1) How samples are chosen for the oracle calls, i.e. random or deterministic and independent or not independent. <br>
 (2) How the estimation is calculated from the results of the oracle calls. <br>
+
+If we were to use the decision tree framework, below shows any $k=3$ classical counting algorithm. We can see that there is one leaf per possible output from three oracle calls. 
+
+<img width="879" height="482" alt="image" src="https://github.com/user-attachments/assets/c8b24621-e31a-4820-8e1f-58393c1d5dd4" />
+
 
 With those considerations in mind, we can say that a classical algorithm makes $k$ oracle calls. Regardless of its internal computation, the algorithm will at most get the following information from the oracle calls: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$ based on an unknown calculation. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do better. 
 

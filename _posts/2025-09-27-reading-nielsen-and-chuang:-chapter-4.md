@@ -182,7 +182,8 @@ As with the earlier chapters, I’ve included my notes and exercise solutions be
 For several exercises in this section, I perform decomposition on the rotation operators $R_x$, $R_y$ and $R_z$ where I write one of these operators in terms of the other ones. I wanted to take a moment here to prove that this is valid and to confirm the signs of the rotations and their ordering; since they do not commute it is important to get their order correct. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Proof</summary>
+<summary><strong>Click to view the proof</strong></summary>
+
 
 We can write $R_x$ in terms of $R_y$ and $R_z$ as follows
 

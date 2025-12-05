@@ -688,7 +688,7 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 
 Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
-I found this to be a really challenging exercise since I don't have much experience finding the lower bounds for a class of algorithms. Looking online, there seems to be a few common concepts used for doing this analysis:
+I found this to be a really challenging exercise since I don't have much experience finding the lower bounds for a class of algorithms. Looking online, there seems to be a few common concepts used for doing this kind of analysis:
 * Comparison-based lower bounds (decision trees)
 * Adversary arguments
 * Information theory
@@ -703,78 +703,49 @@ Based on what I read in those notes, I tracked down these YouTube videos to have
 * [Adversary Lower Bound Arguments](https://www.youtube.com/watch?v=GjimDZlQeJM&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14)
 * [Second Lecture on Adversary Lower Bounds](https://www.youtube.com/watch?v=4y6xstHvpz0&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14) - not as helpful
 
-Notably, nearly everything I found discussed finding the lower bound requirements needed for the algorithm to always be sucessful, which is not what we are doing in this exercise.
+<details style="margin-bottom: 20px;" markdown="1">
+<summary>Solution</summary>
 
-
-First we need to create a framework that defines the class of algorithms the authors call *any* classical counting algorithm. 
+First, we need to create a framework that defines the class of algorithms the authors call "*any* classical counting algorithm". 
 
 What we know:<br>
 (1) Any classical counting algorithm makes oracle calls. <br>
 (2) $M$ is estimated based on the results of those oracle calls. <br>
 (3) enough oracle calls are made such that the algorithm has a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ <br>
-(3) If we define $k$ as the number of oracle calls made and we need to prove $k=\Omega(N)$ <br>
 
 What we don't know: <br>
-(1) How samples are chosen for the oracle calls, i.e. random or deterministic and independent or not independent. <br>
+(1) How the samples are chosen for the oracle calls, i.e. random or deterministic and independent or not independent. <br>
 (2) How the estimation is calculated from the results of the oracle calls. <br>
 
-If we were to use the decision tree framework, below shows any $k=3$ classical counting algorithm. We can see that there is one leaf per possible output from three oracle calls. 
+If we were to use the decision tree framework, the graph below shows any $k=3$ classical counting algorithm.  
 
 <img width="871" height="489" alt="image" src="https://github.com/user-attachments/assets/b487326e-9549-49bd-920f-3f0bc557ed63" />
 
+We can see that there is one leaf per possible output from the three oracle calls. Thinking back to the YouTube videos that I watched, I know that we need at least one leaf that maps to each possible outcome for the algorithms. Regardless of its internal computation, the algorithm will only have the following information from the oracle calls: $X_j$ from the $k$ indices $j\in \lbrace 1,\cdots N\rbrace$. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do any better since they will have less information. 
 
-
-With those considerations in mind, we can say that a classical algorithm makes $k$ oracle calls. Regardless of its internal computation, the algorithm will at most get the following information from the oracle calls: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$ based on an unknown calculation. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do better. 
-
-The lower bounds for $k$ for randomized sampling should be lower than or equal to the lower bounds for deterministic sampling. This is because random sampling is not susceptible to adversarial inputs. Therefore, if we can show that any algorithm with random sampling must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms with deterministic sampling can't do better.   
-
-Since we are now randomly sampling without replacement we are working with a hypergeometric distribution. So, if we say $X=\sum_j X_j$, then 
+We know that the possible outcomes from this class of algorithms are $\hat{M} \in \lbrace 0,1,\cdots,N\rbrace$ to within an accuracy $c\sqrt{M}$ for some constant $c$ and all $M$. This means that we need at least one leaf that maps to $\hat{M}=0$ within an accuracy of $c\sqrt{0}$ for when $M=0$. Let $t$ be the smallest value such that $t-c\sqrt{t}>0$. Then, there needs to be a different leaf that maps to $\hat{M}=t$ within an accuracy of $c\sqrt{t}$ when $M=t$. We know the $\hat{M}=0$ oracle results will consist of all $0$ values and so the $\hat{M}=t$ leaf will need at least one $1$ value so it is a different leaf. The probability of the oracle returning at least one $1$ value when sampling $k$ indices without repeat for $M=t$ is  
 
 $$\begin{aligned}
-\text{E}\lbrack X \rbrack = k\frac{M}{N}\\
-\text{Var}( X ) = k\left(\frac{M}{N}\right)\left(\frac{N-M}{N}\right)\left(\frac{N-k}{N-1}\right)\\
+p &= 1-\frac{\binom{t}{0}\binom{N-t}{k}}{\binom{N}{k}} & \text{hypergeometric distribution pmf}\\
+&= 1-\frac{\binom{N-t}{k}}{\binom{N}{k}} \\
+&= 1-\frac{\binom{N-k}{t}}{\binom{N}{t}} \\
+&= 1-\prod_{i=0}^{t-1}\frac{N-k-i}{N-i} \\
+&= 1-\prod_{i=0}^{t-1}\left(1-\frac{k}{N-i}\right) \\
+&\geq 1-\left(1-\frac{k}{N}\right)^t 
 \end{aligned}$$
 
-Let's compare the distributions for two different (but nearby) values of $M$. We'll call them $M_1 = \frac{N}{a}$ and $M_2=M_1+2c\sqrt{M_1}=\frac{N}{a}+2c\sqrt{\frac{N}{a}}$, where $a>1$. Then their means differ by 
+We need $p\geq \frac{3}{4}$ because we need a probability of at least $3/4$ for estimating $M$ correctly and so
 
 $$\begin{aligned}
-\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack &= k\frac{M_2-M_1}{N}\\
-&= 2kc\frac{\sqrt{M_1}}{N}\\
-&= 2kc\frac{\sqrt{\frac{N}{a}}}{N}\\
-&= \frac{2kc}{\sqrt{aN}}
+&\frac{3}{4} \leq 1-\left(1-\frac{k}{N}\right)^t \\
+\Rightarrow & k\geq N\left(1-4^{-1/t}\right)
 \end{aligned}$$
 
-Since $M_1$ is close to $M_2$, $\text{Var}( X_{M_1} )\approx \text{Var}( X_{M_2} )$ and so
+Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
-$$\begin{aligned}
-\frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}} &= \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sqrt{\text{Var}( X_{M_1} )}} \\
-&= \frac{2kc\frac{\sqrt{M_1}}{N}}{\sqrt{k\left(\frac{M_1}{N}\right)\left(\frac{N-M_1}{N}\right)\left(\frac{N-k}{N-1}\right)}}\\
-&= 2c\sqrt{\frac{k}{\left(N-M_1\right)\left(\frac{N-k}{N-1}\right)}}\\
-&= 2c\sqrt{\frac{kN}{\left(N-M_1\right)\left(N-k\right)}} & \text{since $N-1\approx N$ } \\
-&= 2c\sqrt{\frac{kN}{\left(N-\frac{N}{a}\right)\left(N-k\right)}} \\
-&= 2c\sqrt{\frac{k}{N}}\sqrt{\frac{1}{\left(1-\frac{1}{a}\right)\left(1-\frac{k}{N}\right)}} \\
-&= 2c\sqrt{\frac{k}{N}}\Theta(1) & \text{as long as $k\lt N$}
-\end{aligned}$$
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-If $k<<N$ you can see that this value becomes very small, showing that the distributions for $X_{M_1}$ and $X_{M_2}$ almost entirely overlap, meaning we would not be able differentiate between them. This is not good because we want to be able to estimate both $M_1$ and $M_2$ within $c\sqrt{M_1}$ and $c\sqrt{M_2}\approx c\sqrt{M_1}$, respectively. Since these $M$ values are $2c\sqrt{M_1}$ apart, if we can't distinguish between these distributions, we are not able to estimate $M$ within the desired accuracy. 
-
-If we want to be able to distinguish between the two distributions, we need $\frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}}$ to be sufficiently large. Let's say it needs to be at least the positive constant $Z_{M_1}$ to get the desired accuracy. Therefore,
-
-$$\begin{aligned}
-Z_{M_1} &\leq \frac{\text{E}\lbrack X_{M_2} \rbrack - \text{E}\lbrack X_{M_1} \rbrack }{\sigma_{M1}}\\
-&= 2c\sqrt{\frac{k}{N}}\Theta(1)
-\end{aligned}$$
-
-and so
-
-$$\begin{aligned}
-k \geq N\left(\frac{Z_{M1}}{2c\Theta(1)}\right)^2
-\end{aligned}$$
-
-Then, $k=\Omega(N)$ is needed to distinguish between the two distributions with the desired accuracy. If we can distinguish between the two distributions with the desired accuracy, we can estimate $M$ with the desired accuracy. Therefore, any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls.
-
-
-
+</details>
 
 
 

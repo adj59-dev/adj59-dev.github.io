@@ -720,7 +720,8 @@ What we don't know: <br>
 
 If we were to use the decision tree framework, below shows any $k=3$ classical counting algorithm. We can see that there is one leaf per possible output from three oracle calls. 
 
-<img width="879" height="482" alt="image" src="https://github.com/user-attachments/assets/c8b24621-e31a-4820-8e1f-58393c1d5dd4" />
+<img width="871" height="489" alt="image" src="https://github.com/user-attachments/assets/b487326e-9549-49bd-920f-3f0bc557ed63" />
+
 
 
 With those considerations in mind, we can say that a classical algorithm makes $k$ oracle calls. Regardless of its internal computation, the algorithm will at most get the following information from the oracle calls: $k$ distinct indices from $j\in \lbrace 1,\cdots N\rbrace$, the oracle results for these indices $X_j$, and an estimate $S$ for $M$ based on an unknown calculation. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do better. 

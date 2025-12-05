@@ -252,7 +252,7 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary> 
+<summary><strong>Click to view the solution</strong></summary>
 
 To show that these vectors are linearly dependent, we need to find a set of $a_1$, $a_2$, and $a_3$ such that
 
@@ -269,7 +269,7 @@ This is true when $a_1=1, a_2=1,$ and $a_3=-1$. Therefore these vectors are line
 In section 2.1.2 the authors talk about how linear operators can be represented as matrices. In this exercise you get practice representing a linear operator as a matrix. The first part of this exercise is straight forward, you just need to use the definition of the matrix representation of an operator, equation 2.12. The second part may be a bit more challenging if you haven't worked with the Pauli matrices before. I suggest reviewing section 1.3.3 if you are struggling with this exercise.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
  
 From definition of the matrix representation of an operator we know that
 
@@ -299,7 +299,7 @@ $$A = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$$
 This exercise provides further practice in representing linear operators as matrices. It also allows you to confirm for yourself that the matrix representation of a linear transformation $BA$ is a matrix product of the matrix representations of $B$ and $A$. To do this you'll once again use equation 2.12. You’ll also need the definition of matrix multiplication, which isn’t provided in the book, but is readily available online. Additionally, if it has been a while since you’ve work with the summation operator, reviewing common summation identities may be helpful, as they play a role in the derivation. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From the question, we know that
 
@@ -331,7 +331,7 @@ From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which mean
 This is the final exercise focused on practicing how to represent linear operators as matrices. Here you will use equation 2.12 along with the definition of the identity operator given in section 2.1.2 ($I_V \ket{v} \equiv \ket{v}$) to confirm the matrix representation of the identity operator.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 The matrix representation for $I$ will have entries with values $I_{ij}$ such that $I \ket{v_j}  = \sum_{i} I_{ij} \ket{v_i}$. Since we know that $I \ket{v_i} = \ket{v_i}$ for all $i$, $I_{ij} = 1$ when $i=j$ and $I_{ij} = 0$ when $i \neq j$. For a 2-dimensional vector space, the matrix representation for $I$ is
 
@@ -346,7 +346,7 @@ $$\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$$
 In section 2.1.4 the authors introduce the concept of an inner product and list three requirements that need to be satisfied for something to be considered an inner product. In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet these three requirements.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (1) $(\cdot , \cdot)$ is linear in the second argument,
 
@@ -389,7 +389,7 @@ Since all three requirements are met, $( \cdot , \cdot)$ is an inner product.
 For this exercise you will demonstrate that the inner product is conjugate-linear in the first argument using the properties that you just verified in the previous exercise.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^\ast_i (\ket{w_i}, \ket{v}) & \text{conjugate linear in the first argument definition} \\
@@ -407,7 +407,7 @@ $$\begin{aligned}
 In section 2.1.4 the authors discuss orthogonal vectors, stating that vectors are orthogonal if their inner product is zero. They also define unit vectors and discuss how to normalize a vector to make it a unit vector. Here you will use that information to demonstrate that two vectors are orthogonal and calculate their normalized forms.  
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 These vectors are orthogonal if their inner product equals zero.
 
@@ -429,7 +429,7 @@ $$\begin{aligned}
 In section 2.1.4 the authors introduce the Gram-Schmidt procedure. Here you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 The Gram-Schmidt procedure works as follows: define $\ket{v_1} \equiv \ket{w_1}/\Vert{\ket{w_1}}\Vert$ and for $1 \leq k \leq d-1$ define
 
@@ -501,7 +501,7 @@ We know that this set of vectors spans $V$ because it has the same number of ele
 In section 2.1.4 the authors introduce outer product representation for linear operators. For this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25. The Pauli matrices are given in section 2.1.3.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We can find their expression in outer product notation using equation 2.25, $A=\sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$. As stated in the book, $\braket{w_j \vert A \vert v_i}$ equals the element in the $i \text{th}$ column and $j \text{th}$ row of the matrix representation of the operator, so it is possible to just read these values from the matrix or you can calculate them as shown below. 
 
@@ -546,7 +546,7 @@ X &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ke
 This exercise provides more practice with outer product notation. This time you will use equation 2.25 to find the matrix representation for an operator that is given in outer product notation. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From equation 2.25 we can write $A=\sum_{mn} \braket{v_m \vert A \vert v_n} \ket{v_m} \bra{v_n} = \ket{v_j} \bra{v_k}$. Which means that we need $\braket{v_m \vert A \vert v_n} = 1$ when $m=j$ and $n=k$ and $\braket{v_m \vert A \vert v_n} = 0$ otherwise. This means the matrix representation has 1 for the $A_{jk}$ element and 0 for all other elements.
 
@@ -564,7 +564,7 @@ Once you have a full set of eigenvalues and eigenvectors, you can write the oper
 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Z is already in a diagonal representation, so the eigenvectors and eigenvalues can be easily seen,
 
@@ -618,7 +618,7 @@ With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, 
 For this exercise you need to prove that a specific matrix is not diagonalizable. In section 2.1.5 we are told that an operator is diagonalizable if it has diagonal representation. So to prove that it is not diagonalizable, you need to show that it does not have diagonal representation.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First let's find the eigenvalues and eigenvectors for the matrix. 
 
@@ -652,7 +652,7 @@ For a matrix to have a diagonal representation, it needs to have an orthonormal 
 In section 2.1.6 the authors introduce the adjoint of operators. For this exercise we are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Taking equation 2.32 and plugging in $\ket{w}\bra{v}$ for $A$ we get
 
@@ -677,7 +677,7 @@ From the first and last line it can be seen that $(\ket{w}\bra{v})^\dagger = \ke
 We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Plugging this operator into equation 2.32 we get
 
@@ -699,7 +699,7 @@ From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right
 We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Lets plug $A^\dagger$ in for $A$ in equation 2.32
 
@@ -721,7 +721,7 @@ From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 In section 2.1.6 the authors introduce the concept of projectors. For this exercise you use the definition of projector $P$ from equation 2.35 and basis vector orthogonality to demonstrate the $P^2=P$. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From equation 2.35 we know that $P$ is defined as $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ and so $P^2$ is 
 
@@ -743,7 +743,7 @@ P^2 &= PP \\
 In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-213). 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Operator $A$ is a normal matrix if it is diagonal with respect to some orthonormal basis (per spectral decomposition). Therefore $A$ can be written as $A=\sum_{i} \lambda_{i} \ket{i} \bra{i}$ where $\lambda_{i}$ are the eigenvalues of $A$ and $\ket{i}$ is an orthonormal basis. It then follows that
 
@@ -764,7 +764,7 @@ Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can be
 Here we show that all eigenvalues of a unitary matrix has modulus 1 using the definition of a unitary matrix, the outer product representation for $U$ and $I$, and vector orthogonality.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Since $U$ is a unitary matrix we know that $U^\dagger U = I$. We also know that U has spectral decomposition and so can be written $U \equiv \sum_i \lambda_i \ket{i} \bra{i}$. $I$ is defined as $I = \sum_i \ket{i} \bra{i}$. Therefore, 
 
@@ -801,7 +801,7 @@ Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. To do this you just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 To show that the matrices are Hermitian, we need to demonstrate that $\sigma^\dagger = \sigma$ and to demonstrate that they are unitary we need to show that $\sigma^\dagger \sigma = I$. 
 
@@ -871,7 +871,7 @@ Z^\dagger Z &= Z Z \\
 For this exercise you are asked to find the relationship between two different matrix representations of operator $A$. This can be done using the completeness relation as shown in equation 2.23.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Using the completeness relation we know that $A = I_W A I_W$ and so
 
@@ -892,7 +892,7 @@ A_{ij}' &= \braket{v_i \vert A \vert v_j} & \text{definition of $A_{ij}'$} \\
 For this exercise we are asked to repeat the spectral decomposition proof, but with a Hermitian operator instead of a normal operator. There are a couple of places where simplifications can be made. One is when demonstrating that $PMQ = 0$ and then another when showing that $QMQ$ is normal. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Spectral decomposition theorem for the case when $M$ is Hermitian: Any Hermitian operator $M$ on a vector space $V$ is diagonal with respect to some orthonormal basis for $V$. Conversely, any diagonalizable operator is normal. 
 
@@ -919,7 +919,7 @@ Therefore $QMQ$ is normal. The rest of the proof is same as in the book where yo
 In this exercise we are to prove that two eigenvectors of a Hermitian operator with different eigenvalues are orthogonal. To do this you can use equation 2.32, the fact that for a Hermitian operator $H=H^\dagger$, and properties of the inner product.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian operator $M$ with eigenvalues $\lambda_v$ and $\lambda_w$. From equation 2.32 we know that $(\ket{v}, M \ket{w}) = (M^\dagger \ket{v}, \ket{w})$. Since M is Hermitian $M^\dagger=M$ so $(\ket{v}, M \ket{w}) = (M \ket{v}, \ket{w})$ and therefore $(\ket{v}, \lambda_w \ket{w}) = (\lambda_v \ket{v}, \ket{w})$. Using linearity in the second and conjugate-linearity in the first arguments we get $\lambda_w(\ket{v}, \ket{w}) = \lambda_v^\ast( \ket{v}, \ket{w})$. As shown in [Exercise 2.17](#exercise-217), we know that the eigenvalues of a Hermitian operator are real and therefore $\lambda_w(\ket{v}, \ket{w}) = \lambda_v( \ket{v}, \ket{w})$. This can only be true if $\lambda_w = \lambda_v$ or $(\ket{v}, \ket{w}) =0$, i.e. the vectors are orthogonal. Therefore if $\lambda_w \neq \lambda_v$ then the vectors must be orthogonal. 
 
@@ -932,7 +932,7 @@ Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian opera
 Here we show that the eigenvalues of a projector are all either $0$ or $1$ by comparing the definition of $P$ to the diagonal representation for an operator. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector subspace of a d-dimensional vector space. This is a diagonal matrix which has the form $\sum_i \lambda_i \ket{i} \bra{i}$. By looking at the definition of $P$ and comparing it to the form of a diagonal matrix, one can easily see that $\lambda_i=1$ for $1 \leq i \leq k$ and $\lambda_i=0$ for $k < i \leq d$. Therefore the eigenvalues are all either 0 or 1.
 
@@ -945,7 +945,7 @@ By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector
 For this exercise follow the hint’s advice and find Hermitian operators $B$ and $C$ that satisfies $A=B+iC$ for an arbitrary operator $A$. Then use the definition of a positive operator to find what constraints there are on $B$ and $C$ if $A$ is a positive operator. You will find that $A$ must be Hermitian. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First we need to find a $B$ and $C$ that satisfy these requirements. Let's start by finding $A^\dagger$ in terms of $B$ and $C$, keeping in mind that $B^\dagger = B$ and $C^\dagger = C$, since they are Hermitian. 
 
@@ -983,7 +983,7 @@ If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. P
 To show that $A^\dagger A$ is positive, use the definition of a positive operator, equation 2.32, and the positive semi-definiteness of the inner product.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 In order for $A^\dagger A$ to be positive $\left(\ket{v}, A^\dagger A \ket{v}\right)$ must be a real, non-negative number. 
 
@@ -1003,7 +1003,7 @@ Due to the positive semi-definiteness of inner products, we know that $\left(A \
 In section 2.1.7 the authors introduce the concept of tensor products. In this exercise you will gain experience with tensor power notation and the Kronecker product. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Written as a tensor products, 
 
@@ -1046,7 +1046,7 @@ $$\begin{aligned}
 This exercise is just further practice with the Kronecker product. To check if the tensor product is commutative compare your results from (b) and (c).
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (a) tensor product of $X$ and $Z$
 
@@ -1089,7 +1089,7 @@ By comparing (b) and (c) we can see that the tensor product is not commutative.
 For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Complex Conjugation
 
@@ -1126,7 +1126,7 @@ $\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right
 Use the definition of a unitary operator to show that the tensor product of two unitary operators is unitary.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We need to show $(A \otimes B)^\dagger (A \otimes B) = I$ when $A$ and $B$ are both unitary. 
 
@@ -1153,7 +1153,7 @@ Therefore $A \otimes B$ is unitary.
 Use the definition of a Hermitian operator to show that the tensor product of two Hermitian operators is Hermitian.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We need to show that $(A \otimes B)^\dagger = (A \otimes B)$ when $A$ and $B$ are both Hermitian. 
 
@@ -1170,7 +1170,7 @@ Therefore $A \otimes B$ is Hermitian.
 Use the definition of a positive operator to show that the tensor product of two positive operators is positive.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We need to show that $\left( \ket{a} \otimes \ket{b}, (A \otimes B)(\ket{a} \otimes \ket{b})\right)$ is a real, non-negative number when $A$ and $B$ are positive. 
 
@@ -1190,7 +1190,7 @@ Since both $A$ and $B$ are positive operators, we know that $\braket{a \vert A \
 Use the definition of a projector to show that the tensor product of two projector is a projector.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From [exercise 2.16](#exercise-216) we know that any projector $P$ satisfies the equation $P^2 = P$. Lets say we have two projectors $P_1$ and $P_2$, then lets check the square of their tensor product 
 
@@ -1211,7 +1211,7 @@ Therefore the tensor product of two projectors is a projector.
 For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is now well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamar transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First let's look a little closer at the $n=1$ case
 
@@ -1247,7 +1247,7 @@ H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{b
 In section 2.1.8 the authors introduce the concept of operator functions and describe how to calculate them. In this exercise you get practice performing that calculation on a given matrix. Since this matrix is not in diagonal representation, you will first need to find its diagonal representation, then execute the operation on its eigen values, and then reconstruct the operator in matrix representation. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We know that $f(A) \equiv \sum_{a} f(a) \ket{a} \bra{a}$ for $A = \sum_{a} a \ket{a}\bra{a}$. Since the given matrix is not diagonal, we'll need to diagonalize it. So first we'll find the eigenvalues
 
@@ -1320,7 +1320,7 @@ $$\begin{aligned}
 In this exercise you will confirm the exponential of the Pauli matrices. To do this, you'll need to find the diagonal representation of $\vec{v} \cdot \vec{\sigma}$, then use Euler's formula and the operator function calculation.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First let's calculate $\vec{v} \cdot \vec{\sigma}$, where $\vec{\sigma}$ are the Pauli matrices. 
 
@@ -1383,7 +1383,7 @@ Well, it looks like we didn't need to calculate the eigenvectors for this proof,
 In section 2.1.8 the authors introduce the concept of the trace. Use the definition of the trace to calculate the trace of the Pauli matrices. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 The trace of a matrix is given by $\text{tr}(A) \equiv \sum_{i} A_{ii}$, therefore the trace of the Pauli matrices are
 
@@ -1403,7 +1403,7 @@ $$\begin{aligned}
 For this exercise you use the definition of the trace and the definition of matrix multiplication to demonstrate that $\text{tr}(AB) = \text{tr}(BA)$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From the definition of matrix multiplication we know that the matrix product $C=AB$ has entries defined by 
 
@@ -1436,7 +1436,7 @@ $$\begin{aligned}
 For this exercise you use the definition of the trace and the definition of matrix addition to demonstrate that $\text{tr}(A+B) = \text{tr}(A) + \text{tr}(B)$. You will also use the definition of the trace to demonstrate that $\text{tr}(zA) = z \text{tr}(A)$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From the definition of matrix addition we know that the matrix $C=A+B$ has entries defined by
 
@@ -1472,7 +1472,7 @@ $$\begin{aligned}
 This exercise has multiple parts. For the first part, you need to show that $(\cdot, \cdot)$ on $L_V \times L_V$ is an inner product using the requirements listed in section 2.1.4 and the Hilbert-Schmidt inner product defined in equation 2.65. Then you need to demonstrate that $L_V$ has dimensions $d^2$ by finding how many linear independent elements there are in the set of operators that span $L_V$. Finally, you need to find an orthonormal basis of Hermitian matrices for $L_V$. This can be done by taking the inner product of two arbitrary linear operators in $L_V$ and identifying what requirements are needed to make them orthonormal. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (1) in order to show that $(A,B)$ is an inner product we need to go back to section 2.1.4 to get the requirements for an inner product, which are: linear in the second argument, conjugate symmetry, and positive semi-definiteness. To check for linearity in the second argument let's look at
 
@@ -1537,7 +1537,7 @@ L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
 In section 2.19 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \lbrack X,Y \rbrack = XY - YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = 2i \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = 2 i Z
@@ -1560,7 +1560,7 @@ $$\begin{aligned}
 In this exercise you will use the definition of the anti-commutator to verify anti-commutation relations of the Pauli matrices.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \lbrace X,Y \rbrace = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
@@ -1583,7 +1583,7 @@ $$\begin{aligned}
 In this exercise you will use the definition of the commutator and anti-commutator to verify equation 2.77.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
@@ -1601,7 +1601,7 @@ $$\begin{aligned}
 To verify equation 2.78 you will need to use the results from exercises [2.19](#exercise-219), [2.41](#exercise-241), and [2.42](#exercise-242).
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Starting with equation 2.77 we know that
 
@@ -1620,7 +1620,7 @@ $$\begin{aligned}
 In section 2.1.9 the authors introduce the simultaneous diagonalization theorem. Here you will use that theorem along with the diagonal representation of $A$ and $B$ and the invertible matrix theorem (which is not in the book) to show that $B$ must be zero. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 If $\lbrack A,B \rbrack = 0$ that means there must be a common orthonormal set of eigenvectors $\ket{i}$ for $A$ and $B$ such that $A=\sum_{i} a_i \ket{i}\bra{i}$ and $B=\sum_{i} b_i \ket{i}\bra{i}$. This means that
 
@@ -1644,7 +1644,7 @@ Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for mat
 For this exercise you will use the definition of commutation and the properties of the adjoint to demonstrate the relation shown in the question.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \lbrack A,B \rbrack ^\dagger &= (AB - BA)^\dagger & \text{commutation definition}\\
@@ -1662,7 +1662,7 @@ $$\begin{aligned}
 For this exercise you will use the definition of commutation to demonstrate the relation shown in the question.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 
@@ -1675,7 +1675,7 @@ $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 Here you will use the definition of Hermitian, the definition of commutation, and properties of the adjoint to show that $i \lbrack A,B \rbrack$ is Hermitian. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 If $A$ and $B$ are Hermitian it means that $A^\dagger = A$ and $B^\dagger=B$. With this in mind, we can check if $i \lbrack A,B \rbrack$ is Hermitian by taking the adjoint.
 
@@ -1699,7 +1699,7 @@ Therefore $i \lbrack A,B \rbrack$ is Hermitian.
 In section 2.1.10 the authors introduce the concept of polar decomposition which is a method used to break a general linear operator up into products of unitary operators and positive operators. In this exercise you are asked to perform polar decomposition on a positive matrix, a unitary matrix, and a Hermitian matrix. You can follow the calculation outlined in the book, but simplifications can also be made when taking into consideration the properties of the different matrices and the goal of polar decomposition.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Since $P$ is already a positive operator, polar decomposition is not needed, though $P$ can be written as $P=IP=PI$ where the identity operator $I$ is a unitary operator. 
 
@@ -1749,7 +1749,7 @@ Then $H = UJ = KU$.
 For this exercise you will perform a similar calculation as was done in the previous exercise, but this time for a normal matrix. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Matrix $A$ is a normal matrix if $A^\dagger A = A A^\dagger$. It's spectral decomposition is $A=\sum_{i} \lambda_i \ket{i}\bra{i}$ therefore
 
@@ -1787,7 +1787,7 @@ This may look the same as the results for the Hermitian matrix in [Exercise 2.48
 For this exercise you will perform polar decomposition on a given matrix. The procedure is like the previous two exercises but since the matrix is not currently in diagonal representation, you’ll first need to diagonalize it. Unfortunately, this calculation is complex and so I recommend using a calculator.  This matrix is invertible – which you can confirm for yourself – so you can use the inverse of the matrix to calculate $U$. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Let 
 
@@ -1952,7 +1952,7 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 In section 2.2.2 the authors discuss how any unitary operator can be used to evolve the state of a single qubit and then ask us to confirm that the Hadamard gate is unitary. This can be done using the definition of a unitary operator $U^\dagger U = U U^\dagger = I$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From the linear algebra section that we just completed, we know that an operator is a unitary operator if $U^\dagger U = U U^\dagger = I$. From equation 2.85 we know that the Hadamar gate is 
 
@@ -1991,7 +1991,7 @@ Since $H^\dagger H = I$ that means $H$ is unitary.
 The authors now ask us to verify that $H^2=I$. This can easily be done by using an observation noted in the previous exercise. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\dagger = H$. We also demonstrated that $H^\dagger H = I$. Therefore we know that $H^\dagger H = HH = H^2 = I$
 
@@ -2004,7 +2004,7 @@ In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\d
 We are now asked to find the eigenvalues and eigenvectors of H. We will do this using the same methods that we used in the previous secion. We'll first find the eigenvalues $\lambda$ using the characteristic equation and then solve $0 = (\lambda I - H)\ket{e}$ to find the eigenvectors. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First let's find the eigenvalues
 
@@ -2041,7 +2041,7 @@ For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_+} = \fra
 We are asked to show that $\exp(A)\exp(B)=\exp(A+B)$ for commuting Hermitian operators $A$ and $B$. To do this, we need to use the simultaneous diagonalization theorem given in section 2.1.9 and knowledge of operator functions. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From section 2.1.9 we know that if $A$ and $B$ are commuting operators they are simultaneously diagonalizable, meaning they can be written as
 
@@ -2082,7 +2082,7 @@ $$\begin{aligned}
 Here we are to prove that equation 2.91 is unitary, meaning $U^\dagger U = U U^\dagger = I$, using the knowledge that $H$ is a Hermitian operator and the results from the previous exercise. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From equation 2.91 we know
 
@@ -2133,7 +2133,7 @@ Therefore $U$ is unitary.
 In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218). 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Since $U$ is unitary using spectral decomposition we know that it can be written
 
@@ -2168,7 +2168,7 @@ Since $\theta_E$ are real, we know that $K = \sum_{E} \frac{\theta_E}{\ln(2)} \k
 In section 2.2.3 the authors discuss measuring a quantum system and in equation 2.93 show what the state of the system is after measurement. Here you are asked to show that two sequential measurement operations are the equivalent of a single measurement operation that is the matrix multiplication of both individual measurement operators.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Using equation 2.93 to get the state of the system after measurement $L_l$ we find
 
@@ -2204,7 +2204,7 @@ We can see that $\ket{\psi''}=\ket{\psi'''}$ therefore the sequential measuremen
 In section 2.2.5 the authors introduce the concept of projective measurements and show how to calculate the average observed value and standard deviation for an observable operator. For this exercise you will get practice with these calculations for eigenvector $\ket{\psi}$ of observable $M$ with eigenvalue $m$. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We can calculate the average value of the measurement using equation 2.113,
 
@@ -2237,7 +2237,7 @@ $$\begin{aligned}
 In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from [exercise 2.9](#exercise-29), [exercise 2.19](#exercise-219), and the calculations outlined in section 2.2.5.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From exercise 2.9, we know that the outer product representation of $X$ can be written as
 
@@ -2273,7 +2273,7 @@ From equation 2.113 we know that the average value of the measurement is $\brake
 For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in [exercise 2.35](#exercise-235).
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From exercise 2.35 we know that 
 
@@ -2315,7 +2315,7 @@ Which shows that $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$.
 Use the results from the previous exercise as well as equations 2.103 and 2.104 to find the probability of obtaining the measurement result of $+1$ and the state of the system after the measurement if $+1$ is obtained when the state prior to measurement is $\ket{0}$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Using equation 2.103 and the results from the previous exercise, the probability of obtaining result $+1$ is given by 
 
@@ -2347,7 +2347,7 @@ $$\begin{aligned}
 For this exercise, we are to show that any measurement where the measurement operators and the POVM elements coincide (i.e. where $E_m = M_m$) is a projective measurement.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 For this case
 
@@ -2368,7 +2368,7 @@ We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ 
 In this exercise we are to show that there exists unitar operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 In section 2.1.10 we learned that a linear operator can be broken up into a product of a unitary operator and positive operators such that $A=UJ=KU$ where the positive operators are given as $J=\sqrt{A^\dagger A}$ and $K=\sqrt{AA^\dagger}$. 
 
@@ -2383,7 +2383,7 @@ From equation 2.117 we know that $E_m = M_m^\dagger M_m$, therefore $\sqrt{E_m} 
 Create a set of $E_m$ such that if outcome $E_i$ occurs then you know with certainty that state $\ket{\psi_i}$ from the linearly independent set $\ket{\psi_1}, \dots, \ket{\psi_m}$ was measured. This set will include $E_{m+1}$ to satisfy the completeness relation. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=1}^m E_i$
 
@@ -2397,7 +2397,7 @@ $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=
 In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from [exercise 2.11](#exercise-211).
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We know from exercise 2.11 that one of the basis for the Pauli $X$ matrix is 
 
@@ -2418,7 +2418,7 @@ which are the states given in the exercise. When written like this, they are not
 In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from [exercise 2.9](#exercise-29). and use equation 2.113 with $M=X_1Z_2$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From exercise 2.9 we know that 
 
@@ -2462,7 +2462,7 @@ $$\begin{aligned}
 $U$ is linear operator that preserves the inner product in $W$, which is a subspace fo $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 We start by writing $U = \sum_{i=1}^k \lambda_i \ket{i}\bra{i}$, with $\vert \lambda_i \vert = 1$ . To extend this we need to add elements ranging from $k+1$ to $d$. Which will give us something like $U' = \sum_{i=1}^k \lambda_i \ket{i}\bra{i} + \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j}$, where $\ket{i} \cup \ket{j}$ form an orthonormal basis for $V$. Now we need to prove that $U'$ is a unitary operator and $U'\ket{w} = U\ket{w}$ for all $\ket{w}$ in $W$. 
 
@@ -2501,7 +2501,7 @@ Therefore $U'\ket{w} = U \ket{w}$ for all $\ket{w}$ in $W$.
 Prove that $\ket{\psi} \neq \ket{a}\ket{b}$ for all single qubit states $\ket{a}$ and $\ket{b}$. You may find it helpful to refer back to section 1.2.1 when solving this problem. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From equation 1.5 we know that the state vector describing the two qubits are
 
@@ -2552,7 +2552,7 @@ However, there are cases where this cannot be true, such as the Bell state $\ket
 In section 2.3 the authors discuss how to used an entangled pair of qubits to transfer two bits of classical information. The possible resulting states are the Bell states. In this exercise we verify that these states form an orthonormal basis for the two qubit state space. In order for these states to form an orthonormal basis, they must be orthogonal, they must be unit vectors, and they must span the state space.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
   
 The Bell states are
 
@@ -2649,7 +2649,7 @@ The state space is $2x2$ dimensions and therefore we need $4$ vectors to form a 
 Show that $\braket{\psi \vert E \otimes I \vert \psi}$ takes the same value when $\psi$ is any of the four Bell states for some positive operator $E$. Then use the results to answer the second half of the question: if Alice's qubit was intercepted on its way to Bob, would the person who intercepted it be able to determine anything?
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 For $\ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$, 
 
@@ -2718,7 +2718,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 In this exercise we show that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a pure state using the definition of $\rho$ and the fact that $\sum_i p_i = 1$.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 \text{tr} ( \rho^2 ) &= \text{tr} \left( \left( \sum_{i} p_i \ket{\psi_i}\bra{\psi_i} \right) \left( \sum_{i'} p_{i'} \ket{\psi_{i'}}\bra{\psi_{i'}} \right) \right) \\
@@ -2744,7 +2744,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from [Exercise 2.60](#exercise-260) where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (1) In exercise 2.60 we showned that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2 = \ket{\lambda_{\pm}}\bra{\lambda_{\pm}}$. If $p_+$ is the probability of being in state $\lambda_+$ and $p_-$ is the probability of being in state $\lambda_-$ and $p_- + p_+ = 1$ then the density matrix is given by
 
@@ -2786,7 +2786,7 @@ $$\begin{aligned}
 For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$.  
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 The density operator can be written as $\rho = \sum_{j} q_j \ket{\phi_j} \bra{\phi_j}$ with $\lbrace q_j \vert \ket{\phi_j} \rbrace$ as a minimal ensemble for $\rho$ that is made up of orthonormal states $\ket{\phi_j}$. Since $\ket{\psi}$ is in support of $\rho$, it can be written as a linear combination of the vectors $\ket{\phi_j}$, therefore $\ket{\psi} =\ket{\tilde{\psi_i}} = \sqrt{p_i} \ket{\psi_i} = \sqrt{p_i} \sum_j a_{ij} \ket{\phi_j}$ for some values of $a_{ij}$.
 
@@ -2854,7 +2854,7 @@ Going back to the second condition, we can see that this is met. Therefore $u_{i
 Suppose a composite state os systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First we need to construct the density matrix for the composite system
 
@@ -2891,7 +2891,7 @@ Therefore the reduced density operator of system $A$ is a pure state.
 In this exercise we find the reduced density operator for each qubit for each of the four Bell states. The authors already did this for one of the qubits for one of the Bell states in equations 2.185 - 2.191. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 First let's look at the Bell state $\frac{\ket{00} + \ket{11}}{2}$. The authors already found $\rho^1$, so let's find $\rho^2$ using the same methodology.
 
@@ -3009,7 +3009,7 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 In this exercise we extend the Schmidt decomposition proof to include $A$ and $B$ with different dimensionality. It is useful to look up singular value decomposition for non-square matrices to complete this exercise. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 For the case where systems $A$ has dimensions $m$ and $B$ has dimensions $n$ and $m \geq n$, let $\ket{j}$ and $\ket{k}$ be any fixed orthonormal bases for systems $A$ and $B$, respectively. Then $\ket{\psi}$ can be written as
 
@@ -3063,7 +3063,7 @@ $$\begin{aligned}
 In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. This is done by picking a state which it doesn't work for and then demonstrating that the different reduced density matrices for the different components have different Schmidt coefficients. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Let $\ket{j}$, $\ket{k}$, and $\ket{l}$ be fixed orthonormal basis for systems $A$, $B$, and $C$ with an arbitrary three component quantum state given by $\ket{\psi} = \sum_{jkl} a_{jkl} \ket{j}\ket{k}\ket{l}$. 
 
@@ -3122,7 +3122,7 @@ By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2
 Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure what the authors wanted for this solution since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. But just pointing that out didn't seem like enough, so I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 For a composite system made from two single qubits with pure state unit vectors given by $\ket{a}$ and $\ket{b}$, $\ket{\psi}$ can be written as
 
@@ -3217,7 +3217,7 @@ which is not a product state.
 In this exercise we are to find the Schmidt decomposition of three given states. For states that are not already written as a Schmidt decomposition, you can find their eigenvalues and eigenvectors using the reduced density matrices. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Let's look at the first given state
 
@@ -3314,7 +3314,7 @@ $$\begin{aligned}
 In this exercise we show some properties of unitary transformations on pure composite system states using the definition of a unitary operator from section 2.1.6, $U=\sum_{i} \ket{w_i}\bra{v_i}$, and the fact that $U\ket{\phi} = \sum_i \lambda_i (U\ket{i_A})\ket{i_B}$ if $U$ is a unitary operator acting on $A$ alone. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From section 2.1.6 we know that a unitary operator can be defined as $U=\sum_{i} \ket{w_i}\bra{v_i}$ for any two orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ for $A$ and $V=\sum_{i} \ket{y_i}\bra{x_i}$ for any two orthonormal bases $\ket{x_i}$ and $\ket{y_i}$ for $B$. From section 2.5 we know that $(U \otimes V)\ket{\phi} = \sum_i \lambda_i (U\ket{v_i}) (V \ket{x_i}) = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ when $U$ is a unitary operator acting on system $A$ alone and $V$ is a unitary operator acting on system $B$ alone. 
 
@@ -3330,7 +3330,7 @@ Therefore if $\ket{\psi} = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ and $\ket{\phi} 
 In this exercise we prove that there exists a unitary transformation $U_R$ acting on reference system $R$ such that $\ket{AR_1} = (I_A \otimes U_R)\ket{AR_2}$ for purification states $\ket{AR_1}$ and $\ket{AR_2}$ of state $\rho^A$ by using equation 2.207 and the results from the previous exercise. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From equation 2.207 we know that purification states can be written as 
 
@@ -3357,7 +3357,7 @@ $$\begin{aligned}
 In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition and equation 2.131. For the third part we use theorem 2.6.  
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (1) We are given $\ket{AR} = \sum_i \sqrt{p_i} \ket{\psi_i}\ket{i}$
 
@@ -3423,7 +3423,7 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 This problem is similar to [exercise 2.35](#exercise-235) but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 From exercise 2.35 we know that $\vec{n} \cdot \vec{\sigma}$ has eigengvalues $\lambda_{\pm} = \pm 1$ and so can be written as
 
@@ -3449,7 +3449,7 @@ f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+
 In this problem we explore some of the properties of the Schmidt number using what we learned in section 2.5. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 (1) Since $\ket{\psi}$ is a pure state from equation 2.202 we know that $\ket{\psi} = \sum_i \ket{i_A}\ket{i_B}$ for some orthonormal states $\ket{i_A}$ for system $A$ and $\ket{i_B}$ for system $B$. The reduced density matrices is then
 
@@ -3490,7 +3490,7 @@ The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which c
 For this problem we derive Tsirelson's inequality. To do this we'll use equation 2.78, equation 2.107, equation 2.115 and the definition of the commutator. 
 
 <details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+<summary><strong>Click to view the solution</strong></summary>
 
 Let's find what $Q^2$ equals
 

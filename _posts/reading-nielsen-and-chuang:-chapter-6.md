@@ -622,6 +622,7 @@ The total number of oracle calls will be dependent on the number of steps taken 
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| Quantum counting                     | 6.3                       | application of the phase estimation procedure from section 5.2 to estimate the eigenvalues of the Grover iteration, which allows us to determine the number of solutions to the search problem. |
 
 
 
@@ -751,6 +752,19 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 </details>
 
 
+## Speeding up the solution of NP-complete problems
+
+### Speeding up the solution of NP-complete problems - Key Concepts
+
+
+| Concept                              | Book Section              | Notes                                                                                                  |
+|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
+
+
+
+
+
+### Speeding up the solution of NP-complete problems - Exercises
 
 
 

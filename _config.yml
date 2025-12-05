@@ -49,3 +49,6 @@ permalink: /:year/:month/:day/:title:output_ext
 header_pages:
   - archive.md
   - solutions-index-QCQI.md
+
+# rebuild-trigger: 2025-12-05
+

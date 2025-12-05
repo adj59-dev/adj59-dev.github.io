@@ -703,6 +703,8 @@ Based on what I read in those notes, I tracked down these YouTube videos to have
 * [Adversary Lower Bound Arguments](https://www.youtube.com/watch?v=GjimDZlQeJM&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14)
 * [Second Lecture on Adversary Lower Bounds](https://www.youtube.com/watch?v=4y6xstHvpz0&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14) - not as helpful
 
+I ended up using a decision tree/information theory argument for this exercise. But it was good to learn more about adversary arguments, even if they were not used.
+
 <details style="margin-bottom: 20px;" markdown="1">
 <summary>Solution</summary>
 
@@ -721,24 +723,25 @@ If we were to use the decision tree framework, the graph below shows any $k=3$ c
 
 <img width="871" height="489" alt="image" src="https://github.com/user-attachments/assets/b487326e-9549-49bd-920f-3f0bc557ed63" />
 
-We can see that there is one leaf per possible output from the three oracle calls. Thinking back to the YouTube videos that I watched, I know that we need at least one leaf that maps to each possible outcome for the algorithms. Regardless of its internal computation, the algorithm will only have the following information from the oracle calls: $X_j$ from the $k$ indices $j\in \lbrace 1,\cdots N\rbrace$. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do any better since they will have less information. 
+All deterministic algorithms in this class of algorithms can be represented as decision trees with the same overall shape: each of the $k$ levels correspond to an oracle query, and each branching corresponds to the oracle's answer of $0$ or $1$. A randomized algorithm is simply a probability distribution over such deterministic trees. Because every deterministic tree has the same structure, we may analyze only deterministic trees when proving the lower bound. This is because if every deterministic tree requires $k=\Omega(N)$, they any randomized algorithm (a distribution over such trees) must also require $k=\Omega(N)$.
 
-We know that the possible outcomes from this class of algorithms are $\hat{M} \in \lbrace 0,1,\cdots,N\rbrace$ to within an accuracy $c\sqrt{M}$ for some constant $c$ and all $M$. This means that we need at least one leaf that maps to $\hat{M}=0$ within an accuracy of $c\sqrt{0}$ for when $M=0$. Let $t$ be the smallest value such that $t-c\sqrt{t}>0$. Then, there needs to be a different leaf that maps to $\hat{M}=t$ within an accuracy of $c\sqrt{t}$ when $M=t$. We know the $\hat{M}=0$ oracle results will consist of all $0$ values and so the $\hat{M}=t$ leaf will need at least one $1$ value so it is a different leaf. The probability of the oracle returning at least one $1$ value when sampling $k$ indices without repeat for $M=t$ is  
+We can see that there is one leaf per possible sequence of oracle answers. Thinking back to the YouTube videos that I watched, I know that each leaf is mapped to a single output for the algorithm, which we'll label $\hat{M}$, and we need at least one leaf that maps to each possible output (though several leaves may share the same output value). Regardless of its internal computation, the algorithm will only have the following information from the oracle calls: the result of the oracle call $X_j$ from the $k$ indices $j\in \lbrace 1,\cdots N\rbrace$. Calling the oracle for the same index more than once never reveals new information, so we may assume without loss of generality that the algorithm samples $k$ distinct indices without replacement. This is because if we can show that any algorithm that samples without replacement must make $\Omega(N)$ oracle calls to achieve the desired accuracy, then we can also say that algorithms that sample with replacement can't do any better since they will have less information. 
+
+We know that the good outputs for the algorithm for a specific $M$ lie in $\lbrack M-c\sqrt{M}, M+c\sqrt{M}\rbrack$ for some constant $c$ and all $M$. This means that we need at least one leaf that maps to $\hat{M_0}=0$ for when $M=0$. Let $t$ be the smallest value such that $t-c\sqrt{t}>0$. Then, there needs to be a different leaf that maps to $\hat{M_t}\in \lbrack t-c\sqrt{t}, t+c\sqrt{t}\rbrack$ for when $M=t$. We know the $\hat{M_0}$ output will map to a leaf that consist of all $0$ values for the oracle answers and so the leaf that maps to the $\hat{M_t}$ output will need at least one $1$ value so it is a different leaf than the one that maps to $\hat{M_0}$. 
+
+If we assume that the probability of a single oracle call of returning the value $1$ is $P(X_j)=\frac{t}{N}$ (i.e. random distribution of the marked solutions), then the probability of the oracle returning at least one $1$ value when sampling $k$ indices without repeat for $M=t$ is  
 
 $$\begin{aligned}
-p &= 1-\frac{\binom{t}{0}\binom{N-t}{k}}{\binom{N}{k}} & \text{hypergeometric distribution pmf}\\
-&= 1-\frac{\binom{N-t}{k}}{\binom{N}{k}} \\
-&= 1-\frac{\binom{N-k}{t}}{\binom{N}{t}} \\
-&= 1-\prod_{i=0}^{t-1}\frac{N-k-i}{N-i} \\
-&= 1-\prod_{i=0}^{t-1}\left(1-\frac{k}{N-i}\right) \\
-&\geq 1-\left(1-\frac{k}{N}\right)^t 
+p &= P\left(\cup_{j=1}^{k} X_j\right)\\
+&\leq \sum_{j=1}^{k}P(X_j) & \text{Boole's inequality}\\
+&= k\frac{t}{N}
 \end{aligned}$$
 
-We need $p\geq \frac{3}{4}$ because we need a probability of at least $3/4$ for estimating $M$ correctly and so
+We need $p \geq \frac{3}{4}$ so there is a probability of at least $3/4$ for estimating $M=t$ correctly. So we need to find a $k$ such that $k\frac{t}{N}\geq p \geq \frac{3}{4}$. Therefore,
 
 $$\begin{aligned}
-&\frac{3}{4} \leq 1-\left(1-\frac{k}{N}\right)^t \\
-\Rightarrow & k\geq N\left(1-4^{-1/t}\right)
+&\frac{3}{4} \leq k\frac{t}{N} \\
+\Rightarrow & k\geq N\frac{3}{4t}
 \end{aligned}$$
 
 Therefore, this lower bounds argument give us $k=\Omega(N)$.
@@ -746,6 +749,7 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 </details>
+
 
 
 

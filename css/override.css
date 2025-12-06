@@ -132,23 +132,21 @@ mjx-container[display="true"] > mjx-math {
 @media (max-width: 950px) {
   mjx-container[display="true"] > svg,
   mjx-container[display="true"] > mjx-math {
-    max-width: 140%;     
+    max-width: none;
   }
-  
+
   mjx-container[display="true"] {
-    overflow-x: auto;
-    padding-bottom: 0.5em;
+    font-size: 85%;
   }
 }
 
 @media (max-width: 700px) {
   mjx-container[display="true"] > svg,
   mjx-container[display="true"] > mjx-math {
-    max-width: 175%;     
+    max-width: none;
   }
 
   mjx-container[display="true"] {
-    overflow-x: auto;
-    padding-bottom: 0.5em;
+    font-size: 75%;
   }
 }

@@ -149,6 +149,7 @@ mjx-container[display="true"] > mjx-math {
 
 @media (max-width: 900px) and (orientation: portrait) {
   .page-content {
+    max-width: 95vw;
   }
 }
 

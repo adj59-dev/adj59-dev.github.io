@@ -121,30 +121,11 @@ mjx-container[display="true"] {
   display: block;
   text-align: left !important;
   margin: 1.2em 0 1.2em 1.5rem !important;
-  overflow: visible;             
 }
 
-mjx-container[display="true"] mjx-math {
-  display: inline-block;
-  transform-origin: left top;
-}
-
-@supports (width: min-content) {
-  mjx-container[display="true"] {
-    width: fit-content;
-    max-width: 100%;
-  }
-
-  mjx-container[display="true"] mjx-math {
-    max-width: 100%;
-    transform: scale(
-      calc(
-        max(
-          0.7,
-          min(1, calc(100% / var(--mjx-width, 1)))
-        )
-      )
-    );
-  }
+mjx-container[display="true"] > svg,
+mjx-container[display="true"] > mjx-math {
+  max-width: 100%;
+  height: auto;
 }
 

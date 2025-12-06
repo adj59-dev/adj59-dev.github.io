@@ -826,6 +826,16 @@ $$\begin{aligned}
 
 #### Exercise 6.16 {#exercise-616}
 
+Suppose we merely required that the probability of an error being made is less than $1/2$ when averaged uniformly over the possible values for $x$, instead of for all values of $x$. Show that $O(\sqrt{N})$ oracle calls are still required to solve the search problem. 
+
+There are a few resources referenced in the History and further reading section related to this part of the book:
+* [Strengths and Weaknesses of Quantum Computing](https://arxiv.org/pdf/quant-ph/9701001)
+* [Tight bounds on quantum searching](https://arxiv.org/pdf/quant-ph/9605034)
+* [Grover’s quantum searching algorithm is optimal](https://arxiv.org/pdf/quant-ph/9711070)
+
+
+
+
 
 
 

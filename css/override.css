@@ -129,10 +129,6 @@ mjx-container[display="true"] > mjx-math {
   height: auto;
 }
 
-mjx-container[display="true"] {
-  overflow-x: visible !important;
-}
-
 @media (max-width: 950px) {
   mjx-container[display="true"] > svg,
   mjx-container[display="true"] > mjx-math {

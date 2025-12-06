@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 4"
 description: "Notes and exercise solutions for QCQI Chapter 4: quantum algorithms, single qubit operations, controlled operations, measurement, and simulation of quantum systems."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-4/
 tags:
   - QCQI
   - quantum computing
@@ -276,7 +277,7 @@ $$\begin{align}
 &= \cos(x) I + i\sin(x) A
 \end{align}$$
 
-Now we use the result to verify equations 4.4 - 4.6. From [exercise 2.19](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-219) we know that the Pauli matrices are Hermitian and unitary (i.e. $A^2=I$), therefore we can directly use the result above to generate equations 4.4-4.6 by replacing $A$ with $X$, $Y$, or $Z$. 
+Now we use the result to verify equations 4.4 - 4.6. From [exercise 2.19](https://adj59-dev.github.io/qcqi/chapter-2/#exercise-219) we know that the Pauli matrices are Hermitian and unitary (i.e. $A^2=I$), therefore we can directly use the result above to generate equations 4.4-4.6 by replacing $A$ with $X$, $Y$, or $Z$. 
 
 $$\begin{aligned}
 R_x(\theta) = e^{-i\theta X/2} = \cos\frac{\theta}{2}I - i\sin\frac{\theta}{2}X = \cos\frac{\theta}{2}\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} - i\sin\frac{\theta}{2}\begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} \cos\frac{\theta}{2} & -i\sin\frac{\theta}{2} \\\ -i\sin\frac{\theta}{2} & \cos\frac{\theta}{2} \end{bmatrix} \\
@@ -417,7 +418,7 @@ Prove that $R_{\hat{n}}(\theta)$ rotates a single qubit state by angle $\theta$ 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-From [exercise 2.72](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-272), we know that we can write the density matrix for a single qubit with Bloch vector $\vec{\lambda}$ as
+From [exercise 2.72](https://adj59-dev.github.io/qcqi/chapter-2/#exercise-272), we know that we can write the density matrix for a single qubit with Bloch vector $\vec{\lambda}$ as
 
 $$\begin{aligned}
 \rho = \frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2}
@@ -509,7 +510,7 @@ Prove that an arbitrary single qubit unitary operator can be written in the form
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-From [exercise 2.56](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-256), we know that $U=\exp(iK)$ for some Hermitian operator $K$. We also know that any 2x2 Hermitian operator can be written as $K=\alpha I - \frac{\theta}{2}\hat{n}\cdot\vec{\sigma}$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$, since $\lbrace I, \sigma_x, \sigma_y, \sigma_z\rbrace$ form a basis set. Therefore, 
+From [exercise 2.56](https://adj59-dev.github.io/qcqi/chapter-2/#exercise-256), we know that $U=\exp(iK)$ for some Hermitian operator $K$. We also know that any 2x2 Hermitian operator can be written as $K=\alpha I - \frac{\theta}{2}\hat{n}\cdot\vec{\sigma}$ for some real $\alpha$ and $\theta$, and a real three-dimensional unit vector $\hat{n}$, since $\lbrace I, \sigma_x, \sigma_y, \sigma_z\rbrace$ form a basis set. Therefore, 
 
 $$\begin{aligned}
 U&=\exp(iK)\\
@@ -1428,7 +1429,7 @@ For this exercise we are to construct a Fredkin gate.
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-(1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in [exercise 3.32](https://adj59-dev.github.io/2025/08/19/reading-nielsen-and-chuang-chapter-3.html#exercise-332). I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
+(1) This first part we are to construct a Fredkin gate with three Toffoli gates. This is something we already did in [exercise 3.32](https://adj59-dev.github.io/qcqi/chapter-3/#exercise-332). I changed the following one up a little so that the a wire is the control wire to match the matrix shown later in this exercise.
 
 <img width="696" height="192" alt="image" src="https://github.com/user-attachments/assets/cacb8cf7-10df-4796-be53-080234918dac" />
 
@@ -2944,7 +2945,7 @@ U = \sum_{E} \lambda_E \ket{E} \bra{E}
 
 where $\lambda_E$ are eigenvalues and $\ket{E}$ form an orthonormal basis for $U$. 
 
-From [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218), we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{-i \theta_E}$ for some real $\theta_E$.
+From [exercise 2.18](https://adj59-dev.github.io/qcqi/chapter-2/#exercise-218), we know that the eigenvalues of a unitary matrix can be written in the form $\lambda_E = e^{-i \theta_E}$ for some real $\theta_E$.
 
 Looking at our definition of $H$ we see
 

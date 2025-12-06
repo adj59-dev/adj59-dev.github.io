@@ -154,6 +154,7 @@ mjx-container[display="true"] > mjx-math {
   }
   .page-content {
     max-width: 95vw;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }

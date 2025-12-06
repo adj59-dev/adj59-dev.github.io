@@ -141,15 +141,13 @@ mjx-container[display="true"] > mjx-math {
   .page-content {
     width: 100%;
     max-width: none;
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
   .page-content {
-    max-width: 95vw;
-    padding-right: 0.5rem;
   }
 }
 

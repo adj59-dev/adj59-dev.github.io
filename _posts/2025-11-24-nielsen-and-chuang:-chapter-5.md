@@ -1,5 +1,5 @@
 ---
-title: "Reading Nielsen and Chuang: Chapter 5"
+title: "Nielsen and Chuang: Chapter 5"
 description: "Notes and exercise solutions for QCQI Chapter 5: QFT, phase estimation, factoring, order finding, and other applications."
 categories:
   - Quantum Computation and Quantum Information

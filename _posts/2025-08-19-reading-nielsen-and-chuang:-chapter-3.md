@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 3"
 description: "Notes and exercise solutions for QCQI Chapter 3: models for computation, the analysis of computational problems, and perspectives on computer science."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-3/
 tags:
   - QCQI
   - quantum computing
@@ -12,7 +13,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-11-29 19:10:00 -08:00
+last_modified_at: 2025-12-05 19:10:00 -08:00
 exercises:
   - anchor: exercise-31
     label: Exercise 3.1

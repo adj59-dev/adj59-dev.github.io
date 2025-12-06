@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 5"
 description: "Notes and exercise solutions for QCQI Chapter 5: QFT, phase estimation, factoring, order finding, and other applications."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-5/
 tags:
   - QCQI
   - quantum computing
@@ -12,7 +13,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-11-29 19:10:00 -08:00
+last_modified_at: 2025-12-05 19:10:00 -08:00
 exercises:
   - anchor: exercise-51
     label: Exercise 5.1
@@ -396,7 +397,7 @@ where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. T
 
 #### Exercise 5.9 {#exercise-59}
 
-Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with [Exercise 4.34](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-434). 
+Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with [Exercise 4.34](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-434). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -2042,11 +2043,11 @@ Using the design shown in Figure 5.1, we can write a Fourier transform for a 4 q
 
 <img width="851" height="296" alt="image" src="https://github.com/user-attachments/assets/88c18ce0-8ebf-45ed-bec0-f102ded18ad0" />
 
-Since the controlled $R_k$ operation is a controlled-phase gate, we can swap the control and target qubits without changing the output of the circuit (as we showed in [Exercise 4.18](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-418)) and so our circuit can be constructed like so
+Since the controlled $R_k$ operation is a controlled-phase gate, we can swap the control and target qubits without changing the output of the circuit (as we showed in [Exercise 4.18](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-418)) and so our circuit can be constructed like so
 
 <img width="814" height="288" alt="image" src="https://github.com/user-attachments/assets/a98c3f37-e8f6-499d-9b27-d76c907cb495" />
 
-In [Exercise 4.35](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-435) we showed that measurement commutes with controls and so if we measured each qubit after the Hadamard gate, but prior to them serving as controls for the $R_k$ gates, then that would be equivalent to measuring the qubits after the Fourier transform has completed. Measuring earlier vs. measuring at the end gives the same outcome distribution. After commuting the measurement forward, the remaining $R_k$ operations are just single-qubit gates whose application pattern is chosen classically from the measured bits, so there is no 2-qubit gates in the circuit. 
+In [Exercise 4.35](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-435) we showed that measurement commutes with controls and so if we measured each qubit after the Hadamard gate, but prior to them serving as controls for the $R_k$ gates, then that would be equivalent to measuring the qubits after the Fourier transform has completed. Measuring earlier vs. measuring at the end gives the same outcome distribution. After commuting the measurement forward, the remaining $R_k$ operations are just single-qubit gates whose application pattern is chosen classically from the measured bits, so there is no 2-qubit gates in the circuit. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -2060,7 +2061,7 @@ Consider the quantum circuit shown on page 243 where $\ket{u}$ is an eigenstate 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-This circuit is similar to the one we investigated in [Exercise 4.34](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-434), but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
+This circuit is similar to the one we investigated in [Exercise 4.34](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-434), but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
 
 $$\begin{aligned}
 p_k(0) &= \braket{u \vert M_{k}^\dagger M_{k} \vert u} \\

@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 1"
 description: "Notes and exercise solutions for QCQI Chapter 1: introduction and overview."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-1/
 tags:
   - QCQI
   - quantum computing
@@ -12,7 +13,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-11-29 19:10:00 -08:00
+last_modified_at: 2025-12-05 19:10:00 -08:00
 exercises:
   - anchor: exercise-11
     label: Exercise 1.1

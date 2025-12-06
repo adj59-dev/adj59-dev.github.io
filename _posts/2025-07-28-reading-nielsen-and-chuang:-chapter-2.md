@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 2"
 description: "Notes and exercise solutions for QCQI Chapter 2: linear algebra and quantum mechanics."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-2/
 tags:
   - QCQI
   - quantum computing
@@ -12,7 +13,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-11-29 19:10:00 -08:00
+last_modified_at: 2025-12-05 19:10:00 -08:00
 exercises:
   - anchor: exercise-21
     label: Exercise 2.1
@@ -574,7 +575,7 @@ Z = \ket{0}\bra{0} - \ket{1}\bra{1}
 
 With the eigenvectors $\ket{0}$, $\ket{1}$ and corresponding eigenvalues 1, -1. 
 
-X can be diagonalized by converting to the basis set $\ket{+}$ and $\ket{-}$, like we did in [Exercise 2.2](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-22)
+X can be diagonalized by converting to the basis set $\ket{+}$ and $\ket{-}$, like we did in [Exercise 2.2](#exercise-22)
 
 $$\begin{aligned}
 X &= \ket{0}\bra{1} + \ket{1}\bra{0} \\
@@ -740,7 +741,7 @@ P^2 &= PP \\
 
 #### Exercise 2.17 {#exercise-217}
 
-In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-213). 
+In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](#exercise-213). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -2130,7 +2131,7 @@ Therefore $U$ is unitary.
 
 #### Exercise 2.56 {#exercise-256}
 
-In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](https://adj59-dev.github.io/2025/07/28/reading-nielsen-and-chuang-chapter-2.html#exercise-218). 
+In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](#exercise-218). 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>

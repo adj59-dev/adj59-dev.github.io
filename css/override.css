@@ -150,6 +150,7 @@ mjx-container[display="true"] > mjx-math {
   .wrapper {
     padding-left: 0;
     padding-right: 0;
+    max-width: 100%;
   }
   .page-content {
     max-width: 95vw;

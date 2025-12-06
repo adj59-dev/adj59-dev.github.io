@@ -22,7 +22,7 @@ exercises:
 chapter: 1
 ---
 
-## Reading Nielsen and Chuang: Chapter 1
+## Nielsen and Chuang: Chapter 1
 
 I recently started reading *Quantum Computation and Quantum Information* by Nielsen and Chuang. I don’t always read the introductory chapters of textbooks—often it is mostly material that is covered later in more detail—but with some unexpected free time, I decided to give this one a read.
 

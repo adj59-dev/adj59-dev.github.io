@@ -136,17 +136,25 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 @media (max-width: 800px) and (orientation: portrait) {
   .page-content {
-    max-width: 90vw;   
-    padding: 0 1rem;
+    max-width: 92vw;
   }
 }
 
 @media (max-width: 800px) and (orientation: landscape) {
   .page-content {
-    max-width: 70vw;   
-    padding: 0 2rem;
+    max-width: 85vw;
   }
 }
+
 

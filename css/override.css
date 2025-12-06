@@ -167,7 +167,7 @@ mjx-container[display="true"] > mjx-math {
 @media (max-width: 900px) {
   table .MathJax,
   table .MathJax_Display,
-  table .mjx-container {
+  table mjx-container {
     font-size: 0.8em;
   }
 }

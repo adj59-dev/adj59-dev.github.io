@@ -3,6 +3,7 @@ title: "Reading Nielsen and Chuang: Chapter 6"
 description: "Notes and exercise solutions for QCQI Chapter 6: quantum search algorithms, quantum counting, speeding up the solution of NP-complete problems."
 categories:
   - Quantum Computation and Quantum Information
+permalink: /qcqi/chapter-6/
 tags:
   - QCQI
   - quantum computing

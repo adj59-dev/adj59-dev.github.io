@@ -129,24 +129,24 @@ mjx-container[display="true"] > mjx-math {
   height: auto;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
   mjx-container[display="true"] > svg,
   mjx-container[display="true"] > mjx-math {
     max-width: none;
   }
+}
 
-  mjx-container[display="true"] {
-    font-size: 85%;
+@media (orientation: portrait) {
+  .page-content {
+    max-width: 90vw;   
+    padding: 0 1rem;
   }
 }
 
-@media (max-width: 700px) {
-  mjx-container[display="true"] > svg,
-  mjx-container[display="true"] > mjx-math {
-    max-width: none;
-  }
-
-  mjx-container[display="true"] {
-    font-size: 75%;
+@media (orientation: landscape) {
+  .page-content {
+    max-width: 70vw;   
+    padding: 0 2rem;
   }
 }
+

@@ -116,18 +116,3 @@ table td {
   text-align: center;
   vertical-align: middle;
 }
-
-mjx-container[jax="CHTML"][display="true"] {
-  margin: 1.2rem auto !important;
-  line-height: 1.35;
-}
-
-mjx-container {
-  font-size: 112% !important;
-}
-
-mjx-container mjx-mtable {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-

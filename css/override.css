@@ -150,17 +150,11 @@ mjx-container[display="true"] > mjx-math {
   .page-content {
     max-width: 95vw;
   }
-  .wrapper{
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
   .page-content {
     max-width: 90vw;
-  }
-  .wrapper{
-    max-width: none;
   }
 }
 

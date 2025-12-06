@@ -86,6 +86,13 @@ img {
   }
 }
 
+@media (min-width: 1200px) {
+  .exercise-columns ul {
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+  }
+}
 
 @media (min-width: 900px) {
   .wrapper {

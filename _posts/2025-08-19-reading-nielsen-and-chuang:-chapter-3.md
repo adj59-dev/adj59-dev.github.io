@@ -13,7 +13,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-11-29 19:10:00 -08:00
+last_modified_at: 2025-12-05 19:10:00 -08:00
 exercises:
   - anchor: exercise-31
     label: Exercise 3.1

@@ -86,3 +86,10 @@ img {
   }
 }
 
+// Only widen layout on screens wider than 900px
+@media (min-width: 900px) {
+  .wrapper {
+    max-width: 1200px;   // or 1100–1300px
+  }
+}
+

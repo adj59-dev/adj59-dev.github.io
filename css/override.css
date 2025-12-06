@@ -134,21 +134,11 @@ mjx-container[display="true"] > mjx-math {
   mjx-container[display="true"] > mjx-math {
     max-width: 140%;     
   }
-
-  mjx-container[display="true"] {
-    overflow-x: auto;    
-    padding-bottom: 0.5em; 
-  }
 }
 
 @media (max-width: 700px) {
   mjx-container[display="true"] > svg,
   mjx-container[display="true"] > mjx-math {
     max-width: 175%;     
-  }
-
-  mjx-container[display="true"] {
-    overflow-x: auto;    
-    padding-bottom: 0.5em; 
   }
 }

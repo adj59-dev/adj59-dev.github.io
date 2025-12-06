@@ -136,7 +136,7 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .wrapper {
     width: 100%;
     max-width: 100%;
@@ -145,13 +145,13 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
   .page-content {
     max-width: 92vw;
   }
 }
 
-@media (max-width: 800px) and (orientation: landscape) {
+@media (max-width: 900px) and (orientation: landscape) {
   .page-content {
     max-width: 85vw;
   }

@@ -148,13 +148,14 @@ mjx-container[display="true"] > mjx-math {
 
 @media (max-width: 900px) and (orientation: portrait) {
   .page-content {
-    max-width: 92vw;
+    max-width: 95vw;
+    padding-right: 0.5rem;
   }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
   .page-content {
-    max-width: 85vw;
+    max-width: 90vw;
   }
 }
 

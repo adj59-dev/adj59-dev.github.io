@@ -35,11 +35,15 @@
   
   <script>
   MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  svg: {
-    fontCache: 'global'
+    tex: {
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      tags: 'none',
+      packages: {'[+]': ['ams']}
+    },
+    chtml: {
+      displayAlign: 'center',
+      displayIndent: '0'
   }
 };
 </script>

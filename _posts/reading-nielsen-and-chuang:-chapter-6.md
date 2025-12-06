@@ -784,12 +784,59 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
+| Any quantum search algorithm is $\Omega(\sqrt{N})$ | 6.6         | Proof for this lower bounds is shown in this section. | 
 
 
 
 
 ### Optimality of the search algorithm - Exercises
+
+#### Exercise 6.15 {#exercise-615}
+
+Use the Cauchy-Schwarz inequality to show that for any normalized state vector $\ket{\psi}$ and set of $N$ orthonormal basis vectors $\ket{x}$,
+
+$$\begin{aligned}
+\sum_{x} \Vert \psi-x\Vert^2 \geq 2N-2\sqrt{N}
+\end{aligned}$$
+
+<details style="margin-bottom: 20px;" markdown="1">
+<summary><strong>Click to view the solution</strong></summary>
+
+Note: the authors use the notation $\psi$ for $\ket{\psi}$ and $x$ for $\ket{x}$. 
+
+The Cauchy-Schwarz inequality can be written in many forms, but the one relevant to this exercise states that $\left(\sum_{i=1}^n u_iv_i\right)^2 \leq \left(\sum_{i=1}^n u_i^2 \right)\left(\sum_{i=1}^n v_i^2\right)$ and so using that,
+
+$$\begin{aligned}
+\sum_{x} \Vert \psi-x\Vert^2 &= \sum_{x} \braket{\psi-x \vert \psi-x}  \\
+&= \sum_{x} \braket{\psi\vert \psi} + \braket{x\vert x} - \braket{\psi \vert x} - \braket{x \vert \psi}  \\
+&= \sum_{x} 2 - \braket{\psi \vert x} - \braket{x \vert \psi}  \\
+&= \sum_{x} 2 - 2\text{Re}\left(\braket{\psi \vert x}\right) & \text{since $\braket{\psi \vert x}=\braket{x \vert \psi}^\ast$} \\
+&= 2N - 2\sum_{x} \text{Re}\left(\braket{\psi \vert x}\right) \\
+&\geq 2N - 2\sum_{x} \vert\braket{\psi \vert x}\vert \\
+&= 2N - 2\sqrt{\left(\sum_{x} \vert\braket{\psi \vert x}\vert \right)^2} \\
+&\geq 2N - 2\sqrt{\left(\sum_{x} \vert\braket{\psi \vert x}\vert^2 \right)\left(\sum_{x} 1^2\right)}  & \text{Cauchy-Schwarz}\\
+&= 2N - 2\sqrt{\left( 1 \right)\left(\sum_{x} 1 \right)}  & \text{Since $\psi$ is normalized and $\lbrace x\rbrace$ is an orthonormal basis}\\
+&= 2N - 2\sqrt{N}\\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
+
+
+#### Exercise 6.16 {#exercise-616}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

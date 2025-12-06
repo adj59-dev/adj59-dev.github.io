@@ -136,14 +136,14 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
-@media (orientation: portrait) {
+@media (max-width: 800px) and (orientation: portrait) {
   .page-content {
     max-width: 90vw;   
     padding: 0 1rem;
   }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 800px) and (orientation: landscape) {
   .page-content {
     max-width: 70vw;   
     padding: 0 2rem;

@@ -203,8 +203,13 @@ Below are my notes and solutions to the exercises.
 {% for h in headers %}
   {% if h contains "</h2>" or h contains "</h3>" %}
     {% assign level = h | slice: 0, 1 %}
-    {% assign text = h | split: ">" | last | split: "<" | first %}
-    {% assign id = text | downcase | replace: " ", "-" | replace: "'", "" | replace: ".", "" %}
+    {% assign text = h | split: ">" | last | split: "<" | first | strip | strip_newlines %}
+    {% assign id = text
+        | downcase
+        | strip
+        | strip_newlines
+        | replace: " ", "-"
+        | replace: ".", "" %}
     {% if level == "2" %}
 * [{{ text }}](#{{ id }})
     {% elsif level == "3" %}
@@ -212,6 +217,7 @@ Below are my notes and solutions to the exercises.
     {% endif %}
   {% endif %}
 {% endfor %}
+
 
 
 

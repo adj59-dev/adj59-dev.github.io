@@ -102,21 +102,7 @@ As with the earlier chapters, I’ve included my notes and exercise solutions be
 
 
 
-## Navigation
-
-{% assign headers = content | split: "<h" %}
-{% for h in headers %}
-  {% if h contains "</h2>" or h contains "</h3>" %}
-    {% assign level = h | slice: 0, 1 %}
-    {% assign text = h | split: ">" | last | split: "<" | first %}
-    {% assign id = text | downcase | replace: " ", "-" | replace: "'", "" | replace: ".", "" %}
-    {% if level == "2" %}
-* [{{ text }}](#{{ id }})
-    {% elsif level == "3" %}
-  * [{{ text }}](#{{ id }})
-    {% endif %}
-  {% endif %}
-{% endfor %}
+<!—toc—>
 
 
 

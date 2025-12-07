@@ -26,10 +26,60 @@ layout: default
     {% include sharelinks.html %}
   </div>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-    {% include navlinks.html %}
-  </div>
+<div class="post-content e-content" itemprop="articleBody">
+
+  {%- comment -%}
+  Split the rendered content at the <!--toc--> marker
+  parts[0]  = content before marker
+  parts[1+] = content after marker
+  {%- endcomment -%}
+  {% assign parts = content | split: '<!--toc-->' %}
+
+  {{ parts[0] }}
+
+  {% if page.toc and parts.size > 1 %}
+    <h2>Navigation</h2>
+    <ul class="post-toc">
+      {% assign headers = content | split: "<h" %}
+      {% for h in headers %}
+        {% if h contains "</h2>" or h contains "</h3>" %}
+          {% assign level = h | slice: 0, 1 %}
+
+          {%- comment -%} Get the heading text {%- endcomment -%}
+          {% assign inner = h | split: ">" | last %}
+          {% assign text = inner | split: "</h" | first | strip | strip_newlines %}
+
+          {%- comment -%} Use existing id="..." if present; otherwise slugify text {%- endcomment -%}
+          {% if h contains 'id="' %}
+            {% assign id_attr = h | split: 'id="' | last | split: '"' | first %}
+          {% else %}
+            {% assign id_attr = text
+                | downcase
+                | replace: " ", "-"
+                | replace: ".", ""
+                | replace: ",", "" %}
+          {% endif %}
+
+          {% if level == "2" %}
+            <li><a href="#{{ id_attr }}">{{ text }}</a></li>
+          {% elsif level == "3" %}
+            <li class="toc-sub"><a href="#{{ id_attr }}">{{ text }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {%- comment -%}
+  Print the rest of the content (everything after the marker)
+  {%- endcomment -%}
+  {% for part in parts offset:1 %}
+    {{ part }}
+  {% endfor %}
+
+  {% include navlinks.html %}
+</div>
+
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>

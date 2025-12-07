@@ -4,6 +4,7 @@ description: "Notes and exercise solutions for QCQI Chapter 2: linear algebra an
 categories:
   - Quantum Computation and Quantum Information
 permalink: /qcqi/chapter-2/
+toc: true
 tags:
   - QCQI
   - quantum computing

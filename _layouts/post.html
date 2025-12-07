@@ -27,64 +27,91 @@ layout: default
   </div>
 
   <div class="post-content e-content" itemprop="articleBody">
-
+  
     {%- comment -%}
-    Split the rendered content at the <!-- toc --> marker.
+    Split the rendered content at the <!-- toc --> marker
     parts[0]  = content before marker
     parts[1+] = content after marker
     {%- endcomment -%}
     {% assign parts = content | split: '<!-- toc -->' %}
-
+  
     {% if parts.size > 1 and page.toc %}
       {{ parts[0] }}
-
+  
       <h2>Navigation</h2>
       <ul class="post-toc">
-        {% assign headers = content | split: '<h' %}
+        {% assign headers = content | split: "<h" %}
+        {% assign current_level = "" %}
+  
         {% for h in headers %}
-          {% if h contains '</h2>' or h contains '</h3>' %}
+          {% if h contains "</h2>" or h contains "</h3>" %}
             {% assign level = h | slice: 0, 1 %}
-
-            {% assign heading_parts = h | split: '>' %}
-            {% assign inner = heading_parts[1] %}
-            {% assign text = inner | split: '</h' | first | strip | strip_newlines %}
-
-            {% if text != '' %}
-              {% if h contains 'id="' %}
-                {% assign id_attr = h | split: 'id="' | last | split: '"' | first %}
-              {% else %}
-                {% assign id_attr = text
+  
+            {%- comment -%} Get the heading text safely {%- endcomment -%}
+            {% assign header_bits = h | split: ">" %}
+            {% assign inner = header_bits[1] %}
+            {% assign text = inner | split: "</h" | first | strip | strip_newlines %}
+  
+            {%- comment -%} Use existing id="..." if present; otherwise slugify text {%- endcomment -%}
+            {% if h contains 'id="' %}
+              {% assign id_attr = h | split: 'id="' | last | split: '"' | first %}
+            {% else %}
+              {% assign id_attr = text
                   | downcase
-                  | replace: ' ', '-'
-                  | replace: '.', ''
-                  | replace: ',', ''
-                  | replace: ':', ''
-                  | replace: ';', ''
-                %}
+                  | replace: " ", "-"
+                  | replace: ".", ""
+                  | replace: ",", "" %}
+            {% endif %}
+  
+            {% if level == "2" %}
+              {%- comment -%} Close any previous group {%- endcomment -%}
+              {% if current_level == "3" %}
+                </ul></li>
+              {% elsif current_level == "2" %}
+                </li>
               {% endif %}
-
-              {% if level == '2' %}
-                <li class="toc-h2"><a href="#{{ id_attr }}">{{ text }}</a></li>
-              {% elsif level == '3' %}
-                <li class="toc-h3"><a href="#{{ id_attr }}">{{ text }}</a></li>
+  
+              <li class="post-toc-group">
+                <div class="toc-h2">
+                  <a href="#{{ id_attr }}">{{ text }}</a>
+                </div>
+  
+              {% assign current_level = "2" %}
+  
+            {% elsif level == "3" %}
+              {%- comment -%} Start sublist if needed {%- endcomment -%}
+              {% if current_level != "3" %}
+                <ul class="post-toc-sub">
               {% endif %}
+  
+              <li class="toc-h3">
+                <a href="#{{ id_attr }}">{{ text }}</a>
+              </li>
+  
+              {% assign current_level = "3" %}
             {% endif %}
           {% endif %}
         {% endfor %}
+  
+        {%- comment -%} Close any remaining open tags {%- endcomment -%}
+        {% if current_level == "3" %}
+          </ul></li>
+        {% elsif current_level == "2" %}
+          </li>
+        {% endif %}
       </ul>
-
-      {%- comment -%}
-      Print everything after the marker
-      {%- endcomment -%}
+  
+      {%- comment -%} Print everything after the marker {%- endcomment -%}
       {% for part in parts offset:1 %}
         {{ part }}
       {% endfor %}
     {% else %}
       {{ content }}
     {% endif %}
-
+  
     {% include navlinks.html %}
   </div>
+
 
 
 

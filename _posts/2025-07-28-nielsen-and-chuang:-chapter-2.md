@@ -197,29 +197,7 @@ The quantum mechanics portion was a good refresher, though some of the formalism
 Below are my notes and solutions to the exercises.
 
 
-## Navigation
-
-{% assign headers = content | split: "<h" %}
-{% for h in headers %}
-  {% if h contains "</h2>" or h contains "</h3>" %}
-    {% assign level = h | slice: 0, 1 %}
-    {% assign text = h | split: ">" | last | split: "<" | first | strip | strip_newlines %}
-    {% assign id = text
-        | downcase
-        | strip
-        | strip_newlines
-        | replace: " ", "-"
-        | replace: ".", "" %}
-    {% if level == "2" %}
-* [{{ text }}](#{{ id }})
-    {% elsif level == "3" %}
-  * [{{ text }}](#{{ id }})
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
-
-
+<!--toc-->
 
 
 ## Linear Algebra

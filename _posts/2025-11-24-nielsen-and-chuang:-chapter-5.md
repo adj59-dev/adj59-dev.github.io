@@ -102,7 +102,8 @@ As with the earlier chapters, I’ve included my notes and exercise solutions be
 
 
 
-<!—toc—>
+<!-- toc -->
+
 
 
 

@@ -3027,7 +3027,7 @@ c = \begin{bmatrix} d \\\ 0 \end{bmatrix}
 with $d$ as a $n \times n$ diagonal matrix with non-negative elements, $u$ is a unitary $m \times m$ matrix given by
 
 $$\begin{aligned}
-u = \begin{bmatrix} u' \\\ u'' \end{bmatrix}
+u = \begin{bmatrix} u' & u'' \end{bmatrix}
 \end{aligned}$$
 
  $u'$ is a $m \times n$ matrix, and $v$ is a unitary $n \times n$ matrix. Thus

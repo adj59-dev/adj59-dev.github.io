@@ -4,6 +4,7 @@ description: "Notes and exercise solutions for QCQI Chapter 4: quantum algorithm
 categories:
   - Quantum Computation and Quantum Information
 permalink: /qcqi/chapter-4/
+toc: true
 tags:
   - QCQI
   - quantum computing
@@ -13,7 +14,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-12-05 19:10:00 -08:00
+last_modified_at: 2025-12-07 12:00:00 -08:00
 exercises:
   - anchor: exercise-41
     label: Exercise 4.1
@@ -139,7 +140,8 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 As with the earlier chapters, I’ve included my notes and exercise solutions below. 
 
 
-<!—toc—>
+<!-- toc -->
+
 
 
 

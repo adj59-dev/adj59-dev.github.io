@@ -4,6 +4,7 @@ description: "Notes and exercise solutions for QCQI Chapter 2: linear algebra an
 categories:
   - Quantum Computation and Quantum Information
 permalink: /qcqi/chapter-2/
+toc: true
 tags:
   - QCQI
   - quantum computing
@@ -13,7 +14,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-12-05 19:10:00 -08:00
+last_modified_at: 2025-12-07 12:00:00 -08:00
 exercises:
   - anchor: exercise-21
     label: Exercise 2.1
@@ -197,7 +198,7 @@ The quantum mechanics portion was a good refresher, though some of the formalism
 Below are my notes and solutions to the exercises.
 
 
-<!--toc-->
+<!-- toc -->
 
 
 ## Linear Algebra

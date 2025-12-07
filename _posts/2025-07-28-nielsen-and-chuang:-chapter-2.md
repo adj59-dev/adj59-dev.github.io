@@ -2030,7 +2030,7 @@ Solving for $x_1$ and $x_2$ we find that the unit eigenvectors are given by $\ke
 
 For eigenvalue $\lambda_+ = \sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac{1}{\sqrt{4 + 2\sqrt{2}}}(1+\sqrt{2}, 1)$
 
-For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_+} = \frac{1}{\sqrt{4 - 2\sqrt{2}}}(1-\sqrt{2}, 1)$
+For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_-} = \frac{1}{\sqrt{4 - 2\sqrt{2}}}(1-\sqrt{2}, 1)$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

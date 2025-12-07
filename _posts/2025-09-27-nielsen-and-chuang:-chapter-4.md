@@ -136,7 +136,7 @@ chapter: 4
 
 I just finished reading Chapter 4 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. This is the first chapter in Part II, which focuses on quantum computation. Chapter 4 introduces quantum circuits as the fundamental model of quantum computation and shows that there exists a universal set of gates capable of approximating any quantum operation.
 
-As with the earlier chapters, I’ve included my notes and exercise solutions below. I took fewer notes this time, since many of the key ideas were best explored through the exercises and didn’t fit neatly into a table. The solutions are collapsed to save space and to avoid spoilers for anyone who wants to try them independently.
+As with the earlier chapters, I’ve included my notes and exercise solutions below. I took fewer notes this time, since many of the key ideas were best explored through the exercises and didn’t fit neatly into a table. 
 
 
 ## Navigation

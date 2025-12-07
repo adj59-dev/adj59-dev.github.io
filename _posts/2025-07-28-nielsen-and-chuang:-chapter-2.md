@@ -187,7 +187,6 @@ chapter: 2
 
 <a id="top"></a>
 
-# Nielsen and Chuang: Chapter 2
 
 I just finished reading Chapter 2 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. While the chapter serves as a brief introduction to quantum mechanics, much of it is devoted to linear algebra — with 50 out of 82 exercises focused on that topic. 
 

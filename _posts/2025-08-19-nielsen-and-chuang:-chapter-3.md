@@ -105,7 +105,7 @@ chapter: 3
 
 <a id="top"></a>
 
-# Nielsen and Chuang: Chapter 3
+
 
 I just finished reading Chapter 3 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 

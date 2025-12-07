@@ -217,11 +217,11 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 | Concept                              | Book Section              | Notes                                                                                                  |
 |--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
 | Qubit notation                       | Nomenclature and notation | $\ket{0} = (1,0)$, $\ket{1} = (0,1)$                                                                   |
-| Linear dependence/independence       | section 2.1.1             | A set of non-zero vectors are linearly dependent if there exist $a_1, \dots, a_n$ with $a_ \neq 0$ for at least one $i$ such that $a1 \ket{v_1} + \dots + a_n \ket{v_n} = 0$. The set is linearly independent if it is not linearly dependent. |
+| Linear dependence/independence       | section 2.1.1             | A set of non-zero vectors are linearly dependent if there exist $a_1, \dots, a_n$ with $a_i \neq 0$ for at least one $i$ such that $a1 \ket{v_1} + \dots + a_n \ket{v_n} = 0$. The set is linearly independent if it is not linearly dependent. |
 | Basis set of vectors                 | section 2.1.1             | A set of linearly independent vectors which span a vector space                                        |
-| Matrix representation of an operator | section 2.1.2             | $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_j}$                                                              |
+| Matrix representation of an operator | section 2.1.2             | $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_i}$                                                              |
 | Definition of a linear operator      | section 2.1.2             | $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$                                    |
-| Pauli matrices and identity operator | section 2.13              | $X = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \qquad Y = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix}$ <br> <br> $Z = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \qquad I = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$|
+| Pauli matrices and identity operator | section 2.1.3              | $X = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \qquad Y = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix}$ <br> <br> $Z = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \qquad I = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$|
 | Inner product                        | section 2.1.4             | Definition: $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$ <br> Representation in complex $n$-space: $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$ <br> Requirements: <br> - linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$ <br> - conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^\ast$ <br> - positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$ <br> Vector orthogonality: the inner product of two vectors is zero when they are orthogonal|
 | Normalization                        | section 2.1.4             | Vector norm: $\Vert \ket{v} \Vert = \sqrt{\braket{v \vert v}}$ <br> Unit vector: $\ket{v}/\Vert \ket{v} \Vert$ |
 | Outer product representation         | section 2.1.4             | $A = \sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$                                     |
@@ -234,16 +234,16 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 | Unitary operator                     | section 2.1.6             | Definition: $U^\dagger U = UU^\dagger = I$ <br> Outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ |
 | Positive operator                    | section 2.1.6             | Definition: for any vector $\ket{v}$, $(\ket{v}, A \ket{v})$ is a real, non-negative number <br> All positive operators are Hermitian |
 | Tensor product properties            | section 2.1.7             | For a scalar $z$ and elements $\ket{v}$ of $V$ and $\ket{w}$ of $W$: <br> $z(\ket{v} \otimes \ket{w}) = (z \ket{v} ) \otimes \ket{w} = \ket{v} \otimes (z \ket{w})$ <br> $(\ket{v_1} + \ket{v_2})\otimes\ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$ <br> $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$|
-| Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} + B \ket{w}$                        |
-| Inner product on $V \otimes W$       | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_w}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}{w_i \vert w_j'}$ | 
+| Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} \otimes B \ket{w}$                        |
+| Inner product on $V \otimes W$       | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_i}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}\braket{w_i \vert w_j'}$ | 
 | Kronecker product                    | section 2.1.7             |                                                                                                          |
 | Tensor power notation                | section 2.1.7             | $\ket{\psi}^{\otimes k}$ means $\ket{\psi}$ tensored with itself $k$ times <br> Example: $\ket{\psi}^{\otimes 3} = \ket{\psi} \otimes \ket{\psi} \otimes \ket{\psi}$ |
 | Operator functions                   | section 2.1.8             | For $A=\sum_{a} a \ket{a} \bra{a}$, $f(A) = \sum_{a} f(a) \ket{a} \bra{a}$                               |
 | Trace of a matrix                    | section 2.1.8             | Definition: $\text{tr}(A) = \sum_i A_{ii}$ <br> $\text{tr}(AB)=\text{tr}(BA)$ <br> $\text{tr}(A+B)=\text{tr}(A) + \text{tr}(B)$              |
-| Hilbert-Schmidt inner productor      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
+| Hilbert-Schmidt inner product      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
 | Commutator                           | section 2.1.9             | Definition: $\[A, B\]=AB-BA$                                                                             |
 | Anti-commutator                      | section 2.1.9             | Definition: $\lbrace A, B \rbrace = AB + BA$                                                                       |
-| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and postitive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ <br> If A is invertible, $U=AJ^{-1}$ |
+| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and positive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ <br> If A is invertible, $U=AJ^{-1}$ |
 
 
 ### Linear Algebra - Exercises
@@ -352,7 +352,7 @@ In section 2.1.4 the authors introduce the concept of an inner product and list 
 (1) $(\cdot , \cdot)$ is linear in the second argument,
 
 $$\begin{aligned}
-\left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & = \sum_{j} \lambda_j (\ket{y}, \ket{z_j}) & \text{linear in the second argument definition} \\
+\left(\ket{y}, \sum_{j}\lambda_j\ket{z_j}\right) & = \sum_{j} \lambda_j (\ket{y}, \ket{z_j}) & \text{this is the identity we want to prove} \\
 & = \sum_{j} \lambda_j \sum_{i} y^\ast_i z_{j} & \text{inner product definition} \\
 & = \sum_{j} \sum_{i} y^\ast_i \lambda_j z_{j} & \text{scalar multiplication distributivity} \\
 & = \sum_{i} \sum_{j} y^\ast_i \lambda_j z_{j} & \text{summation operator commutativity} \\
@@ -363,7 +363,7 @@ $$\begin{aligned}
 (2) Conjugate symmetry,
 
 $$\begin{aligned} 
-(\ket{y}, \ket{z}) & = (\ket{z}, \ket{y})^\ast & \text{conjugate symmetry definition}\\
+(\ket{y}, \ket{z}) & = (\ket{z}, \ket{y})^\ast & \text{this is the identity we want to prove}\\
 &=\left(\sum_{i} z^\ast_iy_i \right)^\ast & \text{inner product definition}\\
 &=\sum_{i} (z^\ast_i)^\ast  y_i^\ast & \text{complex conjugate distributivity}\\
 &=\sum_{i} z_i  y_i^\ast & \text{$(a^\ast)^\ast = a$}\\
@@ -374,7 +374,7 @@ $$\begin{aligned}
 (3) Positive semi-definiteness, $(\ket{y}, \ket{y}) \geq 0$ with equality if and only if $\ket{y}=0$. 
 
 $$\begin{aligned}
-(\ket{y}, \ket{y}) & = \sum_{i} y^\ast_i y_i & \text{inner product definition}\\
+(\ket{y}, \ket{y}) & = \sum_{i} y^\ast_i y_i & \text{this is the identity we want to prove}\\
 & = \sum_{i} \left\vert y_i\right \vert^2 & \text{modulus definition}\\
 & \geq 0 \text{ and only $=0$ when $\ket{y}$=0}
 \end{aligned}$$
@@ -393,7 +393,7 @@ For this exercise you will demonstrate that the inner product is conjugate-linea
 <summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
-\left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^\ast_i (\ket{w_i}, \ket{v}) & \text{conjugate linear in the first argument definition} \\
+\left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & = \sum_{i} \lambda^\ast_i (\ket{w_i}, \ket{v}) & \text{this is the identity we want to prove} \\
 & = \sum_{i} \lambda^\ast_i (\ket{v}, \ket{w_i}) ^\ast & \text{conjugate symmetry}\\ 
 & = \left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right)^\ast  & \text{linear in the second argument}\\
 &= \left(\sum_{i} \lambda_i \ket{w_i}, \ket{v}\right) & \text{conjugate symmetry }
@@ -477,7 +477,7 @@ $$\begin{aligned}
 
 So now we know that that $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le 4$. This same calculation can be applied to $\braket{v_j \vert w_5}$ for $j<5$, then $\braket{v_j \vert w_6}$ for $j<6$, and so on up to $\braket{v_j \vert w_d}$ for $j<d$. We then get that that $\braket{v_j \vert v_i}=0$ when $i \neq j$ for $j,i \le d$, demonstrating that the vectors are orthogonal. 
 
-The final thing that we need to do is show that this orthonormal set of vectors is a basis for $V$. In order for a set of vectors to be a basis set it needs to be linearly independent and span the vector space $V$. Orthogonality of a set of nonzero vectors intrinsically implies their linear independence, so since this set of vectors is orthogonal we know that it is linearity independent. However, if desired, we can demonstrate this by assuming that the vector set is linearly dependent which would mean that there exists a set of complex numbers $a_1, \dots, a_d$ with $a_i \neq 0$ for at least one value of i, such that $a_1 \ket{v_1} + a_2 \ket{v_2} + \dots + a_d \ket{v_d} = 0$. In other words, we would be able to represent at least one of the vectors in the set, let's call it $\ket{v_j}$, as a linear combination of the other vectors in the set, 
+The final thing that we need to do is show that this orthonormal set of vectors is a basis for $V$. In order for a set of vectors to be a basis set it needs to be linearly independent and span the vector space $V$. Orthogonality of a set of nonzero vectors intrinsically implies their linear independence, so since this set of vectors is orthogonal we know that it is linearly independent. However, if desired, we can demonstrate this by assuming that the vector set is linearly dependent which would mean that there exists a set of complex numbers $a_1, \dots, a_d$ with $a_i \neq 0$ for at least one value of i, such that $a_1 \ket{v_1} + a_2 \ket{v_2} + \dots + a_d \ket{v_d} = 0$. In other words, we would be able to represent at least one of the vectors in the set, let's call it $\ket{v_j}$, as a linear combination of the other vectors in the set, 
 
 $$\begin{aligned}
 \ket{v_j} = \sum_{i=1}^{j-1} a_i \ket{v_i} + \sum_{i=j+1}^{d} a_i \ket{v_i}
@@ -491,7 +491,7 @@ $$\begin{aligned}
 
 Which simplifies to $1 = 0$ because $\braket{v_j \vert v_i} = 0$ for $j \neq i$ due to its orthogonality. Since this is not true, the set cannot be linearly dependent. 
 
-We know that this set of vectors spans $V$ because it has the same number of elements as the original basis set $\ket{w_1}, \dots, \ket{w_d}$ and any two sets of linearly independent vectors which span a vector space contain the same number of elements, as stated in section 2.1.1. Therefore $\ket{v_1}, \dots, \ket{v_d}$ as generated by the Gram-Schmidt procedure is a orthonormal basis for $V$. 
+We know that this set of vectors spans $V$ because it has the same number of elements as the original basis set $\ket{w_1}, \dots, \ket{w_d}$ and any two sets of linearly independent vectors which span a vector space contain the same number of elements, as stated in section 2.1.1. Therefore $\ket{v_1}, \dots, \ket{v_d}$ as generated by the Gram-Schmidt procedure is an orthonormal basis for $V$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -533,7 +533,7 @@ Y &= \braket{0 \vert Y \vert 0} \ket{0} \bra{0} + \braket{0 \vert Y \vert 1} \ke
 For $Z$ we get
 
 $$\begin{aligned}
-X &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ket{0} \bra{1} + \braket{1 \vert Z \vert 0} \ket{1} \bra{0} + \braket{1 \vert Z \vert 1} \ket{1} \bra{1} \\
+Z &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ket{0} \bra{1} + \braket{1 \vert Z \vert 0} \ket{1} \bra{0} + \braket{1 \vert Z \vert 1} \ket{1} \bra{1} \\
 &= \braket{0 \vert 0} \ket{0} \bra{0} - \braket{0 \vert 1} \ket{0} \bra{1} + \braket{1 \vert 0} \ket{1} \bra{0} - \braket{1 \vert 1} \ket{1} \bra{1} \\
 &=  \ket{0} \bra{0} - \ket{1} \bra{1} 
 \end{aligned}$$

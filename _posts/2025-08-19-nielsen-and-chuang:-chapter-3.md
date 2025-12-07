@@ -174,7 +174,7 @@ I found reading Minsky section 7.2 to be helpful in understanding what this ques
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-Let's say we have a program described by a finite list of program lines of the form $\braket{q, x, q', x', s}$ with a library consiting of $0, 1, b, \triangleright$, $-1$ for tape-head movement, internal states $q_1, \cdots, q_m$, the starting state $q_s$, and the halting state $q_h$, we can represent each symbol in the library and the different states as a non-negative integer as shown below
+Let's say we have a program described by a finite list of program lines of the form $\braket{q, x, q', x', s}$ with a library consisting of $0, 1, b, \triangleright$, $-1$ for tape-head movement, internal states $q_1, \cdots, q_m$, the starting state $q_s$, and the halting state $q_h$, we can represent each symbol in the library and the different states as a non-negative integer as shown below
 
 
 | Symbol           | Integer |
@@ -212,12 +212,12 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 
 #### Exercise 3.3 {#exercise-33}
 
-Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape turing machine to create this solution, as recommended in the hint. 
+Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape Turing machine to create this solution, as recommended in the hint. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other is all blank. The program is setup to read the binary input from the first tape and print the bits in reverse order on the second. 
+We will setup the machine with two tapes, one that has the input binary number followed by blank squares and the other starts all blank. The program is set up to read the binary input from the first tape and print the bits in reverse order on the second. 
 
 The program is given as follows <br>
 
@@ -343,7 +343,7 @@ For this exercise we are asked to describe a Turing machine which adds two binar
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-We will use two tapes for this machine. The first will contain the binary values and the second will start out blank. The program will first transfer the values for the first number to the second tape, then do a bit-wise XOR on the last digit of the two numbers, replacing the last value on the second tape with the results, then it will zero out the rest of the values on the second tape, so that the value on the second tape is the answer. 
+We will use two tapes for this machine. The first will contain the binary values and the second will start out blank. The program will first transfer the values for the first number to the second tape, then do a bit-wise XOR on the last digit of the two numbers, replacing the last value on the second tape with the result, then it will zero out the rest of the values on the second tape, so that the value on the second tape is the answer. 
 
 The program is given as follows
 
@@ -475,7 +475,7 @@ From Box 3.2, we know that there is no algorithm that can be used to determine i
 
 #### Exercise 3.6 {#exercise-36}
 
-In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. On page 127, the autors talk about creating a probabilistic Turing machine by adding a random component to the change in internal states with the execution of each program line. I am not confident in my solution to this exercise, as I don't have much experience with this area of theoretical computer science, but I'll put what I have below. Let me know if you have a better solution. 
+In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. On page 127, the authors talk about creating a probabilistic Turing machine by adding a random component to the change in internal states with the execution of each program line. I am not confident in my solution to this exercise, as I don't have much experience with this area of theoretical computer science, but I'll put what I have below. Let me know if you have a better solution. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -511,7 +511,7 @@ else
 end if
 ```
 
-Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and a probability of $1-P_h$ of it looping forever. This contradicts our expectations of it halting with probability $P_h$. If $P_h$ was not strictly greater than $1/2$, but instead allowed to be equal to $1/2$ then we could have the situation where $P_h = 1-P_h$, and there would be no contradiction, but we're wanting to find a case where the probability of correctness is strictly greater than $1/2$. Putting this in terms of our halting function, we find that $h_p = 0$, but we know that $h_p = 1$. Therefore, there is a contradiction and so there is no probabilistic Turing machine which can output $h_p(x)$ with probability of correctness strictly greater than $1/2$ for all $x$. 
+Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and a probability of $1-P_h$ of it looping forever. This contradicts our expectations of it halting with probability $P_h$. If $P_h$ was not strictly greater than $1/2$, but instead allowed to be equal to $1/2$ then we could have the situation where $P_h = 1-P_h$, and there would be no contradiction, but we want to find a case where the probability of correctness is strictly greater than $1/2$. Putting this in terms of our halting function, we find that $h_p = 0$, but we know that $h_p = 1$. Therefore, there is a contradiction and so there is no probabilistic Turing machine which can output $h_p(x)$ with probability of correctness strictly greater than $1/2$ for all $x$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -534,7 +534,7 @@ An oracle machine with access to a halting problem oracle for standard Turing ma
 
 #### Exercise 3.8 {#exercise-38}
 
-For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to teh NAND gates. 
+For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to the NAND gates. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -738,7 +738,7 @@ Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for 
 
 #### Exercise 3.15 {#exercise-315}
 
-In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $O(n \log n)$. You will need to use Stirling's approximation to do this. 
+In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $\Omega(n \log n)$. You will need to use Stirling's approximation to do this. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -768,7 +768,7 @@ $$\begin{aligned}
  n\log(n) - n\log(e) + O(\log (n)) \geq c n\log(n) \\
 \end{aligned}$$ 
 
-For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ term and so if $c<1$ the above inequalitiy will be true for $n > n_0$ for some value of $n_0$. Therefore $\Omega (n\log(n))$ compare-and-swap operations are required to sort all possible initial orderings into the correct order.
+For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ term and so if $c<1$ the above inequality will be true for $n > n_0$ for some value of $n_0$. Therefore $\Omega (n\log(n))$ compare-and-swap operations are required to sort all possible initial orderings into the correct order.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -798,7 +798,7 @@ We know a Boolean function takes $n$ input bits and outputs a single bit, $f: \l
 |**1**|**1**| 0   | 0   | 0   | 0   | 1   | 0   | 0   | 1   | 0   | 1      | 1      | 0      | 1      | 1      | 1      | 1      |
 
 
-Let's say that we have a collection of circuits, each created with $m$ logic gates. We'd like to know what the maximum number of distinct circuits we can create with the $n$ inputs and $m \geq n-1$ logic gates with two-inputs (you need at least $n-1$ two-input gates to take $n$ inputs and reduce it to one output). For each of the gates there are $16$ possible logic functions, as we showed in the table above. Each of the two gate inputs can come from either the inputs $n$ or the output from one of the other $m-1$ gates, resulting in $(n + m - 1)^2$ possible combination of inputs, and so there are $16(n+m-1)^2$ ways to create each gate, except for the output gate which is specifically defined. This results in $m(16(n+m-1)^2)^{m-1}$ possible circuit configurations. However, this calculation is overcounting due to their being multiple permutations of the gates. This estimation can be tightened by dividing by $m!$ which gives us $\frac{m\left( 16(n+m-1)^2 \right)^{m-1}}{m!}$ possible circuit configurations. 
+Let's say that we have a collection of circuits, each created with $m$ logic gates. We'd like to know what the maximum number of distinct circuits we can create with the $n$ inputs and $m \geq n-1$ logic gates with two inputs (you need at least $n-1$ two-input gates to take $n$ inputs and reduce it to one output). For each of the gates there are $16$ possible logic functions, as we showed in the table above. Each of the two gate inputs can come from either the inputs $n$ or the output from one of the other $m-1$ gates, resulting in $(n + m - 1)^2$ possible combinations of inputs, and so there are $16(n+m-1)^2$ ways to create each gate, except for the output gate which is specifically defined. This results in $m(16(n+m-1)^2)^{m-1}$ possible circuit configurations. However, this calculation is overcounting due to there being multiple permutations of the gates. This estimate can be tightened by dividing by $m!$ which gives us $\frac{m\left( 16(n+m-1)^2 \right)^{m-1}}{m!}$ possible circuit configurations. 
 
 Now we have an equation that bounds the number of circuits configurations that one can create with $m$ gates and $n$ inputs. We also know the number of Boolean functions possible with $n$ inputs. So now what we want to find is the minimum number of gates needed to create a circuit for each possible Boolean function, i.e. we need to find an $m$ such that the number of possible circuit configurations is greater than or equal to the number of Boolean functions we can create with $n$ inputs. 
 

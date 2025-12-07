@@ -40,26 +40,16 @@ layout: default
 
       <h2>Navigation</h2>
       <ul class="post-toc">
-        {%- comment -%}
-        Look through the rendered HTML for <h2> and <h3> headings
-        {%- endcomment -%}
         {% assign headers = content | split: '<h' %}
         {% for h in headers %}
           {% if h contains '</h2>' or h contains '</h3>' %}
             {% assign level = h | slice: 0, 1 %}
 
-            {%- comment -%}
-            Get the heading text: text between the opening tag and </h…>
-            Example chunk: '2 id="x">Heading text</h2>…'
-            {%- endcomment -%}
             {% assign heading_parts = h | split: '>' %}
             {% assign inner = heading_parts[1] %}
             {% assign text = inner | split: '</h' | first | strip | strip_newlines %}
 
             {% if text != '' %}
-              {%- comment -%}
-              Use existing id="..." if present; otherwise slugify the text
-              {%- endcomment -%}
               {% if h contains 'id="' %}
                 {% assign id_attr = h | split: 'id="' | last | split: '"' | first %}
               {% else %}
@@ -74,9 +64,9 @@ layout: default
               {% endif %}
 
               {% if level == '2' %}
-                <li><a href="#{{ id_attr }}">{{ text }}</a></li>
+                <li class="toc-h2"><a href="#{{ id_attr }}">{{ text }}</a></li>
               {% elsif level == '3' %}
-                <li class="toc-sub"><a href="#{{ id_attr }}">{{ text }}</a></li>
+                <li class="toc-h3"><a href="#{{ id_attr }}">{{ text }}</a></li>
               {% endif %}
             {% endif %}
           {% endif %}

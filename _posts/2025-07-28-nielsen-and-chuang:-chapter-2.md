@@ -1087,7 +1087,7 @@ By comparing (b) and (c) we can see that the tensor product is not commutative.
 
 #### Exercise 2.28 {#exercise-228}
 
-For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
+For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different ways you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -1096,7 +1096,7 @@ Complex Conjugation
 
 $$\begin{aligned}
 \left( A \otimes B\right)^\ast &= \left( \begin{bmatrix} A_{11}B & A_{12}B & \dots & A_{1n}B \\\ A_{21}B & A_{22}B & \dots & A_{2n}B \\\ \vdots & \vdots & \vdots & \vdots \\ A_{m1}B & A_{m2}B & \dots & A_{mn}B   \end{bmatrix} \right)^\ast \\
-&= \begin{bmatrix} A_{11}^\ast B^\ast & A_{12}^\ast B^\ast & \dots & A_{1n}^\ast B^\ast \\\ A_{21}^\ast B^\ast & A_{22}^\ast B^\ast & \dots & A_{2n}^\ast B^\ast \\\ \vdots & \vdots & \vdots & \vdots \\\ A_{m1}^\ast B^\ast & A_{m2}^\ast B^\ast & \dots & A_{mn}^\ast B^\ast   \end{bmatrix} \\
+&= \begin{bmatrix} A_{11}^\ast B^\ast & A_{12}^\ast B^\ast & \dots & A_{1n}^\ast B^\ast \\\ A_{21}^\ast B^\ast & A_{22}^\ast B^\ast & \dots & A_{2n}^\ast B^\ast \\\ \vdots & \vdots & \vdots & \vdots \\\ A_{m1} B^\ast & A_{m2}^\ast B^\ast & \dots & A_{mn}^\ast B^\ast   \end{bmatrix} \\
 &= A^\ast \otimes B^\ast
 \end{aligned}$$
 
@@ -1209,7 +1209,7 @@ Therefore the tensor product of two projectors is a projector.
 
 #### Exercise 2.33 {#exercise-233}
 
-For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is now well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamar transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
+For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is not well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamard transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -1535,7 +1535,7 @@ L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
 
 #### Exercise 2.40 {#exercise-240}
 
-In section 2.19 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
+In section 2.1.9 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>

@@ -120,7 +120,8 @@ I appreciated that the authors explained why these topics matter for quantum com
 As with Chapter 2, I’ve included my notes and exercise solutions below. 
 
 
-<!—toc—>
+<!-- toc -->
+
 
 
 

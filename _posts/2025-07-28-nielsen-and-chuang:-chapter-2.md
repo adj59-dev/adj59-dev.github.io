@@ -2366,7 +2366,7 @@ We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ 
 
 #### Exercise 2.63 {#exercise-263}
 
-In this exercise we are to show that there exists unitar operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
+In this exercise we are to show that there exists unitary operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -2460,7 +2460,7 @@ $$\begin{aligned}
 
 #### Exercise 2.67 {#exercise-267}
 
-$U$ is linear operator that preserves the inner product in $W$, which is a subspace fo $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
+$U$ is linear operator that preserves the inner product in $W$, which is a subspace of $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -2480,7 +2480,7 @@ U'^\dagger U' &= \left( \sum_{i=1}^k \lambda_i \ket{i}\bra{i} + \sum_{j=k+1}^d \
 
 Therefore $U'$ is unitary if $\vert \lambda_j \vert^2 = 1$ for all $j$.
 
-Now let's look at $U'\ket{w}$. We know that since $\ket{w}$ is in $W$ it can be written as a combination of the orthonormal basis vectors for $W$, i.e. $\ket{w} = \sum_{i=1}^k a_i \ket{i}$ for a set of complex values $a_i$. Combinding this with our equation for $U'$ we get
+Now let's look at $U'\ket{w}$. We know that since $\ket{w}$ is in $W$ it can be written as a combination of the orthonormal basis vectors for $W$, i.e. $\ket{w} = \sum_{i=1}^k a_i \ket{i}$ for a set of complex values $a_i$. Combining this with our equation for $U'$ we get
 
 $$\begin{aligned}
 U'\ket{w} &= \left(U + \sum_{j=k+1}^d \lambda_j \ket{j}\bra{j}\right) \ket{w} \\
@@ -2690,7 +2690,7 @@ $$\begin{aligned}
 
 Therefore $\braket{\psi \vert E \otimes I \vert \psi}$ is the same for all four Bell states.
 
-If Alice's qubit was intercepted on its way to Bob, the person who intercepted it would not be able to infer anything from it since, as was just demonstrated, both qubits need to be measured inorder to distinguish between the different states. 
+If Alice's qubit was intercepted on its way to Bob, the person who intercepted it would not be able to infer anything from it since, as was just demonstrated, both qubits need to be measured in order to distinguish between the different states. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -2747,7 +2747,7 @@ For this exercise we are asked to derive some of the properties of the Bloch sph
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-(1) In exercise 2.60 we showned that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2 = \ket{\lambda_{\pm}}\bra{\lambda_{\pm}}$. If $p_+$ is the probability of being in state $\lambda_+$ and $p_-$ is the probability of being in state $\lambda_-$ and $p_- + p_+ = 1$ then the density matrix is given by
+(1) In exercise 2.60 we showed that $\vec{v} \cdot \vec{\sigma}$ has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2 = \ket{\lambda_{\pm}}\bra{\lambda_{\pm}}$. If $p_+$ is the probability of being in state $\lambda_+$ and $p_-$ is the probability of being in state $\lambda_-$ and $p_- + p_+ = 1$ then the density matrix is given by
 
 $$\begin{aligned}
 \rho &= p_+ \ket{\lambda_{+}}\bra{\lambda_{+}} + p_- \ket{\lambda_{-}}\bra{\lambda_{-}} \\
@@ -2770,10 +2770,10 @@ $$\begin{aligned}
 &= \left(\cos\frac{\theta}{2}\ket{0} + e^{i\phi} \sin\frac{\theta}{2}\ket{1} \right)\left(\cos\frac{\theta}{2}\bra{0} + e^{-i\phi} \sin\frac{\theta}{2}\bra{1} \right) \\
 &= \cos^2\frac{\theta}{2}\ket{0}\bra{0} + e^{-i\phi}\cos\frac{\theta}{2}\sin\frac{\theta}{2}\ket{0}\bra{1} + e^{i\phi} \sin\frac{\theta}{2}\cos\frac{\theta}{2}\ket{1}\bra{0} + \sin^2\frac{\theta}{2}\ket{1}\bra{1} \\
 &= \frac{1 + \cos\theta }{2}\ket{0}\bra{0} + \frac{e^{-i\phi}\sin\theta}{2}\ket{0}\bra{1} + \frac{e^{i\phi}\sin\theta}{2}\ket{1}\bra{0} + \frac{1 - \cos\theta }{2}\ket{1}\bra{1} \\
-&= \left(\ket{0}\bra{0} + \ket{1}\bra{1} \right) + \left(\frac{\cos\theta }{2}\ket{0}\bra{0} - \frac{\cos\theta }{2}\ket{1}\bra{1} \right) + \left( \frac{e^{-i\phi}\sin\theta}{2}\ket{0}\bra{1} + \frac{e^{i\phi}\sin\theta}{2}\ket{1}\bra{0} \right) \\
-&= \frac{I + \cos\theta Z + \left(\cos(-i\phi) + i\sin(-i\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(i\phi) + i\sin(i\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
-&= \frac{I + \cos\theta Z + \left(\cos(i\phi) - i\sin(i\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(i\phi) + i\sin(i\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
-&= \frac{I + \cos\theta Z + \cos(i\phi)\sin\theta X +  \sin(i\phi)\sin\theta Y}{2} \\
+&= \frac{1}{2}\left(\ket{0}\bra{0} + \ket{1}\bra{1} \right) + \left(\frac{\cos\theta }{2}\ket{0}\bra{0} - \frac{\cos\theta }{2}\ket{1}\bra{1} \right) + \left( \frac{e^{-i\phi}\sin\theta}{2}\ket{0}\bra{1} + \frac{e^{i\phi}\sin\theta}{2}\ket{1}\bra{0} \right) \\
+&= \frac{I + \cos\theta Z + \left(\cos(-\phi) + i\sin(-\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(\phi) + i\sin(\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
+&= \frac{I + \cos\theta Z + \left(\cos(\phi) - i\sin(\phi) \right)\sin\theta\ket{0}\bra{1} + \left(\cos(\phi) + i\sin(\phi) \right) \sin\theta\ket{1}\bra{0} }{2} \\
+&= \frac{I + \cos\theta Z + \cos(\phi)\sin\theta X +  \sin(\phi)\sin\theta Y}{2} \\
 &= \frac{I + \vec{v} \cdot \vec{\sigma}}{2}
 \end{aligned}$$
 
@@ -2813,10 +2813,10 @@ $$\begin{aligned}
 0 &= \sum_{k} a_{ik}a_{jk}^\ast \frac{\sqrt{p_i p_j}}{q_k} & \text{for $j \neq i$}
 \end{aligned}$$
 
-Solving the first condition for $p_i$ we get
+Solving the first condition for $p_i^{-1}$ we get
 
 $$\begin{aligned}
-p_i &= \sum_{k}\frac{q_k}{\vert a_{ik} \vert^2}
+p_i^{-1} &= \sum_{k}\frac{q_k}{\vert a_{ik} \vert^2}
 \end{aligned}$$
 
 We know that the inverse of $\rho$ is given by $\rho^{-1} = \sum_j \frac{1}{q_j} \ket{\phi_j} \bra{\phi_j}$. Therefore
@@ -2833,7 +2833,7 @@ $$\begin{aligned}
 p_i = \frac{1}{\braket{\psi_i \vert \rho_{-1} \vert \psi_i }}
 \end{aligned}$$
 
-If you take the inner product of $\ket{\psi}$ with other memebers of the ensemble, it should equal $0$ as long as the ensemble that you constructed $\lbrace p_i \vert \ket{\psi_i} \rbrace$ is orthogonal (which it should be since it is a minimal ensemble), therefore
+If you take the inner product of $\ket{\psi}$ with other members of the ensemble, it should equal $0$ as long as the ensemble that you constructed $\lbrace p_i \vert \ket{\psi_i} \rbrace$ is orthogonal (which it should be since it is a minimal ensemble), therefore
 
 $$\begin{aligned}
 0 &= \braket{\tilde{\psi_j} \vert \tilde{\psi_i}} & \text{when $i \neq j$}\\
@@ -2852,7 +2852,7 @@ Going back to the second condition, we can see that this is met. Therefore $u_{i
 
 #### Exercise 2.74 {#exercise-274}
 
-Suppose a composite state os systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
+Suppose a composite state of systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -2873,15 +2873,7 @@ $$\begin{aligned}
 &= \ket{a}\bra{a}
 \end{aligned}$$
 
-We can just look at $\rho^A$ and see that it describes a pure state, but if we wanted to confirm this we could take the trace and see if it is equal to 1
-
-$$\begin{aligned}
-\text{tr}(\rho^A) &=  \text{tr}(\ket{a}\bra{a})\\
-&= \braket{a \vert a} \\
-&= 1
-\end{aligned}$$
-
-Therefore the reduced density operator of system $A$ is a pure state.
+This describes a pure state.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -2894,7 +2886,7 @@ In this exercise we find the reduced density operator for each qubit for each of
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-First let's look at the Bell state $\frac{\ket{00} + \ket{11}}{2}$. The authors already found $\rho^1$, so let's find $\rho^2$ using the same methodology.
+First let's look at the Bell state $\frac{\ket{00} + \ket{11}}{\sqrt{2}}$. The authors already found $\rho^1$, so let's find $\rho^2$ using the same methodology.
 
 $$\begin{aligned}
 \rho^2 &= \text{tr}_1(\rho) \\
@@ -2904,7 +2896,7 @@ $$\begin{aligned}
 &= \frac{I}{2}
 \end{aligned}$$
 
-Now let's look at the Bell state $\frac{\ket{00} - \ket{11}}{2}$
+Now let's look at the Bell state $\frac{\ket{00} - \ket{11}}{\sqrt{2}}$
 
 The density operator is given by 
 
@@ -2932,7 +2924,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-Then let's look at the Bell state $\frac{\ket{01} + \ket{10}}{2}$
+Then let's look at the Bell state $\frac{\ket{01} + \ket{10}}{\sqrt{2}}$
 
 The density operator is given by 
 
@@ -2959,7 +2951,7 @@ $$\begin{aligned}
 &= \frac{I}{2}
 \end{aligned}$$
 
-Finally let's look at the Bell state $\frac{\ket{01} - \ket{10}}{2}$
+Finally let's look at the Bell state $\frac{\ket{01} - \ket{10}}{\sqrt{2}}$
 
 The density operator is given by 
 

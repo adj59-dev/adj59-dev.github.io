@@ -210,45 +210,8 @@ Below are my notes and solutions to the exercises. The solutions are collapsed t
 
 
 ## Linear Algebra
-
-### Linear Algebra - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Qubit notation                       | Nomenclature and notation | $\ket{0} = (1,0)$, $\ket{1} = (0,1)$                                                                   |
-| Linear dependence/independence       | section 2.1.1             | A set of non-zero vectors are linearly dependent if there exist $a_1, \dots, a_n$ with $a_i \neq 0$ for at least one $i$ such that $a1 \ket{v_1} + \dots + a_n \ket{v_n} = 0$. The set is linearly independent if it is not linearly dependent. |
-| Basis set of vectors                 | section 2.1.1             | A set of linearly independent vectors which span a vector space                                        |
-| Matrix representation of an operator | section 2.1.2             | $A \ket{v_j} = \sum_{i} A_{ij} \ket{w_i}$                                                              |
-| Definition of a linear operator      | section 2.1.2             | $A \left(\sum_{i} a_i \ket{v_i} \right) = \sum_{i} a_i A \ket{v_i}$                                    |
-| Pauli matrices and identity operator | section 2.1.3              | $X = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \qquad Y = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix}$ <br> <br> $Z = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \qquad I = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$|
-| Inner product                        | section 2.1.4             | Definition: $\braket{v \vert w} = \left( \ket{v}, \ket{w} \right)$ <br> Representation in complex $n$-space: $\mathbb{C}^n$, $\braket{v \vert w} = \sum_i^n v_i^\ast w_i$ <br> Requirements: <br> - linear in the second argument: $\left(\ket{v}, \sum_{i} \lambda_i \ket{w_i}\right) = \sum_{i} \lambda_i (\ket{v}, \ket{w_i})$ <br> - conjugate symmetry: $\left(\ket{v}, \ket{w}\right) = \left(\ket{w}, \ket{v}\right)^\ast$ <br> - positive semi-definiteness: $\left(\ket{v}, \ket{v}\right) \geq 0$ with equality if and only if $\ket{v} = 0$ <br> Vector orthogonality: the inner product of two vectors is zero when they are orthogonal|
-| Normalization                        | section 2.1.4             | Vector norm: $\Vert \ket{v} \Vert = \sqrt{\braket{v \vert v}}$ <br> Unit vector: $\ket{v}/\Vert \ket{v} \Vert$ |
-| Outer product representation         | section 2.1.4             | $A = \sum_{ij} \braket{w_j \vert A \vert v_i} \ket{w_j} \bra{v_i}$                                     |
-| Characteristic function              | section 2.1.5             | Definition: $c(\lambda)= \text{det} \vert A - \lambda I \vert$ <br> Solutions to $c(\lambda)=0$ are the eigenvalues |
-| Diagonal representation              | section 2.1.5             | $A = \sum_{i} \lambda_i \ket{i} \bra{i}$, where $\ket{i}$ form an orthonormal set of eigenvectors for $A$ with eigenvalues $\lambda_i$ | 
-| Hermitian operator                   | section 2.1.5             | Definition: $H^\dagger = H$                                                                            |
-| Adjoint or Hermitian Conjugate       | section 2.1.6             | Definition: $\left(\ket{v}, A \ket{w} \right) = \left(A^\dagger \ket{v}, \ket{w} \right)$ <br> $A^\dagger = (A^\ast)^T$ |
-| Projector                            | section 2.1.6             | Definition: $P = \sum_{i=1}^{k} \ket{i}\bra{i}$ <br> Orthogonal complement of P: $Q=I-P$               |
-| Normal operator                      | section 2.1.6             | Definition: $A$ is normal if $A^\dagger A = A A^\dagger$ <br> Spectral decomposition: normal matrices can be written as $A = \sum_{i} \lambda_i \ket{i}\bra{i}$, where $\lambda_i$ are the eigenvalues and $\ket{i}$ is a orthonormal basis. |
-| Unitary operator                     | section 2.1.6             | Definition: $U^\dagger U = UU^\dagger = I$ <br> Outer product representation: $U= \sum_{i} \ket{w_i}\bra{v_i}$ for orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ |
-| Positive operator                    | section 2.1.6             | Definition: for any vector $\ket{v}$, $(\ket{v}, A \ket{v})$ is a real, non-negative number <br> All positive operators are Hermitian |
-| Tensor product properties            | section 2.1.7             | For a scalar $z$ and elements $\ket{v}$ of $V$ and $\ket{w}$ of $W$: <br> $z(\ket{v} \otimes \ket{w}) = (z \ket{v} ) \otimes \ket{w} = \ket{v} \otimes (z \ket{w})$ <br> $(\ket{v_1} + \ket{v_2})\otimes\ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$ <br> $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$|
-| Linear operator $A \otimes B$        | section 2.1.7             | Definition: $(A \otimes B)(\ket{v} \otimes \ket{w})\equiv A \ket{v} \otimes B \ket{w}$                        |
-| Inner product on $V \otimes W$       | section 2.1.7             | Definition: $\left( \sum_i a_i \ket{v_i} \otimes \ket{w_i}, \sum_j b_j \ket{v_j'} \otimes \ket{w_j'} \right) \equiv \sum_{ij} a_i^\ast b_j \braket{v_i \vert v_j'}\braket{w_i \vert w_j'}$ | 
-| Kronecker product                    | section 2.1.7             |                                                                                                          |
-| Tensor power notation                | section 2.1.7             | $\ket{\psi}^{\otimes k}$ means $\ket{\psi}$ tensored with itself $k$ times <br> Example: $\ket{\psi}^{\otimes 3} = \ket{\psi} \otimes \ket{\psi} \otimes \ket{\psi}$ |
-| Operator functions                   | section 2.1.8             | For $A=\sum_{a} a \ket{a} \bra{a}$, $f(A) = \sum_{a} f(a) \ket{a} \bra{a}$                               |
-| Trace of a matrix                    | section 2.1.8             | Definition: $\text{tr}(A) = \sum_i A_{ii}$ <br> $\text{tr}(AB)=\text{tr}(BA)$ <br> $\text{tr}(A+B)=\text{tr}(A) + \text{tr}(B)$              |
-| Hilbert-Schmidt inner product      | section 2.1.8             | Definition: $(A,B) =\text{tr}(A^\dagger B)$                                                              |
-| Commutator                           | section 2.1.9             | Definition: $\[A, B\]=AB-BA$                                                                             |
-| Anti-commutator                      | section 2.1.9             | Definition: $\lbrace A, B \rbrace = AB + BA$                                                                       |
-| Polar decomposition                  | section 2.1.10            | $A=UJ=KU$ for a unitary operator $U$ and positive operators $J=\sqrt{A^\dagger A}$ and $K=\sqrt{A A^\dagger}$ <br> If A is invertible, $U=AJ^{-1}$ |
-
-
-### Linear Algebra - Exercises
   
-#### Exercise 2.1 {#exercise-21}
+### Exercise 2.1 {#exercise-21}
 
 In section 2.1.1 the authors introduce the concept of linear dependence and independence. In this exercise you use the definition of linear dependence to demonstrate that three vectors are linearly dependent.
 
@@ -265,7 +228,7 @@ This is true when $a_1=1, a_2=1,$ and $a_3=-1$. Therefore these vectors are line
 
 </details>
 
-#### Exercise 2.2 {#exercise-22}
+### Exercise 2.2 {#exercise-22}
 
 In section 2.1.2 the authors talk about how linear operators can be represented as matrices. In this exercise you get practice representing a linear operator as a matrix. The first part of this exercise is straight forward, you just need to use the definition of the matrix representation of an operator, equation 2.12. The second part may be a bit more challenging if you haven't worked with the Pauli matrices before. I suggest reviewing section 1.3.3 if you are struggling with this exercise.
 
@@ -295,7 +258,7 @@ $$A = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix}$$
 
 </details>
 
-#### Exercise 2.3 {#exercise-23}
+### Exercise 2.3 {#exercise-23}
 
 This exercise provides further practice in representing linear operators as matrices. It also allows you to confirm for yourself that the matrix representation of a linear transformation $BA$ is a matrix product of the matrix representations of $B$ and $A$. To do this you'll once again use equation 2.12. You’ll also need the definition of matrix multiplication, which isn’t provided in the book, but is readily available online. Additionally, if it has been a while since you’ve work with the summation operator, reviewing common summation identities may be helpful, as they play a role in the derivation. 
 
@@ -327,7 +290,7 @@ From this we can see that $BA \ket{v_i} = \sum_{k} C_{ki}  \ket{x_k}$ which mean
 
 </details>
 
-#### Exercise 2.4 {#exercise-24}
+### Exercise 2.4 {#exercise-24}
 
 This is the final exercise focused on practicing how to represent linear operators as matrices. Here you will use equation 2.12 along with the definition of the identity operator given in section 2.1.2 ($I_V \ket{v} \equiv \ket{v}$) to confirm the matrix representation of the identity operator.
 
@@ -342,7 +305,7 @@ $$\begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix}$$
 
 </details>
 
-#### Exercise 2.5 {#exercise-25}
+### Exercise 2.5 {#exercise-25}
 
 In section 2.1.4 the authors introduce the concept of an inner product and list three requirements that need to be satisfied for something to be considered an inner product. In this exercise you need to show that $(\cdot, \cdot)$, which is given in equation 2.14, meet these three requirements.
 
@@ -385,7 +348,7 @@ Since all three requirements are met, $( \cdot , \cdot)$ is an inner product.
 
 </details>
 
-#### Exercise 2.6 {#exercise-26}
+### Exercise 2.6 {#exercise-26}
 
 For this exercise you will demonstrate that the inner product is conjugate-linear in the first argument using the properties that you just verified in the previous exercise.
 
@@ -403,7 +366,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.7 {#exercise-27}
+### Exercise 2.7 {#exercise-27}
 
 In section 2.1.4 the authors discuss orthogonal vectors, stating that vectors are orthogonal if their inner product is zero. They also define unit vectors and discuss how to normalize a vector to make it a unit vector. Here you will use that information to demonstrate that two vectors are orthogonal and calculate their normalized forms.  
 
@@ -425,7 +388,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.8 {#exercise-28}
+### Exercise 2.8 {#exercise-28}
 
 In section 2.1.4 the authors introduce the Gram-Schmidt procedure. Here you are asked to prove that the Gram-Schmidt procedure produces an orthonormal basis for $V$. This means that you'll need to prove several things: the vectors that are produced are unit vectors, they are orthogonal, and they form a basis for $V$. For this exercise, you will need to use proof by induction for at least one of these. 
 
@@ -497,7 +460,7 @@ We know that this set of vectors spans $V$ because it has the same number of ele
 
 </details>
 
-#### Exercise 2.9 {#exercise-29}
+### Exercise 2.9 {#exercise-29}
 
 In section 2.1.4 the authors introduce outer product representation for linear operators. For this exercise you are asked to express each Pauli matrix in outer product notation. This can be done by using equation 2.25. The Pauli matrices are given in section 2.1.3.
 
@@ -542,7 +505,7 @@ Z &= \braket{0 \vert Z \vert 0} \ket{0} \bra{0} + \braket{0 \vert Z \vert 1} \ke
 
 </details>
 
-#### Exercise 2.10 {#exercise-210}
+### Exercise 2.10 {#exercise-210}
 
 This exercise provides more practice with outer product notation. This time you will use equation 2.25 to find the matrix representation for an operator that is given in outer product notation. 
 
@@ -555,7 +518,7 @@ From equation 2.25 we can write $A=\sum_{mn} \braket{v_m \vert A \vert v_n} \ket
 
 </details>
 
-#### Exercise 2.11 {#exercise-211}
+### Exercise 2.11 {#exercise-211}
 
 In this exercise you are asked to find the eigenvectors, eigenvalues, and diagonal representations of the Pauli matrices $X$, $Y$, and $Z$. The book explains how to calculate the eigenvalues by using the characteristic equation for operators that are in the matrix representation, but it assumes that you’re already familiar with how to find the corresponding eigenvectors. 
 
@@ -614,7 +577,7 @@ With the eigenvectors $\ket{e_1}$, $\ket{e_2}$ and corresponding eigenvalues 1, 
 
 </details>
 
-#### Exercise 2.12 {#exercise-212}
+### Exercise 2.12 {#exercise-212}
 
 For this exercise you need to prove that a specific matrix is not diagonalizable. In section 2.1.5 we are told that an operator is diagonalizable if it has diagonal representation. So to prove that it is not diagonalizable, you need to show that it does not have diagonal representation.
 
@@ -648,7 +611,7 @@ For a matrix to have a diagonal representation, it needs to have an orthonormal 
 
 </details>
 
-#### Exercise 2.13 {#exercise-213}
+### Exercise 2.13 {#exercise-213}
 
 In section 2.1.6 the authors introduce the adjoint of operators. For this exercise we are asked to show that $(\ket{w}\bra{v})^\dagger = \ket{v}\bra{w}$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified.
 
@@ -673,7 +636,7 @@ From the first and last line it can be seen that $(\ket{w}\bra{v})^\dagger = \ke
 
 </details>
 
-#### Exercise 2.14 {#exercise-214}
+### Exercise 2.14 {#exercise-214}
 
 We are asked to show that the adjoint operation is anti-linear, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
@@ -695,7 +658,7 @@ From the first and last line it can be seen that $\left( \sum_{i} a_i A_i \right
 
 </details>
 
-#### Exercise 2.15 {#exercise-215}
+### Exercise 2.15 {#exercise-215}
 
 We are asked to show that $(A^\dagger)^\dagger = A$, this can be done using equation 2.32 and some of the properties of inner products that we've already identified. 
 
@@ -717,7 +680,7 @@ From the first and last line it can be seen that $(A^\dagger)^\dagger = A$.
 
 </details>
 
-#### Exercise 2.16 {#exercise-216}
+### Exercise 2.16 {#exercise-216}
 
 In section 2.1.6 the authors introduce the concept of projectors. For this exercise you use the definition of projector $P$ from equation 2.35 and basis vector orthogonality to demonstrate the $P^2=P$. 
 
@@ -739,7 +702,7 @@ P^2 &= PP \\
 
 </details>
 
-#### Exercise 2.17 {#exercise-217}
+### Exercise 2.17 {#exercise-217}
 
 In this exercise we are asked to explore the relationship between normal and Hermitian matrices. For this you will use spectral decomposition, anti-linearity of the adjoint, and the results from [exercise 2.13](#exercise-213). 
 
@@ -760,7 +723,7 @@ Operator $A$ is Hermitian if $A^\dagger = A$. From the above equation, it can be
 
 </details>
 
-#### Exercise 2.18 {#exercise-218}
+### Exercise 2.18 {#exercise-218}
 
 Here we show that all eigenvalues of a unitary matrix has modulus 1 using the definition of a unitary matrix, the outer product representation for $U$ and $I$, and vector orthogonality.
 
@@ -797,7 +760,7 @@ Demonstrating that the eigenvalues can be written in the form $e^{i \theta}$.
 
 </details>
 
-#### Exercise 2.19 {#exercise-219}
+### Exercise 2.19 {#exercise-219}
 
 This exercise has you demonstrate that the Pauli matrices are Hermitian and unitary. To do this you just use the definition of Hermitian and unitary matrices and plug in the Pauli matrices. 
 
@@ -867,7 +830,7 @@ Z^\dagger Z &= Z Z \\
 
 </details>
 
-#### Exercise 2.20 {#exercise-220}
+### Exercise 2.20 {#exercise-220}
 
 For this exercise you are asked to find the relationship between two different matrix representations of operator $A$. This can be done using the completeness relation as shown in equation 2.23.
 
@@ -888,7 +851,7 @@ A_{ij}' &= \braket{v_i \vert A \vert v_j} & \text{definition of $A_{ij}'$} \\
 
 </details>
 
-#### Exercise 2.21 {#exercise-221}
+### Exercise 2.21 {#exercise-221}
 
 For this exercise we are asked to repeat the spectral decomposition proof, but with a Hermitian operator instead of a normal operator. There are a couple of places where simplifications can be made. One is when demonstrating that $PMQ = 0$ and then another when showing that $QMQ$ is normal. 
 
@@ -915,7 +878,7 @@ Therefore $QMQ$ is normal. The rest of the proof is same as in the book where yo
 
 </details>
 
-#### Exercise 2.22 {#exercise-222}
+### Exercise 2.22 {#exercise-222}
 
 In this exercise we are to prove that two eigenvectors of a Hermitian operator with different eigenvalues are orthogonal. To do this you can use equation 2.32, the fact that for a Hermitian operator $H=H^\dagger$, and properties of the inner product.
 
@@ -928,7 +891,7 @@ Let's assume we have two eigenvectors $\ket{v}$ and $\ket{w}$ of Hermitian opera
 
 </details>
 
-#### Exercise 2.23 {#exercise-223}
+### Exercise 2.23 {#exercise-223}
 
 Here we show that the eigenvalues of a projector are all either $0$ or $1$ by comparing the definition of $P$ to the diagonal representation for an operator. 
 
@@ -941,7 +904,7 @@ By definition $P \equiv \sum_{i=1}^k \ket{i} \bra{i}$ for a k-dimensional vector
 
 </details>
 
-#### Exercise 2.24 {#exercise-224}
+### Exercise 2.24 {#exercise-224}
 
 For this exercise follow the hint’s advice and find Hermitian operators $B$ and $C$ that satisfies $A=B+iC$ for an arbitrary operator $A$. Then use the definition of a positive operator to find what constraints there are on $B$ and $C$ if $A$ is a positive operator. You will find that $A$ must be Hermitian. 
 
@@ -979,7 +942,7 @@ If $A$ is positive then $(\ket{v}, A \ket{v})$ is a real, non-negative number. P
 
 </details>
 
-#### Exercise 2.25 {#exercise-225}
+### Exercise 2.25 {#exercise-225}
 
 To show that $A^\dagger A$ is positive, use the definition of a positive operator, equation 2.32, and the positive semi-definiteness of the inner product.
 
@@ -999,7 +962,7 @@ Due to the positive semi-definiteness of inner products, we know that $\left(A \
 
 </details>
 
-#### Exercise 2.26 {#exercise-226}
+### Exercise 2.26 {#exercise-226}
 
 In section 2.1.7 the authors introduce the concept of tensor products. In this exercise you will gain experience with tensor power notation and the Kronecker product. 
 
@@ -1042,7 +1005,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.27 {#exercise-227}
+### Exercise 2.27 {#exercise-227}
 
 This exercise is just further practice with the Kronecker product. To check if the tensor product is commutative compare your results from (b) and (c).
 
@@ -1085,7 +1048,7 @@ By comparing (b) and (c) we can see that the tensor product is not commutative.
 
 </details>
 
-#### Exercise 2.28 {#exercise-228}
+### Exercise 2.28 {#exercise-228}
 
 For this exercise you will confirm the distributive property of several operators over the tensor product. There are probably several different ways you could do this, but one method for the complex conjugate and transpose is to use the Kronecker product along with the properties of block matrices. The adjoint is just a combination of complex conjugation and the transpose, so you can use the distributive properties from those operations to show that the adjoint is also distributive.
 
@@ -1122,7 +1085,7 @@ $\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right
 
 </details>
 
-#### Exercise 2.29 {#exercise-229}
+### Exercise 2.29 {#exercise-229}
 
 Use the definition of a unitary operator to show that the tensor product of two unitary operators is unitary.
 
@@ -1149,7 +1112,7 @@ Therefore $A \otimes B$ is unitary.
 
 </details>
 
-#### Exercise 2.30 {#exercise-230}
+### Exercise 2.30 {#exercise-230}
 
 Use the definition of a Hermitian operator to show that the tensor product of two Hermitian operators is Hermitian.
 
@@ -1166,7 +1129,7 @@ Therefore $A \otimes B$ is Hermitian.
 
 </details>
 
-#### Exercise 2.31 {#exercise-231}
+### Exercise 2.31 {#exercise-231}
 
 Use the definition of a positive operator to show that the tensor product of two positive operators is positive.
 
@@ -1186,7 +1149,7 @@ Since both $A$ and $B$ are positive operators, we know that $\braket{a \vert A \
 
 </details>
 
-#### Exercise 2.32 {#exercise-232}
+### Exercise 2.32 {#exercise-232}
 
 Use the definition of a projector to show that the tensor product of two projector is a projector.
 
@@ -1207,7 +1170,7 @@ Therefore the tensor product of two projectors is a projector.
 
 </details>
 
-#### Exercise 2.33 {#exercise-233}
+### Exercise 2.33 {#exercise-233}
 
 For this exercise you are asked to confirm that the Hadamard transform can be written as equation 2.55. One thing that can be confusing about this is that equation 2.55 is not well defined, i.e. it is not stated what the different variables represent. I found it useful to refer to section 1.4.4 where the Hadamard transform is discussed in more detail to better understand equation 2.55. From there you can confirm the $n=1$ case matches equation 2.55 and then use that to confirm the arbitrary $n$ case. 
 
@@ -1243,7 +1206,7 @@ H^{\otimes 2} &= \begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \otimes \begin{b
 
 </details>
 
-#### Exercise 2.34 {#exercise-234}
+### Exercise 2.34 {#exercise-234}
 
 In section 2.1.8 the authors introduce the concept of operator functions and describe how to calculate them. In this exercise you get practice performing that calculation on a given matrix. Since this matrix is not in diagonal representation, you will first need to find its diagonal representation, then execute the operation on its eigen values, and then reconstruct the operator in matrix representation. 
 
@@ -1316,7 +1279,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.35 {#exercise-235}
+### Exercise 2.35 {#exercise-235}
 
 In this exercise you will confirm the exponential of the Pauli matrices. To do this, you'll need to find the diagonal representation of $\vec{v} \cdot \vec{\sigma}$, then use Euler's formula and the operator function calculation.
 
@@ -1379,7 +1342,7 @@ Well, it looks like we didn't need to calculate the eigenvectors for this proof,
 
 </details>
 
-#### Exercise 2.36 {#exercise-236}
+### Exercise 2.36 {#exercise-236}
 
 In section 2.1.8 the authors introduce the concept of the trace. Use the definition of the trace to calculate the trace of the Pauli matrices. 
 
@@ -1399,7 +1362,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.37 {#exercise-237}
+### Exercise 2.37 {#exercise-237}
 
 For this exercise you use the definition of the trace and the definition of matrix multiplication to demonstrate that $\text{tr}(AB) = \text{tr}(BA)$.
 
@@ -1432,7 +1395,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.38 {#exercise-238}
+### Exercise 2.38 {#exercise-238}
 
 For this exercise you use the definition of the trace and the definition of matrix addition to demonstrate that $\text{tr}(A+B) = \text{tr}(A) + \text{tr}(B)$. You will also use the definition of the trace to demonstrate that $\text{tr}(zA) = z \text{tr}(A)$.
 
@@ -1468,7 +1431,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.39 {#exercise-239}
+### Exercise 2.39 {#exercise-239}
 
 This exercise has multiple parts. For the first part, you need to show that $(\cdot, \cdot)$ on $L_V \times L_V$ is an inner product using the requirements listed in section 2.1.4 and the Hilbert-Schmidt inner product defined in equation 2.65. Then you need to demonstrate that $L_V$ has dimensions $d^2$ by finding how many linear independent elements there are in the set of operators that span $L_V$. Finally, you need to find an orthonormal basis of Hermitian matrices for $L_V$. This can be done by taking the inner product of two arbitrary linear operators in $L_V$ and identifying what requirements are needed to make them orthonormal. 
 
@@ -1533,7 +1496,7 @@ L_{Vij} = \sum_{i'j'} \delta_{ii'} \delta_{jj'} \ket{v_{j'}}\bra{v_{i'}}
 
  </details>
 
-#### Exercise 2.40 {#exercise-240}
+### Exercise 2.40 {#exercise-240}
 
 In section 2.1.9 the authors introduce the concept of the commutator and anti-commutator. In this exercise you will use the definition of the commutator to verify commutation relations of the Pauli matrices.
 
@@ -1556,7 +1519,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.41 {#exercise-241}
+### Exercise 2.41 {#exercise-241}
 
 In this exercise you will use the definition of the anti-commutator to verify anti-commutation relations of the Pauli matrices.
 
@@ -1579,7 +1542,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.42 {#exercise-242}
+### Exercise 2.42 {#exercise-242}
 
 In this exercise you will use the definition of the commutator and anti-commutator to verify equation 2.77.
 
@@ -1597,7 +1560,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.43 {#exercise-243}
+### Exercise 2.43 {#exercise-243}
 
 To verify equation 2.78 you will need to use the results from exercises [2.19](#exercise-219), [2.41](#exercise-241), and [2.42](#exercise-242).
 
@@ -1616,7 +1579,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.44 {#exercise-244}
+### Exercise 2.44 {#exercise-244}
 
 In section 2.1.9 the authors introduce the simultaneous diagonalization theorem. Here you will use that theorem along with the diagonal representation of $A$ and $B$ and the invertible matrix theorem (which is not in the book) to show that $B$ must be zero. 
 
@@ -1640,7 +1603,7 @@ Which is only $0$ if either $a_i$ or $b_i$ is $0$ for each $i$. In order for mat
 
 </details>
 
-#### Exercise 2.45 {#exercise-245}
+### Exercise 2.45 {#exercise-245}
 
 For this exercise you will use the definition of commutation and the properties of the adjoint to demonstrate the relation shown in the question.
 
@@ -1658,7 +1621,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 2.46 {#exercise-246}
+### Exercise 2.46 {#exercise-246}
 
 For this exercise you will use the definition of commutation to demonstrate the relation shown in the question.
 
@@ -1671,7 +1634,7 @@ $\lbrack A,B \rbrack = AB-BA = -(BA-AB)=-\lbrack B,A \rbrack$
 
 </details>
 
-#### Exercise 2.47 {#exercise-247}
+### Exercise 2.47 {#exercise-247}
 
 Here you will use the definition of Hermitian, the definition of commutation, and properties of the adjoint to show that $i \lbrack A,B \rbrack$ is Hermitian. 
 
@@ -1695,7 +1658,7 @@ Therefore $i \lbrack A,B \rbrack$ is Hermitian.
 
 </details>
 
-#### Exercise 2.48 {#exercise-248}
+### Exercise 2.48 {#exercise-248}
 
 In section 2.1.10 the authors introduce the concept of polar decomposition which is a method used to break a general linear operator up into products of unitary operators and positive operators. In this exercise you are asked to perform polar decomposition on a positive matrix, a unitary matrix, and a Hermitian matrix. You can follow the calculation outlined in the book, but simplifications can also be made when taking into consideration the properties of the different matrices and the goal of polar decomposition.
 
@@ -1745,7 +1708,7 @@ Then $H = UJ = KU$.
 
 </details>
 
-#### Exercise 2.49 {#exercise-249}
+### Exercise 2.49 {#exercise-249}
 
 For this exercise you will perform a similar calculation as was done in the previous exercise, but this time for a normal matrix. 
 
@@ -1783,7 +1746,7 @@ This may look the same as the results for the Hermitian matrix in [Exercise 2.48
 
 </details>
 
-#### Exercise 2.50 {#exercise-250}
+### Exercise 2.50 {#exercise-250}
 
 For this exercise you will perform polar decomposition on a given matrix. The procedure is like the previous two exercises but since the matrix is not currently in diagonal representation, you’ll first need to diagonalize it. Unfortunately, this calculation is complex and so I recommend using a calculator.  This matrix is invertible – which you can confirm for yourself – so you can use the inverse of the matrix to calculate $U$. 
 
@@ -1926,29 +1889,7 @@ A  &= UJ = \left(\frac{1}{\sqrt{5}}  \begin{bmatrix} 2 & -1 \\\  1 & 2 \end{bmat
 
 ## The Postulates of Quantum Mechanics
 
-### The Postulates of Quantum Mechanics - Key Concepts
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| State space                          | section 2.2.1             | The state of an isolated system is repersented by a state vector $\ket{\psi}$ belonging to a Hilbert space know as the state space.|
-| Qubit state space                    | section 2.2.1             | Two dimensional state space for which $\ket{0}$ and $\ket{1}$ for an orthonormal basis and an arbitrary state vector can be written as $\ket{\psi}=a\ket{0} + b\ket{1}$ where $a$ and $b$ are complex numbers.|
-| Evolution                            | section 2.2.2             | Evolution of a closed quantum system is a unitary transformation. Time evolution can be described by the Schrodinger equation $i\hbar \frac{d \ket{\psi}}{dt}=H\ket{\psi}$ where $H$ is a Hermitian operator called the Hamiltonian with spectral decomposition $H = \sum_E E\ket{E}\bra{E}$. Here $\ket{E}$ are energy eigenstates with time evolution $\ket{E} \rightarrow \text{exp}(-iEt/\hbar)\ket{E}$|
-| Applying a unitary gate to a qubit   | section 2.2.2             | Application of an operator implies external interactions with the qubit, making the system not closed. However, many non-closed systems can be described by a time-varying Hamiltonian and still evolve according to Schrodinger’s equation. |
-| Quantum measurement                  | section 2.2.3             | Interactions with a system to measure its properties make the system no longer closed and therefore are not necessarily subject to unitary evolution. Measurements are described by a collection of $\lbrace M_m \rbrace$ measurement operators with the probability of result $m$ given by $p(m)=\braket{\psi \vert M_m^\dagger M_m \vert \psi}$ and the state of the system after measurement given by $\frac{M_m \ket{\psi}}{\sqrt{\braket{\psi \vert M_m^\dagger M_m \vert \psi}}}$ with $\sum_{m} M_m^\dagger M_m = I$ and $1=\sum_{m} p(m)$. |
-| Distinguishing quantum states        | section 2.2.4             | If states are not orthogonal there is no quantum measurement capable of distinguishing them |
-| Projective measurements              | section 2.2.5             | $M=\sum_{m} m P_m$ where $P_m$ is the projector onto the eigenspace of $M$ with eigenvalues $m$. The average value for projective measurements is given by $\braket{\psi \vert M \vert \psi}$ and the standard deviation is given by $\Delta (M) = \sqrt{ \braket{M^2} - \braket{M}^2}$. The probability of getting result $m$ is $p(m) = \braket{\psi \vert P_m \vert \psi}$. The state of the system immediately after measurement is $\frac{P_m \ket{\psi}}{\sqrt{p(m)}}$. |
-| Heisenberg uncertainty principle     | section 2.2.5             | $\Delta(A)\Delta(B) \geq \frac{\vert \braket{\psi \vert \lbrack A, B \rbrack \vert \psi} \vert}{2}$ for observables $A$ and $B$ |
-| Measurement of a single qubit spin along the $\vec{v}$ axis | section 2.2.5 | $\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3$ |
-| POVM measurements                    | section 2.2.6             | If we define $E_m = M^\dagger M$ then $E_m$ is a positive operator such that $\sum_{m} E_m = I$ and $p(m) = \braket{\psi \vert E_m \vert \psi}$. The operators $E_m$ are known as the POVM (positive operator-valued measure) elements. |
-| Global phase                         | section 2.2.7             | $\ket{\psi} = e^{i \theta}\ket{\psi}$ are equal up to the global phase factor $e^{i \theta}$. Global phase can't be seen in measurement |
-| Relative phase                       | section 2.2.7             | $\ket{\psi_1} = \frac{\ket{0} + \ket{1}}{\sqrt{2}}$ and  $\ket{\psi_1} = \frac{\ket{0} - \ket{1}}{\sqrt{2}}$ differ by a relative phase. Relative phases are basis dependent and can be seen in measurement. |
-| Composite systems                    | section 2.2.8             | The state space of a composite system is the tensor product of the state spaces of the component systems |
-
-
-
-### The Postulates of Quantum Mechanics - Exercises
-
-#### Exercise 2.51 {#exercise-251}
+### Exercise 2.51 {#exercise-251}
 
 In section 2.2.2 the authors discuss how any unitary operator can be used to evolve the state of a single qubit and then ask us to confirm that the Hadamard gate is unitary. This can be done using the definition of a unitary operator $U^\dagger U = U U^\dagger = I$.
 
@@ -1987,7 +1928,7 @@ Since $H^\dagger H = I$ that means $H$ is unitary.
 
 </details>
 
-#### Exercise 2.52 {#exercise-252}
+### Exercise 2.52 {#exercise-252}
 
 The authors now ask us to verify that $H^2=I$. This can easily be done by using an observation noted in the previous exercise. 
 
@@ -2000,7 +1941,7 @@ In the previous exercise we saw that the Hadamard gate is Hermitian and so $H^\d
 
 </details>
 
-#### Exercise 2.53 {#exercise-253}
+### Exercise 2.53 {#exercise-253}
 
 We are now asked to find the eigenvalues and eigenvectors of H. We will do this using the same methods that we used in the previous secion. We'll first find the eigenvalues $\lambda$ using the characteristic equation and then solve $0 = (\lambda I - H)\ket{e}$ to find the eigenvectors. 
 
@@ -2037,7 +1978,7 @@ For eigenvalue $\lambda_- = -\sqrt{2}$ the unit eigenvector is $\ket{e_-} = \fra
 </details>
 
 
-#### Exercise 2.54 {#exercise-254}
+### Exercise 2.54 {#exercise-254}
 
 We are asked to show that $\exp(A)\exp(B)=\exp(A+B)$ for commuting Hermitian operators $A$ and $B$. To do this, we need to use the simultaneous diagonalization theorem given in section 2.1.9 and knowledge of operator functions. 
 
@@ -2078,7 +2019,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.55 {#exercise-255}
+### Exercise 2.55 {#exercise-255}
 
 Here we are to prove that equation 2.91 is unitary, meaning $U^\dagger U = U U^\dagger = I$, using the knowledge that $H$ is a Hermitian operator and the results from the previous exercise. 
 
@@ -2129,7 +2070,7 @@ Therefore $U$ is unitary.
 </details>
 
 
-#### Exercise 2.56 {#exercise-256}
+### Exercise 2.56 {#exercise-256}
 
 In this exercise we use spectral decomposition to show that $K= -i \log(U)$ is Hermitian for any unitary operator $U$ and thus $U = \exp(iK)$ for some Hermitian operator $K$. To do this, you will represent the eigenvalues of $U$ as described in [exercise 2.18](#exercise-218). 
 
@@ -2164,7 +2105,7 @@ Since $\theta_E$ are real, we know that $K = \sum_{E} \frac{\theta_E}{\ln(2)} \k
 </details>
 
 
-#### Exercise 2.57 {#exercise-257}
+### Exercise 2.57 {#exercise-257}
 
 In section 2.2.3 the authors discuss measuring a quantum system and in equation 2.93 show what the state of the system is after measurement. Here you are asked to show that two sequential measurement operations are the equivalent of a single measurement operation that is the matrix multiplication of both individual measurement operators.
 
@@ -2200,7 +2141,7 @@ We can see that $\ket{\psi''}=\ket{\psi'''}$ therefore the sequential measuremen
 </details>
 
 
-#### Exercise 2.58 {#exercise-258}
+### Exercise 2.58 {#exercise-258}
 
 In section 2.2.5 the authors introduce the concept of projective measurements and show how to calculate the average observed value and standard deviation for an observable operator. For this exercise you will get practice with these calculations for eigenvector $\ket{\psi}$ of observable $M$ with eigenvalue $m$. 
 
@@ -2233,7 +2174,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.59 {#exercise-259}
+### Exercise 2.59 {#exercise-259}
 
 In this exercise we are to calculate the average and standard deviation of the observed value of $X$ for state $\ket{0}$. For this, we will use the results from [exercise 2.9](#exercise-29), [exercise 2.19](#exercise-219), and the calculations outlined in section 2.2.5.
 
@@ -2269,7 +2210,7 @@ From equation 2.113 we know that the average value of the measurement is $\brake
 </details>
 
 
-#### Exercise 2.60 {#exercise-260}
+### Exercise 2.60 {#exercise-260}
 
 For this exercise we are to show that equation 2.116 has eigenvalues $\pm 1$ and that the projectors onto the corresponding eigenspaces are given by $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$. Some of the calculations needed for this were already done in [exercise 2.35](#exercise-235).
 
@@ -2311,7 +2252,7 @@ Which shows that $P_{\pm}=(I \pm \vec{v} \cdot \vec{\sigma})/2$.
 
 </details>
 
-#### Exercise 2.61 {#exercise-261}
+### Exercise 2.61 {#exercise-261}
 
 Use the results from the previous exercise as well as equations 2.103 and 2.104 to find the probability of obtaining the measurement result of $+1$ and the state of the system after the measurement if $+1$ is obtained when the state prior to measurement is $\ket{0}$.
 
@@ -2343,7 +2284,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.62 {#exercise-262}
+### Exercise 2.62 {#exercise-262}
 
 For this exercise, we are to show that any measurement where the measurement operators and the POVM elements coincide (i.e. where $E_m = M_m$) is a projective measurement.
 
@@ -2364,7 +2305,7 @@ We know that any projector satisfies the equation $P=PP=P^\dagger P$ and so $M$ 
 </details>
 
 
-#### Exercise 2.63 {#exercise-263}
+### Exercise 2.63 {#exercise-263}
 
 In this exercise we are to show that there exists unitary operators $U_m$ such that $M_m=U_m \sqrt{E_m}$. For this, think back to the section 2.1.10 discussion on polar decomposition. 
 
@@ -2379,7 +2320,7 @@ From equation 2.117 we know that $E_m = M_m^\dagger M_m$, therefore $\sqrt{E_m} 
 
 </details>
 
-#### Exercise 2.64 {#exercise-264}
+### Exercise 2.64 {#exercise-264}
 
 Create a set of $E_m$ such that if outcome $E_i$ occurs then you know with certainty that state $\ket{\psi_i}$ from the linearly independent set $\ket{\psi_1}, \dots, \ket{\psi_m}$ was measured. This set will include $E_{m+1}$ to satisfy the completeness relation. 
 
@@ -2393,7 +2334,7 @@ $E_i = \ket{\psi_i}\bra{\psi_i}$ for $1 \leq i \leq m$ and $E_{m+1}=I - \sum_{i=
 </details>
 
 
-#### Exercise 2.65 {#exercise-265}
+### Exercise 2.65 {#exercise-265}
 
 In this exercise we change the basis of two states such that they are no longer the same up to a relative phase shift. You can use the results from [exercise 2.11](#exercise-211).
 
@@ -2414,7 +2355,7 @@ which are the states given in the exercise. When written like this, they are not
 </details>
 
 
-#### Exercise 2.66 {#exercise-266}
+### Exercise 2.66 {#exercise-266}
 
 In this exercise we are to show that the average value of the observable $X_1Z_2$ is zero for a two-qubit system measured in the state $(\ket{00} + \ket{11})/\sqrt{2}$. For this, you can reference the outer product notation for the $X$ and $Z$ operators from [exercise 2.9](#exercise-29). and use equation 2.113 with $M=X_1Z_2$.
 
@@ -2458,7 +2399,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.67 {#exercise-267}
+### Exercise 2.67 {#exercise-267}
 
 $U$ is linear operator that preserves the inner product in $W$, which is a subspace of $V$. In this exercise we prove that there exists a unitary operator $U': V \rightarrow V$ that extends $U$. To do this, think about what you would need to add to $U$ to have it span all of $V$. Build $U'$ by adding that to $U$ and then prove that this $U'$ is unitary and satisfies $U'\ket{w} = U\ket{w}$. 
 
@@ -2497,7 +2438,7 @@ Therefore $U'\ket{w} = U \ket{w}$ for all $\ket{w}$ in $W$.
 </details>
 
 
-#### Exercise 2.68 {#exercise-268}
+### Exercise 2.68 {#exercise-268}
 
 Prove that $\ket{\psi} \neq \ket{a}\ket{b}$ for all single qubit states $\ket{a}$ and $\ket{b}$. You may find it helpful to refer back to section 1.2.1 when solving this problem. 
 
@@ -2538,17 +2479,7 @@ However, there are cases where this cannot be true, such as the Bell state $\ket
 
 ## Superdense Coding
 
-### Superdense Coding - Key Concepts
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Superdense coding                    | section 2.3               | An application of quantum mechanics that allows the transfer of two bits of classical information by interacting with a single qubit. |
-| Bell states                          | section 2.3               | $\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}$ <br> $\ket{\beta_{10}} = \frac{\ket{00} - \ket{11}}{\sqrt{2}}$ <br> $\ket{\beta_{01}} = \frac{\ket{01} + \ket{10} }{\sqrt{2}}$ <br> $\ket{\beta_{11}} = \frac{\ket{01} - \ket{10}}{\sqrt{2}}$ |
-
-
-### Superdense Coding - Exercises
-
-#### Exercise 2.69 {#exercise-269}
+### Exercise 2.69 {#exercise-269}
 
 In section 2.3 the authors discuss how to used an entangled pair of qubits to transfer two bits of classical information. The possible resulting states are the Bell states. In this exercise we verify that these states form an orthonormal basis for the two qubit state space. In order for these states to form an orthonormal basis, they must be orthogonal, they must be unit vectors, and they must span the state space.
 
@@ -2645,7 +2576,7 @@ The state space is $2x2$ dimensions and therefore we need $4$ vectors to form a 
 </details>
 
 
-#### Exercise 2.70 {#exercise-270}
+### Exercise 2.70 {#exercise-270}
 
 Show that $\braket{\psi \vert E \otimes I \vert \psi}$ takes the same value when $\psi$ is any of the four Bell states for some positive operator $E$. Then use the results to answer the second half of the question: if Alice's qubit was intercepted on its way to Bob, would the person who intercepted it be able to determine anything?
 
@@ -2699,22 +2630,7 @@ If Alice's qubit was intercepted on its way to Bob, the person who intercepted i
 
 ## The Density Operator
 
-### The Density Operator - Key Concepts
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Density operator                     | section 2.4.1             | $\rho \equiv \sum_{i} p_i \ket{\psi_i}\bra{\psi_i}$, where $p_i$  is non-negative and $\sum_i p_i = 1$                                                     |
-| Evolution of the density operator    | section 2.4.1             | $\rho = \sum_{i} p_i \ket{\psi_i}\bra{\psi_i} \xrightarrow{U} \sum_{i} p_i U\ket{\psi_i}\bra{\psi_i}U^\dagger = U \rho U^\dagger$ |
-| Measurements                         | section 2.4.1             | Probability of getting result $m$ if the initial state is $\ket{\psi_i}$ is $p(m \vert i) = \braket{\psi_i \vert M_m^\dagger M_m \vert \psi_i} = \text{tr} (M_m^\dagger M_m \ket{\psi_i}\bra{\psi_i})$ <br> Probability of obtaining result $m$ is $p(m) = \sum_i p(m \vert i) p_i = \text{tr}(M_m^\dagger M_m \rho)$ <br> The density operator after obtaining measurement $m$ is $\rho_m = \frac{M_m \rho M_m^\dagger}{\text{tr}(M_m^\dagger M_m \rho)}$ |
-| Pure state                           | section 2.4.1             | A quantum system whose state is known exactly. The density operator is given by $\rho = \ket{\psi}\bra{\psi}$. These states have $\text{tr}(\rho^2)=1$. |
-| Mixed state                          | section 2.4.1             | A mixture of different pure states. The density operator is given by $\rho = \sum_i p_i \rho_i$, where $p_i$ is the probability of the system being in the pure state given by $\rho_i$. These states have $\text{tr}(\rho^2)<1$. |
-| Requirements of a density operator   | section 2.4.2             | An operator $\rho$ is a density operator associated to some ensemble $\lbrace p_i \ket{\psi_i}\rbrace$ if it satisfies these conditions: <br> (1) $\rho$ has a trace equal to 1 <br> (2) $\rho$ is a positive operator |
-| Unitary freedom in the ensemble      | section 2.4.2             | The states $\ket{\tilde{\psi_i}}= \sqrt{p_i} \ket{\psi_i}$ and $\ket{\tilde{\phi_j}}= \sqrt{p_j} \ket{\phi_j}$ generate the same density matrix if and only if $\ket{\tilde{\psi_i}} = \sum_j u_{ij} \ket{\tilde{\phi_j}}$ where $u_{ij}$ are the entries of a unitary matrix. |
-| Reduced density operator             | section 2.4.3             | If we have physical systems $A$ and $B$ whose state is described by a density operator $\rho^{AB}$ then the reduced density operator for system $A$ is $\rho^A = \text{tr}_B(\rho^{AB})$ where $\text{tr}_B(\ket{a_1}\bra{a_2} \otimes \ket{b_1}\bra{b_2}) = \ket{a_1}\bra{a_2}\text{tr}(\ket{b_1}\bra{b_2})$ |
-
-### The Density Operator - Exercises
-
-#### Exercise 2.71 {#exercise-271}
+### Exercise 2.71 {#exercise-271}
 
 In this exercise we show that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a pure state using the definition of $\rho$ and the fact that $\sum_i p_i = 1$.
 
@@ -2740,7 +2656,7 @@ This proves that $\text{tr} ( \rho^2 ) \leq 1$ with equality only if $\rho$ is a
 </details>
 
 
-#### Exercise 2.72 {#exercise-272}
+### Exercise 2.72 {#exercise-272}
 
 For this exercise we are asked to derive some of the properties of the Bloch sphere for mixed states. For the first part we are to show that an arbitrary density matrix for a mixed state can be written as equation 2.175. To do this we will use the results from [Exercise 2.60](#exercise-260) where we found the projectors for the pure states on the Bloch sphere. From the results of the first part, the second and third parts are straight forward. For the fourth part we need to derive the density matrix for a pure state starting with equation 1.4.
 
@@ -2782,7 +2698,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.73 {#exercise-273}
+### Exercise 2.73 {#exercise-273}
 
 For this exercise we use theorem 2.6 to demonstrate that for any state $\ket{\psi}$ in support of $\rho$ there is a minimal ensemble for $\rho$ that contains $\ket{\psi}$ and also calculate the probability of $\ket{\psi}$.  
 
@@ -2850,7 +2766,7 @@ Going back to the second condition, we can see that this is met. Therefore $u_{i
 </details>
 
 
-#### Exercise 2.74 {#exercise-274}
+### Exercise 2.74 {#exercise-274}
 
 Suppose a composite state of systems $A$ and $B$ is in state $\ket{a}\ket{b}$, show that the reduced density operator of system $A$ is a pure state. This is done using equations 2.177 and 2.178.
 
@@ -2879,7 +2795,7 @@ This describes a pure state.
 
 </details>
 
-#### Exercise 2.75 {#exercise-275}
+### Exercise 2.75 {#exercise-275}
 
 In this exercise we find the reduced density operator for each qubit for each of the four Bell states. The authors already did this for one of the qubits for one of the Bell states in equations 2.185 - 2.191. 
 
@@ -2987,17 +2903,7 @@ So for all Bell states the density operator of a single qubit is given by $\frac
 
 ## The Schmidt decomposition and purifications
 
-### The Schmidt decomposition and purifications - Key Concepts
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Schmidt decomposition                | section 2.5               | If $\ket{\psi}$ is a pure state of a composite system $AB$ then there exists orthonormal states $\ket{i_A}$ and $\ket{i_B}$ such that $\ket{\psi} = \sum_i \lambda_i \ket{i_A}\ket{i_B}$ where $\lambda_i$ are non-negative real numbers satisfying $\sum_i \lambda_i^2 = 1$ |
-| Reduced density matrix of a Schmidt decomposition | section 2.5  | $\rho^A = \sum_i \lambda_i^2 \ket{i_A}\bra{i_A}$ and $\rho^B = \sum_i \lambda_i^2 \ket{i_B}\bra{i_B}$, where $\lambda_i$ are identical for both reduced density operators. |
-| Purification                         | section 2.5               | Given a state $\rho^A$ of a quantum system $A$, it is possible to introduce a reference system $R$ (that does not have physical significance) to define a pure state $\ket{AR}$ for the joint system $AR$ such that $\rho^A = \text{tr}_R (\ket{AR}\bra{AR})$ where $\ket{AR} = \sum_i \sqrt{p_i}\ket{i^A}{i^R}$ for orthonormal basis states $\ket{i^A}$ and $\ket{i^R}$ |
-
-### The Schmidt decomposition and purifications - Exercises
-
-#### Exercise 2.76 {#exercise-276}
+### Exercise 2.76 {#exercise-276}
 
 In this exercise we extend the Schmidt decomposition proof to include $A$ and $B$ with different dimensionality. It is useful to look up singular value decomposition for non-square matrices to complete this exercise. 
 
@@ -3051,7 +2957,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.77 {#exercise-277}
+### Exercise 2.77 {#exercise-277}
 
 In this exercise we are to show that Schmidt decomposition would not always work for a three component quantum system. This is done by picking a state which it doesn't work for and then demonstrating that the different reduced density matrices for the different components have different Schmidt coefficients. 
 
@@ -3110,7 +3016,7 @@ By Schmidt decomposition we should be able to write $\rho^A = \sum_i \lambda_i^2
 </details>
 
 
-#### Exercise 2.78 {#exercise-278}
+### Exercise 2.78 {#exercise-278}
 
 Product states are multi-qubit states that can be represented as simple combinations of individual qubit states - i.e. the qubits are not entangled. In this exercise we are to prove that a state of a composite system is a product state only if it has a Schmidt number of 1 and its reduced density matrices are pure states. I was unsure what the authors wanted for this solution since, if you just compare equation 2.202 to state $\ket{\psi} = \ket{a}\ket{b}$ for pure states $\ket{a}$ and $\ket{b}$, the answer seems obvious. But just pointing that out didn't seem like enough, so I started with a composite of two arbitrary single qubit pure states and then followed similar steps shown in the proof for Schmidt decomposition. 
 
@@ -3205,7 +3111,7 @@ which is not a product state.
 
 </details>
 
-#### Exercise 2.79 {#exercise-279}
+### Exercise 2.79 {#exercise-279}
 
 In this exercise we are to find the Schmidt decomposition of three given states. For states that are not already written as a Schmidt decomposition, you can find their eigenvalues and eigenvectors using the reduced density matrices. 
 
@@ -3302,7 +3208,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.80 {#exercise-280}
+### Exercise 2.80 {#exercise-280}
 
 In this exercise we show some properties of unitary transformations on pure composite system states using the definition of a unitary operator from section 2.1.6, $U=\sum_{i} \ket{w_i}\bra{v_i}$, and the fact that $U\ket{\phi} = \sum_i \lambda_i (U\ket{i_A})\ket{i_B}$ if $U$ is a unitary operator acting on $A$ alone. 
 
@@ -3318,7 +3224,7 @@ Therefore if $\ket{\psi} = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ and $\ket{\phi} 
 </details>
 
 
-#### Exercise 2.81 {#exercise-281}
+### Exercise 2.81 {#exercise-281}
 
 In this exercise we prove that there exists a unitary transformation $U_R$ acting on reference system $R$ such that $\ket{AR_1} = (I_A \otimes U_R)\ket{AR_2}$ for purification states $\ket{AR_1}$ and $\ket{AR_2}$ of state $\rho^A$ by using equation 2.207 and the results from the previous exercise. 
 
@@ -3345,7 +3251,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 2.82 {#exercise-282}
+### Exercise 2.82 {#exercise-282}
 
 In this exercise we are just looking at more properties of purification. The first part we reproduce the steps in equation 2.207 - 2.211, but just switch out the labels for the states. For the second part we use the relationship between the reduced density matrices and Schmidt decomposition and equation 2.131. For the third part we use theorem 2.6.  
 
@@ -3400,18 +3306,9 @@ Where we define $\ket{i} = \sum_j u_{ji} \ket{j}$. Since $u_{ji}$ is unitary, it
 
 </details>
 
-## EPR and the Bell Inequality
-
-### EPR and the Bell Inequality - Key Concepts
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| EPR Paper                            | section 2.6               | A paper written by Albert Einstein, Boris Podolsky and Nathan Rosen where they argue that the description of physical reality provided by quantum mechanics is incomplete and that there must exist elements of reality that were not part of quantum theory. |
-| Bell's inequality                    | section 2.6               | Experimental invalidation of the point of view expressed in the EPR paper.
-
 ## Chapter Problems
 
-#### Problem 2.1 {#problem-21}
+### Problem 2.1 {#problem-21}
 
 This problem is similar to [exercise 2.35](#exercise-235) but has us derive the equation for an arbitrary function of $\vec{n} \cdot \vec{\sigma}$ rather than an exponential. 
 
@@ -3437,7 +3334,7 @@ f (\theta \vec{n} \cdot \vec{\sigma}) &= f(\theta) \ket{\lambda_+}\bra{\lambda_+
 
 </details>
 
-#### Problem 2.2 {#problem-22}
+### Problem 2.2 {#problem-22}
 
 In this problem we explore some of the properties of the Schmidt number using what we learned in section 2.5. 
 
@@ -3478,7 +3375,7 @@ The Schmidt coefficients are given by $\alpha \lambda_i + \beta\kappa_i$ which c
 
 </details>
 
-#### Problem 2.3 {#problem-23}
+### Problem 2.3 {#problem-23}
 
 For this problem we derive Tsirelson's inequality. To do this we'll use equation 2.78, equation 2.107, equation 2.115 and the definition of the commutator. 
 

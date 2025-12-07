@@ -139,7 +139,8 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 As with the earlier chapters, I’ve included my notes and exercise solutions below. 
 
 
-<!—toc—>
+<!-- toc -->
+
 
 
 

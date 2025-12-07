@@ -176,4 +176,20 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
+/* TOC styles */
+.post-toc {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.post-toc li {
+  margin: 4px 0;
+}
+
+.post-toc .toc-h3 {
+  margin-left: 1.25rem;   
+  font-size: 0.95em;      
+  opacity: 0.9;           
+}
 

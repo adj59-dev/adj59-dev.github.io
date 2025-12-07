@@ -1,44 +1,62 @@
-# Reading Hamermesh
+---
+title: "Hamermesh: Chapter 1"
+description: "Notes and exercise solutions for Group Theory and Its Application to Physical Problems Chapter 1: elements of group theory."
+categories:
+  - Group Theory and Its Application to Physical Problems
+permalink: /GTAPP/chapter-1/
+toc: true
+tags:
+  - Group Theory and Its Application to Physical Problems
+  - Morton Hamermesh
+  - Hamermesh
+  - chapter 1
+  - exercise
+  - problem
+  - solutions
+last_modified_at: 2025-12-07 12:00:00 -08:00
+exercises:
+  - anchor: page-4-problem-1
+    label: Page 4, Problem 1
+  - anchor: page-11-problem-1
+    label: Page 11, Problem 1
+  - anchor: page-11-problem-2
+    label: Page 11, Problem 2
+  - anchor: page-11-problem-3
+    label: Page 11, Problem 3
+  - anchor: page-20-problem-1
+    label: Page 20, Problem 1
+  - anchor: page-20-problem-2
+    label: Page 20, Problem 2
+  - anchor: page-22-problem-1
+    label: Page 22, Problem 1
+  - anchor: page-23-problem-1
+    label: Page 23, Problem 1
+  - anchor: page-25-problem-1
+    label: Page 25, Problem 1
+  - anchor: page-27-problem-1
+    label: Page 27, Problem 1
+  - anchor: page-28-problem-1
+    label: Page 28, Problem 1
+  - anchor: page-29-problem-1
+    label: Page 29, Problem 1
+  - anchor: page-29-problem-2
+    label: Page 29, Problem 2
+  - anchor: page-29-problem-3
+    label: Page 29, Problem 3
+chapter: 1
+---
 
-I just finished reading *Group Theory And Its Application To Physical Problems* by Morton Hamermesh. I read this in parallel with the book *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
+I recently finished Chapter 1 of *Group Theory and Its Application to Physical Problems* by Morton Hamermesh. I picked up this book to complement *Quantum Computation and Quantum Information* by Nielsen and Chuang, which I’m working through in parallel. QCQI introduces several group theory ideas but doesn’t explore them in depth, so I wanted a resource that develops the concepts more systematically. Hamermesh does exactly that; his exposition is slower, richer in examples, and builds intuition before asking the reader to tackle problems.
+
+One small note: the book uses the term invariant subgroup, which is largely outdated; modern texts refer to these as normal subgroups. Otherwise, the treatment has held up surprisingly well. I've included the solutions to the problems in chapter 1 below. 
 
 
-## Navigation
-
-* [Chapter 1 Elements of Group Theory](#chapter-1-elements-of-group-theory)
-* [Chapter 2 Symmetry Groups](#chapter-2-symmetry-groups)
-* [Chapter 3 Group Representations](#chapter-3-group-representations)
-* [Chapter 4](#chapter-4)
-* [Chapter 5](#chapter-5)
-* [Chapter 6](#chapter-6)
-* [Chapter 7](#chapter-7)
-* [Chapter 8](#chapter-8)
-* [Chapter 9](#chapter-9)
-* [Chapter 10](#chapter-10)
-* [Chapter 11](#chapter-11)
-* [Chapter 12](#chapter-12)
+<!-- toc -->
 
 
+## Page 4
 
-
-## Chapter 1 Elements of Group Theory
-
-When comparing the information in this chapter of the book to other resources, I noticed that the term "invariant subgroup" seems to be outdated - it seems to be referred to a "normal subgroup" nowadays.
-
-### Elements of Group Theory - Problems
-
-#### Page 4
-
-The cross ratio of four points on a line is defined as 
-
-$$\begin{aligned}
-\frac{(x_1-x_2)/(x_3-x_2)}{(x_1-x_4)/(x_3-x_4)}
-\end{aligned}$$
-
-where $x_1,x_2,x_3,x_4$ are the coordinates of the four points. Show that the cross ratio is invariant under projective transformation.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-4-problem-1}
 
 Projective transformation of a line is defined by
 
@@ -60,23 +78,14 @@ $$\begin{aligned}
 
 Therefore, the cross ratio is invariant under projective transformation.
 
-</details>
 
-#### Page 11
+## Page 11
 
-(1) Show that (A) and (B) are the only possible structures for the group of order 4.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-11-problem-1}
 
 For the two groups given $a^2 = b$ and $a^2 = b^2 = c^2 = e$. We know $a^2 \neq a$ because then $a=e$. If we said $a^2 = c$ then we would get a group of the same form as (A), just with $b$ and $c$ swapped so this would not be a distinct structure. There are no other elements of the group that we could say $a^2$ is equal to, therefore there are no other distinct structures for a group of order 4. 
 
-</details>
-
-(2) Show directly that the group of order 4 must be abelian.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 2 {#page-11-problem-2}
 
 Group (A) is $\lbrace e, a, a^2, a^3 \rbrace$ and group (B) is $\lbrace e, a, b, c \rbrace$. To show that a group is abelian, we need to show that $ab = ba$ for all $a,b$ in the group. 
 
@@ -84,35 +93,23 @@ For group (A),  since it is cyclic it is abelian.
 
 For group (B), for any $a,b$ in the group, since $a^2=e$ and $b^2=e$, then $a=a^{-1}$ and $b=b^{-1}$. Therefore, $(ab)^{-1} = b^{-1}a^{-1} = ba$. But since $(ab)^2 = c^2 = e$, then also $(ab)^{-1} = ab$ and so $ab=(ab)^{-1} = ba$. Therefore, group (B) is abelian.
 
-</details>
+### Problem 3 {#page-11-problem-3}
 
-(3) Give a realization of each of the groups of order 4.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
 
 For group (A), a realization could be $0^\circ$, $90^\circ$, $180^\circ$, and $270^\circ$ rotation about a fixed axis in three dimensions. 
 
 For group (B), a realization could be no rotation, $180^\circ$ rotation about the x-axis, $180^\circ$ rotation about the y-axis, and $180^\circ$ rotation about the z-axis in three dimensions.
 
-</details>
 
 
-#### Page 20
 
-(1) Give the elements of the regular subgroup of $S_6$ which is isomorphic with the cyclic group of order $6$. 
+## Page 20
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-20-problem-1}
 
 The elements are $e$, $(123456)$, and the powers of $(123456)$ which are $(135)(246)$, $(14)(25)(36)$, $(153)(264)$, and $(165432)$.
 
-</details>
-
-(2) Use Cayley's theorem to find the possible structures of groups of order 6.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 2 {#page-20-problem-2}
 
 This problem is equivalent to finding the structure of the regular subgroups of $S_6$. For regular permutation subgroups, we know that all the cycles in a permutation must have the same length. Therefore, we know that the elements in a subgroup must have either one 6-cycle, two 3-cycles, or three 2-cycles. 
 
@@ -131,15 +128,10 @@ Looking at the different permutations of the two 3-cycle and three 2-cycles elem
 
 Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
 
-</details>
 
+## Page 22
 
-#### Page 22
-
-The cyclic permutations on four symbols form a subgroup $H$ of $S_4$. Resolve $S_4$ into left cosets with respect to $H$. Compare this resolution with one into right cosets. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-22-problem-1}
 
 By taking successive powers of $(1234)$ we get the cyclic subgroup of $S_4$, $H=\lbrace (1234), (13)(24), (1432), e \rbrace$. Let's calculate some left cosets. 
 
@@ -171,15 +163,10 @@ H(34) &= \lbrace (123), (1324), (142), (34) \rbrace \\
 
 Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This is a similar resolution as in the same permutations are multiplied to $H$, however the left and right cosets are not equal.
 
-</details>
 
+## Page 23
 
-#### Page 23
-
-Find the possible structures of groups of order 8.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-23-problem-1}
 
 If the group contains an element $a$ of order 8, then the group is a cyclic group $\lbrace a, a^2, a^3, a^4, a^5, a^6, a^7, a^8=e \rbrace$. 
 
@@ -286,15 +273,11 @@ The group table for $\braket{a,b,c \vert a^2=b^2=c^2=e, \text{all commute}}$ is
 | $ca$   | $c$    | $abc$  | $a$    | $bc$   | $ab$   | $e$    | $b$    |
 | $abc$  | $bc$   | $ca$   | $ab$   | $c$    | $a$    | $b$    | $e$    |
 
-</details>
 
 
-#### Page 25
+## Page 25
 
-Separate the elements of $S_5$ into conjugate classes.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-25-problem-1}
 
 In $S_5$ the distinct classes are:
 1. $e$
@@ -305,15 +288,10 @@ In $S_5$ the distinct classes are:
 6. $(1234),(1235),(1243),(1253),(1245),(1254),(1324),(1325),(1342),(1352),(1423),(1523),(1432),(1532),(1425),(1452),(1524),(1542),(2345),(2354),(2435),(2453),(2534),(2543),(1345),(1354),(1435),(1453),(1534),(1543)$
 7. $(12345),(12354),(12435),(12453),(12534),(12543),(13245),(13254),(13425),(13452),(13524),(13542),(14235),(14253),(14325),(14352),(14523),(14532),(15234),(15243),(15324),(15342),(15423),(15432)$
 
-</details>
 
+## Page 27
 
-#### Page 27
-
-Continue the table to $n=5,6,7$. For $n=5$, give the cycle structure corresponding to each partition. Find the number of permutations in each class of $S_5$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-27-problem-1}
 
 The table through $n=7$ is 
 
@@ -340,15 +318,11 @@ $$\begin{aligned}
 (1^5) & (11111) & (00001) & (12345) & 24\\
 \end{aligned}$$
 
-</details>
 
 
-#### Page 28
+## Page 28
 
-By taking successive products of the permutations 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-28-problem-1}
 
 $$\begin{aligned}
 (1234)(5678) & \text{and} & (1537)(2846)
@@ -378,15 +352,10 @@ a^4 &= e & = b^4 = c^4 &\Leftrightarrow 1 = i^4=j^4=k^4\\
 
 Therefore, the group $\lbrace e, a^2, a, a^3, b, b^3, ab, (ab)^3\rbrace$ is isomorphic to $\lbrace  1, -1, i, -i, j, -j, k, -k \rbrace$. 
 
-</details>
 
+## Page 29
 
-#### Page 29
-
-(1) Without enumerating, find the conjugate subgroups of $S_3$ in $S_4$; of $S_2$ in $S_4$; of the cyclic group $\lbrack e, (123), (132) \rbrack$ in $S_4$. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 1 {#page-29-problem-1}
 
 The subgroups are invariant if they contain either all or none of the elements in a given class of $S_4$. None of these subgroups are invariant. 
 
@@ -398,56 +367,16 @@ For $S_2$ each conjugate subgroup with be of the structure $\lbrace e, (12) \rbr
 
 Similarly, for the cyclic group each conjugate subgroup with be of the structure $\lbrack e, (123), (132) \rbrack$, with just permutations of the numbers $\lbrace 1,2,3,4 \rbrace$. There will be four such conjugates. 
 
-</details>
-
-(2) Prove that a subgroup of index 2 is necessarily invariant.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 2 {#page-29-problem-2}
 
 The index of a subgroup is the number of distinct cosets of $H$ there are in $G$. If the index is 2, there are only two distinct left cosets in $G$: $H$ and $aH$ for $a\notin H$. There are also only two distinct right cosets: $H$ and $Ha$ for $a\notin H$. We see that $aH$ is all elements of $G$ that are not in $H$ and $Ha$ is also all elements of $G$ that are not in $H$. Therefore, $aH=Ha$. So, for any $g\in G$ it is either in $H$ and so $gH=H=Hg$ or it is not in $H$ and so $gH=aH=Ha=Hg$. Thus $gH=Hg$ for all $g$. Therefore $H$ is invariant. 
 
-</details>
-
-(3) Show that all subgroups of the quaternion group are invariant.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
+### Problem 3 {#page-29-problem-3}
 
 A quaternion group is defined by $G=\lbrace 1,-1,i,-i,j,-j,k,-k\rbrace$ where $i^2=j^2=k^2=-1$, $ij=k$, $jk=i$, $ki=j$. Since any group with two of the components in $\lbrace i,j,k \rbrace$ will be able to generate the third component, the only nontrivial subgroups only contain one (or none) of them and is therefore of the structure $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, $\lbrace 1, -1 \rbrace$, or is $\lbrace 1 \rbrace$.
 
 For subgroups $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, their index is 2 and so by problem (2) are necessarily invariant. For $H=\lbrace 1, -1 \rbrace$ for every $g\in G$, $gHg^{-1}=H$ since all elements in $H$ commute with all $g\in G$ and so $H$ is invariant. The same can be said for $\lbrace 1 \rbrace$. Therefore, all subgroups in the quaternion group are invariant. 
 
-</details>
 
 
-## Chapter 2 Symmetry Groups
-
-
-
-### Symmetry Groups - Problems
-
-#### Page 45
-
-Show that the dihedral group $D_n$ is generated by two elements $a$, $b$, such that $a^n=b^2=(ab)^2=e$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary>Solution</summary>
-
-Let $a$ be a rotation $2\pi/n$ about the n-fold axis, so $a^n=e$. Let $b$ be a $\pi$ rotation about one of the 2-fold axes, so $b^2=e$. Rotating the figure by $a$ carries the 2-fold axis of $b$ to another 2-fold axis, so $a^jba^{-j}$ is a 2-fold rotation for every integer $j$. Thus all 2-fold rotations lie in the subgroup $\braket{a,b}$. The subgroup $\braket{a,b}$ also contains all powers of $a$, so it contains all rotations about the n-fold axis. By definition $D_n$ is either a rotation about an n-fold axis or rotation about one of the perpendicular 2-fold axes, therefore $D_n=\braket{a,b}$. If we apply the rotation $bab$, we end up with a rotation that is equivilent to $a^{-1}$ and so $ba=a^{-1}b$. Then, $(ab)^2=abab=a(ba)b=a(a^{-1}b)b=(aa^{-1})(b^2)=e$. Therefore, $D_n$ is generated by two elements $a$, $b$, such that $a^n=b^2=(ab)^2=e$.
-
-
-</details>
-
-
-
-
-
-
-
-## Chapter 3 Group Representations
-
-
-
-### Group Representations - Problems
 

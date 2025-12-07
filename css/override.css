@@ -199,11 +199,11 @@ mjx-container[display="true"] > mjx-math {
   padding: 0;
 
   /* columns */
-  column-count: 2;          
+  column-count: 3;          
   column-gap: 2rem;
 }
 
-@media (max-width: 800px){
+@media (max-width: 600px){
   .post-toc {
     list-style: none;
     margin: 1rem 0 2rem;
@@ -215,6 +215,19 @@ mjx-container[display="true"] > mjx-math {
   }
 }
 
+@media (max-width: 900px){
+  .post-toc {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    /* columns */
+    column-count: 2;          
+    column-gap: 2rem;
+  }
+}
+
+
 @media (min-width: 1200px){
   .post-toc {
     list-style: none;
@@ -222,7 +235,7 @@ mjx-container[display="true"] > mjx-math {
     padding: 0;
   
     /* columns */
-    column-count: 3;          
+    column-count: 4;          
     column-gap: 2rem;
   }
 }

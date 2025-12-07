@@ -193,3 +193,64 @@ mjx-container[display="true"] > mjx-math {
   opacity: 0.9;           
 }
 
+.post-toc {
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding: 0;
+
+  /* columns */
+  column-count: 2;          
+  column-gap: 2rem;
+}
+
+@media (max-width: 800px){
+  .post-toc {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    /* columns */
+    column-count: 1;          
+    column-gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .post-toc {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    /* columns */
+    column-count: 3;          
+    column-gap: 2rem;
+  }
+}
+
+
+.post-toc-group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+.toc-h2 a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post-toc-sub {
+  list-style: disc;
+  margin: 0.25rem 0 0.5rem 1.25rem;  /* indent h3 */
+  padding-left: 0;
+}
+
+.post-toc-sub .toc-h3 {
+  margin: 0;
+}
+
+.post-toc a:hover {
+  text-decoration: underline;
+}
+

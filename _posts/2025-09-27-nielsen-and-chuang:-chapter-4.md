@@ -139,21 +139,8 @@ I just finished reading Chapter 4 of *Quantum Computation and Quantum Informatio
 As with the earlier chapters, I’ve included my notes and exercise solutions below. 
 
 
-## Navigation
+<!—toc—>
 
-{% assign headers = content | split: "<h" %}
-{% for h in headers %}
-  {% if h contains "</h2>" or h contains "</h3>" %}
-    {% assign level = h | slice: 0, 1 %}
-    {% assign text = h | split: ">" | last | split: "<" | first %}
-    {% assign id = text | downcase | replace: " ", "-" | replace: "'", "" | replace: ".", "" %}
-    {% if level == "2" %}
-* [{{ text }}](#{{ id }})
-    {% elsif level == "3" %}
-  * [{{ text }}](#{{ id }})
-    {% endif %}
-  {% endif %}
-{% endfor %}
 
 
 

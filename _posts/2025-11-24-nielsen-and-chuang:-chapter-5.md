@@ -4,6 +4,7 @@ description: "Notes and exercise solutions for QCQI Chapter 5: QFT, phase estima
 categories:
   - Quantum Computation and Quantum Information
 permalink: /qcqi/chapter-5/
+toc: true
 tags:
   - QCQI
   - quantum computing
@@ -13,7 +14,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-12-05 19:10:00 -08:00
+last_modified_at: 2025-12-07 19:10:00 -08:00
 exercises:
   - anchor: exercise-51
     label: Exercise 5.1

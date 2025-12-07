@@ -130,31 +130,8 @@ As with Chapter 2, I’ve included my notes and exercise solutions below. The so
 
 
 ## Models for computation
-
-### Models for computation - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Elements of a Turing machine         | section 3.1.1             | (1) a program <br> (2) a finite state control (acts like a stripped-down microprocessor) <br> (3) a tape (acts like memeory) <br> (4) a read-write tape-head (points to the position on the tape which is currently readable or writable) |
-| Internal states of a Turing machine  | section 3.1.1             | The finite state control consists of a finite set of internal states, $q_1, \cdots, q_m$, the starting state $q_s$, and the halting state $q_h$. At the beginning of computation, the state is $q_s$. As computation executes the internal states change. If computation finishes the machine ends up in $q_h$. |
-| Properties of the tape               | section 3.1.1             | The tape is a on-dimensional object of infinite length which consists of tape squares numbered $0, 1, 2, \cdots$ that each contain a symbol from some alphabet $\Gamma$. |
-| Alphabet used in the book            | section 3.1.1             | $0, 1, b \text{ (blank)}, \triangleright \text{ (left edge of tape)}$       |
-| Program for a Turing machine         | section 3.1.1             | Finite list of program lines in the form $\braket{q, x, q', x', s}$, where $q$ and $q'$ are internal states, $x$ and $x'$ are symbols from $\Gamma$, and $s$ is $-1$, $1$, or $0$ representing movement of the tape-head left, right, or stand still, respectively. On each machine cycle the Turing machine seaches the program lines in order for $\braket{q,x,\cdot,\cdot, \cdot}$ where $q$ is the current internal state and $x$ is the current symbol being read on the tape. If a program line is found, then that line is executed. If not, the internal state is set to $q_h$ and the machine halts. When executing a program line, the internal state is set to $q'$, the symbol $x$ on the tape is changed to $x'$, and the tape head moves based on $s$, unless asked to move farther left than the leftmost square, in which case it doesn't move. |
-| Church-Turing thesis                 | section 3.1.1             | Any function that can be effectively computed by an algorithm can be computed by a Turing machine. This thesis is important because it provided a good definition for computability. | 
-| The halting problem                  | section 3.1.1             | A famous problem in computer science that asks whether it's possible to create a universal algorithm that can determine if any given program will halt or run forever. Alan Turing proved that such an algorithm cannot exist. |
-| Circuit model                        | section 3.1.2             | Models computation in terms of wires and gates.                                                        |
-| Logic gates                          | section 3.1.2             | <img width="458" height="250" alt="image" src="https://github.com/user-attachments/assets/b87e0e7c-cae9-4370-8459-2f8824bb1952" /> |
-| Boolean function                     | section 3.1.2             | Takes $n$ input bits and outputs a single bit. <br> $f:\lbrace 0,1\rbrace ^n \rightarrow \lbrace 0,1\rbrace$  |
-| Universal circuit components         | section 3.1.2             | (1) wires, preserve the states of the bits <br> (2) ancilla bits prepared in standard states <br> (3) the FANOUT operation, which takes a single bit as input and ouputs two copies <br> (4) the CROSSOVER operation, which interchanges the values of two bits <br> (5) logic gates (AND, XOR, and NOT) |
-| Circuit family                       | section 3.1.2             | A collection of circuits, $\lbrace C_n \rbrace$, indexed by a positive integer $n$.
-| Uniform circuit family               | section 3.1.2             | Circuit families for which there exists a Turing machine that, upon input of $n$, can generate a description of $C_n$ (the information needed to build the circuit). | 
-
-
-
-### Models for computation - Exercises
   
-#### Exercise 3.1 {#exercise-31}
+### Exercise 3.1 {#exercise-31}
 
 This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. Minsky chapter 5 discusses the idea of computability. 
 
@@ -167,7 +144,7 @@ To recognize that a process in Nature computes a function not computable by a Tu
 
 </details>
 
-#### Exercise 3.2 {#exercise-32}
+### Exercise 3.2 {#exercise-32}
 
 I found reading Minsky section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
 
@@ -210,7 +187,7 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 </details>
 
 
-#### Exercise 3.3 {#exercise-33}
+### Exercise 3.3 {#exercise-33}
 
 Here we are to describe a Turing machine which takes a binary number as input and outputs the bits in reverse order. I found it useful to look at examples in Minsky (section 6.1) and use a multi-tape Turing machine to create this solution, as recommended in the hint. 
 
@@ -336,7 +313,7 @@ Here is an example of how it would run
 </details>
 
 
-#### Exercise 3.4 {#exercise-34}
+### Exercise 3.4 {#exercise-34}
 
 For this exercise we are asked to describe a Turing machine which adds two binary numbers modulo 2. I also used two tapes for this machine. 
 
@@ -457,7 +434,7 @@ Here is an example of how it would run for $x = 100$ and $y=111$
 </details>
 
 
-#### Exercise 3.5 {#exercise-35}
+### Exercise 3.5 {#exercise-35}
 
 In Box 3.2 the authors introduce the halting problem for a Turing machine with an input equal to its Turing number. For this exercise, we are asked to think about the halting problem for a Turing machine with no inputs. The blank tape halting problem is discussed by Minsky in section 8.3.3 of his book, if you'd like another resource for this exercise. 
 
@@ -473,7 +450,7 @@ From Box 3.2, we know that there is no algorithm that can be used to determine i
 </details>
 
 
-#### Exercise 3.6 {#exercise-36}
+### Exercise 3.6 {#exercise-36}
 
 In this exercise we are asked to revisit the halting problem again, but this time the Turing machine is probabilistic. On page 127, the authors talk about creating a probabilistic Turing machine by adding a random component to the change in internal states with the execution of each program line. I am not confident in my solution to this exercise, as I don't have much experience with this area of theoretical computer science, but I'll put what I have below. Let me know if you have a better solution. 
 
@@ -518,7 +495,7 @@ Each time this algorithm is run, there is a probability $P_h$ of getting $0$ and
 </details>
 
 
-#### Exercise 3.7 {#exercise-37}
+### Exercise 3.7 {#exercise-37}
 
 This exercise asks if adding an oracle to a Turing machine resolves the halting problem. 
 
@@ -532,7 +509,7 @@ An oracle machine with access to a halting problem oracle for standard Turing ma
 </details>
 
 
-#### Exercise 3.8 {#exercise-38}
+### Exercise 3.8 {#exercise-38}
 
 For this exercise we are to create an AND, NOT, and XOR gate using NAND gates. I find it useful to make logic tables that show the outputs for the different inputs to the NAND gates. 
 
@@ -581,36 +558,7 @@ This is how you can make a XOR gate with NAND gates
 
 ## The analysis of computational problems
 
-### The analysis of computational problems - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Big O notation                       | section 3.2.1             | Describes the upper bounds behavior of a function. <br> $f(n)$ is $O(g(n))$ if $f(n) \leq cg(n)$ for some real positive constant $c$ and for all $n \geq n_0$ |
-| Big Omega notation                   | section 3.2.1             | Describes the lower bounds on resources required. <br> $f(n)$ is $\Omega (g(n))$ if $f(n) \geq cg(n)$ for some real positive constant $c$ and for all $n \geq n_0$|
-| Big Theta notation                   | section 3.2.1             | Can be used to describe a functions behavior when $f(n)$ behaves the same as $g(n)$ asymptotically, up to unimportant constat factors. <br> $f(n)$ is $\Theta (g(n))$ if it is both $O(g(n))$ and $\Omega (g(n))$ |
-| Strong Church-Turing thesis          | section 3.2.2             | Any model of computation can be simulated on a probabilistic Turing machine with at most a polynomial increase in the number of elementary operations required |
-| Easy vs hard to compute algorithms   | section 3.2.2             | A problem is regarded as easy, tractable, or feasible if an algorithm exists for solving the problem using polynomial resources. It is considered hart, intractable, or infeasible if it requires exponential (i.e. grows faster than polynomial) resources. |
-| Decision problems                    | section 3.2.3             | Problems with yes or no answers.  |
-| Language membership problem          | section 3.2.3             | Decision problems can be represented as language membership problems where the goal is to determine if a given input belongs to a specific language. |
-| $\text{TIME}(f(n))$                  | section 3.2.3             | The set of all decision problems (languages) that can be decided by a Turing machine in time $O(f(n))$. |
-| Complexity class **P**               | section 3.2.3             | The collection of all languages which are in TIME($n^k$) for some $k$, i.e. can be solved in polynomial time |
-| Complexity class **NP**              | section 3.2.3             | The collection of all languages $L$ for which there is a Turing machine $M$ with the following properties: <br> (1) If $x \in L$ then there exists a witness string $w$ such that $M$ halts in the state $q_Y$ after a time polynomial in $\vert x \vert$ when the machine is stated in the state $x\text{-blank-}w$. <br> (2) If $x \not\in L$ then for all strings $w$ which attempt to play the role of a witness, the machine halts in state $q_N$ after a time polynomial in $\vert x \vert$ when $M$ is started in the state $x\text{-blank-}w$. |
-| Complexity class **coNP**            | section 3.2.3             | The class of languages which have witnesses to 'no' instances. These languages are complements of the languages in **NP**. |
-| Reduction                            | section 3.2.3             | A technique used to relate the difficulty of solving two different problems. It involves transforming one problem into another, such that a solution to the second problem can be used to solve the first. Language B is said to be reducible to language A if there exists a Turing machine operating in polynomial time such that given as input $x$ it outputs $R(x)$ where $x \in B$ if and only if $R(x) \in A$.|
-| Complete                             | section 3.2.3             | A problem in a complexity class is complete if its language $L$ is the most difficult to decide in the sense that every other language in the complexity class can be reduced to $L$. |
-| Circuit Satisfiability problem (CSAT)| section 3.2.3             | A **NP**-complete problem that is often used as a benchmark for testing the complexity of other problems. |
-| Complexity class **NPI**             | section 3.2.3             | **NP** intermediate, which are problems neither solvable with polynomial resources nor are **NP**-complete. There are no problems known to be in **NPI**, but there are several problems that are considered likely candidates. This is the class of problems for which quantum computation is expected to be useful. | 
-| Complexity class **PSPACE**          | section 3.2.4             | A space-bound complexity class of decision problems that can be solved on a Turing machine using a polynomial number of working bits. Both **P** and **NP** are subsets of **PSPACE**. It is not known whether **P** = **PSPACE**, but if it does then quantum computers offer no advantage over classical computers.|
-| Landauer's principle                 | section 3.2.5             | In order to erase information, it is necessary to dissipate energy. <br> The amount of energy dissipated into the environment is at least $k_BT \ln2$ for each bit of information erased. The entropy of the environment increases by at least $k_B \ln2$ for each bit of information erased. Where $k_B$ is the Botzmann constant and $T$ is the temperature of the environment of the computer. Modern computers dissipate significantly more energy than this lower limit. If all computation was done reversibly, then Landauer's principle would imply no lower bound on the amount of energy dissipated. |
-| Toffoli gate                         | section 3.2.5             | A reversible gate with three inputs $(a, b, c)$ and three outputs $(a, b, c \oplus ab)$ |
-| Fredkin gate                         | section 3.2.5             | <img width="670" height="328" alt="image" src="https://github.com/user-attachments/assets/6d9e75ad-a594-4eb8-b779-05f190ef1b1b" /> | 
-
-
-
-### The analysis of computational problems - Exercises
-
-#### Exercise 3.9 {#exercise-39}
+### Exercise 3.9 {#exercise-39}
 
 For this exercise we are to prove that $f(n)$ is $O(g(n))$ if and only if $g(n)$ is $\Omega (f(n))$ and that $f(n)$ is $\Theta (g(n))$ if and only if $g(n)$ is $\Theta (f(n))$. We can do this using the details I listed in the notes above for these different notations.
 
@@ -626,7 +574,7 @@ We know that $f(n)$ is $\Theta (g(n))$ when $f(n)$ behaves the same as $g(n)$ as
 </details>
 
 
-#### Exercise 3.10 {#exercise-310}
+### Exercise 3.10 {#exercise-310}
 
 For this exercise we are to show that a polynomial of degree $k$ is $O(n^l)$ for any $l \geq k$.
 
@@ -640,7 +588,7 @@ To show that $g(n)$ is $O(n^l)$ we need to show that $g(n) \leq cn^l$ for some r
 </details>
 
 
-#### Exercise 3.11 {#exercise-311}
+### Exercise 3.11 {#exercise-311}
 
 Show that log $n$ is $O(n^k)$ for any $k > 0$.
 
@@ -666,7 +614,7 @@ Since we know $i'k \geq 1$ and all the terms in the summations are positive, we 
 </details>
 
 
-#### Exercise 3.12 {#exercise-312}
+### Exercise 3.12 {#exercise-312}
 
 Show that $n^{\log n}$ is super-polynomial.
 
@@ -689,7 +637,7 @@ It can be seen that this inequality is true when $\log_n(\log n) \geq 0$, which 
 </details>
 
 
-#### Exercise 3.13 {#exercise-313}
+### Exercise 3.13 {#exercise-313}
 
 Show that $n^{\log n}$ is sub-exponential.
 
@@ -714,7 +662,7 @@ We know that $n$ grows faster than $(\log(n))^2$ (this can easily be seen by tak
 </details>
 
 
-#### Exercise 3.14 {#exercise-314}
+### Exercise 3.14 {#exercise-314}
 
 Suppose $e(n)$ is $O(f(n))$ and $g(n)$ is $O(h(n))$. Show that $e(n)g(n)$ is $O(f(n)h(n))$. 
 
@@ -736,7 +684,7 @@ Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for 
 </details>
 
 
-#### Exercise 3.15 {#exercise-315}
+### Exercise 3.15 {#exercise-315}
 
 In this exercise we are to show that the lower bounds of a compare-and-swap sorting algorithm is $\Omega(n \log n)$. You will need to use Stirling's approximation to do this. 
 
@@ -775,7 +723,7 @@ For sufficiently large $n$ the left-hand side is dominated by the $n\log(n)$ ter
 </details>
 
 
-#### Exercise 3.16 {#exercise-316}
+### Exercise 3.16 {#exercise-316}
 
 This exercise asks us to find an example of a hard to compute function. For this you first need to find the number of possible Boolean functions that can be created with $n$ inputs. Then find the number of circuit configurations that can be created with $m$ logic gates. Finally find the minimum number of gates needed to create all possible Boolean functions with $n$ inputs. Note: the online [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) says that $2^n/\log(n)$ should be $2^n/n$. 
 
@@ -834,7 +782,7 @@ If we set $m = \frac{2^n}{n}$ then we would have $\frac{2^n}{n}\log(\frac{2^n}{n
 </details>
 
 
-#### Exercise 3.17 {#exercise-317}
+### Exercise 3.17 {#exercise-317}
 
 For this exercise we are to prove that a polynomial-time algorithm for finding the factors of a number $m$ exist if and only if the factoring decision problem is **P**. The factoring decision problem is as follows: given a composite integer $m$ and $l<m$, does $m$ have a non-trival factor less than $l$? 
 
@@ -857,7 +805,7 @@ Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same
 
 </details>
 
-#### Exercise 3.18 {#exercise-318}
+### Exercise 3.18 {#exercise-318}
 
 For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\neq$ **NP**. I found it useful to read more about complement complexity classes in Papadimitriou section 7.1 before solving this exercise. 
 
@@ -871,7 +819,7 @@ For this exercise we are to prove that if **coNP** $\neq$ **NP** then **P** $\ne
 </details>
 
 
-#### Exercise 3.19 {#exercise-319}
+### Exercise 3.19 {#exercise-319}
 
 For this exercise we are asked to show that we can determine whether there is a path between two specified vertices in a graph using $O(n)$ operations where $n$ is the number of vertices. Then we are asked to show that it is possible to decide whether a graph is connected in $O(n^2)$ operations. 
 
@@ -924,7 +872,7 @@ Here an algorithm like the path function runs for each vertex in V, but instead 
 </details>
 
 
-#### Exercise 3.20 {#exercise-320}
+### Exercise 3.20 {#exercise-320}
 
 In this exercise we are asked to prove Euler's theorem, which is: a connected graph contains an Euler cycle if and only if every vertex has an even number of edges incident upon it. An Euler cycle is an ordering of the edges of a graph $G$ so that every edge in the graph is visited exactly once. Then we are also asked to give a constructive procedure for finding an Euler cycle. 
 
@@ -1013,7 +961,7 @@ EulerCycle(starting_vertex, graph):
 </details>
 
 
-#### Exercise 3.21 {#exercise-321}
+### Exercise 3.21 {#exercise-321}
 
 Here we are to demonstrate the transitive property of reduction using the defition of reducible given on page 145.
 
@@ -1030,7 +978,7 @@ Therefore, if $L_1$ is reducible to $L_2$ and $L_2$ is reducible to $L_3$ then $
 
 </details>
 
-#### Exercise 3.22 {#exercise-322}
+### Exercise 3.22 {#exercise-322}
 
 For this exercise we are to show that if $L$ is complete for a complexity class, and $L'$ is another language in the complexity class such that $L$ reduces to $L'$, then $L'$ is also complete for the complexity class. 
 
@@ -1043,7 +991,7 @@ Let $L_i$ be all the languages in the complexity class other than $L$ and $L'$. 
 
 </details>
 
-#### Exercise 3.23 {#exercise-323}
+### Exercise 3.23 {#exercise-323}
 
 For this exercise we are asked to show that SAT is **NP**-complete. 
 
@@ -1074,7 +1022,7 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 </details>
 
-#### Exercise 3.24 {#exercise-324}
+### Exercise 3.24 {#exercise-324}
 
 In this exercise we are asked to show that 2SAT can be solved in polynomial time. Papadimitriou discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to look at figure 9-1 before starting the exercise, to confirm that I understood what these graphs look like, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
 
@@ -1139,7 +1087,7 @@ Here is pseudocode to solve 2SAT.
 </details>
 
 
-#### Exercise 3.25 {#exercise-325}
+### Exercise 3.25 {#exercise-325}
 
 For this exercise we are to prove that **PSPACE** $\subseteq$ **EXP**. The authors give a very generous hint for this exercise. 
 
@@ -1165,7 +1113,7 @@ For $k$ larger than the degree of $p(n)$, there will be a sufficiently large $n_
 </details>
 
 
-#### Exercise 3.26 {#exercise-326}
+### Exercise 3.26 {#exercise-326}
 
 For this exercise we are to show that **L** $\subseteq$ **P**.
 
@@ -1189,7 +1137,7 @@ This function is a polynomial with degree $\frac{1}{\log_m(k)}$. Therefore, **L*
 
 </details>
 
-#### Exercise 3.27 {#exercise-327}
+### Exercise 3.27 {#exercise-327}
 
 In this exercise we are to prove that the given algorithm approximates the vertex cover for a graph $G$ within a factor of two of being a minimal vertex cover. Per [Wikipedia](https://en.wikipedia.org/wiki/Vertex_cover), in graph theory, a vertex cover of a graph is a set of vertices that includes at least one endpoint of every edge of the graph.
 
@@ -1214,7 +1162,7 @@ $$\begin{aligned}
 
 </details>
 
-#### Exercise 3.28 {#exercise-328}
+### Exercise 3.28 {#exercise-328}
 
 For this exercise we are asked to show the arbitrariness of the constant in the definition of BPP. Papadimitriou discusses Randomized Complexity classes, of which BPP is one, in section 11.2. 
 
@@ -1232,7 +1180,7 @@ We can do something similar for our Turing machine $M$, where we build a new Tur
 </details>
 
 
-#### Exercise 3.29 {#exercise-329}
+### Exercise 3.29 {#exercise-329}
 
 Show that applying two consecutive Fredkin gates gives the same outputs as inputs.
 
@@ -1256,7 +1204,7 @@ In the table below, the first two columns are the same as Figure 3.15 in the tex
 
 </details>
 
-#### Exercise 3.30 {#exercise-330}
+### Exercise 3.30 {#exercise-330}
 
 Verify that the billiard ball computer in Figure 3.14 computes the Fredkin gate.
 
@@ -1272,7 +1220,7 @@ Below are the billiard ball trajectories for all inputs listed in Figure 3.15. T
 </details>
 
 
-#### Exercise 3.31 {#exercise-331}
+### Exercise 3.31 {#exercise-331}
 
 In this exercise we are asked to construct a reversible half-adder circuit where the input is two bits $x$ and $y$, and the outputs are $(x,y,c,x\oplus y)$. Right before this exercise, the authors discuss how to do uncomputation; I followed these instructions for constructing this circuit. 
 
@@ -1293,7 +1241,7 @@ Here is the same circuit drawn as a quantum circuit diagram.
 
 </details>
 
-#### Exercise 3.32 {#exercise-332}
+### Exercise 3.32 {#exercise-332}
 
 In this exercise we are asked to find the smallest number of Fredkin gates needed to simulate a Toffoli gate and vice versa. 
 
@@ -1354,7 +1302,7 @@ As with the first half of the exercise, creating a circuit made of Toffoli gates
 
 ## Chapter Problems
 
-#### Problem 3.1 {#problem-31}
+### Problem 3.1 {#problem-31}
 
 For this problem we are asked to show that a Minsky machine can compute all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. Minsky's book has a detailed discussion on this topic in chapter 10 and 11. What I put for my answer for part 1 is only a summary. For part 2, I'm not entirely sure what the authors are looking for.
 
@@ -1369,7 +1317,7 @@ For this problem we are asked to show that a Minsky machine can compute all Turi
 
 </details>
 
-#### Problem 3.2 {#problem-32}
+### Problem 3.2 {#problem-32}
 
 For this problem we are asked to prove that for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. As a hint, we are asked to show that a vector game in $k+2$ dimensions can simulate a Minsky machine containing $k$ registers. This vector game is discussed by Conway in [Unpredictable Iterations](https://gwern.net/doc/cs/computable/1972-conway.pdf), which also contains the solution to this problem.
 
@@ -1418,7 +1366,7 @@ Using this methodology any Minsky machine can be simulated using a vector game. 
 </details>
 
 
-#### Problem 3.3 {#problem-33}
+### Problem 3.3 {#problem-33}
 
 For this problem we are asked to prove that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2. There is an example in the book on page 169 of using Fractran, it is also discussed by Conway in [FRACTRAN: A SIMPLE UNIVERSAL PROGRAMMING LANGUAGE FOR ARITHMETIC](https://www.cs.unc.edu/~stotts/COMP210-s23/madMath/Conway87.pdf).
 
@@ -1471,7 +1419,7 @@ Therefore, for any computable function $f(.)$ there is a Fractran program which 
 </details>
 
 
-#### Problem 3.4 {#problem-34}
+### Problem 3.4 {#problem-34}
 
 For this problem, we are asked to prove that there is no algorithm to decide whether a Fractran program ever reaches 1. This is just another form of the halting problem.
 
@@ -1493,7 +1441,7 @@ For an alternative (and likely better) proof, you can see Minsky section 8.3.2. 
 </details>
 
 
-#### Problem 3.5 {#problem-35}
+### Problem 3.5 {#problem-35}
 
 For this problem, we are asked to prove that there are Boolean functions which cannot be computed using only one- and two-bit reversible logic gates and ancilla bits. Then we are to deduce that the Toffoli gate cannot be simulated using one- and two-bit reversible gates, even with the use of ancilla bits. 
 
@@ -1555,7 +1503,7 @@ Therefore, there exist Boolean functions (e.g., AND, OR) that cannot be computed
 
 
 
-#### Problem 3.6 {#problem-36}
+### Problem 3.6 {#problem-36}
 
 For this problem we are to suppose that there is an approximation algorithm for TSP which is guaranteed to find the shortest tour among $n$ cities to within a factor of $r$ for $r \geq 1$. Let $G=(V,E)$ be any graph on $n$ vertices. Define an instance of TSP by identifying cities with vertices in $V$, and defining the distance between cities $i$ and $j$ to be 1 if $(i,j)$ is an edge of $G$, and to be $\lceil r \rceil \vert V \vert + 1$ otherwise. Show that if the approximation algorithm is applied to this instance of TSP then it returns a Hamiltonian cycle for $G$ if one exists and otherwise returns a tour of length more than $\lceil r \rceil \vert V \vert$. From the **NP**-completeness of HC it follows that no such approximation algorithm can exist unless **P** = **NP**
 
@@ -1578,7 +1526,7 @@ Thus, when the approximation algorithm is applied to this instance of TSP then i
 </details>
 
 
-#### Problem 3.7 {#problem-37}
+### Problem 3.7 {#problem-37}
 
 For this problem we are asked to describe a reversible Turing machine. There was a hint given to use two tapes. 
 
@@ -1594,7 +1542,7 @@ For this problem we are asked to describe a reversible Turing machine. There was
 </details>
 
 
-#### Problem 3.8 {#problem-38}
+### Problem 3.8 {#problem-38}
 
 The authors ask us to find a hard-to-compute class of functions. 
 
@@ -1609,7 +1557,7 @@ Monotone circuits (with only AND/OR gates, no negation) are discussed in section
 
 
 
-#### Problem 3.9 {#problem-39}
+### Problem 3.9 {#problem-39}
 
 For this problem we are asked to prove that a reversible Turing machine operating in polynomial space can be used to solve QSAT. Thus, the class of languages decidable by a computer operating reversibly in polynomial space is equal to **PSPACE**. The further reading section cites three papers related to this problem: <br>
 -Bennett: [TIME/SPACE TRADE-OFFS FOR REVERSIBLE COMPUTATION](https://mathweb.ucsd.edu/~sbuss/CourseWeb/Math268_2013W/Bennett_Tradeoffs.pdf) <br>
@@ -1641,7 +1589,7 @@ which is still a polynomial amount of space. So, the reversible Turing machine s
 
 </details>
 
-#### Problem 3.10 {#problem-310}
+### Problem 3.10 {#problem-310}
 
 For this problem we are asked to outline the construction of a reversible circuit which, upon the input of $m$ and $n$ such that $n>m$, outputs the product $p_mp_n$, that is $(m,n) \rightarrow (p_m p_n, g(m,n))$, where $g(m,n)$ is the final state of the ancilla bits used by the circuit and $p_m$ is the $m\text{th}$ prime number. We are to estimate the number of ancilla qubits our circuit requires and prove that if a polynomial (in $\log n$) size reversible circuit can be found that uses $O(\log(\log n))$ ancilla bits then the problem of factoring a product of two prime numbers is in **P**. 
 

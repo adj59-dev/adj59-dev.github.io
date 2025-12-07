@@ -14,7 +14,7 @@ tags:
   - exercise
   - problem
   - solutions
-last_modified_at: 2025-12-07 19:10:00 -08:00
+last_modified_at: 2025-12-07 12:00:00 -08:00
 exercises:
   - anchor: exercise-51
     label: Exercise 5.1

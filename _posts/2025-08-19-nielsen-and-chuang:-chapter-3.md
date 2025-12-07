@@ -836,7 +836,7 @@ If we set $m = \frac{2^n}{n}$ then we would have $\frac{2^n}{n}\log(\frac{2^n}{n
 
 #### Exercise 3.17 {#exercise-317}
 
-For this exercise we are to prove that a polynomial-time algorithm for finding the factors of a number $m$ exist if and only if the factoring decision problem is **P**. The factoring decision problem is as follows: given a composite interger $m$ and $l<m$, does $m$ have a non-trival factor less than $l$? 
+For this exercise we are to prove that a polynomial-time algorithm for finding the factors of a number $m$ exist if and only if the factoring decision problem is **P**. The factoring decision problem is as follows: given a composite integer $m$ and $l<m$, does $m$ have a non-trival factor less than $l$? 
 
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
@@ -897,7 +897,7 @@ path(s, f, graph):
     return no
 
 ```
-Here the agorithm starts by initializing two lists, S and M, and adding the starting vertex s to both lists. The following steps are repeated until list S is empty: (1) finds all the vertices connected to the first element in list S that are not in list M, (2) adds these vertices to S and M, (3) remove the first element in list S. The algorithm then checks if f is in M and returns yes if it is and no if it isn't. It can be seen that this function is $O(n)$ since v is only able to represent each vertex one time and so the while loop only loops, at most, $n$ times.
+Here the algorithm starts by initializing two lists, S and M, and adding the starting vertex s to both lists. The following steps are repeated until list S is empty: (1) finds all the vertices connected to the first element in list S that are not in list M, (2) adds these vertices to S and M, (3) remove the first element of list S. The algorithm then checks if f is in M and returns yes if it is and no if it isn't. It can be seen that this function is $O(n)$ since v is only able to represent each vertex one time and so the while loop only loops, at most, $n$ times.
 
 A graph is considered connected if there is a path between every pair of vertices. We could modify our path function to determine if the graph is connected.
 
@@ -931,7 +931,7 @@ In this exercise we are asked to prove Euler's theorem, which is: a connected gr
 <details style="margin-bottom: 20px;" markdown="1">
 <summary><strong>Click to view the solution</strong></summary>
 
-For a Euler cycle to exist, each vertex needs at least two incident edges, one to go away from the vertex and one to return to the vertex. A simple example is shown in Example 1 where there are three vertices, all connected. An Euler cycle can be identified as $1,2,3,1$.
+For an Euler cycle to exist, each vertex needs at least two incident edges, one to go away from the vertex and one to return to the vertex. A simple example is shown in Example 1 where there are three vertices, all connected. An Euler cycle can be identified as $1,2,3,1$.
 
 
 <p align="center" width="100%">
@@ -1411,7 +1411,7 @@ $$\begin{aligned}
 
 The vector list starts with $(0, 0, 0, 1, -1)$, which transfers positive numbers from $r_5$ to $r_4$, and the rest of the vectors are generated from each order in the Minsky machine $(\text{operation on }r_1, \text{operation on }r_2, \text{operation on }r_3, -m, n\text{ or }p)$, which are listed from largest to smallest $m$. 
 
-Using this methodology any Midsky machine can be simulated using a vector game. Therefore, for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. 
+Using this methodology any Minsky machine can be simulated using a vector game. Therefore, for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -1454,7 +1454,7 @@ $$\begin{aligned}
 & (1, 0, 0, -1, 2) &\Rightarrow \frac{11^2}{7}\\
 \end{aligned}$$
 
-And so our list of fractions that reproduces the Mindsky machine is $\frac{7}{11}, \frac{11^3}{2 \times 7^{4}}, \frac{11^2}{7^4}, \frac{3 \times 11^4}{7^3}, \frac{11}{5 \times 7^2}, \frac{1}{7^2}, \frac{11^2}{7}$, with a starting value of $\frac{2^x 3^y 5^z 11^3}{1}$. Using this methodology any Midsky machine can be simulated using a Fractran program. Therefore, for any computable function $f(\cdot)$ there is a Fractran program which when started with the vector $2^n$ reaches $2^{f(n)}$. This, unfortunatly, is not what we are asked to prove, which is that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2.
+And so our list of fractions that reproduces the Mindsky machine is $\frac{7}{11}, \frac{11^3}{2 \times 7^{4}}, \frac{11^2}{7^4}, \frac{3 \times 11^4}{7^3}, \frac{11}{5 \times 7^2}, \frac{1}{7^2}, \frac{11^2}{7}$, with a starting value of $\frac{2^x 3^y 5^z 11^3}{1}$. Using this methodology any Minsky machine can be simulated using a Fractran program. Therefore, for any computable function $f(\cdot)$ there is a Fractran program which when started with the vector $2^n$ reaches $2^{f(n)}$. This, unfortunatly, is not what we are asked to prove, which is that for any computable function $f(.)$ there is a Fractran program which when started with $2^n$ reaches $2^{f(n)}$ without going through any intermediate powers of 2.
 
 Let's say that the program did go through an intermediate power of 2. What would that mean? It would mean that all the other "registries" were set to zero at some point in the program. Looking at our fractions and thinking about how they are generated from a Minsky machine, one notes that each order of the Minsky machine corresponds with decrementing the second to last register and incrementing the last register. If the last two registers are zero, the program will halt. 
 

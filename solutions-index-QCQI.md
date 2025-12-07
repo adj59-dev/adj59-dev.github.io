@@ -15,7 +15,7 @@ tags:
   - textbook solutions
 ---
 
-This page indexes my notes and exercise solutions for Nielsen & Chuang’s *Quantum Computation and Quantum Information*. You can navigate by chapter or jump directly to the exercises I’ve completed. Solutions on each chapter page are collapsed by default—click "Click to view the solution” to expand them. This index will be updated as I work through the book.
+This page indexes my notes and exercise solutions for Nielsen & Chuang’s *Quantum Computation and Quantum Information*. You can navigate by chapter or jump directly to the exercises I’ve completed. This index will be updated as I work through the book.
 
 {%- assign qcqi_posts = site.categories["Quantum Computation and Quantum Information"] | sort: "chapter" -%}
 {%- assign current_chapter = nil -%}

@@ -98,42 +98,37 @@ While working through Appendix 4, I realized that I needed to learn some group t
 
 To strengthen my understanding going forward, I’ve purchased *Group Theory and Its Application to Physical Problems* by Morton Hamermesh and plan to work through it alongside QCQI. It seems to offer a gentler introduction to group theory than QCQI, although some of the terminology is a bit dated.
 
-As with the earlier chapters, I’ve included my notes and exercise solutions below. The solutions are collapsed to save space and to avoid spoilers for anyone who wants to try the problems independently. 
+As with the earlier chapters, I’ve included my notes and exercise solutions below. 
 
 
 
 ## Navigation
 
-* [The quantum Fourier transform](#the-quantum-fourier-transform)
-* [Phase estimation](#phase-estimation)
-* [Appendix 2](#appendix-2)
-* [Appendix 4](#appendix-4)
-* [Order-finding and factoring applications](#order-finding-and-factoring-applications)
-* [General applications of the quantum Fourier transform](#general-applications-of-the-quantum-fourier-transform)
-* [Chapter problems](#chapter-problems)
+{% assign headers = content | split: "<h" %}
+{% for h in headers %}
+  {% if h contains "</h2>" or h contains "</h3>" %}
+    {% assign level = h | slice: 0, 1 %}
+    {% assign text = h | split: ">" | last | split: "<" | first %}
+    {% assign id = text | downcase | replace: " ", "-" | replace: "'", "" | replace: ".", "" %}
+    {% if level == "2" %}
+* [{{ text }}](#{{ id }})
+    {% elsif level == "3" %}
+  * [{{ text }}](#{{ id }})
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 
 
 
 ## The quantum Fourier transform
 
-### The quantum Fourier transform - Key Concepts
+### Exercise 5.1 {#exercise-51}
+
+ 
 
 
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum Fourier transform            | 5.1                       | Fourier transform on an orthonormal basis $\ket{0},\cdots,\ket{N-1}$ is <br> $\ket{j} \to \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{2\pi i j k/N}\ket{k}$. <br> The action on an arbitrary state is <br> $\sum_{j=0}^{N-1} x_j \ket{j} \to \sum_{k=0}^{N-1} y_k \ket{k}$ |
-| Product representation of quantum Fourier transform | 5.1        | Write state $\ket{j}$ using the binary representation $j = j_12^{n-1} + j_22^{n-2} + \cdots + j_n2^0$. With the binary fraction represented as $0.j_lj_{l+1}\cdots j_m = j_l/2+j_{l+1}/4 + \cdots + j_m/2^{m-l+1}$. Then the Fourier transform can be written as <br> $\ket{j_1,\cdots,j_n} \to \frac{\left(\ket{0} + e^{2\pi i  0.j_n }\ket{1}\right)\left(\ket{0} + e^{2\pi i  0.j_{n-1}j_n }\ket{1}\right)\cdots \left(\ket{0} + e^{2\pi i  0.j_1j_2\cdots j_n }\ket{1}\right)}{2^{n/2}}$ |
-| Quantum Fourier transform limitations | 5.1                      | We cannot directly access the amplitudes in a quantum computer, therefore there is no way of determining the Fourier transformed amplitudes of the original state. There is also no way to efficiently prepare the original state to be Fourier transformed. |
 
-  
-### The quantum Fourier transform - Exercises
-
-#### Exercise 5.1 {#exercise-51}
-
-Give a direct proof that the linear transformation defined by equation 5.2 is unitary. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 The transformation from equation 5.2 can be written $T=\frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i j k/N}\ket{k}\bra{j}$. In order for $T$ to be unitary $TT^\dagger = T^\dagger T = I$. So let's check this
 
@@ -151,15 +146,15 @@ Therefore $T$ is unitary.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.2 {#exercise-52}
 
-Explicitly compute the Fourier transform of the $n$ qubit state $\ket{00\cdots 0}$. 
+### Exercise 5.2 {#exercise-52}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 For the equations below, $N=2^n$.
 
@@ -171,15 +166,15 @@ T\ket{00\cdots 0} &= \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\sum_{j=0}^{N-1}e^{2\pi i
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.3 {#exercise-53}
 
-Suppose we wish to perform a Fourier transform of a vector containing $2^n$ complex numbers on a classical computer. Verify that the straightforward method for performing the Fourier transform, based upon direct evaluation of Equation (5.1) requires $\Theta(2^{2n})$ elementary arithmetic operations. Find a method for reducing this to $\Theta(n2^n)$ based upon Equation (5.4).
+### Exercise 5.3 {#exercise-53}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Equation 5.1 is 
 
@@ -224,18 +219,14 @@ Since the circuit in figure 5.1 has the same matrix representation as the classi
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise 5.4 {#exercise-54}
 
-Give a decomposition of the controlled- $R_k$ gate into single qubit and CNOT gates. Where $R_k$ is given by
+### Exercise 5.4 {#exercise-54}
 
-$$\begin{aligned}
-R_k = \begin{bmatrix} 1 & 0 \\\ 0 & e^{2\pi i/2^k} \end{bmatrix}
-\end{aligned}$$
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 I came up with this gate
 
@@ -293,29 +284,29 @@ print(circuit)
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.5 {#exercise-55}
 
-Give a quantum circuit to perform the inverse quantum Fourier transform.
+### Exercise 5.5 {#exercise-55}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Since the quantum Fourier transform is a unitary operation, the adjoint of the operation will give us the inverse quantum Fourier transform. So, to construct a circuit for the inverse quantum Fourier transform, we can take the circuit in Figure 5.1 (or Box 5.1) and apply the adjoints of each of the gates in reverse order. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.6 {#exercise-56}
 
-Let $U$ be the ideal quantum Fourier transform on $n$ qubits, and $V$ be the transform which results if the controlled- $R_k$ gates are performed to a precision $\Delta=1/p(n)$ for some polynomial $p(n)$. Show that the error $E(U,V) = max_{\ket{\psi}}\Vert (U-V)\ket{\psi}\Vert$ scales as $\Theta(n^2/p(n))$, and thus polynomial precision in each gate is sufficient to guarantee polynomial accuracy in the output state. 
+### Exercise 5.6 {#exercise-56}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 From equation 4.69 we know that
 
@@ -328,30 +319,18 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 ## Phase estimation
 
-### Phase estimation - Key Concepts
 
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Phase estimation procedure           | 5.2                       | Procedure outlined on pages 221-223. Schematic from Figure 5.3: <br> <img width="505" height="177" alt="image" src="https://github.com/user-attachments/assets/45be88b1-1add-4976-a8fc-b63c8e0ee10e" /> |
+### Exercise 5.7 {#exercise-57}
 
 
 
-  
-### Phase estimation - Exercises
 
 
-#### Exercise 5.7 {#exercise-57}
-
-Show that the effect of the sequence of controlled- $U$ operations like that in Figure 5.2 is to take the state $\ket{j}\ket{u} \to \ket{j}U^j\ket{u}$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 The Hadamard gates transforms $\ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}$. Then the controlled- $U$ gates transform the following
 
@@ -364,15 +343,15 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.8 {#exercise-58}
 
-Suppose the phase estimation algorithm takes the state $\ket{0}\ket{u}$ to the state $\ket{\tilde{\phi_u}}\ket{u}$. so that given the input $\ket{0}\left(\sum_u c_u\ket{u}\right)$, the algorithm outputs $\sum_u c_u \ket{\tilde{\phi_u}}\ket{u}$. Show that if $t$ is chosen according to (5.35), then the probability for measuring $\phi_u$ accurate to $n$ bits at the conclusion of the phase estimation algorithm is at least $\vert c_u \vert^2(1-\epsilon)$.
+### Exercise 5.8 {#exercise-58}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Equation 5.35 is
 
@@ -392,15 +371,15 @@ where $\ket{u}$ has a probability $p_u = \vert c_u \vert^2$ of being measured. T
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.9 {#exercise-59}
 
-Let $U$ be a unitary transform with eigenvalues $\pm 1$, which acts on a state $\ket{\psi}$. Using the phase estimation procedure, construct a quantum circuit to collapse $\ket{\psi}$ into one or the other of the two eigenspaces of $U$, giving also a classical indicator as to which space the final state is in. Compare your results with [Exercise 4.34](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-434). 
+### Exercise 5.9 {#exercise-59}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Since the eigenvalues are $\pm 1$ we know that $\phi = 0$ or $\phi = \frac{1}{2}$. To express these values exactly we need $t=1$ bit. Therefore, the circuit will be as follows
 
@@ -410,48 +389,16 @@ The Fourier transform for a one-bit gate is just one Hadamard gate. So $FT^\dagg
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 ## Appendix 2
 
-### Appendix 2 - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Definition of group $(G,\cdot)$      | A2.1                      | A group $(G,\cdot)$ is a non-empty set $G$ with a binary group multiplication operation $\cdot$ with the following properties: <br> (closure) $g_1\cdot g_2 \in G$ for all $g_1,g_2\in G$ <br> (associativity) $(g_1\cdot g_2)\cdot g_3 = g_1 \cdot (g_2 \cdot g_3)$ for all $g_1,g_2,g_3 \in G$ <br> (identity) there exists $e\in G$ such that $\forall g\in G$, $g\cdot e = e\cdot g = g$ <br> (inverses) for all $g\in G$ there exists $g^{-1}\in G$ such that $g\cdot g^{-1}=e$ | 
-| Finite group                         | A2.1                      | A group is finite if the number of elements in the group is finitie                                    |
-| Order of a finite group              | A2.1                      | The order of a finite group is the number of elements it contains, denoted as $\vert G \vert$ for group $G$ |
-| Abelian groups                       | A2.1                      | A group is said to be Abelian if $g_1 g_2 = g_2 g_1$ for all $g_1,g_2 \in G$                           |
-| Order of an element in a multiplicative group       | A2.1                      | The order of an element $g\in G$ is the smallest positive integer $r$ such that $g^r=e$ where $e$ is the identity element. |
-| Subgroup                             | A2.1                      | A subgroup $H$ of $G$ is a subset of $G$ which forms a group under the same group multiplication operation as $G$ |
-| Lagrange's theorem                   | A2.1                      | If $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$.               |
-| Conjugacy class                      | A2.1                      | The conjugacy class $G_x$ of an element $x$ in a group $G$ is defined by $G_x = \lbrace g^{-1}xg \vert g\in G \rbrace$. |
-| Pauli group on a single qubit        | A2.1                      | $G_1=\lbrace \pm I, \pm iI, \pm X, \pm iX, \pm Y, \pm iY, \pm Z, \pm iZ \rbrace$ <br> This set of matrices forms a group under the operation of matrix multiplication. |
-| Group generators                     | A2.1.1                    | A set of elements $g_1,cdots,g_l$ in a group $G$ is said to generate the group $G$ if evey element of $G$ can be written as a product of (possibly repeated) elements from the list $g_1,\cdots,g_l$, and we write $G=\braket{g_1,cdots,g_l}$. For example, $G_1=\braket{X,Z,iI}$ |
-| Cyclic group                         | A2.1.2                    | A cyclic group $G$ possesses an element $a$ such that any element $g\in G$ can be expressed as $a^n$ for some integer $n$. |
-| Cosets                               | A2.1.3                    | For $H$ a subgroup of $G$, the left coset of $H$ in $G$ determined by $g\in G$ is the set $gH\equiv \lbrace gh \vert h\in H \rbrace$. The right coset is defined similarly. |
-| Matrix group                         | A2.2                      | Let $M_n$ be a set of $n\times n$ complex matrices. A matrix group is a set of matrices in $M_n$ which satisfy the properties of a group under matrix multiplicaiton. | 
-| Representation $\rho$ of a group     | A2.2                      | A function which maps a group to a matrix group, preserving group multiplication.                      |
-| Homomorphism                         | A2.2                      | A map of many to one. |
-| Isomorphism                          | A2.2                      | A map of one to one.  |
-| Dimension                            | A2.2                      | A representation $\rho$ which maps into $M_n$ has dimensions $d_\rho=n$ |
-| Equivalence                          | A2.2.1                    | Two matix groups are equivalent if they are isomorphic, and corresponding elements under the isomorphism have the same character. |
-| Reducibility                         | A2.2.1                    | A matrix group $G$ in $M_n$ is said to be completely reducible if it is equivalent to another matrix group $H$ which is of block diagonal form. Otherwise, the matrix group is irreducible. |
+### Exercise A2.1 {#exercise-a21}
 
 
 
 
-  
-### Appendix 2 - Exercises
-
-#### Exercise A2.1 {#exercise-a21}
-
-Prove that for any element $g$ of a finite group, there always exists a positive integer $r$ such that $g^r=e$. That is, every element of such a group has an order.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Let $G$ be a finite multiplicative group with $\vert G \vert=n$ and let $g\in G$. Since $G$ is a multiplicative group, $g^r \in G$ for all positive integer $r$. Let's consider the $n+1$ elements $e,g,g^2,\cdots,g^n$. Since there are only $n$ elements in $G$, by the pigeonhole principle two of these must be equal, therefore for some integers $0\leq i < j \leq n$ 
 
@@ -465,14 +412,13 @@ Thus for any element $g$ of a finite group, there always exists a positive integ
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A2.2 {#exercise-a22}
 
-Prove Lagrange's theorem.
+### Exercise A2.2 {#exercise-a22}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Let $G$ be a finite multiplicative group with $\vert G \vert=n$ and $H$ be a subgroup of $G$. Additionally, let $h$ be the elements of $H$ and $g$ be the elements of $G$. Since $H$ is a subgroup of $G$ we know that $h\in G$ for all $h$. Therefore, $gh \in G$ for any $h \in H$ and $g \in G$. The map $H \to gH$ is a bijection and so $\vert gH \vert = \vert H \vert$. 
 
@@ -486,27 +432,27 @@ Let $k$ be the number of cosets. Each coset has $\vert H \vert$ elements so $\ve
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A2.3 {#exercise-a23}
 
-Show that the order of an element $g\in G$ divides $\vert G \vert$. 
+### Exercise A2.3 {#exercise-a23}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Let $r$ be the order of an element $g\in G$. Then $\braket{g} = \lbrace e, g, g^2, \cdots, g^{r-1} \rbrace$ is a subgroup of $G$ and $\vert \braket{g} \vert = r$. Using Lagrange's theorem, we know that $\vert \braket{g} \vert$ divides $\vert G \vert$. Therefore the order of an element $g\in G$ divides $\vert G \vert$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A2.4 {#exercise-a24}
 
-Show that if $y\in G_x$ then $G_y=G_x$.
+### Exercise A2.4 {#exercise-a24}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Let $G_x = \lbrace g^{-1}xg \vert g\in G \rbrace$ and $G_y = \lbrace h^{-1}yh \vert h\in G \rbrace$ for elements $x$ and $y$ in a group $G$. If $y\in G_x$ that means for some $g\in G$, $y=g^{-1}x g$ therefore for any $h \in G$
 
@@ -520,14 +466,14 @@ Therefore, if $y\in G_x$ then $G_y \subseteq G_x$. The same argument can be made
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A2.5 {#exercise-a25}
 
-Show that if $x$ is an element of an Abelian group $G$ then $G_x = \lbrace x \rbrace$.
+### Exercise A2.5 {#exercise-a25}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 A group is said to be Abelian if $g_1 g_2 = g_2 g_1$ for all $g_1,g_2 \in G$. Therefore, for any $g$
 
@@ -541,28 +487,28 @@ Thus every conjugate of $x$ equals $x$. Therefore if $x$ is an element of an Abe
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A2.6 {#exercise-a26}
 
-Show that any group of prime order is cyclic.
+### Exercise A2.6 {#exercise-a26}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Let $G$ be a finite group with $\vert G \vert = p$ where $p$ is a prime number. Consider the subgroup $\braket{g}$ for any $g\in G$ with $g\neq e$. From Lagrange's theorem we know that $\vert \braket{g}\vert \vert \vert G \vert$. Since $p$ is prime and $\vert \braket{g} \vert \neq 1$ (since $g \neq e$), then $\vert \braket{g} \vert = p$ and so $\braket{g}=G$. Therefore any group of prime order is cyclic. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.7 {#exercise-a27}
 
-Show that every subgroup of a cyclic group is cyclic.
+### Exercise A2.7 {#exercise-a27}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Let $G$ be a cyclic group of order $r$ such that any element $g\in G$ can be expressed as $a^n$ for $n \in \lbrace 0, 1, \cdots, r-1 \rbrace = \mathbb{Z_r}$. Let $H$ be a subgroup of $G$, where the elements of $H$ are $a^k$ for some set of integers $k \in K$, where $K$ is a subgroup of the additive group $\mathbb{Z_r}$.
 
@@ -572,15 +518,15 @@ We can now say that $K=\lbrace 0,d,2d,\cdots,r-d\rbrace$, and so $H=\braket{a^d}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.8 {#exercise-a28}
 
-Show that if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \equiv n \mod r$. 
+### Exercise A2.8 {#exercise-a28}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 If $g\in G$ has finite order $r$ then $g^{m}=g^{m \mod r}$ because $g^r=e$ and $m$ can be written as $m=qr+s$ for some $q$ and $s$ (per equation A4.2), so $g^m=(g^r)^q g^s=e^qg^s=g^s=g^{m \mod r}$. By the same argument $g^{n}=g^{n \mod r}$. 
 
@@ -594,15 +540,15 @@ Therefore, if $g\in G$ has finite order $r$, then $g^m=g^n$ if and only if $m \e
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.9 {#exercise-a29}
 
-Show that $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there exists some $h\in H$ such that $g_2=g_1h$.
+### Exercise A2.9 {#exercise-a29}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 If there exists an $h \in H$ such that $g_2=g_1h$, then $g_2H=(g_1h)H=g_1(hH)=g_1H$ and so $g_1$ and $g_2$ must be in the same coset.  
 
@@ -612,15 +558,15 @@ Thus, $g_1,g_2 \in G$ are in the same coset of $H$ in $G$ if and only if there e
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.10 {#exercise-a210}
 
-How many cosets of H are there in G?
+### Exercise A2.10 {#exercise-a210}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 The map $H \to gH$ is a bijection and so $\vert gH \vert = \vert H \vert$. So all the cosets have the same size as $H$. 
 
@@ -632,24 +578,14 @@ Therefore, the number of cosets of $H$ is given by $N=\frac{\vert G \vert}{\vert
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.11 {#exercise-a211}
 
-Prove the properties of characters given above.
+### Exercise A2.11 {#exercise-a211}
 
-The properties are as follows:
 
-(1) $\chi(I)=n$ <br>
-(2) $\vert \chi(g)\vert \leq n$ <br>
-(3) $\vert \chi(g)\vert=n$ implies $g=e^{i\theta}I$ <br>
-(4) $\chi$ is constant on any given conjugacy class of $G$ <br>
-(5) $\chi(g^{-1})=\chi^\ast(g)$ <br>
-(6) $\chi(g)$ is an algebraic number for all $g$ <br>
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
 
 For this section of the book $G$ is assumed to be finite. The character of a matrix group $G \subset M_n$ is a function on the group defined by $\chi(g)=\text{tr}(g)$, for $g\in G$, where $\text{tr}(\cdot)$ is the usual trace function on matrices. For this exercise I'll prove these properties for unitary matrix groups. The next exercise we show that every matrix group is equivalent to a unitary matrix group. 
 
@@ -714,20 +650,14 @@ For a finite group, each $g\in G$ has a finite order $m$. Then $g^m=I$, so the m
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A2.12 {#exercise-a212}
 
-Show that every matrix group is equivalent to a unitary matrix group. I didn't really know where to start with this exercise, so I looked it up. The solution is Weyl's unitary trick. 
+### Exercise A2.13 {#exercise-a213}
 
 
-#### Exercise A2.13 {#exercise-a213}
 
-Show that every irreducible Abelian matrix group is one dimensional. 
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 For a matrix group $G$ to be irreducible, it must not be equivalent to another matrix group $H$ which is of block diagonal form. For a matrix group $G$ to be Abelian, $g_1 g_2=g_2 g_1$ for all $g \in G$. We can rewrite this requirement in the form of Lemma A2.2, where $H=G$, $S=g_1$, $g_i=g_2$, and $h_i = g_2$. This tells us that either $g_1$ is the zero matrix or $g_1$ is a square nonsingular matrix. A nonsingular matrix is a square matrix that is invertible, i.e. $g_1 g_1^{-1}=g_1^{-1}g_1=I_n$.  
 
@@ -737,7 +667,7 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 
@@ -747,74 +677,49 @@ When $g=\lambda I_n$ all matrix groups for $n>1$ are automatically completely re
 
 ## Appendix 4
 
-### Appendix 4 - Key Concepts
 
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Nomenclature and notation            | A4.1                      | Integers is the set $\lbrace \cdots, -2, -1, 0, 1, 2, \cdots \rbrace$, denoted $\mathbb{Z}$ <br> Natural numbers are non-negative integers. They are also called positive integers. <br> An integer $d$ divides $n$ (written $d\vert n$ ) if there exists an integer $k$ such that $n=dk$. We say in this case that $d$ is a factor or divisor of $n$. <br> When $d$ does not divide $n$ we write $d \nmid n$. | 
-| Fundamental theorem of arithmetic    | A4.1                      | Let $a$ be any integer greater than 1. Then a has a prime factorization of the form $a=p_1^{a_1}p_2^{a_1}\cdots p_n^{a_n}$ where $p_1,\cdots, p_n$ are distinct prime numbers, and $a_1,\cdots, a_n$ are positive integers. |
-| Greatest common divisor              | A4.2                      | Written as $\text{gcd}(a,b)$                                                                           |
-| Representation theorem for the gcd   | A4.2                      | The greatest common divisor for two integers $a$ and $b$ is the least positive integer that can be written in the form $ax+by$, where $x$ and $y$ are integers. |
-| Co-primality                         | A4.2                      | Integers $a$ and $b$ are said to be co-prime if their greatest common divisor is 1.                    |
-| Multiplicative inverse modulo $n$    | A4.2                      | $a$ has a multiplicative inverse $a^{-1}$ modulo $n$ if $aa^{-1}=1+kn$ for some integer $k$            |
-| Euclid's algorithm                   | A4.2                      | A way to find the greatest common divisor of two positive integers outlined on page 628                |
-| Chinese remainder theorem            | A4.2                      | Suppose $m_1,\cdots,m_m$ are positive integers such that any pair $m_i$ and $m_j$ $(i\neq j)$ are co-prime. Then the system of equations <br> $x=a_1\mod m_1$ <br> $x=a_2\mod m_2$ <br> $\vdots$ <br> $x=a_m\mod m_m$ <br> has a solution. Moreover, any two solutions to this system of equations are equal modulo $M=m_1m_2\cdots m_m$ | 
-| Fermat's little theorem              | A4.2                      | Suppose $p$ is a prime, and $a$ is any integer. Then $a^p=a \mod p$. If $a$ is not divisible by $p$ then $a^{p-1}=1\mod p$ |
-| Euler $\varphi$ function             | A4.2                      | $\varphi(n)$ is the number of positive integers less than $n$ which are co-prime to $n$                |
-| Euler's totient theorem              | A4.2                      | If $a$ is co-prime to $n$ then $a^{\varphi(n)}=1 \mod n$                                               |
-| Order finding problem                | A4.3                      | Equivalent to factoring.  For positive integer $N$ and co-prime $x$ find least positive integer $r$ such that $x^r=1 \mod N$. |
+### Exercise A4.1 {#exercise-a41}
 
 
 
-  
-### Appendix 4 - Exercises
 
-#### Exercise A4.1 {#exercise-a41}
 
-Show that if $a\vert b$ and $b \vert c$ then $a \vert c$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 We know that there exists an integer $k$ such that $b=ka$. We also know that there exists an integer $l$ such that $c=lb$. Knowing this, we can say that $c = lb = lka$. Since $l$ and $k$ are integers, $lk$ is an integer. Therefore, $a \vert c$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.2 {#exercise-a42}
 
-Show that if $d\vert a$ and $d\vert b$ then $d$ also divides linear combinations of $a$ and $b$, $ax+by$, where $x$ and $y$ are integers.
+### Exercise A4.2 {#exercise-a42}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 We know that there exists an integer $k$ such that $a=kd$. We also know that there exists an integer $l$ such that $b=ld$. Knowing this, we can say that $ax+by = (kd)x + (ld)y = d(kx+ly)$. Therefore, since $kx+ly \in \mathbb{Z}$ we can say $d \vert (ax+by)$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.3 {#exercise-a43}
 
-Suppose $a$ and $b$ are positive integers. Show that if $a\vert b$ then $a\leq b$. Conclude that if $a\vert b$ and $b\vert a$ then $a=b$. 
+### Exercise A4.3 {#exercise-a43}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and $b$ are both positive integers, then $k\geq 1$ and so $a\leq b$. If $b\vert a$ is also true, then $a=lb$ for some integer $l$. Therefore, $a=lb=lka$ and so $lk=1$. Since $l\geq 1$ and $k\geq 1$ and $lk = 1$ then $l=k=1$ and thus $a=b$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.4 {#exercise-a44}
 
-Find the prime factorization of 697 and 36300.
+### Exercise A4.4 {#exercise-a44}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 $$\begin{aligned}
 697 = 17 \times 41 \\
@@ -823,15 +728,14 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.5 {#exercise-a45}
 
-For a prime $p$ prove that all integers in the range $1$ to $p-1$ have multiplicative inverses modulo $p$. Which integers in the range $1$ to $p^2-1$ do not have multiplicative inverses modulo $p^2$?
+### Exercise A4.5 {#exercise-a45}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Let's assume $a$ is an integer with value $1\leq a\leq p-1$. Since $p$ is a prime number and $1\leq a\leq p-1$ we know that $\text{gcd}(a,p)=1$, therefore by Theorem A4.2 we know that $ax+py=1$ where $x$ and $y$ are integers. Rearranging the equation, we get $ax = 1 + (-y)p$. Here we can see that $x$ is the multiplicative inverse modulo $p$ of $a$. 
 
@@ -839,29 +743,27 @@ Now Let's assume $a$ is an integer with value $1\leq a \leq p^2-1$. Since $p$ is
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.6 {#exercise-a46}
 
-Find the multiplicative inverse of 17 modulo 24.
+### Exercise A4.6 {#exercise-a46}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 We need to find $b$ such that $17b = 1 + k24$ for some integer $k$. This relation is true for $k=12$ and $b=17$. Therefore, 17 is a multiplicative inverse of 17 modulo 24. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.7 {#exercise-a47}
 
-Find the multiplicative inverse of $n+1$ modulo $n^2$, where $n$ is any integer greater than 1. 
+### Exercise A4.7 {#exercise-a47}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 We need to find $b$ such that $(n+1)b = 1 + kn^2$ for some integer $k$. This relation is true for $k=n$ and $b=n^2-n+1$
 
@@ -873,29 +775,27 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.8 {#exercise-a48}
 
-Suppose $b$ and $b'$ are multiplicative inverses of $a$, modulo $n$. Prove that $b=b' \mod n$.
+### Exercise A4.8 {#exercise-a48}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Since $b$ and $b'$ are multiplicative inverses of $a$ modulo n, we know $ab = 1+kn$ and $ab'=1+ln$ for some integers $k$ and $l$. Therefore, $a(b-b') = (k-l)n = 0 \mod n$ and so $n \vert a(b-b')$. Because an inverse exists, we know $\text{gcd}(a,n) = 1$, and so $n \vert (b-b')$ which means $b=b' \mod n$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.9 {#exercise-a49}
 
-Explain how to find $\text{gcd}(a,b)$ if the prime factorizations of $a$ and $b$ are known. Find the prime factorizations of 6825 and 1430, and then use them to compute $\text{gcd}(6825,1430)$.
+### Exercise A4.9 {#exercise-a49}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Here is a procedure
 1) Look at prime factorization and identify factors shared by both $a$ and $b$
@@ -911,15 +811,14 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.10 {#exercise-a410}
 
-What is $\varphi(187)$?
+### Exercise A4.10 {#exercise-a410}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 First we need to find the prime factorization of 187
 
@@ -937,21 +836,14 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.11 {#exercise-a411}
 
-Prove that 
+### Exercise A4.11 {#exercise-a411}
 
-$$\begin{aligned}
-n = \sum_{d\vert n}\varphi(d)
-\end{aligned}$$
 
-where the sum is over all positive divisors $d$ of $n$, including 1 and $n$. Hint: Prove the results for $n=p^\alpha$ first, then use the multiplicative property (A4.22) of $\varphi$ to complete the proof.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
 
 Let's first look at the case where $n=p^\alpha$. Here the only divisors are $d=1,p, p^2, \cdots, p^\alpha$.
 
@@ -979,14 +871,13 @@ n &= \sum_{d\vert n}\varphi(d)\\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.12 {#exercise-a412}
 
-Verify that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$ under the operation of multiplication modulo $n$. 
+### Exercise A4.12 {#exercise-a412}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 $\mathbb{Z}_n^\ast$ is the set of all elements in $\mathbb{Z}_n$ which have inverses modulo $n$, which is the set of all elements in $\mathbb{Z}_n$ which are co-primes to $n$. Therefore, we know $a \in \mathbb{Z}_n^\ast$ if and only if there is a $b \in \mathbb{Z}_n^\ast$ such that $ab=1\mod n$. 
 
@@ -1012,15 +903,14 @@ The size of $\mathbb{Z}_n^\ast$ is $\varphi(n)$ since by definition $\varphi(n)$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.13 {#exercise-a413}
 
-Let $a$ be an arbitrary element of $\mathbb{Z}_n^\ast$. Show that $S\equiv \lbrace 1, a, a^2, \cdots \rbrace$ forms a subgroup of $\mathbb{Z}_n^\ast$, and that the size of $S$ is the least value of $r$ such that $a^r=1 \mod n$.
+### Exercise A4.13 {#exercise-a413}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 From Theorem A4.9, we know that if $a$ is co-prime to $n$, then $a^{\varphi(n)} = 1 \mod n$. Though, it is possible that the powers of $a$ may cycle earlier, so we'll say there is a $r\leq \varphi(n)$ such that $a^r=1\mod n$. This can be written as $a^{m}a^{r-m}=1\mod n$ for integer $m$ with values $1\leq m < r$ and so $S=\lbrace 1, a, a^2, \cdots, a^{r-1}\rbrace$ and is size $r$.
 
@@ -1038,29 +928,27 @@ Therefore, $S$ is a subgroup of $\mathbb{Z}_n^\ast$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.14 {#exercise-a414}
 
-Suppose $g$ is a generator for $\mathbb{Z}_n^\ast$. Show that $g$ must have order $\varphi(n)$.
+### Exercise A4.14 {#exercise-a414}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 We know from [exercise A4.12](#exercise-a412) that $\mathbb{Z}_n^\ast$ forms a group of size $\varphi(n)$. If $g$ is a generator for $\mathbb{Z}_n^\ast$ then $\braket{g} = \lbrace 1, g, g^2, \cdots \rbrace = \mathbb{Z}_n^\ast$ and so $g$ must have order $\varphi(n)$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.15 {#exercise-a415}
 
-Use Lagrange's theorem to provide an alternative proof of Theorem A4.9, that is, show that $a^{\varphi(n)}=1 \mod n$ for any $a\in \mathbb{Z}_n^\ast$.
+### Exercise A4.15 {#exercise-a415}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Lagrange's theorem says that if $H$ is a subgroup of a finite group $G$ then $\vert H \vert$ divides $\vert G \vert$. 
 
@@ -1075,28 +963,26 @@ a^{\varphi(n)} &= a^{mr} \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.16 {#exercise-a416}
 
-Use theorem A4.9 to show that the order of $x$ modulo $N$ must divide $\varphi(N)$.
+### Exercise A4.16 {#exercise-a416}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 From theorem A4.9, $x^{\varphi(N)}=1 \mod N$. From [exercise A4.15](#exercise-a415), we know that this means there is a subgroup $S=\lbrace 1, x, x^2, \cdots, x^{r-1}\rbrace$ of size $r$ where $r$ divides $\varphi(N)$. This $r$ is equal to the order of $x \mod N$. Therefore, the order of $x$ modulo $N$ must divide $\varphi(N)$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.17 {#exercise-a417}
 
-Show that an efficient factoring algorithm would allow us to efficiently find the order modulo $N$ of any $x$ co-prime to $N$. 
+### Exercise A4.17 {#exercise-a417}
+ 
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 If we had an algorithm that efficiently identified all the factors of a number, we could use the following algorithm to efficiently find the order modulo $N$ of any $x$ co-prime to $N$: <br>
 (1) Factor $N=\prod_i p_i^{\alpha_i}$ <br>
@@ -1109,14 +995,13 @@ We know step (1) and step (3) are efficient because they are the efficient facto
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
-#### Exercise A4.18 {#exercise-a418}
 
-Find the continued fraction expansion for $x=19/17$ and $x=77/65$.
+### Exercise A4.18 {#exercise-a418}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 $$\begin{aligned}
 x &= \frac{19}{17} \\
@@ -1142,15 +1027,14 @@ So, $x = \lbrack 1, 5, 2, 2, 2, \rbrack$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise A4.19 {#exercise-a419}
 
-Show that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. Use this fact to conclude that $\text{gcd}(p_n,q_n)=1$. 
+### Exercise A4.19 {#exercise-a419}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 From Theorem A4.15 we know that for $2\leq n \leq N$
 
@@ -1193,31 +1077,17 @@ If $d$ divides $p_n$ and $q_n$ then $d$ divides $q_np_{n-1}-p_nq_{n-1} = (-1)^n$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 ## Order-finding and factoring applications
 
-### Order-finding and factoring applications - Key Concepts
+
+### Exercise 5.10 {#exercise-510}
 
 
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum order finding algorithm      | 5.3.1                     | The phase estimation algorithm applied to the unitary operator $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in \lbrace 0,1\rbrace^L$ <br> Procedure: <br> 1. initial state $\ket{0}\ket{1}$ <br> 2. create superposition $\rightarrow \frac{1}{\sqrt{2^t}} \sum_{j=0}^{2^t-1}\ket{j}\ket{1}$ <br> 3. apply $U_{x,N}$, $\rightarrow \frac{1}{\sqrt{2^t}} \sum_{j=0}^{2^t-1}\ket{j}\ket{x^{j}\mod N}\approx \frac{1}{\sqrt{r2^t}}\sum_{x=0}^{r-1}\sum_{j=0}^{2^t-1} e^{2\pi isj/r}\ket{j}\ket{u_s}$ <br> 4. apply inverse Fourier transform to the first register $\rightarrow \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{\widetilde{s/r}}\ket{u_x}$ <br> 5. measure first register $\rightarrow \widetilde{s/r}$ <br> 6. apply continued fractions algorithm $\rightarrow r$ |
-| Modular exponentiation               | 5.3.1                     | A procedure to implement a controlled- $U^{2^j}$ operation for any integer $j$ outlined in Box 5.2.    |
-| Reduction of factoring to order-finding | 5.3.2                  | 1. if $N$ is even, return the factor 2. <br> 2. Determine whether $N=a^b$ for integers $a\geq 1$ and $b\geq 2$, and if so return the factor $a$. <br> 3. Randomly choose $x$ in the range 1 to $N-1$. if $\text{gcd}(x,N)>1$ then return the factor $\text{gcd}(x,N)$. <br> 4. Use the order-finding subroutine to find the order $r$ of $x$ modulo $N$. <br> 5. If $r$ is even and $x^{r/2}\neq -1\mod N$ then compute $\text{gcd}(x^{r/2}-1,N)$ and $\text{gcd}(x^{r/2}+1,N)$, and test to see if one of these is a non-trivial factor, returning that factor if so. Otherwise, the algorithm fails. |
 
 
-  
-### Order-finding and factoring applications - Exercises
-
-
-#### Exercise 5.10 {#exercise-510}
-
-Show that the order of $x=5 \mod 21$ is 6. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 So we want to find the least positive $r$ such that $x^r=1\mod 21$, when $x=5\mod 21$. 
 
@@ -1232,29 +1102,27 @@ The least positive $r$ such that $x^r=1\mod 21$ is 6. Therefore, the order of $x
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.11 {#exercise-511}
 
-Show that the order of $x$ satisfies $r \leq N$. 
+### Exercise 5.11 {#exercise-511}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 From Theorem A4.9 we know that $x^{\varphi(N)} = 1 \mod N$ and so $r \leq \varphi(N)$. By definition, $\varphi(N)$ is the number of positive integers less than $N$ which are co-prime to $N$, which means $\varphi(N) \leq N$. Therefore, $r \leq \varphi(N) \leq N$. Thus, the order of $x$ satisfies $r \leq N$.   
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.12 {#exercise-512}
 
-Show that $U$ is unitary.
+### Exercise 5.12 {#exercise-512}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 From equation 5.36, $U\ket{y} \equiv \ket{xy \mod N}$ with $y\in\lbrace 0,1 \rbrace^L$ and so,
 
@@ -1277,19 +1145,14 @@ Therefore, $U$ is unitary since it preserves the inner product.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.13 {#exercise-513}
 
-Prove (5.44). In fact, prove that
+### Exercise 5.13 {#exercise-513}
 
-$$\begin{aligned}
-\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s}=\ket{x^k\mod N}
-\end{aligned}$$
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 From equation (5.37) we know that
 
@@ -1315,27 +1178,14 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.14 {#exercise-514}
 
-The quantum state produced in the order-finding algorithm, before the inverse Fourier transform, is 
+### Exercise 5.14 {#exercise-514}
 
-$$\begin{aligned}
-\ket{\psi}=\sum_{j=0}^{2^t-1}\ket{j}U^j \ket{1} = \sum_{j=0}^{2^t-1}\ket{j}\ket{x^j\mod N}
-\end{aligned}$$
 
-if we initialize the second register as $\ket{1}$. Show that the same state is obtained if we replace $U^j$ with a different unitary transform $V$, which computes
 
-$$\begin{aligned}
-V\ket{j}\ket{k} = \ket{j}\ket{k+x^j\mod N}
-\end{aligned}$$
 
-and start the second register in the state $\ket{0}$. Also show how to construct $V$ using $O(L^3)$ gates.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 If we applied a different unitary transform $V$ and started the second register in state $\ket{0}$ then
 
@@ -1356,15 +1206,14 @@ Thus $V$ is the equivalent to adding the modular exponential $x^j\mod N$ modulo 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.15 {#exercise-515}
 
-Show that the least common multiple of positive integers $x$ and $y$ is $xy/\text{gcd}(x,y)$, and thus may be computed in $O(L^2)$ operations if $x$ and $y$ are $L$ bit numbers. 
+### Exercise 5.15 {#exercise-515}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 If $z$ is the least common multiple of $x$ and $y$ that means it is the smallest integer where $z=mx=ny$ for some integers $m$ and $n$. Let $g=\text{gcd}(x,y)$ we know that $x=ga$ and $y=gb$ with $\text{gcd}(a,b)=1$ and so $ma=nb$. Since $a$ and $b$ are coprime, we know that $b \vert ma$ implies $b \vert m$ and that $a \vert nb$ implies $a \vert n$, therefore $m=bt$ and $n=at$ for some integer $t$. Thus 
 
@@ -1380,21 +1229,14 @@ Therefore, the least common multiple of positive integers $x$ and $y$ is $xy/\te
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.16 {#exercise-516}
 
-For all $x\geq 2$ prove that $\int_x^{x+1} 1/y^2 \ dy \geq 2/3x^2$. Show that 
+### Exercise 5.16 {#exercise-516}
 
-$$\begin{aligned}
-\sum_q \frac{1}{q^2} \leq \frac{3}{2} \int_2^\infty \frac{1}{y^2} \ dy = \frac{3}{4}
-\end{aligned}$$
 
-and thus that (5.58) holds.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
 
 First,
 
@@ -1419,23 +1261,17 @@ and thus (5.58) holds.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.17 {#exercise-517}
 
-Suppose $N$ is $L$ bits long. The aim of this exercise is to find an efficient classical algorithm to determine whether $N=a^b$ for some integers $a\geq 2$ and $b\geq 2$. (Note: I changed $a\geq 1$ to $a\geq 2$.) This may be done as follows: <br>
-(1) Show that $b$, if it exists, satisfies $b\leq L$ <br>
-(2) Show that it takes at most $O(L^2)$ operations to compute $y=\log N, x=y/b$ for $b\leq L$, and the two integers $u_1$ and $u_2$ nearest to $2^x$. (Note: I changed $\log N$ to $y=\log N$.) <br>
-(3) Show that it takes at most $O(L^2)$ operations to compute $u_1^b$ and $u_2^b$ (use repeated squaring) and check to see if either is equal to $N$. <br>
-(4) Combine the previous results to give an $O(L^3)$ operation algorithm to determine whether $N=a^b$ for integers $a$ and $b$. 
+### Exercise 5.17 {#exercise-517}
 
 This problem took me a while to work through, and I ended up relying heavily on [Wikipedia](https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations) to find the complexity of different mathematical operations. I also read several forums discussing different methods of calculating $\log(N)$ to the necessary precision, with this [StackExchange](https://math.stackexchange.com/questions/3381629/what-is-the-fastest-algorithm-for-finding-the-natural-logarithm-of-a-big-number) discussion being the most useful. I also read a little of [Modern Computer Arithmetic](https://maths-people.anu.edu.au/~brent/pd/mca-cup-0.5.9.pdf). 
 
 I feel like this exercise wanted us to actually come up with algorithms for these different mathematical operations, which I did and found to be an enlightening exercise, but to increase the likeliness of sharing a correct solution, I'm going to refer to names of known algorithms with known complexity in the solution below. 
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 For (1), if $b$ exists,
 
@@ -1487,15 +1323,15 @@ Looking at the algorithm, we can see that the calculations in the for loop are $
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.18 {#exercise-518}
 
-Suppose we wish to factor $N=91$. Confirm that steps 1 and 2 are passed. For step 3, suppose we choose $x=4$, which is co-prime to 91. Compute the order $r$ of $x$ with respect to $N$, and show that $x^{r/2} \mod 91 = 64 \neq -1 \mod 91$, so the algorithm succeeds, giving $\text{gcd}(64-1,91)=7$. Note: I fixed the error reported on the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html).
+### Exercise 5.18 {#exercise-518}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+Note: I fixed the error reported on the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html).
+
+
+
 
 Step 1. check if $91$ is even. $91/2 = 45.5$ therefore, $91$ is not even.
 
@@ -1546,15 +1382,15 @@ From this, we know that both 7 and 13 are factors of 91.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.19 {#exercise-519}
 
-Show that $N=15$ is the smallest number for which the order-finding subroutine is required, that is, it is the smallest composite number that is not even or a power of some smaller integer. 
+### Exercise 5.19 {#exercise-519}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Let's look at the requirements:
 * Is a composite number. So, needs at least two non-trivial factors $a \geq 2$ and $b \geq 2$.
@@ -1565,46 +1401,19 @@ The smallest number for which the order-finding subroutine is required will be t
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 
 
 ## General applications of the quantum Fourier transform
 
-### General applications of the quantum Fourier transform - Key Concepts
+
+### Exercise 5.20 {#exercise-520}
 
 
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Hidden subgroup problem              | 5.4                       | A generalization of the task of finding the unknown period of a periodic function, in a context where the structure of the domain and range of the function may be very intricate. |
-| Discrete logarithm problem           | 5.4.2                     | Given $a$ and $b=a^s$, what is $s$?                                                                    |
-| The hidden subgroup problem          | 5.4.3                     | The general problem which defines a broad framework that captures problems such as order-finding, discrete logarithms, period-finding, etc. |
 
 
-  
-### General applications of the quantum Fourier transform - Exercises
-
-
-#### Exercise 5.20 {#exercise-520}
-
-Suppose $f(x+r)=f(x)$, and $0\leq x < N$, for $N$ an integer multiple of $r$. Compute
-
-$$\begin{aligned}
-\hat{f}(l)\equiv \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1} e^{-2\pi ilx/N}f(x)
-\end{aligned}$$
-
-and relate the result to (5.63). You will need to use the fact that 
-
-$$\begin{aligned}
-\sum_{k\in \lbrace 0,r,2r,\cdots,N-r \rbrace} e^{2\pi ikl/N} = \begin{cases}
-    N/r & \text{if $l$ is an integer multiple of $N/r$} \\
-    0 & \text{otherwise} 
-\end{cases}
-\end{aligned}$$
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Let $N=qr$ where $q$ is some integer. Then every $x$ can be written as $x=a+kr$ where $a\in \lbrace 0, \cdots, r-1 \rbrace$ and $k\in \lbrace 0, \cdots, q-1 \rbrace$ and so
 
@@ -1633,18 +1442,14 @@ The case where $l$ is an integer multiplier of $N/r$ has a similar form to (5.63
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.21 {#exercise-521}
 
-Suppose you are given a unitary operator $U_y$ which performs the transformation $U_y\ket{f(x)}=\ket{f(x+y)}$, for the periodic function described above.
+### Exercise 5.21 {#exercise-521}
 
-(1) Show that the eigenvectors of $U_y$ are $\ket{\hat{f}(l)}$, and calculate their eigenvalues. <br>
-(2) Show that given $\ket{f(x_0)}$ for some $x_0$, $U_y$ can be used to realize a black box which is as useful as $U$ in solving the period-finding problem. 
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 For (1) we can write $U_y$ as
 
@@ -1695,21 +1500,15 @@ Divide measurement by $y$ and then apply the continued fractions algorithm to ge
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.22 {#exercise-522}
 
-Show that
+### Exercise 5.22 {#exercise-522}
 
-$$\begin{aligned}
-\ket{\hat{f}(l_1,l_2)} &= \sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(x_1,x_2)}&=\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2 j/r}\ket{f(0,j)}
-\end{aligned}$$
 
-and we are constrained to have $l_1/s-l_2$ be an integer multiple of $r$ for this expression to be non-zero.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 We know that
 
@@ -1746,21 +1545,15 @@ If we compare our solution to equation 5.72, we see that the prefactor is differ
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.23 {#exercise-523}
 
-Compute
+### Exercise 5.23 {#exercise-523}
 
-$$\begin{aligned}
-\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)}
-\end{aligned}$$
 
-using (5.70), and show that the result is $f(x_1,x_2)$.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 Using (5.70) we get
 
@@ -1777,15 +1570,15 @@ This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to us
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.24 {#exercise-524}
 
-Construct the generalized continued fractions algorithm needed in step 6 of the discrete logarithm algorithm to determine $s$ from estimates of $sl_2/r$ and $l_2/r$. 
+### Exercise 5.24 {#exercise-524}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Apply the continued fractions algorithm to both $sl_2/r$ and $l_2/r$ to generate their successive convergents, using equation (5.49) to compute each rational approximation $p_n/q_n$. For each pair of convergents, form approximations $x_1 \approx sl_2/r$ and $x_2\approx l_2/r$. Then compute
 
@@ -1797,15 +1590,15 @@ as a candidate value for $s$. Test this using the known $a$ and $b$ by checking 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.25 {#exercise-525}
 
-Construct a quantum circuit for the black box $U$ used in the quantum discrete logarithm algorithm, which takes $a$ and $b$ as parameters, and performs the unitary transformation $\ket{x_1}\ket{x_2}\ket{y} \rightarrow \ket{x_1}\ket{x_2}\ket{y\oplus b^{x_1}a^{x_2}}$. How many elementary operations are required?
+### Exercise 5.25 {#exercise-525}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 We want a circuit implementing
 
@@ -1837,15 +1630,15 @@ This gives a total complexity of $O(L^3)$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.26 {#exercise-526}
 
-Since $K$ is a subgroup of $G$, when we decompose $G$ into a product of cyclic groups of prime power order, this also decomposes $K$. Re-express (5.77) to show that determining $l_i'$ allows one to sample from the corresponding cyclic subgroup $K_p$ of $K$. 
+### Exercise 5.26 {#exercise-526}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 From equation 5.77 we know that equation 5.76 has near zero amplitudes for all values of $l$ except those which satisfy
 
@@ -1869,15 +1662,15 @@ Therefore, we know that all $l_i'$ need to be an integer multiple of $\vert K_{p
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.27 {#exercise-527}
 
-Of course, the decomposition of a general finite Abelian group $G$ into a product of cyclic groups of prime power order is usually a difficult problem (at least as hard as factoring integers, for example). Here, quantum algorithms come to the rescue again: explain how the algorithms in this chapter can be used to efficiently decompose $G$ as desired.
+### Exercise 5.27 {#exercise-527}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Algorithm for decomposition: 
 1. Randomly select $O(\log\vert G \vert)$ elements in $G$
@@ -1893,17 +1686,15 @@ G = \mathbb{Z}_{p_1} \times \mathbb{Z}_{p_2} \times \cdots \times \mathbb{Z}_{p_
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.28 {#exercise-528}
 
-Write out a detailed specification of the quantum algorithm to solve the hidden subgroup problem, complete with runtime and success probability estimates, for finite Abelian groups. 
+### Exercise 5.28 {#exercise-528}
 
 I had to reference several resources to understand the hidden subgroup problem. This paper from the History and further reading section for this chapter was helpful: [The Hidden Subgroup Problem and Eigenvalue Estimation on a Quantum Computer](https://arxiv.org/pdf/quant-ph/9903071). I also read [Wikipedia](https://en.wikipedia.org/wiki/Hidden_subgroup_problem). [THE HIDDEN SUBGROUP PROBLEM - REVIEW AND OPEN PROBLEMS](https://arxiv.org/pdf/quant-ph/0411037) was also a good resource. Unfortunately, none of these resources use the same notation as the book.
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 Algorithm: Hidden subgroup problem
 
@@ -1929,15 +1720,14 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Exercise 5.29 {#exercise-529}
 
-Give quantum algorithms to solve the Deutsch and Simon problems listed in Figure 5.5, using the framework of the hidden subgroup problem.
+### Exercise 5.29 {#exercise-529}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Algorithm: Deutsch problem
 
@@ -1997,23 +1787,17 @@ It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefo
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+
 
 
 ## Chapter problems
 
-**#### Problem 5.1 {#problem-51}**
+**### Problem 5.1 {#problem-51}**
 
-Construct a quantum circuit to perform the quantum Fourier transform 
 
-$$\begin{aligned}
-\ket{j} \rightarrow \frac{1}{\sqrt{p}}\sum_{k=0}^{p-1}e^{2\pi ijk/p}\ket{k}
-\end{aligned}$$
 
-where $p$ is prime. 
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
 
 This is the same as equation 5.2, where $N=p$. Reading further in section 5.1, we see that they set $N=2^n$ and constructed a circuit that performs the quantum Fourier transform, shown in Figure 5.1. Unfortunately for us, $N$ is now prime and so $N\neq 2^n$. We will still have $n=\lceil p \rceil$ qubits and registers containing states $\ket{0},\cdots,\ket{2^n-1}$, but we only want to apply the Fourier transform on the first $p$ of these basis states and so we need to construct a circuit that performs the operation
 
@@ -2025,17 +1809,15 @@ Since $U$ is unitary, we know that it can be approximated using Hadamard, phase,
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-**#### Problem 5.2 {#problem-52}**
 
-Suppose the quantum Fourier transform is performed as the last step of a quantum computation, followed by a measurement in the computational basis. Show that the combination of quantum Fourier transform and measurement is equivalent to a circuit consisting entirely of one qubit gates and measurement, with classical control, and no two qubit gates. You may find the discussion of Section 4.4 useful.
+**### Problem 5.2 {#problem-52}**
 
 This paper was cited in the History and further reading section for this problem: [Semiclassical Fourier Transform for Quantum Computation](https://arxiv.org/pdf/quant-ph/9511007).
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
 
 I'm going to use a 4 qubit example to show that the combination of quantum Fourier transform and measurement is equivalent to a circuit consisting entirely of one qubit gates and measurement, with classical control, and no two qubit gates, but the same reasoning can be applied to a circuit of any number of qubits. 
 
@@ -2051,15 +1833,15 @@ In [Exercise 4.35](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-435) we 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Problem 5.3 {#problem-53}
 
-Consider the quantum circuit shown on page 243 where $\ket{u}$ is an eigenstate of $U$ with eigenvalue $e^{2\pi i\varphi}$. Show that the top qubit is measured to be $0$ with probability $p\equiv \cos^2(\pi\varphi)$. Since the state $\ket{u}$ is unaffected by the circuit it may be reused; if $U$ can be replaced by $U^k$, where $k$ is an arbitrary integer under your control, show that by repeating this circuit and increasing $k$ appropriately, you can efficiently obtain as many bits of $p$ as desired, and thus, of $\varphi$. This is an alternative to the pase estimation algorithm. 
+### Problem 5.3 {#problem-53}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 This circuit is similar to the one we investigated in [Exercise 4.34](https://adj59-dev.github.io/qcqi/chapter-4/#exercise-434), but since the eigenvalues can have imaginary components $\frac{I+U}{2}$ is not a projector and instead must be interpreted as a measurement operator $M$. We therefore know that the probability of measuring $0$ when replacing $U$ with $U^k$ can be calculated as
 
@@ -2079,15 +1861,15 @@ By tuning $k$ and collecting multiple measurements at different values we could 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Problem 5.4 {#problem-54}
 
-The runtime bound $O(L^3)$ we have given for the factoring algorithm is not tight. Show that a better upper bound of $O(L^2\log L\log\log L)$ operations can be achieved. 
+### Problem 5.4 {#problem-54}
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
+
 
 Looking at the Algorithm on page 233-234, we see that when reducing factoring to order-finding there are two steps that the book labeled as having $O(L^3)$ operations: step 2 and step 4. 
 
@@ -2106,18 +1888,11 @@ For step 4, the book lists the quantum order finding algorithm as having $O(L^3)
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
-#### Problem 5.5 {#problem-55}
 
-Let $f$ be a function on a finite group $G$ to an arbitrary finite range $X$, which is promised to be constant and distinct on distinct left cosets of a subgroup $K$. Start with the state
+### Problem 5.5 {#problem-55}
 
-$$\begin{aligned}
-\frac{1}{\sqrt{\vert G \vert^m}}\sum_{g_1,\cdots,g_m}\ket{g_1,\cdots,g_m}\ket{f(g_1),\cdots,f(g_m)}
-\end{aligned}$$
-
-and prove that picking $m = 4 \log \vert G\vert + 2$ allows $K$ to be identified with probability at least $1 − 1/\vert G\vert$. Note that $G$ does not necessarily have to be Abelian, and being able to perform a Fourier transform over $G$ is not required. This result shows that one can produce (using only $O(\log \vert G\vert)$ oracle calls) a final result in which the pure state outcomes corresponding to different possible hidden subgroups are nearly orthogonal. However, it is unknown whether a POVM exists or not which allows the hidden subgroup to be identified efficiently (i.e. using poly($\log \vert G\vert$) operations) from this final state. 
 
 These articles are cited as being related to this problem in the History and further readings section:
 
@@ -2132,12 +1907,12 @@ I'm not going to reproduce the solution here, it is written out clearly in [Hidd
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
-#### Problem 5.6 {#problem-56}
+### Problem 5.6 {#problem-56}
 
-Consider the task of constructing a quantum circuit to compute $\ket{x} \rightarrow \ket{x+y\mod 2^n}$, where $y$ is a fixed constant, and $0 \leq x < 2^n$. Show that one efficient way to do this, for values of $y$ such as 1, is to first perform a quantum Fourier transform, then to apply single qubit phase shifts, then an inverse Fourier transform. What values of $y$ can be added easily this way, and how many operations are required?
 
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
+
+
+
 
 Let's look at the first two steps
 
@@ -2188,4 +1963,4 @@ Any integer values of $y$ could be easily added this way. The Fourier transform 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
+

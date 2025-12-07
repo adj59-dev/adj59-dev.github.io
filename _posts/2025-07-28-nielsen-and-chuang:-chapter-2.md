@@ -197,7 +197,7 @@ The quantum mechanics portion was a good refresher, though some of the formalism
 Below are my notes and solutions to the exercises.
 
 
-<!--toc-->
+<!-- toc -->
 
 
 ## Linear Algebra

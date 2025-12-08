@@ -469,7 +469,7 @@ Dark mode settings for code block
 
   /* Code block background + border */
   pre, code, .highlight {
-    background-color: #0c0c0c !important;  /* Slightly brighter than #060606 */
+    background-color: #2a2a2a !important;  /* brighter than #060606 */
     border: 1px solid #1a1a1a !important;  /* Visible but subtle */
     border-radius: 6px;
   }
@@ -485,7 +485,7 @@ Dark mode settings for code block
   .highlight .kd,
   .highlight .kn,
   .highlight .kr {
-    color: #ff79c6 !important;  /* magenta (nice pop, readable) */
+    color: #ff79c6 !important;  /* magenta */
   }
 
   .highlight .n,    /* names */
@@ -511,6 +511,11 @@ Dark mode settings for code block
   .highlight .o {   /* operators */
     color: #ffb86c !important;  /* warm orange */
   }
+
+   .hljs-keyword,
+   .hljs-built_in {
+      color: #979797 !important; /* magenta */
+   }
 }
 
 

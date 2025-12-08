@@ -408,6 +408,27 @@ tbody tr:nth-child(even) td {
   }
 }
 
+/* ---------------------------
+  adjusting header dark mode colors
+---------------------------- */
+:root {
+  /* Light mode */
+  --header-bg: #ffffff;
+  --header-text: #222222;
+  --header-link: #444444;
+  --header-link-hover: #000000;
+  --header-border: #dddddd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --header-bg: #0f0f15;         /* richer, not pure black */
+    --header-text: #e4e4ea;       /* bright but not white */
+    --header-link: #c5c5d0;       /* softer gray */
+    --header-link-hover: #ffffff; /* bright hover */
+    --header-border: #35353f;     /* subtle divider */
+  }
+}
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Solutions Hub
-permalink: /solutions/
+permalink: /solutions-index/
 description: "Landing page linking to all my textbook solution indices: QCQI, GTAPP, and future books."
 tags:
   - solutions index

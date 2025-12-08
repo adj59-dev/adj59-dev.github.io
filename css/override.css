@@ -485,7 +485,16 @@ Dark mode settings for code block
    .hljs-title,
    .hljs-name {
       color: #cac8c8 !important; 
-}
+   }
+
+   /*----------------------
+   Fix MathJax in dark mode
+   -----------------------*/
+   @media (prefers-color-scheme: dark) {
+      .mjx-math, .MathJax {
+         color: #ffffff !important;
+      }
+   }
 
 
 }

@@ -493,12 +493,12 @@ Dark mode settings for code block
    @media (prefers-color-scheme: dark) {
      .mjx-math,
      .MathJax {
-       color: #f5f5f5 !important;   
+       color: #ffffff !important;   
      }
    
      mjx-container[jax="SVG"] svg,
      mjx-container[jax="SVG"] svg path {
-       fill: #f5f5f5 !important;    /* solid light glyphs */
+       fill: #ffffff !important;    /* solid light glyphs */
        stroke: none !important;     /* no outline */
      }
    }

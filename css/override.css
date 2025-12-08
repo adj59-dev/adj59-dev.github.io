@@ -469,7 +469,7 @@ Dark mode settings for code block
 
   /* Code block background + border */
   pre, code, .highlight {
-    background-color: #2a2a2a !important;  /* brighter than #060606 */
+    background-color: #1c1c1c !important;  /* brighter than #060606 */
     border: 1px solid #1a1a1a !important;  /* Visible but subtle */
     border-radius: 6px;
   }
@@ -508,7 +508,11 @@ Dark mode settings for code block
     font-style: italic;
   }
 
-  .highlight .o {   /* operators */
+  .hljs-operator,
+  .hljs-symbol,
+  .hljs-punctuation,
+  .hljs-meta,
+   .highlight .o {   /* operators */
     color: #ffb86c !important;  /* warm orange */
   }
 

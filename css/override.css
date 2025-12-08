@@ -347,26 +347,25 @@ hr, .post, .post-content, table, th, td {
   }
 }
 
-/* -----------------------
-   GLOBAL TABLE STYLING
--------------------------*/
+/* ----------------------------------
+   Global Table Color Settings
+---------------------------------- */
 
-/* Light-mode defaults */
+/* Light mode defaults */
 :root {
-  --table-bg: #ffffff;
-  --table-alt-bg: #f6f6f6;
-  --table-header-bg: #efefef;
-  --table-border: #d5d5d5;
-  --table-text: #000000;
+  --table-bg: #ffffff;        /* main cell background */
+  --table-alt-bg: #f7f7f7;    /* checkerboard cells */
+  --table-header-bg: #ececec; /* header row */
+  --table-border: #d0d0d0;    /* grid lines */
+  --table-text: #111111;      /* text color */
 }
 
-/* Core table layout */
+/* Core table appearance */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   border: 1px solid var(--table-border);
-  overflow: hidden;
 }
 
 th, td {
@@ -377,34 +376,48 @@ th, td {
   color: var(--table-text);
 }
 
-/* Header row */
+/* Header styling */
 th {
   background-color: var(--table-header-bg);
   font-weight: 600;
 }
 
-/* Checkerboard effect — applies automatically to ALL tables */
+/* Checkerboard pattern (light mode) */
 tr:nth-child(odd) td:nth-child(even),
 tr:nth-child(even) td:nth-child(odd) {
   background-color: var(--table-alt-bg);
 }
 
-/* --------------------------
-   DARK MODE OVERRIDES
---------------------------- */
+/* ----------------------------------
+   dark mode table settings
+---------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --table-bg: #181820;
-    --table-alt-bg: #232330;
-    --table-header-bg: #202030;
-    --table-border: #32324a;
-    --table-text: #f2f2f7;
+    --table-bg: #1b1b22;       /* rich charcoal, NOT black */
+    --table-alt-bg: #262631;   /* subtle contrast for checkerboard */
+    --table-header-bg: #2e2e3a;/* slightly brighter header */
+    --table-border: #404052;   /* softer borders */
+    --table-text: #e8e8ef;     /* high readability */
   }
 
   table {
-    box-shadow: 0 0 14px rgba(0,0,0,0.55);
+    border-color: var(--table-border);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+  th, td {
+    border-color: var(--table-border);
+    background-color: var(--table-bg);
+    color: var(--table-text);
+  }
+
+  /* Dark-mode checkerboard override */
+  tr:nth-child(odd) td:nth-child(even),
+  tr:nth-child(even) td:nth-child(odd) {
+    background-color: var(--table-alt-bg);
   }
 }
+
 
 
 

@@ -907,7 +907,7 @@ Since the behavior of the two gates are the same for all the states, the two gat
 The density matrix can be written
 
 $$\begin{aligned}
-\rho = \begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{31} & p_{32} & p_{33} & p_{34} \\\p_{41} & p_{42} & p_{43} & p_{44} \end{bmatrix} 
+\rho = \begin{bmatrix} p_{11} & p_{12} & p_{13} & p_{14} \\\ p_{21} & p_{22} & p_{23} & p_{24} \\\ p_{31} & p_{32} & p_{33} & p_{34} \\\ p_{41} & p_{42} & p_{43} & p_{44} \end{bmatrix} 
 \end{aligned}$$
 
 

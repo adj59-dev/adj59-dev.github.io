@@ -162,27 +162,12 @@ table td {
 
 /* ----------------------------------
    MathJax block equations (display=true)
-   Left-aligned with slight indent, responsive sizing
+   Left-aligned with slight indent
 ---------------------------------- */
 mjx-container[display="true"] {
   display: block;
   text-align: left !important;
   margin: 1.2em 0 1.2em 1.5rem !important;
-}
-
-mjx-container[display="true"] > svg,
-mjx-container[display="true"] > mjx-math {
-  max-width: 100%;
-  height: auto;
-}
-
-/* On small/medium screens allow equations to exceed container width
-   (so they don't get over-shrunk) */
-@media (max-width: 900px) {
-  mjx-container[display="true"] > svg,
-  mjx-container[display="true"] > mjx-math {
-    max-width: none;
-  }
 }
 
 /* ----------------------------------

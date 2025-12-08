@@ -58,6 +58,17 @@ img {
 }
 
 /* ----------------------------------
+Automatically give horizontal scrolling 
+to any content that overflows 
+---------------------------------- */
+.page-content > * {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* ----------------------------------
    Visually hidden but screen-reader
    accessible content 
 ---------------------------------- */

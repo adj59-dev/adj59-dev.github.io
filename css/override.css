@@ -302,3 +302,53 @@ mjx-container[display="true"] {
   text-decoration: underline;
 }
 
+/* ----------------------------------
+   Allow dark mode
+---------------------------------- */
+:root {
+  /* default = light mode */
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --link-color: #0645ad;
+  --link-hover-color: #0b0080;
+  --code-bg: #f5f5f5;
+  --border-color: #dddddd;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+code, pre {
+  background-color: var(--code-bg);
+}
+
+hr, .post, .post-content, table, th, td {
+  border-color: var(--border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #050509;
+    --text-color: #f5f5f5;
+    --link-color: #9bbcff;
+    --link-hover-color: #cddcff;
+    --code-bg: #1a1a1f;
+    --border-color: #333333;
+  }
+}
+
+
+
+
+
+

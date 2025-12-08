@@ -480,6 +480,14 @@ Dark mode settings for code block
     overflow-x: auto;
   }
 
+   /* Brighten keywords and function names in dark mode */
+   .hljs-keyword,
+   .hljs-title,
+   .hljs-name {
+      color: #dddbdb !important; /* or #eaeaea if you want softer */
+}
+
+
 }
 
 

@@ -15,7 +15,7 @@ tags:
 This page collects all of my solution indices for the textbooks I'm studying. Each index links to notes and worked exercises, written as I progress through the material. As I continue working through topics, this hub will grow to include new books and expanded solution sets.
 
 
-{% assign grouped = site.solutions-index | group_by: "category" %}
+{% assign grouped = site["solutions-index"] | group_by: "category" %}
 
 {% for group in grouped %}
   <h2>{{ group.name }}</h2>
@@ -23,11 +23,10 @@ This page collects all of my solution indices for the textbooks I'm studying. Ea
     {% assign items = group.items | sort: "title" %}
     {% for index in items %}
       <li>
-        <a href="{{ index.url | relative_url }}">{{ index.title }}</a>
-        {% if index.description %}
-          <div class="index-description">{{ index.description }}</div>
-        {% endif %}
+        <a href="{{ index.url | relative_url }}">{{ index.title }}</a><br>
+        <small>{{ index.description }}</small>
       </li>
     {% endfor %}
   </ul>
 {% endfor %}
+

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: QCQI Solutions Index
-permalink: /solutions-index/
+permalink: /solutions-index/QCQI
 description: "Index of notes and exercise solutions for Nielsen & Chuang's Quantum Computation and Quantum Information."
 tags:
   - QCQI

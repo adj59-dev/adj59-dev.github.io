@@ -46,6 +46,8 @@ exercises:
 chapter: 1
 ---
 
+<a id="top"></a>
+
 I recently finished Chapter 1 of *Group Theory and Its Application to Physical Problems* by Morton Hamermesh. I picked up this book to complement *Quantum Computation and Quantum Information* by Nielsen and Chuang, which I’m working through in parallel. QCQI introduces several group theory ideas but doesn’t explore them in depth, so I wanted a resource that develops the concepts more systematically. Hamermesh does exactly that; his exposition is slower, richer in examples, and builds intuition before asking the reader to tackle problems.
 
 One small note: the book uses the term invariant subgroup, which is largely outdated; modern texts refer to these as normal subgroups. Otherwise, the treatment has held up surprisingly well. I've included the solutions to the problems in chapter 1 below. 
@@ -78,12 +80,19 @@ $$\begin{aligned}
 
 Therefore, the cross ratio is invariant under projective transformation.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+
+
 
 ## Page 11
 
 ### Problem 1 {#page-11-problem-1}
 
 For the two groups given $a^2 = b$ and $a^2 = b^2 = c^2 = e$. We know $a^2 \neq a$ because then $a=e$. If we said $a^2 = c$ then we would get a group of the same form as (A), just with $b$ and $c$ swapped so this would not be a distinct structure. There are no other elements of the group that we could say $a^2$ is equal to, therefore there are no other distinct structures for a group of order 4. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ### Problem 2 {#page-11-problem-2}
 
@@ -93,6 +102,8 @@ For group (A),  since it is cyclic it is abelian.
 
 For group (B), for any $a,b$ in the group, since $a^2=e$ and $b^2=e$, then $a=a^{-1}$ and $b=b^{-1}$. Therefore, $(ab)^{-1} = b^{-1}a^{-1} = ba$. But since $(ab)^2 = c^2 = e$, then also $(ab)^{-1} = ab$ and so $ab=(ab)^{-1} = ba$. Therefore, group (B) is abelian.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 ### Problem 3 {#page-11-problem-3}
 
 
@@ -100,7 +111,7 @@ For group (A), a realization could be $0^\circ$, $90^\circ$, $180^\circ$, and $2
 
 For group (B), a realization could be no rotation, $180^\circ$ rotation about the x-axis, $180^\circ$ rotation about the y-axis, and $180^\circ$ rotation about the z-axis in three dimensions.
 
-
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ## Page 20
@@ -108,6 +119,8 @@ For group (B), a realization could be no rotation, $180^\circ$ rotation about th
 ### Problem 1 {#page-20-problem-1}
 
 The elements are $e$, $(123456)$, and the powers of $(123456)$ which are $(135)(246)$, $(14)(25)(36)$, $(153)(264)$, and $(165432)$.
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ### Problem 2 {#page-20-problem-2}
 
@@ -128,6 +141,7 @@ Looking at the different permutations of the two 3-cycle and three 2-cycles elem
 
 Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 22
 
@@ -163,6 +177,7 @@ H(34) &= \lbrace (123), (1324), (142), (34) \rbrace \\
 
 Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This is a similar resolution as in the same permutations are multiplied to $H$, however the left and right cosets are not equal.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 23
 
@@ -273,7 +288,7 @@ The group table for $\braket{a,b,c \vert a^2=b^2=c^2=e, \text{all commute}}$ is
 | $ca$   | $c$    | $abc$  | $a$    | $bc$   | $ab$   | $e$    | $b$    |
 | $abc$  | $bc$   | $ca$   | $ab$   | $c$    | $a$    | $b$    | $e$    |
 
-
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 25
 
@@ -288,6 +303,7 @@ In $S_5$ the distinct classes are:
 6. $(1234),(1235),(1243),(1253),(1245),(1254),(1324),(1325),(1342),(1352),(1423),(1523),(1432),(1532),(1425),(1452),(1524),(1542),(2345),(2354),(2435),(2453),(2534),(2543),(1345),(1354),(1435),(1453),(1534),(1543)$
 7. $(12345),(12354),(12435),(12453),(12534),(12543),(13245),(13254),(13425),(13452),(13524),(13542),(14235),(14253),(14325),(14352),(14523),(14532),(15234),(15243),(15324),(15342),(15423),(15432)$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 27
 
@@ -318,7 +334,7 @@ $$\begin{aligned}
 (1^5) & (11111) & (00001) & (12345) & 24\\
 \end{aligned}$$
 
-
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 28
 
@@ -352,6 +368,7 @@ a^4 &= e & = b^4 = c^4 &\Leftrightarrow 1 = i^4=j^4=k^4\\
 
 Therefore, the group $\lbrace e, a^2, a, a^3, b, b^3, ab, (ab)^3\rbrace$ is isomorphic to $\lbrace  1, -1, i, -i, j, -j, k, -k \rbrace$. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ## Page 29
 
@@ -367,9 +384,13 @@ For $S_2$ each conjugate subgroup with be of the structure $\lbrace e, (12) \rbr
 
 Similarly, for the cyclic group each conjugate subgroup with be of the structure $\lbrack e, (123), (132) \rbrack$, with just permutations of the numbers $\lbrace 1,2,3,4 \rbrace$. There will be four such conjugates. 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 ### Problem 2 {#page-29-problem-2}
 
 The index of a subgroup is the number of distinct cosets of $H$ there are in $G$. If the index is 2, there are only two distinct left cosets in $G$: $H$ and $aH$ for $a\notin H$. There are also only two distinct right cosets: $H$ and $Ha$ for $a\notin H$. We see that $aH$ is all elements of $G$ that are not in $H$ and $Ha$ is also all elements of $G$ that are not in $H$. Therefore, $aH=Ha$. So, for any $g\in G$ it is either in $H$ and so $gH=H=Hg$ or it is not in $H$ and so $gH=aH=Ha=Hg$. Thus $gH=Hg$ for all $g$. Therefore $H$ is invariant. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ### Problem 3 {#page-29-problem-3}
 
@@ -377,6 +398,6 @@ A quaternion group is defined by $G=\lbrace 1,-1,i,-i,j,-j,k,-k\rbrace$ where $i
 
 For subgroups $\lbrace 1, -1, a, -a \rbrace$ where $a=i,j,\text{ or }k$, their index is 2 and so by problem (2) are necessarily invariant. For $H=\lbrace 1, -1 \rbrace$ for every $g\in G$, $gHg^{-1}=H$ since all elements in $H$ commute with all $g\in G$ and so $H$ is invariant. The same can be said for $\lbrace 1 \rbrace$. Therefore, all subgroups in the quaternion group are invariant. 
 
-
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 

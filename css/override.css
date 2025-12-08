@@ -451,5 +451,14 @@ tbody tr:nth-child(even) td {
   color: var(--header-link-hover) !important;
 }
 
+/*----------------------------
+Invert images in dark mode
+-----------------------------*/
+
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
 
 

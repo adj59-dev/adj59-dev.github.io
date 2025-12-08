@@ -480,53 +480,6 @@ Dark mode settings for code block
     overflow-x: auto;
   }
 
-  /* ---------------------------------------
-     Highlight.js syntax categories
-     --------------------------------------- */
-
-  /* Keywords: return, if, while, etc. */
-  .hljs-keyword {
-    color: #ff79c6 !important; /* magenta */
-  }
-
-  /* Built-in / language constants */
-  .hljs-built_in,
-  .hljs-literal,
-  .hljs-type {
-    color: #bd93f9 !important; /* purple */
-  }
-
-  /* Strings */
-  .hljs-string {
-    color: #8be9fd !important; /* cyan */
-  }
-
-  /* Comments */
-  .hljs-comment {
-    color: #727272 !important;
-    font-style: italic;
-  }
-
-  /* Operators, symbols, punctuation
-     (this controls '=' !!) */
-  .hljs-operator,
-  .hljs-punctuation,
-  .hljs-symbol {
-    color: #f8f8f2 !important;
-  }
-
-  /* Function / variable names */
-  .hljs-title,
-  .hljs-name {
-    color: #50fa7b !important; /* green */
-  }
-
-  /* Numbers */
-  .hljs-number {
-    color: #f1fa8c !important; /* yellow */
-  }
-}
-
 }
 
 

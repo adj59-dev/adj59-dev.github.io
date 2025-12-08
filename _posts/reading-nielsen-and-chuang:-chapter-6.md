@@ -4,6 +4,7 @@ description: "Notes and exercise solutions for QCQI Chapter 6: quantum search al
 categories:
   - Quantum Computation and Quantum Information
 permalink: /qcqi/chapter-6/
+toc: true
 tags:
   - QCQI
   - quantum computing
@@ -68,38 +69,16 @@ chapter: 6
 
 <a id="top"></a>
 
-# Reading Nielsen and Chuang: Chapter 6
 
 I just finished reading Chapter 6 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
 
-## Navigation
 
-* [The quantum search algorithm](#the-quantum-search-algorithm)
-* [Quantum search as a quantum simulation](#quantum-search-as-a-quantum-simulation)
-* [Quantum counting](#quantum-counting)
-* [Speeding up the solution of NP-complete problems](#speeding-up-the-solution-of-np-complete-problems)
-* [Quantum search of an unstructured database](#quantum-search-of-an-unstructured-database)
-* [Optimality of the search algorithm](#optimality-of-the-search-algorithm)
-* [Black box algorithm limits](#black-box-algorithm-limits)
-* [Chapter problems](#chapter-problems)
-
+<!-- toc -->
 
 
 ## The quantum search algorithm
 
-### The quantum search algorithm - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Grover iteration                     | 6.1.2                     | (1) Apply the oracle $O$. <br> (2) Apply the Hadamard transform $H^{\otimes n}$. <br> (3) Perform a conditional phase shift on the computer, with every computation basis state except $\ket{0}$ recieving a phase shift of -1, $\ket{x}\rightarrow -(-1)^{\delta_{x0}}\ket{x}$. <br> (4) Apply the Hadamard transform $H^{\otimes n}$. <br> $G=(2\ket{\psi}\bra{\psi}-I)O$, where $\ket{\psi}$ is the equally weighted superposition of states. |
-| Quantum search algorithm for $M=1$   | 6.1.4                     | **Inputs:** (1) a black box oracle $O$ which performs the transformation $O\ket{x}\ket{q} = \ket{x}\ket{q\oplus f(x)}$ where $f(x)=0 for all $0\leq x< 2^n$ except $x_0$, for which $f(x_0)=1$; (2) $n+1$ qubits in the state $\ket{0}$ <br> **Outputs:** $x_0$ <br> **Runtime:** $O(\sqrt{2^n})$ operations. Succeeds with probability $O(1)$. <br> **Procedure:** <br> 1. initial state: $\ket{0}^{\otimes n}\ket{0}$ <br> 2. apply $H^{\otimes n}$ to the first $n$ qubits, and $HX$ to the last qubit. <br> 3. apply the Grover iteration $R\approx \lceil\pi\sqrt{2^n}/4\rceil$ times. <br> 4. measure the first $n$ qubits. |
-
-
-
-### The quantum search algorithm - Exercises
-
-#### Exercise 6.1 {#exercise-61}
+### Exercise 6.1 {#exercise-61}
 
 Show that the unitary operator corresponding to the phase shift in the Grover iteration is $2\ket{0}\bra{0} - I$.
 
@@ -122,7 +101,7 @@ This matches the desired behavior and so the unitary operator corresponding to t
 </details>
 
 
-#### Exercise 6.2 {#exercise-62}
+### Exercise 6.2 {#exercise-62}
 
 Show that the operation $(2\ket{\psi}\bra{\psi}-I)$ applied to a general state $\sum_{k}\alpha_k\ket{k}$ produces
 
@@ -159,7 +138,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 6.3 {#exercise-63}
+### Exercise 6.3 {#exercise-63}
 
 Show that in the $\ket{\alpha}$, $\ket{\beta}$ basis, we may write the Grover iteration as
 
@@ -192,7 +171,7 @@ This agrees with equation 6.11. Therefore, the Grover iteration may be written a
 </details>
 
 
-#### Exercise 6.4 {#exercise-64}
+### Exercise 6.4 {#exercise-64}
 
 Give explicit steps for the quantum search algorithm, as above, but for the case of multiple solutions $(1<M<N/2)$.
 
@@ -224,7 +203,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 6.5 {#exercise-65}
+### Exercise 6.5 {#exercise-65}
 
 Show that the augmented oracle $O'$ may be constructed using one application of $O$, and elementary quantum gates, using the extra qubit $\ket{q}$.
 
@@ -277,7 +256,7 @@ O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
 </details>
 
 
-#### Exercise 6.6 {#exercise-66}
+### Exercise 6.6 {#exercise-66}
 
 Verify that the gates in the dotted box in the second figure of Box 6.1 perform the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
 
@@ -334,10 +313,7 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 ## Quantum search as a quantum simulation
 
 
-### Quantum search as a quantum simulation - Exercises
-
-
-#### Exercise 6.7 {#exercise-67}
+### Exercise 6.7 {#exercise-67}
 
 Verify that the circuits shown in Figures 6.4 and 6.5 implement the operations $\exp(-i\ket{x}\bra{x}\Delta t)$ and $\exp(-i\ket{\psi}\bra{\psi}\Delta t)$, respectively, with $\ket{\psi}$ as in (6.24).
 
@@ -397,7 +373,7 @@ instead of the one drawn in the figure.
 </details>
 
 
-#### Exercise 6.8 {#exercise-68}
+### Exercise 6.8 {#exercise-68}
 
 Suppose the simulation step is performed to an accuracy $O(\Delta t^r)$. Show that the number of oracle calls required to simulate $H$ to reasonable accuracy is $O\left(N^{r/2(r-1)}\right)$.
 
@@ -411,7 +387,7 @@ Since the step length is $\Delta t$ the total number of steps required is $t/\De
 </details>
 
 
-#### Exercise 6.9 {#exercise-69}
+### Exercise 6.9 {#exercise-69}
 
 Verify Equation (6.25).
 
@@ -498,7 +474,7 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 </details>
 
 
-#### Exercise 6.10 {#exercise-610}
+### Exercise 6.10 {#exercise-610}
 
 Show that by choosing $\Delta t$ appropriately we can obtain a quantum search algorithm which uses $O(\sqrt{N})$ queries, and for which the final state is $\ket{x}$ exactly, that is, the algorithm works with probability 1, rather than with some smaller probability. 
 
@@ -529,7 +505,7 @@ Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and G
 </details>
 
 
-#### Exercise 6.11 {#exercise-611}
+### Exercise 6.11 {#exercise-611}
 
 Guess a Hamiltonian with which one may solve the continuous time search problem in the case where the search problem has $M$ solutions. 
 
@@ -563,7 +539,7 @@ Thus at time $t=\frac{\pi}{2a}$ yields the result $\ket{\beta}$ with probability
 </details>
 
 
-#### Exercise 6.12 {#exercise-612}
+### Exercise 6.12 {#exercise-612}
 
 Suppose 
 
@@ -618,19 +594,7 @@ The total number of oracle calls will be dependent on the number of steps taken 
 
 ## Quantum counting
 
-### Quantum counting - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum counting                     | 6.3                       | application of the phase estimation procedure from section 5.2 to estimate the eigenvalues of the Grover iteration, which allows us to determine the number of solutions to the search problem. |
-
-
-
-
-### Quantum counting - Exercises
-
-#### Exercise 6.13 {#exercise-613}
+### Exercise 6.13 {#exercise-613}
 
 Consider a classical algorithm for the counting problem which samples uniformly and independently $k$ times from the search space, and let $X_1,\cdots,X_k$ be the results of the oracle calls, that is, $X_j=1$ if the *j*th oracle call revealed a solution to the problem, and $X_j=0$ if the *j*th oracle call did not reveal a solution to the problem. This algorithm returns the estimate $S\equiv N\times \sum_j X_j/k$ for the number of solutions to the search problem. Show that the standard deviation in $S$ is $\Delta S=\sqrt{M(N-M)/k}$. Prove that to obtain a probability at least $3/4$ of estimating $M$ correctly to within an accuracy of $\sqrt{M}$ for all values of $M$ we must have $k=\Omega(N)$.
 
@@ -686,7 +650,7 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 </details>
 
 
-#### Exercise 6.14 {#exercise-614}
+### Exercise 6.14 {#exercise-614}
 
 Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
@@ -753,46 +717,11 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 </details>
 
 
-## Speeding up the solution of NP-complete problems
-
-### Speeding up the solution of NP-complete problems - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum searching can speed up the solution to NP problems | 6.4 |  Asymptotically the quantum algorithm requires the square root of the number of operations the classical algorithm requires. |
-
-
-
-
-
-
-## Quantum search of an unstructured database
-
-### Quantum search of an unstructured database - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Quantum search algorithms are not suitable for searching classical databases. | 6.5 | The modest speedup does not outweight the enormous hardware cost.                   |
-
-
 
 ## Optimality of the search algorithm
 
-### Optimality of the search algorithm - Key Concepts
 
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| Any quantum search algorithm is $\Omega(\sqrt{N})$ | 6.6         | Proof for this lower bounds is shown in this section. | 
-
-
-
-
-### Optimality of the search algorithm - Exercises
-
-#### Exercise 6.15 {#exercise-615}
+### Exercise 6.15 {#exercise-615}
 
 Use the Cauchy-Schwarz inequality to show that for any normalized state vector $\ket{\psi}$ and set of $N$ orthonormal basis vectors $\ket{x}$,
 
@@ -825,7 +754,7 @@ $$\begin{aligned}
 </details>
 
 
-#### Exercise 6.16 {#exercise-616}
+### Exercise 6.16 {#exercise-616}
 
 Suppose we merely required that the probability of an error being made is less than $1/2$ when averaged uniformly over the possible values for $x$, instead of for all values of $x$. Show that $O(\sqrt{N})$ oracle calls are still required to solve the search problem. 
 
@@ -853,17 +782,6 @@ There are a few resources referenced in the History and further reading section 
 
 ##  Black box algorithm limits
 
-###  Black box algorithm limits - Key Concepts
-
-
-| Concept                              | Book Section              | Notes                                                                                                  |
-|--------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------|
-
-
-
-
-
-## Black box algorithm limits - Exercises
 
 
 

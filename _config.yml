@@ -50,5 +50,9 @@ header_pages:
   - archive.md
   - solutions-hub.md
 
+collections:
+  solutions-index:
+    output: true
+    permalink: /solutions-index/:path/
 
 

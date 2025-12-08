@@ -484,7 +484,7 @@ Dark mode settings for code block
    .hljs-keyword,
    .hljs-title,
    .hljs-name {
-      color: #dddbdb !important; /* or #eaeaea if you want softer */
+      color: #cac8c8 !important; 
 }
 
 

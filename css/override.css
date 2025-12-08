@@ -347,55 +347,65 @@ hr, .post, .post-content, table, th, td {
   }
 }
 
-/* ----------------------------------
-   Table dark mode color adjustment
----------------------------------- */
-/* Base table colors (light mode defaults) */
+/* -----------------------
+   GLOBAL TABLE STYLING
+-------------------------*/
+
+/* Light-mode defaults */
 :root {
   --table-bg: #ffffff;
-  --table-alt-bg: #f3f3f3;
-  --table-header-bg: #f0f0f0;
-  --table-border: #dddddd;
+  --table-alt-bg: #f6f6f6;
+  --table-header-bg: #efefef;
+  --table-border: #d5d5d5;
+  --table-text: #000000;
 }
 
-/* Generic table styling */
+/* Core table layout */
 table {
+  width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem auto;
+  margin: 1.5rem 0;
   border: 1px solid var(--table-border);
+  overflow: hidden;
 }
 
-th,
-td {
-  padding: 0.4rem 0.7rem;
+th, td {
+  padding: 0.55rem 0.75rem;
   border: 1px solid var(--table-border);
+  text-align: center;
   background-color: var(--table-bg);
+  color: var(--table-text);
 }
 
+/* Header row */
 th {
   background-color: var(--table-header-bg);
+  font-weight: 600;
 }
 
-/* Checkerboard pattern for group tables.
-   Add class="group-table" to those tables. */
-.group-table tr:nth-child(odd) td:nth-child(even),
-.group-table tr:nth-child(even) td:nth-child(odd) {
+/* Checkerboard effect — applies automatically to ALL tables */
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
   background-color: var(--table-alt-bg);
 }
 
+/* --------------------------
+   DARK MODE OVERRIDES
+--------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --table-bg: #14141c;        /* main cell */
-    --table-alt-bg: #232333;    /* checkerboard cells */
-    --table-header-bg: #202030; /* header row */
+    --table-bg: #181820;
+    --table-alt-bg: #232330;
+    --table-header-bg: #202030;
     --table-border: #32324a;
+    --table-text: #f2f2f7;
   }
 
   table {
-    /* subtle glow so tables feel separate from background */
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 14px rgba(0,0,0,0.55);
   }
 }
+
 
 
 

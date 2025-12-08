@@ -508,10 +508,6 @@ Dark mode settings for code block
     font-style: italic;
   }
 
-  .hljs-operator,
-  .hljs-symbol,
-  .hljs-punctuation,
-  .hljs-meta,
    .highlight .o {   /* operators */
     color: #ffb86c !important;  /* warm orange */
   }
@@ -520,6 +516,12 @@ Dark mode settings for code block
    .hljs-built_in {
       color: #979797 !important; /* magenta */
    }
+
+   pre code.hljs .hljs-operator,
+   pre code.hljs .hljs-symbol,
+   pre code.hljs .hljs-punctuation {
+      color: #f8f8f2 !important;   
+  }
 }
 
 

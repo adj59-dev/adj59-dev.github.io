@@ -347,7 +347,55 @@ hr, .post, .post-content, table, th, td {
   }
 }
 
+/* ----------------------------------
+   Table dark mode color adjustment
+---------------------------------- */
+/* Base table colors (light mode defaults) */
+:root {
+  --table-bg: #ffffff;
+  --table-alt-bg: #f3f3f3;
+  --table-header-bg: #f0f0f0;
+  --table-border: #dddddd;
+}
 
+/* Generic table styling */
+table {
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+  border: 1px solid var(--table-border);
+}
+
+th,
+td {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--table-border);
+  background-color: var(--table-bg);
+}
+
+th {
+  background-color: var(--table-header-bg);
+}
+
+/* Checkerboard pattern for group tables.
+   Add class="group-table" to those tables. */
+.group-table tr:nth-child(odd) td:nth-child(even),
+.group-table tr:nth-child(even) td:nth-child(odd) {
+  background-color: var(--table-alt-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --table-bg: #14141c;        /* main cell */
+    --table-alt-bg: #232333;    /* checkerboard cells */
+    --table-header-bg: #202030; /* header row */
+    --table-border: #32324a;
+  }
+
+  table {
+    /* subtle glow so tables feel separate from background */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  }
+}
 
 
 

@@ -491,17 +491,17 @@ Dark mode settings for code block
    Fix MathJax in dark mode
    -----------------------*/
    @media (prefers-color-scheme: dark) {
-      .mjx-math, .MathJax {
-         color: #f5f5f5 !important;
-      }
+     .mjx-math,
+     .MathJax {
+       color: #f5f5f5 !important;   
+     }
+   
+     mjx-container[jax="SVG"] svg,
+     mjx-container[jax="SVG"] svg path {
+       fill: #f5f5f5 !important;    /* solid light glyphs */
+       stroke: none !important;     /* no outline */
+     }
    }
-   @media (prefers-color-scheme: dark) {
-      svg[data-mml-node] path {
-         stroke: #f5f5f5 !important;
-         stroke-width: 1.2px !important;
-      }
-   }
-
 
 
 }

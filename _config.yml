@@ -48,7 +48,7 @@ permalink: /:year/:month/:day/:title:output_ext
 
 header_pages:
   - archive.md
-  - solutions-index-QCQI.md
+  - solutions-hub.md
 
 
 

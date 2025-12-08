@@ -61,11 +61,14 @@ img {
 Automatically give horizontal scrolling 
 to any content that overflows 
 ---------------------------------- */
-.page-content > * {
+.page-content p,
+.page-content li {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  white-space: nowrap;   
 }
+
 
 
 /* ----------------------------------

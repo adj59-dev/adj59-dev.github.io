@@ -457,7 +457,7 @@ Invert images in dark mode
 
 @media (prefers-color-scheme: dark) {
   img {
-     filter: invert(0.95) hue-rotate(180deg) brightness(1.05) contrast(0.98) saturate(0.95);
+     filter: invert(0.98) hue-rotate(180deg) brightness(1.05) contrast(0.98) saturate(0.95);
   }
 }
 

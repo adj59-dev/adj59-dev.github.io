@@ -59,10 +59,13 @@ img {
 
 /* ----------------------------------
 Automatically give horizontal scrolling 
-to any content that overflows 
+to content that overflows 
 ---------------------------------- */
-.page-content p,
-.page-content li {
+.page-content pre,
+.page-content table,
+.page-content mjx-container[display="true"],
+.page-content .math-display,
+.page-content .scroll-x {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;

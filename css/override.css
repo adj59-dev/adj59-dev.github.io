@@ -467,61 +467,66 @@ Dark mode settings for code block
 
 @media (prefers-color-scheme: dark) {
 
-  /* Code block background + border */
-  pre, code, .highlight {
-    background-color: #1c1c1c !important;  /* brighter than #060606 */
-    border: 1px solid #1a1a1a !important;  /* Visible but subtle */
+  /* Base background + padding */
+  pre, code, .hljs {
+    background-color: #1c1c1c !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #1a1a1a !important;
     border-radius: 6px;
   }
 
-  /* Extra padding for readability */
   pre {
     padding: 1.1em 1.3em;
     overflow-x: auto;
   }
 
-  /* Syntax highlighting overrides to increase contrast */
-  .highlight .k,    /* keywords */
-  .highlight .kd,
-  .highlight .kn,
-  .highlight .kr {
-    color: #ff79c6 !important;  /* magenta */
+  /* ---------------------------------------
+     Highlight.js syntax categories
+     --------------------------------------- */
+
+  /* Keywords: return, if, while, etc. */
+  .hljs-keyword {
+    color: #ff79c6 !important; /* magenta */
   }
 
-  .highlight .n,    /* names */
-  .highlight .nx,
-  .highlight .na {
-    color: #f8f8f2 !important;  /* neutral white */
+  /* Built-in / language constants */
+  .hljs-built_in,
+  .hljs-literal,
+  .hljs-type {
+    color: #bd93f9 !important; /* purple */
   }
 
-  .highlight .s,    /* strings */
-  .highlight .sd,
-  .highlight .s1,
-  .highlight .s2 {
-    color: #8be9fd !important;  /* cyan, matches your aesthetic */
+  /* Strings */
+  .hljs-string {
+    color: #8be9fd !important; /* cyan */
   }
 
-  .highlight .c,    /* comments */
-  .highlight .cm,
-  .highlight .c1 {
-    color: #727272 !important;  /* muted but readable */
+  /* Comments */
+  .hljs-comment {
+    color: #727272 !important;
     font-style: italic;
   }
 
-   .highlight .o {   /* operators */
-    color: #ffb86c !important;  /* warm orange */
+  /* Operators, symbols, punctuation
+     (this controls '=' !!) */
+  .hljs-operator,
+  .hljs-punctuation,
+  .hljs-symbol {
+    color: #f8f8f2 !important;
   }
 
-   .hljs-keyword,
-   .hljs-built_in {
-      color: #979797 !important; /* magenta */
-   }
-
-   pre code.hljs .hljs-operator,
-   pre code.hljs .hljs-symbol,
-   pre code.hljs .hljs-punctuation {
-      color: #f8f8f2 !important;   
+  /* Function / variable names */
+  .hljs-title,
+  .hljs-name {
+    color: #50fa7b !important; /* green */
   }
+
+  /* Numbers */
+  .hljs-number {
+    color: #f1fa8c !important; /* yellow */
+  }
+}
+
 }
 
 

@@ -430,6 +430,26 @@ tbody tr:nth-child(even) td {
   }
 }
 
+.site-header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+}
+
+.site-title {
+  color: var(--header-text) !important;
+}
+
+.site-title:hover {
+  color: var(--header-link-hover) !important;
+}
+
+.site-nav .page-link {
+  color: var(--header-link) !important;
+}
+
+.site-nav .page-link:hover {
+  color: var(--header-link-hover) !important;
+}
 
 
 

@@ -613,7 +613,25 @@ U &= e^{i\alpha} R_x(\beta)R_y(\gamma)R_x(\delta)\\
 &= e^{i\alpha} \begin{bmatrix} (ac -ibd)e - i(-ad - ibc)f & -i(ac -ibd)f + (-ad - ibc)e  \\\ (-ibc + ad )e - i(ibd + ac)f & -i(-ibc + ad )f + (ibd + ac)e \end{bmatrix}
 \end{aligned}$$
 
-From [exercise 4.9](#exercise-49), we know that these criteria must be met in order for this decomposition to work for any unitary operator: $(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast$ and $-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast$, with the constraint $\vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2=1$. So, let's check them
+From [exercise 4.9](#exercise-49), we know that these criteria must be met in order for this decomposition to work for any unitary operator: 
+
+$$\begin{aligned}
+(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast
+\end{aligned}$$ 
+
+and 
+
+$$\begin{aligned}
+-i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast,
+\end{aligned}$$ 
+
+with the constraint 
+
+$$\begin{aligned}
+\vert (ac -ibd)e - i(-ad - ibc)f \vert^2 + \vert -i(ac -ibd)f + (-ad - ibc)e \vert^2=1.
+\end{aligned}$$ 
+
+So, let's check them
 
 $$\begin{aligned}
 (-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast \\
@@ -1113,7 +1131,13 @@ I found comparing the circuit that I was creating to the Toffoli gate on Wikiped
 
 
 
-From Corollary 4.2 we know that any unitary can be expressed as $U=e^{i\alpha}AXBXC$, so we can create the $V$ gates using two CNOTs and three one-qubit gates as $V=e^{i\alpha}AXBXC$. Then $V^\dagger = e^{-i\alpha}(AXBXC)^\dagger = e^{-i\alpha}C^\dagger X^\dagger B^\dagger X^\dagger A^\dagger = e^{-i\alpha}C^\dagger X B^\dagger X A^\dagger$. We can then construct the gate as so
+From Corollary 4.2 we know that any unitary can be expressed as $U=e^{i\alpha}AXBXC$, so we can create the $V$ gates using two CNOTs and three one-qubit gates as $V=e^{i\alpha}AXBXC$. Then 
+
+$$\begin{aligned}
+V^\dagger = e^{-i\alpha}(AXBXC)^\dagger = e^{-i\alpha}C^\dagger X^\dagger B^\dagger X^\dagger A^\dagger = e^{-i\alpha}C^\dagger X B^\dagger X A^\dagger.
+\end{aligned}$$ 
+
+We can then construct the gate as so
 
 <img width="829" height="216" alt="image" src="https://github.com/user-attachments/assets/63880985-2e67-4b03-9100-9f097c3e5315" />
 
@@ -1407,7 +1431,11 @@ $$\begin{aligned}
 Toffoli_{acb} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
 \end{aligned}$$
 
-If we replace the first and last Toffoli gates by $CNOT_{bc}$ gates, we get the same effect, i.e. $Toffoli_{abc} Toffoli_{acb} Toffoli_{abc} = CNOT_{bc} Toffoli_{acb} CNOT_{bc}$
+If we replace the first and last Toffoli gates by $CNOT_{bc}$ gates, we get the same effect, i.e. 
+
+$$\begin{aligned}
+Toffoli_{abc} Toffoli_{acb} Toffoli_{abc} = CNOT_{bc} Toffoli_{acb} CNOT_{bc}
+\end{aligned}$$
 
 <img width="712" height="196" alt="image" src="https://github.com/user-attachments/assets/d10d6a14-ab6a-4a59-bfbb-dfd1e06f7c87" />
 
@@ -2750,7 +2778,11 @@ E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(
 
 
 
-Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We know that $X=HZH$ and that $Y = SXS^\dagger = SHZHS^\dagger$ and so we can construct the following circuit to simulate $H=X_1 \otimes Y_2 \otimes Z_3 = H_1Z_1H_1 \otimes S_2H_2Z_2H_2S_2^\dagger \otimes Z_3$. 
+Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We know that $X=HZH$ and that $Y = SXS^\dagger = SHZHS^\dagger$ and so we can construct the following circuit to simulate 
+
+$$/begin{aligned}
+H=X_1 \otimes Y_2 \otimes Z_3 = H_1Z_1H_1 \otimes S_2H_2Z_2H_2S_2^\dagger \otimes Z_3.
+\end{aligned}$$ 
 
 <img width="766" height="288" alt="image" src="https://github.com/user-attachments/assets/1dc3eeeb-e34f-4f30-a5aa-98fcb0cd6ae0" />
 

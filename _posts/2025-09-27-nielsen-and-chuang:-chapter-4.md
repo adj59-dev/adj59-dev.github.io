@@ -1015,7 +1015,13 @@ I approached this exercise by expressing all the gates in their matrix represent
 
 <img width="762" height="198" alt="image" src="https://github.com/user-attachments/assets/95534f9b-e2e3-4d01-81c2-23d867c3a7d3" />
 
-First I am going to make matrix representations for these different gates. The basis I am going to use is $\lbrace \ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111} \rbrace$ for $\ket{abc}$
+First I am going to make matrix representations for these different gates. The basis I am going to use is 
+
+$$\begin{aligned}
+\lbrace \ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111} \rbrace
+\end{aligned}$$ 
+
+for $\ket{abc}$
 
 Let's construct the matrix for $V_{bc}$
 

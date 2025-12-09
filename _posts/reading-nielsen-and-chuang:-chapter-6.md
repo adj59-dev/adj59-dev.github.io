@@ -760,15 +760,23 @@ $$\begin{aligned}
 E_k &\equiv \sum_x \Vert \psi_k^x - x \Vert^2 \\
 &= \sum_x 2 - 2\vert \braket{x \vert \psi_k^x} \vert & \text{equation 6.47}\\
 &= 2N - 2\sum_x \vert \braket{x \vert \psi_k^x} \vert \\
-&= 2N - 2\sqrt{\left(\sum_{x} \vert\braket{x \vert \psi_k^x}\vert \right)^2} \\
-&\geq 2N - 2\sqrt{\left(\sum_{x} \vert\braket{x \vert \psi_k^x}\vert^2 \right)\left(\sum_{x} 1^2\right)}  & \text{Cauchy-Schwarz}\\
-&\geq 2N - 2\sqrt{\left( \frac{N}{2} \right)\left(\sum_{x} 1 \right)} & \text{from the error probability}\\
-&= 2N - \sqrt{2}N\\
+&\leq 2N - 2\sum_x \vert \braket{x \vert \psi_k^x} \vert^2 & \text{since $\vert \braket{x \vert \psi_k^x} \vert \in \lbrack 0, 1\rbrack$}\\
+&\leq 2N -2\frac{N}{2} & \text{from probability of error}\\
+&= N
 \end{aligned}$$
 
-This is the same result for $E_k$ as for we saw before. $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged and so we can follow the rest of the calculation shown in the book and get that $\Omega(\sqrt{N})$ oracle calls are still required to solve the search problem. 
+So, $E_k \leq N$. $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged. Therefore,
 
+$$\begin{aligned}
+D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
+&\geq N + 2N-2\sqrt{N} - \sqrt{N(2N-2\sqrt{N})}\\
+&= N\left(3 - \sqrt{2 - 2\frac{1}{\sqrt{N}}}\right) - 2\sqrt{N} \\
+&= cN & \text{where $c\approx 1.6$ for large $N$}
+\end{aligned}$$
 
+Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omega(\sqrt{N})$ oracle calls are still required. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

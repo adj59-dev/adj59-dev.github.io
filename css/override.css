@@ -508,6 +508,19 @@ Dark mode settings for code block
 
 }
 
+/*-----------------------
+Limits image size
+------------------------*/
+.page-content img {
+  max-width: 800px; /* or whatever limit you prefer */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* centers the image */
+}
+
+
 
 
 

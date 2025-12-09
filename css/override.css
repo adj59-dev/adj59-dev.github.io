@@ -508,10 +508,19 @@ Dark mode settings for code block
        stroke: none !important;     /* no outline */
      }
    }
-
-
 }
 
+/*------------------------
+Allow inline math to wrap
+------------------------*/
+mjx-container:not([display="true"]) {
+  white-space: normal !important;
+  overflow-x: visible !important;
+  display: inline-block !important;
+}
+mjx-container:not([display="true"]) mjx-math {
+  white-space: normal !important;
+}
 
 
 

@@ -73,10 +73,19 @@ to content that overflows
 .page-content table {
   display: block;
   max-width: 100%;
+  width: 100%;               
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  text-align: center;        
 }
+
+table th,
+table td {
+  text-align: center;        
+  vertical-align: middle;
+}
+
 
 /* ----------------------------------
    Visually hidden but screen-reader
@@ -149,20 +158,6 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* ----------------------------------
-   Tables: centered content
----------------------------------- */
-table {
-   text-align: center;
-   width: 100%;
-}
-
-table th,
-table td {
-  text-align: center;
-  vertical-align: middle;
 }
 
 /* ----------------------------------

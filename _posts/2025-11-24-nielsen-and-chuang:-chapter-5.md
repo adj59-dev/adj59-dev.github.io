@@ -1790,7 +1790,7 @@ It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefo
 
 ## Chapter problems
 
-**### Problem 5.1 {#problem-51}**
+### Problem 5.1 {#problem-51}
 
 
 
@@ -1810,7 +1810,7 @@ Since $U$ is unitary, we know that it can be approximated using Hadamard, phase,
 
 
 
-**### Problem 5.2 {#problem-52}**
+### Problem 5.2 {#problem-52}
 
 This paper was cited in the History and further reading section for this problem: [Semiclassical Fourier Transform for Quantum Computation](https://arxiv.org/pdf/quant-ph/9511007).
 

@@ -155,7 +155,8 @@ img {
    Tables: centered content
 ---------------------------------- */
 table {
-  text-align: center;
+   text-align: center;
+   width: 100%;
 }
 
 table th,

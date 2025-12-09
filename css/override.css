@@ -492,6 +492,7 @@ Dark mode settings for code block
    .hljs-name {
       color: #cac8c8 !important; 
    }
+}
 
    /*----------------------
    Fix MathJax in dark mode
@@ -508,6 +509,31 @@ Dark mode settings for code block
        stroke: none !important;     /* no outline */
      }
    }
+
+/*------------------------ 
+Improve readability of mobile dropdown in dark mode 
+------------------------*/
+@media (prefers-color-scheme: dark) and (max-width: 700px) {
+
+  /* Dropdown container */
+  .site-nav .nav-trigger ~ .trigger {
+    background: #1b1b1b !important;      
+    border-radius: 10px;
+    padding: 0.8em 1em;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+  }
+
+  /* Dropdown links */
+  .site-nav .page-link {
+    color: #f2f2f2 !important;         
+    font-size: 1.1em;
+    display: block;                     
+    padding: 0.6em 0.4em;
+  }
+
+  .site-nav .page-link:hover {
+    color: white !important;
+  }
 }
 
 

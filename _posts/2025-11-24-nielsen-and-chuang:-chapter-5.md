@@ -320,7 +320,13 @@ E(U,V) &= E(U_m U_{m-1}\cdots U_1, V_mV_{m-1}\cdots V_1) \\
 
 
 
-The Hadamard gates transforms $\ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}$. Then the controlled- $U$ gates transform the following
+The Hadamard gates transforms 
+
+$$\begin{aligned}
+\ket{0}\ket{0}\cdots\ket{0}\ket{u} \to \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u}.
+\end{aligned}$$
+
+Then the controlled- $U$ gates transform the following
 
 $$\begin{aligned}
 \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} &\to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
@@ -1337,7 +1343,11 @@ Step 2. Determine whether $91=a^b$. Using the algorithm from [exercise 5.17](#ex
 
 Step 3. $x=4$ was randomly chosen and it was determined that it is co-prime to $91$ since $\text{gcd}(4,91) = 1$.
 
-Step 4. find the order $r$ of $x=4$ for $N=91$. Using a brute force calculation, shown below, we see that $r=6$ and $x^{r/2} \mod 91 = x^{3} \mod 91 = 64 \neq -1 \mod 91$. 
+Step 4. find the order $r$ of $x=4$ for $N=91$. Using a brute force calculation, shown below, we see that $r=6$ and 
+
+$$\begin{aligned}
+x^{r/2} \mod 91 = x^{3} \mod 91 = 64 \neq -1 \mod 91.
+\end{aligned}$$
 
 | $r$ | $x^r$ |	$x^r \mod N$ |
 |:---:|:-----:|:------------:|

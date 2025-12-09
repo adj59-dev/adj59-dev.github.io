@@ -1856,7 +1856,13 @@ C^{n}(U) &= V (D C^{n-1}(X)) V^\dagger (D C^{n-1}(X)) V \\
 
 This calculation will hold for all $n>3$.
 
-So the $C^n(X)$ circuit will be as shown below, where the $C^{n-2}(X)$ gates between the $E$ and $E^\dagger$ gates can be recursively decomposed into Toffoli, CNOT and single bit gates using the approximation $C^{n-2}(X) = E^\dagger \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E^\dagger \cdot C^{n-3}(X) \cdot E \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E$. This will construct a circuit using $O(n^2)$ gates. 
+So the $C^n(X)$ circuit will be as shown below, where the $C^{n-2}(X)$ gates between the $E$ and $E^\dagger$ gates can be recursively decomposed into Toffoli, CNOT and single bit gates using the approximation 
+
+$$/begin{aligned}
+C^{n-2}(X) = E^\dagger \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E^\dagger \cdot C^{n-3}(X) \cdot E \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E.
+\end{aligned}$$ 
+
+This will construct a circuit using $O(n^2)$ gates. 
 
 <img width="824" height="347" alt="image" src="https://github.com/user-attachments/assets/f2303b42-6afd-4c94-bf2d-8c7d61990df3" />
 

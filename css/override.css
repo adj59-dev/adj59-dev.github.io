@@ -411,7 +411,8 @@ tbody tr:nth-child(even) td {
 
   th,
   td {
-    color: #f5f5f5;  /* make text readable on dark backgrounds */
+      border-color: var(--table-border) !important;
+      color: var(--table-header-text);
   }
 }
 

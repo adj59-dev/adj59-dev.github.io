@@ -154,13 +154,16 @@ to content that overflows
 }
 
 /* ----------------------------------
-   Global <img> alignment (center images)
+   Global <img> alignment (center images) and size limit
 ---------------------------------- */
-img {
+.page-content img {
+  max-width: 800px; 
+  height: auto;
   display: block;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
 }
+
 
 /* ----------------------------------
    MathJax block equations (display=true)
@@ -506,18 +509,6 @@ Dark mode settings for code block
    }
 
 
-}
-
-/*-----------------------
-Limits image size
-------------------------*/
-.page-content img {
-  max-width: 800px; /* or whatever limit you prefer */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; /* centers the image */
 }
 
 

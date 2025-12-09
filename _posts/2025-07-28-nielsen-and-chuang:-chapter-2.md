@@ -851,7 +851,13 @@ For this exercise we are asked to repeat the spectral decomposition proof, but w
 
 Spectral decomposition theorem for the case when $M$ is Hermitian: Any Hermitian operator $M$ on a vector space $V$ is diagonal with respect to some orthonormal basis for $V$. Conversely, any diagonalizable operator is normal. 
 
-The first part of the proof is identical to what is in the book. Proof by induction is used on the dimension $d$ of $V$. The case $d=1$ is trivial. Let $\lambda$ be an eigenvalue of $M$, $P$ the projector onto the $\lambda$ eigenspace, and $Q$ the projector onto the orthogonal complement. Then $M = (P+Q)M(P+Q) = PMP+QMP+PMQ+QMQ$. Obviously $PMP=\lambda P$. Furthermore, $QMP=0$, as $M$ takes the subspace $P$ into itself. Simplifications can be made when demonstrating that $PMQ = 0$ due to $M$ being Hermitian and so $M^\dagger = M$. This can now be shown by taking the adjoint of $QMP=0$ which gives 
+The first part of the proof is identical to what is in the book. Proof by induction is used on the dimension $d$ of $V$. The case $d=1$ is trivial. Let $\lambda$ be an eigenvalue of $M$, $P$ the projector onto the $\lambda$ eigenspace, and $Q$ the projector onto the orthogonal complement. Then
+
+$$\begin{aligned}
+M = (P+Q)M(P+Q) = PMP+QMP+PMQ+QMQ.
+\end{aligned}$$ 
+
+Obviously $PMP=\lambda P$. Furthermore, $QMP=0$, as $M$ takes the subspace $P$ into itself. Simplifications can be made when demonstrating that $PMQ = 0$ due to $M$ being Hermitian and so $M^\dagger = M$. This can now be shown by taking the adjoint of $QMP=0$ which gives 
 
 $$\begin{aligned}
 0 = (QMP)^\dagger = PM^\dagger Q = PMQ
@@ -1070,7 +1076,14 @@ therefore transpose distributes over the tensor product.
 
 Adjoint 
 
-$\left( A \otimes B\right)^\dagger = \left( \left(A \otimes B\right)^\ast \right)^T=\left( A^\ast \otimes B^\ast \right)^T= (A^\ast)^T \otimes (B^\ast)^T =A^\dagger \otimes B^\dagger$ therefore adjoint distributes over the tensor product.
+$$\begin{aligned}
+\left( A \otimes B\right)^\dagger &= \left( \left(A \otimes B\right)^\ast \right)^T
+&= \left( A^\ast \otimes B^\ast \right)^T
+&= (A^\ast)^T \otimes (B^\ast)^T 
+&= A^\dagger \otimes B^\dagger
+\end{aligned}$ 
+
+therefore adjoint distributes over the tensor product.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

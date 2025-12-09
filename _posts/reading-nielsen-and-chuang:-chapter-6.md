@@ -723,15 +723,6 @@ Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
 ### Exercise 6.15 {#exercise-615}
 
-Use the Cauchy-Schwarz inequality to show that for any normalized state vector $\ket{\psi}$ and set of $N$ orthonormal basis vectors $\ket{x}$,
-
-$$\begin{aligned}
-\sum_{x} \Vert \psi-x\Vert^2 \geq 2N-2\sqrt{N}
-\end{aligned}$$
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
-
 Note: the authors use the notation $\psi$ for $\ket{\psi}$ and $x$ for $\ket{x}$. 
 
 The Cauchy-Schwarz inequality can be written in many forms, but the one relevant to this exercise states that $\left(\sum_{i=1}^n u_iv_i\right)^2 \leq \left(\sum_{i=1}^n u_i^2 \right)\left(\sum_{i=1}^n v_i^2\right)$ and so using that,
@@ -751,20 +742,31 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
 ### Exercise 6.16 {#exercise-616}
 
-Suppose we merely required that the probability of an error being made is less than $1/2$ when averaged uniformly over the possible values for $x$, instead of for all values of $x$. Show that $O(\sqrt{N})$ oracle calls are still required to solve the search problem. 
+Based on what section this question is in and the wording of the question, I'm going to assume we need to prove that $\Omega(\sqrt{N})$ oracle calls are still required. 
 
-There are a few resources referenced in the History and further reading section related to this part of the book:
-* [Strengths and Weaknesses of Quantum Computing](https://arxiv.org/pdf/quant-ph/9701001)
-* [Tight bounds on quantum searching](https://arxiv.org/pdf/quant-ph/9605034)
-* [Grover’s quantum searching algorithm is optimal](https://arxiv.org/pdf/quant-ph/9711070)
+We can start with the same proof as is outlined in section 6.6 up until the first full paragraph on page 270. Here instead of $\vert \braket{x\vert\psi_k^x}\vert^2\geq 1/2$ for all $x$, now, 
 
+$$\begin{aligned}
+\frac{1}{2} &\leq \frac{1}{N}\sum_x \vert \braket{x\vert\psi_k^x}\vert^2 \\ 
+\end{aligned}$$
 
+and so
 
+$$\begin{aligned}
+E_k &\equiv \sum_x \Vert \psi_k^x - x \Vert^2 \\
+&= \sum_x 2 - 2\vert \braket{x \vert \psi_k^x} \vert & \text{equation 6.47}\\
+&= 2N - 2\sum_x \vert \braket{x \vert \psi_k^x} \vert \\
+&= 2N - 2\sqrt{\left(\sum_{x} \vert\braket{x \vert \psi_k^x}\vert \right)^2} \\
+&\geq 2N - 2\sqrt{\left(\sum_{x} \vert\braket{x \vert \psi_k^x}\vert^2 \right)\left(\sum_{x} 1^2\right)}  & \text{Cauchy-Schwarz}\\
+&\geq 2N - 2\sqrt{\left( \frac{N}{2} \right)\left(\sum_{x} 1 \right)} & \text{from the error probability}\\
+&= 2N - \sqrt{2}N\\
+\end{aligned}$$
+
+This is the same result for $E_k$ as for we saw before. $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged and so we can follow the rest of the calculation shown in the book and get that $\Omega(\sqrt{N})$ oracle calls are still required to solve the search problem. 
 
 
 

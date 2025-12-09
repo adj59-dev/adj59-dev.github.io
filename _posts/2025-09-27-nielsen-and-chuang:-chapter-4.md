@@ -324,7 +324,13 @@ R_x(\pi)R_z(\theta)R_x(\pi)^\dagger &= R_x(\pi)e^{-i\theta Z/2}R_x(\pi)^\dagger 
 R_x(\pi)R_z(\theta) &= R_z(-\theta)R_x(\pi) & \text{multiply both sides by $R_x(\pi)$ on the right}
 \end{aligned}$$
 
-Therefore, $H=e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)$. Which will be shown below
+Therefore, 
+
+$$\begin{aligned}
+H=e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)=e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2).
+\end{aligned}$$
+
+Which will be shown below
 
 $$\begin{aligned}
 e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) &= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \begin{bmatrix} \cos\frac{\pi}{4} & -i\sin\frac{\pi}{4} \\\ -i\sin\frac{\pi}{4} & \cos\frac{\pi}{4} \end{bmatrix}  \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\

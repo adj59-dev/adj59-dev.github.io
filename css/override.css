@@ -402,7 +402,7 @@ tbody tr:nth-child(even) td {
 ---------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --table-border: #353545;
+    --table-border: #3a3a3a;
     --table-header-bg: #2b2c34;
     --table-header-text: #f5f5f5;
     --table-row-bg: #12121b;      /* main cells */

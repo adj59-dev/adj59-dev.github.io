@@ -773,7 +773,13 @@ m\log\left(m\right) + O(m) &\geq 2^n \\
 &= \frac{2^n}{n}\log\left(\frac{2^n}{n}\right) + \frac{2^n}{n}\log\left(n\right)
 \end{aligned}$$
 
-If we set $m = \frac{2^n}{n}$ then we would have $\frac{2^n}{n}\log(\frac{2^n}{n}) + O\left( \frac{2^n}{n}\right) \geq \frac{2^n}{n}\log\left(\frac{2^n}{n}\right) + \frac{2^n}{n}\log\left(n\right)$, which is not true for sufficiently large $n$, this means that $m$ must be greater than $\frac{2^n}{n}$ for at least some Boolean functions. Therefore there exists Boolean functions with $n$ inputs that require at least $\frac{2^n}{n}$ logic gates to compute. 
+If we set $m = \frac{2^n}{n}$ then we would have 
+
+$$\begin{aligned}
+\frac{2^n}{n}\log(\frac{2^n}{n}) + O\left( \frac{2^n}{n}\right) \geq \frac{2^n}{n}\log\left(\frac{2^n}{n}\right) + \frac{2^n}{n}\log\left(n\right),
+\end{aligned}$$
+
+which is not true for sufficiently large $n$, this means that $m$ must be greater than $\frac{2^n}{n}$ for at least some Boolean functions. Therefore there exists Boolean functions with $n$ inputs that require at least $\frac{2^n}{n}$ logic gates to compute. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -1243,7 +1249,13 @@ Here is the same circuit drawn as a quantum circuit diagram.
 
 
 
-To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula to represent this is $𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏)$. Here is a reversible circuit that I came up with that uses Fredkin gates to simulate a Toffoli gate. 
+To simulate a Toffoli gate, what we ultimately want to do is flip c when a ∧ b = 1, a Boolean formula to represent this is 
+
+$$\begin{aligned}
+𝑐′=(¬𝑐∧(𝑎∧𝑏)) ∨ (𝑐∧¬(𝑎∧𝑏))=c \oplus (𝑎∧𝑏).
+\end{aligned}$$
+
+Here is a reversible circuit that I came up with that uses Fredkin gates to simulate a Toffoli gate. 
 
 <img width="1922" height="986" alt="image" src="https://github.com/user-attachments/assets/f46f2925-3617-4c0e-915f-6559a5b6d954" />
 

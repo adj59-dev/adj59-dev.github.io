@@ -3219,7 +3219,14 @@ In this exercise we show some properties of unitary transformations on pure comp
 
 
 
-From section 2.1.6 we know that a unitary operator can be defined as $U=\sum_{i} \ket{w_i}\bra{v_i}$ for any two orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ for $A$ and $V=\sum_{i} \ket{y_i}\bra{x_i}$ for any two orthonormal bases $\ket{x_i}$ and $\ket{y_i}$ for $B$. From section 2.5 we know that $(U \otimes V)\ket{\phi} = \sum_i \lambda_i (U\ket{v_i}) (V \ket{x_i}) = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ when $U$ is a unitary operator acting on system $A$ alone and $V$ is a unitary operator acting on system $B$ alone. 
+From section 2.1.6 we know that a unitary operator can be defined as $U=\sum_{i} \ket{w_i}\bra{v_i}$ for any two orthonormal bases $\ket{v_i}$ and $\ket{w_i}$ for $A$ and $V=\sum_{i} \ket{y_i}\bra{x_i}$ for any two orthonormal bases $\ket{x_i}$ and $\ket{y_i}$ for $B$. From section 2.5 we know that 
+
+$$\begin{aligned}
+(U \otimes V)\ket{\phi} &= \sum_i \lambda_i (U\ket{v_i}) (V \ket{x_i}) \\
+&= \sum_i \lambda_i \ket{w_i}\ket{y_i}
+\end{aligned}$$ 
+
+when $U$ is a unitary operator acting on system $A$ alone and $V$ is a unitary operator acting on system $B$ alone. 
 
 Therefore if $\ket{\psi} = \sum_i \lambda_i \ket{w_i}\ket{y_i}$ and $\ket{\phi} = \sum_i \lambda_i \ket{v_i}\ket{x_i}$ for the same values of $\lambda_i$, then $\ket{\psi} = (U \otimes V) \ket{\phi}$ for some unitary operators $U$ and $V$. 
 

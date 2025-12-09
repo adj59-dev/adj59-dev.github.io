@@ -327,7 +327,7 @@ R_x(\pi)R_z(\theta) &= R_z(-\theta)R_x(\pi) & \text{multiply both sides by $R_x(
 Therefore, 
 
 $$\begin{aligned}
-H &= e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)
+H &= e^{-i\pi/2}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)\\
 &= e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)
 \end{aligned}$$
 

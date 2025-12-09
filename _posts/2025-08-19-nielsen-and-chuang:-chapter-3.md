@@ -1352,7 +1352,13 @@ $$\begin{aligned}
 (1, 0, 0, -1, 2) \\
 \end{aligned}$$
 
-The vector list starts with $(0, 0, 0, 1, -1)$, which transfers positive numbers from $r_5$ to $r_4$, and the rest of the vectors are generated from each order in the Minsky machine $(\text{operation on }r_1, \text{operation on }r_2, \text{operation on }r_3, -m, n\text{ or }p)$, which are listed from largest to smallest $m$. 
+The vector list starts with $(0, 0, 0, 1, -1)$, which transfers positive numbers from $r_5$ to $r_4$, and the rest of the vectors are generated from each order in the Minsky machine 
+
+$$/begin{aligned}
+(\text{operation on }r_1, \text{operation on }r_2, \text{operation on }r_3, -m, n\text{ or }p),
+\end{aligned}$$
+
+which are listed from largest to smallest $m$. 
 
 Using this methodology any Minsky machine can be simulated using a vector game. Therefore, for any computable function $f(\cdot)$ there is a vector game which when started with the vector $(n, 0, \cdots, 0)$ reaches $(f(n), 0, \cdots, 0)$. 
 

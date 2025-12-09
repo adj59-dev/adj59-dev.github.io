@@ -62,7 +62,6 @@ Automatically give horizontal scrolling
 to content that overflows 
 ---------------------------------- */
 .page-content pre,
-.page-content table,
 .page-content mjx-container[display="true"],
 .page-content .math-display,
 .page-content .scroll-x {
@@ -71,7 +70,13 @@ to content that overflows
   -webkit-overflow-scrolling: touch;
 }
 
-
+.page-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 
 /* ----------------------------------
    Visually hidden but screen-reader
@@ -147,10 +152,9 @@ img {
 }
 
 /* ----------------------------------
-   Tables: full width & centered content
+   Tables: centered content
 ---------------------------------- */
 table {
-  width: 100%;
   text-align: center;
 }
 

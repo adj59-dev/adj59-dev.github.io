@@ -1886,7 +1886,7 @@ This calculation will hold for all $n>3$.
 
 So the $C^n(X)$ circuit will be as shown below, where the $C^{n-2}(X)$ gates between the $E$ and $E^\dagger$ gates can be recursively decomposed into Toffoli, CNOT and single bit gates using the approximation 
 
-$$/begin{aligned}
+$$\begin{aligned}
 C^{n-2}(X) = E^\dagger \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E^\dagger \cdot C^{n-3}(X) \cdot E \cdot CNOT_{(c_{n-2})(c_{n})} \cdot E.
 \end{aligned}$$ 
 
@@ -2780,7 +2780,7 @@ E\left(U_{\Delta t}^m, e^{-2miH\Delta t}\right) &= E\left(U_{\Delta t}^m, \left(
 
 Figure 4.19 shows a circuit that simulates $H=Z_1 \otimes Z_2 \otimes Z_3$. We know that $X=HZH$ and that $Y = SXS^\dagger = SHZHS^\dagger$ and so we can construct the following circuit to simulate 
 
-$$/begin{aligned}
+$$\begin{aligned}
 H=X_1 \otimes Y_2 \otimes Z_3 = H_1Z_1H_1 \otimes S_2H_2Z_2H_2S_2^\dagger \otimes Z_3.
 \end{aligned}$$ 
 

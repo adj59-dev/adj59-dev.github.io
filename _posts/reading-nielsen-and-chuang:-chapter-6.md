@@ -780,11 +780,29 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 
 
+### Exercise 6.17 {#exercise-617}
 
+For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are requried to find a solution to the search problem that has $M$ solutions.
 
+Now that there are multiple sultions, then $O_x$ will cause a phase shift of $-1$ to $M$ solutions $\ket{x}$. If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now,
 
+$$\begin{aligned}
+\Vert\psi_k^x-x\Vert^2 &= 2 - \vert\braket{x\vert\psi_k^x}\vert \\
+&\leq 2 - \sqrt{\frac{2}{M}}
+\end{aligned}$$
 
+and so 
 
+$$\begin{aligned}
+E_k\leq \left(2-\sqrt{\frac{2}{M}}\right)N.
+\end{aligned}$$
+
+$F_k$ remains unchanged from the one soltuion case and so
+
+$$\begin{aligned}
+D_k &= E_k + F_k - 2\sqrt{E_kF_k}\\
+&\geq \left(2-\sqrt{\frac{2}{M}}\right)N + 2N - 2\sqrt{N} - 2\sqrt{\left(2-\sqrt{\frac{2}{M}}\right)N\left(2N-2\sqrt{N}\right)}\\
+\end{aligned}$$
 
 
 

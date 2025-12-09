@@ -765,7 +765,7 @@ E_k &\equiv \sum_x \Vert \psi_k^x - x \Vert^2 \\
 &= N
 \end{aligned}$$
 
-So, $E_k \leq N$. $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged. Therefore,
+So, $E_k \leq N$ and $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged. Therefore,
 
 $$\begin{aligned}
 D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\

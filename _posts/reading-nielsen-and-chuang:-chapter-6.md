@@ -769,9 +769,9 @@ So, $E_k \leq N$. $F_k \geq 2N - 2 \sqrt{N}$ remains unchanged. Therefore,
 
 $$\begin{aligned}
 D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
-&\geq N + 2N-2\sqrt{N} - \sqrt{N(2N-2\sqrt{N})}\\
-&= N\left(3 - \sqrt{2 - 2\frac{1}{\sqrt{N}}}\right) - 2\sqrt{N} \\
-&= cN & \text{where $c\approx 1.6$ for large $N$}
+&\geq N + 2N-2\sqrt{N} - 2\sqrt{N(2N-2\sqrt{N})}\\
+&= N\left(3 - 2\sqrt{2 - 2\frac{1}{\sqrt{N}}}\right) - 2\sqrt{N} \\
+&= cN & \text{where $c\approx 0.17$ for large $N$}
 \end{aligned}$$
 
 Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omega(\sqrt{N})$ oracle calls are still required. 

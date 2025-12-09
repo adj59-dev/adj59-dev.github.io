@@ -1354,7 +1354,7 @@ $$\begin{aligned}
 
 The vector list starts with $(0, 0, 0, 1, -1)$, which transfers positive numbers from $r_5$ to $r_4$, and the rest of the vectors are generated from each order in the Minsky machine 
 
-$$/begin{aligned}
+$$\begin{aligned}
 (\text{operation on }r_1, \text{operation on }r_2, \text{operation on }r_3, -m, n\text{ or }p),
 \end{aligned}$$
 

@@ -71,13 +71,13 @@ to content that overflows
 }
 
 .page-content table {
-  display: block;
-  max-width: 100%;
-  width: 100%;               
-  overflow-x: auto;
+  display: block;                 
+  width: auto;                    
+  max-width: 100%;                
+  margin: 0 auto;                 
+  overflow-x: auto;             
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  text-align: center;        
+  -webkit-overflow-scrolling: touch;    
 }
 
 table th,

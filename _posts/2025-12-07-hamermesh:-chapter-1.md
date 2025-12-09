@@ -137,7 +137,13 @@ Therefore, every non-identity element must be one of: <br>
 * a product of two disjoint 3-cycles (order 3) <br>
 * a product of three disjoint 2-cycles (order 2) <br>
 
-Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get $\lbrace e, (123)(456), (132)(465), (15)(24)(36), (14)(26)(35), (16)(25)(34) \rbrace$ which is of order 6. If we set $(123)(456)=a$ and $(15)(24)(36)=b$, we see that this group is equivalent to $\lbrace e, a, a^2, b, ba, ba^2 \rbrace$ with $bab=a^{-1}$ and so this group is isomorphic to $S_3$
+Looking at the different permutations of the two 3-cycle and three 2-cycles elements, we get 
+
+$$\begin{aligned}
+\lbrace e, (123)(456), (132)(465), (15)(24)(36), (14)(26)(35), (16)(25)(34) \rbrace
+\end{aligned}$$ 
+
+which is of order 6. If we set $(123)(456)=a$ and $(15)(24)(36)=b$, we see that this group is equivalent to $\lbrace e, a, a^2, b, ba, ba^2 \rbrace$ with $bab=a^{-1}$ and so this group is isomorphic to $S_3$
 
 Therefore, for groups that are order 6, if the group has an element of order 6 it is $C_6$; otherwise, it is $S_3$.
 
@@ -160,7 +166,13 @@ eH &= \lbrace (1234), (13)(24), (1432), e \rbrace = H \\
 \end{aligned}$$
 
 
-The number of elements in $S_4 = 4! = 24$. Therefore, we can define $S_4 = H + (12)H + (13)H + (14)H + (23)H + (34)H$, which has 24 unique elements. 
+The number of elements in $S_4 = 4! = 24$. Therefore, we can define 
+
+$$\begin{aligned}
+S_4 = H + (12)H + (13)H + (14)H + (23)H + (34)H,
+\end{aligned}$$
+
+which has 24 unique elements. 
 
 Now let's do the same for right cosets.
 
@@ -175,7 +187,13 @@ H(34) &= \lbrace (123), (1324), (142), (34) \rbrace \\
 \end{aligned}$$
 
 
-Therefore, we can define $S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34)$. This is a similar resolution as in the same permutations are multiplied to $H$, however the left and right cosets are not equal.
+Therefore, we can define 
+
+$$\begin{aligned}
+S_4 = H + H(12) + H(13) + H(14) + H(23) + H(34).
+\end{aligned}$$
+
+This is a similar resolution as in the same permutations are multiplied to $H$, however the left and right cosets are not equal.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/GTAPP) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

@@ -13,9 +13,9 @@ This blog documents my learning journey through quantum computing, mathematics, 
   {% for post in site.posts %}
     <li class="post-list-item">
 
-      <h3 class="post-title">
+      <h4 class="post-title">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h3>
+      </h4>
 
       {% if post.description %}
         <p class="post-description">

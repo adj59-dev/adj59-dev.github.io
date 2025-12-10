@@ -564,19 +564,16 @@ Add horizontal line above h2
   }
 }
 
-/* === Exercise divider: accent bar on the left of each H3 === */
+/* H3: soft subtitle style */
 .page-content h3 {
-  margin-top: 3rem;
-  padding-left: 0.75rem;
-  border-left: 3px solid rgba(0,0,0,0.35);
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  opacity: 0.85;   /* softer than h2 */
 }
 
-/* Dark mode tweak */
-@media (prefers-color-scheme: dark) {
-  .page-content h3 {
-    border-left-color: rgba(255,255,255,0.5);
-  }
-}
 
 
 

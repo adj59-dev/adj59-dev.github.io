@@ -564,30 +564,29 @@ Add horizontal line above h2
   }
 }
 
-/* Base h3 styling (clean, no lines) */
+/*-----------------------------
+Add horizontal line above h3, but only if not right after h2
+------------------------------*/
 .page-content h3 {
   position: relative;
   margin-top: 2.2rem;
   padding-top: 0;
 }
 
-/* Avoid adding a line to h3 that comes immediately after h2 */
 .page-content h2 + h3 {
   margin-top: 1.2rem;
 }
 
-/* Add a minimalist horizontal divider ABOVE h3 when NOT right after an h2 */
 .page-content h3:not(h2 + h3)::before {
   content: "";
   position: absolute;
-  top: -1.2rem;              /* height above heading */
+  top: -1.2rem;              
   left: 0;
-  width: 60%;                /* not full width — more elegant */
+  width: 100%;                
   height: 1px;
-  background: rgba(0,0,0,0.15);  /* thin, subtle line */
+  background: rgba(0,0,0,0.15);  
 }
 
-/* Dark mode tweak */
 @media (prefers-color-scheme: dark) {
   .page-content h3:not(h2 + h3)::before {
     background: rgba(255,255,255,0.25);

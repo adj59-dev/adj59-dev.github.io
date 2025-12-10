@@ -626,8 +626,8 @@ Formatting for main blog page
 }
 
 /* Reduce space between post title and the date */
-.post-list .post-link {
-  margin-bottom: 0.1rem !important; 
+.post-list .post-title {
+  margin-bottom: 0.1rem !important;
 }
 
 

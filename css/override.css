@@ -625,6 +625,10 @@ Formatting for main blog page
   border-bottom: none !important;
 }
 
+/* Reduce space between post title and the date */
+.post-list .post-link {
+  margin-bottom: 0.1rem !important; 
+}
 
 
 

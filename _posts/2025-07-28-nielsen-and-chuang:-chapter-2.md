@@ -1077,10 +1077,10 @@ therefore transpose distributes over the tensor product.
 Adjoint 
 
 $$\begin{aligned}
-\left( A \otimes B\right)^\dagger &= \left( \left(A \otimes B\right)^\ast \right)^T
-&= \left( A^\ast \otimes B^\ast \right)^T
-&= (A^\ast)^T \otimes (B^\ast)^T 
-&= A^\dagger \otimes B^\dagger
+\left( A \otimes B\right)^\dagger &= \left( \left(A \otimes B\right)^\ast \right)^T \\
+&= \left( A^\ast \otimes B^\ast \right)^T \\
+&= (A^\ast)^T \otimes (B^\ast)^T \\
+&= A^\dagger \otimes B^\dagger \\
 \end{aligned}$$
 
 therefore adjoint distributes over the tensor product.

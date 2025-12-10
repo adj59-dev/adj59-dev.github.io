@@ -564,30 +564,7 @@ Add horizontal line above h2
   }
 }
 
-/*-----------------------------
-Add spacing before h3
-------------------------------*/
-.page-content h3 {
-  position: relative;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-}
 
-.page-content h3::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: rgba(0,0,0,0.15);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page-content h3::before {
-    background: rgba(255,255,255,0.25);
-  }
-}
 
 
 

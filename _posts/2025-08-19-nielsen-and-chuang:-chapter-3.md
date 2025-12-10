@@ -112,7 +112,7 @@ I just finished reading Chapter 3 of *Quantum Computation and Quantum Informatio
 Unlike the previous chapter, which felt more like review, this one was packed with new material for me. Because of this, I found myself searching for additional resources from the *History and further reading* section frequently, which help deepen my understanding of the topics. 
 
 Two of the resources that I found most useful are
-[*Computation: Finite and Infinite Machines*](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) by Minsky and [*Computational Complexity*](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) by Papadimitriou. I also pulled in some additional references while working through specific problems, and I’ve linked those alongside my solutions below. 
+[*Computation: Finite and Infinite Machines*](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) by Minsky and [*Computational Complexity*](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) by Papadimitriou. I also pulled in some additional references while working through specific problems, and I’ve linked those alongside my solutions below. 
 
 This chapter covers a lot of foundational theoretical computer science topics: Turing machines, complexity classes, and graph theory. Before now, I only had a hazy awareness of these ideas. I knew that they existed, but I’d never studied them formally. It took me a few weeks to get through the material, but I feel like I’ve built a solid introductory understanding. That said, I think I’ll need to practice more problems (maybe from the books above) to really get comfortable solving them quickly. The chapter also covered circuits. While I’d learned about classical circuits before, the discussion of reversible circuits was new for me. 
 
@@ -811,12 +811,12 @@ Once we find $s$ we can calculate $r=\frac{m}{s}$ and recursively apply the same
 
 ### Exercise 3.18 {#exercise-318}
 
-I found it useful to read more about complement complexity classes in [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) section 7.1 before solving this exercise. 
+I found it useful to read more about complement complexity classes in [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) section 7.1 before solving this exercise. 
 
 
 
 
-**NP** and **coNP** are complements of each other. In [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) (section 7.1) a complement complexity class $C$ is defined as the class $\lbrace \bar{L} : L \in C \rbrace$, where $\bar{L}$ is the complement of language $L$. If C is a deterministic complexity class, then $C=coC$. This is because any deterministic Turing machine deciding $L$ can be converted to decide $\bar{L}$ within the same time or space bound by reversing the roles of "yes" and "no". Since **P** is a deterministic complexity class, **P** $=$ **coP**. If **P** = **NP**, that would mean that **NP** = **P** = **co(P)** = **co(NP)**. Therefore if **coNP** $\neq$ **NP**, it must mean that **P** $\neq$ **NP**.
+**NP** and **coNP** are complements of each other. In [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) (section 7.1) a complement complexity class $C$ is defined as the class $\lbrace \bar{L} : L \in C \rbrace$, where $\bar{L}$ is the complement of language $L$. If C is a deterministic complexity class, then $C=coC$. This is because any deterministic Turing machine deciding $L$ can be converted to decide $\bar{L}$ within the same time or space bound by reversing the roles of "yes" and "no". Since **P** is a deterministic complexity class, **P** $=$ **coP**. If **P** = **NP**, that would mean that **NP** = **P** = **co(P)** = **co(NP)**. Therefore if **coNP** $\neq$ **NP**, it must mean that **P** $\neq$ **NP**.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -825,7 +825,7 @@ I found it useful to read more about complement complexity classes in [Papadimit
 
 ### Exercise 3.19 {#exercise-319}
 
-[Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) section 1.1 discuses graph reachability and answers this question. I was not sure how to approach this exercise before reading this section, since I had not worked with these kind of graph problems before, but the general approach is that at each step of an algorithm you can access a vertex, see what edges and other vertices are connected to that vertex, update variables or perform other actions as desired, and then proceed on to the next step. 
+[Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) section 1.1 discuses graph reachability and answers this question. I was not sure how to approach this exercise before reading this section, since I had not worked with these kind of graph problems before, but the general approach is that at each step of an algorithm you can access a vertex, see what edges and other vertices are connected to that vertex, update variables or perform other actions as desired, and then proceed on to the next step. 
 
 
 
@@ -1025,7 +1025,7 @@ It is possible to create an algorithm that constructs $\phi(c)$ (the Boolean for
 
 ### Exercise 3.24 {#exercise-324}
 
-In this exercise we are asked to show that 2SAT can be solved in polynomial time. [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to look at figure 9-1 before starting the exercise, to confirm that I understood what these graphs look like, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
+In this exercise we are asked to show that 2SAT can be solved in polynomial time. [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) discusses kSAT, where $k \geq 1$, in section 9.2. I found it useful to look at figure 9-1 before starting the exercise, to confirm that I understood what these graphs look like, but not to read the section until after I had spent some time working on the exercise independently, since it contains the answer. 
 
 
 
@@ -1095,7 +1095,7 @@ Here is pseudocode to solve 2SAT.
 
 
 
-**PSPACE** is the set of all decision problems that can be solved by a Turing machine using a polynomial amount of space. A Turing machine has $l$ internal states, an $m$ letter alphabet, and uses space $p(n)$, so the machine can exist in at most $lm^{p(n)}$ different states. If a Turing machine is to avoid infinite loops then it must halt before revisiting a state, therefore it will halt after at most $lm^{p(n)}$ operation steps. Decision problems are in **EXP** if they are in TIME($2^{n^k}$), per [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) chapter 20. Therefore, if $lm^{p(n)}$ is in $O(2^{n^k})$ for some $k$ then **PSPACE** $\subseteq$ **EXP**. 
+**PSPACE** is the set of all decision problems that can be solved by a Turing machine using a polynomial amount of space. A Turing machine has $l$ internal states, an $m$ letter alphabet, and uses space $p(n)$, so the machine can exist in at most $lm^{p(n)}$ different states. If a Turing machine is to avoid infinite loops then it must halt before revisiting a state, therefore it will halt after at most $lm^{p(n)}$ operation steps. Decision problems are in **EXP** if they are in TIME($2^{n^k}$), per [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) chapter 20. Therefore, if $lm^{p(n)}$ is in $O(2^{n^k})$ for some $k$ then **PSPACE** $\subseteq$ **EXP**. 
 
 In order for $lm^{p(n)}$ to be in $O(2^{n^k})$ the following must be true for some $k$ and all $n>n_0$ for some $n_0$.
 
@@ -1165,12 +1165,12 @@ $$\begin{aligned}
 
 ### Exercise 3.28 {#exercise-328}
 
-For this exercise we are asked to show the arbitrariness of the constant in the definition of BPP. [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) discusses Randomized Complexity classes, of which BPP is one, in section 11.2. 
+For this exercise we are asked to show the arbitrariness of the constant in the definition of BPP. [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) discusses Randomized Complexity classes, of which BPP is one, in section 11.2. 
 
 
 
 
-Per [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) page 254,
+Per [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ) page 254,
 
 >If we have a randomized algorithm with probability of false negatives at most $1 - \epsilon$, for some $\epsilon < \frac{1}{2}$, then we could transform it into one with probability at most $\frac{1}{2}$ by repeating the algorithm k times. "Repeating" in the Turing machine domain means that from each leaf of the nondeterministic computation tree we "hang" another tree identical to the original one. And so on for k repetitions. At the final leaves we report "yes" if and only if at least one computation leading to this leaf has reported "yes". The probability of a false negative answer is now at most $(1 - \epsilon)^k$. By taking $k = \lceil -\frac{1}{\log(1-\epsilon)}\rceil$ we make sure that this probability is at least $\frac{1}{2}$.
 
@@ -1560,7 +1560,7 @@ Thus, when the approximation algorithm is applied to this instance of TSP then i
 
 
 
-Monotone circuits (with only AND/OR gates, no negation) are discussed in section 14.4 of [Papadimitriou](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf). There, Razborov’s theorem is introduced: There is a constant $c$ such that for large enough $n$ all monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ have size at least $2^{c\sqrt[8]{n}}$. Therefore, monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ require a super-polynomial number of Boolean gates to compute. 
+Monotone circuits (with only AND/OR gates, no negation) are discussed in section 14.4 of [Papadimitriou](https://books.google.com/books/about/Computational_Complexity.html?id=JogZAQAAIAAJ). There, Razborov’s theorem is introduced: There is a constant $c$ such that for large enough $n$ all monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ have size at least $2^{c\sqrt[8]{n}}$. Therefore, monotone circuits for $CLIQUE_{n,k}$ with $k = \sqrt[4]{n}$ require a super-polynomial number of Boolean gates to compute. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

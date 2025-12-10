@@ -1081,7 +1081,7 @@ $$\begin{aligned}
 &= \left( A^\ast \otimes B^\ast \right)^T
 &= (A^\ast)^T \otimes (B^\ast)^T 
 &= A^\dagger \otimes B^\dagger
-\end{aligned}$ 
+\end{aligned}$$
 
 therefore adjoint distributes over the tensor product.
 

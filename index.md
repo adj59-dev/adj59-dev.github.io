@@ -15,6 +15,10 @@ This blog documents my learning journey through quantum computing, mathematics, 
       <h4 class="post-title">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </h4>
+            
+      <p class="post-meta">
+        {{ post.date | date: "%B %-d, %Y" }}
+      </p>
 
       {% if post.description %}
         <p class="post-description">
@@ -25,10 +29,6 @@ This blog documents my learning journey through quantum computing, mathematics, 
           {{ post.excerpt | strip_html | truncate: 180 }}
         </p>
       {% endif %}
-      
-      <p class="post-meta">
-        {{ post.date | date: "%B %-d, %Y" }}
-      </p>
 
     </li>
   {% endfor %}

@@ -112,7 +112,7 @@ I just finished reading Chapter 3 of *Quantum Computation and Quantum Informatio
 Unlike the previous chapter, which felt more like review, this one was packed with new material for me. Because of this, I found myself searching for additional resources from the *History and further reading* section frequently, which help deepen my understanding of the topics. 
 
 Two of the resources that I found most useful are
-[*Computation: Finite and Infinite Machines*](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) by Minsky and [*Computational Complexity*](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) by Papadimitriou. I also pulled in some additional references while working through specific problems, and I’ve linked those alongside my solutions below. 
+[*Computation: Finite and Infinite Machines*](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) by Minsky and [*Computational Complexity*](http://103.203.175.90:81/fdScript/RootOfEBooks/E%20Book%20collection%20-%202023%20-%20E/CSE%20ITAIDSML/Computational%20Complexity%20-%20Papadimitriou.pdf) by Papadimitriou. I also pulled in some additional references while working through specific problems, and I’ve linked those alongside my solutions below. 
 
 This chapter covers a lot of foundational theoretical computer science topics: Turing machines, complexity classes, and graph theory. Before now, I only had a hazy awareness of these ideas. I knew that they existed, but I’d never studied them formally. It took me a few weeks to get through the material, but I feel like I’ve built a solid introductory understanding. That said, I think I’ll need to practice more problems (maybe from the books above) to really get comfortable solving them quickly. The chapter also covered circuits. While I’d learned about classical circuits before, the discussion of reversible circuits was new for me. 
 
@@ -131,12 +131,12 @@ As with Chapter 2, I’ve included my notes and exercise solutions below.
   
 ### Exercise 3.1 {#exercise-31}
 
-This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) chapter 5 discusses the idea of computability. 
+This question is about non-computable processes in Nature. The authors previously went into a more detailed discussion of the Church-Turing thesis in section 1.1.1. Interestingly, section 3.1.1 dropped the word "efficently" from the thesis and just focused on computability. [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) chapter 5 discusses the idea of computability. 
 
 
 
 
-To recognize that a process in Nature computes a function not computable by a Turing machine, one would need to demonstrate that no Turing machine can reproduce the same input-output behavior. This typically involves proving that the function the process computes is non-computable. According to [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) (Chapter 5), _“any procedure which can be precisely described can be programmed to be performed by a computer"_. Therefore, if a physical process yields results that cannot be captured by any precisely describable algorithm, it would suggest that the process computes a non-Turing-computable function. 
+To recognize that a process in Nature computes a function not computable by a Turing machine, one would need to demonstrate that no Turing machine can reproduce the same input-output behavior. This typically involves proving that the function the process computes is non-computable. According to [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) (Chapter 5), _“any procedure which can be precisely described can be programmed to be performed by a computer"_. Therefore, if a physical process yields results that cannot be captured by any precisely describable algorithm, it would suggest that the process computes a non-Turing-computable function. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -144,7 +144,7 @@ To recognize that a process in Nature computes a function not computable by a Tu
 
 ### Exercise 3.2 {#exercise-32}
 
-I found reading [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
+I found reading [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) section 7.2 to be helpful in understanding what this question is asking us to do (and why it may be useful), which is to find a way of representing a given Turing machine's "state diagram" (the set of quintuples that represent its states, inputs, and outputs, i.e. what QCQI authors call the "program") as a unique number that can be used by a universal Turing machine to simulate that specific Turing machine. 
 
 
 
@@ -187,7 +187,7 @@ Where $p_1, \cdots, p_{5k}$ are unique prime numbers and $a_1, \cdots, a_{5k}$ a
 
 ### Exercise 3.3 {#exercise-33}
 
-I found it useful to look at examples in [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) (section 6.1) and use a multi-tape Turing machine to create this solution, as recommended in the hint. 
+I found it useful to look at examples in [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) (section 6.1) and use a multi-tape Turing machine to create this solution, as recommended in the hint. 
 
 
 
@@ -434,7 +434,7 @@ Here is an example of how it would run for $x = 100$ and $y=111$
 
 ### Exercise 3.5 {#exercise-35}
 
-In Box 3.2 the authors introduce the halting problem for a Turing machine with an input equal to its Turing number. For this exercise, we are asked to think about the halting problem for a Turing machine with no inputs. The blank tape halting problem is discussed by [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) in section 8.3.3 of his book, if you'd like another resource for this exercise. 
+In Box 3.2 the authors introduce the halting problem for a Turing machine with an input equal to its Turing number. For this exercise, we are asked to think about the halting problem for a Turing machine with no inputs. The blank tape halting problem is discussed by [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) in section 8.3.3 of his book, if you'd like another resource for this exercise. 
 
 
 
@@ -1311,12 +1311,12 @@ As with the first half of the exercise, creating a circuit made of Toffoli gates
 
 ### Problem 3.1 {#problem-31}
 
-For this problem we are asked to show that a Minsky machine can compute all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf)'s book has a detailed discussion on this topic in chapter 10 and 11. What I put for my answer for part 1 is only a summary. For part 2, I'm not entirely sure what the authors are looking for.
+For this problem we are asked to show that a Minsky machine can compute all Turing computable functions and sketch a proof that any function which can be computed on a Minsky machine can also be computed on a Turing machine. [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ)'s book has a detailed discussion on this topic in chapter 10 and 11. What I put for my answer for part 1 is only a summary. For part 2, I'm not entirely sure what the authors are looking for.
 
 
 
 
-(1) In order to show that a Minsky machine can compute all Turing computable functions, we need to demonstrate that for any Turing machine $T$ we can construct a Minsky machine $M_T$ which is equivalent to $T$. [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) section 10.1 goes over the arithmetization of Turing machines, which shows how to represent the state of a Turing machine as a set of four integers. Then section 11.2 discusses how to store those four integers in the register of a Minsky machine and simulate the Turing machine by constructing the appropriate block of program for each state of the Turing machine. This demonstrates that a Minsky machine can be constructed for any Turning machine and so Minsky machines can compute all Turing computable functions. 
+(1) In order to show that a Minsky machine can compute all Turing computable functions, we need to demonstrate that for any Turing machine $T$ we can construct a Minsky machine $M_T$ which is equivalent to $T$. [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) section 10.1 goes over the arithmetization of Turing machines, which shows how to represent the state of a Turing machine as a set of four integers. Then section 11.2 discusses how to store those four integers in the register of a Minsky machine and simulate the Turing machine by constructing the appropriate block of program for each state of the Turing machine. This demonstrates that a Minsky machine can be constructed for any Turning machine and so Minsky machines can compute all Turing computable functions. 
 
 (2) To show that anything computed on a Minsky machine can also be computed on a Turing machine, one would need to demonstrate that you can store the Minsky register data on the Turing tape, that you can do the two main operations of a Minsky machine on a Turing machine (namely incrementing and decrementing register values), and that you can create Turing program lines that mimic the operation of the Minsky program. We know that this is all possible because the procedure for the Minsky machine operation is precisely described and any procedure which can be precisely described can be programmed to be performed by a Turing machine.
 
@@ -1447,7 +1447,7 @@ Now consider running $T_F$ with its own program as input. <br>
 
 Therefore such an $M_F$ cannot exist.
 
-For an alternative (and likely better) proof, you can see [Minsky](https://www.scss.tcd.ie/Martin.Emms/2062/PossReading/finite_and_infinite_machines_minsky.pdf) section 8.3.2. I went there to check my answer and saw that he took a different approach. Though, I decided to leave my answer here as well. 
+For an alternative (and likely better) proof, you can see [Minsky](https://books.google.com/books/about/Computation.html?id=1P2ZPwAACAAJ) section 8.3.2. I went there to check my answer and saw that he took a different approach. Though, I decided to leave my answer here as well. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

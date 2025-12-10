@@ -626,6 +626,10 @@ Formatting for main blog page
   margin: 0.1rem 0 0 0;
 }
 
+/* remove horizontal line */
+.page-content h2 {
+  border-bottom: none !important;
+}
 
 
 

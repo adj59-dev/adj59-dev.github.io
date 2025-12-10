@@ -593,6 +593,38 @@ Add horizontal line above h3, but only if not right after h2
   }
 }
 
+/*-------------------------------
+Formatting for main blog page
+--------------------------------*/
+/* Main index post list layout */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each post entry on the home page */
+.post-list-item {
+  margin-bottom: 1.8rem;   /* space between posts */
+}
+
+/* Post title */
+.post-title {
+  margin: 0 0 0.15rem 0;
+  font-size: 1.1rem;
+}
+
+/* Date under the title */
+.post-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Description paragraph */
+.post-description {
+  margin: 0.1rem 0 0 0;
+}
 
 
 

@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Alex's Blog
 permalink: /
 ---
 

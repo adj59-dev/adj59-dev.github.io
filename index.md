@@ -2,7 +2,9 @@
 layout: page
 title: Alex's Blog
 permalink: /
+class: home
 ---
+
 
 This blog documents my learning journey through quantum computing, mathematics, and engineering topics.
 

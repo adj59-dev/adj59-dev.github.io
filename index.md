@@ -11,9 +11,6 @@ This blog documents my learning journey through quantum computing, mathematics, 
 <ul class="post-list">
   {% for post in site.posts %}
     <li class="post-list-item">
-      <p class="post-meta">
-        {{ post.date | date: "%B %-d, %Y" }}
-      </p>
 
       <h3 class="post-title">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -28,6 +25,11 @@ This blog documents my learning journey through quantum computing, mathematics, 
           {{ post.excerpt | strip_html | truncate: 180 }}
         </p>
       {% endif %}
+      
+      <p class="post-meta">
+        {{ post.date | date: "%B %-d, %Y" }}
+      </p>
+
     </li>
   {% endfor %}
 </ul>

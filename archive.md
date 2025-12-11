@@ -3,6 +3,7 @@ layout: page
 title: Blog Archive
 ---
 
+This archive organizes my notes and solution write-ups by book. Each section collects all posts related to a specific text, listed in chronological order as I work through each chapter.
 
 {% for category in site.categories %}
   <h2>{{ category[0] }}</h2>

@@ -10,7 +10,7 @@ title: Blog Archive
     {% assign posts = category[1] | sort: "date" | reverse %}
     {% for post in posts %}
       <li>
-        {{ post.date | date: "%B %Y" }} – 
+        {{ post.date | date: "%b %Y" }} – 
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </li>
     {% endfor %}

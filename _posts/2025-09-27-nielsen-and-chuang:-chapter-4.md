@@ -795,7 +795,7 @@ From [exercise 4.3](#exercise-43) we know that $T=R_z(\pi/4)$ up to a global pha
 
 $$\begin{aligned}
 HTH &= HR_z(\pi/4)H \\
-&= R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)R_z(\pi/4)R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) & \text{true up to a global phase per exercise 4.4} \\
+&= R_z(\pi/2)R_x(\pi/2)R_z(\pi/2)R_z(\pi/4)R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) & \text{up to a global phase per exercise 4.4} \\
 &=  R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2)R_z(\pi/2)R_z(\pi/2)R_z(\pi/4)R_z(\pi/2)R_z(\pi/2)R_z(-\pi/2)R_x(\pi/2)R_z(\pi/2)  & \text{since $R_z(-\pi/2)R_z(\pi/2)=I$}\\
 &=  R_y(\pi/2)R_z(2\pi + \pi/4)R_y(-\pi/2) & \text{decomposition} \\
 &=  R_y(\pi/2)R_z(\pi/4)R_y(-\pi/2) \\

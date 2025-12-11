@@ -784,7 +784,7 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are requried to find a solution to the search problem that has $M$ solutions.
 
-Now that there are multiple sultions, 
+Now that there are multiple sultions, the oracle is $O_S=I-\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
 
 $$\begin{aligned}
 D_k = \sum_S \Vert\psi_k^S - \psi_k\Vert^2
@@ -797,7 +797,8 @@ Now let's find a bound for $D_k$ in relation to $k$. Like the one solution case,
 $$\begin{aligned}
 D_{k+1} &= \sum_S \Vert O_S \psi_k^S - \psi_k\Vert^2 \\
 &= \sum_S \Vert O_S (\psi_k^S - \psi_k) + (O_S-I)\psi_k \Vert^2 \\
-&\leq 
+&\leq \sum_S \left(\Vert O_S(\psi_k^S-\psi_k)\Vert^2 + 2\Vert O_S(\psi_k^S-\psi_k)\Vert\Vert(O_S-I)\psi_k \Vert + \Vert(O_S-I)\psi_k \Vert^2\right)\\
+&= \sum_S \left(\Vert \psi_k^S-\psi_k\Vert^2 + 2\Vert \psi_k^S-\psi_k \Vert\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \Vert + \Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \Vert^2\right)\\
 \end{aligned}$$
 
 If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now,

@@ -329,7 +329,8 @@ $$\begin{aligned}
 Then the controlled- $U$ gates transform the following
 
 $$\begin{aligned}
-\frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} &\to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
+\frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} \\
+&\to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
 &= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}}U^{j_{t-2}2^{t-2}}\cdots U^{j_0 2^0} \ket{u} \\
 &= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0} \ket{u} \\
 &= \frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1} \ket{j} U^j \ket{u} & \text{for $j=j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0$}
@@ -716,8 +717,8 @@ If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and
 
 
 $$\begin{aligned}
-697 = 17 \times 41 \\
-36300 = 2^2 \times 3 \times 5^2 \times 11^2
+697 &= 17 \times 41 \\
+36300 &= 2^2 \times 3 \times 5^2 \times 11^2
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1054,7 +1055,8 @@ q_1 = a_1
 Therefore,
 
 $$\begin{aligned}
-q_np_{n-1} - p_nq_{n-1} &= (a_nq_{n-1} + q_{n-2})p_{n-1}-(a_np_{n-1} + p_{n-2})q_{n-1} \\
+q_np_{n-1} - p_nq_{n-1} \\
+&= (a_nq_{n-1} + q_{n-2})p_{n-1}-(a_np_{n-1} + p_{n-2})q_{n-1} \\
 &= a_nq_{n-1}p_{n-1} + q_{n-2}p_{n-1} - a_np_{n-1}q_{n-1} - p_{n-2}q_{n-1}\\
 &= q_{n-2}p_{n-1} - p_{n-2}q_{n-1}\\
 &= -(q_{n-1}p_{n-2} - p_{n-1}q_{n-2}) & \text{this is $-1$ times the same expression at $n-1$}\\
@@ -1129,10 +1131,10 @@ $$\begin{aligned}
 For the delta function above, we wanted to find when $xy \equiv xy' \mod N$. Using the fact that $x$ is co-prime to $N$ and therefore has an inverse modulo $N$ we can write,
 
 $$\begin{aligned}
-xy \equiv xy' \mod N \\
-x^{-1}xy \equiv x^{-1}xy' \mod N \\
-y \equiv y' \mod N \\
-y = y' & \text{$U$ only acts nontrivially when $0\leq y\leq N-1$}
+xy &\equiv xy' \mod N \\
+x^{-1}xy &\equiv x^{-1}xy' \mod N \\
+y &\equiv y' \mod N \\
+y &= y' & \text{$U$ only acts nontrivially when $0\leq y\leq N-1$}
 \end{aligned}$$
 
 Therefore, $U$ is unitary since it preserves the inner product. 
@@ -1157,7 +1159,8 @@ $$\begin{aligned}
 and so
 
 $$\begin{aligned}
-\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s} &= \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\left(\frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n \mod N}\right)\\
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s} \\
+&= \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\left(\frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n \mod N}\right)\\
 &= \frac{1}{r}\sum_{s=0}^{r-1}\sum_{n=0}^{r-1}e^{2\pi is(k-n)/r}\ket{x^n\mod N} \\
 &= \frac{1}{r}\sum_{n=0}^{r-1}\left(\sum_{s=0}^{r-1}e^{2\pi is(k-n)/r}\right)\ket{x^n\mod N} \\
 &= \frac{1}{r}\sum_{n=0}^{r-1}\left(r \delta_{kn}\right)\ket{x^n\mod N} & \text{from the hint}\\
@@ -1167,7 +1170,8 @@ $$\begin{aligned}
 then for $k=0$
 
 $$\begin{aligned}
-\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s} &=\ket{x^0\mod N} &= \ket{1}
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s} &=\ket{x^0\mod N}\\
+&= \ket{1}
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1240,7 +1244,12 @@ $$\begin{aligned}
 &=\frac{x+1}{x(x+1)} - \frac{x}{x(x+1)} \\
 &= \frac{1}{x^2+x} \\
 &\geq \frac{2}{3x^2} & \text{for all $x\geq 2$} \\
-\Rightarrow \frac{3}{2} \int_x^{x+1} \frac{1}{y^2} \ dy  &\geq \frac{1}{x^2} 
+\end{aligned}$$
+
+Therefore,
+
+$$\begin{aligned}
+\frac{3}{2} \int_x^{x+1} \frac{1}{y^2} \ dy  &\geq \frac{1}{x^2} 
 \end{aligned}$$
 
 Then for $\sum_q$ being the sum over all prime numbers $q$,
@@ -1284,6 +1293,11 @@ $$\begin{aligned}
 &= \vert 2^x(2^{\tilde{x}-x} - 1) \vert \\
 &\approx \vert 2^x(1 + \ln(2)(\tilde{x}-x) - 1)\vert & \text{for small $\tilde{x}-x$ from the Taylor series}\\
 &= \vert \ln(2)2^x (\tilde{x}-x) \vert \\
+\end{aligned}$$
+
+thus,
+
+$$\begin{aligned}
 \frac{1}{2\ln(2)2^x} &> \vert \tilde{x}-x \vert \\
 \end{aligned}$$
 
@@ -1556,7 +1570,8 @@ If we compare our solution to equation 5.72, we see that the prefactor is differ
 Using (5.70) we get
 
 $$\begin{aligned}
-\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} &= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
+\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} \\
+&= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
 &= \frac{1}{r\sqrt{r}} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2+l_2j)/r}\ket{f(0,j)}\\ 
 &= \frac{1}{r\sqrt{r}} \sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi il_2(sx_1+x_2+j)/r}\ket{f(0,j)} & \text{since the terms are non-zero when $l_1=sl_2$}\\ 
 &= \frac{1}{\sqrt{r}} \sum_{j=0}^{r-1}\delta_{sx_1+x_2+j\equiv 0\mod r}\ket{f(0,j)} \\ 
@@ -1712,7 +1727,7 @@ $$\begin{aligned}
 4 & \rightarrow \sum_{l_1'\cdots l_M'}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{p_i} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
-7 & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+7 & \text{ repeate steps 1-6} & \text{until hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
@@ -1745,7 +1760,7 @@ $$\begin{aligned}
 4 & \rightarrow \sum_{l'\in \lbrace 0,1 \rbrace}\ket{\widetilde{l'}}\ket{\hat{f}(l')} & \text{apply inverse FT to first register} \\
 5 & \rightarrow \widetilde{l'} & \text{measure first register}\\
 6 & \rightarrow  \frac{l'h}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\widetilde{l'}$}\\
-7  & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+7  & \text{ repeate steps 1-6} & \text{until hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$ to decide the Deutsch problem}
 \end{aligned}$$
 
@@ -1769,16 +1784,16 @@ $$\begin{aligned}
 4 & \rightarrow \sum_{l_1'\cdots l_M'\in \lbrace 0,1\rbrace}\ket{\widetilde{l_1'}}\cdots\ket{\widetilde{l_M'}}\ket{\hat{f}(l_1',\cdots,l_M')} & \text{apply inverse FT to first $M$ registers} \\
 5 & \rightarrow \left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right) & \text{measure first $M$ registers}\\
 6 & \rightarrow \sum_{i=1}^M \frac{l_i'h_i}{2} \in \mathbb{Z} \text{ for all } h\in K & \text{calculate constraints from $\left(\widetilde{l_1'},\cdots, \widetilde{l_M'}\right)$}\\
-7 & \text{ repeate steps 1-6} & \text{until enough constraints are calculated so hidden subgroup $K$ can be determined}\\
+7 & \text{ repeate steps 1-6} & \text{until hidden subgroup $K$ can be determined}\\
 8 & \rightarrow K & \text{compute $K$}
 \end{aligned}$$
 
 The constraint calculated from step 6 can be written as 
 
 $$\begin{aligned}
-\sum_{i=1}^M \frac{l_i's_i}{2} \in \mathbb{Z}  \\
-\Rightarrow \sum_{i=1}^M l_i's_i \equiv 0 \mod 2  \\
-\Rightarrow l'\cdot s = 0 \mod 2
+& \sum_{i=1}^M \frac{l_i's_i}{2} \in \mathbb{Z}  \\
+& \Rightarrow \sum_{i=1}^M l_i's_i \equiv 0 \mod 2  \\
+& \Rightarrow l'\cdot s = 0 \mod 2
 \end{aligned}$$
 
 It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefore solve this problem, whereas the classical algorithm would need at least $\Omega(2^{M/2})$ measurements. Therefore, this algorithm, using the HSP framework, does show an advantage over the classical algorithm.

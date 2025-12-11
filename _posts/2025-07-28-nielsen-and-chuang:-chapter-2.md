@@ -1508,15 +1508,27 @@ In section 2.1.9 the authors introduce the concept of the commutator and anti-co
 
 
 $$\begin{aligned}
-\lbrack X,Y \rbrack = XY - YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = 2i \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = 2 i Z
+\lbrack X,Y \rbrack &= XY - YX \\
+&= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \\
+&= \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} - \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} \\
+&= 2i \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \\
+&= 2 i Z
 \end{aligned}$$
 
 $$\begin{aligned}
-\lbrack Y,Z \rbrack = YZ - ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} - \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = 2i \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = 2 i X
+\lbrack Y,Z \rbrack &= YZ - ZY \\
+&= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} - \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} - \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} \\
+&= 2i \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \\
+&= 2 i X
 \end{aligned}$$
 
 $$\begin{aligned}
-\lbrack Z,X \rbrack = ZX - XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = 2 i \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = 2 i Y
+\lbrack Z,X \rbrack &= ZX - XZ \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} \\
+&= 2 i \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \\
+&= 2 i Y
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1531,15 +1543,27 @@ In this exercise you will use the definition of the anti-commutator to verify an
 
 
 $$\begin{aligned}
-\lbrace X,Y \rbrace = XY + YX = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace X,Y \rbrace &= XY + YX \\ 
+&= \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \\
+&= \begin{bmatrix} i & 0 \\\ 0 & -i \end{bmatrix} + \begin{bmatrix} -i & 0 \\\ 0 & i \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} \\
+&= 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\lbrace Y,Z \rbrace = YZ + ZY = \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} = \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace Y,Z \rbrace &= YZ + ZY \\
+&= \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -i \\\ i & 0 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & i \\\ i & 0 \end{bmatrix} + \begin{bmatrix} 0 & -i \\\ -i & 0 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} \\
+&= 0
 \end{aligned}$$
 
 $$\begin{aligned}
-\lbrace Z,X \rbrace = ZX + XZ = \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} = 0
+\lbrace Z,X \rbrace &= ZX + XZ \\
+&= \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\\ 0 & -1 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 1 \\\ -1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & -1 \\\ 1 & 0 \end{bmatrix} \\
+&= \begin{bmatrix} 0 & 0 \\\ 0 & 0 \end{bmatrix} \\
+&= 0
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1796,7 +1820,7 @@ $$\begin{aligned}
 \begin{bmatrix} 0 \\\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 1 & 1 \\\ 1 & 2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}\\
 &=  \begin{bmatrix} 1- \lambda & 1 \\\ 1 & 2-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
 &= \begin{bmatrix} (1- \lambda) x_1 +  x_2 \\\ x_1 + (2-\lambda) x_2 \end{bmatrix} \\
-\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} -1 \\\ 1-\lambda_i \end{bmatrix}
+\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} &= \ket{e_i} =  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} -1 \\\ 1-\lambda_i \end{bmatrix}
 \end{aligned}$$
 
 
@@ -1836,7 +1860,7 @@ $$\begin{aligned}
 \begin{bmatrix} 0 \\\ 0 \end{bmatrix} &=  \left(\begin{bmatrix} 2 & 1 \\\ 1 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\\ 0 & \lambda \end{bmatrix} \right) \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix}\\
 &=  \begin{bmatrix} 2- \lambda & 1 \\\ 1 & 1-\lambda \end{bmatrix} \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} \\
 &= \begin{bmatrix} (2- \lambda) x_1 +  x_2 \\\ x_1 + (1-\lambda) x_2 \end{bmatrix} \\
-\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} = \ket{e_i} &=  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} 1-\lambda_i \\\ -1 \end{bmatrix}
+\Rightarrow \begin{bmatrix} x_1 \\\ x_2 \end{bmatrix} &= \ket{e_i} =  \frac{1}{\sqrt{1 + (1-\lambda_i)^2}}\begin{bmatrix} 1-\lambda_i \\\ -1 \end{bmatrix}
 \end{aligned}$$
 
 
@@ -3030,12 +3054,12 @@ Product states are multi-qubit states that can be represented as simple combinat
 For a composite system made from two single qubits with pure state unit vectors given by $\ket{a}$ and $\ket{b}$, $\ket{\psi}$ can be written as
 
 $$\begin{aligned}
-& \ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
-& \ket{b} &= b_0 \ket{0} + b_1 \ket{1} \\
- \Rightarrow & \ket{\psi} &= \ket{a}\ket{b} \\
-& &= \left(a_0 \ket{0} + a_1 \ket{1} \right) \left(b_0 \ket{0} + b_1 \ket{1}\right) \\
-& &= a_0 b_0 \ket{0} \ket{0} + a_1 b_0 \ket{1} \ket{0} + a_0 b_1 \ket{0} \ket{1} + a_1 b_1 \ket{1} \ket{1} \\
-& &= \sum_{jk} a_{jk}\ket{j}\ket{k}
+\ket{a} &= a_0 \ket{0} + a_1 \ket{1} \\
+\ket{b} &= b_0 \ket{0} + b_1 \ket{1} \\
+ \Rightarrow \ket{\psi} &= \ket{a}\ket{b} \\
+&= \left(a_0 \ket{0} + a_1 \ket{1} \right) \left(b_0 \ket{0} + b_1 \ket{1}\right) \\
+&= a_0 b_0 \ket{0} \ket{0} + a_1 b_0 \ket{1} \ket{0} + a_0 b_1 \ket{0} \ket{1} + a_1 b_1 \ket{1} \ket{1} \\
+&= \sum_{jk} a_{jk}\ket{j}\ket{k}
 \end{aligned}$$
 
 Then matrix $a$ is 
@@ -3407,7 +3431,8 @@ Q^2 &= (\vec{q} \cdot \vec{\sigma})^2 \\
 Therefore $Q^2 = R^2 = S^2 = T^2 = I$. Now let's look at equation 2.233
 
 $$\begin{aligned}
-(Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 &= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
+(Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 \\
+&= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
 &= Q^2 \otimes (S-T)^2 + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T) + R^2 \otimes (S+T)^2 \\
 &= I \otimes (S^2 - ST - TS + T^2) + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T)+ I \otimes (S^2 + ST + TS + T^2) \\
 &= I \otimes (I - ST - TS + I) + QR\otimes (S^2 + ST - TS - T^2) + RQ \otimes (S^2 - ST + TS - T^2)+ I \otimes (I + ST + TS + I) \\

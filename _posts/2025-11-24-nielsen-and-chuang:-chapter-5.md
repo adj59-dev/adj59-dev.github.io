@@ -716,8 +716,8 @@ If $a\vert b$ then there exists some integer $k$ such that $b=ka$. Since $a$ and
 
 
 $$\begin{aligned}
-697 = 17 \times 41 \\
-36300 = 2^2 \times 3 \times 5^2 \times 11^2
+697 &= 17 \times 41 \\
+36300 &= 2^2 \times 3 \times 5^2 \times 11^2
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1129,10 +1129,10 @@ $$\begin{aligned}
 For the delta function above, we wanted to find when $xy \equiv xy' \mod N$. Using the fact that $x$ is co-prime to $N$ and therefore has an inverse modulo $N$ we can write,
 
 $$\begin{aligned}
-xy \equiv xy' \mod N \\
-x^{-1}xy \equiv x^{-1}xy' \mod N \\
-y \equiv y' \mod N \\
-y = y' & \text{$U$ only acts nontrivially when $0\leq y\leq N-1$}
+xy &\equiv xy' \mod N \\
+x^{-1}xy &\equiv x^{-1}xy' \mod N \\
+y &\equiv y' \mod N \\
+y &= y' & \text{$U$ only acts nontrivially when $0\leq y\leq N-1$}
 \end{aligned}$$
 
 Therefore, $U$ is unitary since it preserves the inner product. 
@@ -1167,7 +1167,8 @@ $$\begin{aligned}
 then for $k=0$
 
 $$\begin{aligned}
-\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s} &=\ket{x^0\mod N} &= \ket{1}
+\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s} &=\ket{x^0\mod N}\\
+&= \ket{1}
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

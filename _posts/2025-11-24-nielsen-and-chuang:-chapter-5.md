@@ -1777,9 +1777,9 @@ $$\begin{aligned}
 The constraint calculated from step 6 can be written as 
 
 $$\begin{aligned}
-\sum_{i=1}^M \frac{l_i's_i}{2} \in \mathbb{Z}  \\
-\Rightarrow \sum_{i=1}^M l_i's_i \equiv 0 \mod 2  \\
-\Rightarrow l'\cdot s = 0 \mod 2
+& \sum_{i=1}^M \frac{l_i's_i}{2} \in \mathbb{Z}  \\
+& \Rightarrow \sum_{i=1}^M l_i's_i \equiv 0 \mod 2  \\
+& \Rightarrow l'\cdot s = 0 \mod 2
 \end{aligned}$$
 
 It will take $n=\Theta(M)$ measurements to accurately calculate $s$, and therefore solve this problem, whereas the classical algorithm would need at least $\Omega(2^{M/2})$ measurements. Therefore, this algorithm, using the HSP framework, does show an advantage over the classical algorithm.

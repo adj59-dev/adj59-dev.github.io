@@ -240,12 +240,12 @@ First we show that $\exp(iAx)=\cos(x)I+i\sin(x)A$
 
 $$\begin{align}
 \exp(iAx) \\
-&= \cos(Ax) + i\sin(Ax) & \text{Euler's formula} \\
-&= \sum_{i}\cos(x\lambda_i)\ket{i}\bra{i} + \sum_j i\sin(x\lambda_j)\ket{j}\bra{j} & \text{spectral decomposition and applying functions}\\
-&= \cos(x)\ket{+1}\bra{+1} + \cos(-x)\ket{-1}\bra{-1} + i\sin(x)\ket{+1}\bra{+1} + i\sin(-x)\ket{-1}\bra{-1} & \text{since $A^2=I$ its eigenvalues must be $\pm 1$ with eigenvectors $\ket{\pm 1}$}\\
-&= \cos(x)\ket{+1}\bra{+1} + \cos(x)\ket{-1}\bra{-1} + i\sin(x)\ket{+1}\bra{+1} - i\sin(x)\ket{-1}\bra{-1} \\
-&= \cos(x)(\ket{+1}\bra{+1} + \ket{-1}\bra{-1}) + i\sin(x)(\ket{+1}\bra{+1} - \ket{-1}\bra{-1}) \\
-&= \cos(x) I + i\sin(x) A
+= \cos(Ax) + i\sin(Ax) & \text{Euler's formula} \\
+= \sum_{i}\cos(x\lambda_i)\ket{i}\bra{i} + \sum_j i\sin(x\lambda_j)\ket{j}\bra{j} & \text{spectral decomposition and applying functions}\\
+= \cos(x)\ket{+1}\bra{+1} + \cos(-x)\ket{-1}\bra{-1} + i\sin(x)\ket{+1}\bra{+1} + i\sin(-x)\ket{-1}\bra{-1} & \text{since $A^2=I$ its eigenvalues must be $\pm 1$ with eigenvectors $\ket{\pm 1}$}\\
+= \cos(x)\ket{+1}\bra{+1} + \cos(x)\ket{-1}\bra{-1} + i\sin(x)\ket{+1}\bra{+1} - i\sin(x)\ket{-1}\bra{-1} \\
+= \cos(x)(\ket{+1}\bra{+1} + \ket{-1}\bra{-1}) + i\sin(x)(\ket{+1}\bra{+1} - \ket{-1}\bra{-1}) \\
+= \cos(x) I + i\sin(x) A
 \end{align}$$
 
 Now we use the result to verify equations 4.4 - 4.6. From [exercise 2.19](https://adj59-dev.github.io/qcqi/chapter-2/#exercise-219) we know that the Pauli matrices are Hermitian and unitary (i.e. $A^2=I$), therefore we can directly use the result above to generate equations 4.4-4.6 by replacing $A$ with $X$, $Y$, or $Z$. 
@@ -315,11 +315,11 @@ Therefore, $e^{i\phi} = i$, so $\phi=\pi/2$ and we get $H=R_x(\pi)R_y(\pi/2)e^{i
 
 $$\begin{aligned}
 R_x(\pi)R_y(\pi/2) \\
-&= R_x(\pi)R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2) & \text{decomposition of $R_y$} \\
-&= R_z(-\pi/2)R_x(\pi)R_x(\pi/2)R_z(-\pi/2) & \text{conjugation flips $Z$ under a $\pi$ rotation about $X$, shown below} \\
-&= R_z(-\pi/2)R_x(3\pi/2)R_z(-\pi/2) & \text{combinding the rotations about $X$}\\
-&= -R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2) & \text{$3\pi/2$ rotation is the same as a $-\pi/2$ rotation with a -1 global phase change} \\
-&= e^{-i\pi}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)
+= R_x(\pi)R_z(\pi/2)R_x(\pi/2)R_z(-\pi/2) & \text{decomposition of $R_y$} \\
+= R_z(-\pi/2)R_x(\pi)R_x(\pi/2)R_z(-\pi/2) & \text{conjugation flips $Z$ under a $\pi$ rotation about $X$, shown below} \\
+= R_z(-\pi/2)R_x(3\pi/2)R_z(-\pi/2) & \text{combinding the rotations about $X$}\\
+= -R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2) & \text{$3\pi/2$ rotation is the same as a $-\pi/2$ rotation with a -1 global phase change} \\
+= e^{-i\pi}R_z(-\pi/2)R_x(-\pi/2)R_z(-\pi/2)
 \end{aligned}$$
 
 Here I'll show why conjugation flips $Z$ under a $\pi$ rotation about $X$
@@ -346,12 +346,12 @@ Which will be shown below
 
 $$\begin{aligned}
 e^{i\pi/2}R_z(\pi/2)R_x(\pi/2)R_z(\pi/2) \\
-&= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \begin{bmatrix} \cos\frac{\pi}{4} & -i\sin\frac{\pi}{4} \\\ -i\sin\frac{\pi}{4} & \cos\frac{\pi}{4} \end{bmatrix}  \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
-&= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & -i\frac{1}{\sqrt{2}} \\\ -i\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix} \ \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
-&= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4}\frac{1}{\sqrt{2}} & -ie^{-i\pi/4}\frac{1}{\sqrt{2}} \\\ -ie^{i\pi/4}\frac{1}{\sqrt{2}} & e^{i\pi/4}\frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
-&= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/2}\frac{1}{\sqrt{2}} & -i\frac{1}{\sqrt{2}} \\\ -i\frac{1}{\sqrt{2}} & e^{i\pi/2}\frac{1}{\sqrt{2}} \end{bmatrix} \\
-&= \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
-&= H
+= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \begin{bmatrix} \cos\frac{\pi}{4} & -i\sin\frac{\pi}{4} \\\ -i\sin\frac{\pi}{4} & \cos\frac{\pi}{4} \end{bmatrix}  \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
+= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} & -i\frac{1}{\sqrt{2}} \\\ -i\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix} \ \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
+= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/4}\frac{1}{\sqrt{2}} & -ie^{-i\pi/4}\frac{1}{\sqrt{2}} \\\ -ie^{i\pi/4}\frac{1}{\sqrt{2}} & e^{i\pi/4}\frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} e^{-i\pi/4} & 0 \\\ 0 & e^{i\pi/4} \end{bmatrix} \\
+= e^{i\pi/2}\begin{bmatrix} e^{-i\pi/2}\frac{1}{\sqrt{2}} & -i\frac{1}{\sqrt{2}} \\\ -i\frac{1}{\sqrt{2}} & e^{i\pi/2}\frac{1}{\sqrt{2}} \end{bmatrix} \\
+= \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\
+= H
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -646,13 +646,13 @@ $$\begin{aligned}
 So, let's check them
 
 $$\begin{aligned}
-(-ibc + ad )e - i(ibd + ac)f = -(-i(ac -ibd)f + (-ad - ibc)e)^\ast \\
+(-ibc + ad )e - i(ibd + ac)f &= -(-i(ac -ibd)f + (-ad - ibc)e)^\ast \\
 -ibce + ade + bdf - iacf &= -(-iacf - bdf - ade - ibce)^\ast \\
 -ibce + ade + bdf - iacf &= -iacf + bdf + ade - ibce & \text{the two sides are equal}
 \end{aligned}$$
 
 $$\begin{aligned}
--i(-ibc + ad )f + (ibd + ac)e = ((ac -ibd)e - i(-ad - ibc)f)^\ast \\
+-i(-ibc + ad )f + (ibd + ac)e &= ((ac -ibd)e - i(-ad - ibc)f)^\ast \\
 -bcf - iadf + ibde + ace &= (ace - ibde + iadf - bcf)^\ast \\
 -bcf - iadf + ibde + ace &= ace + ibde - iadf - bcf & \text{the two sides are equal}
 \end{aligned}$$
@@ -1107,8 +1107,8 @@ The left hand side of the circuit inequality is
 
 $$\begin{aligned}
 V_{ac} CNOT_{ab} V_{bc}^\dagger CNOT_{ab} V_{bc} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{11} & v_{12} & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21} & v_{22} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11}^\ast & v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{12}^\ast & v_{22}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^\ast & v_{21}^\ast \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{12}^\ast & v_{22}^\ast \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11} & v_{12} & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{21} & v_{22} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & \vert v_{11} \vert^2 + \vert v_{21} \vert^2 & v_{12}v_{11}^\ast + v_{22}v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{11}v_{12}^\ast + v_{21}v_{22}^\ast & \vert v_{12} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & \vert v_{11} \vert^2 + \vert v_{12} \vert^2 & v_{11}v_{21}^\ast + v_{12}v_{22}^\ast & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21}v_{11}^\ast + v_{22}v_{12}^\ast & \vert v_{21} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^2 + v_{12}v_{21} & v_{12}(v_{11}+v_{22}) \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21}(v_{11} + v_{22}) & v_{12}v_{21} + v_{22}^2 \end{bmatrix} \\
+= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{11} & v_{12} & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21} & v_{22} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11}^\ast & v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{12}^\ast & v_{22}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^\ast & v_{21}^\ast \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{12}^\ast & v_{22}^\ast \end{bmatrix}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & v_{11} & v_{12} & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{21} & v_{22} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11} & v_{12} \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21} & v_{22}\end{bmatrix} \\
+= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & \vert v_{11} \vert^2 + \vert v_{21} \vert^2 & v_{12}v_{11}^\ast + v_{22}v_{21}^\ast & 0 & 0 & 0 & 0 \\\ 0 & 0 & v_{11}v_{12}^\ast + v_{21}v_{22}^\ast & \vert v_{12} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & \vert v_{11} \vert^2 + \vert v_{12} \vert^2 & v_{11}v_{21}^\ast + v_{12}v_{22}^\ast & 0 & 0 \\\ 0 & 0 & 0 & 0 & v_{21}v_{11}^\ast + v_{22}v_{12}^\ast & \vert v_{21} \vert^2 + \vert v_{22} \vert^2 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{11}^2 + v_{12}v_{21} & v_{12}(v_{11}+v_{22}) \\\ 0 & 0 & 0 & 0 & 0 & 0 & v_{21}(v_{11} + v_{22}) & v_{12}v_{21} + v_{22}^2 \end{bmatrix} \\
 \end{aligned}$$
 
 We know that $V^2 = U$ so
@@ -1296,7 +1296,8 @@ Looking at the Toffoli gate on Wikipedia (since the one in the book actually has
 and confirm that it is valid below 
 
 $$\begin{aligned}
-CNOT_{ab}D_{a}D_{b}^\dagger CNOT_{ab}D_{b} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} \end{bmatrix} = G
+CNOT_{ab}D_{a}D_{b}^\dagger CNOT_{ab}D_{b} &= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\alpha} \end{bmatrix} \\
+&= G
 \end{aligned}$$
 
 which was calculated using this python script
@@ -2519,9 +2520,9 @@ Let $P_{ij}$ be the permutation that interchanges $\ket{i}$ and $\ket{j}$. The $
 
 $$\begin{aligned}
 P_{56}(U_\lambda P_{57})^2 (U_{-\lambda} P_{57})^2 P_{56} \\
-&= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & (2\sin^2(\lambda) + \cos^3(\lambda))\cos(\lambda) & i(\sin^2(\lambda) + \cos^3(\lambda) - \cos^2(\lambda))\sin(\lambda) & i(\cos(\lambda) - 1)\sin(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(1 - \cos(\lambda))\sin(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) & \sin^2(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(-\sin^2(\lambda) - \cos^3(\lambda) + \cos^2(\lambda))\sin(\lambda) & (\cos(\lambda) - 2)\sin^2(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) \end{bmatrix} \\
-&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1 \end{bmatrix} + O(\lambda^3)\\
-&\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda^2 & \sin\lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\sin\lambda^2 & \cos\lambda^2 \end{bmatrix} + O(\lambda^3)\\
+= \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & (2\sin^2(\lambda) + \cos^3(\lambda))\cos(\lambda) & i(\sin^2(\lambda) + \cos^3(\lambda) - \cos^2(\lambda))\sin(\lambda) & i(\cos(\lambda) - 1)\sin(\lambda)\cos(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(1 - \cos(\lambda))\sin(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) & \sin^2(\lambda) \\\ 0 & 0 & 0 & 0 & 0 & i(-\sin^2(\lambda) - \cos^3(\lambda) + \cos^2(\lambda))\sin(\lambda) & (\cos(\lambda) - 2)\sin^2(\lambda)\cos(\lambda) & (\sin^2(\lambda) + \cos(\lambda))\cos(\lambda) \end{bmatrix} \\
+\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & \lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\lambda^2 & 1 \end{bmatrix} + O(\lambda^3)\\
+\approx \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & \cos\lambda^2 & \sin\lambda^2 \\\ 0 & 0 & 0 & 0 & 0 & 0 & -\sin\lambda^2 & \cos\lambda^2 \end{bmatrix} + O(\lambda^3)\\
 \end{aligned}$$
 
 The above calculation was done with the python script shown below. It can be seen that this matrix is approximating a gate that has the first and second bit as control bits controlling the application of a small $R_y(-2\lambda^2)$ rotation. 
@@ -2591,9 +2592,9 @@ Then using permutation operators and $W_{\lambda}$ the following can be approxim
 
 $$\begin{aligned}
 W_{-\lambda/8}P_{06}W_{-\lambda/8}P_{06}P_{16}W_{-\lambda/8}P_{16}P_{26}W_{-\lambda/8}P_{26}P_{36}W_{-\lambda/8}P_{36}P_{46}W_{-\lambda/8}P_{46}P_{56}W_{-\lambda/8}P_{56} \\
-&= \begin{bmatrix} e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i7\lambda/8} \end{bmatrix} \\
-&= e^{-i\lambda/8}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} \end{bmatrix} \\
-&= e^{-i\lambda/8} X_{\lambda}
+= \begin{bmatrix} e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & e^{-i\lambda/8} & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i7\lambda/8} \end{bmatrix} \\
+= e^{-i\lambda/8}\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & e^{i\lambda} \end{bmatrix} \\
+= e^{-i\lambda/8} X_{\lambda}
 \end{aligned}$$
 
 where the global phase $e^{-i\lambda/8}$ can be ignored. I used the following python script to confirm the above calculation. 

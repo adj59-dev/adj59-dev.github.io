@@ -3457,13 +3457,15 @@ $$\begin{aligned}
 So now we know that $\braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } \leq 8$ and from equation 2.115 we know that $\braket{M^2} = \braket{M}^2 + \lbrack \Delta (M) \rbrack^2$, therefore $\braket{M^2} \geq \braket{M}^2$. Putting it together we get
 
 $$\begin{aligned}
-8 \geq \braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } \geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T }^2
+8 &\geq \braket{ (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 } \\
+&\geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T }^2
 \end{aligned}$$
 
 Taking the square root we get
 
 $$\begin{aligned}
-2\sqrt{2} \geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T } = \braket{ Q \otimes S } + \braket{ R \otimes S} + \braket{R \otimes T} - \braket{Q \otimes T }
+2\sqrt{2} &\geq \braket{ Q \otimes S + R \otimes S + R \otimes T - Q \otimes T } \\
+&= \braket{ Q \otimes S } + \braket{ R \otimes S} + \braket{R \otimes T} - \braket{Q \otimes T }
 \end{aligned}$$
 
 which is equation 2.234.

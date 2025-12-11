@@ -330,11 +330,11 @@ $$\begin{aligned}
 Then the controlled- $U$ gates transform the following
 
 $$\begin{aligned}
-\frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} \\
-\to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
-= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}}U^{j_{t-2}2^{t-2}}\cdots U^{j_0 2^0} \ket{u} \\
-= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0} \ket{u} \\
-= \frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1} \ket{j} U^j \ket{u} & \text{for $j=j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0$}
+& \frac{1}{2^{t/2}}(\ket{0} + \ket{1})(\ket{0} + \ket{1})\cdots(\ket{0} + \ket{1})\ket{u} \\
+& \to \frac{1}{2^{t/2}}\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-1}}\right)\left(\ket{0} \otimes I + \ket{1} \otimes U^{2^{t-2}}\right)\cdots\left(\ket{0}\otimes I + \ket{1}\otimes U^{2^0}\right)\ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}}U^{j_{t-2}2^{t-2}}\cdots U^{j_0 2^0} \ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j_0,j_1,\cdots,j_{t-1}=0}^{1} \ket{j_{t-1}\cdots j_1 j_0} U^{j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0} \ket{u} \\
+&= \frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1} \ket{j} U^j \ket{u} & \text{for $j=j_{t-1}2^{t-1}+j_{t-2}2^{t-2}+\cdots + j_0 2^0$}
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1056,16 +1056,16 @@ q_1 = a_1
 Therefore,
 
 $$\begin{aligned}
-q_np_{n-1} - p_nq_{n-1} \\
-= (a_nq_{n-1} + q_{n-2})p_{n-1}-(a_np_{n-1} + p_{n-2})q_{n-1} \\
-= a_nq_{n-1}p_{n-1} + q_{n-2}p_{n-1} - a_np_{n-1}q_{n-1} - p_{n-2}q_{n-1}\\
-= q_{n-2}p_{n-1} - p_{n-2}q_{n-1}\\
-= -(q_{n-1}p_{n-2} - p_{n-1}q_{n-2}) & \text{this is $-1$ times the same expression at $n-1$}\\
-= \vdots & \text{repeat until we reach the base case of $n=1$}\\
-= (-1)^{n-1}(q_1p_0 - p_1q_0) \\
-= (-1)^{n-1}(a_1a_0 - (1+a_0a_1)) \\
-= (-1)^{n-1}(-1)\\
-= (-1)^n
+& q_np_{n-1} - p_nq_{n-1} \\
+&= (a_nq_{n-1} + q_{n-2})p_{n-1}-(a_np_{n-1} + p_{n-2})q_{n-1} \\
+&= a_nq_{n-1}p_{n-1} + q_{n-2}p_{n-1} - a_np_{n-1}q_{n-1} - p_{n-2}q_{n-1}\\
+&= q_{n-2}p_{n-1} - p_{n-2}q_{n-1}\\
+&= -(q_{n-1}p_{n-2} - p_{n-1}q_{n-2}) & \text{this is $-1$ times the same expression at $n-1$}\\
+&= \vdots & \text{repeat until we reach the base case of $n=1$}\\
+&= (-1)^{n-1}(q_1p_0 - p_1q_0) \\
+&= (-1)^{n-1}(a_1a_0 - (1+a_0a_1)) \\
+&= (-1)^{n-1}(-1)\\
+&= (-1)^n
 \end{aligned}$$
 
 Therefore, $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\geq 1$. 
@@ -1160,12 +1160,12 @@ $$\begin{aligned}
 and so
 
 $$\begin{aligned}
-\frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s} \\
-= \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\left(\frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n \mod N}\right)\\
-= \frac{1}{r}\sum_{s=0}^{r-1}\sum_{n=0}^{r-1}e^{2\pi is(k-n)/r}\ket{x^n\mod N} \\
-= \frac{1}{r}\sum_{n=0}^{r-1}\left(\sum_{s=0}^{r-1}e^{2\pi is(k-n)/r}\right)\ket{x^n\mod N} \\
-= \frac{1}{r}\sum_{n=0}^{r-1}\left(r \delta_{kn}\right)\ket{x^n\mod N} & \text{from the hint}\\
-=\ket{x^k\mod N}
+& \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\ket{u_s} \\
+&= \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}e^{2\pi isk/r}\left(\frac{1}{\sqrt{r}}\sum_{n=0}^{r-1}e^{-2\pi isn/r}\ket{x^n \mod N}\right)\\
+&= \frac{1}{r}\sum_{s=0}^{r-1}\sum_{n=0}^{r-1}e^{2\pi is(k-n)/r}\ket{x^n\mod N} \\
+&= \frac{1}{r}\sum_{n=0}^{r-1}\left(\sum_{s=0}^{r-1}e^{2\pi is(k-n)/r}\right)\ket{x^n\mod N} \\
+&= \frac{1}{r}\sum_{n=0}^{r-1}\left(r \delta_{kn}\right)\ket{x^n\mod N} & \text{from the hint}\\
+&=\ket{x^k\mod N}
 \end{aligned}$$
 
 then for $k=0$
@@ -1571,13 +1571,13 @@ If we compare our solution to equation 5.72, we see that the prefactor is differ
 Using (5.70) we get
 
 $$\begin{aligned}
-\frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} \\
-= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
-= \frac{1}{r\sqrt{r}} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2+l_2j)/r}\ket{f(0,j)}\\ 
-= \frac{1}{r\sqrt{r}} \sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi il_2(sx_1+x_2+j)/r}\ket{f(0,j)} & \text{since the terms are non-zero when $l_1=sl_2$}\\ 
-= \frac{1}{\sqrt{r}} \sum_{j=0}^{r-1}\delta_{sx_1+x_2+j\equiv 0\mod r}\ket{f(0,j)} \\ 
-= \frac{1}{\sqrt{r}}\ket{f(0,-(sx_1+x_2))} \\ 
-= \frac{1}{\sqrt{r}}f(-x_1,-x_2)
+& \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{\hat{f}(l_1,l_2)} \\
+&= \frac{1}{r} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1} e^{-2\pi i(l_1x_1+l_2x_2)/r}\left(\frac{1}{\sqrt{r}}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)} \right)\\ 
+&= \frac{1}{r\sqrt{r}} \sum_{l_1=0}^{r-1}\sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2+l_2j)/r}\ket{f(0,j)}\\ 
+&= \frac{1}{r\sqrt{r}} \sum_{l_2=0}^{r-1}\sum_{j=0}^{r-1}e^{-2\pi il_2(sx_1+x_2+j)/r}\ket{f(0,j)} & \text{since the terms are non-zero when $l_1=sl_2$}\\ 
+&= \frac{1}{\sqrt{r}} \sum_{j=0}^{r-1}\delta_{sx_1+x_2+j\equiv 0\mod r}\ket{f(0,j)} \\ 
+&= \frac{1}{\sqrt{r}}\ket{f(0,-(sx_1+x_2))} \\ 
+&= \frac{1}{\sqrt{r}}f(-x_1,-x_2)
 \end{aligned}$$
 
 This is a little different than $f(x_1,x_2)$, I wonder if we were supposed to use the non-normalized form of equation 5.70, that would give us a result without the $\frac{1}{\sqrt{r}}$. I also wonder if equation 5.73 was supposed to have a positive exponent.  

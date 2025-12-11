@@ -784,7 +784,23 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are requried to find a solution to the search problem that has $M$ solutions.
 
-Now that there are multiple sultions, then $O_x$ will cause a phase shift of $-1$ to $M$ solutions $\ket{x}$. If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now,
+Now that there are multiple sultions, 
+
+$$\begin{aligned}
+D_k = \sum_S \Vert\psi_k^S - \psi_k\Vert^2
+\end{aligned}$$
+
+where the sum is over all possible sets $S$ of size $M$. 
+
+Now let's find a bound for $D_k$ in relation to $k$. Like the one solution case, $D_k=0$ when $k=0$. Then,
+
+$$\begin{aligned}
+D_{k+1} &= \sum_S \Vert O_S \psi_k^S - \psi_k\Vert^2 \\
+&= \sum_S \Vert O_S (\psi_k^S - \psi_k) + (O_S-I)\psi_k \Vert^2 \\
+&\leq 
+\end{aligned}$$
+
+If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now,
 
 $$\begin{aligned}
 \Vert\psi_k^x-x\Vert^2 &= 2 - \vert\braket{x\vert\psi_k^x}\vert \\

@@ -375,8 +375,14 @@ $$\braket{w \vert v}= \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\\ 
 The normalized form of these vectors are 
 
 $$\begin{aligned}
-\ket{v_{norm}}=\frac{\ket{v}}{\Vert\ket{v} \Vert}=\frac{\ket{v}}{\sqrt{\braket{v \vert v}}}=\frac{\ket{v}}{\sqrt{1^2 + (-1)^2}}=\frac{1}{\sqrt{2}} \ket{v} \\
-\ket{w_{norm}}=\frac{\ket{w}}{\Vert \ket{w} \Vert}=\frac{\ket{w}}{\sqrt{\braket{w \vert w}}}=\frac{\ket{w}}{\sqrt{1^2 + 1^2}}=\frac{1}{\sqrt{2}} \ket{w}
+\ket{v_{norm}} &=\frac{\ket{v}}{\Vert\ket{v} \Vert} \\
+&= \frac{\ket{v}}{\sqrt{\braket{v \vert v}}} \\
+&=\frac{\ket{v}}{\sqrt{1^2 + (-1)^2}} \\
+&=\frac{1}{\sqrt{2}} \ket{v} \\
+\ket{w_{norm}} &=\frac{\ket{w}}{\Vert \ket{w} \Vert} \\
+&=\frac{\ket{w}}{\sqrt{\braket{w \vert w}}} \\
+&=\frac{\ket{w}}{\sqrt{1^2 + 1^2}} \\
+&=\frac{1}{\sqrt{2}} \ket{w}
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
@@ -1590,7 +1596,8 @@ In this exercise you will use the definition of the commutator and anti-commutat
 $$\begin{aligned}
 \lbrack A,B\rbrack &= AB - BA \\
 \lbrace A,B \rbrace &= AB + BA \\
-\lbrack A,B\rbrack + \lbrace A,B \rbrace &= AB - BA + AB + BA = 2AB \\
+\lbrack A,B\rbrack + \lbrace A,B \rbrace &= AB - BA + AB + BA \\
+&= 2AB \\
 \Rightarrow AB &= \frac{\lbrack A,B\rbrack+ \lbrace A,B \rbrace }{2}
 \end{aligned}$$
 

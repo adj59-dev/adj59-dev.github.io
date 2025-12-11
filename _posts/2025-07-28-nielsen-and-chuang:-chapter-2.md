@@ -237,8 +237,12 @@ $$A = \begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$$
 Instead of using $\lbrace \ket{0}, \ket{1} \rbrace$ as the basis, let's use $\lbrace \ket{+}, \ket{-} \rbrace$. First we will calculate what the outputs are when $A$ acts on these vectors.
 
 $$\begin{aligned}
-A \ket{+} = A \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) = \ket{+} \\
-A \ket{-} = A \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})=\frac{1}{\sqrt{2}} (\ket{1} - \ket{0}) = -\ket{-} 
+A \ket{+} &= A \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \\
+&=\frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) \\
+&= \ket{+} \\
+A \ket{-} &= A \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) \\
+&= \frac{1}{\sqrt{2}} (\ket{1} - \ket{0}) \\
+&= -\ket{-} 
 \end{aligned}$$
 
 For these basis vectors, $A$ is then represented as

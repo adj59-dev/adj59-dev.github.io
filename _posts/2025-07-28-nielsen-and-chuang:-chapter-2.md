@@ -854,19 +854,25 @@ Spectral decomposition theorem for the case when $M$ is Hermitian: Any Hermitian
 The first part of the proof is identical to what is in the book. Proof by induction is used on the dimension $d$ of $V$. The case $d=1$ is trivial. Let $\lambda$ be an eigenvalue of $M$, $P$ the projector onto the $\lambda$ eigenspace, and $Q$ the projector onto the orthogonal complement. Then
 
 $$\begin{aligned}
-M = (P+Q)M(P+Q) = PMP+QMP+PMQ+QMQ.
+M &= (P+Q)M(P+Q) \\
+&= PMP+QMP+PMQ+QMQ.
 \end{aligned}$$ 
 
 Obviously $PMP=\lambda P$. Furthermore, $QMP=0$, as $M$ takes the subspace $P$ into itself. Simplifications can be made when demonstrating that $PMQ = 0$ due to $M$ being Hermitian and so $M^\dagger = M$. This can now be shown by taking the adjoint of $QMP=0$ which gives 
 
 $$\begin{aligned}
-0 = (QMP)^\dagger = PM^\dagger Q = PMQ
+0 &= (QMP)^\dagger \\
+&= PM^\dagger Q \\
+&= PMQ
 \end{aligned}$$
 
 Simplifications can also be made when proving that $QMQ$ is normal. That proof goes as follows
 
 $$\begin{aligned}
-QMQ (QMQ)^\dagger=QMQ QM^\dagger Q = QMQQMQ = QM^\dagger Q QMQ = (QMQ)^\dagger QMQ
+QMQ (QMQ)^\dagger &=QMQ QM^\dagger Q \\
+&= QMQQMQ \\
+&= QM^\dagger Q QMQ \\
+&= (QMQ)^\dagger QMQ
 \end{aligned}$$
 
 Therefore $QMQ$ is normal. The rest of the proof is same as in the book where you use proof by induction to show that $QMQ$ is diagonal with respect to some orthonormal basis for subspace $Q$, and $PMP$ is already diagonal with respect to some orthonormal basis for $P$. It then follows that $M=PMP+QMQ$ is diagonal with respect to some orthonormal basis for the total vector space. 

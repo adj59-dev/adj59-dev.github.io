@@ -670,9 +670,9 @@ We know that $n$ grows faster than $(\log(n))^2$ (this can easily be seen by tak
 Since $e(n)$ is $O(f(n))$ we know that $e(n) \leq cf(n)$ for some real positive constant $c$ and for all $n \geq n_0$. Also since $g(n)$ is $O(h(n))$ we know that $g(n) \leq dh(n)$ for some real positive constant $d$ and for all $n \geq n_1$. To show that $e(n)g(n)$ is $O(f(n)h(n))$, we need to show that $e(n)g(n) \leq b f(n)h(n)$ for some real positive constant $b$ and for all $n \geq n_2$. 
 
 $$\begin{aligned}
-e(n)g(n) \leq b f(n)h(n) \\
-e(n)g(n) \leq cd f(n)h(n) & \text{let $b = cd$} \\
-e(n)g(n) \leq (c f(n))(d h(n))
+e(n)g(n) & \leq b f(n)h(n) \\
+e(n)g(n) & \leq cd f(n)h(n) & \text{ let $b = cd$} \\
+e(n)g(n) & \leq (c f(n))(d h(n))
 \end{aligned}$$ 
 
 Since we know that $e(n) \leq cf(n)$ for $n \geq n_0$ and $g(n) \leq dh(n)$ for $n \geq n_1$ we know that the above inequality is true for $n \geq n_2$ where $n_2 = \max(n_0, n_1)$. 

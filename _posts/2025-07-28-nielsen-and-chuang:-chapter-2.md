@@ -3431,15 +3431,15 @@ Q^2 &= (\vec{q} \cdot \vec{\sigma})^2 \\
 Therefore $Q^2 = R^2 = S^2 = T^2 = I$. Now let's look at equation 2.233
 
 $$\begin{aligned}
-(Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 \\
-= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
-= Q^2 \otimes (S-T)^2 + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T) + R^2 \otimes (S+T)^2 \\
-= I \otimes (S^2 - ST - TS + T^2) + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T)+ I \otimes (S^2 + ST + TS + T^2) \\
-= I \otimes (I - ST - TS + I) + QR\otimes (S^2 + ST - TS - T^2) + RQ \otimes (S^2 - ST + TS - T^2)+ I \otimes (I + ST + TS + I) \\
-= I \otimes (4 I) + QR\otimes (I + ST - TS - I) + RQ \otimes (I - ST + TS - I)\\
-= I \otimes (4 I) + QR\otimes (ST - TS) - RQ \otimes (ST - TS)\\
-= 4I \otimes I + (QR - RQ) \otimes (ST - TS) \\
-= 4I \otimes I + \lbrack Q,R \rbrack \otimes \lbrack S,T \rbrack 
+& (Q \otimes S + R \otimes S + R \otimes T - Q \otimes T)^2 \\
+&= (Q \otimes (S - T) + R \otimes (S + T))^2 \\
+&= Q^2 \otimes (S-T)^2 + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T) + R^2 \otimes (S+T)^2 \\
+&= I \otimes (S^2 - ST - TS + T^2) + QR\otimes (S - T)(S + T) + RQ \otimes (S + T)(S - T)+ I \otimes (S^2 + ST + TS + T^2) \\
+&= I \otimes (I - ST - TS + I) + QR\otimes (S^2 + ST - TS - T^2) + RQ \otimes (S^2 - ST + TS - T^2)+ I \otimes (I + ST + TS + I) \\
+&= I \otimes (4 I) + QR\otimes (I + ST - TS - I) + RQ \otimes (I - ST + TS - I)\\
+&= I \otimes (4 I) + QR\otimes (ST - TS) - RQ \otimes (ST - TS)\\
+&= 4I \otimes I + (QR - RQ) \otimes (ST - TS) \\
+&= 4I \otimes I + \lbrack Q,R \rbrack \otimes \lbrack S,T \rbrack 
 \end{aligned}$$
 
 Then let's use those results to prove equation 2.234

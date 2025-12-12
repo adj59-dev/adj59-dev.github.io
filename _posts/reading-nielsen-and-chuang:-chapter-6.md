@@ -874,6 +874,10 @@ $$\begin{aligned}
 E_k &= \sum_S\Vert\psi_k^S-\phi_S\Vert^2 \\
 &= \sum_S 2-2\vert\braket{\phi_S\vert\psi_k^S}\vert & \text{equation 6.47} \\
 &= \sum_S 2-2\vert\frac{1}{\sqrt{M}}\sum_x' \braket{x\vert\psi_k^S}\vert \\
+&\leq \sum_S 2-\frac{2}{\sqrt{M}}\sum_x' \vert\braket{x\vert\psi_k^S}\vert \\
+&\leq \sum_S 2-\frac{2}{\sqrt{M}}\sum_x' \vert\braket{x\vert\psi_k^S}\vert^2 \\
+&\leq \sum_S 2-\frac{1}{\sqrt{M}} \\
+&= 2\binom{N}{M} -\frac{1}{\sqrt{M}}\binom{N}{M}\\
 \end{aligned}$$ 
 
 and 

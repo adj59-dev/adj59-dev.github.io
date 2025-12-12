@@ -862,11 +862,22 @@ If we maintain the constraint that the algorithm must yield a solution to the se
 
 $$\begin{aligned}
 D_k &= \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2 \\
-&= \sum_S \left\Vert\\left(\psi_k^S - S \right) + \left(S - \psi_k\right)\right\Vert^2 \\
+&= \sum_S \sum_x'\left\Vert\\left(\psi_k^S - x \right) + \left(x - \psi_k\right)\right\Vert^2 \\
 &\geq E_k + F_k - 2\sqrt{E_kF_k} \\
 \end{aligned}$$
 
-where $E_k = \sum_S\Vert\psi_k^S-S\Vert^2$ and $F_k=\sum_S\Vert S-\psi_k\Vert^2$. 
+where 
+
+$$\begin{aligned}
+E_k &= \sum_S\sum_x'\Vert\psi_k^S-x\Vert^2 \\
+\end{aligned}$$ 
+
+and 
+
+$$\begin{aligned}
+F_k=\sum_S\sum_x'\Vert x-\psi_k\Vert^2 \\
+&= 2\binom{N-1}{M-1} - 2\sqrt{\binom{N-1}{M-1}}
+\end{aligned}$$ 
 
 
 

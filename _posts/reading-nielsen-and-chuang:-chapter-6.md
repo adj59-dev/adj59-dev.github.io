@@ -799,10 +799,11 @@ D_{k+1} &= \sum_S \left\Vert O_S \psi_k^S - \psi_k\right\Vert^2 \\
 &= \sum_S \left\Vert O_S (\psi_k^S - \psi_k) + (O_S-I)\psi_k \right\Vert^2 \\
 &\leq \sum_S \left(\left\Vert O_S(\psi_k^S-\psi_k)\right\Vert^2 + 2\left\Vert O_S(\psi_k^S-\psi_k)\right\Vert\left\Vert(O_S-I)\psi_k \right\Vert + \left\Vert(O_S-I)\psi_k \right\Vert^2\right)\\
 &= \sum_S \left(\left\Vert \psi_k^S-\psi_k\right\Vert^2 + 4\left\Vert \psi_k^S-\psi_k \right\Vert\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert + 4\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert^2\right)\\
-&\leq D_k + \sum_S \left(4\left\Vert \psi_k^S-\psi_k \right\Vert \left(\sum_x'\left\vert \braket{x\vert\psi_k} \right\vert\right) + 4 \left(\sum_x'\left\vert \braket{x\vert\psi_k} \right\vert^2\right)\right)\\
-&\leq D_k + 4\left(\sum_S \left\Vert \psi_k^S-\psi_k \right\Vert^2 \right)^{\frac{1}{2}} \left( \sum_S\left(\sum_x' \left\vert \braket{x\vert\psi_k} \right\vert\right)^2 \right)^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
-&\leq D_k + 4\left(\sum_S \left\Vert \psi_k^S-\psi_k \right\Vert^2 \right)^{\frac{1}{2}} \left( \sum_S\sum_x' M \left\vert \braket{x\vert\psi_k} \right\vert\^2 \right)^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
-&= D_k + 4 \sqrt{D_k M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&= \sum_S \left(\left\Vert \psi_k^S-\psi_k\right\Vert^2 + 4\left\Vert \psi_k^S-\psi_k \right\Vert\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert + 4\sum_x' \left\vert\braket{x\vert\psi_k} \right\vert^2\right)\\
+&= D_k + 4\binom{N-1}{M-1} + 4\sum_S\left\Vert \psi_k^S-\psi_k \right\Vert\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert \\
+&\leq D_k + 4\binom{N-1}{M-1} + 4\left(\sum_S\left\Vert \psi_k^S-\psi_k \right\Vert^2\right)^{\frac{1}{2}}\left(\sum_S\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert^2\right)^{\frac{1}{2}} \\
+&= D_k + 4\binom{N-1}{M-1} + 4\sqrt{D_k}\left(\sum_S\sum_x' \left\vert\braket{x\vert\psi_k} \right\vert^2\right)^{\frac{1}{2}} \\
+&= D_k + 4\binom{N-1}{M-1} + 4\sqrt{D_k\binom{N-1}{M-1}} \\
 \end{aligned}$$
 
 Above we used the following
@@ -813,47 +814,14 @@ $$\begin{aligned}
 
 because $\sum_x \left\vert \braket{x\vert\psi_k} \right\vert^2=1$ and since we are summing over the elements of $S$ and then summing over all possible $S$, this value is equal to the number of complete basis sets of $x$ that are being summed over.
 
-So, let's look at the different terms. Like the one solution case, $D_k=0$ when $k=0$, and so
+From here, let's say that $D_k \leq 4k^2\binom{N-1}{M-1}$. Then
 
 $$\begin{aligned}
-D_{1} &\leq D_0 + 4 \sqrt{D_0 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
-&\leq 4 \binom{N-1}{M-1}
-\end{aligned}$$
-
-then
-
-$$\begin{aligned}
-D_{2} &\leq D_1 + 4 \sqrt{D_1 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
-&\leq 4 \binom{N-1}{M-1} + 4 \sqrt{4 \binom{N-1}{M-1} M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
-&= 8 \binom{N-1}{M-1} + 8 \binom{N-1}{M-1} \sqrt{M} \\
-&= 4 \binom{N-1}{M-1}\left(2 + 2\sqrt{M}\right)\\
-&\leq 4 \binom{N-1}{M-1}\left(4\sqrt{M}\right)\\ 
-\end{aligned}$$
-
-and
-
-$$\begin{aligned}
-D_{3} &\leq D_2 + 4 \sqrt{D_2 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
-&\leq 8 \binom{N-1}{M-1}\left(1 + \sqrt{M}\right) + 4 \sqrt{8 \binom{N-1}{M-1}\left(1 + \sqrt{M}\right) M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
-&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\right) + 8 \sqrt{2M\left(1 + \sqrt{M}\right)} \binom{N-1}{M-1} \\
-&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+\sqrt{2\left(1 + \sqrt{M}\right)} \right)\right)  \\
-&\leq 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+\sqrt{2\left(2\sqrt{M}\right)} \right)\right)  \\
-&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+2\sqrt{\sqrt{M}} \right)\right)  \\
-&\leq 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(3\sqrt{\sqrt{M}} \right)\right)  \\
-&= 4 \binom{N-1}{M-1}\left(3 + 6\sqrt{M}\sqrt{\sqrt{M}}\right)  \\
-&\leq 4 \binom{N-1}{M-1}\left(9\sqrt{M}\sqrt{\sqrt{M}}\right)  \\
-\end{aligned}$$
-
-
-From here, let's say that $D_k \leq 4k^2M\binom{N-1}{M-1}$. Then
-
-$$\begin{aligned}
-D_{k+1} &\leq D_k + 4 \sqrt{D_k M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
-&\leq 4k^2M\binom{N-1}{M-1} + 4 \sqrt{4k^2M\binom{N-1}{M-1} M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
-&= 4k^2M\binom{N-1}{M-1} + 8kM\binom{N-1}{M-1} + 4 \binom{N-1}{M-1}\\
-&leq 4k^2M\binom{N-1}{M-1} + 8kM\binom{N-1}{M-1} + 4 M\binom{N-1}{M-1}\\
-&= 4(k^2 + 2k + 1)M\binom{N-1}{M-1}\\
-&= 4(k + 1)^2M\binom{N-1}{M-1}\\
+D_{k+1} &\leq D_k + 4 \sqrt{D_k } \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&\leq 4k^2\binom{N-1}{M-1} + 4 \sqrt{4k^2\binom{N-1}{M-1} } \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&= 4k^2\binom{N-1}{M-1} + 8k\binom{N-1}{M-1} + 4 \binom{N-1}{M-1}\\
+&= 4(k^2 + 2k + 1)\binom{N-1}{M-1}\\
+&= 4(k + 1)^2\binom{N-1}{M-1}\\
 \end{aligned}$$
 
 which completes the induction. 
@@ -872,40 +840,48 @@ where
 
 $$\begin{aligned}
 E_k &= \sum_S\Vert\psi_k^S-\phi_S\Vert^2 \\
-&= \sum_S 2-2\vert\braket{\phi_S\vert\psi_k^S}\vert & \text{equation 6.47} \\
-&= \sum_S 2-2\vert\frac{1}{\sqrt{M}}\sum_x' \braket{x\vert\psi_k^S}\vert \\
-&\leq \sum_S 2-\frac{2}{\sqrt{M}}\sum_x' \vert\braket{x\vert\psi_k^S}\vert \\
-&\leq \sum_S 2-\frac{2}{\sqrt{M}}\sum_x' \vert\braket{x\vert\psi_k^S}\vert^2 \\
-&\leq \sum_S 2-\frac{1}{\sqrt{M}} \\
-&= 2\binom{N}{M} -\frac{1}{\sqrt{M}}\binom{N}{M}\\
+&= \sum_S \braket{\psi_k^S\vert\psi_k^S} + \braket{\phi_S\vert\phi_S} - \braket{\psi_k^S\vert\phi_S} - \braket{\phi_S\vert\psi_k^S}\\
+&= \sum_S 2 - \frac{1}{\sqrt{M}}\sum_x'\left(\braket{\psi_k^S\vert x} + \braket{x\vert\psi_k^S}\right)\\
+&= 2\binom{N}{M} - \frac{1}{\sqrt{M}}\sum_S \sum_x'\left(\braket{\psi_k^S\vert x} + \braket{x\vert\psi_k^S}\right)\\
+&= 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sum_S \sum_x'\left\vert\braket{\psi_k^S\vert x}\right\vert\\
+&\leq 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sum_S \sum_x'\left\vert\braket{\psi_k^S\vert x}\right\vert^2\\
+&\leq 2\binom{N}{M} - \frac{1}{\sqrt{M}}\binom{N}{M}\\
+&=2\frac{N}{M}\binom{N-1}{M-1} - \frac{N}{M\sqrt{M}}\binom{N-1}{M-1}\\
+&=\frac{N}{M}\binom{N-1}{M-1}\left(1-\frac{1}{\sqrt{M}} \right)
 \end{aligned}$$ 
 
 and 
 
 $$\begin{aligned}
 F_k &=\sum_S\Vert \phi_S-\psi_k\Vert^2 \\
-&\geq 2\binom{N}{M} - 2\sum_S\vert \phi_S-\psi_k\vert &\text{similar calculation as exercise 6.15}\\
-&= 2\binom{N}{M} - 2\sqrt{\left(\sum_S\vert \phi_S-\psi_k\vert \right)^2}\\
-&\geq 2\binom{N}{M} - 2\sqrt{\left(\sum_S \vert \phi_s \vert^2 \right)\left(\sum_S \vert\psi_k\vert^2\right)} \\
-&= 2\binom{N}{M} - 2\sqrt{\left(\binom{N}{M}\right)\left(\binom{N}{M}\right)} \\
-&= 2\frac{N}{M}\binom{N-1}{M-1} - 2\frac{N}{M}\binom{N-1}{M-1}\\
-&= \left(2\frac{N}{M}-2\frac{N}{M}\right)\binom{N-1}{M-1}
-&= 0
+&= \sum_S \braket{\psi_k\vert\psi_k} + \braket{\phi_S\vert\phi_S} - \braket{\psi_k\vert\phi_S} - \braket{\phi_S\vert\psi_k}\\
+&= \sum_S 2 - \frac{1}{\sqrt{M}}\sum_x'\left(\braket{\psi_k\vert x} + \braket{x\vert\psi_k}\right)\\
+&= 2\binom{N}{M} - \frac{1}{\sqrt{M}}\sum_S \sum_x'\left(\braket{\psi_k\vert x} + \braket{x\vert\psi_k}\right)\\
+&= 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sum_S \sum_x'\left\vert\braket{\psi_k\vert x}\right\vert\\
+&= 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sqrt{\left(\sum_S \sum_x'\left\vert\braket{\psi_k\vert x}\right\vert\right)^2}\\
+&\geq 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sqrt{\left(\sum_S \sum_x'\left\vert\braket{\psi_k\vert x}\right\vert^2\right)\left(\sum_S 1 \right)}\\
+&= 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sqrt{\left(\binom{N-1}{M-1}\right)\left(\binom{N}{M} \right)}\\
+&= 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sqrt{\left(\binom{N-1}{M-1}\right)\left(\frac{N}{M}\binom{N-1}{M-1} \right)}\\
+&= 2\frac{N}{M}\binom{N-1}{M-1} - \frac{2\sqrt{N}}{M}\binom{N-1}{M-1}\\
+&= \frac{N}{M}\binom{N-1}{M-1}\left(2 - \frac{2}{\sqrt{N}} \right)
 \end{aligned}$$ 
 
 then
 
 $$\begin{aligned}
 D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
+&= \frac{N}{M}\binom{N-1}{M-1}\left(2 - \frac{2}{\sqrt{N}} + 1-\frac{1}{\sqrt{M}} -2\sqrt{\left(1-\frac{1}{\sqrt{M}} \right)\left(2 - \frac{2}{\sqrt{N}} \right)} \right)\\
+&\geq \frac{N}{M}\binom{N-1}{M-1}c
 \end{aligned}$$
 
-where $c$ is any constant less than $0.055$. Since $D_k \leq 4k^2M\binom{N-1}{M-1}$ this implies that
+where $c$ is any constant less than $0.05$, to account for the case when $M=2$ and $N=2$. Since $D_k \leq 4k^2\binom{N-1}{M-1}$ this implies that
 
 $$\begin{aligned}
 k\geq \sqrt{\frac{cN}{4M}}
 \end{aligned}$$
 
 Therefore, we must call the oracle $\Omega(\sqrt{N/M})$ times.
+
 
 
 

@@ -782,9 +782,9 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 ### Exercise 6.17 {#exercise-617}
 
-For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are requried to find a solution to the search problem that has $M$ solutions.
+For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are required to find a solution to the search problem that has $M$ solutions.
 
-Now that there are multiple sultions, the oracle is $O_S=I-2\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
+Now that there are multiple solutions, the oracle is $O_S=I-2\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
 
 $$\begin{aligned}
 D_k = \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2
@@ -851,37 +851,57 @@ $$\begin{aligned}
 D_{k+1} &\leq D_k + 4 \sqrt{D_k M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
 &\leq 4k^2M\binom{N-1}{M-1} + 4 \sqrt{4k^2M\binom{N-1}{M-1} M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
 &= 4k^2M\binom{N-1}{M-1} + 8kM\binom{N-1}{M-1} + 4 \binom{N-1}{M-1}\\
+&leq 4k^2M\binom{N-1}{M-1} + 8kM\binom{N-1}{M-1} + 4 M\binom{N-1}{M-1}\\
 &= 4(k^2 + 2k + 1)M\binom{N-1}{M-1}\\
 &= 4(k + 1)^2M\binom{N-1}{M-1}\\
 \end{aligned}$$
 
 which completes the induction. 
 
-If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now following a similar calculation as the one solution case,
+Now following a similar calculation as the one solution case. Here let $\ket{\phi_S}=\phi_S = \frac{1}{\sqrt{M}}\sum_x' x$. If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\sum_x' \vert\braket{x\vert\psi_k^S}\vert^2\geq \frac{1}{2}$.
 
 
 $$\begin{aligned}
 D_k &= \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2 \\
-&= \sum_S \sum_x'\left\Vert\\left(\psi_k^S - x \right) + \left(x - \psi_k\right)\right\Vert^2 \\
-&\geq E_k + F_k - 2\sqrt{E_kF_k} \\
+&= \sum_S \left\Vert\\left(\psi_k^S - \phi_S \right) + \left(\phi_S - \psi_k\right)\right\Vert^2 \\
+&\geq \sum_S\Vert\psi_k^S-\phi_S\Vert^2 + \Vert \phi_S-\psi_k\Vert^2 - 2\Vert\psi_k^S-\phi_S\Vert \Vert \phi_S-\psi_k\Vert\\
+&= E_k + F_k - 2\sqrt{E_kF_k} \\
 \end{aligned}$$
 
 where 
 
 $$\begin{aligned}
-E_k &= \sum_S\sum_x'\Vert\psi_k^S-x\Vert^2 \\
+E_k &= \sum_S\Vert\psi_k^S-\phi_S\Vert^2 \\
+&= \sum_S 2-2\vert\braket{\phi_S\vert\psi_k^S}\vert & \text{equation 6.47} \\
+&= \sum_S 2-2\vert\frac{1}{\sqrt{M}}\sum_x' \braket{x\vert\psi_k^S}\vert \\
 \end{aligned}$$ 
 
 and 
 
 $$\begin{aligned}
-F_k=\sum_S\sum_x'\Vert x-\psi_k\Vert^2 \\
-&= 2\binom{N-1}{M-1} - 2\sqrt{\binom{N-1}{M-1}}
+F_k &=\sum_S\Vert \phi_S-\psi_k\Vert^2 \\
+&\geq 2\binom{N}{M} - 2\sum_S\vert \phi_S-\psi_k\vert &\text{similar calculation as exercise 6.15}\\
+&= 2\binom{N}{M} - 2\sqrt{\left(\sum_S\vert \phi_S-\psi_k\vert \right)^2}\\
+&\geq 2\binom{N}{M} - 2\sqrt{\left(\sum_S \vert \phi_s \vert^2 \right)\left(\sum_S \vert\psi_k\vert^2\right)} \\
+&= 2\binom{N}{M} - 2\sqrt{\left(\binom{N}{M}\right)\left(\binom{N}{M}\right)} \\
+&= 2\frac{N}{M}\binom{N-1}{M-1} - 2\frac{N}{M}\binom{N-1}{M-1}\\
+&= \left(2\frac{N}{M}-2\frac{N}{M}\right)\binom{N-1}{M-1}
+&= 0
 \end{aligned}$$ 
 
+then
 
+$$\begin{aligned}
+D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
+\end{aligned}$$
 
+where $c$ is any constant less than $0.055$. Since $D_k \leq 4k^2M\binom{N-1}{M-1}$ this implies that
 
+$$\begin{aligned}
+k\geq \sqrt{\frac{cN}{4M}}
+\end{aligned}$$
+
+Therefore, we must call the oracle $\Omega(\sqrt{N/M})$ times.
 
 
 

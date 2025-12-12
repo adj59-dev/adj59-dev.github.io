@@ -784,42 +784,93 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are requried to find a solution to the search problem that has $M$ solutions.
 
-Now that there are multiple sultions, the oracle is $O_S=I-\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
+Now that there are multiple sultions, the oracle is $O_S=I-2\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
 
 $$\begin{aligned}
-D_k = \sum_S \Vert\psi_k^S - \psi_k\Vert^2
+D_k = \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2
 \end{aligned}$$
 
 where the sum is over all possible sets $S$ of size $M$. 
 
-Now let's find a bound for $D_k$ in relation to $k$. Like the one solution case, $D_k=0$ when $k=0$. Then,
+Now let's find a bound for $D_k$ in relation to $k$. Then,
 
 $$\begin{aligned}
-D_{k+1} &= \sum_S \Vert O_S \psi_k^S - \psi_k\Vert^2 \\
-&= \sum_S \Vert O_S (\psi_k^S - \psi_k) + (O_S-I)\psi_k \Vert^2 \\
-&\leq \sum_S \left(\Vert O_S(\psi_k^S-\psi_k)\Vert^2 + 2\Vert O_S(\psi_k^S-\psi_k)\Vert\Vert(O_S-I)\psi_k \Vert + \Vert(O_S-I)\psi_k \Vert^2\right)\\
-&= \sum_S \left(\Vert \psi_k^S-\psi_k\Vert^2 + 2\Vert \psi_k^S-\psi_k \Vert\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \Vert + \Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \Vert^2\right)\\
+D_{k+1} &= \sum_S \left\Vert O_S \psi_k^S - \psi_k\right\Vert^2 \\
+&= \sum_S \left\Vert O_S (\psi_k^S - \psi_k) + (O_S-I)\psi_k \right\Vert^2 \\
+&\leq \sum_S \left(\left\Vert O_S(\psi_k^S-\psi_k)\right\Vert^2 + 2\left\Vert O_S(\psi_k^S-\psi_k)\right\Vert\left\Vert(O_S-I)\psi_k \right\Vert + \left\Vert(O_S-I)\psi_k \right\Vert^2\right)\\
+&= \sum_S \left(\left\Vert \psi_k^S-\psi_k\right\Vert^2 + 4\left\Vert \psi_k^S-\psi_k \right\Vert\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert + 4\left\Vert\sum_x' \ket{x}\braket{x\vert\psi_k} \right\Vert^2\right)\\
+&\leq D_k + \sum_S \left(4\left\Vert \psi_k^S-\psi_k \right\Vert \left(\sum_x'\left\vert \braket{x\vert\psi_k} \right\vert\right) + 4 \left(\sum_x'\left\vert \braket{x\vert\psi_k} \right\vert^2\right)\right)\\
+&\leq D_k + 4\left(\sum_S \left\Vert \psi_k^S-\psi_k \right\Vert^2 \right)^{\frac{1}{2}} \left( \sum_S\left(\sum_x' \left\vert \braket{x\vert\psi_k} \right\vert\right)^2 \right)^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&\leq D_k + 4\left(\sum_S \left\Vert \psi_k^S-\psi_k \right\Vert^2 \right)^{\frac{1}{2}} \left( \sum_S\sum_x' M \left\vert \braket{x\vert\psi_k} \right\vert\^2 \right)^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&= D_k + 4 \sqrt{D_k M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
 \end{aligned}$$
 
-If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now,
+Above we used the following
 
 $$\begin{aligned}
-\Vert\psi_k^x-x\Vert^2 &= 2 - \vert\braket{x\vert\psi_k^x}\vert \\
-&\leq 2 - \sqrt{\frac{2}{M}}
+\sum_S\sum_x' \left\vert \braket{x\vert\psi_k} \right\vert^2 &= \binom{N-1}{M-1}
 \end{aligned}$$
 
-and so 
+because $\sum_x \left\vert \braket{x\vert\psi_k} \right\vert^2=1$ and since we are summing over the elements of $S$ and then summing over all possible $S$, this value is equal to the number of complete basis sets of $x$ that are being summed over.
+
+So, let's look at the different terms. Like the one solution case, $D_k=0$ when $k=0$, and so
 
 $$\begin{aligned}
-E_k\leq \left(2-\sqrt{\frac{2}{M}}\right)N.
+D_{1} &\leq D_0 + 4 \sqrt{D_0 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
+&\leq 4 \binom{N-1}{M-1}
 \end{aligned}$$
 
-$F_k$ remains unchanged from the one soltuion case and so
+then
 
 $$\begin{aligned}
-D_k &= E_k + F_k - 2\sqrt{E_kF_k}\\
-&\geq \left(2-\sqrt{\frac{2}{M}}\right)N + 2N - 2\sqrt{N} - 2\sqrt{\left(2-\sqrt{\frac{2}{M}}\right)N\left(2N-2\sqrt{N}\right)}\\
+D_{2} &\leq D_1 + 4 \sqrt{D_1 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
+&\leq 4 \binom{N-1}{M-1} + 4 \sqrt{4 \binom{N-1}{M-1} M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
+&= 8 \binom{N-1}{M-1} + 8 \binom{N-1}{M-1} \sqrt{M} \\
+&= 4 \binom{N-1}{M-1}\left(2 + 2\sqrt{M}\right)\\
+&\leq 4 \binom{N-1}{M-1}\left(4\sqrt{M}\right)\\ 
 \end{aligned}$$
+
+and
+
+$$\begin{aligned}
+D_{3} &\leq D_2 + 4 \sqrt{D_2 M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
+&\leq 8 \binom{N-1}{M-1}\left(1 + \sqrt{M}\right) + 4 \sqrt{8 \binom{N-1}{M-1}\left(1 + \sqrt{M}\right) M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1} \\
+&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\right) + 8 \sqrt{2M\left(1 + \sqrt{M}\right)} \binom{N-1}{M-1} \\
+&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+\sqrt{2\left(1 + \sqrt{M}\right)} \right)\right)  \\
+&\leq 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+\sqrt{2\left(2\sqrt{M}\right)} \right)\right)  \\
+&= 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(1+2\sqrt{\sqrt{M}} \right)\right)  \\
+&\leq 4 \binom{N-1}{M-1}\left(3 + 2\sqrt{M}\left(3\sqrt{\sqrt{M}} \right)\right)  \\
+&= 4 \binom{N-1}{M-1}\left(3 + 6\sqrt{M}\sqrt{\sqrt{M}}\right)  \\
+&\leq 4 \binom{N-1}{M-1}\left(9\sqrt{M}\sqrt{\sqrt{M}}\right)  \\
+\end{aligned}$$
+
+
+From here, let's say that $D_k \leq 4k^2M\binom{N-1}{M-1}$. Then
+
+$$\begin{aligned}
+D_{k+1} &\leq D_k + 4 \sqrt{D_k M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&\leq 4k^2M\binom{N-1}{M-1} + 4 \sqrt{4k^2M\binom{N-1}{M-1} M} \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}{M-1}\\
+&= 4k^2M\binom{N-1}{M-1} + 8kM\binom{N-1}{M-1} + 4 \binom{N-1}{M-1}\\
+&= 4(k^2 + 2k + 1)M\binom{N-1}{M-1}\\
+&= 4(k + 1)^2M\binom{N-1}{M-1}\\
+\end{aligned}$$
+
+which completes the induction. 
+
+If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\vert\braket{x\vert\psi_k^x}\vert^2\geq \frac{1}{2M}$. Now following a similar calculation as the one solution case,
+
+
+$$\begin{aligned}
+D_k &= \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2 \\
+&= \sum_S \left\Vert\\left(\psi_k^S - S \right) + \left(S - \psi_k\right)\right\Vert^2 \\
+&\geq E_k + F_k - 2\sqrt{E_kF_k} \\
+\end{aligned}$$
+
+where $E_k = \sum_S\Vert\psi_k^S-S\Vert^2$ and $F_k=\sum_S\Vert S-\psi_k\Vert^2$. 
+
+
+
+
 
 
 

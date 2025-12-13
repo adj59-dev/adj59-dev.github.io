@@ -782,6 +782,8 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 ### Exercise 6.17 {#exercise-617}
 
+Note: I tried to solve this problem using the same approach that the authors took for the one solution case. This does not work, but I am leaving that proof below for my own notes and in case other folks want to see it. 
+
 For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are required to find a solution to the search problem that has $M$ solutions.
 
 Now that there are multiple solutions, the oracle is $O_S=I-2\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
@@ -792,7 +794,7 @@ D_k = \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2
 
 where the sum is over all possible sets $S$ of size $M$. 
 
-Now let's find a bound for $D_k$ in relation to $k$. Then,
+Now let's find a bound for $D_k$ in relation to $k$. 
 
 $$\begin{aligned}
 D_{k+1} &= \sum_S \left\Vert O_S \psi_k^S - \psi_k\right\Vert^2 \\
@@ -826,12 +828,12 @@ D_{k+1} &\leq D_k + 4 \sqrt{D_k } \binom{N-1}{M-1}^{\frac{1}{2}} + 4 \binom{N-1}
 
 which completes the induction. 
 
-Now following a similar calculation as the one solution case. Here let $\ket{\phi_S}=\phi_S = \frac{1}{\sqrt{M}}\sum_x' x$. If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\sum_x' \vert\braket{x\vert\psi_k^S}\vert^2\geq \frac{1}{2}$.
+Let $\ket{\phi_S}=\phi_S = \frac{1}{\sqrt{M}}\sum_x' x$. If we maintain the constraint that the algorithm must yield a solution to the search problem with probability at least one-half then we can say $\sum_x' \vert\braket{x\vert\psi_k^S}\vert^2\geq \frac{1}{2}$. Also, using the same argument as the one solution case, we can say without loss of generality that $\braket{x\vert \psi_k^S} = \vert \braket{x\vert\psi_k^S}\vert$. Now following a similar calculation as the one solution case,
 
 
 $$\begin{aligned}
 D_k &= \sum_S \left\Vert\psi_k^S - \psi_k\right\Vert^2 \\
-&= \sum_S \left\Vert\\left(\psi_k^S - \phi_S \right) + \left(\phi_S - \psi_k\right)\right\Vert^2 \\
+&= \sum_S \left\Vert\left(\psi_k^S - \phi_S \right) + \left(\phi_S - \psi_k\right)\right\Vert^2 \\
 &\geq \sum_S\Vert\psi_k^S-\phi_S\Vert^2 + \Vert \phi_S-\psi_k\Vert^2 - 2\Vert\psi_k^S-\phi_S\Vert \Vert \phi_S-\psi_k\Vert\\
 &= E_k + F_k - 2\sqrt{E_kF_k} \\
 \end{aligned}$$
@@ -847,7 +849,7 @@ E_k &= \sum_S\Vert\psi_k^S-\phi_S\Vert^2 \\
 &\leq 2\binom{N}{M} - \frac{2}{\sqrt{M}}\sum_S \sum_x'\left\vert\braket{\psi_k^S\vert x}\right\vert^2\\
 &\leq 2\binom{N}{M} - \frac{1}{\sqrt{M}}\binom{N}{M}\\
 &=2\frac{N}{M}\binom{N-1}{M-1} - \frac{N}{M\sqrt{M}}\binom{N-1}{M-1}\\
-&=\frac{N}{M}\binom{N-1}{M-1}\left(1-\frac{1}{\sqrt{M}} \right)
+&=\frac{N}{M}\binom{N-1}{M-1}\left(2-\frac{1}{\sqrt{M}} \right)
 \end{aligned}$$ 
 
 and 
@@ -870,17 +872,14 @@ then
 
 $$\begin{aligned}
 D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
-&= \frac{N}{M}\binom{N-1}{M-1}\left(2 - \frac{2}{\sqrt{N}} + 1-\frac{1}{\sqrt{M}} -2\sqrt{\left(1-\frac{1}{\sqrt{M}} \right)\left(2 - \frac{2}{\sqrt{N}} \right)} \right)\\
-&\geq \frac{N}{M}\binom{N-1}{M-1}c
+&= \frac{N}{M}\binom{N-1}{M-1}\left(2 - \frac{2}{\sqrt{N}} + 2-\frac{1}{\sqrt{M}} -2\sqrt{\left(2-\frac{1}{\sqrt{M}} \right)\left(2 - \frac{2}{\sqrt{N}} \right)} \right)\\
+&= \frac{N}{M}\binom{N-1}{M-1}\left(\sqrt{2-\frac{2}{\sqrt{N}}} - \sqrt{2-\frac{1}{\sqrt{M}}} \right)^2\\
+&= \frac{N}{M}\binom{N-1}{M-1}C(N,M)
 \end{aligned}$$
 
-where $c$ is any constant less than $0.05$, to account for the case when $M=2$ and $N=2$. Since $D_k \leq 4k^2\binom{N-1}{M-1}$ this implies that
+where $C(N,M) = \left(\sqrt{2-\frac{2}{\sqrt{N}}} - \sqrt{2-\frac{1}{\sqrt{M}}} \right)^2\geq 0$. Unfortunately, $C(N,M)$ can become arbitrarily small and even vanishes at $M=N/4$, so this route does not yield a clean constant which would allow us to follow the same procedure outlined in the book for the one solution case.  Looking back, we see that the single solution case depended on $E_k < F_k$. For the multi-case solution, that is not guaranteed and, in fact, is not the case for $M\geq N/4$. 
 
-$$\begin{aligned}
-k\geq \sqrt{\frac{cN}{4M}}
-\end{aligned}$$
-
-Therefore, we must call the oracle $\Omega(\sqrt{N/M})$ times.
+I went looking in the literature to try to figure out what was going on and found relevant information in [Tight bounds on quantum searching](https://arxiv.org/pdf/quant-ph/9605034). The paper points out that the $M=N/4$ case is special, because in that regime a single iteration of Grover’s algorithm finds a solution with certainty. This may explain why my distance-based lower-bound approach behave oddly or degenerate near this regime. The paper also contains an alternative route to proving the lower bounds on the multi-solution quantum search algorithm. Their approach partitions the search space into disjoint subsets of size $N/M$ and then reduced the problem to the single solution case in an $N_M=N/M$ item space, which then requires $\Omega(\sqrt{N_M})=\Omega(\sqrt{N/M})$ oracle calls.
 
 
 

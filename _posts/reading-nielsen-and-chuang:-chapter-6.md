@@ -899,8 +899,32 @@ p(X) &= \sum_{Y\in\lbrace 0,1,\rbrace^N} F(Y)\prod_{k=0}^{N-1}\left\lbrack 1-(Y_
 
 However, there can be many different $p$ which represents the same $F(X)$ and this one is not gaurenteed to be the one with the smallest possible degree, which is labeled $\text{deg}(F)$. What we need to prove is that there is exactly one polynomial of degree $\text{deg}(F)$ that agrees with $F$ on all Boolean inputs, i.e. show that if two polynomials agree on all Boolean inputs and both have degree $\text{deg}(F)$, then they must be the same polynomial (their coefficients are identical).
 
-Let's say for the purpose of contradiction that there exists two polynomials, $p$ and $q$ of degree $\text{deg}(F)$ which have different coefficients, but both represent the function $F(X)$. This means that $p(X)=F(X)=q(X)$ for all $X\in\lbrace 0,1 \rbrace^n$. The polynomials can be written as 
+Let's say for the purpose of contradiction that there exists two polynomials, $p$ and $q$ of degree $\text{deg}(F)$ which have different coefficients, but both represent the function $F(X)$. This means that $p(X)=F(X)=q(X)$ for all $X\in\lbrace 0,1 \rbrace^n$ and so if we define the difference as $r(X)=p(X)-q(X)$ we know that $r(X)=0$ for all $X\in\lbrace 0,1 \rbrace^n$.
 
+Let's first consider the degree 1 case
+
+$$\begin{aligned}
+p(X) &= p_c + p_0X_0 \\
+q(X) &= q_c + q_0X_0 \\
+r(X) &= p_c-q_c + (p_0-q_0)X_0\\
+\end{aligned}$$
+
+For $X_0=0$ we have
+
+$$\begin{aligned}
+r(X_0=0) &= p_c-q_c \\
+&= 0\\
+\end{aligned}$$
+
+therefore, $p_c = q_c$. Then for $X_0=1$ we have
+
+$$\begin{aligned}
+r(X_0=0) &= p_c-q_c + p_0-q_0 \\
+&= p_0-q_0 & \text{since $p_c = q_c$}\\
+&= 0 \\
+\end{aligned}$$
+
+Therefore, $p_0=q_0$ and so for degree 1 we have shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function. 
 
 
 

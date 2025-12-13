@@ -960,7 +960,7 @@ r(X) &= p_c-q_c + p_i-q_i + p_j-q_j + p_{ij} - q_{ij} \\
 
 therefore, $p_{ij}=q_{ij}$ and so for degree 2 we have shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function. 
 
-The same reasoning can be applied to polynomials of any degree. Suppose we have
+The same reasoning can be applied to polynomials of any degree. Suppose we have $\text{deg}(F)=d$, then
 
 $$\begin{aligned}
 p(X) &= p_c + \sum_{S\subseteq \lbrack N\rbrack, \vert S \vert \leq d} p_S\prod_{i\in S} X_i\\

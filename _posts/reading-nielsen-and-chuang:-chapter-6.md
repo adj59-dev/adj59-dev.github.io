@@ -784,7 +784,7 @@ Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omeg
 
 Note: I tried to solve this problem using the same approach that the authors took for the one solution case. This does not work, but I am leaving that proof below for my own notes and in case other folks want to see it. 
 
-For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are required to find a solution to the search problem that has $M$ solutions.
+For this one, I am also going to assume that we need to prove $\Omega(\sqrt{N/M})$ oracle calls are required to find a solution to the search problem that has $M$ solutions, as the authors already proved that $O(\sqrt{N/M})$ oracle calls were required in section 6.1.4 using a geometric argument. 
 
 Now that there are multiple solutions, the oracle is $O_S=I-2\sum_x' \ket{x}\bra{x}$  where $\sum_x'$ represents the sum over all $M$ solutions to the search problem. 
 

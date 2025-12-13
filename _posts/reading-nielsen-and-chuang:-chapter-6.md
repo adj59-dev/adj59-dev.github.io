@@ -1021,8 +1021,17 @@ when $X_i = 1$ for at least one $i$, then $P(X)=1$ and if all $X_i=0$ then $P(X)
 
 ### Exercise 6.20 {#exercise-620}
 
+Before the quantum circuit we start with state
 
+$$\begin{aligned}
+\ket{\psi_0}&= \sum_{ij}\left(a_{i0j}\ket{i}\ket{0} + a_{i1j}\ket{i}\ket{1}\right)\ket{j}
+\end{aligned}$$
 
+after the circuit the state is 
+
+$$\begin{aligned}
+\ket{\psi_1}&= \sum_{ij}\left(a_{i0j}\ket{i}\ket{0} + a_{i1j}\ket{i}\ket{1}\right)\ket{j}
+\end{aligned}$$
 
 
 ## Chapter problems

@@ -997,14 +997,14 @@ $$\begin{aligned}
 r(X) &= (p_S - q_S) + \sum_{T \subset S} (p_T - q_T) \\
 \end{aligned}$$
 
-by induction we can show that for every subset $T$ in $S$ the coefficients $p_T=q_T$, we get 
+by induction we can show that for every subset $T$ in $S$ the coefficients $p_T=q_T$, and so we get 
 
 $$\begin{aligned}
-r(X) &=(p_S - q_S \\
+r(X) &=p_S - q_S \\
 &= 0
 \end{aligned}$$
 
-so $p_S=q_S$ and therefore shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function.
+which gives $p_S=q_S$ and therefore we shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function.
 
 
 

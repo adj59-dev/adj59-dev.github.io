@@ -891,9 +891,15 @@ I went looking in the literature to try to figure out what was going on and foun
 
 ### Exercise 6.18
 
+In section 6.7 we are told that there exists at least one polynomial $p$ that represents $F(X)$ and can be constructed as
 
+$$\begin{aligned}
+p(X) &= \sum_{Y\in\lbrace 0,1,\rbrace^N} F(Y)\prod_{k=0}^{N-1}\left\lbrack 1-(Y_k-X_k)^2\right\rbrack
+\end{aligned}$$
 
+However, there can be many different $p$ which represents the same $F(X)$ and this one is not gaurenteed to be the one with the smallest possible degree, which is labeled $\text{deg}(F)$. What we need to prove is that there is exactly one polynomial of degree $\text{deg}(F)$ that agrees with $F$ on all Boolean inputs, i.e. show that if two polynomials agree on all Boolean inputs and both have degree $\text{deg}(F)$, then they must be the same polynomial (their coefficients are identical).
 
+Let's say for the purpose of contradiction that there exists two polynomials, $p$ and $q$ of degree $\text{deg}(F)$ which have different coefficients, but both represent the function $F(X)$. This means that $p(X)=F(X)=q(X)$ for all $X\in\lbrace 0,1 \rbrace^n$. The polynomials can be written as 
 
 
 

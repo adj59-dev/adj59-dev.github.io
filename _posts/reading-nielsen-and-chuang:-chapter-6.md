@@ -881,7 +881,7 @@ where $C(N,M) = \left(\sqrt{2-\frac{2}{\sqrt{N}}} - \sqrt{2-\frac{1}{\sqrt{M}}} 
 
 I went looking in the literature to try to figure out what was going on and found relevant information in [Tight bounds on quantum searching](https://arxiv.org/pdf/quant-ph/9605034). The paper points out that the $M=N/4$ case is special, because in that regime a single iteration of Grover’s algorithm finds a solution with certainty. This may explain why my distance-based lower-bound approach behave oddly or degenerate near this regime. The paper also contains an alternative route to proving the lower bounds on the multi-solution quantum search algorithm. Their approach partitions the search space into disjoint subsets of size $N/M$ and then reduces the problem to the single solution case in an $N_M=N/M$ item space, which then requires $\Omega(\sqrt{N_M})=\Omega(\sqrt{N/M})$ oracle calls.
 
-
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -889,7 +889,7 @@ I went looking in the literature to try to figure out what was going on and foun
 ##  Black box algorithm limits
 
 
-### Exercise 6.18
+### Exercise 6.18 {#exercise-618}
 
 In section 6.7 we are told that there exists at least one polynomial $p$ that represents $F(X)$ and can be constructed as
 
@@ -1006,8 +1006,20 @@ r(X) &=p_S - q_S \\
 
 which gives $p_S=q_S$ and therefore we shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function.
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
+### Exercise 6.19 {#exercise-619}
+
+For the function
+
+$$\begin{aligned}
+P(X) &= 1 - (1-X_0)(1-X_1)\cdots(1-X_{N-1})
+\end{aligned}$$
+
+when $X_i = 1$ for at least one $i$, then $P(X)=1$ and if all $X_i=0$ then $P(X)=0$. This is the behavior of the OR function. 
+
+### Exercise 6.20 {#exercise-620}
 
 
 

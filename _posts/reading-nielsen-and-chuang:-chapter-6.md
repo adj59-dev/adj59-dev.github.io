@@ -894,37 +894,121 @@ I went looking in the literature to try to figure out what was going on and foun
 In section 6.7 we are told that there exists at least one polynomial $p$ that represents $F(X)$ and can be constructed as
 
 $$\begin{aligned}
-p(X) &= \sum_{Y\in\lbrace 0,1,\rbrace^N} F(Y)\prod_{k=0}^{N-1}\left\lbrack 1-(Y_k-X_k)^2\right\rbrack
+p(X) &= \sum_{Y\in\lbrace 0,1\rbrace^N} F(Y)\prod_{k=0}^{N-1}\left\lbrack 1-(Y_k-X_k)^2\right\rbrack
 \end{aligned}$$
 
-However, there can be many different $p$ which represents the same $F(X)$ and this one is not gaurenteed to be the one with the smallest possible degree, which is labeled $\text{deg}(F)$. What we need to prove is that there is exactly one polynomial of degree $\text{deg}(F)$ that agrees with $F$ on all Boolean inputs, i.e. show that if two polynomials agree on all Boolean inputs and both have degree $\text{deg}(F)$, then they must be the same polynomial (their coefficients are identical).
+However, there can be many different $p$ which represents the same $F(X)$ and this one is not guaranteed to be the one with the smallest possible degree, which is labeled $\text{deg}(F)$. What we need to prove is that there is exactly one polynomial of degree $\text{deg}(F)$ that agrees with $F$ on all Boolean inputs, i.e. show that if two polynomials agree on all Boolean inputs and both have degree $\text{deg}(F)$, then they must be the same polynomial (their coefficients are identical).
 
-Let's say for the purpose of contradiction that there exists two polynomials, $p$ and $q$ of degree $\text{deg}(F)$ which have different coefficients, but both represent the function $F(X)$. This means that $p(X)=F(X)=q(X)$ for all $X\in\lbrace 0,1 \rbrace^n$ and so if we define the difference as $r(X)=p(X)-q(X)$ we know that $r(X)=0$ for all $X\in\lbrace 0,1 \rbrace^n$.
+Let's say for the purpose of contradiction that there exist two polynomials, $p$ and $q$ of degree $\text{deg}(F)$ which have different coefficients, but both represent the function $F(X)$. This means that $p(X)=F(X)=q(X)$ for all $X\in\lbrace 0,1 \rbrace^N$ and so if we define the difference as $r(X)=p(X)-q(X)$ we know that $r(X)=0$ for all $X\in\lbrace 0,1 \rbrace^N$.
 
-Let's first consider the degree 1 case
+Let's first consider a $\text{deg}(F)=1$ case
 
 $$\begin{aligned}
-p(X) &= p_c + p_0X_0 \\
-q(X) &= q_c + q_0X_0 \\
-r(X) &= p_c-q_c + (p_0-q_0)X_0\\
+p(X) &= p_c + \sum_{i=0}^{N-1}p_i X_i \\
+q(X) &= q_c + \sum_{i=0}^{N-1}q_i X_i  \\
+r(X) &= p_c-q_c + \sum_{i=0}^{N-1}(p_i-q_i) X_i \\
 \end{aligned}$$
 
-For $X_0=0$ we have
+For $X_i=0$ for all $i$ we have
 
 $$\begin{aligned}
-r(X_0=0) &= p_c-q_c \\
+r(X) &= p_c-q_c \\
 &= 0\\
 \end{aligned}$$
 
-therefore, $p_c = q_c$. Then for $X_0=1$ we have
+therefore, $p_c = q_c$. Then when $X_i=1$ for only one $i$ we have
 
 $$\begin{aligned}
-r(X_0=0) &= p_c-q_c + p_0-q_0 \\
-&= p_0-q_0 & \text{since $p_c = q_c$}\\
+r(X) &= p_c-q_c + p_i-q_i \\
+&= p_i-q_i & \text{since $p_c = q_c$}\\
 &= 0 \\
 \end{aligned}$$
 
-Therefore, $p_0=q_0$ and so for degree 1 we have shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function. 
+Therefore, $p_i=q_i$ and so for degree 1 we have shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function. 
+
+Now let's look at a $\text{deg}(F)=2$ case
+
+$$\begin{aligned}
+p(X) &= p_c + \sum_{i=0}^{N-1}p_i X_i + \sum_{i\lt j} p_{ij}X_iX_j \\
+q(X) &= q_c + \sum_{i=0}^{N-1}q_i X_i + \sum_{i\lt j} q_{ij}X_iX_j \\
+r(X) &= p_c - q_c + \sum_{i=0}^{N-1}(p_i-q_i) X_i + \sum_{i\lt j} ( p_{ij} - q_{ij} ) X_iX_j \\
+\end{aligned}$$
+
+For $X_i=0$ for all $i$ we still have
+
+$$\begin{aligned}
+r(X) &= p_c-q_c \\
+&= 0\\
+\end{aligned}$$
+
+and so $p_c=q_c$. Then when $X_i=1$ for only one $i$ we have
+
+$$\begin{aligned}
+r(X) &= p_c-q_c + p_i-q_i \\
+&= p_i-q_i & \text{since $p_c = q_c$}\\
+&= 0 \\
+\end{aligned}$$
+
+therefore, $p_i=q_i$. Then, when $X_i=X_j=1$ but only for one $i$ and $j$ where $i\neq j$ then
+
+$$\begin{aligned}
+r(X) &= p_c-q_c + p_i-q_i + p_j-q_j + p_{ij} - q_{ij} \\
+&= p_{ij}-q_{ij} \\
+&= 0 \\
+\end{aligned}$$
+
+
+therefore, $p_{ij}=q_{ij}$ and so for degree 2 we have shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function. 
+
+The same reasoning can be applied to polynomials of any degree. Suppose we have
+
+$$\begin{aligned}
+p(X) &= p_c + \sum_{S\subseteq \lbrack N\rbrack, \vert S \vert \leq d} p_S\prod_{i\in S} X_i\\
+q(X) &= q_c  + \sum_{S\subseteq \lbrack N\rbrack, \vert S \vert \leq d} q_S\prod_{i\in S} X_i\\
+r(X) &= p_c-q_c + \sum_{S\subseteq \lbrack N\rbrack, \vert S \vert \leq d} (p_S - q_S)\prod_{i\in S} X_i\\
+\end{aligned}$$
+
+Just like the degree 1 and 2 cases, if we set $X_i=0$ for all $i$ we still have
+
+$$\begin{aligned}
+r(X) &= p_c-q_c \\
+&= 0\\
+\end{aligned}$$
+
+and so $p_c=q_c$. Then when $X_i=1$ for only one $i$ we have
+
+$$\begin{aligned}
+r(X) &= p_c-q_c + p_i-q_i \\
+&= p_i-q_i & \text{since $p_c = q_c$}\\
+&= 0 \\
+\end{aligned}$$
+
+therefore, $p_i=q_i$. Then, when $X_i=X_j=1$ but only for one $i$ and $j$ where $i\neq j$ then
+
+$$\begin{aligned}
+r(X) &= p_c-q_c + p_i-q_i + p_j-q_j + p_{ij} - q_{ij} \\
+&= p_{ij}-q_{ij} \\
+&= 0 \\
+\end{aligned}$$
+
+therefore, $p_{ij}=q_{ij}$. For higher-degree terms, we use the same idea where we pick a subset $S \subset N$ and set all $X_i=1$ if $i\in S$ which gives
+
+$$\begin{aligned}
+r(X) &= (p_S - q_S) + \sum_{T \subset S} (p_T - q_T) \\
+\end{aligned}$$
+
+by induction we can show that for every subset $T$ in $S$ the coefficients $p_T=q_T$, we get 
+
+$$\begin{aligned}
+r(X) &=(p_S - q_S \\
+&= 0
+\end{aligned}$$
+
+so $p_S=q_S$ and therefore shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function.
+
+
+
+
 
 
 

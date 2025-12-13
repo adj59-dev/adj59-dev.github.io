@@ -889,7 +889,17 @@ I went looking in the literature to try to figure out what was going on and foun
 ##  Black box algorithm limits
 
 
+### Exercise 6.18
 
+
+
+
+
+
+
+
+
+## Chapter problems
 
 
 

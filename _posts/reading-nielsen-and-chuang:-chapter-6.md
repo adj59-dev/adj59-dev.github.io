@@ -1033,11 +1033,22 @@ The amplitudes of these states are polynomial of degree $N$. We know that each o
 
 ## Chapter problems
 
+### Problem 6.1 {#problem-61}
+
+The authors cite this paper as inspiration for this problem:
+[A quantum algorithm for finding the minimum](https://arxiv.org/pdf/quant-ph/9607014)
+
+
+### Problem 6.2 {#problem-62}
 
 
 
 
+### Problem 6.3 {#problem-63}
+
+The authors cite this paper as inspiration for this problem:
+[Quantum Oracle Interrogation: Getting All Information for Almost Half the Price](https://arxiv.org/pdf/quant-ph/9805006)
 
 
 
-
+### Problem 6.4 {#problem-64}

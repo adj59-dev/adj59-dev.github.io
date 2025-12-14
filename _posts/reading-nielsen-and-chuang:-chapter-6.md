@@ -1021,17 +1021,14 @@ when $X_i = 1$ for at least one $i$, then $P(X)=1$ and if all $X_i=0$ then $P(X)
 
 ### Exercise 6.20 {#exercise-620}
 
-Before the quantum circuit we start with state
+A state that computes the OR function with zero error can be written as
 
 $$\begin{aligned}
-\ket{\psi_0}&= \sum_{ij}\left(a_{i0j}\ket{i}\ket{0} + a_{i1j}\ket{i}\ket{1}\right)\ket{j}
+\ket{\psi} &= \left((1-X_0)(1-X_1)\cdots(1-X_{N-1})\right)\ket{0}+ \left(1 - (1-X_0)(1-X_1)\cdots(1-X_{N-1})\right)\ket{1}
 \end{aligned}$$
 
-after the circuit the state is 
+The amplitudes of these states are polynomial of degree $N$. We know that each oracle call can increase the degree of these amplitudes, but the other unitary operations in the circuit do not change the degree. Therefore, since these amplitudes are degree $N$ this means at least $N$ oracle calls are made in the circuit. Therefore, $Q_0(OR)\geq N$. 
 
-$$\begin{aligned}
-\ket{\psi_1}&= \sum_{ij}\left(a_{i0j}\ket{i}\ket{0} + a_{i1j}\ket{i}\ket{1}\right)\ket{j}
-\end{aligned}$$
 
 
 ## Chapter problems

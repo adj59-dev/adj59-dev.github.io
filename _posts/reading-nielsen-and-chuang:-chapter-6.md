@@ -1038,6 +1038,17 @@ The amplitudes of these states are polynomial of degree $N$. We know that each o
 The authors cite this paper as inspiration for this problem:
 [A quantum algorithm for finding the minimum](https://arxiv.org/pdf/quant-ph/9607014)
 
+If $x_1,\cdots,x_N$ is a database of numbers held in memory, than the following algorithm can be used to find the minimum value with probability of at least $1/2$. 
+1. Choose a random index $y$ to use as a threshold
+2. Use the quantum search algorithm with an oracle that marks all indexes $i$ where $x_i < x_y$ which is implemented with the LOAD operation, as outlined in Section 6.5. Take a measurement to sample one of the solution indexes $s$ and if $x_s < x_y$ set $y=s$. Repeat as needed to reach the desired probability of success.
+3. Return $y$
+
+In order to find how many accesses to the memory are required, we need to determine how may times step 2 needs to be repeated. We know that each time the step is repeated $O(\sqrt{N})$ LOAD oeprations are performed. 
+
+At step 1, there is a $1/N$ probability that $x_y$ is the minimum value in the database. 
+
+
+
 
 ### Problem 6.2 {#problem-62}
 

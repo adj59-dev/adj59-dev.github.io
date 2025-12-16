@@ -1040,14 +1040,30 @@ The authors cite this paper as inspiration for this problem:
 
 If $x_1,\cdots,x_N$ is a database of numbers held in memory, than the following algorithm can be used to find the minimum value with probability of at least $1/2$. 
 1. Choose a random index $y$ to use as a threshold
-2. Use the quantum search algorithm with an oracle that marks all indexes $i$ where $x_i < x_y$ which is implemented with the LOAD operation, as outlined in Section 6.5. Take a measurement to sample one of the solution indexes $s$ and if $x_s < x_y$ set $y=s$. Repeat as needed to reach the desired probability of success.
-3. Return $y$
+2. Use the quantum counting algorithm to determine $M_y = \vert \lbrace i: x_i<x_y\rbrace\vert$ which is implemented with the LOAD operation, as outlined in Section 6.5
+3. If $M_y > 0$, use the quantum search algorithm with an oracle that marks all indexes $i$ where $x_i < x_y$ which is implemented with the LOAD operation, as outlined in Section 6.5. Take a measurement to sample one of the solution indexes $s$ and if $x_s < x_y$ set $y=s$. Repeat steps 2 and 3 as needed to reach the desired probability of success.
+5. Return $y$
 
-In order to find how many accesses to the memory are required, we need to determine how may times step 2 needs to be repeated. We know that each time the step is repeated $O(\sqrt{N})$ LOAD oeprations are performed. 
+In order to find how many accesses to the memory are required, we need to determine how may times step 2 and 3 need to be repeated. We know that each time these steps are repeated $O(\sqrt{N})$ LOAD oeprations are performed. 
 
-At step 1, there is a $1/N$ probability that $x_y$ is the minimum value in the database. 
+After one itteration of step 2, there is a $1/N$ probability that $x_y$ is the minimum value in the database. 
+
+After two itterations of step 2, there is a 
+
+$$\begin{aligned}
+\frac{1}{N} + \frac{1}{N}\sum_{i=1}^{N-1}\frac{1}{i} & \geq \frac{1}{N}\left(2 + \frac{1}{2}\log(N-1) \right)\\
+\end{aligned}$$
+
+probability that $x_y$ is the minimum value in the database.
+
+After $k$ itterations of step 2,
 
 
+$$\begin{aligned}
+\frac{1}{N} + \frac{1}{N}\sum_{j=1}^{k-1}\sum_{i=j}^{N-1}\frac{1}{i} &= \frac{1}{N} + \frac{k}{N}\sum_{i=j}^{N-1}\frac{1}{i} - \frac{1}{N}\sum_{j=1}^{k-1}\frac{1}{j}\\
+&\geq \frac{1}{N}\left(1 + k + \frac{1}{2}k\log(N-1) - 1 - \frac{1}{2}\log(k-1)\right)\\
+&= \frac{1}{N}\left(k + \frac{1}{2}k\log(N-1) - \frac{1}{2}\log(k-1)\right)\\
+\end{aligned}$$
 
 
 ### Problem 6.2 {#problem-62}

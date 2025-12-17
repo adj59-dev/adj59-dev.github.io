@@ -1089,20 +1089,36 @@ Therefore, if we put two qubits in $\ket{\Phi^+}$, applied the unknown oracle to
 (3) We can create Bell-like states with a larger number of qubits, giving us however large of basis we need to differentiate between the different oracles. Therefore, as long as we can create some probe state $\ket{\Phi}$ such that the output states $\left(U_{\ket{\psi_j}}\otimes I\right)\ket{\Phi}$ are mutually orthogonal, then we should be able to identify the oracle with just one measurement with high probability.  
 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
 ### Problem 6.3 {#problem-63}
 
-The authors cite this paper as inspiration for this problem:
+The authors cite this paper as inspiration for this problem. It contains the solution.
 [Quantum Oracle Interrogation: Getting All Information for Almost Half the Price](https://arxiv.org/pdf/quant-ph/9805006)
 
 
 
+
+
+
+
+
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
 ### Problem 6.4 {#problem-64}
 
-[HANDBOOK of APPLIED CRYPTOGRAPHY](https://theswissbay.ch/pdf/Gentoomen%20Library/Cryptography/Handbook%20of%20Applied%20Cryptography%20-%20Alfred%20J.%20Menezes.pdf)
-
-[Applied Cryptography, Second Edition](https://ia801209.us.archive.org/8/items/Applied_Cryptography_2nd_ed._B._Schneier/Applied_Cryptography_2nd_ed._B._Schneier.pdf)
+Quantum search algorithms provide a quadratic speedup for unstructured search problems. This makes them applicable to use for brute-force key search in many cryptosystems, including DES, where an efficient way already exists to test whether a candidate key produces a meaningful message. However, the Vernam cipher remains secure because all keys are equally likely to produce a plausible message, so no oracle can be made to distinguish the correct key from incorrect ones. Therefore, the quantum search algorithm can't be used to speed up the search for the Vernam cipher key. 
 
 
+
+
+
+
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

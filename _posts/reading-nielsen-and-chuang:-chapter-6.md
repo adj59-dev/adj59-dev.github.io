@@ -1042,28 +1042,72 @@ If $x_1,\cdots,x_N$ is a database of numbers held in memory, than the following 
 1. Choose a random index $y$ to use as a threshold
 2. Use the quantum counting algorithm to determine $M_y = \vert \lbrace i: x_i<x_y\rbrace\vert$ which is implemented with the LOAD operation, as outlined in Section 6.5
 3. If $M_y > 0$, use the quantum search algorithm with an oracle that marks all indexes $i$ where $x_i < x_y$ which is implemented with the LOAD operation, as outlined in Section 6.5. Take a measurement to sample one of the solution indexes $s$ and if $x_s < x_y$ set $y=s$. Repeat steps 2 and 3 as needed to reach the desired probability of success.
-5. Return $y$
+4. Return $y$
 
-In order to find how many accesses to the memory are required, we need to determine how may times step 2 and 3 need to be repeated. We know that each time these steps are repeated $O(\sqrt{N})$ LOAD oeprations are performed. 
+In order to find how many accesses to the memory are required, we need to determine how may times step 2 and 3 need to be repeated. We know that each time these steps are repeated $O(\sqrt{N})$ LOAD operations are performed. 
 
-After one itteration of step 2, there is a $1/N$ probability that $x_y$ is the minimum value in the database. 
-
-After two itterations of step 2, there is a 
+If we let $r_k$ be the rank of $x_y$ after $k$ iterations of steps 2 and 3, then the probability of $r_0$ being any specific rank $r$ is equal to $\frac{1}{N}$. As the rank evolves with repeated steps, if $r_k=1$ then it stays 1, otherwise the probability of the next rank of $x_y$ being $s$ is
 
 $$\begin{aligned}
-\frac{1}{N} + \frac{1}{N}\sum_{i=1}^{N-1}\frac{1}{i} & \geq \frac{1}{N}\left(2 + \frac{1}{2}\log(N-1) \right)\\
+P(r_{k+1} = s \vert r_k = r) = \frac{1}{r-1} & \text{for $s\in\lbrace 1,2,\cdots,r-1\rbrace$}
 \end{aligned}$$
 
-probability that $x_y$ is the minimum value in the database.
-
-After $k$ itterations of step 2,
-
+We can calculate the expectation values for $r_{k+1}$ when $r_{k}=r$. For the case of $r_{k}=1$ we know that $r_{k+1}=1$ and so $\mathbb{E}\lbrack r_{k+1} \vert r_k=1 \rbrack = 1$. For $r_{k}>1$,
 
 $$\begin{aligned}
-\frac{1}{N} + \frac{1}{N}\sum_{j=1}^{k-1}\sum_{i=j}^{N-1}\frac{1}{i} &= \frac{1}{N} + \frac{k}{N}\sum_{i=j}^{N-1}\frac{1}{i} - \frac{1}{N}\sum_{j=1}^{k-1}\frac{1}{j}\\
-&\geq \frac{1}{N}\left(1 + k + \frac{1}{2}k\log(N-1) - 1 - \frac{1}{2}\log(k-1)\right)\\
-&= \frac{1}{N}\left(k + \frac{1}{2}k\log(N-1) - \frac{1}{2}\log(k-1)\right)\\
+\mathbb{E}\lbrack r_{k+1} \vert r_k=r \rbrack &= \sum_{i=1}^{r-1} i P(r_{k+1} = i \vert r_k = r) \\
+&= \sum_{i=1}^{r-1} \frac{i}{r-1} \\
+&= \frac{(r-1)r}{2}\frac{1}{r-1}\\
+&= \frac{r}{2}
 \end{aligned}$$
+
+Using the law of total expectation, we can say that the expectation value for $r_{k+1}$ is then,
+
+$$\begin{aligned}
+\mathbb{E}\lbrack r_{k+1}\rbrack &= \mathbb{E}\lbrack\mathbb{E}\lbrack r_{k+1} \vert r_k=r \rbrack \rbrack \\
+&= \sum_{i=1}^{N} P(r_{k}=i)\mathbb{E}\lbrack r_{k+1} \vert r_k=i \rbrack \\
+&= P(r_{k}=1)\mathbb{E}\lbrack r_{k+1} \vert r_k=1 \rbrack + \sum_{i=2}^{N} P(r_{k}=i)\mathbb{E}\lbrack r_{k+1} \vert r_k=i \rbrack \\
+&= P(r_{k}=1) + \sum_{i=2}^{N} P(r_{k}=i)\frac{i}{2}\\
+&= \frac{1}{2}P(r_{k}=1) + \frac{1}{2}\sum_{i=1}^{N} P(r_{k}=i)i\\
+&= \frac{1}{2}P(r_{k}=1) + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack\\
+&\leq \frac{1}{2} + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack & \text{since $P(r_{k}=1)\leq 1$}\\
+\end{aligned}$$
+
+Let's try $\mathbb{E}\lbrack r_{k}\rbrack \leq 1+\frac{N-1}{2^k}$, then
+
+$$\begin{aligned}
+\mathbb{E}\lbrack r_{k+1}\rbrack &\leq \frac{1}{2} + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack \\
+&\leq \frac{1}{2} + \frac{1}{2}\left(1+\frac{N-1}{2^k}\right)\\
+&= 1+\frac{N-1}{2^{k+1}} \\
+\end{aligned}$$
+
+which completes the induction. We now know that
+
+$$\begin{aligned}
+1+\frac{N-1}{2^k} &\geq \mathbb{E}\lbrack r_{k}\rbrack \\
+&= \sum_{i=1}^N iP(r_k=i)\\
+&= P(r_k=1) + \sum_{i=2}^N iP(r_k=i)\\
+&\geq P(r_k=1) + 2P(r_k\geq 2)\\
+&= P(r_k=1) + 2(1-P(r_k=1))\\
+&= 2-P(r_k=1)\\
+P(r_k=1) \geq 1- \frac{N-1}{2^k}\\
+\end{aligned}$$
+
+Since we need the probability of finding the minimum value to be greater than $1/2$, so we need $P(r_k=1)\geq 1/2$. To guarantee this we need
+
+$$\begin{aligned}
+\frac{1}{2} \leq 1- \frac{N-1}{2^k}\\
+\frac{N-1}{2^k} \leq \frac{1}{2}\\
+N-1 \leq 2^{k-1} \\
+\log(N-1)\leq k-1 \\
+\log(N-1) + 1 \leq k
+\end{aligned}$$
+
+Therefore, $k=O(\log(N))$ and so we need to iterate step 2 and 3 $O(\log(N))$ times. This means that the total number of accesses to the memory are required is $O(\log(N)\sqrt{N})$.
+
+
+
+
 
 
 ### Problem 6.2 {#problem-62}

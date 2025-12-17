@@ -80,11 +80,6 @@ I just finished reading Chapter 6 of *Quantum Computation and Quantum Informatio
 
 ### Exercise 6.1 {#exercise-61}
 
-Show that the unitary operator corresponding to the phase shift in the Grover iteration is $2\ket{0}\bra{0} - I$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
-
 Let's calculate $U\ket{x}$ and compare results to desired behavior, where $U=2\ket{0}\bra{0}-I$.
 
 $$\begin{aligned}
@@ -98,21 +93,9 @@ This matches the desired behavior and so the unitary operator corresponding to t
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.2 {#exercise-62}
 
-Show that the operation $(2\ket{\psi}\bra{\psi}-I)$ applied to a general state $\sum_{k}\alpha_k\ket{k}$ produces
-
-$$\begin{aligned}
-\sum_{k}\lbrack -\alpha_k+2\braket{\alpha}\rbrack\ket{k},
-\end{aligned}$$
-
-where $\braket{\alpha}\equiv \sum_k\alpha_k/N$ is the mean value of the $\alpha_k$. For this reason, $(2\ket{\psi}\bra{\psi}-I)$ is sometimes referred to as the inversion about mean operation.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 First let's rewrite $\ket{\psi}\bra{\psi}$ using equation 6.4
 
@@ -135,25 +118,8 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.3 {#exercise-63}
-
-Show that in the $\ket{\alpha}$, $\ket{\beta}$ basis, we may write the Grover iteration as
-
-$$\begin{aligned}
-G = \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\theta \end{bmatrix},
-\end{aligned}$$
-
-where $\theta$ is a real number in the range $0$ to $\pi/2$ (assuming for simplicity that $M\leq N/2$; this limitation will be lifted shortly, chosen so that 
-
-$$\begin{aligned}
-\sin\theta = \frac{2\sqrt{M(N-M)}}{N}
-\end{aligned}$$
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 We start with $\ket{\psi} = \cos\frac{\theta}{2}\ket{\alpha} + \sin\frac{\theta}{2}\ket{\beta}$ then
 
@@ -168,15 +134,8 @@ This agrees with equation 6.11. Therefore, the Grover iteration may be written a
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.4 {#exercise-64}
-
-Give explicit steps for the quantum search algorithm, as above, but for the case of multiple solutions $(1<M<N/2)$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Let $N=2^n$ and the subset $S$ represent a set of all solutions to the search problem, where $\vert S\vert = M$.
 
@@ -200,15 +159,10 @@ $$\begin{aligned}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
 ### Exercise 6.5 {#exercise-65}
 
-Show that the augmented oracle $O'$ may be constructed using one application of $O$, and elementary quantum gates, using the extra qubit $\ket{q}$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 We can build a circuit like the one below to make $O'$ by using one application of $O$ and two controlled-Z gates.
 
@@ -253,15 +207,9 @@ O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
 ### Exercise 6.6 {#exercise-66}
-
-Verify that the gates in the dotted box in the second figure of Box 6.1 perform the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 These are the gates that we need to verify:
 
@@ -306,19 +254,12 @@ Therefore, the dotted box in the second figure of Box 6.1 performs the condition
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 
 ## Quantum search as a quantum simulation
 
 
 ### Exercise 6.7 {#exercise-67}
-
-Verify that the circuits shown in Figures 6.4 and 6.5 implement the operations $\exp(-i\ket{x}\bra{x}\Delta t)$ and $\exp(-i\ket{\psi}\bra{\psi}\Delta t)$, respectively, with $\ket{\psi}$ as in (6.24).
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Figure 6.4 performs the operation
 
@@ -370,31 +311,18 @@ instead of the one drawn in the figure.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
 ### Exercise 6.8 {#exercise-68}
-
-Suppose the simulation step is performed to an accuracy $O(\Delta t^r)$. Show that the number of oracle calls required to simulate $H$ to reasonable accuracy is $O\left(N^{r/2(r-1)}\right)$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Since the step length is $\Delta t$ the total number of steps required is $t/\Delta t=\Theta(\sqrt{N}/\Delta t)$, and thus the cumulative error is $O(\Delta t^r\times \sqrt{N}/\Delta t) = O(\Delta t^{r-1}\sqrt{N})$. We need the error to be $O(1)$, which means we must choose $\Delta t = \Theta\left(N^{-\frac{1}{2(r-1)}}\right)$ and so the number of oracle calls scales like $O\left(\sqrt{N}/N^{-\frac{1}{2(r-1)}}\right) = O\left(N^{\frac{1}{2} + \frac{1}{2(r-1)}}\right) = O\left(N^{r/2(r-1)}\right)$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.9 {#exercise-69}
 
-Verify Equation (6.25).
-
 I couldn't initially find a "simple calculation" to verify this equation because I wasn't sure how to convert the equation into a composition of two rotation operations and so I instead brute forced it using some identities that I derived in [Exercise 4.6](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-46). Later, I did figure it out (I think) and re-did the exercise using the results from [Exercise 4.15](https://adj59-dev.github.io/2025/09/27/reading-nielsen-and-chuang-chapter-4.html#exercise-415), which was significantly easier. I've left both solutions below.  
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 $$\begin{aligned}
 U(\Delta t) &= e^{-i\ket{\psi}\bra{\psi}\Delta t}e^{-i\ket{x}\bra{x}\Delta t}\\
@@ -471,15 +399,8 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.10 {#exercise-610}
-
-Show that by choosing $\Delta t$ appropriately we can obtain a quantum search algorithm which uses $O(\sqrt{N})$ queries, and for which the final state is $\ket{x}$ exactly, that is, the algorithm works with probability 1, rather than with some smaller probability. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 If we chose $\Delta t=\pi$ then each oracle call rotates the state by $\theta\approx 4/\sqrt{N}$ and so the number of oracle calls required will be 
 
@@ -502,15 +423,9 @@ Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and G
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.11 {#exercise-611}
 
-Guess a Hamiltonian with which one may solve the continuous time search problem in the case where the search problem has $M$ solutions. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 I'm going to guess the following Hamiltonian
 
@@ -536,23 +451,9 @@ Thus at time $t=\frac{\pi}{2a}$ yields the result $\ket{\beta}$ with probability
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.12 {#exercise-612}
 
-Suppose 
-
-$$\begin{aligned}
-H=\ket{x}\bra{\psi} + \ket{\psi}\bra{x}
-\end{aligned}$$
-
-(1) Show that it takes $O(1)$ to rotate from the state $\ket{\psi}$ to the state $\ket{x}$, given an evolution according to the Hamiltonian $H$.
-
-(2) Explain how a quantum simulation of the Hamiltonian $H$ may be performed and determine the number of oracle calls your simulation technique requrires to obtain the solution with high probability. 
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 (1) Following the same steps that are on page 257, we can restrict the analysis to the two-dimensional space spanned by $\ket{x}$ and $\ket{\psi}$. Performing the Gram-Schmidt procedure, we can find $\ket{y}$ such that $\ket{x}$, $\ket{y}$ form an orthonormal basis for this space and that $\ket{\psi} = a\ket{x} + b\ket{y}$ where $a^2+b^2=1$. For convenience we have chosen the phases of $\ket{x}$ and $\ket{y}$ so that $a$ and $b$ are real and non-negative. In this basis we have
 
@@ -589,17 +490,10 @@ The total number of oracle calls will be dependent on the number of steps taken 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ## Quantum counting
 
 ### Exercise 6.13 {#exercise-613}
-
-Consider a classical algorithm for the counting problem which samples uniformly and independently $k$ times from the search space, and let $X_1,\cdots,X_k$ be the results of the oracle calls, that is, $X_j=1$ if the *j*th oracle call revealed a solution to the problem, and $X_j=0$ if the *j*th oracle call did not reveal a solution to the problem. This algorithm returns the estimate $S\equiv N\times \sum_j X_j/k$ for the number of solutions to the search problem. Show that the standard deviation in $S$ is $\Delta S=\sqrt{M(N-M)/k}$. Prove that to obtain a probability at least $3/4$ of estimating $M$ correctly to within an accuracy of $\sqrt{M}$ for all values of $M$ we must have $k=\Omega(N)$.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 Since the samples are uniform and independent, this oracle is sampling a Bernoulli distribution where there is a $p=\frac{M}{N}$ probability of the oracle call returning $X_j=1$ and a $1-p=\frac{N-M}{N}$ probability of returning $X_j=0$. The variance of a Bernoulli distribution for each $X_j$ is given by 
 
@@ -647,12 +541,9 @@ which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then n
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
-
 
 ### Exercise 6.14 {#exercise-614}
 
-Prove that any classical counting algorithm with a probability of at least $3/4$ for estimating $M$ correctly to within an accuracy $c\sqrt{M}$ for some constant $c$ and for all values of $M$ must make $\Omega(N)$ oracle calls. 
 
 I found this to be a really challenging exercise since I don't have much experience finding the lower bounds for a class of algorithms. Looking online, there seems to be a few common concepts used for doing this kind of analysis:
 * Comparison-based lower bounds (decision trees)
@@ -670,9 +561,6 @@ Based on what I read in those notes, I tracked down these YouTube videos to have
 * [Second Lecture on Adversary Lower Bounds](https://www.youtube.com/watch?v=4y6xstHvpz0&list=PL_w_qWAQZtAaNemYPcciRtoJLEJz5MwYW&index=14) - not as helpful
 
 I ended up using a decision tree/information theory argument for this exercise. But it was good to learn more about adversary arguments, even if they were not used.
-
-<details style="margin-bottom: 20px;" markdown="1">
-<summary><strong>Click to view the solution</strong></summary>
 
 First, we need to create a framework that defines the class of algorithms the authors call "*any* classical counting algorithm". 
 
@@ -713,8 +601,6 @@ $$\begin{aligned}
 Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
-
-</details>
 
 
 

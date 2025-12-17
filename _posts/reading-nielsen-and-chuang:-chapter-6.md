@@ -1053,7 +1053,15 @@ I am a little unsure how N&C intended for us to answer this problem. This paper 
 
 ### Problem 6.2 {#problem-62}
 
+(1) Let's look at $U$
 
+$$\begin{aligned}
+U = \ket{\psi}\bra{0} + \ket{\phi}\bra{1}
+\end{aligned}$$
+
+where $\ket{\phi}$ is orthogonal to $\ket{\psi}$. 
+
+(2) 
 
 
 ### Problem 6.3 {#problem-63}
@@ -1064,3 +1072,9 @@ The authors cite this paper as inspiration for this problem:
 
 
 ### Problem 6.4 {#problem-64}
+
+[HANDBOOK of APPLIED CRYPTOGRAPHY](https://theswissbay.ch/pdf/Gentoomen%20Library/Cryptography/Handbook%20of%20Applied%20Cryptography%20-%20Alfred%20J.%20Menezes.pdf)
+
+[Applied Cryptography, Second Edition](https://ia801209.us.archive.org/8/items/Applied_Cryptography_2nd_ed._B._Schneier/Applied_Cryptography_2nd_ed._B._Schneier.pdf)
+
+

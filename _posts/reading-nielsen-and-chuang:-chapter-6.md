@@ -1019,6 +1019,9 @@ P(X) &= 1 - (1-X_0)(1-X_1)\cdots(1-X_{N-1})
 
 when $X_i = 1$ for at least one $i$, then $P(X)=1$ and if all $X_i=0$ then $P(X)=0$. This is the behavior of the OR function. 
 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 ### Exercise 6.20 {#exercise-620}
 
 A state that computes the OR function with zero error can be written as
@@ -1030,6 +1033,8 @@ $$\begin{aligned}
 The amplitudes of these states are polynomial of degree $N$. We know that each oracle call can increase the degree of these amplitudes, but the other unitary operations in the circuit do not change the degree. Therefore, since these amplitudes are degree $N$ this means at least $N$ oracle calls are made in the circuit. Therefore, $Q_0(OR)\geq N$. 
 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 
 ## Chapter problems
 
@@ -1038,74 +1043,10 @@ The amplitudes of these states are polynomial of degree $N$. We know that each o
 The authors cite this paper as inspiration for this problem:
 [A quantum algorithm for finding the minimum](https://arxiv.org/pdf/quant-ph/9607014)
 
-If $x_1,\cdots,x_N$ is a database of numbers held in memory, than the following algorithm can be used to find the minimum value with probability of at least $1/2$. 
-1. Choose a random index $y$ to use as a threshold
-2. Use the quantum counting algorithm to determine $M_y = \vert \lbrace i: x_i<x_y\rbrace\vert$ which is implemented with the LOAD operation, as outlined in Section 6.5
-3. If $M_y > 0$, use the quantum search algorithm with an oracle that marks all indexes $i$ where $x_i < x_y$ which is implemented with the LOAD operation, as outlined in Section 6.5. Take a measurement to sample one of the solution indexes $s$ and if $x_s < x_y$ set $y=s$. Repeat steps 2 and 3 as needed to reach the desired probability of success.
-4. Return $y$
-
-In order to find how many accesses to the memory are required, we need to determine how may times step 2 and 3 need to be repeated. We know that each time these steps are repeated $O(\sqrt{N})$ LOAD operations are performed. 
-
-If we let $r_k$ be the rank of $x_y$ after $k$ iterations of steps 2 and 3, then the probability of $r_0$ being any specific rank $r$ is equal to $\frac{1}{N}$. As the rank evolves with repeated steps, if $r_k=1$ then it stays 1, otherwise the probability of the next rank of $x_y$ being $s$ is
-
-$$\begin{aligned}
-P(r_{k+1} = s \vert r_k = r) = \frac{1}{r-1} & \text{for $s\in\lbrace 1,2,\cdots,r-1\rbrace$}
-\end{aligned}$$
-
-We can calculate the expectation values for $r_{k+1}$ when $r_{k}=r$. For the case of $r_{k}=1$ we know that $r_{k+1}=1$ and so $\mathbb{E}\lbrack r_{k+1} \vert r_k=1 \rbrack = 1$. For $r_{k}>1$,
-
-$$\begin{aligned}
-\mathbb{E}\lbrack r_{k+1} \vert r_k=r \rbrack &= \sum_{i=1}^{r-1} i P(r_{k+1} = i \vert r_k = r) \\
-&= \sum_{i=1}^{r-1} \frac{i}{r-1} \\
-&= \frac{(r-1)r}{2}\frac{1}{r-1}\\
-&= \frac{r}{2}
-\end{aligned}$$
-
-Using the law of total expectation, we can say that the expectation value for $r_{k+1}$ is then,
-
-$$\begin{aligned}
-\mathbb{E}\lbrack r_{k+1}\rbrack &= \mathbb{E}\lbrack\mathbb{E}\lbrack r_{k+1} \vert r_k=r \rbrack \rbrack \\
-&= \sum_{i=1}^{N} P(r_{k}=i)\mathbb{E}\lbrack r_{k+1} \vert r_k=i \rbrack \\
-&= P(r_{k}=1)\mathbb{E}\lbrack r_{k+1} \vert r_k=1 \rbrack + \sum_{i=2}^{N} P(r_{k}=i)\mathbb{E}\lbrack r_{k+1} \vert r_k=i \rbrack \\
-&= P(r_{k}=1) + \sum_{i=2}^{N} P(r_{k}=i)\frac{i}{2}\\
-&= \frac{1}{2}P(r_{k}=1) + \frac{1}{2}\sum_{i=1}^{N} P(r_{k}=i)i\\
-&= \frac{1}{2}P(r_{k}=1) + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack\\
-&\leq \frac{1}{2} + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack & \text{since $P(r_{k}=1)\leq 1$}\\
-\end{aligned}$$
-
-Let's try $\mathbb{E}\lbrack r_{k}\rbrack \leq 1+\frac{N-1}{2^k}$, then
-
-$$\begin{aligned}
-\mathbb{E}\lbrack r_{k+1}\rbrack &\leq \frac{1}{2} + \frac{1}{2}\mathbb{E}\lbrack r_{k}\rbrack \\
-&\leq \frac{1}{2} + \frac{1}{2}\left(1+\frac{N-1}{2^k}\right)\\
-&= 1+\frac{N-1}{2^{k+1}} \\
-\end{aligned}$$
-
-which completes the induction. We now know that
-
-$$\begin{aligned}
-1+\frac{N-1}{2^k} &\geq \mathbb{E}\lbrack r_{k}\rbrack \\
-&= \sum_{i=1}^N iP(r_k=i)\\
-&= P(r_k=1) + \sum_{i=2}^N iP(r_k=i)\\
-&\geq P(r_k=1) + 2P(r_k\geq 2)\\
-&= P(r_k=1) + 2(1-P(r_k=1))\\
-&= 2-P(r_k=1)\\
-P(r_k=1) \geq 1- \frac{N-1}{2^k}\\
-\end{aligned}$$
-
-Since we need the probability of finding the minimum value to be greater than $1/2$, so we need $P(r_k=1)\geq 1/2$. To guarantee this we need
-
-$$\begin{aligned}
-\frac{1}{2} \leq 1- \frac{N-1}{2^k}\\
-\frac{N-1}{2^k} \leq \frac{1}{2}\\
-N-1 \leq 2^{k-1} \\
-\log(N-1)\leq k-1 \\
-\log(N-1) + 1 \leq k
-\end{aligned}$$
-
-Therefore, $k=O(\log(N))$ and so we need to iterate step 2 and 3 $O(\log(N))$ times. This means that the total number of accesses to the memory are required is $O(\log(N)\sqrt{N})$.
+I am a little unsure how N&C intended for us to answer this problem. This paper demonstrates that you can find the minimum value with a probability of at least $1/2$ with $O(\sqrt{N})$ "probes", which I believe are equivalent to LOADs in the textbook. If by "accesses to memory" they mean LOADs, then N&C want us to find a less efficient algorithm or a looser bound. If instead each LOAD is $O(\log(N))$ accesses to memory, then they want us to reproduce this paper. I could see either option being equally likely. 
 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

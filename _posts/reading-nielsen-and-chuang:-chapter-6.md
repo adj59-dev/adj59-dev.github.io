@@ -1053,15 +1053,43 @@ I am a little unsure how N&C intended for us to answer this problem. This paper 
 
 ### Problem 6.2 {#problem-62}
 
-(1) Let's look at $U$
+(1) We could make a circuit like this 
 
 $$\begin{aligned}
-U = \ket{\psi}\bra{0} + \ket{\phi}\bra{1}
+U_{\ket{\psi}} &= UX^{\otimes n}\left(\text{$n$ controlled phase flip}\right)X^{\otimes n}U^\dagger
 \end{aligned}$$
 
-where $\ket{\phi}$ is orthogonal to $\ket{\psi}$. 
+Where $U^\dagger$ will map $\ket{\psi}$ to $\ket{0}^{\otimes n}$. Then $X^{\otimes n}$ will flip $\ket{0}$ to $\ket{1}$ and vice versa. We can then use a $n$ controlled phase flip gate to apply a $-1$ phase shift to the $\ket{1}^{\otimes n}$ state. Then use $UX^{\otimes n}$ to map the $-\ket{1}^{\otimes n}$ to $-\ket{\psi}$. With this circuit only $\ket{\psi}$ will get the $-1$ phase shift and the other states will be unchanged, which is the desired behavior. 
 
-(2) 
+(2) If we had a state $\ket{\psi}= a\ket{0} + b\ket{1}$ then the impact on this state from each oracle is
+
+$$\begin{aligned}
+U_{\ket{\psi_1}}\ket{\psi} &= a\ket{0} - b\ket{1} \\
+U_{\ket{\psi_2}}\ket{\psi} &= \braket{+x\vert\psi}\ket{+x} - \braket{-x\vert\psi}\ket{-x}\\
+&= \frac{1}{2}\left(\bra{0}+\bra{1}\right)\left(a\ket{0} + b\ket{1}\right)\left(\ket{0}+\ket{1}\right) - \frac{1}{2}\left(\bra{0}-\bra{1}\right)\left(a\ket{0} + b\ket{1}\right)\left(\ket{0}-\ket{1}\right)\\
+&= \frac{1}{2}\left(a+b\right)\left(\ket{0}+\ket{1}\right) - \frac{1}{2}\left(a-b\right)\left(\ket{0}-\ket{1}\right)\\
+&= b\ket{0} + a\ket{1}\\
+U_{\ket{\psi_3}}\ket{\psi} &= \braket{+y\vert\psi}\ket{+y} - \braket{-y\vert\psi}\ket{-y}\\
+&= \frac{1}{2}\left(\bra{0}+i\bra{1}\right)\left(a\ket{0} + b\ket{1}\right)\left(\ket{0}+i\ket{1}\right) - \frac{1}{2}\left(\bra{0}-i\bra{1}\right)\left(a\ket{0} + b\ket{1}\right)\left(\ket{0}-i\ket{1}\right)\\
+&= \frac{1}{2}\left(a+ib\right)\left(\ket{0}+i\ket{1}\right) - \frac{1}{2}\left(a-ib\right)\left(\ket{0}-i\ket{1}\right)\\
+&= i\left(b\ket{0} - a\ket{1}\right)\\
+\end{aligned}$$
+
+So if we started with the Bell state $\ket{\Phi^+}=\frac{1}{\sqrt{2}}\left(\ket{00} + \ket{11}\right)$ the impact from each oracle acting on the first qubit is
+
+
+$$\begin{aligned}
+U_{\ket{\psi_1}}\ket{\Phi^+} &= \frac{1}{\sqrt{2}}\left(\ket{00} - \ket{11}\right) &= \ket{\Phi^-} \\
+U_{\ket{\psi_2}}\ket{\Phi^+} &= \frac{1}{\sqrt{2}}\left(\ket{10} + \ket{01}\right) &= \ket{\Psi^+}\\
+U_{\ket{\psi_3}}\ket{\Phi^+} &= -i\frac{1}{\sqrt{2}}\left(\ket{01} - \ket{10}\right) &= -i\ket{\Psi^-}\\
+\end{aligned}$$
+
+Therefore, if we put two qubits in $\ket{\Phi^+}$, applied the unknown oracle to the first qubit, and then measured the qubits in the Bell basis, we would be able to identify which oracle was applied. 
+
+(3) We can create Bell-like states with a larger number of qubits, giving us however large of basis we need to differentiate between the different oracles. Therefore, as long as we can create some probe state $\ket{\Phi}$ such that the output states $\left(U_{\ket{\psi_j}}\otimes I\right)\ket{\Phi}$ are mutually orthogonal, then we should be able to identify the oracle with just one measurement with high probability.  
+
+
+
 
 
 ### Problem 6.3 {#problem-63}

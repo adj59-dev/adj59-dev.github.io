@@ -141,7 +141,18 @@ I just finished reading Chapter 7 of *Quantum Computation and Quantum Informatio
 
 ### Exercise 7.1 {#exercise-71}
 
+Using equation 7.6 and 7.7
 
+$$\begin{aligned}
+a^\dagger a &= \frac{1}{2m\hbar\omega}\left(m\omega x - ip\right)\left(m\omega x+ip\right)\\
+&= \frac{1}{2m\hbar\omega}\left(m^2\omega^2x^2 + im\omega xp - im\omega px + p^2\right)\\
+&= \frac{1}{2m\hbar\omega}\left(m^2\omega^2x^2 + im\omega( xp - px) + p^2\right)\\
+&= \frac{1}{2m\hbar\omega}\left(m^2\omega ^2x^2 + im\omega\lbrack x,p \rbrack + p^2\right)\\
+&= \frac{1}{2m\hbar\omega}\left(m^2\omega^2x^2 - m\omega\hbar + p^2\right)\\
+&= \frac{m\omega^2 x^2}{2\hbar\omega} - \frac{1}{2} + \frac{p^2}{2m\hbar\omega}\\
+&= \left(\frac{m\omega^2 x^2}{2} + \frac{p^2}{2m}\right)\frac{1}{\hbar\omega} - \frac{1}{2} \\
+&= \frac{H}{\hbar\omega} - \frac{1}{2} & \text{equation 7.4}\\
+\end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

@@ -291,7 +291,8 @@ instead of the one drawn in the figure.
 Figure 6.5 performs the operation
 
 $$\begin{aligned}
-\left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT\left(H^{\otimes n}\otimes I\right)\ket{y}\ket{0} &= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT \left(\frac{1}{2^{n/2}}\otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\right)\ket{0}\\
+& \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT\left(H^{\otimes n}\otimes I\right)\ket{y}\ket{0} \\
+&= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\bar{C}^nNOT \left(\frac{1}{2^{n/2}}\otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\right)\ket{0}\\
 &= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\left(I_n\otimes P(\Delta t)\right)\frac{1}{2^{n/2}}\left(\ket{0\cdots 0}\ket{1} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\
 &= \left(H^{\otimes n}\otimes I\right)\bar{C}^nNOT\frac{1}{2^{n/2}}\left(e^{i\Delta t}\ket{0\cdots 0}\ket{1} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\
 &= \left(H^{\otimes n}\otimes I\right)\frac{1}{2^{n/2}}\left(e^{i\Delta t}\ket{0\cdots 0}\ket{0} + \otimes_{i=0}^{n-1}\left(\ket{0} + (-1)^{y_i}\ket{1}\right)\ket{0}-\ket{0\cdots 0}\ket{0}\right)\\

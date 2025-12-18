@@ -70,8 +70,9 @@ chapter: 6
 <a id="top"></a>
 
 
-I just finished reading Chapter 6 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
+I just finished reading Chapter 6 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. This chapter focuses on quantum search algorithms, with significant emphasis on proving their fundamental limitations, most notably the $\Omega(\sqrt{N})$ lower bound on unstructured search. Prior to this chapter, I had not spent much time working through lower-bound proofs, so for some of the exercises I consulted external resources, which I have linked along with the exercise.
 
+As with the earlier chapters, I’ve included my notes and full exercise solutions below.
 
 <!-- toc -->
 

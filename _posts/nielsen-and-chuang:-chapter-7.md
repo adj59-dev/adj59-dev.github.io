@@ -213,3 +213,40 @@ $$\begin{aligned}
 \end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+### Exercise 7.5 {#exercise-75}
+
+$$\begin{aligned}
+a^\dagger a \ket{n} &= a^\dagger \sqrt{n}\ket{n-1} & \text{equation 7.12}\\
+&= \sqrt{n} a^\dagger\ket{n-1} \\
+&= \sqrt{n} \sqrt{n-1+1}\ket{n-1+1} & \text{equation 7.11}\\
+&= n\ket{n}
+\end{aligned}$$
+
+Therefore, equation 7.11 and 7.12 are consistent with 7.10. 
+
+for the normalization condition
+
+$$\begin{aligned}
+\Vert \ket{n} \Vert &= \Vert \frac{(a^\dagger)^n}{\sqrt{n!}}\ket{0} \Vert\\
+\end{aligned}$$
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

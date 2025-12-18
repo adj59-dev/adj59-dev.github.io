@@ -317,7 +317,11 @@ instead of the one drawn in the figure.
 
 ### Exercise 6.8 {#exercise-68}
 
-Since the step length is $\Delta t$ the total number of steps required is $t/\Delta t=\Theta(\sqrt{N}/\Delta t)$, and thus the cumulative error is $O(\Delta t^r\times \sqrt{N}/\Delta t) = O(\Delta t^{r-1}\sqrt{N})$. We need the error to be $O(1)$, which means we must choose $\Delta t = \Theta\left(N^{-\frac{1}{2(r-1)}}\right)$ and so the number of oracle calls scales like $O\left(\sqrt{N}/N^{-\frac{1}{2(r-1)}}\right) = O\left(N^{\frac{1}{2} + \frac{1}{2(r-1)}}\right) = O\left(N^{r/2(r-1)}\right)$.
+Since the step length is $\Delta t$ the total number of steps required is $t/\Delta t=\Theta(\sqrt{N}/\Delta t)$, and thus the cumulative error is $O(\Delta t^r\times \sqrt{N}/\Delta t) = O(\Delta t^{r-1}\sqrt{N})$. We need the error to be $O(1)$, which means we must choose $\Delta t = \Theta\left(N^{-\frac{1}{2(r-1)}}\right)$ and so the number of oracle calls scales like 
+
+$$\begin{aligned}
+O\left(\sqrt{N}/N^{-\frac{1}{2(r-1)}}\right) = O\left(N^{\frac{1}{2} + \frac{1}{2(r-1)}}\right) = O\left(N^{r/2(r-1)}\right).
+\end{aligned}$$
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
@@ -412,7 +416,14 @@ $$\begin{aligned}
 &= O(\sqrt{N})
 \end{aligned}$$
 
-The Grover iteration can be written as $G=(2\ket{\psi}\bra{\psi}-I)O=(2\ket{\psi}\bra{\psi}-I)(I-2\ket{x}\bra{x})$. Calculating $U(\pi)$ we get
+The Grover iteration can be written as 
+
+$$\begin{aligned}
+G &= (2\ket{\psi}\bra{\psi}-I)O \\
+&=(2\ket{\psi}\bra{\psi}-I)(I-2\ket{x}\bra{x}).
+\end{aligned}$$ 
+
+Calculating $U(\pi)$ we get
 
 $$\begin{aligned}
 U(\pi) &= e^{-i\ket{\psi}\bra{\psi}\pi}e^{-i\ket{x}\bra{x}\pi}\\

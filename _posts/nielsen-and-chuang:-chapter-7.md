@@ -235,10 +235,26 @@ $$\begin{aligned}
 &= 1
 \end{aligned}$$
 
-Therefore, if the ground state is normalized then all $\ket{n}$ are also normalized. 
+Therefore, if the ground state is normalized (which it should be) then all $\ket{n}$ are also normalized. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+
+## Optical photon quantum computer
+
+### Exercise 7.6 {#exercise-76}
+
+$$\begin{aligned}
+a\ket{\alpha} &= a\left(e^{ -\vert\alpha\vert^2/2 }\sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}\right) \\
+&= e^{ -\vert\alpha\vert^2/2 }\sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}a\ket{n} \\
+&= e^{ -\vert\alpha\vert^2/2 }\sum_{n=1}^{\infty} \frac{\alpha^n}{\sqrt{n!}}\sqrt{n}\ket{n-1}  & \text{sum starts at $n=1$ since $a\ket{0}=0$}  \\
+&= e^{ -\vert\alpha\vert^2/2 }\sum_{n=1}^{\infty} \frac{\alpha\alpha^{n-1}}{\sqrt{(n-1)!}}\ket{n-1} \\
+&= \alpha e^{ -\vert\alpha\vert^2/2 }\sum_{m=0}^{\infty} \frac{\alpha^{m}}{\sqrt{m!}}\ket{m} & \text{where $m=n-1$}\\
+&= \alpha\ket{\alpha}
+\end{aligned}$$
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

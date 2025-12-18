@@ -92,7 +92,7 @@ U\ket{x} &= \left(2\ket{0}\bra{0} - I\right)\ket{x} \\
 
 This matches the desired behavior and so the unitary operator corresponding to the phase shift in the Grover iteration is $2\ket{0}\bra{0} - I$.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.2 {#exercise-62}
@@ -117,7 +117,7 @@ $$\begin{aligned}
 &= \sum_{k}\lbrack 2\braket{\alpha} - \alpha_k\rbrack\ket{k} \\
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.3 {#exercise-63}
@@ -133,7 +133,7 @@ G\ket{\psi} &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\th
 
 This agrees with equation 6.11. Therefore, the Grover iteration may be written as matrix $G$ in the $\ket{\alpha}$, $\ket{\beta}$ basis. 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.4 {#exercise-64}
@@ -158,7 +158,7 @@ $$\begin{aligned}
 4 & \rightarrow x\in S & \text{measure the first $n$ qubits} \\
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -206,7 +206,7 @@ O'\ket{x}\ket{q}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) = \begin{cases}
 \end{cases}
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -253,7 +253,7 @@ $$\begin{aligned}
 
 Therefore, the dotted box in the second figure of Box 6.1 performs the conditional phase shift operation $2\ket{00}\bra{00}-I$, up to an unimportant global phase factor. 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -311,7 +311,7 @@ $$\begin{aligned}
 
 instead of the one drawn in the figure.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -323,7 +323,7 @@ $$\begin{aligned}
 O\left(\sqrt{N}/N^{-\frac{1}{2(r-1)}}\right) = O\left(N^{\frac{1}{2} + \frac{1}{2(r-1)}}\right) = O\left(N^{r/2(r-1)}\right).
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.9 {#exercise-69}
@@ -403,7 +403,7 @@ U(\Delta t) &= e^{-i\Delta t}\left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\ri
 &= e^{-i\Delta t} \left\lbrack\left(\cos^2\left(\frac{\Delta t}{2}\right) - \sin^2\left(\frac{\Delta t}{2}\right)\vec{\psi}\cdot\hat{z}\right)I - 2i\sin\left(\frac{\Delta t}{2}\right)\left(\cos\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}+\hat{z}}{2} + \sin\left(\frac{\Delta t}{2}\right)\frac{\vec{\psi}\times\hat{z}}{2}\right)\cdot \vec{\sigma}\right\rbrack\\
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.10 {#exercise-610}
@@ -434,7 +434,7 @@ U(\pi) &= e^{-i\ket{\psi}\bra{\psi}\pi}e^{-i\ket{x}\bra{x}\pi}\\
 
 Since $𝑈(\pi)$ is (up to a global phase) the standard Grover iteration, and Grover’s algorithm can be tuned to reach $\ket{x}$ exactly with an appropriate number of iterations, the algorithm using $U(\pi)$ also succeeds with probability 1.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.11 {#exercise-611}
@@ -462,7 +462,7 @@ $$\begin{aligned}
 
 Thus at time $t=\frac{\pi}{2a}$ yields the result $\ket{\beta}$ with probability one. 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.12 {#exercise-612}
@@ -501,7 +501,7 @@ up to an unimportant global phase. Therefore, it is possible to simulate $\exp\l
 
 The total number of oracle calls will be dependent on the number of steps taken which will equal $s=t/\Delta t$. The accuracy of the simulation will be dependent on the accuracy of each $\exp\left(-iH_{6.18} \Delta t\right)$ simulation, if we say that accuracy is $O(\Delta t^r)$ then the total error behaves like $\Delta t^r \frac{t}{\Delta t}\sqrt{N} = t\sqrt{N}\Delta t^{r-1}$. Therefore, to get $O(1)$ total error, we need $\Delta t = O\left(\left(t\sqrt{N}\right)^{-\frac{1}{r-1}}\right)$. Therefore $s=O\left(t\left(t\sqrt{N}\right)^{\frac{1}{r-1}}\right)=O\left(\left(\sqrt{N}\right)^{\frac{1}{r-1}}\right)$, since $t=O(1)$. Then the total number of oracle calls will be $O\left(N^{r/2(r-1)}\right)$. This is the same as what we got for $H_{6.18}$ in [exercise 6.8](#exercise-68).
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ## Quantum counting
@@ -552,7 +552,7 @@ $$\begin{aligned}
 
 which requires $k \geq 4(N-M)$. To select a $k$ that works for all $M$ we then need $k \geq 4(N-1)$ and so $k=\Omega(N)$.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.14 {#exercise-614}
@@ -613,7 +613,7 @@ $$\begin{aligned}
 
 Therefore, this lower bounds argument give us $k=\Omega(N)$.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -639,7 +639,7 @@ $$\begin{aligned}
 &= 2N - 2\sqrt{N}\\
 \end{aligned}$$
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -675,7 +675,7 @@ D_k &\geq E_k + F_k - 2\sqrt{E_kF_k}\\
 
 Since $cN \leq D_k\leq 4k^2$ this implies $k\geq\sqrt{cN/4}$.  Therefore, $\Omega(\sqrt{N})$ oracle calls are still required. 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -780,7 +780,7 @@ where $C(N,M) = \left(\sqrt{2-\frac{2}{\sqrt{N}}} - \sqrt{2-\frac{1}{\sqrt{M}}} 
 
 I went looking in the literature to try to figure out what was going on and found relevant information in [Tight bounds on quantum searching](https://arxiv.org/pdf/quant-ph/9605034). The paper points out that the $M=N/4$ case is special, because in that regime a single iteration of Grover’s algorithm finds a solution with certainty. This may explain why my distance-based lower-bound approach behave oddly or degenerate near this regime. The paper also contains an alternative route to proving the lower bounds on the multi-solution quantum search algorithm. Their approach partitions the search space into disjoint subsets of size $N/M$ and then reduces the problem to the single solution case in an $N_M=N/M$ item space, which then requires $\Omega(\sqrt{N_M})=\Omega(\sqrt{N/M})$ oracle calls.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -905,7 +905,7 @@ r(X) &=p_S - q_S \\
 
 which gives $p_S=q_S$ and therefore we shown that the functions $p$ and $q$ have the same coefficients and are therefore the same function.
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Exercise 6.19 {#exercise-619}
@@ -919,7 +919,7 @@ P(X) &= 1 - (1-X_0)(1-X_1)\cdots(1-X_{N-1})
 when $X_i = 1$ for at least one $i$, then $P(X)=1$ and if all $X_i=0$ then $P(X)=0$. This is the behavior of the OR function. 
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 ### Exercise 6.20 {#exercise-620}
 
@@ -932,7 +932,7 @@ $$\begin{aligned}
 The amplitudes of these states are polynomial of degree $N$. We know that each oracle call can increase the degree of these amplitudes, but the other unitary operations in the circuit do not change the degree. Therefore, since these amplitudes are degree $N$ this means at least $N$ oracle calls are made in the circuit. Therefore, $Q_0(OR)\geq N$. 
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ## Chapter problems
@@ -945,7 +945,7 @@ The authors cite this paper as inspiration for this problem:
 I am a little unsure how N&C intended for us to answer this problem. This paper demonstrates that you can find the minimum value with a probability of at least $1/2$ with $O(\sqrt{N})$ "probes", which I believe are equivalent to LOADs in the textbook. If by "accesses to memory" they mean LOADs, then N&C want us to find a less efficient algorithm or a looser bound. If instead each LOAD is $O(\log(N))$ accesses to memory, then they want us to reproduce this paper. I could see either option being equally likely. 
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -988,7 +988,7 @@ Therefore, if we put two qubits in $\ket{\Phi^+}$, applied the unknown oracle to
 (3) We can create Bell-like states with a larger number of qubits, giving us however large of basis we need to differentiate between the different oracles. Therefore, as long as we can create some probe state $\ket{\Phi}$ such that the output states $\left(U_{\ket{\psi_j}}\otimes I\right)\ket{\Phi}$ are mutually orthogonal, then we should be able to identify the oracle with just one measurement with high probability.  
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 
@@ -1006,7 +1006,7 @@ The authors cite this paper as inspiration for this problem. It contains the sol
 
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 ### Problem 6.4 {#problem-64}
@@ -1020,4 +1020,4 @@ Quantum search algorithms provide a quadratic speedup for unstructured search pr
 
 
 
-| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

@@ -226,12 +226,16 @@ a^\dagger a \ket{n} &= a^\dagger \sqrt{n}\ket{n-1} & \text{equation 7.12}\\
 
 Therefore, equation 7.11 and 7.12 are consistent with 7.10. 
 
-for the normalization condition
+For the normalization condition
 
 $$\begin{aligned}
-\Vert \ket{n} \Vert &= \Vert \frac{(a^\dagger)^n}{\sqrt{n!}}\ket{0} \Vert\\
+\braket{n\vert n} &= \braket{0\vert \frac{(a)^n}{\sqrt{n!}} \frac{(a^\dagger )^n}{\sqrt{n!}} \vert 0} \\
+&= \braket{0\vert \frac{(a)^n}{\sqrt{n!}} \vert n} \\
+&= \braket{0 \vert 0} \\
+&= 1
 \end{aligned}$$
 
+Therefore, if the ground state is normalized then all $\ket{n}$ are also normalized. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

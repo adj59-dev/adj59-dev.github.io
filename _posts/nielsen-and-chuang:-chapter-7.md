@@ -277,6 +277,35 @@ This matches equation 7.23.
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
+### Exercise 7.8 {#exercise-78}
+
+So, we know that 
+
+$$\begin{aligned}
+P &= \exp(-iH\Delta/\hbar)\\
+&= \exp(-i\Delta \omega a^\dagger a) & \text{equation 7.20}\\
+\end{aligned}$$
+
+and that
+
+$$\begin{aligned}
+P\ket{n} &= \exp(-i\Delta\omega a^\dagger a) \ket{n}\\
+&= \sum_{m=0}^{\infty} \exp(-i\Delta\omega m)\ket{m}\braket{m \vert n} \\
+&= \exp(-i\Delta\omega n)\ket{n}
+\end{aligned}$$
+
+The book states that $P\ket{1} = e^{i\Delta}\ket{1}$, so it looks like they are using the convention where the negative sign and $\omega$ is aborbed by the $\Delta$, so $-\Delta \omega \rightarrow \Delta$. Therefore,
+
+$$\begin{aligned}
+P\ket{\alpha} &=  P \left(e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}\right)\\
+&= e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}P\ket{n} \\
+&= e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}e^{i\Delta n}\ket{n} \\
+&= e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\left(\alpha e^{i\Delta}\right)^n}{\sqrt{n!}}\ket{n} \\
+&= e^{-\vert\alpha e^{i\Delta}\vert^2/2}\sum_{n=0}^{\infty}\frac{\left(\alpha e^{i\Delta}\right)^n}{\sqrt{n!}}\ket{n} & \text{absolute value not changed by phase}\\
+&= \ket{\alpha e^{i\Delta}}
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

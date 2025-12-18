@@ -158,4 +158,43 @@ a^\dagger a &= \frac{1}{2m\hbar\omega}\left(m\omega x - ip\right)\left(m\omega x
 
 
 
-I just finished reading Chapter 6 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. 
+### Exercise 7.2 {#exercise-72}
+
+$$\begin{aligned}
+\lbrack a,a^\dagger \rbrack &= aa^\dagger - a^\dagger a \\
+&= \left(\frac{H}{\hbar\omega} + \frac{1}{2}\right)  - \left( \frac{H}{\hbar\omega} - \frac{1}{2} \right) & \text{from exercise 7.1}\\
+&= 1
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+### Exercise 7.3 {#exercise-73}
+
+$$\begin{aligned}
+\lbrack H,a \rbrack &= Ha - aH \\
+&= \hbar\omega\left(\left(a^\dagger a + \frac{1}{2}\right)a - a\left(a^\dagger a + \frac{1}{2}\right)\right)\\
+&= \hbar\omega\left(\left(a^\dagger a + \frac{1}{2}\right) - \left(aa^\dagger  + \frac{1}{2}\right)\right)a\\
+&= \hbar\omega\left(a^\dagger a  - aa^\dagger \right)a\\
+&= -\hbar\omega\lbrack a, a^\dagger\rbrack a\\
+&= -\hbar\omega a\\
+\end{aligned}$$
+
+By the time independent Schrodinger equation 
+
+$$\begin{aligned}
+H\ket{\psi} = E\ket{\psi}
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+-\hbar\omega a\ket{\psi} &= \left(Ha - aH\right)\ket{\psi} \\
+&= Ha\ket{\psi} - aH\ket{\psi}\\
+&= Ha\ket{\psi} - Ea\ket{\psi}\\
+Ha\ket{\psi} &= \left(E-\hbar\omega\right) a\ket{\psi}\\
+\end{aligned}$$
+
+This is the same form as the time independent Schrodinger equation, so we know that either $a\ket{\psi}$ is an eigenstate with energy $E-\hbar\omega$ or $a\ket{\psi}=0$. By applying the same identity repeatedly we get that $a^n\ket{\psi}$ is an eigenstate with energy $E-n\hbar\omega$. 
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

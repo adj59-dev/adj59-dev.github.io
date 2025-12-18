@@ -256,6 +256,25 @@ a\ket{\alpha} &= a\left(e^{ -\vert\alpha\vert^2/2 }\sum_{n=0}^{\infty} \frac{\al
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+### Exercise 7.7 {#exercise-77}
+
+Let's first represent this circuit in the full photon population basis $\lbrace \ket{00},\ket{01},\ket{10},\ket{11}\rbrace$,
+
+$$\begin{aligned}
+I \otimes \pi &= \begin{bmatrix} 1 & 0 \\\ 0 & 1 \end{bmatrix} \otimes \begin{bmatrix} 1 & 0 \\\ 0 & e^{i\pi} \end{bmatrix} \\
+&= \begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & e^{i\pi} & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & e^{i\pi} \end{bmatrix} \\
+\end{aligned}$$
+
+The dual-rail subspace only spans these basis states $\ket{0}_L=\ket{01}$ and $\ket{1}_L=\ket{10}$ and so we can represent the circuit with a reduced matrix consisting of only the entries for those states
+
+$$\begin{aligned}
+\begin{bmatrix} 1 & 0 & 0 & 0 \\\ 0 & e^{i\pi} & 0 & 0 \\\ 0 & 0 & 1 & 0 \\\ 0 & 0 & 0 & e^{i\pi} \end{bmatrix} \rightarrow \begin{bmatrix} e^{i\pi} & 0 \\\ 0 & 1 \end{bmatrix}\\
+\end{aligned}$$
+
+This matches equation 7.23. 
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

@@ -198,3 +198,18 @@ Ha\ket{\psi} &= \left(E-\hbar\omega\right) a\ket{\psi}\\
 This is the same form as the time independent Schrodinger equation, so we know that either $a\ket{\psi}$ is an eigenstate with energy $E-\hbar\omega$ or $a\ket{\psi}=0$. By applying the same identity repeatedly we get that $a^n\ket{\psi}$ is an eigenstate with energy $E-n\hbar\omega$. 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+### Exercise 7.4 {#exercise-74}
+
+$$\begin{aligned}
+\frac{\left(a^\dagger\right)^n}{\sqrt{n!}}\ket{0} &= \frac{\left(a^\dagger\right)^{n-1}}{\sqrt{n!}}\sqrt{1}\ket{1} &\text{equation 7.11}\\
+&= \frac{\left(a^\dagger\right)^{n-2}}{\sqrt{n!}}\sqrt{2}\ket{2} \\
+& \vdots \\
+&= \frac{a^\dagger}{\sqrt{n!}}\sqrt{(n-1)!}\ket{n-1} \\
+&= \frac{1}{\sqrt{n!}}\sqrt{(n-1)!}\sqrt{n}\ket{n} \\
+&= \frac{1}{\sqrt{n!}}\sqrt{n!}\ket{n} \\
+&= \ket{n} \\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

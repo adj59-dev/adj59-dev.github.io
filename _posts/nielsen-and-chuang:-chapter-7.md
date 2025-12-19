@@ -135,7 +135,7 @@ chapter: 7
 
 I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang.
 
-
+<details><summary>Completed Exercises</summary>
 
 ## Harmonic oscillator quantum computer
 
@@ -369,8 +369,28 @@ B\ket{2,0} &= \frac{1}{\sqrt{2}} Bb^\dagger \ket{1,0} \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+</details>
+
+### Exercise 7.12 {#exercise-712}
+
+$$\begin{aligned}
+B\ket{\alpha}\ket{\beta} &= B \left(e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}\right)\left(e^{-\vert\beta\vert^2/2}\sum_{m=0}^{\infty}\frac{\beta^m}{\sqrt{m!}}\ket{m}\right) \\
+&= e^{-\vert\alpha\vert^2/2}e^{-\vert\beta\vert^2/2}\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\frac{\beta^m}{\sqrt{m!}}B\ket{n}\ket{m} \\
+&= e^{-\vert\alpha\vert^2/2}e^{-\vert\beta\vert^2/2}\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{\alpha^n}{n!}\frac{\beta^m}{m!}(Ba^\dagger B^\dagger)^n(Bb^\dagger B^\dagger)^m\ket{0}\ket{0} \\
+&= e^{-\vert\alpha\vert^2/2}e^{-\vert\beta\vert^2/2}\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{(\alpha Ba^\dagger B^\dagger)^n}{n!}\frac{(\beta Bb^\dagger B^\dagger)^m}{m!}\ket{0}\ket{0} \\
+&= e^{-\vert\alpha\vert^2/2}e^{-\vert\beta\vert^2/2}\sum_{n=0}^{\infty}\sum_{m=0}^{\infty}\frac{(\alpha\cos\theta a^\dagger + \alpha\sin\theta b^\dagger)^n}{n!}\frac{(\beta\cos\theta b^\dagger - \beta\sin\theta a^\dagger)^m}{m!}\ket{0}\ket{0} \\
+&= \ket{\alpha\cos\theta - \beta\sin\theta}\ket{\alpha\sin\theta + \beta\cos\theta}
+\end{aligned}$$
+
+I feel like there have been some inconsistencies with wire labeling in this section of the book, so for the purpose of clarity for this exercise I am defining the behavior of the beamsplitter like this
+
+$$\begin{aligned}
+Ba^\dagger B^\dagger &= a^\dagger\cos\theta + b^\dagger\sin\theta \\
+Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
+\end{aligned}$$
 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

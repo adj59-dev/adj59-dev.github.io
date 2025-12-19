@@ -396,7 +396,7 @@ Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
 
 ### Exercise 7.13 {#exercise-713}
 
-The input to $U_f$ is
+(1) The input to $U_f$ is
 
 $$\begin{aligned}
 \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) &= \frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right)
@@ -406,10 +406,33 @@ The possible outputs are
 
 $$\begin{aligned}
 &\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(x)=0$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)& \text{when $f(x)=1$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=0$ and $f(1)=1$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=1$ and $f(1)=0$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)& \text{when $f(x)=1$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=0$ and $f(1)=1$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= -\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=1$ and $f(1)=0$}\\
 \end{aligned}$$
+
+So, for the first case, we just need the wires running through the circuit with no additional gates since the output is the same as the input. 
+
+<img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/06ae63eb-dee1-43ae-acb8-751d9e76287f" />
+
+For the second case, we need to apply the NOT operation on the second register. This can be done using a Fredkin gate on the two inputs for the second register with a control input set to $\ket{1}$ 
+
+<img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/d4fabebd-679b-42b4-9282-b0edd5e66994" />
+
+For the third case, we need a CNOT with the first register being the control and the second being the target. This can be done using the circuit described in equation 7.46. 
+
+<img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/74f31c06-9a78-49b4-a428-177e216e5a4a" />
+
+For the fourth case, we need to implement both the NOT on the second registry and a CNOT with the first register being the control and the second beign the target. Two middle beamsplitters were removed from the center of the circuit since $BB^\dagger=I$.  
+
+<img width="715" height="283" alt="image" src="https://github.com/user-attachments/assets/c4122ddf-0ede-4f92-9020-c83685e6af46" />
+
+(2) $U_f$ can be constructed with classical circuits, and so there is no need to implement phase shifts. 
+
+(3) 
+
+
+
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 

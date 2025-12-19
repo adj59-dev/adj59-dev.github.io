@@ -369,7 +369,6 @@ B\ket{2,0} &= \frac{1}{\sqrt{2}} Bb^\dagger \ket{1,0} \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 ### Exercise 7.12 {#exercise-712}
 
@@ -391,6 +390,43 @@ Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+</details>
+
+### Exercise 7.13 {#exercise-713}
+
+The input to $U_f$ is
+
+$$\begin{aligned}
+\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) &= \frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right)
+\end{aligned}$$
+
+The possible outputs are
+
+$$\begin{aligned}
+&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(x)=0$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)& \text{when $f(x)=1$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=0$ and $f(1)=1$}\\
+&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=1$ and $f(1)=0$}\\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

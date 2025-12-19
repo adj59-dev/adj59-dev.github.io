@@ -320,10 +320,50 @@ PB^\dagger &= \begin{bmatrix} e^{i\pi} & 0 \\\ 0 & 1 \end{bmatrix}\begin{bmatrix
 &= -H\\
 \end{aligned}$$
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+
+### Exercise 7.10 {#exercise-710}
+
+(1)
+
+$$\begin{aligned}
+BB^\dagger &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\theta \end{bmatrix}\begin{bmatrix} \cos\theta & \sin\theta \\\ -\sin\theta & \cos\theta \end{bmatrix} \\
+&= \begin{bmatrix} \cos^2\theta + \sin^2\theta & \cos\theta\sin\theta - \sin\theta\cos\theta  \\\ \sin\theta\cos\theta - \cos\theta\sin\theta & \sin^2\theta + \cos^2\theta \end{bmatrix}\\
+&= \begin{bmatrix} 1 & 0  \\\ 0 & 1 \end{bmatrix}\\
+&= I
+\end{aligned}$$
+
+(2)
+
+$$\begin{aligned}
+BP_bB^\dagger &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\theta \end{bmatrix}\begin{bmatrix} 1 & 0 \\\ 0 & e^{i\varphi} \end{bmatrix}\begin{bmatrix} \cos\theta & \sin\theta \\\ -\sin\theta & \cos\theta \end{bmatrix} \\
+&= \begin{bmatrix} \cos\theta & -e^{i\varphi}\sin\theta \\\ \sin\theta & e^{i\varphi}\cos\theta \end{bmatrix}\begin{bmatrix} \cos\theta & \sin\theta \\\ -\sin\theta & \cos\theta \end{bmatrix} \\
+&= \begin{bmatrix} \cos^2\theta + e^{i\varphi}\sin^2\theta & \cos\theta\sin\theta-e^{i\varphi}\sin\theta\cos\theta \\\ \sin\theta\cos\theta -e^{i\varphi}\cos\theta\sin\theta & \sin^2\theta + e^{i\varphi}\cos^2\theta \end{bmatrix} \\
+&= \begin{bmatrix} \cos^2\theta + e^{i\varphi}\sin^2\theta & \left(1-e^{i\varphi}\right)\sin\theta\cos\theta \\\ \left(1-e^{i\varphi}\right) \cos\theta\sin\theta & \sin^2\theta + e^{i\varphi}\cos^2\theta \end{bmatrix} \\
+&= \frac{1}{2}\begin{bmatrix} 1 + e^{i\varphi} & 1-e^{i\varphi} \\\ 1-e^{i\varphi} & 1 + e^{i\varphi} \end{bmatrix} & \text{assume 50:50 beamsplitters} \\
+&= e^{i\varphi/2}\begin{bmatrix} \frac{e^{-i\varphi/2} + e^{i\varphi/2}}{2} & \frac{e^{-i\varphi/2} - e^{i\varphi/2}}{2} \\\  \frac{e^{-i\varphi/2} - e^{i\varphi/2}}{2} &  \frac{e^{-i\varphi/2} + e^{i\varphi/2}}{2} \end{bmatrix} \\
+&= e^{i\varphi/2}\begin{bmatrix} \cos\frac{\varphi}{2} & -i\sin\frac{\varphi}{2} \\\  -i\sin\frac{\varphi}{2} &  \cos\frac{\varphi}{2} \end{bmatrix} \\
+&= e^{i\varphi/2}R_x(\varphi)
+\end{aligned}$$
 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -351,7 +351,23 @@ BP_bB^\dagger &= \begin{bmatrix} \cos\theta & -\sin\theta \\\ \sin\theta & \cos\
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
+### Exercise 7.11 {#exercise-711}
 
+I'm following a similar analysis to what is shown on page 292. Here they have the states written like $\ket{n_b,n_a}$, where $n_b$ is the number of photons on the $b$ rail and $n_a$ is the number of photons on the $a$ rail. 
+
+$$\begin{aligned}
+B\ket{2,0} &= \frac{1}{\sqrt{2}} Bb^\dagger \ket{1,0} \\
+&= \frac{1}{\sqrt{2}} Bb^\dagger B^\dagger B\ket{1,0} \\
+&= \frac{1}{\sqrt{2}} Bb^\dagger B^\dagger B b^\dagger\ket{0,0} \\
+&= \frac{1}{\sqrt{2}} Bb^\dagger B^\dagger B b^\dagger B^\dagger B\ket{0,0} \\
+&= \frac{1}{\sqrt{2}} \left(Bb^\dagger B^\dagger\right)\left( B b^\dagger B^\dagger \right) \ket{0,0} & \text{since $B\ket{0,0}=\ket{0,0}$}\\
+&=  \frac{1}{\sqrt{2}} \left(-a^\dagger\sin\theta + b^\dagger\cos\theta\right)\left( -a^\dagger\sin\theta + b^\dagger\cos\theta \right) \ket{0,0} \\
+&=  \frac{1}{\sqrt{2}} \left(a^\dagger a^\dagger\sin^2\theta - (b^\dagger a^\dagger + a^\dagger b^\dagger)\cos\theta\sin\theta + b^\dagger b^\dagger\cos^2\theta \right) \ket{0,0} \\
+&=  \frac{1}{\sqrt{2}} \left(\sqrt{2}\sin^2\theta\ket{0,2} - 2\cos\theta\sin\theta\ket{1,1} + \sqrt{2}\cos^2\theta \ket{2,0}\right) \\
+&=  \frac{1}{2}\ket{0,2} - \frac{1}{\sqrt{2}}\ket{1,1} + \frac{1}{2}\ket{2,0} & \text{since $\theta = \frac{\pi}{4}$}\\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
 

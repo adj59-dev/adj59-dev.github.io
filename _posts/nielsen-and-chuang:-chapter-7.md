@@ -310,6 +310,17 @@ P\ket{\alpha} &=  P \left(e^{-\vert\alpha\vert^2/2}\sum_{n=0}^{\infty}\frac{\alp
 
 ### Exercise 7.9 {#exercise-79}
 
+One thing to note: the beamsplitter shown is for $B^\dagger$ not $B$. Figure 7.3 shows you how to tell which is which, but also inverts the wires relative to what we are asked to use in exercise 7.7 and (I think) here. 
+
+$$\begin{aligned}
+PB^\dagger &= \begin{bmatrix} e^{i\pi} & 0 \\\ 0 & 1 \end{bmatrix}\begin{bmatrix} \cos\theta & \sin\theta \\\ -\sin\theta & \cos\theta \end{bmatrix} & \text{equation 7.35 and exercise 7.7} \\
+&= \begin{bmatrix} e^{i\pi}\cos\theta & e^{i\pi}\sin\theta \\\ -\sin\theta & \cos\theta \end{bmatrix} \\ 
+&= \frac{1}{\sqrt{2}}\begin{bmatrix} -1 & -1 \\\ -1 & 1 \end{bmatrix} \\ 
+&= -\frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\\ 1 & -1 \end{bmatrix} \\ 
+&= -H\\
+\end{aligned}$$
+
+
 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

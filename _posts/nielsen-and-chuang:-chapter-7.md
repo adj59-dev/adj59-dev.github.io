@@ -135,7 +135,6 @@ chapter: 7
 
 I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang.
 
-<details><summary>Completed Exercises</summary>
 
 ## Harmonic oscillator quantum computer
 
@@ -392,7 +391,6 @@ Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
-</details>
 
 ### Exercise 7.13 {#exercise-713}
 
@@ -427,7 +425,7 @@ For the fourth case, we need to implement both the NOT on the second registry an
 
 <img width="715" height="283" alt="image" src="https://github.com/user-attachments/assets/c4122ddf-0ede-4f92-9020-c83685e6af46" />
 
-(2) $U_f$ can be constructed with classical circuits, and so there is no need to implement phase shifts. 
+(2) 
 
 (3) 
 

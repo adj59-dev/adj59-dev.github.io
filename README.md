@@ -28,6 +28,7 @@ https://adj59-dev.github.io/
 - `README.md`         – Repository info (this file)
 - `.gitignore`        – Standard Git ignore file
 - `google*.html`      – Google site verification
+- `sitemap.xml`       - Manually generated sitemap using https://www.xml-sitemaps.com/
 
 This site was originally created using the template by Chad Baldwin:  
 https://github.com/chadbaldwin/simple-blog-bootstrap

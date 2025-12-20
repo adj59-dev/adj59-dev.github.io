@@ -32,9 +32,6 @@ kramdown:
 plugins:
   - jekyll-feed
 
-exclude:
-  - sitemap.xml
-
 titles_from_headings:
   strip_title: true
   collections: true

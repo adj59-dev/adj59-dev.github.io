@@ -31,7 +31,6 @@ kramdown:
 
 plugins:
   - jekyll-feed
-  - jekyll-sitemap
 
 exclude:
   - sitemap.xml

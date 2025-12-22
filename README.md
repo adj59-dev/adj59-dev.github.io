@@ -31,6 +31,8 @@ https://adj59-dev.github.io/
 - `.gitignore`        – Standard Git ignore file
 - `google*.html`      – Google site verification
 - `sitemap.xml`       - Manually generated sitemap using https://www.xml-sitemaps.com/
+- `favicon.ico`       - Fallback favicon for browsers and user agents that don’t support SVG favicons or prefer ICO
+- `apple-touch-icon.png`  - Icon used by iOS/iPadOS when adding the site to the home screen
 
 
 This site was originally created using the template by Chad Baldwin:  

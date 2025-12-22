@@ -395,22 +395,46 @@ Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
 
 ### Exercise 7.13 {#exercise-713}
 
-(1) The input to $U_f$ is
+First let's do some bookkeeping. The beamsplitters (following the convention in Figure 7.3) perform the following transformation on the mode operators $a$ and $b$
 
 $$\begin{aligned}
-\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) &= \frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right)
+b^\dagger \overset{B}{\longrightarrow} \frac{b^\dagger-a^\dagger}{\sqrt{2}}\\
+a^\dagger \overset{B}{\longrightarrow} \frac{a^\dagger+b^\dagger}{\sqrt{2}}\\
+b^\dagger \overset{B^\dagger}{\longrightarrow} \frac{a^\dagger+b^\dagger}{\sqrt{2}}\\
+a^\dagger \overset{B^\dagger}{\longrightarrow} \frac{a^\dagger-b^\dagger}{\sqrt{2}}\\
 \end{aligned}$$
 
-The possible outputs are
+Therefore, they have the following impact on the logic states $\ket{0}_L = \ket{0}_b\ket{1}_a=\ket{01}$ and $\ket{1}_L=\ket{1}_b\ket{0}_a=\ket{10}$
 
 $$\begin{aligned}
-&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(x)=0$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)& \text{when $f(x)=1$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{0}_L - \ket{0}_L\ket{1}_L + \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=0$ and $f(1)=1$}\\
-&\frac{1}{2}\left(\ket{0}_L\ket{1}_L - \ket{0}_L\ket{0}_L + \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) &= -\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{when $f(0)=1$ and $f(1)=0$}\\
+B\ket{0}_L &= B\ket{01}\\
+&= Ba^\dagger \ket{00} \\
+&= \frac{a^\dagger + b^\dagger}{\sqrt{2}}\ket{00}\\
+&= \frac{\ket{01} + \ket{10}}{\sqrt{2}}\\
+&= \frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}}\\
+B\ket{1}_L &= B\ket{10} \\
+&= Bb^\dagger \ket{00} \\
+&= \frac{b^\dagger-a^\dagger}{\sqrt{2}}\ket{00}\\
+&= \frac{\ket{10} - \ket{01}}{\sqrt{2}}\\
+&= \frac{\ket{1}_L - \ket{0}_L}{\sqrt{2}}\\
 \end{aligned}$$
 
-Let's define the two dual-rail states as follows, 
+Then for the inverted beamsplitter
+
+$$\begin{aligned}
+B^\dagger \ket{0}_L &= B^\dagger \ket{01}\\
+&= B^\dagger a^\dagger \ket{00} \\
+&= \frac{a^\dagger - b^\dagger}{\sqrt{2}}\ket{00}\\
+&= \frac{\ket{01} - \ket{10}}{\sqrt{2}}\\
+&= \frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}}\\
+B^\dagger \ket{1}_L &= B^\dagger \ket{10} \\
+&= B^\dagger b^\dagger \ket{00} \\
+&= \frac{a^\dagger+b^\dagger}{\sqrt{2}}\ket{00}\\
+&= \frac{\ket{01} + \ket{10}}{\sqrt{2}}\\
+&= \frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}}\\
+\end{aligned}$$
+
+(1) Let's define the two dual-rail states as follows. 
 
 $$\begin{aligned}
 \ket{0}_L\ket{0}_L &= \ket{1001}\\
@@ -419,51 +443,103 @@ $$\begin{aligned}
 \ket{1}_L\ket{1}_L &= \ket{0110}\\
 \end{aligned}$$ 
 
-where $\ket{dcba}$ represents the states of the four modes of light. 
+where $\ket{dcba}$ represents the states of the four modes of light. Note: for the $dc$ pair we flip the logical labeling, as was done in the book. The system initially starts out in the state
+
+$$\begin{aligned}
+\ket{10}\ket{01} &= \ket{0}_L\ket{0}_L
+\end{aligned}$$
+
+Then after the two beamsplitters before $U_f$, it becomes
+
+$$\begin{aligned}
+\left(\frac{\ket{10} - \ket{01}}{\sqrt{2}}\right)\left(\frac{\ket{01} + \ket{10}}{\sqrt{2}}\right) &= \frac{1}{2}\left(\ket{1001} + \ket{1010} - \ket{0101} - \ket{0110}\right) \\
+&= \frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right) \\
+\end{aligned}$$
+
+Which is then the input to $U_f$. The possible outputs for four different functions are
+
+$$\begin{aligned}
+\frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right)  & \text{when $f(x)=0$}\\
+\frac{1}{2}\left(\ket{0}_L\ket{1}_L + \ket{0}_L\ket{0}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(x)=1$}\\
+\frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(0)=0$ and $f(1)=1$}\\
+\frac{1}{2}\left(\ket{0}_L\ket{1}_L + \ket{0}_L\ket{0}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(0)=1$ and $f(1)=0$}\\
+\end{aligned}$$
 
 So, for the first case, we just need the wires running through the circuit with no additional gates since the output is the same as the input. 
 
 <img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/06ae63eb-dee1-43ae-acb8-751d9e76287f" />
 
-Here, the evolution of the state through the circuit is as follows
+The evolution of the state through the circuit is as follows
 
 $$\begin{aligned}
  \ket{1}\ket{0}\ket{0}\ket{1} &= \ket{0}_L\ket{0}_L & \text{initial input}\\
- \left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
- \left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after $U_f$} \\
- \ket{1}\ket{0}\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) &= \ket{0}_L\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitter} \\
+ \left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
+ \left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after $U_f$} \\
+ \ket{1}\ket{0}\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \ket{0}_L\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitter} \\
 \end{aligned}$$
 
 For the second case, we need to apply the NOT operation on the second register. This can be done using a Fredkin gate (described in Box 7.4) on the two inputs for the second register with a control input set to $\ket{1}$ 
 
 <img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/d4fabebd-679b-42b4-9282-b0edd5e66994" />
 
-Here, the evolution of the state through the circuit is as follows
+The evolution of the state through the circuit is as follows
 
 $$\begin{aligned}
- \ket{1}\ket{0}\ket{0}\ket{1} &= \ket{0}_L\ket{0}_L & \text{initial input}\\
- \left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
--\left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\ket{1}\ket{0} &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L & \text{after 1st $U_f$ beamsplitter} \\
-\left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\ket{1}\ket{0} &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L & \text{after Kerr medium} \\
+\ket{1}\ket{0}\ket{0}\ket{1} &= \ket{0}_L\ket{0}_L & \text{initial input}\\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L & \text{after 1st $U_f$ beamsplitter} \\
+-\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= -\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L  & \text{after Kerr medium} \\
+-\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= -\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after 2nd $U_f$ beamsplitter} \\
+-\ket{10}\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= -\ket{0}_L\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after last beamsplitter} \\
 \end{aligned}$$
 
-$$\begin{aligned}
-\left(\frac{\ket{1}-\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{1}+\ket{0}}{\sqrt{2}}\right)\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after 2nd $U_f$ beamsplitter} \\
-\ket{1}\ket{0}\left(\frac{\ket{0}+\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}-\ket{1}}{\sqrt{2}}\right) &= -\ket{0}_L\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right) & \text{after last beamsplitter} \\
-\end{aligned}$$
+One thing to note: when looking at the state after $U_f$ there is a $-1$ global phase shift relative to the desired output that we defined earlier. This phase shift won't change detection probabilities. 
 
 For the third case, we need a CNOT with the first register being the control and the second being the target. This can be done using the circuit described in equation 7.46. 
 
 <img width="612" height="282" alt="image" src="https://github.com/user-attachments/assets/74f31c06-9a78-49b4-a428-177e216e5a4a" />
 
-For the fourth case, we need to implement both the NOT on the second registry and a CNOT with the first register being the control and the second beign the target. Two middle beamsplitters were removed from the center of the circuit since $BB^\dagger=I$.  
+The evolution of the state through the circuit is as follows
+
+$$\begin{aligned}
+\ket{1}\ket{0}\ket{0}\ket{1} &= \ket{0}_L\ket{0}_L & \text{initial input}\\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L & \text{after 1st $U_f$ beamsplitter} \\
+\left(\frac{\ket{1}\ket{0}+\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L  & \text{after Kerr medium} \\
+\left(\frac{\ket{1}\ket{0}+\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after 2nd $U_f$ beamsplitter} \\
+\ket{01}\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \ket{1}_L\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after last beamsplitter} \\
+\end{aligned}$$
+
+
+For the fourth case, we need to implement both the NOT on the second register and a CNOT with the first register being the control and the second being the target. Two middle beamsplitters were removed from the center of the circuit since $BB^\dagger=I$.  
 
 <img width="715" height="283" alt="image" src="https://github.com/user-attachments/assets/c4122ddf-0ede-4f92-9020-c83685e6af46" />
 
-(2) 
+The evolution of the state through the circuit is as follows
 
-(3) 
+$$\begin{aligned}
+\ket{1}\ket{0}\ket{0}\ket{1} &= \ket{0}_L\ket{0}_L & \text{initial input}\\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after beamsplitters} \\
+\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= \left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L & \text{after 1st $U_f$ beamsplitter} \\
+-\left(\frac{\ket{1}\ket{0}-\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= -\left(\frac{\ket{0}_L - \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L  & \text{after 1st Kerr medium} \\
+-\left(\frac{\ket{1}\ket{0}+\ket{0}\ket{1}}{\sqrt{2}}\right)\ket{1}\ket{0} &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\ket{1}_L  & \text{after 2nd Kerr medium} \\
+-\left(\frac{\ket{1}\ket{0}+\ket{0}\ket{1}}{\sqrt{2}}\right)\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= -\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right)\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after 2nd $U_f$ beamsplitter} \\
+-\ket{01}\left(\frac{\ket{0}\ket{1}+\ket{1}\ket{0}}{\sqrt{2}}\right) &= -\ket{1}_L\left(\frac{\ket{0}_L + \ket{1}_L}{\sqrt{2}} \right) & \text{after last beamsplitter} \\
+\end{aligned}$$
 
+One thing to note: when looking at the state after $U_f$ there is a $-1$ global phase shift relative to the desired output that we defined earlier. This phase shift won't change detection probabilities. 
+
+(2) We saw in [exercise 7.9](#exercise-79) that an optical Hadamard gate can be created using a beamsplitter and a phase shifter. The quantum circuit outlined on page 35 starts with Hadamard gates on all wires. So, I believe that this question is asking, why don't we need phase shifters to create the Hadamard gates in these optical circuits. In the optical construction, the beamsplitters already implement the needed Hadamard gate up to a fixed phase that is either global or absorbed into the dual rail labeling, so no separate phase shifters are required. 
+
+(3) Interference at the final beamsplitter for the first logical register explains how the quantum algorithm distinguishes the different $U_f$.
+
+For circuits where $f(x)$ is constant, the oracle does not introduce a relative phase between the two components of the superposition in the first logical register. As a result, the two optical paths arrive at the final beamsplitter in phase and interfere constructively in the same output mode, so the photon exits the same logical output port as it entered.
+
+For circuits where $f(x)$ is balanced, the oracle introduces a relative $\pi$ phase shift between the two components of the superposition in the first logical register. When the paths recombine at the final beamsplitter, this phase difference causes destructive interference in the original output port and constructive interference in the opposite port, causing the photon to exit a different logical output mode.
+
+In this way, the algorithm’s result is determined by interference at the final beamsplitter, allowing the nature of $f(x)$ to be identified with a single measurement.
+
+(4) No. This implementation relies on dual-rail qubits encoded in the single-photon subspace, where exactly one photon occupies one of the two rails. Coherent states populate both rails and involve superpositions of many photon-number states, so the system no longer remains in the logical qubit subspace. As a result, the Fredkin/Kerr elements and the final interference do not implement the required oracle action or phase kickback, and the quantum algorithm fails.
 
 
 

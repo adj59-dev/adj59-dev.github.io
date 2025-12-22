@@ -18,10 +18,12 @@ https://adj59-dev.github.io/
 - `_solutions-index/` – Solution index pages linking exercises across chapters
 - `css/`              – Custom styling for math, tables, and mobile layout
 - `js/`               – Custom JavaScript
+- `assets/`           - Site assets (currently contains the favicon svg files)
 
 - `index.md`          – Main landing page for the blog
 - `archive.md`        – Chronological archive of all posts
 - `solutions-hub.md`  – Central hub page linking all solution indices
+- `aboutme.md`        - About me page
 
 - `_config.yml`       – Main Jekyll configuration for the blog
 - `robots.txt`        – Indexing configuration (currently allows all crawlers)
@@ -29,6 +31,9 @@ https://adj59-dev.github.io/
 - `.gitignore`        – Standard Git ignore file
 - `google*.html`      – Google site verification
 - `sitemap.xml`       - Manually generated sitemap using https://www.xml-sitemaps.com/
+- `favicon.ico`       - Fallback favicon for browsers and user agents that don’t support SVG favicons or prefer ICO
+- `apple-touch-icon.png`  - Icon used by iOS/iPadOS when adding the site to the home screen
+
 
 This site was originally created using the template by Chad Baldwin:  
 https://github.com/chadbaldwin/simple-blog-bootstrap

@@ -46,6 +46,7 @@ defaults:
 permalink: /:year/:month/:day/:title:output_ext
 
 header_pages:
+  - aboutme.md
   - archive.md
   - solutions-hub.md
 

@@ -1024,12 +1024,3 @@ Quantum search algorithms provide a quadratic speedup for unstructured search pr
 
 
 
-
-<iframe
-  src="https://1drv.ms/x/c/f05f719a857e7230/IQQoekzOtJtiRZdaJd5H0YzAAR3aB1-n96op6WpAb5IovHE?em=3&wdAllowInteractivity=1&wdAllowTyping=1"
-  width="720"
-  height="500"
-  frameborder="0"
-  style="border:0">
-</iframe>
-

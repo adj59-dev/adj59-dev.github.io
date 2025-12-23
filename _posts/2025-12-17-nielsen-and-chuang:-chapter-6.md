@@ -1025,9 +1025,16 @@ Quantum search algorithms provide a quadratic speedup for unstructured search pr
 
 
 
-<div id="myExcelDiv" style="width: 700px; height: 444px"></div>
-<!-- * This code uses the Microsoft Office Excel Javascript object model to programmatically insert the
-	 * Excel Web App into a div with id=myExcelDiv. The full API is documented at
-	 * https://msdn.microsoft.com/en-US/library/hh315812.aspx. There you can find out how to programmatically get
-	 * values from your Excel file and how to use the rest of the object model. -->
-<script type="text/javascript" src="https://1drv.ms/x/c/f05f719a857e7230/IQQoekzOtJtiRZdaJd5H0YzAAR3aB1-n96op6WpAb5IovHE?em=3&wdItem=%22'Sheet1'!A1%3AH19%22&wdDivId=%22myExcelDiv%22&wdDownloadButton=1&wdHideGridlines=1&wdAllowInteractivity=0&wdAllowTyping=1"></script>
+<div style="max-width: 700px;">
+  <iframe
+    title="Excel table"
+    src="https://1drv.ms/x/c/f05f719a857e7230/IQQoekzOtJtiRZdaJd5H0YzAAR3aB1-n96op6WpAb5IovHE?em=3&wdItem=%22'Sheet1'!A1%3AH19%22&wdDownloadButton=1&wdHideGridlines=1&wdAllowInteractivity=0&wdAllowTyping=1"
+    width="700"
+    height="444"
+    frameborder="0"
+    scrolling="no"
+    style="border:0; display:block;"
+    allowfullscreen>
+  </iframe>
+</div>
+

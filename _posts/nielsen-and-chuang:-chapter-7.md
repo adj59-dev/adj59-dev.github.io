@@ -133,7 +133,7 @@ chapter: 7
 
 <a id="top"></a>
 
-I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang.
+I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. Section 7.4 bookkeeping can be challenging keeping track of the statespace of logical qubits and optical modes.  
 
 <details><summary>Click to expand details</summary>
 
@@ -391,7 +391,6 @@ Bb^\dagger B^\dagger &= b^\dagger\cos\theta - a^\dagger\sin\theta \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 ### Exercise 7.13 {#exercise-713}
 
@@ -461,8 +460,8 @@ Which is then the input to $U_f$. The possible outputs for four different functi
 $$\begin{aligned}
 \frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{0}_L - \ket{1}_L\ket{1}_L\right)  & \text{when $f(x)=0$}\\
 \frac{1}{2}\left(\ket{0}_L\ket{1}_L + \ket{0}_L\ket{0}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(x)=1$}\\
-\frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(0)=0$ and $f(1)=1$}\\
-\frac{1}{2}\left(\ket{0}_L\ket{1}_L + \ket{0}_L\ket{0}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(0)=1$ and $f(1)=0$}\\
+\frac{1}{2}\left(\ket{0}_L\ket{0}_L + \ket{0}_L\ket{1}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(x)=x$}\\
+\frac{1}{2}\left(\ket{0}_L\ket{1}_L + \ket{0}_L\ket{0}_L - \ket{1}_L\ket{1}_L - \ket{1}_L\ket{0}_L\right)  & \text{when $f(x)=\lnot x$}\\
 \end{aligned}$$
 
 So, for the first case, we just need the wires running through the circuit with no additional gates since the output is the same as the input. 
@@ -547,13 +546,37 @@ In this way, the algorithm’s result is determined by interference at the final
 
 
 
+### Exercise 7.14 {#exercise-714}
 
+The definition of $K$ is given by 
 
+$$\begin{aligned}
+K &= e^{i \chi L a^\dagger ab^\dagger b}
+\end{aligned}$$
 
+and so
 
+$$\begin{aligned}
+K\ket{\alpha}\ket{n} &= e^{i \chi L a^\dagger ab^\dagger b}e^{-\vert\alpha\vert^2/2}\sum_{m=0}^{\infty}\frac{\alpha^m}{\sqrt{m!}}\ket{m}\ket{n}\\
+&= e^{-\vert\alpha\vert^2/2}\sum_{m=0}^{\infty}\frac{\alpha^m}{\sqrt{m!}}e^{i \chi L a^\dagger ab^\dagger b}\ket{m}\ket{n}\\
+&= e^{-\vert\alpha\vert^2/2}\sum_{m=0}^{\infty}\frac{\alpha^m}{\sqrt{m!}}e^{i \chi L m n}\ket{m}\ket{n}\\
+&= e^{-\vert\alpha  e^{i \chi L n}\vert^2/2}\sum_{m=0}^{\infty}\frac{\left(\alpha e^{i \chi L n}\right)^m}{\sqrt{m!}}\ket{m}\ket{n}\\
+&= \ket{\alpha  e^{i \chi L n}}\ket{n}
+\end{aligned}$$
 
+then
 
+$$\begin{aligned}
+\rho_a &= Tr_b\lbrack K\ket{\alpha}\ket{\beta}\bra{\beta}\bra{\alpha}K^\dagger\rbrack \\
+&= Tr_b\left\lbrack \left(e^{-\vert\beta\vert^2/2}\sum_{m=0}^{\infty}\frac{\beta^m}{\sqrt{m!}}\ket{\alpha  e^{i \chi L m}}\ket{m}\right)\left(e^{-\vert\beta\vert^2/2}\sum_{n=0}^{\infty}\frac{\left(\beta^\ast \right)^n}{\sqrt{n!}}\bra{n}\bra{\alpha  e^{i \chi L n}}\right) \right\rbrack \\
+&= e^{-\vert\beta\vert^2}\sum_{m=0}^{\infty}\frac{\vert\beta\vert^{2m}}{m!}\ket{\alpha  e^{i \chi L m}}\bra{\alpha  e^{i \chi L m}} 
+\end{aligned}$$
 
+The weights $e^{-\vert\beta\vert^2}\frac{\vert\beta\vert^{2m}}{m!}$ form a Poisson distribution with mode $\lfloor \vert\beta\vert^{2} \rfloor$. Therefore, the main contribution to the sum is for $m=\lfloor \vert\beta\vert^{2} \rfloor$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
 
 
 

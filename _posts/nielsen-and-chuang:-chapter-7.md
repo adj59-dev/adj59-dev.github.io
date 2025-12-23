@@ -617,7 +617,32 @@ We know that $m=\pm 1$ and so $m_2-m_1 = \pm 1$ by the second condition. From th
 
 </details>
 
+### Exercise 7.17 {#exercise-717}
 
+
+$$\begin{aligned}
+H\ket{\chi_n} &= \left(\hbar\omega N + \delta Z + g\left(a^\dagger\sigma_{-} + a\sigma_{+} \right) \right)\frac{1}{\sqrt{2}}\left(\ket{n, 1} + \ket{n+1, 0} \right) \\
+&= g\left(a^\dagger\sigma_{-} + a\sigma_{+} \right)\frac{1}{\sqrt{2}}\left(\ket{n, 1} + \ket{n+1, 0} \right) & \text{since $\omega=\delta=0$} \\
+&= g\frac{1}{\sqrt{2}}\left(a^\dagger\sigma_{-}\ket{n, 1} + a^\dagger\sigma_{-}\ket{n+1, 0} + a\sigma_{+}\ket{n, 1} + a\sigma_{+}\ket{n+1, 0} \right) \\
+&= g\frac{1}{\sqrt{2}}\left(\sqrt{n+1} \ket{n+1, 0} + 0 + 0 + \sqrt{n+1}\ket{n, 1}\right) \\
+&= g\sqrt{n+1}\frac{1}{\sqrt{2}}\left(\ket{n, 1} + \ket{n+1, 0} \right) \\
+&= g\sqrt{n+1}\ket{\chi_n}  \\
+\end{aligned}$$
+
+and
+
+$$\begin{aligned}
+H\ket{\overline{\chi_n}} &= \left(\hbar\omega N + \delta Z + g\left(a^\dagger\sigma_{-} + a\sigma_{+} \right) \right)\frac{1}{\sqrt{2}}\left(\ket{n, 1} - \ket{n+1, 0} \right) \\
+&= g\left(a^\dagger\sigma_{-} + a\sigma_{+} \right)\frac{1}{\sqrt{2}}\left(\ket{n, 1} - \ket{n+1, 0} \right) & \text{since $\omega=\delta=0$} \\
+&= g\frac{1}{\sqrt{2}}\left(a^\dagger\sigma_{-}\ket{n, 1} - a^\dagger\sigma_{-}\ket{n+1, 0} + a\sigma_{+}\ket{n, 1} - a\sigma_{+}\ket{n+1, 0} \right) \\
+&= g\frac{1}{\sqrt{2}}\left(\sqrt{n+1} \ket{n+1, 0} - 0 + 0 - \sqrt{n+1}\ket{n, 1}\right) \\
+&= -g\sqrt{n+1}\frac{1}{\sqrt{2}}\left(\ket{n, 1} - \ket{n+1, 0} \right) \\
+&= -g\sqrt{n+1}\ket{\overline{\chi_n}}  \\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
 
 
 

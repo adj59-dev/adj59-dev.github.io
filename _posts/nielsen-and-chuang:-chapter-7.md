@@ -576,7 +576,6 @@ The weights $e^{-\vert\beta\vert^2}\frac{\vert\beta\vert^{2m}}{m!}$ form a Poiss
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 
 ## Optical cavity quantum electrodynamics
@@ -588,12 +587,35 @@ The weights $e^{-\vert\beta\vert^2}\frac{\vert\beta\vert^{2m}}{m!}$ form a Poiss
 
 
 
-
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
 
+### Exercise 7.16 {#exercise-716}
+
+Equation 7.60 is given by 
+
+$$\begin{aligned}
+\int Y_{l_1m_1}^\ast Y_{1m} Y_{l_2m_2} d\Omega &= \int Y_{l_1m_1}^\ast \left(\sqrt{\frac{(2+1)(2l_2+1)}{4\pi}}\sum_{c=0}^{\infty}\sum_{\gamma=-c}^{c}(-1)^{\gamma}\sqrt{2c+1}\begin{pmatrix} 1 & l_2 & c \\\ m & m_2 & -\gamma \end{pmatrix}\begin{pmatrix} 1 & l_2 & c \\\ 0 & 0 & 0 \end{pmatrix} \right) Y_{c\gamma} d\Omega & \text{contraction rule}\\
+&= \sqrt{\frac{(2+1)(2l_2+1)}{4\pi}}\sum_{c=0}^{\infty}\sum_{\gamma=-c}^{c}(-1)^{\gamma}\sqrt{2c+1}\begin{pmatrix} 1 & l_2 & c \\\ m & m_2 & -\gamma \end{pmatrix}\begin{pmatrix} 1 & l_2 & c \\\ 0 & 0 & 0 \end{pmatrix} \int Y_{l_1m_1}^\ast Y_{c\gamma} d\Omega \\
+&= \sqrt{\frac{(2+1)(2l_2+1)}{4\pi}}\sum_{c=0}^{\infty}\sum_{\gamma=-c}^{c}(-1)^{\gamma}\sqrt{2c+1}\begin{pmatrix} 1 & l_2 & c \\\ m & m_2 & -\gamma \end{pmatrix}\begin{pmatrix} 1 & l_2 & c \\\ 0 & 0 & 0 \end{pmatrix} \delta_{l_1 c}\delta_{m_1 \gamma} & \text{orthonormality of spherical harmonics}\\
+&= \sqrt{\frac{(2+1)(2l_2+1)}{4\pi}}(-1)^{m_1}\sqrt{2l_1+1}\begin{pmatrix} 1 & l_2 & l_1 \\\ m & m_2 & -m_1 \end{pmatrix}\begin{pmatrix} 1 & l_2 & l_1 \\\ 0 & 0 & 0 \end{pmatrix} \\
+\end{aligned}$$
+
+The above is zero unless all these condtions are satisfied for the Wigner 3-j symbols
+
+$$\begin{aligned}
+& m_i \in \lbrace -l_i, -l_i+1, \cdots, l_i \rbrace \\
+& m + m_2 - m_1 = 0 \\
+& \vert 1 - l_2 \vert \leq l_1 \leq 1 + l_2 \\
+& \left(1 + l_2 + l_1\right) \text{must be even (by the second Wigner 3-j symbol)} \\
+\end{aligned}$$
+
+We know that $m=\pm 1$ and so $m_2-m_1 = \pm 1$ by the second condition. From the third condition we know $\Delta l \in \lbrace -1, 0, 1 \rbrace$; combinding that with the fourth condition, we get that $\Delta l = \pm 1$.
 
 
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
+</details>
 
 
 

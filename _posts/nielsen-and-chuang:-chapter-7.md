@@ -584,8 +584,9 @@ The weights $e^{-\vert\beta\vert^2}\frac{\vert\beta\vert^{2m}}{m!}$ form a Poiss
 
 ### Exercise 7.15 {#exercise-715}
 
+{% include excel/exercise-715.html %}
 
-<img width="360" height="217" alt="image" src="https://github.com/user-attachments/assets/fa825ac3-1c4d-432a-8340-ee5dde4f7b18" />
+
 
 
 

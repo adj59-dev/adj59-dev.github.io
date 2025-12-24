@@ -615,7 +615,6 @@ We know that $m=\pm 1$ and so $m_2-m_1 = \pm 1$ by the second condition. From th
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
-</details>
 
 ### Exercise 7.17 {#exercise-717}
 
@@ -642,7 +641,48 @@ H\ket{\overline{\chi_n}} &= \left(\hbar\omega N + \delta Z + g\left(a^\dagger\si
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+
+### Exercise 7.18 {#exercise-718}
+
+There seems to be a few typos on page 303. I'm going to remove the minus sign before the matrix because there appears to be an extra minus sign somewhere in the equations on this page and removing this one resolves the inconsistencies. Also, per the [errata page](https://michaelnielsen.org/qcqi/errata/errata/errata.html) (and with an identity operator added by me) equation 7.78 should be
+
+$$\begin{aligned}
+e^{i\vec{n}\cdot\vec{\sigma}} &= I\cos\vert n\vert + i \hat{n}\cdot\vec{\sigma}\sin\vert n \vert
+\end{aligned}$$
+
+Then putting it in the form that I'll use later we have
+
+$$\begin{aligned}
+e^{-i\vec{n}\cdot\vec{\sigma}} &= I\cos\vert n\vert - i \frac{\vec{n}\cdot\vec{\sigma}}{\vert n \vert}\sin\vert n \vert
+\end{aligned}$$
+
+Let's first rewrite $H$. 
+
+$$\begin{aligned}
+H &= \begin{bmatrix} \delta & 0 & 0 \\\ 0 & \delta & g \\\ 0 & g & -\delta \end{bmatrix} \\
+&= \delta\ket{00}\bra{00} + \delta\left(\ket{01}\bra{01} - \ket{10}\bra{10}\right) + g\left(\ket{01}\bra{10} + \ket{10}\bra{01}\right)\\
+&= \delta\ket{00}\bra{00} + \left(g\hat{x} + \delta\hat{z}\right) \cdot \vec{\sigma} \\
+\end{aligned}$$
+
+and so
+
+$$\begin{aligned}
+U &= e^{-iHt} \\
+&= \exp\left( -it\left(\delta\ket{00}\bra{00} + \left(g\hat{x} + \delta\hat{z}\right) \cdot \vec{\sigma}\right)\right)\\
+&= e^{-i\delta t}\ket{00}\bra{00} + \left(I \cos\Omega t - i\frac{g\hat{x} + \delta\hat{z}}{\Omega} \cdot \vec{\sigma}\sin\Omega t\right) & \text{where $\Omega=\sqrt{g^2+\delta^2}$}\\
+&= e^{-i\delta t}\ket{00}\bra{00} + \cos\Omega t\left(\ket{01}\bra{01} + \ket{10}\bra{10}\right) - i\sin\Omega t\left(\frac{\delta}{\Omega}\left(\ket{01}\bra{01} - \ket{10}\bra{10}\right) + \frac{g}{\Omega}\left(\ket{01}\bra{10} + \ket{10}\bra{01}\right) \right) \\
+&= e^{-i\delta t}\ket{00}\bra{00} + \left(\cos\Omega t - i\frac{\delta}{\Omega}\sin\Omega t\right)\ket{01}\bra{01} +  \left(\cos\Omega t + i\frac{\delta}{\Omega}\sin\Omega t\right)\ket{10}\bra{10} - i \frac{g}{\Omega}\sin\Omega t \left(\ket{01}\bra{10} + \ket{10}\bra{01} \right)\\
+\end{aligned}$$
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
+
+
+
+
+
+
 
 
 

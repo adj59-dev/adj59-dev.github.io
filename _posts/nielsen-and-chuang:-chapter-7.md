@@ -688,7 +688,32 @@ The classical result is just the standard Lorentzian absorption profile. This pl
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+
+
+### Exercise 7.20 {#exercise-720}
+
+The difference in angle of rotation experienced by $\ket{10}$ and $\ket{00}$ is given by
+
+$$\begin{aligned}
+\chi_i &= \arg\left\lbrack \braket{1 0\vert U \vert 1 0}\right\rbrack - \arg\left\lbrack \braket{0 0\vert U \vert 0 0}\right\rbrack\\
+&= \arg\left\lbrack\cos\Omega t - i\frac{\delta}{\Omega}\sin\Omega t\right\rbrack - \arg\left\lbrack e^{-i\delta t} \right\rbrack \\
+&= \arg\left\lbrack\cos\Omega t - i\frac{\delta}{\Omega}\sin\Omega t\right\rbrack + \arg\left\lbrack e^{i\delta t} \right\rbrack \\
+&= \arg\left\lbrack e^{i\delta t}\left(\cos\Omega t - i\frac{\delta}{\Omega}\sin\Omega t\right)\right\rbrack \mod 2\pi \\
+\end{aligned}$$
+
+where arg is the argument of a complex number. 
+
+<img width="360" height="216" alt="image" src="https://github.com/user-attachments/assets/6d559ac5-2df4-49d3-8a63-8d5bd6935f90" />
+
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
+
+
+
+
+
 
 
 

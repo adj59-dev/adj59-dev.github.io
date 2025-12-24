@@ -676,14 +676,19 @@ U &= e^{-iHt} \\
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
 
+
+
+### Exercise 7.19 {#exercise-719}
+
+<img width="395" height="267" alt="image" src="https://github.com/user-attachments/assets/d9f12591-fb93-43a0-a724-787234c1d201" />
+
+The classical result is just the standard Lorentzian absorption profile. This plot shows the transition probability between the two states $\ket{01}$ and $\ket{10}$ for a given $\delta$ and $t$. One can see that this probability evolves over time at the Rabi frequency, however the Rabi frequency is different for different $\delta$. Shown below is the graph for $t=\frac{\pi}{2g}$. Here, $\delta=0$ is at a maximum probability of $1$ because it is at $t=\frac{\pi}{2\Omega_{\delta=0}}$, but there are minima at other detuning values because those detuning values have different Rabi frequencies. 
+
+<img width="395" height="267" alt="image" src="https://github.com/user-attachments/assets/46fc8f72-44dd-41b1-9439-077855f8257a" />
+
+| [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |
+
 </details>
-
-
-
-
-
-
-
 
 
 

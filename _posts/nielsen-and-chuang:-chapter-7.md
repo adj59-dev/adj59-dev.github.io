@@ -133,7 +133,7 @@ chapter: 7
 
 <a id="top"></a>
 
-I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. Section 7.4 bookkeeping can be challenging keeping track of the statespace of logical qubits and optical modes.  
+I just finished reading Chapter 7 of *Quantum Computation and Quantum Information* by Nielsen and Chuang. Section 7.4 bookkeeping can be challenging keeping track of the statespace of logical qubits and optical modes. The way Rabi oscillations were derived is different than what I had previously learned. 
 
 <details><summary>Click to expand details</summary>
 

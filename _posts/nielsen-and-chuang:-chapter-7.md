@@ -703,7 +703,7 @@ $$\begin{aligned}
 
 where arg is the argument of a complex number. 
 
-<img width="360" height="216" alt="image" src="https://github.com/user-attachments/assets/6d559ac5-2df4-49d3-8a63-8d5bd6935f90" />
+<img width="360" height="216" alt="image" src="https://github.com/user-attachments/assets/640b5796-3a0b-4e07-a3de-c6c791d977da" />
 
 
 | [Back to top](#top) | [Solutions Index](https://adj59-dev.github.io/solutions-index/QCQI) | [Blog Archive](https://adj59-dev.github.io/archive.html) |

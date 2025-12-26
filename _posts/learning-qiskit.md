@@ -89,7 +89,8 @@ The tdg gate is the $T^\dagger$ gate. The input value defines which qubit the ga
 #### General U gates
 
 ```
-
+from numpy import pi
+qc.u(pi/2,pi/4,pi/8,0)
 ```
 
 Generic single-qubit rotation in terms of ZYZ Euler angles. The parameters are $R_z(\phi),R_y(\theta),R_z(\lambda)$.
@@ -103,7 +104,7 @@ U_1 &= U_3(0,0,\lambda)\\
 #### Identity gate
 
 ```
-
+qc.i(0)
 ```
 
 ### Draw circuit

@@ -61,9 +61,50 @@ The input value defines which qubit the gate will be applied to.
 
 ```
 from numpy import pi
+qc.rx(pi/4,0)
+qc.ry(pi/4,0)
 qc.rz(pi/4,0)
 ```
 The first value is the angle of rotation and the second defines which qubit the gate will be applied to.
+
+#### S gate
+
+```
+qc.s(0)
+qc.sdg(0)
+```
+
+The sdg gate is the $S^\dagger$ gate. The input value defines which qubit the gate will be applied to.
+
+#### T gate
+
+```
+qc.t(0)
+qc.tdg(0)
+```
+
+The tdg gate is the $T^\dagger$ gate. The input value defines which qubit the gate will be applied to.
+
+
+#### General U gates
+
+```
+
+```
+
+Generic single-qubit rotation in terms of ZYZ Euler angles. The parameters are $R_z(\phi),R_y(\theta),R_z(\lambda)$.
+
+$$\begin{aligned}
+U_3(\theta, \phi, \lambda) &= \begin{bmatrix} \cos(\theta/2) & -e^{i\lambda}\sin(\theta/2) \\\ e^{i\phi}\sin(\theta/2) & e^{i\lambda+i\phi}\cos(\theta/2) \end{bmatrix} \\
+U_2 &= U_3(\frac{\pi}{2},\phi,\lambda)\\
+U_1 &= U_3(0,0,\lambda)\\
+\end{aligned}$$
+
+#### Identity gate
+
+```
+
+```
 
 ### Draw circuit
 
@@ -105,7 +146,7 @@ You can signup for a free instance that gives you ten minutes a month runtime on
 
 ### Online composer
 
-You can construct circuits using [IBMs online composer](https://quantum.cloud.ibm.com/composer) and then setup and run jobs on a real quantum computer. 
+You can construct circuits using [IBMs online composer](https://quantum.cloud.ibm.com/composer) and then setup and run jobs on a real quantum computer. It is a drag and drop interface which is easy to use. 
 
 
 ### My first time using a quantum computer
@@ -114,6 +155,15 @@ You can construct circuits using [IBMs online composer](https://quantum.cloud.ib
 
 <img width="204" height="244" alt="image" src="https://github.com/user-attachments/assets/efc17864-05eb-48c8-a772-274481de62fb" />
 
+#### Runtime
+
+This took 2s on the ibm_torino quantum computer.
+
 #### Results
 
+<img width="825" height="588" alt="image" src="https://github.com/user-attachments/assets/40c4d58a-2ebe-4739-a5fd-f635717f1fd3" />
 
+| Measurement outcome | Frequency |
+|:-------------------:|:---------:|
+| 0000                |	552       |
+| 0001                |	472       |

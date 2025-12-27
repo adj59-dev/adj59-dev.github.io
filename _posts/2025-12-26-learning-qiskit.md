@@ -24,7 +24,7 @@ Below are my notes from the course. They primarily consist of commonly used Qisk
 
 <!-- toc -->
 
-## Qiskit Basics and Circuit Construction {#qiskit-basics}
+## Qiskit Basics and Circuit Construction {#qiskit-basics-and-circuit-construction}
 
 
 ### Installation {#installation} 
@@ -292,7 +292,7 @@ plot_histogram(counts)
 
 The shots parameter controls statistical sampling noise and mimics repeated experimental runs on real hardware.
 
-## Running Circuits on IBM Quantum Hardware {#ibm-quantum-hardware}
+## Running Circuits on IBM Quantum Hardware {#running-circuits-on-ibm-quantum-hardware}
 
 ### Account Setup {#account-setup}
 
@@ -307,7 +307,7 @@ You can signup for a free instance that gives you ten minutes a month of runtime
 You can construct circuits using [IBMs online composer](https://quantum.cloud.ibm.com/composer) and then setup and run jobs on a real quantum computer. It is a drag and drop interface which is easy to use. 
 
 
-### First Execution on Real Quantum Hardware {#first-execution-on-hardware}
+### First Execution on Real Quantum Hardware {#first-execution-on-real-quantum-hardware}
 
 #### Submitted Circuit
 

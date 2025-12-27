@@ -294,15 +294,15 @@ The shots parameter controls statistical sampling noise and mimics repeated expe
 
 ## Running Circuits on IBM Quantum Hardware {#ibm-quantum-hardware}
 
-### IBM Quantum Account Setup {#ibm-quantum-account-setup}
+### Account Setup {#account-setup}
 
 You can make a free account at https://quantum.cloud.ibm.com/
 
-### Creating an IBM Quantum Instance {#creating-ibm-quantum-instance}
+### Creating an Instance {#creating-an-instance}
 
 You can signup for a free instance that gives you ten minutes a month of runtime on a quantum computer. 
 
-### IBM Quantum Composer (Web Interface) {#ibm-quantum-composer}
+### Composer {#composer}
 
 You can construct circuits using [IBMs online composer](https://quantum.cloud.ibm.com/composer) and then setup and run jobs on a real quantum computer. It is a drag and drop interface which is easy to use. 
 

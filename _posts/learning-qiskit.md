@@ -191,6 +191,14 @@ plot_histogram(counts)
 qc.measure(0,0)
 ```
 
+### Barrier
+
+```
+qc.barrier()
+```
+
+This avoids cancelling gates by the transpiler.
+
 ### Statevector
 
 ```

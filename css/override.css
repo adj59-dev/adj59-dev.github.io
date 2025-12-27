@@ -216,12 +216,14 @@ mjx-container[display="true"] {
 ------------------------------------------------------------------ */
 
 /* Base TOC list styles */
-.post-toc li {
-  margin: 4px 0;
+.post-toc {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
-.post-toc a {
-  overflow-wrap: anywhere;
+.post-toc li {
+  margin: 4px 0;
 }
 
 /* H3 entries inside TOC */
@@ -231,57 +233,81 @@ mjx-container[display="true"] {
   opacity: 0.9;           
 }
 
-.post-toc-sub {
-  list-style: disc;
-  margin: 0.25rem 0 0.5rem 1.25rem;
-  padding-left: 0;
-}
-
-/* TOC layout: multi-column look using GRID (mobile-safe) */
+/* Default TOC layout */
 .post-toc {
   list-style: none;
   margin: 1rem 0 2rem;
   padding: 0;
 
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem 2rem;            /* row gap, column gap */
-  align-items: start;
+  column-count: 3;          
+  column-gap: 2rem;
 }
 
-/* Each top-level group becomes one grid item */
-.post-toc > li.post-toc-group {
-  margin: 0;                    /* grid handles spacing */
-}
-
-/* Keep your break-inside (harmless), but grid doesn’t need it */
-.post-toc-group {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
+/* Single column on very small screens */
+@media (max-width: 600px){
+  .post-toc {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    column-count: 1;          
+    column-gap: 2rem;
+  }
 }
 
 /* two columns on medium screens */
 @media (max-width: 900px){
   .post-toc {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* single column on small screens */
-@media (max-width: 600px){
-  .post-toc {
-    grid-template-columns: 1fr;
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    column-count: 2;          
+    column-gap: 2rem;
   }
 }
 
 /* four columns on very wide screens */
 @media (min-width: 1200px){
   .post-toc {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    list-style: none;
+    margin: 1rem 0 2rem;
+    padding: 0;
+  
+    column-count: 4;          
+    column-gap: 2rem;
   }
 }
 
+/* Group items in TOC so they don't break across columns */
+.post-toc-group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+/* H2-level links in TOC */
+.toc-h2 a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Nested TOC list (for h3 items under an h2) */
+.post-toc-sub {
+  list-style: disc;
+  margin: 0.25rem 0 0.5rem 1.25rem;  /* indent h3 */
+  padding-left: 0;
+}
+
+.post-toc-sub .toc-h3 {
+  margin: 0;
+}
+
+/* TOC link hover state */
+.post-toc a:hover {
+  text-decoration: underline;
+}
 
 /* ----------------------------------
    Allow dark mode

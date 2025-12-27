@@ -24,14 +24,14 @@ Below are my notes from the course. They primarily consist of commonly used Qisk
 
 <!-- toc -->
 
-## Qiskit Basics and Circuit Construction
+## Qiskit Basics and Circuit Construction {#qiskit-basics}
 
 
-### Installation
+### Installation {#installation} {#imports-and-dependencies}
 
 https://quantum.cloud.ibm.com/docs/en/guides/install-qiskit
 
-### Imports and Dependencies
+### Imports and Dependencies {#defining-qubits-and-classical-registers}
 
 ```
 # Core circuit construction and compilation
@@ -53,14 +53,14 @@ from qiskit.visualization import (
 from numpy import pi
 ```
 
-### Defining Qubits and Classical Registers
+### Defining Qubits and Classical Registers {#defining-qubits-and-classical-registers}
 
 ```
 qc = QuantumCircuit(1,1)
 ```
 The first argument specifies the number of qubits, and the second specifies the number of classical bits used to store measurement results. In most cases, you will want at least one classical bit per measured qubit.
 
-### State Initialization (Optional)
+### State Initialization (Optional) {#state-initialization}
 
 ```
 initial_state = [0,1]
@@ -70,7 +70,7 @@ initialize prepares an arbitrary statevector, bypassing gate-level preparation. 
 
 Note: Explicit initialization is not required in most circuits. Qubits are initialized to $\ket{0}$ by default, and many states can be prepared using gates alone (e.g., applying a Hadamard to create superposition).
 
-### Gates
+### Gates {#gates}
 
 #### Pauli Gates
 
@@ -173,7 +173,7 @@ qc.ccx(0,1,2)
 
 The first two values are control qubits and the last defines which qubit is the target. 
 
-### Draw Circuit
+### Draw Circuit {#draw-circuit}
 
 ```
 qc.draw('mpl')
@@ -182,7 +182,7 @@ qc.draw('mpl')
 <img width="269" height="158" alt="image" src="https://github.com/user-attachments/assets/9d5c340f-3d59-448e-8aa7-c28720e72528" />
 
 
-### Plot Bloch Vector
+### Plot Bloch Vector {#plot-bloch-vector}
 
 ```
 state = Statevector.from_instruction(qc)
@@ -192,7 +192,7 @@ plot_bloch_multivector(state)
 <img width="787" height="367" alt="image" src="https://github.com/user-attachments/assets/b0ad50d1-7338-40b6-977b-fb430eaa6e62" />
 
 
-### Histogram
+### Histogram {#histogram}
 
 ```
 # Get the exact final statevector
@@ -208,7 +208,7 @@ plot_histogram(probs)
 <img width="599" height="425" alt="image" src="https://github.com/user-attachments/assets/add2fbe7-6354-4e6b-bf51-ff047c0faa67" />
 
 
-### Measurement
+### Measurement {#measurement}
 
 ```
 qc.measure(0,0)
@@ -217,7 +217,7 @@ qc.measure_all()
 
 For measure(a,b), the measurement from qubit a is put in classical bit b. For measure_all(), all the qubits are measured. 
 
-### Barrier
+### Barrier {#barrier}
 
 ```
 qc.barrier()
@@ -225,7 +225,7 @@ qc.barrier()
 
 Barriers prevent the transpiler from reordering or combining gates across the barrier, which is useful for visual clarity or enforcing circuit structure.
 
-### Statevector
+### Statevector {#statevector}
 
 ```
 statevector = Statevector(qc)
@@ -235,7 +235,7 @@ statevector.draw(output='latex')
 <img width="219" height="85" alt="image" src="https://github.com/user-attachments/assets/f4b2ba64-059e-4990-af9a-67831ffbe78d" />
 
 
-### Get Unitary
+### Get Unitary {#get-unitary}
 
 ```
 # Create a circuit
@@ -262,7 +262,7 @@ U.draw(output='latex')
 
 The unitary simulator is useful for validating circuit identities and comparing against analytical matrix representations, but it does not scale beyond a small number of qubits.
 
-### QASM Simulator
+### QASM Simulator {#qasm-simulator}
 
 ```
 # Add measurements to all qubits in the circuit.
@@ -292,22 +292,22 @@ plot_histogram(counts)
 
 The shots parameter controls statistical sampling noise and mimics repeated experimental runs on real hardware.
 
-## Running Circuits on IBM Quantum Hardware
+## Running Circuits on IBM Quantum Hardware {#ibm-quantum-hardware}
 
-### IBM Quantum Account Setup
+### IBM Quantum Account Setup {#ibm-quantum-account-setup}
 
 You can make a free account at https://quantum.cloud.ibm.com/
 
-### Creating an IBM Quantum Instance
+### Creating an IBM Quantum Instance {#creating-ibm-quantum-instance}
 
 You can signup for a free instance that gives you ten minutes a month of runtime on a quantum computer. 
 
-### IBM Quantum Composer (Web Interface)
+### IBM Quantum Composer (Web Interface) {#ibm-quantum-composer}
 
 You can construct circuits using [IBMs online composer](https://quantum.cloud.ibm.com/composer) and then setup and run jobs on a real quantum computer. It is a drag and drop interface which is easy to use. 
 
 
-### First Execution on Real Quantum Hardware
+### First Execution on Real Quantum Hardware {#first-execution-on-hardware}
 
 #### Submitted Circuit
 

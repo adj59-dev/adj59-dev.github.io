@@ -317,7 +317,7 @@ You can construct circuits using [IBMs online composer](https://quantum.cloud.ib
 
 This took 2s on the ibm_torino quantum computer.
 
-####Measured Results
+#### Measured Results
 
 <img width="825" height="588" alt="image" src="https://github.com/user-attachments/assets/40c4d58a-2ebe-4739-a5fd-f635717f1fd3" />
 

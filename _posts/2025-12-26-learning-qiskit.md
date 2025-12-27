@@ -27,11 +27,11 @@ Below are my notes from the course. They primarily consist of commonly used Qisk
 ## Qiskit Basics and Circuit Construction {#qiskit-basics}
 
 
-### Installation {#installation} {#imports-and-dependencies}
+### Installation {#installation} 
 
 https://quantum.cloud.ibm.com/docs/en/guides/install-qiskit
 
-### Imports and Dependencies {#defining-qubits-and-classical-registers}
+### Imports and Dependencies {#imports-and-dependencies}
 
 ```
 # Core circuit construction and compilation

@@ -138,6 +138,21 @@ qc.cy(0,1)
 
 The first value defines which qubit is the control and the second is the target.
 
+#### SWAP gate
+
+```
+qc.swap(0,1)
+```
+
+Swap the states of the qubits defined by the input values.
+
+#### Toffoli gate
+
+```
+qc.ccx(0,1,2)
+```
+
+The first two values are control qubits and the last defines which qubit is the target. 
 
 ### Draw circuit
 

@@ -43,7 +43,14 @@ The phase estimation algorithm applied to the unitary operator $U_{x,N}\ket{y} \
 
 ## Required Resources
 
-Before constructing the circuit we need to determin how many qubits and classical bits will be needed to implement the calculation. 
+Before constructing the circuit we need to determin how many qubits and classical bits will be needed to implement the quantum order finding portion of the calculation. From section 5.3.1 in N&C's QCQI we know that we need
+
+$$\begin{aligned}
+t=2L + 1 +\left\lceil \log\left(2+\frac{1}{2\epsilon}\right)\right\rceil
+\end{aligned}$$
+
+qubits for register 1 and $L$ qubits in register 2 where $L=\lceil\log N\rceil$. [Experimental realization of Shor’s quantum factoring algorithm
+using nuclear magnetic resonance](https://arxiv.org/pdf/quant-ph/0112176) was able to reduce the number of qubits needed to 7 when factoring 15, but they did so with prior knowledge of the solution. For now, let's not use any prior knowledge and say we want to factor up to the value 32 and so the register 1 needs 15 qubits and register 2 needs 5 qubits.  
 
 ## Constructing Circuit with Qiskit
 

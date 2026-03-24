@@ -712,14 +712,34 @@ where arg is the argument of a complex number.
 
 
 
+### Exercise 7.21 {#exercise-721}
 
+Exponentiating 7.82 gives
 
+$$\begin{aligned}
+U &= \exp(iHt) \\
+\end{aligned}$$
 
+and then
 
+$$\begin{aligned}
+\varphi_{ab} &= \arg(\braket{110\vert U\vert 110}) - \arg(\braket{000\vert U\vert 000}) 
+\end{aligned}$$
 
+where
 
+$$\begin{aligned}
+\arg(\braket{110\vert U\vert 110}) &= \arg(\braket{110\vert \exp(iHt)\vert 110})
+\end{aligned}$$
 
+and
 
+$$\begin{aligned}
+\arg(\braket{000\vert U\vert 000}) &= \arg(\braket{000\vert \exp(iHt)\vert 000})
+\end{aligned}$$
 
+$$\begin{aligned}
+H &= \begin{bmatrix} -\delta_0 & 0\end{bmatrix}
+\end{aligned}$$
 
 

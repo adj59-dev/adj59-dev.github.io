@@ -38,7 +38,35 @@ I’ve included my notes and full problem solutions below.
 <!-- toc -->
 
 
-## The quantum search algorithm
+## Basics of IC Fabrication
+
+The rate the resist CD changes during the resist is given by 
+
+$$\begin{aligned}
+\frac{dCD}{dt} &= 2\left(R_H + R_V \cot\theta \right) \\
+\end{aligned}$$
+
+where $R_H$ and $R_V$ are the horizontal and vertical etch rates and $\theta$ is the sidewall angle of the resist. 
+
+During ion implantation the resist must have a thickness of at least 
+
+$$\begin{aligned}
+\text{resist thickness} \geq R_P + m\Delta R_P
+\end{aligned}$$
+
+where $R_P$ is the projected range and $\Delta R_R$ is the standard deviation of the depth profile called the stranggle. 
+
+## Moore's Law and the Semiconductor Industry
+
+Reading this section made me want to track down Moore's original papers. 
+
+[Cramming more components into integrated circuits](https://www.cs.utexas.edu/~fussell/courses/cs352h/papers/moore.pdf)
+
+[Progress in digital integrated electronics](https://www.lithoguru.com/scientist/CHE323/Moore1975.pdf)
+
+## Lithography Processing
+
+## Problems
 
 ### Problem 1.1 {#problem-11}
 

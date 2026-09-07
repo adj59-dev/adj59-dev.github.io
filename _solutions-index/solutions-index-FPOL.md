@@ -2,7 +2,7 @@
 layout: page
 title: FPOL Solutions Index
 permalink: /solutions-index/FPOL
-description: "Index of notes and exercise solutions for Nielsen & Chuang's Quantum Computation and Quantum Information."
+description: "Index of notes and exercise solutions for Chris Mack's *Fundamental Principles of Optical Lithography*."
 tags:
   - FPOL
   - FPOL solutions

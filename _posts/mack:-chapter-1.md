@@ -66,6 +66,26 @@ Reading this section made me want to track down Moore's original papers.
 
 ## Lithography Processing
 
+During substrate preparation the contact angle of a drop of water can be used to determine if the resist will adhere well to the wafer surface, with large contact angles indicating a hydrophobic surface and better resist adhesion. 
+
+During the resist coating process the resist thickness (after a certian threshold) is independent on the amount of resist dispersed and is roughly given by
+
+$$\begin{aligned}
+\text{thickness} \propto \frac{v^0.4}{\omega^0.5}
+\end{aligned}$$
+
+where $v$ is the resist viscosity and $\omega$ is the spin speed. The final thickness varies over the square root of the spin speed. Though, too high of spin speeds will result in turbulent airflow which will limit uniformity. 
+
+The resolution of the smallest feature that can be printed is given by the Rayleigh resolution criterion:
+
+$$\begin{aligned}
+\text{Resolution} \propto \frac{\lambda}{NA}
+\end{aligned}$$
+
+where $\lambda$ is the wavelength of the imaging light and $NA$ is the numerical aperture of the projection lens.
+
+During the post-exposure bake, the presence of solvent enhances diffusion. Thus, a low-temperature post-apply bake can result in greater diffusion at PEB. 
+
 ## Problems
 
 ### Problem 1.1 {#problem-11}
